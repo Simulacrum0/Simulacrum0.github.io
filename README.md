@@ -6,9 +6,9 @@ Handles the core transactions for developers to obtain the needed files to build
 
 | **Places** | *Description* |
 |:--------|:-------:|
-| About   | Whatif Production's Possibility Mappings |
-| Wantverse | Prebuilt locations if manual download is required |
-| Agents  | Tiny runtime programs for each OS Platform and Privilege |
-| Gallery | Picture and Movie Examples |
+| About   | What Wantware can do? |
+| Wantverse | Experiences to try |
+| Agents  | Tiny Programs to run Wantware on each Platform and Privilege |
+| Gallery | Wantware Picture and Movie Examples |
 
 ![Background](SuCho02__JaPo/KuBz.png)
