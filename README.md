@@ -11,4 +11,4 @@ Handles the core transactions for developers to obtain the needed files to build
 | Agents  | Tiny Programs to run Wantware on each Platform and Privilege |
 | Gallery | Wantware Picture and Movie Examples |
 
-![Background](SuCho02__JaPo/KuBz.png)
+![Background](SuCho02__JaPo/KuBz.jpg)
