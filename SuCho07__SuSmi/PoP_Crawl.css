@@ -194,6 +194,17 @@ body, html{
   100% { top: -170%; }
 }
 
+@media screen and (max-width: 480px) {
+	.PoP_Crawl .main-content {
+	  font-size: 16px;
+	}
+	.PoP_Crawl .title-content {
+	  position: absolute;
+	  top: 100%;
+	  animation: scroll 100s linear 4s forwards;
+	}
+  }
+
 @media screen and (max-width: 720px) {
   .PoP_Crawl .main-content {
     font-size: 35px;

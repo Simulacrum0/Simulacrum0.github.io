@@ -1,2 +1,2 @@
 User-agent: *
-Disallow: /SuCho07__TrzChe/
+Disallow: /SuCho06__TrzChe/

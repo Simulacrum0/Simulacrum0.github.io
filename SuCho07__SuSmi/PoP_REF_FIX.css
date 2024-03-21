@@ -1,0 +1,111 @@
+﻿
+CONSIDER FLEX Layout
+
+Which packs by Row or Column for minimal spacing as a SECTION
+
+The main axis is defined by flex-direction, which has four possible values:
+
+    row
+    row-reverse
+    column
+    column-reverse
+
+	flex-wrap: wrap
+This will wrap or push the flex items to the next line if there's not enough room for them.
+
+.names-container
+{
+	display: flex;
+	flex-direction: column;
+    flex-wrap: wrap;
+
+	justify-content:
+			flex-start (default value)
+			flex-end
+			center
+			space-between ( align w/ edges )
+			space-around ( space between edges and items same as between items )
+			space-evenly ( like space-around, but only half-space padding at edges )
+
+
+	align-items:
+			The align-items property handles the alignment of flex items on the cross-axis of the flex container. It can take any of the following values:
+
+			stretch (default value)
+			flex-start
+			flex-end
+			center
+			baseline
+
+}
+
+
+
+
+PoP--light-grey
+PoP-animate-opacity
+PoP-black
+PoP-block
+PoP-blue
+PoP-border
+PoP-button
+PoP-card
+PoP-center
+PoP-col  NOTE: followed by s, m, & l SIZES for MEDIA filtering
+PoP-container
+PoP-content
+PoP-dark-grey
+PoP-disabled
+PoP-display-container
+PoP-display-left
+PoP-display-middle
+PoP-display-right
+PoP-green
+PoP-hide-small
+PoP-hover-light-grey
+PoP-hover-opacity-off
+PoP-hover-opacity
+PoP-hover-shadow
+PoP-image
+PoP-input
+PoP-jumbo
+PoP-large
+PoP-light-grey
+PoP-margin-bottom
+PoP-margin-left
+PoP-margin-right
+PoP-medium
+PoP-modal
+PoP-modal-content
+PoP-opacity
+PoP-orange
+PoP-padding
+PoP-padding-16
+PoP-padding-32
+PoP-padding-64
+PoP-padding-large
+PoP-quarter
+PoP-red
+PoP-right
+PoP-round
+PoP-round-large
+PoP-round-xxlarge
+PoP-row
+PoP-row-padding
+PoP-section
+PoP-small
+PoP-text-black
+PoP-text-blue
+PoP-text-cyan
+PoP-text-green
+PoP-text-grey
+PoP-text-orange
+PoP-text-pink
+PoP-text-red
+PoP-text-white
+PoP-transparent
+PoP-ul
+PoP-white
+PoP-wide
+PoP-xlarge
+PoP-xxlarge

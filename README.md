@@ -12,7 +12,7 @@ Handles a webiste for downloading and distributing content. Additionally contain
 | SuCho03__TxKuCho | Clones of Wantverses for distribution |
 | SuCho04__WaDru | Fonts |
 | SuCho05__BriDz | Program Packages |
-| SuCho06__SuSmi | Additional Web Design Content such as CSS & JS  |
-| SuCho07__TrzChe | Build Certificates |
+| SuCho06__TrzChe | Build Certificates |
+| SuCho07__SuSmi | Additional Web Design Content such as CSS & JS  |
 
 ![Background](SuCho02__JaPo/JaPo06__BANNER.jpg)
