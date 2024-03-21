@@ -10,4 +10,4 @@ Handles a webiste for downloading and distributing content. Additionally contain
 | Entry  | Tiny Programs to run Wantware on each Platform and Privilege |
 | Gallery | Wantware Picture and Movie Examples |
 
-![Background](SuCho02__JaPo/KuBz.jpg)
+![Background](SuCho02__JaPo/JaPo06__BANNER.jpg)
