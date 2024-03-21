@@ -1,0 +1,22 @@
+[BAD_BATCH]
+[BadBatch.01]
+Name=Hunter
+ID=991001
+Impact=0.670000
+DNA=0xABCD0123456789EF
+[BadBatch.02]
+Name=Tech
+ID=992002
+Impact=0.720000
+Comment Test="0.3 # 0xABCD"
+DNA=0xABCD0123456789EF
+[BadBatch.03]
+Name=Wrecker
+ID=993003
+Impact=0.530000
+DNA=0xABCD0123456789EF
+[BadBatch.04]
+Name=Crosshair
+ID=993004
+Impact=0.100000
+DNA=0xABCD0123456789EF
