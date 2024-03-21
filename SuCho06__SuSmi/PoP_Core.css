@@ -121,7 +121,9 @@ input[type=checkbox].PoP-check:disabled+.PoP-validate,input[type=radio].PoP-radi
 .PoP-container:after,.PoP-container:before,.PoP-panel:after,.PoP-panel:before,.PoP-row:after,.PoP-row:before,.PoP-row-padding:after,.PoP-row-padding:before,.PoP-cell-row:before,.PoP-cell-row:after,
 .PoP-topnav:after,.PoP-topnav:before,.PoP-clear:after,.PoP-clear:before,.PoP-btn-group:before,.PoP-btn-group:after,.PoP-btn-bar:before,.PoP-btn-bar:after,.PoP-bar:before,.PoP-bar:after
 {content:"";display:table;clear:both}
+
 .PoP-col,.PoP-half,.PoP-third,.PoP-twothird,.PoP-threequarter,.PoP-quarter{float:left;width:100%}
+
 .PoP-col.s1{width:8.33333%}
 .PoP-col.s2{width:16.66666%}
 .PoP-col.s3{width:24.99999%}
@@ -134,6 +136,7 @@ input[type=checkbox].PoP-check:disabled+.PoP-validate,input[type=radio].PoP-radi
 .PoP-col.s10{width:83.33333%}
 .PoP-col.s11{width:91.66666%}
 .PoP-col.s12,.PoP-half,.PoP-third,.PoP-twothird,.PoP-threequarter,.PoP-quarter{width:99.99999%}
+
 @media (min-width:601px){
 .PoP-col.m1{width:8.33333%}
 .PoP-col.m2{width:16.66666%}
@@ -147,6 +150,7 @@ input[type=checkbox].PoP-check:disabled+.PoP-validate,input[type=radio].PoP-radi
 .PoP-col.m10{width:83.33333%}
 .PoP-col.m11{width:91.66666%}
 .PoP-col.m12{width:99.99999%}}
+
 @media (min-width:993px){
 .PoP-col.l1{width:8.33333%}
 .PoP-col.l2{width:16.66666%}
@@ -160,8 +164,11 @@ input[type=checkbox].PoP-check:disabled+.PoP-validate,input[type=radio].PoP-radi
 .PoP-col.l10{width:83.33333%}
 .PoP-col.l11{width:91.66666%}
 .PoP-col.l12{width:99.99999%}}
+
+
 .PoP-content{max-width:980px;margin:auto}
 .PoP-rest{overflow:hidden}
+
 .PoP-layout-container,.PoP-cell-row{display:table;width:100%}.PoP-layout-row{display:table-row}.PoP-layout-cell,.PoP-layout-col,.PoP-cell{display:table-cell}
 .PoP-layout-top,.PoP-cell-top{vertical-align:top}.PoP-layout-middle,.PoP-cell-middle{vertical-align:middle}.PoP-layout-bottom,.PoP-cell-bottom{vertical-align:bottom}
 .PoP-hide{display:none!important}.PoP-show-block,.PoP-show{display:block!important}.PoP-show-inline-block{display:inline-block!important}

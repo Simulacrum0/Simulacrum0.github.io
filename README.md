@@ -5,9 +5,14 @@ Handles a webiste for downloading and distributing content. Additionally contain
 
 | **Places** | *Description* |
 |:--------|:-------:|
-| About   | What Wantware can do? |
-| Wantverse | Experiences to try |
-| Entry  | Tiny Programs to run Wantware on each Platform and Privilege |
-| Gallery | Wantware Picture and Movie Examples |
+| Root   | Web Pages for LabEast's Wantware download site? |
+| SuCho00__DruDz | Documents such as Reports |
+| SuCho01__JaPe | Sounds |
+| SuCho02__JaPo | Images |
+| SuCho03__TxKuCho | Clones of Wantverses for distribution |
+| SuCho04__WaDru | Fonts |
+| SuCho05__BriDz | Program Packages |
+| SuCho06__SuSmi | Additional Web Design Content such as CSS & JS  |
+| SuCho07__TrzChe | Build Certificates |
 
 ![Background](SuCho02__JaPo/JaPo06__BANNER.jpg)
