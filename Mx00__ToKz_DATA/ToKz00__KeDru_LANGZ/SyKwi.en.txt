@@ -1,0 +1,174 @@
+//==============================================
+// SYSTEM MESSAGES
+//==============================================
+
+#define Hrz0_Yx__KoDz__SyYa__Ya_vkutf8 "-the beginning-"
+#define Hrz0_Yx__KoDz__SyYa__Yi_vkutf8 "-startup ends-"
+#define Hrz0_Yx__KoDz__SyYi__Ya_vkutf8 "-shutdown begins-"
+#define Hrz0_Yx__KoDz__SyYi__Yi_vkutf8 "-the end-"
+
+//==============================================
+// PRE-GUI STAGE
+// FAILS
+//==============================================
+//&&&
+// PROCESS
+#define D_SyKwiTrx00__KwiYa_vkutf8 "Failed to Launch Program with " D_DryKz__HrzBu_Kri__By_vkutf8
+#define D_SyKwiTrx00__KwiYa00__ToMi_vkutf8 "Cannot input Program Arguments or Environment variables."
+#define D_SyKwiTrx00__KwiYa01__MoDz_DiDa_vkutf8 "Cannot Access (Permissions) or Create (Space) required to update Program Version."
+#define D_SyKwiTrx00__KwiYa02__KuTuFyFz_vkutf8 "Cannot Access (Permissions) or Create (Space) User Folders to install."
+#define D_SyKwiTrx00__KwiYa03__DyHo_vkutf8 "Can only run one Program at a time."
+
+//&&&
+// KERNEL
+#define D_SyKwiTrx01__HrzBy_vkutf8 "Program requires your Operating System to be at least " D_DryKz__HrzBu_Kri__By_vkutf8
+
+//&&&
+// GPU
+#define D_SyKwiTrx01__HrzBy00__SwiFy_vkutf8 "Failed to find required GPU Driver(s) from " D_DryKz__HrzBu_Kri__By_vkutf8 ". Is Vulkan Installed?"
+#define D_SyKwiTrx01__HrzBy01__SwiChz_vkutf8 "Failed to open required GPU Driver(s) from " D_DryKz__HrzBu_Kri__By_vkutf8 ". Is Vulkan Updated?"
+#define D_SyKwiTrx01__HrzBy02__KaBx_vkutf8 "Failed to get any GPU Chips from " D_DryKz__HrzBu_Kri__By_vkutf8 ". Is there a GPU present?"
+#define D_SyKwiTrx01__HrzBy03__KaGwa_vkutf8 "Failed to get any GPU Displays to connect and show from " D_DryKz__HrzBu_Kri__By_vkutf8 ". Are Screens Connected and Visible?"
+#define D_SyKwiTrx01__HrzBy04__JiSi_vkutf8 "Failed to load startup GPU programs. Core data might be corrupt and a fresh download might fix?"
+#define D_SyKwiTrx01__HrzBy05__WzBx_vkutf8 "Failed to assemble startup GPU tasks. Is your computer up to date with updates and drivers?"
+ "We cannot start the application on this operating system as it lacks requirements, such as finding 'GPU drivers'.  Please apply all software updates.\n[] For Nvidia video cards, go to the Nvidia website: http://www.nvidia.com/Download/index.aspx?lang=en-us  \n[] For AMD video cards, go to the AMD website: https://www.amd.com/en/support/download/drivers.html \n[] For Intel video cards, go to the Intel website: http://www.intel.com/support/graphics/detect.htm.^HxHo" )
+
+//&&&
+// SECURITY
+#define D_SyKwiTrx02__Che_vkutf8 "Program lacks Expected Security with " D_DryKz__HrzBu_Kri__By_vkutf8
+
+//&&&
+// RESOURCES
+// D_MoDz_DiDa__KriHu__HrxKu_MiB_k
+#define D_SyKwiTrx03__HrxKu_vkutf8( _MiB ) "Failed to get required CPU RAM Memory " #_MiB " MiB"
+// D_MoDz_DiDa__KriHu__HraKu_MiB_k
+#define D_SyKwiTrx04__HraKu_vkutf8( _MiB ) "Failed to get required Storage Drive Memory " #_MiB " MiB"
+
+//&&&
+// WANTVERSES
+#define D_SyKwiTrx05__TxKu00__MiHo_vkutf8 "Download via Remote, Nearby, & Attached Locations Failed to Find a Valid + Required %s " D_TxKu__ToKzDx__VaDe_vkutf8
+#define D_SyKwiTrx05__TxKu01__TrzHo_vkutf8 "Auto-Create Failed for %s " D_TxKu__ToKzDx__VaDe_vkutf8
+#define D_SyKwiTrx05__TxKu02__GrxHo_vkutf8 "Corrupt %s " D_TxKu__ToKzDx__VaDe_vkutf8 ". Please reinstall to recover."
+#define D_SyKwiTrx05__TxKu03__TraHo_vkutf8 "Locked file or Lacking Permissions for %s " D_TxKu__ToKzDx__VaDe_vkutf8
+#define D_SyKwiTrx05__TxKu04__JiSmiHo_vkutf8 "Service #%d not loading into OS for %s " D_TxKu__ToKzDx__VaDe_vkutf8
+
+//&&&
+// SHELL/INTERFACE
+#define D_SyKwiTrx06__KruGwe_vkutf8 "Failed to get required OS-Interface from " D_DryKz__HrzBu_Kri__By_vkutf8
+
+
+
+//==============================================
+// COMPANY
+//==============================================
+#define D_DryKz__KyTrzWz__VaSy_vkutf8 "MindAptiv"
+#define D_DryKz__KyTrzWz__VaDe_vkutf8 D_DryKz__KyTrzWz__VaSy_vkutf8 " Inc"
+#define D_DryKz__KyTrzWz__HxDe_vkutf8 "Creating at the Speed of Thought."
+#define D_DryKz__KyTrzWz__VaSy_vkutf8 "Sim0"
+#define D_DryKz__KyTrzWz__VaDe_vkutf8 "Simulacrum0 LabEast Research"
+#define D_DryKz__KyTrzWz__HxDe_vkutf8 "Published research for testing and further development."
+//@@@
+// COPYRIGHTS
+#define D_BriDz__NoGri_COPYRIGHT_vkutf8 "All rights reserved copyright (c) " D_MoDz_DiDa__GiJe__Fz__GiKwu_vkutf8 "-" D_MoDz_DiDa__GiJe__Fe__GiKwu_vkutf8 " " D_DryKz__KyTrzWz__VaDe_vkutf8
+// GREETINGS
+#define D_KeDru__SmzYa_vkutf8 "Hello"
+#define D_KeDru__SmzYi_vkutf8 "Goodbye"
+//@@@
+// REPORT
+#define D_BriDzYe__STATUS_vkutf8 "Status Change"
+//@@@
+// HELP
+#define D_BriDzKru00__HELP_vkutf8 "Display this help and exit."
+#define D_BriDzKru01__VER_vkutf8 "Display all version data and exit."
+#define D_BriDzKru02__QUIET_vkutf8 "Mute all sounds."
+#define D_BriDzKru03__NEW_vkutf8 "New reinstalls a component where [KEY]s include:" \
+\n - "'Core' reinstalls core wantverses as new downloads." \
+\n - "'User' reinstalls this user as a new person." \
+\n - "'All' reinstalls everything as a new Install." \
+#define D_BriDzKru04__ERASE_vkutf8 "erases components where [KEY]s include:" \
+\n - "'Shortcut' for erasing any application shortcuts." \
+\n - "'Desktop' for erasing any desktop icons." \
+\n - "'User' for erasing *this* user's information." \
+\n - "'All' for erasing everything as Uninstall." \
+#define D_BriDzKru05__USER_vkutf8 "Exists as a different or potentially new user via the name in [KEY]. Note -u KIOSK is reserved for frequent new users but no persistent changes and -u GHOST is reserved for anonymous use."
+// PATH NAMES
+#define D_BriDzKru06__P00_vkutf8 "Launch_Path"
+#define D_BriDzKru06__P01_vkutf8 "Data_Cold"
+#define D_BriDzKru06__P02_vkutf8 "Data_Hot"
+#define D_BriDzKru06__P03_vkutf8 "Wantverse_Branded"
+#define D_BriDzKru06__P04_vkutf8 "Wantverse_Custom"
+
+#define D_BriDzKru06__P05_vkutf8 "Cache"
+#define D_BriDzKru06__P06_vkutf8 "Backup"
+#define D_BriDzKru06__P07_vkutf8 "Staging"
+#define D_BriDzKru06__P08_vkutf8 "WWDK"
+
+#define D_BriDzKru06__P09_vkutf8 "Program"
+#define D_BriDzKru06__P10_vkutf8 "Metadata"
+#define D_BriDzKru06__P11_vkutf8 "Log"
+#define D_BriDzKru06__P12_vkutf8 "Security"
+
+// NO OVERRIDE P##
+#define D_BriDzKru06__ChxYu_vkutf8 "Recycle"
+#define D_BriDzKru07__YaTra_vkutf8 "Autorun"
+
+//&&&
+// PATH HELP MSG
+#define D_BriDzKru06__PATH_vkutf8 "change the default paths for [KEY] to a custom path [VALUE]. [KEY]s include:" \
+\n - "P01 or '" D_BriDzKru06__P01_vkutf8 "' for read-focused storage" \
+\n - "P02 or '" D_BriDzKru06__P02_vkutf8 "' for write-focused storage" \
+\n - "P03 or '" D_BriDzKru06__P03_vkutf8 "' for shared experiences" \
+\n - "P04 or '" D_BriDzKru06__P04_vkutf8 "' for personal experiences" \
+\n - "P05 or '" D_BriDzKru06__P05_vkutf8 "' for fastest access of recently used data" \
+\n - "P06 or '" D_BriDzKru06__P06_vkutf8 "' for storing archive copies" \
+\n - "P07 or '" D_BriDzKru06__P07_vkutf8 "' for queing offline work" \
+\n - "P08 or '" D_BriDzKru06__P08_vkutf8 "' for wantware SDK files if using Elevate" \
+\
+\n - "P09 or '" D_BriDzKru06__P09_vkutf8 "' for where the application should be moved" \
+\n - "P10 or '" D_BriDzKru06__P10_vkutf8 "' for shortcuts, icons, and permissions" \
+\n - "P11 or '" D_BriDzKru06__P11_vkutf8 "' for event review" \
+\n - "P12 or '" D_BriDzKru06__P12_vkutf8 "' for security permissions" \
+
+#define D_BriDzKru07__TASK_vkutf8 "launch a task using given or default mind-context, idea-values and authorization:replies." \
+\n - "Use 'TaskName' 'WaitTaskName' Task matches a name you' as [KEY] [VALUE]ve used in your experience and WaitTaskName indicates whether this task runs immediately or only after another has completed" \
+\n - "'*Note* that there can be several Idea:Value and Authorization:Reply pairs for any given task and tasks can be chained or run in parallel " \
+
+#define D_BriDzKru08__MIND_vkutf8 "chooses a known mind and context for a task. Details are shown in the task's Action" \
+\n - "Use 'Mind':'Context' as [KEY] [VALUE] names of known Minds and Contexts as defined in your experience" \
+
+#define D_BriDzKru09__IDEA_vkutf8 "expresses a value as some 'idea' for a task. Details are shown in the task's Action" \
+\n - "Use 'Idea':'Value' as [KEY] [VALUE] to provide this information to override any default in your task " \
+
+#define D_BriDzKru10__AUTH_vkutf8 "authorizes a reply for a task such as a passcode or special phrase. Details are shown in the task's Action" \
+\n - "Use 'Authorization':'Reply' to specify methods such as question:answer or 'phrase:passcode' or 'login:password' or '2factor':'devicecode' as [KEY] [VALUE] to verify a part of this task as defined in your task's rules" \
+
+//@@@
+// POLICY
+#define D_BriDzCheGrx__PRIVACY_POLICY_vkutf8 "We will never collect or retain your data for any purpose other than connecting you to other users and performing transactions."
+#define D_HrzBuHryNa__SCREENSAVER_POLICY_vkutf8 D_BriDzVa__VaSy_vkutf8 ": Disabling ScreenSaver for Interaction and Playback."
+
+//@@@
+// DIALOG
+
+//&&&
+// SYSTEM_CHOOSER_DIALOG
+#define D_BriDzKeDru__Ne_vkutf8 "Choose"
+#define D_BriDzKeDru__SaSmxYi_vkutf8 "I am done with this message"
+
+
+//&&&
+// FILE_DIALOG
+#define D_BriDzKeDru__SzKuNe_vkutf8 "Choose a Location for Access to Files"
+#define D_BriDzKeDru__SzKuMo_vpkutf8 "Please click '" D_BriDzKeDru__Ne_vkutf8 "' to provide access to files"
+
+//&&&
+// ERR DIALOG
+#define D_BriDzBz__SmaSmu_vkutf8 D_BriDzVa__VaSy_vkutf8 " ERROR: Please Read!"
+#define D_BriDzNe__Kru_vkutf8 "Open Web Help & Quit"
+#define D_BriDzNe__Gri_vkutf8 "Accept & Quit"
+#define D_BriDzNe__TraNa_vkutf8 "Try Again"
+
+#define D_BriDzNe__ToMiKroHo_vkutf8 "Option Unknown"
+
+#define D_BriDzNe__KeVaTrx_vkutf8 "UserNames must be valid filenames without spaces/whitespace characters for syncing."
+#define D_BriDzNe__KuTuFyHo_vkutf8 "Path does not exist or we lack access."

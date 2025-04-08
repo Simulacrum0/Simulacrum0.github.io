@@ -1,0 +1,3 @@
+[ACTIVE_ISSUES]
+- OS Default libraries be available in expected locations
+- GPU Driver must be installed

@@ -1,2 +1,5 @@
 User-agent: *
-Disallow: /SuCho06__TrzChe/
+Disallow: /Mx01__SuKz_MEDIA/
+Disallow: /Mx02__TxKuCho_WVERSE/
+Disallow: /Mx05__KoDz_EXE/
+Disallow: /Mx06__MeSy_PKG/
