@@ -1,17 +1,18 @@
 <!-- ====================================================================== -->
-<!-- ToKzYa -->
+<!-- Ku00 ToKzYa -->
 <!-- ====================================================================== -->
 <!DOCTYPE html>
 <html>
-
-<head>
-
+	<head>
 		<!-- CORE -->
 		<title>PowerOurPeople: LabEast Wantware</title>
 		<link rel="shortcut icon" type="image/png" href="Mx01__SuKz_MEDIA/SuKz07_DryDz__BIZ/DryDzGwz00__ESSENCE.png"/>
+		<link rel="canonical" href="https://powerourpeople.com"/>
+
 		<meta charset="UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="robots" content="index, follow">
 
 		<!-- OPEN_GRAPH: Social Media Finder -->
 		<meta property="og:title" content="Power Our People Website" />
@@ -20,539 +21,183 @@
 		<meta property="og:url" content="https://powerourpeople.com" />
 		<meta property="og:image" content="http://powerourpeople.com/Mx01__SuKz_MEDIA/SuKz07_DryDz__BIZ/DryDzGwz00__ESSENCE.png" />
 
-
 		<!-- STYLE & MEDIA -->
-		<link rel="stylesheet" href="Mx07__SuSmi_WEBPG/SuSmiDx00__CORE.css">
-		<link rel="stylesheet" href="Mx07__SuSmi_WEBPG/SuSmiDx01__ICONS.css">
+		<link rel="stylesheet" href="Mx07__SuSmi_WEBPG/SuSmi02__CSS/JoDx00__Do.css">
 
-		<style>
-			body,h1,h2,h3,h4,h5 {font-family:,sans-serif}
-			body {font-size: 14px;}
-			img {margin-bottom: -8px;}
-			.TOUR__TaJaPo {display: none;}
-		</style>
+		<!-- SCRIPTS -->
+		<script defer src="Mx07__SuSmi_WEBPG/SuSmi01__JS/JiJa00__HEX.js"></script>
+		<script defer src="Mx07__SuSmi_WEBPG/SuSmi01__JS/JiJa01__DROPZ.js"></script>
+		<script defer src="Mx07__SuSmi_WEBPG/SuSmi01__JS/JiJa02__PLAZ.js"></script>
+		<script defer src="Mx07__SuSmi_WEBPG/SuSmi01__JS/JiJa03__ETHER.js"></script>
+
+		<script defer src="Mx07__SuSmi_WEBPG/SuSmi01__JS/JiJa04__AURORA.js"></script>
+		<script defer src="Mx07__SuSmi_WEBPG/SuSmi01__JS/JiJa05__PILLAR.js"></script>
+		<script defer src="Mx07__SuSmi_WEBPG/SuSmi01__JS/JiJa06__SMOKE.js"></script>
+		<script defer src="Mx07__SuSmi_WEBPG/SuSmi01__JS/JiJa07__CODEX.js"></script>
+
+		<script defer src="Mx07__SuSmi_WEBPG/SuSmi01__JS/Ki00__CORE.js"></script>
 	</head>
 
-
 <!-- AUDIO -->
-<audio id="Download_JaPe">
-<source src="Mx01__SuKz_MEDIA/SuKz01_JaPe__SND/JaPe00__BYE.wav" type="audio/wav">
-Your browser does not support the audio element.
+<audio id="ToMi_JaPe">
+	<source src="Mx01__SuKz_MEDIA/SuKz01_JaPe__SND/JaPe00__ToMi.wav" type="audio/wav">
+	Your browser does not support the audio element.
 </audio>
 
 
+<body class="Dx__BODY">
+<canvas id="VyMxSi" class="Dx__BG" width="512px" height="512px"></canvas>
+
+
 <!-- ====================================================================== -->
-<!-- Ku00 DOWNLOAD BOX -->
-<!-- Icon based Save -->
-<!-- Window Requires User to SAVE-AS -->
+<!-- Ku01 HEADER Bz
 <!-- ====================================================================== -->
-<body class="PoP-content PoP-black" style="max-width:1280px;">
+<div><h2 id="VyBzVa" class="Dx__TITLE" ></h2></div>
+<div class="Dx__NAVI" id="VyTaNe">
 
-<!-- TOP SCREEN BAR -->
-<p><button class="PoP-button PoP-block PoP-orange PoP-round" onclick="document.getElementById('ToMi').style.display='block'"><i class="fa fa-download">&ensp;</i><br><b class="Pop-wide">DOWNLOAD ESSENCE</b><br></button></p>
-
-<script>
-	let NODE = "Unknown";
-
-	// USER FACING
-	let PLAT = "Unknown";
-	let CPU = "ARM";
-
-	//let MOBILE = "Unknown";
-	// COULD USE TO FILER?
-	// let VER = "???";
-
-	// INTERNAL
-	let OS = "???"
-	let EXT = "???";
-
-	(function AUTORUN__NODE_Ha()
-	{
-		{ console.log( navigator.userAgent ); }
-		let NAV_NODE = navigator.userAgent.toUpperCase();
-
-		if (navigator.userAgentData)
-		{
-			PLAT = navigator.userAgentData.platform;
-			//MOBILE = navigator.userAgentData.mobile;
-
-			navigator.userAgentData.getHighEntropyValues( ["architecture", "platformVersion"])
-	  		.then( ua =>
-			{
-				CPU = ua.architecture;
-				// VER = ua.platformVersion;
-			} );
-		}
-		//else
-		{
-			//@@@
-			// PLAT
-			// MOST ANDROID shows LINUX
-			if( NAV_NODE.includes("ANDROID") )
-			{PLAT = "Android"; OS = "DRD"; EXT = "apk"; }
-			else if( NAV_NODE.includes("LINUX") || NAV_NODE.includes("X11")  || NAV_NODE.includes("WAYLAND") )
-			{PLAT  = "Linux"; OS = "LNX"; EXT = "elf"; }
-			else if( NAV_NODE.includes("IPHONE") || NAV_NODE.includes("IPAD") )
-			{PLAT  = "iOS"; OS = "IOS"; EXT = "ipa"; }
-			else if( NAV_NODE.includes("MAC") )
-			{PLAT  = "Mac"; OS = "MAC";  EXT = "app"; }
-			else if( NAV_NODE.includes("WINDOWS") )
-			{PLAT  = "Windows"; OS = "WIN"; EXT = "exe"; }
-
-			//@@@
-			// CPU
-			if( NAV_NODE.includes("X86_64" ) || NAV_NODE.includes("X64") )
-			{ CPU  = "X64"; }
-			else if( NAV_NODE.includes("ARM" ) || NAV_NODE.includes("AARCH") )
-			{ CPU  = "ARM64"; }
-			else if( NAV_NODE.includes("RISCV" ) || NAV_NODE.includes("RISC-V") )
-			{ CPU  = "RISC-V"; }
-		}
-
-		//@@@
-		// Smx
-			NODE = PLAT + " <i class=\"fa fa-microchip PoP-large\"></i> " + CPU;
-		//  "OS: " + PLAT +  " CPU: " + CPU;
-		// " v" + VER +" Mobile: " + MOBILE;
-
-		//@@@
-		// LOG
-		console.log( "Node: " + NODE );
-
-	} )()
-;
-
-	function DISABLE_Dy( EXE )
-	{
-		document.getElementById('ToMi').style.display='none';
-	}
-
-	function DOWNLOAD_Dy( EXE )
-	{
-		const EXE_URL = "Mx05__KoDz_EXE/Essence__" + EXE;
-		// console.log( EXE_URL );
-		window.location.assign( EXE_URL );
-
-		Download_JaPe__Ya();
-		document.getElementById('ToMi').style.display='none';
-	}
-
-	function DOWNLOAD_Fe()
-	{
-		const EXE = OS +"_" + CPU + ".w." + EXT;
-		// console.log( EXE );
-		DOWNLOAD_Dy( EXE )
-	}
-
-</script>
-
-<!-- DIALOG BOX -->
-<div id="ToMi" class="PoP-modal PoP-animate-opacity">
-	<div class="PoP-modal-content" style="padding:32px">
-		<div class="PoP-container PoP-center PoP-orange">
-
-			<i onclick="document.getElementById('ToMi').style.display='none'" class="fa fa-remove PoP-xlarge PoP-button PoP-transparent PoP-right PoP-xlarge"></i>
-			<h3 class="PoP-wide">DOWNLOAD <b>ESSENCE</b></h3>
-
-			<h6 p>Your Browser Claims *this machine* is <b><script type="text/javascript">document.write(NODE)</script></b></p>
-				<h5 p>Download for *this machine*:</p>
-
-			<!-- BROWSER_SELECT -->
-			<button type="button" class="fa fa-desktop PoP-jumbo" style="padding:8px" onclick="DOWNLOAD_Fe();"><h6><b><script type="text/javascript">document.write(NODE)</script></b></button>
-
-			<!-- USER_SELECT -->
-			<h5 p><br><i>Or Click on your Platform of Choice to <b>Save As</b><br></i></p>
-
-			<button type="button" class="PoP-disabled fa fa-android PoP-jumbo" style="padding:8px" onclick="DISABLE_Dy( 'DRD_ARM.w.apk' );"><h6><b>Android <i class="fa fa-microchip PoP-large"></i> ARM</b></button>&ensp;
+	<a id="BriDzToMi" href="javascript:void(0);" class="active" onclick="Hry5_Smz__ToMi_ChyDry()">Get ESSENCE</a>
+	<a id="JoTraYz" href="javascript:void(0);" onclick="Hry5_Smz__JoTra_ChyDry()">VISUAL</a>
 
 
-			<button type="button" class="PoP-disabled fa fa-mobile PoP-jumbo" style="padding:8px" onclick="DISABLE_Dy( 'IOS_ARM.w.ipa' );"><h6><b>iOS <i class="fa fa-microchip PoP-large"></i> Apple</b></button>&ensp;
-
-
-			<button type="button" class="fa fa-linux PoP-jumbo" style="padding:8px" style="padding:8px" onclick="DOWNLOAD_Dy( 'LNX_X64.w.elf' );"><h6><b>Linux <i class="fa fa-microchip PoP-large"></i> X64</b></button>&ensp;
-			<button type="button" class="PoP-disabled fa fa-linux PoP-jumbo" style="padding:8px" onclick="DISABLE_Dy( 'LNX_ARM.w.elf' );"><h6><b>Linux <i class="fa fa-microchip PoP-large"></i> ARM</b></button>&ensp;
-			<button type="button" class="PoP-disabled fa fa-linux PoP-jumbo" style="padding:8px" onclick="DISABLE_Dy( 'LNX_RSV.w.elf' );"><h6><b>Linux <i class="fa fa-microchip PoP-large"></i> RISC-V</b></button>&ensp;
-
-
-			<button type="button" class="PoP-disabled fa fa-apple PoP-jumbo" style="padding:8px" onclick="DISABLE_Dy( 'MAC_ARM.w.app' );"><h6><b>Mac <i class="fa fa-microchip PoP-large"></i> Apple</b></button>&ensp;
-
-
-				<button type="button" class="PoP-disabled fa fa-windows PoP-jumbo" style="padding:8px" onclick="DISABLE_Dy( 'WIN_ARM.w.exe' );"><h6><b>Windows <i class="fa fa-microchip PoP-large"></i> ARM</b></button>&ensp;
-				<button type="button" class="PoP-disabled fa fa-windows PoP-jumbo" style="padding:8px" onclick="DISABLE_Dy( 'WIN_X64.w.exe' );"><h6><b>Windows <i class="fa fa-microchip PoP-large"></i> X64</b></button>&ensp;
-
-			<p><br><i>After Download, Double Click the File to Launch the Experience.</i><br>Enjoy!</p>
-
+	<div class="Dx__DLST">
+		<button id="JoNzVa" class="Dx__DCLIK"></button>
+		<div id="TaJoKu" class="Dx__ITM" style="opacity: 1.0;" >
+			<button class="Dx__BTN" onclick="Hry5_Smz__JoTra_ChyDry()">Topic 2</button>
+			<button class="Dx__BTN" onclick="Hry5_Smz__JoTra_ChyDry()">Topic 2</button>
+			<button class="Dx__BTN" onclick="Hry5_Smz__JoTra_ChyDry()">Topic 2</button>
+			<button class="Dx__BTN" onclick="Hry5_Smz__JoTra_ChyDry()">Topic 2</button>
 		</div>
 	</div>
-</div>
 
-  <!-- ====================================================================== -->
-  <!-- Ku01__TOUR Slideshow -->
-  <!-- BANNER08__Circuit -->
-  <!-- ====================================================================== -->
+	<div class="Dx__DLST">
+		<button id="JoJzVa" class="Dx__DCLIK">Slides</button>
+		<div id="TaJoKz" class="Dx__ITM">
+			<a  id="VyDa" href="javascript:void(0);" onclick="Hry5_Smz__JoTra_ChyDry()"></a>
+			<a  id="VyYz" href="javascript:void(0);" onclick="Hry5_Smz__JoTra_ChyDry()"></a>
+			<a  id="VyGi" href="javascript:void(0);" onclick="Hry5_Smz__JoTra_ChyDry()"></a>
+			<a  id="VyKo" href="javascript:void(0);" onclick="Hry5_Smz__JoTra_ChyDry()"></a>
+		</div>
+	</div>
 
-<!-- Header with Slideshow -->
-<header class="PoP-display-container PoP-center">
-
-	<div class="TOUR__TaJaPo PoP-animate-opacity">
-		<img class="PoP-image" src="Mx01__SuKz_MEDIA/SuKz03_TxTrz__APTIV_MADE/TxTrz16__SCHED.jpg" alt="Banner 1" style="min-width:480px" width="1280" height="720">
-		<div class="PoP-display-middle PoP-padding PoP-hide-small" style="width:72%">
-			<div class="PoP-black PoP-padding-large PoP-round-large">
-				<!-- OPACITY HOVER <div class="PoP-black PoP-opacity PoP-hover-opacity-off PoP-padding-large PoP-round-large"> -->
-					<h2 class="PoP-xlarge"><b>Welcome</b> to <i>Wantware</i> Testing</h2>
-					<p>Download Essence. Build any Aptivs you wish and note this is a test-site only. <i>No warranties or legalities apply.</i>However you have arrived here, feel encouraged to download, test, and email feedback to <a href='mailto:test@mindaptiv.com'>MindAptiv Test</a>.</p>
-				</div>
+		<div class="Dx__DLST">
+			<button  id="KeDruVa" class="Dx__DCLIK"></button>
+			<div  id="TaKeDru" class="Dx__ITM">
+				<a href="#">En</a>
+				<a href="#">Es</a>
+				<a href="#">Jp</a>
 			</div>
 		</div>
 
-		<div class="TOUR__TaJaPo PoP-animate-opacity">
-		<img class="PoP-image" src="Mx01__SuKz_MEDIA/SuKz03_TxTrz__APTIV_MADE/TxTrz08__PyDru.jpg" alt="Banner 1" style="min-width:480px" width="1280" height="720">
-		<div class="PoP-display-middle PoP-padding PoP-hide-small" style="width:72%">
-			<div class="PoP-black PoP-padding-large PoP-round-large">
-				<h2 class="PoP-xlarge"><b>Create</b> at the Speed of Thought</h2>
-				<p>Build what you wish, how you wish, with your words and order. You control what you do from start to finish to build any application, behavior, or experience.</p>
-		</div>
-	  </div>
-	</div>
+	<!-- <span class="GwzDoPo_02" style="zoom: 0.5"></span> -->
 
-	<div class="TOUR__TaJaPo PoP-animate-opacity">
-	  <img class="PoP-image" src="Mx01__SuKz_MEDIA/SuKz03_TxTrz__APTIV_MADE/TxTrz07__LINES.jpg" alt="Banner 1" style="min-width:480px" width="1280" height="720">
-	  <div class="PoP-display-middle PoP-padding PoP-hide-small" style="width:72%">
-			<div class="PoP-black PoP-padding-large PoP-round-large">
-				<h2 class="PoP-xlarge"><b>Trust</b> your Content and Communications</h2>
-				<p>Multiple Encryptions are inter-woven in realtime with unique protocols for each communication. Handles Security in a custom case manner for every transaction.</p>
-		</div>
-	  </div>
-	</div>
-
-	<div class="TOUR__TaJaPo PoP-animate-opacity">
-	  <img class="PoP-image" src="Mx01__SuKz_MEDIA/SuKz03_TxTrz__APTIV_MADE/TxTrz14__FLOW.jpg" alt="Banner 1" style="min-width:480px" width="1280" height="720">
-	  <div class="PoP-display-middle PoP-padding PoP-hide-small" style="width:72%">
-			<div class="PoP-black PoP-padding-large PoP-round-large">
-			<h2 class="PoP-xlarge"><b>Control</b> and Understand Anything that Happens</h2>
-		  	<p>All tasks, capabilities, and steps are exposed at the level of detail that matches you</p>
-		</div>
-	  </div>
-	</div>
-
-	<a class="PoP-button PoP-black PoP-display-left PoP-margin-left PoP-round PoP-hide-small PoP-hover-light-grey" onclick="plusDivs(-1)"><i class="fa fa-angle-left"></i> Prior  Slide </a>
-	<a class="PoP-button PoP-black PoP-display-right PoP-margin-right PoP-round PoP-hide-small PoP-hover-light-grey" onclick="plusDivs(1)">Next Slide <i class="fa fa-angle-right"></i></a>
-  </header>
-
-
-<!-- ====================================================================== -->
-<!-- Ku02 WHAT #1 -->
-<!-- ====================================================================== -->
-<div class="PoP-padding-64 PoP-white">
-	<div class="PoP-row-padding">
-
-		<div class="PoP-col I4 m4">
-			<img src="Mx01__SuKz_MEDIA/SuKz03_TxTrz__APTIV_MADE/TxTrz02__QUAD.jpg" class="PoP-image PoP-right PoP-hide-small" alt="Image supporting What is Essence">
-		</div>
-
-		<div class="PoP-col I8 m8">
-			<h2 class="PoP-xxlarge">1. <b>What is <i>Essence</i> wantware?</b></h2>
-			<h2 class="PoP-xlarge PoP-text-red"><b>Empowering Everyone</b></h2>
-			<p><span class="PoP-large"><i>Wantware <b>personally</b> enables everyone with all computer powers of today, even A.I., by letting them create, edit, tweak or just understand software behaviors.</i></span><br>"Wantware" is a computer platform for humans to have a dialog, using whatever language, special-words, and personal style of speaking, with the computer to express 'what they want their machine to do'.  Its a back and forth process that establishes 'what their words mean' in a given context.  Few people are programmers but all people, including programmers and technophobes, can describe in great detail what they like and dislike about a computer and more valuably, what they want to know ( why did it do that?!?!), or change ( i wish it'd just do X ) or make ( wouldn't it be cool if we could do Y ).<br>Wantware is an idea for human-expressed technology; Essence is our product brandname for wantware.</p>
-			<p>
-				<span class="PoP-large  PoP-text-black"><b><i>
-					- Wantware uses human-described behaviors to define and refine software<br>
-					- Software uses programming code to control hardware<br>
-					- Hardware uses machine instructions to run computer tasks<br>
-				</i></b></span>
-			</p>
-
-			<h3>In Development Now:</h3>
-			<div class="PoP-row PoP-center flex-container" style="margin-top:64px margin-bottom:64px">
-				<div class="PoP-col s2 PoP-padding-64">
-					<i class="fa fa-linux PoP-jumbo PoP-text-black"></i>
-					<p><b>LINUX:</b><br>CPU: X64<br>GPU: Nvidia, AMD, Intel<br>OS: Kern 5.1+, GNU libC 2.34+</p>
-				</div>
-			</div>
-
-
-			<h3>Upcoming Plans:</h3>
-			<div class="PoP-row PoP-center flex-container" style="margin-top:64px margin-bottom:64px">
-
-				<div class="PoP-col s2 PoP-padding-64">
-					<i class="fa fa-android PoP-jumbo PoP-text-green">&ensp;</i>
-					<p><b>ANDROID:</b><br>Android 11+, 64-bit ARM, API 30+</p>
-				</div>
-
-				<div class="PoP-col s2 PoP-padding-64">
-					<i class="fa fa-mobile PoP-jumbo PoP-text-black">&ensp;</i>
-					<p><b>iOS:</b><br>OS: iOS 18+, iPadOS 18+, WatchOS 11+, VisionOS 1+</p>
-				</div>
-
-				<div class="PoP-col s2 PoP-padding-64">
-					<i class="fa fa-linux PoP-jumbo PoP-text-black"></i>
-					<p><b>LINUX:</b><br>CPU: ARM & RISC-V<br>GPU: ARM, Broadcom, Imagination, Qualcomm, Vivante<br>OS: Kern 5.1+, GNU libC 2.34+</p>
-				</div>
-
-				<div class="PoP-col s2 PoP-padding-64">
-					<i class="fa fa-apple PoP-jumbo PoP-text-grey">&ensp;</i>
-					<p><b>macOS:</b><br>OS: Sequoia macOS 15+</p>
-				</div>
-
-				<div class="PoP-col s2 PoP-padding-64">
-					<i class="fa fa-windows PoP-jumbo PoP-text-blue">&ensp;</i>
-					<p><b>WINDOWS:</b><br>OS: Win7, Win10, & Win11</p>
-				</div>
-
-				<!-- <div class="PoP-col s2">
-					<i class="fa fa-html5 PoP-jumbo PoP-text-red">&ensp;</i>
-					<p><b>WEB_PAGE:</b><br>Html5, WebASM, WebGPU</p>
-				</div> -->
-
-			</div>
-
-		</div>
-  	</div>
+	<!-- reason for using javascript:void(0) is to prevent the default action of a link while still triggering a JavaScript event, like calling a function -->
+	<a href="javascript:void(0);" class="Dx__MENU" onclick="MENU_Toggle()">|||</a>
 </div>
 
 <!-- ====================================================================== -->
-<!-- Ku03 WHY #2 -->
+<!-- Ku02 BODY Ka
 <!-- ====================================================================== -->
-<div class="PoP-padding-64 PoP-light-grey">
-	<div class="PoP-row-padding">
-	  	<div class="PoP-col l6 m6">
-			<h2 class="PoP-xxlarge">2. <b>Why <i>Essence</i> Exists</b></h2>
-			<h2 class="PoP-xlarge PoP-text-red"><b>Our Core Mission</b></h2>
 
-			<p><span class="PoP-large"><i>We just may genuinely empower many, if not most, of our people to make the world a better place with more solutions and more minds on each problem than ever in our history.</i></span><br> Wantware aims to be an economic win for making all our evolving-technology 'monetizable' by the global community. From 'if-this-then-that-instructions' to 'A.I. pattern recognition' or simply the power to tweak art details or writing styles, there are many gains by enabling non-programmers to control and produce tech solutions. Everyone who uses tech has frustrations of access that disappear if they could dialog with the machine. Our goal is to empower all people with tech to solve all the problems they face. Not removing programmers, just expanding the pool of who can change the behavior of tech from programmers to everyone. Grow the economic pie of valuable contributions with wantware!</p>
-			<!-- ROW 00: TUNE---------------------- || -->
-			<div class="PoP-row" style="margin-top:32px margin-bottom:32px">
+<div id=JoNz__NoTi" class="Dx__TOPIC">
 
-								<div class="PoP-col s3">
-									<i class="fa fa-cloud PoP-text-blue PoP-jumbo"></i>
-									<p><b>NETWORK:</b><br>Use all your Local and Cloud machines</p>
-								</div>
+	<!-- //------------------------------------------------- -->
+	<!-- TOPIC-THOTS -->
+	<!-- //------------------------------------------------- -->
+	<div id="ToKro" class="Dx__OVERLAY" style="display:none">
+		<h3 id="JoKz_BzVa" class="Dx__TXT Dx__FADE_IN">THOT_TITLE</h3>
+		<p id="JoKz_KeDru" class="Dx__TXT Dx__FADE_IN">Human Dialog 'Meaning Coordinates' map out what is possible, at various levels of tech detail, and these Semantic-Shapes are mapped to various CPU/GPU Chip Instruction Templates, which are Regenerated & Profiled in Realtime. Wantware acts as a Meta-Computer since it operates by "talking about computing" and reconfiguring itself for all its task needs by regenerating its machine instructions and transforming its data structures & streams towards performance or wattage or other optimization goals. It handles the user specified needs by exposing all of its potential capabilities ( "what it can do" ) and current activities ( "why and what its doing now" ) to an interactive dialog in the user's language and style. END.</p>
 
-				<div class="PoP-col s3">
-					<i class="fa fa-shield PoP-text-orange PoP-jumbo"></i>
-					<p><b>SECURISYNC:</b><br>Critical Changes use an Encrypted Concensus Ledger</p>
-				</div>
+		<div id="JoKz_ToHry" class="Dx__DIAGRAM Dx__FADE_IN">
+			<span class="GwzDo GwzDo_WIN"></span>
+			<span class="Dx__NOTE">BEGIN.Details. Details. Details. Details. Details. Details. Details. Details. Details. Details. Details. Details. Details. Details. Details. Details. Details. Details. Details. Details. Details. END.</span>
 
-			<div class="PoP-col s3">
-				<i class="fa fa-globe PoP-text-blue PoP-jumbo"></i>
-				<p><b>SHARE:</b><br>Create & Export Media</p>
-			</div>
+			<span class="GwzDo GwzDo_LNX"></span>
+			<span class="Dx__NOTE">BEGIN.Details. Details. Details. Details. Details. Details. Details. Details. Details. Details. END.</span>
 
-				<div class="PoP-col s3">
-					<i class="fa fa-diamond PoP-text-green PoP-jumbo"></i>
-					<p><b>MONETIZE:</b><br>Trade your creations or tweaks</p>
-				</div>
+			<span class="GwzDo GwzDo_DRD"></span>
+			<span class="Dx__NOTE">BEGIN.Details. Details. Details. Details. Details. Details. END.</span>
 
-				</div>
-				<!-- ROW END---------------------- || -->
-			</div>
-		<div class="PoP-col l6 m6">
-			<img class="PoP-image PoP-round-large PoP-hide-small" src="Mx01__SuKz_MEDIA/SuKz03_TxTrz__APTIV_MADE/TxTrz04__HEX.jpg" alt="Image supporting Why Essence">
+			<span class="GwzDo GwzDo_MAC"></span>
+			<span class="Dx__NOTE">BEGIN.Details. Details. Details. Details. Details. Details. Details. Details. Details. Details. Details. Details. Details. Details. Details. Details. Details. Details. END.</span>
 		</div>
-  </div>
+		<!-- <img  id="JoKz_SuKz" class="Dx__MEDIA Dx__FADE_IN" src="./Mx01__SuKz_MEDIA/SuKz02_JaPo__PICT/JaPo00__FyHo.jpg" alt="MEDIA" caption="Mesage for image"/> -->
+		<img  id="JoKz_SuKz" class="Dx__MEDIA Dx__FADE_IN" src="./Mx01__SuKz_MEDIA/SuKz03_TxTrz__APTIV_MADE/TxTrz02__QUAD.jpg" alt="MEDIA" caption="Mesage for image"/>
 
-
-<!-- ====================================================================== -->
-<!-- Ku04 HOW TEK #3 -->
-<!-- ====================================================================== -->
-<div class="PoP-padding-64 PoP-white">
-	<div class="PoP-row-padding">
-	  <div class="PoP-col m5">
-		<a href="PoP01__CRAWL.html">
-		<img class="PoP-image PoP-round-large PoP-hide-small" src="Mx01__SuKz_MEDIA/SuKz03_TxTrz__APTIV_MADE/TxTrz05__ORANGE.jpg" alt="Image supporting How Tech Works" >
-		</a>
-	  </div>
-	  <div class="PoP-col m7">
-		<h2 class="PoP-xxlarge">3. <b>How <i>Essence</i> Works</b></h2>
-		<h2 class="PoP-xlarge PoP-text-red"><b>Human Words become Realtime Chip Instructions</b></h2>
-		<p><span class="PoP-large"><i>Human Dialog 'Meaning Coordinates' map out what is possible, at various levels of tech detail, and these Semantic-Shapes are mapped to various CPU/GPU Chip Instruction Templates, which are Regenerated & Profiled in Realtime.</i></span><br><br>Wantware acts as a Meta-Computer since it operates by "talking about computing" and reconfiguring itself for all its task needs by regenerating its machine instructions and transforming its data structures & streams towards performance or wattage or other optimization goals. It handles the user specified needs by exposing all of its potential capabilities ( "what it can do" ) and current activities ( "why and what its doing now" ) to an interactive dialog in the user's language and style.</p>
-
-	  <!-- ROW 00: TUNE---------------------- || -->
-	  <div class="PoP-row" style="margin-top:64px margin-bottom:32px">
-
-		<div class="PoP-col s3">
-			<i class="fa fa-tachometer PoP-text-orange PoP-jumbo"></i>
-			<p><b>SPEED:</b><br>reorder for fastest results</p>
-		</div>
-
-		<div class="PoP-col s3">
-			<i
-				class="fa fa-battery-half PoP-text-green PoP-jumbo"></i>
-			<p><b>ENERGY:</b><br>restructure for least watts</p>
-		</div>
-
-		<div class="PoP-col s3">
-			<i class="fa fa-wifi PoP-text-pink PoP-jumbo"></i>
-			<p><b>BANDWIDTH:</b><br>prioritize copies & peer clones</p>
-		</div>
-
-		<div class="PoP-col s3">
-			<i class="fa fa-hdd-o PoP-text-cyan PoP-jumbo"></i>
-			<p><b>SPACE:</b><br>compress bits & compact precision</p>
-		</div>
-
+		<a id="JoKz_ChyFi" class="Dx__TOPIC_GUI Dx__LEFT Dx__FADE_IN" onclick="JoJz__ChyZo(-1)">&#x23EA</a>
+		<a id="JoKz_ChyFa" class="Dx__TOPIC_GUI Dx__RIGHT Dx__FADE_IN" onclick="JoJz__ChyZo(+1)">&#x23E9</a>
 	</div>
-	<!-- ROW END---------------------- || -->
 
+	<!-- //------------------------------------------------- -->
+	<!-- DNLOAD -->
+	<!-- //------------------------------------------------- -->
+	<div id="ToMi" class="Dx__OVERLAY" style="display:none">
+				<h3 id="JoKz_BzVa" class="Dx__TXT Dx__FADE_IN">GET ESSENCE</h3>
 
-	  </div>
-	</div>
-  </div>
+				<p class="Dx__FADE_IN" onclick="document.getElementById('ToMi').style.display='none'; ;"><span class="GwzDo GwzDo_LNX"></span><br>TAP here to GET</p>
 
-<!-- ====================================================================== -->
-<!-- Ku05 WHICH ROLE #4 -->
-<!-- ====================================================================== -->
-<div class="PoP-padding-64 PoP--light-grey">
-	<div class="PoP-row-padding">
-		<div class="PoP-col l7 m6">
+				<!-- BROWSER_SUGGESTED -->
+				<h5 id="NODE_Detected"  class="Dx__TXT Dx__FADE_IN"></h5>
+				<h5><button id="NODE_Suggested" type="button" class="Dx__BTN Dx__FADE_IN" onclick="DOWNLOAD_Fe();"></button></h5>
 
-			<h2 class="PoP-xxlarge">4. <b>Which <i>Essence</i> Role to Use</b></h2>
-			<h2 class="PoP-xlarge PoP-text-red"><b>Choose limits for <i>Your</i> Trust Level.</b></h2>
-  			<p><span class="PoP-large">ALL Roles are <b>FREE</b> and exist as choice on startup.</span><br>Roles determine what you can do, what data is kept, and what machine privileges can be accessed using certificates, signing, and passwords.<br></p>
-		</div>
-		<div class="PoP-col l5 m6">
-			<img class="PoP-image PoP-round-large PoP-hide-small" src="Mx01__SuKz_MEDIA/SuKz03_TxTrz__APTIV_MADE/TxTrz01__GEMS.jpg" alt="Image support Which Role To Take">
-		</div>
+				<!-- USER_SELECTED -->
+				<h5 class="Dx__FADE_IN"  p><br><i>Or Click on your OS + CPU Platform of Choice to <b>Save As</b><br></i></p>
 
-  		<div class="PoP-row-padding" style="margin-top:128px">
+					<table class="Dx__FADE_IN"  style="display:table; width: 100%;  border-collapse: collapse; background-color: rgba( 0.0, 0.0, 0.0, 0.7 ); ">
+						<thead>
+							<tr style="border: 2px solid rgb( 255 255 255 );" >
+								<th scope="row"><span class="GwzDo GwzDo_COMP GwzHu"></span><br>OS + CPU</th>
+								<th scope="row"><span class="GwzDo GwzDo_ARM GwzHu"></span><br>ARMv8.2+</th>
+								<th scope="row"><span class="GwzDo GwzDo_INTEL GwzHu"></span><br>Intel_x64</th>
+								<th scope="row"><span class="GwzDo GwzDo_RISCV GwzHu"></span><br>RISC-V</th>
+						  </tr>
+						</thead>
+						<tbody>
 
-			<!--ROLE PRO -->
-			<div class="PoP-quarter PoP-section">
-				<ul class="PoP-ul PoP-card PoP-hover-shadow PoP-white">
-					<li class="PoP-orange PoP-xlarge PoP-padding-32"><i class="fa fa-rocket">&ensp;</i><b>Role 1: Tech-PRO</b></li>
-					<li class="PoP-padding-16"><b>Role</b> Tech Professional</h3></li>
-					<li class="PoP-padding-16"><b>Focus</b> Maximum Features & Authorizations</li>
-					<li class="PoP-padding-16"><b>Unlocks</b> All Security Stages for Administration Level Capabilities.</li>
-					<li class="PoP-padding-16"><b>SuperUser</b> Requires Highest Privileges to Access All Chip and OS Features.</li>
-					<li class="PoP-padding-16"><b>Maximize</b> Processor Clocks, Schedule and other Priorities.</li>
-					<li class="PoP-padding-16"><b>Access</b> Energy Consumption & Other Chip or Sensor Data.</li>
-				</ul>
-			</div>
+							<tr style="border: 2px solid rgb( 255 255 255 );" >
+								<th scope="row"><span class="GwzDo GwzDo_DRD GwzHu"></span><br>Android</th>
+								<td><button type="button" class="Dx__DISABLE" onclick="DISABLE_Dy( 'DRD_ARM.w.apk' );">&#x1F4BE<br>DRD_ARM</button></td>
+								<td></td>
+								<td><button type="button" class="Dx__DISABLE" onclick="DISABLE_Dy( 'DRD_RSV.w.apk' );">&#x1F4BE<br>DRD_RSV</button></td>
+							  </tr>
+						  <tr style="border: 2px solid rgb( 255 255 255 );" >
+							<th scope="row"><span class="GwzDo GwzDo_IOS GwzHu"></span><br>iOS</th>
+							<td><button type="button" class="Dx__DISABLE" onclick="DISABLE_Dy( 'IOS_ARM.w.ipa' );">&#x1F4BE<br>DRD_ARM</button></td>
+							<td></td>
+							<td></td>
+						  </tr>
+						  <tr style="border: 2px solid rgb( 255 255 255 );" >
+							<th scope="row"><span class="GwzDo GwzDo_MAC GwzHu"></span><br>macOS</th>
+								<td><button type="button" class="Dx__DISABLE" onclick="DISABLE_Dy( 'MAC_ARM.w.app' );">&#x1F4BE<br>MAC_ARM</button></td>
+								<td></td>
+								<td></td>
+						  </tr>
+						  <tr style="border: 2px solid rgb( 255 255 255 );" >
+							<th scope="row"><span class="GwzDo GwzDo_LNX GwzHu"></span><br>Linux</th>
 
-			<!--ROLE CORE -->
-			<div class="PoP-quarter PoP-section">
-				<ul class="PoP-ul PoP-card PoP-hover-shadow PoP-white">
-					<li class="PoP-orange PoP-xlarge PoP-padding-32"><i class="fa fa-fighter-jet">&ensp;</i><b>Role 2: CORE-Use</b></li>
-					<li class="PoP-padding-16"><b>Role</b> Everyone, Everywhere</h3></li>
-					<li class="PoP-padding-16"><b>Focus</b> Consumer and Organization Empowered</li>
-					<li class="PoP-padding-16"><b>Understand</b> Who, What, When, and Why Anything Happens.</li>
-					<li class="PoP-padding-16"><b>Tweak</b> Form Changes on how something Appears or is Arranged.</li>
-					<li class="PoP-padding-16"><b>Edit</b> Functional Changes on how something Behaves.</li>
-					<li class="PoP-padding-16"><b>Create</b> Entirely New Content such as Behaviors, Beliefs, Ideas, and Timelines.</li>
-				</ul>
-			</div>
+							<td><button type="button" class="Dx__DISABLE" onclick="DISABLE_Dy( 'LNX_ARM.w.elf' );">&#x1F4BE<br>LNX_ARM</button></td>
+							<td><button type="button" onclick="DOWNLOAD_Dy( 'LNX_X64.w.elf' );">&#x1F4BE<br>LNX_X64</button></td>
+							<td><button type="button" class="Dx__DISABLE" onclick="DISABLE_Dy( 'LNX_RSV.w.elf' );">&#x1F4BE<br>LNX_RSV</button></td>
+						  </tr>
+						  <tr style="border: 2px solid rgb( 255 255 255 );" >
+							<th scope="row"><span class="GwzDo GwzDo_WIN GwzHu"></span><br>Windows</th>
+							<td><button type="button" class="Dx__DISABLE" onclick="DISABLE_Dy( 'WIN_ARM.w.exe' );">&#x1F4BE<br>WIN_ARM</button></td>
+							<td><button type="button" class="Dx__DISABLE" onclick="DISABLE_Dy( 'WIN_X64.w.exe' );">&#x1F4BE<br>WIN_X64</button></td>
+							<td></td>
+						  </tr>
+						</tbody>
 
+					  </table>
+				<p class="Dx__FADE_IN" ><br><i>After Download, Tap or Open the Essence File to Launch the Experience.</i><br>Enjoy!</p><br><br>
 
-			<!--ROLE GHOST -->
-			<div class="PoP-quarter PoP-section">
-					<ul class="PoP-ul PoP-card PoP-hover-shadow PoP-white">
-						<li class="PoP-orange PoP-xlarge PoP-padding-32"><i class="fa fa-car">&ensp;</i><b>Role 3: GHOST-Test</b></li>
-						<li class="PoP-padding-16"> <b>Role</b> Anonymous Play</h3>
-							<li class="PoP-padding-16"><b>Focus</b> User Identity Hidden & Privacy Preserved</li>
-							<li class="PoP-padding-16"><b>Authentic</b> Privacy via a Local-Only Program. No Cloud nor Servers nor Tricks.</li>
-						<li class="PoP-padding-16"><b>No Hassle</b> Exploration of Most Features for Evaluation and Safety.</li>
-						<li class="PoP-padding-16"><b>Un-Tracked</b> User Choices. No Sensor Monitoring via Networked Nodes.</li>
-						<li class="PoP-padding-16"><b>Read-Only</b> mean Absolutely Nothing is Saved or Retained Between Sessions.</li>
-					</ul>
-				</div>
+				<p class="Dx__FADE_IN" style="font-size:67%">This website uses MindAptiv LLC Technologies for informing, distributing and primarily testing of its intellectual property.<br>All rights reserved by MindAptiv LLC.</p>
+				<a class="Dx__FADE_IN" style="font-size:67%" href="https://www.MindAptiv.com" target="_blank"> Check out MindAptiv's Website !!</a>
 
-
-			<!--ROLE KIOSK -->
-			<div class="PoP-quarter PoP-section">
-				<ul class="PoP-ul PoP-card PoP-hover-shadow PoP-white">
-					<li class="PoP-orange PoP-xlarge PoP-padding-32"><i class="fa fa-subway">&ensp;</i><b>Role 4: KIOSK-Visit</b></li>
-					<li class="PoP-padding-16"><b>Role</b> Location Experiences</h3></li>
-					<li class="PoP-padding-16"><b>Focus</b> Computer Protected from Abundant Users</li>
-					<li class="PoP-padding-16"><b>Storefront, Community or School</b> Limited Interactions for Many Visitors.</li>
-					<li class="PoP-padding-16"><b>Recordable</b> User Choices to Track Metrics or Allowed Massive Shared Access.</li>
-					<li class="PoP-padding-16"><b>Remotely</b> Controlled to Prevent Interference and Running Reliably.</li>
-					<li class="PoP-padding-16"><b>Lockdown</b> Input Devices Only Permit Expected Buttons or Sensors.</li>
-				</ul>
-			</div>
-
-		</div>
 	</div>
 </div>
 
-
 <!-- ====================================================================== -->
-<!-- Ku07 END OF PAGE -->
-<!-- ====================================================================== -->
-
-<!-- BOTTOM SCREEN BAR -->
-<p><button class="PoP-button PoP-block PoP-orange PoP-round" onclick="document.getElementById('ToMi').style.display='block'"><i class="fa fa-download">&ensp;</i><br><b class="Pop-wide">DOWNLOAD ESSENCE</b><br></button></p>
-
-
-<footer class="PoP-container PoP-padding-32 PoP-dark-grey PoP-center PoP-xlarge">
-  <div class="PoP-section">
-
-	<!-- FEEDBACK -->
-	<!-- <p><input class="PoP-input PoP-border" type="text" placeholder="Anonymously Comments on *Anything*"></p> -->
-
-    <i class="fa fa-facebook-official PoP-hover-opacity"></i>
-    <i class="fa fa-linkedin PoP-hover-opacity"></i>
-    <i class="fa fa-instagram PoP-hover-opacity"></i>
-    <i class="fa fa-youtube PoP-hover-opacity"></i>
-	<br>
-	<br>
-    <i class="fa fa-cc-visa PoP-hover-opacity"></i>
-	<i class="fa fa-paypal PoP-hover-opacity"></i>
-    <i class="fa fa-google-wallet PoP-hover-opacity"></i>
-    <i class="fa fa-cc-amex PoP-hover-opacity"></i>
-    <i class="fa fa-bitcoin PoP-hover-opacity"></i>
-
-  </div>
- <p class="PoP-small">This website uses MindAptiv LLC Technoligies for informing, distributing and primarily testing of its intellectual property.<br>All rights reserved by MindAptiv LLC.</p>
- <a class="PoP-button PoP-round-xxlarge PoP-medium PoP-light-grey PoP-margin-bottom" href="https://www.MindAptiv.com" target="_blank"> Check out MindAptiv's <i class="fa fa-sitemap PoP-hover-opacity"></i> Website !!</a></footer><!-- Footer end. -->
- </footer>
-
-
-<!-- ====================================================================== -->
-<!-- Ku08 SCRIPTS -->
-<!-- ====================================================================== -->
-
-<script>
-// Slideshow
-var slideIndex = 1;
-showDivs(slideIndex);
-
-function plusDivs(n)
-{
-  showDivs(slideIndex += n);
-}
-
-function showDivs(n)
-{
-  var i;
-  var x = document.getElementsByClassName("TOUR__TaJaPo");
-
-  if (n > x.length) {slideIndex = 1}
-  if (n < 1) {slideIndex = x.length}
-  for (i = 0; i < x.length; i++)
-  {
-    x[i].style.display = "none";
-  }
-  x[slideIndex-1].style.display = "block";
-}
-</script>
-
-<!-- SCRIPT -->
-<script>
-var Download_JaPe = document.getElementById("Download_JaPe");
-
-function Download_JaPe__Ya()
-{
-	Download_JaPe.play();
-}
-
-function Download_JaPe__Yi()
-{
-	Download_JaPe.pause();
-}
-</script>
-
-
-
+<!-- END
+ <!-- ====================================================================== -->
 
 </body>
 </html>
