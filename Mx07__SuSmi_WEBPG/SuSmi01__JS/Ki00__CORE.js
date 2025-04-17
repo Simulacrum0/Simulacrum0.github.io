@@ -19,7 +19,7 @@
 // APP STATUS
 let BriDzYz_v;
 // APP LANG
-let BriDz__KeDru_v;
+let KeDru_v;
 // TOPIC
 let NzJz_v;
 
@@ -53,8 +53,7 @@ let JoPo__Fe_wu = 0;
 async function JoNz__Chy( n )
 {
 	JoNz__Fe_wu = n;
-	NzJz_v = await ToKz__JSON_v( 'SuSmi04__NzJz/', `NzJz00.${KeKu__ToKz_vutf8}` );
-
+	NzJz_v = await ToKz__JSON_v( 'SuSmi04__NzJz/NzJz00/', `NzJz00.${KeKu__ToKz_vutf8}` );
 	if( !NzJz_v ) alert( "NO TOPIC FILE!" );
 
 
@@ -88,7 +87,7 @@ function JoJz__ChyZo( Zo_wi )
 
 //@@@
 // THOT_UPDATE
-function JoJz__ChyYe()
+async function JoJz__ChyYe()
 {
 	JoJiJa__Fe_wu = JoJz__Fe_wu;
 	Hry5_Smz__KriYe = true;
@@ -360,9 +359,6 @@ async function Hre1_Dru__ChyKeDru( KeKuMi_vutf8 )
 	Fe__KeDru_vutf8 = KeKuMi_vutf8.split("-")[0]
 	Fe__KuVa_vutf8 = KeKuMi_vutf8.split("-")[1]
 
-	console.log( "Locale: " + Fe__KeKu_vutf8 );
-	console.log( "Lang: " + Fe__KeDru_vutf8 );
-	console.log( "Country: " + Fe__KuVa_vutf8 ? Fe__KuVa_vutf8 : "No Country" );
 
 	//&&&
 	// CHECK LOCALE
@@ -371,9 +367,10 @@ async function Hre1_Dru__ChyKeDru( KeKuMi_vutf8 )
 	if( !KeKu_l ){ KeKu_l = Hre1_Dru__Gra_v.find( ( Ti_l ) => ( Ti_l.Vy === Fe__KeDru_vutf8 ) );}
 	if( KeKu_l )
 	{
-		console.log( 'LANG_FILE(KeDru): ' + KeKu_l.ToKz );
 		KeKu__ToKz_vutf8 = KeKu_l.ToKz;
 	}
+	console.log( "Words: " + KeKu__ToKz_vutf8 + " Locale: " + Fe__KeKu_vutf8 + " Lang: " + Fe__KeDru_vutf8 + " Country: " + ( Fe__KuVa_vutf8 ? Fe__KuVa_vutf8 : "Global" ) );
+
 
 	//&&&
 	// TEXT_DIR
@@ -384,36 +381,61 @@ async function Hre1_Dru__ChyKeDru( KeKuMi_vutf8 )
 	else { document.body.dir = 'ltr'; }
 
 
-
 	//@@@
 	// UPDATE
 	// ITER UNIQUE IDs & ASSIGN
 	// console.log( "FILE_REQUEST" );
-	BriDz__KeDru_v = await ToKz__JSON_v( 'SuSmi03__KeDru/', `KeDru.${KeKu__ToKz_vutf8}` );
+	KeDru_v = await ToKz__JSON_v( 'SuSmi03__KeDru/', `KeDru.${KeKu__ToKz_vutf8}` );
 	// console.log( "FILE_DONE" );
-	if( !BriDz__KeDru_v ) alert( "NO LANGUAGE FILE!" );
-	// SmaDx__Kz_JSON( BriDz__KeDru_v );
+	if( !KeDru_v ) alert( "NO LANGUAGE FILE!" );
+
+
+	//&&&
+	// NAMES
+	SmaDx__Kz_JSON( KeDru_v.KeDru );
+	Object.entries( KeDru_v.KeDru ).forEach
+	(
+		function( [ Vy_vutf8, Va_vutf8 ] )
+		{
+			let Elm_l = document.getElementById( Vy_vutf8 );
+			if( Elm_l ) { Elm_l.innerHTML = Va_vutf8; }
+		}
+	);
+
+
+	// 5 JoNzVa: TOPICS Ki00__CORE.js:888:13
+	// 17:13:54.485 JoJzVa: SLIDES Ki00__CORE.js:888:13
+	// 17:13:54.485 BriDzToMi: Get ESSENCE Ki00__CORE.js:888:13
+	// 17:13:54.485 BriDzToKro: About ESSENCE Ki00__CORE.js:888:13
+	// 17:13:54.485 ToMi_BzVa: Download ESSENCE Here Ki00__CORE.js:888:13
+	// 17:13:54.485 VyBzVa: ESSENCE LAB Ki00__CORE.js:888:13
+	// 17:13:54.485 DaVa: Build Ver: Ki00__CORE.js:888:13
+	// 17:13:54.485 TrzZe_Gi: Last Build: Ki00__CORE.js:888:13
+
 
 
 	//@@@
-	// UPDATE LANG NAMES
-	document.getElementById('VyBzVa').innerHTML = `<b>${VyBzVa_vutf8}</b>`;
+	// SPECIAL LANG NAMES
+	//document.getElementById('VyBzVa').innerHTML = `<b>${VyBzVa_vutf8}</b>`;
 	document.getElementById('VyDa').innerHTML = `${DaVa_vutf8}${DaVx_vutf8} ${TrzFi__Gi_vutf8}`;
 	document.getElementById('VyGiZe').innerHTML = `${TrzZe_Gi_vutf8} ${TrzZe__Gi_vutf8}`;
-
-	document.getElementById('ToMi_BzVa').innerHTML = ToMi_BzVa_vutf8;
 	document.getElementById('KeDruVa').innerHTML = `${KeKu_l.KuGwz} ${KeKu_l.Va}`;
 
-	document.getElementById('VyMo_1').innerHTML = `${VyMo_1_vutf8}<i>${Ko__HrzByVa_vutf8} ${Ko__KaBz_vutf8}</i>`;
-	document.getElementById('VyMo_2').innerHTML = VyMo2_vutf8;
-	document.getElementById('VyMo_3').innerHTML = VyMo3_vutf8;
 
-	document.getElementById('VyKo__HrzBy_Kri').innerHTML = `<span class="GwzDo GwzDo_${Ko__HrzByVy_vutf8}"></span><br>${Ko__HrzByVy_vutf8}_${Ko__KaBz_vutf8}`;
+
+	// document.getElementById('ToMi_BzVa').innerHTML = ToMi_BzVa_vutf8;
+
+	// document.getElementById('VyMo_1').innerHTML = `${VyMo_1_vutf8}<i>${Ko__HrzByVa_vutf8} ${Ko__KaBz_vutf8}</i>`;
+	// document.getElementById('VyMo_2').innerHTML = VyMo2_vutf8;
+	// document.getElementById('VyMo_3').innerHTML = VyMo3_vutf8;
+
+	// document.getElementById('VyKo__HrzBy_Kri').innerHTML = `<span class="GwzDo GwzDo_${Ko__HrzByVy_vutf8}"></span><br>${Ko__HrzByVy_vutf8}_${Ko__KaBz_vutf8}`;
 
 
 	//@@@
-	// UPDATE SLIDES
-	JoJz__ChyYe();
+	// UPDATE LIST of TOPICS
+	SmaDx__Ta_JSON( KeDru_v.TaNz );
+	await JoNz__Chy( JoNz__Fe_wu );
 }
 
 
@@ -887,7 +909,7 @@ function SmaDx__Kz_JSON( Kz_v )
 	Object.entries( Kz_v ).forEach
 	(
 		function( [ Jy, Vu] )
-		{ console.log( `Jy: ${Jy} Vu: ${Vu}` );	}
+		{ console.log( `${Jy}: ${Vu}` );	}
 	);
 }
 
@@ -897,7 +919,7 @@ function SmaDx__Ta_JSON( Ta_v )
 	(
 		function( Ti_v, Vx )
 		{
-			console.log( "------ Vx:", Vx );
+			console.log( "[" + Vx + "]------------" );
 			SmaDx__Kz_JSON( Ti_v );
 		}
 	);
@@ -918,7 +940,7 @@ async function ToKz__JSON_v( ChaKuTu_vutf8, ToKzVa_vutf8 )
 		return json;
 	}
 	catch( err )
-	{ console.error( `FileRead_Error: ${err}` ); }
+	{ alert( `FileRead_Error: ${err}` ); }
 };
 
 //-------------------------------------------------
@@ -936,8 +958,8 @@ async function Hrz5_Ki__BriYa()
 {
 	//@@@
 	// STATUS
-	BriDzYz_v = await ToKz__JSON_v( 'SuSmi03__KeDru/', 'KeDru_BriDzYz' );
-	if( !BriDz__KeDru_v ) alert( "NO STATUS FILE!" );
+	BriDzYz_v = await ToKz__JSON_v( 'SuSmi04__NzJz/', 'BriDzYz' );
+	if( !BriDzYz_v ) alert( "NO STATUS FILE!" );
 
 	Hre7_Me__TrzGiYe();
 
@@ -945,9 +967,7 @@ async function Hrz5_Ki__BriYa()
 	// CULTURE
 	await Hre1_Dru__BriYa();
 
-	//@@@
-	// TOPICS
-	await JoNz__Chy( 0 );
+
 }
 
 //-------------------------------------------------
