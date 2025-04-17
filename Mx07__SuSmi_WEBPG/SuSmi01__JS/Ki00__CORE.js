@@ -53,8 +53,8 @@ let JoPo__Fe_wu = 0;
 async function JoNz__Chy( n )
 {
 	JoNz__Fe_wu = n;
+	NzJz_v = await ToKz__JSON_v( 'SuSmi04__NzJz/', `NzJz00.${KeKu__ToKz_vutf8}` );
 
-	NzJz_v = await ToKz__JSON_v( 'SuSmi04__NzJz/', 'KeDru_BriDzYz' );
 	if( !NzJz_v ) alert( "NO TOPIC FILE!" );
 
 
@@ -389,7 +389,7 @@ async function Hre1_Dru__ChyKeDru( KeKuMi_vutf8 )
 	// UPDATE
 	// ITER UNIQUE IDs & ASSIGN
 	// console.log( "FILE_REQUEST" );
-	BriDz__KeDru_v = await ToKz__JSON_v( 'SuSmi03__KeDru/', 'KeDru.' + KeKu__ToKz_vutf8 );
+	BriDz__KeDru_v = await ToKz__JSON_v( 'SuSmi03__KeDru/', `KeDru.${KeKu__ToKz_vutf8}` );
 	// console.log( "FILE_DONE" );
 	if( !BriDz__KeDru_v ) alert( "NO LANGUAGE FILE!" );
 	// SmaDx__Kz_JSON( BriDz__KeDru_v );
