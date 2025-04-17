@@ -243,7 +243,7 @@ void main(void)
 	Gi_wfk = ToBri_vwf4[ 0 ].x;
 	VeGy_wf2 = ToBri_vwf4[ 0 ].zw;
 
-  vec2 q = 0.5 * gl_FragCoord.xy / VeGy_wf2.xy;
+  vec2 q = 0.4 * gl_FragCoord.xy / VeGy_wf2.xy;
   vec2 p = -1. + 2. * q;
   p.x *= VeGy_wf2.x/VeGy_wf2.y;
 

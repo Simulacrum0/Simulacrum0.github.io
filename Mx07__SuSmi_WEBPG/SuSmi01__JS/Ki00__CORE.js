@@ -3,12 +3,35 @@
 //===================================
 
 //==============================================
-// CTX
-// Var Kept in FN sections for clarity
+// CONTENTS
+// 1.0 JoNz TOPIC
+// 2.0 Hre1_Dru CULTURE
+// 3.0 Ko NODE
+// 4.0 Hry5_Smz SPATIAL
+// 5.0 ToMi DOWNLOAD
+// 6.0 MoMiKz CTRLS
+// 7.0 Hrz5_Ki ENGINE
 //==============================================
 
+//-------------------------------------------------
+// CORE STRUCTS
+//-------------------------------------------------
+// APP STATUS
+let BriDzYz_v;
+// APP LANG
+let BriDz__KeDru_v;
+// TOPIC
+let NzJz_v;
+
+// BUILD TIME & DIFF
+let TrzFi__Gi_vutf8;
+let TrzZe__Gi_vutf8;
+
+
+
 //==============================================
-// JoKu_TOPIC
+// 1.0
+// JoNz_TOPIC
 //==============================================
 
 //-------------------------------------------------
@@ -27,25 +50,12 @@ let JoJz__Fe_wu = 5;
 let JoJiJa__Fe_wu = 0;
 let JoPo__Fe_wu = 0;
 
-function JoNz__Chy( n )
+async function JoNz__Chy( n )
 {
 	JoNz__Fe_wu = n;
 
-	// 	let i;
-	// let x = document.getElementsByClassName("TOUR__TaJaPo");
-
-	// if (n > x.length) {slideIndex = 1}
-	// if (n < 1) {slideIndex = x.length}
-	// for (i = 0; i < x.length; i++)
-	// 	{
-	// 		x[i].style.display = "none";
-	// 	}
-	// 	x[slideIndex-1].style.display = "block";
-
-	// FN( 'JoKz_BzVa' );
-	// FN( 'JoKz_KeDru' );
-	// FN( 'JoKz_ToHry' );
-	// FN( 'JoKz_SuKz' );
+	NzJz_v = await ToKz__JSON_v( 'SuSmi04__NzJz/', 'KeDru_BriDzYz' );
+	if( !NzJz_v ) alert( "NO TOPIC FILE!" );
 
 
 	//@@@
@@ -83,111 +93,333 @@ function JoJz__ChyYe()
 	JoJiJa__Fe_wu = JoJz__Fe_wu;
 	Hry5_Smz__KriYe = true;
 
-	document.getElementById('VyYz').innerHTML = `Deck: ${JoNz__Fe_wu}/${JoNz__Fo_wu} Slide: ${JoJz__Fe_wu}/${JoJz__Fo_wu} ` + ( JoTra_y ? "Play" : "Pause" ) ;
+	//!!!
+	// UPDATE HERE ONLY
+	// MENU
+	document.getElementById('JoNzVa').innerHTML = `&#x1F4D2 ${JoNzVa_vutf8} ${JoNz__Fe_wu+1}/${JoNz__Fo_wu}`;
+	document.getElementById('JoJzVa').innerHTML = `&#x1F4C4 ${JoJzVa_vutf8} ${JoJz__Fe_wu+1}/${JoJz__Fo_wu} `;
+
+	//!!!
+	// ToKri
+	document.getElementById('JzBz').innerHTML = `SLIDE`;
 
 	// RESET FADEIN
 	Hry5_Smz__ChyBriYa( 'ToKro' );
 	Hry5_Smz__ChyBriYa( 'ToMi' );
+
+	if( ToMi_y == true )
+	{
+		Hry5_Smz__ToKro_Chy();
+	}
 }
 
 
 //==============================================
+// 2.0
 // Hre1_Dru CULTURE
 //==============================================
 
 //-------------------------------------------------
 // LANG/LOCALE
 //-------------------------------------------------
-let KeDru_l = 'en';
-let KuDru_l = '?';
+let Fe__KeDru_vutf8 = 'en';
+let Fe__KuVa_vutf8 = "";
+let KeKu__ToKz_vutf8 = 'en';
 
-let VyBzVa_vutf8 = 'ESSENCE LAB';
-let VyDa_vutf8 = 'Ver: 4.19';
 
-let BriDzToMi_vutf8 = 'Get ESSENCE';
-let BriDzToKro_vutf8 = 'About ESSENCE';
+
+
 let JoNzVa_vutf8 = 'TOPICS';
 let JoJzVa_vutf8 = 'SLIDES';
+let BriDzToMi_vutf8 = 'Get ESSENCE';
+let BriDzToKro_vutf8 = 'About ESSENCE';
+let ToMi_BzVa_vutf8 ='Download ESSENCE Here';
+let VyBzVa_vutf8 = 'ESSENCE LAB';
+let DaVa_vutf8 = 'Build Ver: ';
+let TrzZe_Gi_vutf8 = 'Last Build: ';
+let DaVx_vutf8 = '4.19';
+let VyMo_1_vutf8 = "Tap Icon to Get *this machine's* Launcher: ";
+let VyMo2_vutf8 = "Or Click on your OS + CPU Platform of Choice to <i>Save As<i>";
+let VyMo3_vutf8 = "After Download, Tap or Open the Essence File to Launch the Experience and Enjoy!";
 
 
-let BriDz__ToFz_v;
 
-//-------------------------------------------------
-// LOAD JSON
-//-------------------------------------------------
-const ToKz__JSON_v = () =>
-{
-	fetch( '../SuSmi03__KeDru/KeDru.en.json' )
-
-
-	.then((res) => res.json())
-	.then((data) => {
-	  return data;
-	 })
-
-	.catch((err) => console.error('Error:', err ));
-	return null;
-};
 
 
 //-------------------------------------------------
-// LOAD LANG DEFAULTS
+// LANG/COUNTRY
+// Vy: CODE
+// Va: Local Name
+// So: Reference English
+// KuGwz: Flag as Emoji
 //-------------------------------------------------
-function Hre1_Dru__ChyKeDru()
+const Hre1_Dru__Gra_v =
+[
+	// { "Vy": "af", "Va": "Afrikaans", "KuGwz": "🇿🇦", "So": "Afrikaans", "ToKz": "af" },
+	// { "Vy": "am", "Va": "አማርኛ", "KuGwz": "🇪🇹", "So": "Amharic", "ToKz": "am" },
+	// { "Vy": "ar", "Va": "العربية", "KuGwz": "🇸🇦", "So": "Arabic", "ToKz": "ar" },
+	// { "Vy": "az", "Va": "Azərbaycan dili", "KuGwz": "🇦🇿", "So": "Azerbaijani", "ToKz": "az" },
+	// { "Vy": "be", "Va": "Беларуская", "KuGwz": "🇧🇾", "So": "Belarusian", "ToKz": "be" },
+	// { "Vy": "bg", "Va": "Български", "KuGwz": "🇧🇬", "So": "Bulgarian", "ToKz": "bg" },
+	// { "Vy": "bn", "Va": "বাংলা", "KuGwz": "🇧🇩", "So": "Bengali", "ToKz": "bn" },
+	// { "Vy": "ca", "Va": "Català", "KuGwz": "🇪🇸", "So": "Catalan", "ToKz": "ca" },
+	// { "Vy": "cs", "Va": "Čeština", "KuGwz": "🇨🇿", "So": "Czech", "ToKz": "cs" },
+	// { "Vy": "da", "Va": "Dansk", "KuGwz": "🇩🇰", "So": "Danish", "ToKz": "da" },
+	// { "Vy": "de", "Va": "Deutsch", "KuGwz": "🇩🇪", "So": "German", "ToKz": "de" },
+	// { "Vy": "el", "Va": "Ελληνικά", "So": "Greek", "KuGwz": "🇬🇷", "ToKz": "el" },
+
+	// en
+	{ "Vy": "en", "Va": "English", "KuGwz": "🇺🇸", "So": "English", "ToKz": "en" },
+	{ "Vy": "en-AU", "Va": "English (Australia)", "KuGwz": "🇦🇺", "So": "English", "ToKz": "en" },
+	{ "Vy": "en-CA", "Va": "English (Canada)", "KuGwz": "🇨🇦", "So": "English", "ToKz": "en" },
+	{ "Vy": "en-GB", "Va": "English (United Kingdom)", "KuGwz": "🇬🇧", "So": "English", "ToKz": "en" },
+
+	// es
+	{ "Vy": "es", "Va": "Español (España)", "So": "Spanish (Spain)", "KuGwz": "🇪🇸", "ToKz": "es" },
+	{ "Vy": "es-419", "Va": "Español (Latinoamérica)", "So": "Spanish (Latin America)", "KuGwz": "🌎", "ToKz": "es" },
+	{ "Vy": "es-US", "Va": "Español (Estados Unidos)", "So": "Spanish (United States)", "KuGwz": "🇺🇸", "ToKz": "es" },
+
+	// { "Vy": "et", "Va": "Eesti", "KuGwz": "🇪🇪", "So": "Estonian", "ToKz": "et" },
+	// { "Vy": "eu", "Va": "Euskara", "KuGwz": "🇪🇸", "So": "Basque", "ToKz": "eu" },
+	// { "Vy": "fa", "Va": "فارسی", "KuGwz": "🇮🇷", "So": "Persian", "ToKz": "fa" },
+	// { "Vy": "fi", "Va": "Suomi", "KuGwz": "🇫🇮", "So": "Finnish", "ToKz": "fi" },
+	// { "Vy": "fr-CA", "Va": "Français (Canada)", "KuGwz": "🇨🇦", "So": "French", "ToKz": "fr" },
+	// { "Vy": "fr-FR", "Va": "Français (France)", "KuGwz": "🇫🇷", "So": "French", "ToKz": "fr" },
+	// { "Vy": "gl", "Va": "Galego", "KuGwz": "🇪🇸", "So": "Galician", "ToKz": "gl" },
+	// { "Vy": "gu", "Va": "ગુજરાતી", "KuGwz": "🇮🇳", "So": "Gujarati", "ToKz": "gu" },
+	// { "Vy": "he", "Va": "עברית", "KuGwz": "🇮🇱", "So": "Hebrew", "ToKz": "he" },
+	// { "Vy": "hi", "Va": "हिन्दी", "KuGwz": "🇮🇳", "So": "Hindi", "ToKz": "hi" },
+	// { "Vy": "hr", "Va": "Hrvatski", "KuGwz": "🇭🇷", "So": "Croatian", "ToKz": "hr" },
+	// { "Vy": "hu", "Va": "Magyar", "KuGwz": "🇭🇺", "So": "Hungarian", "ToKz": "hu" },
+	// { "Vy": "hy", "Va": "Հայերեն", "KuGwz": "🇦🇲", "So": "Armenian", "ToKz": "hy" },
+	// { "Vy": "id", "Va": "Indonesia", "KuGwz": "🇮🇩", "So": "Indonesian", "ToKz": "id" },
+	// { "Vy": "is", "Va": "Íslenska", "KuGwz": "🇮🇸", "So": "Icelandic", "ToKz": "is" },
+	// { "Vy": "it", "Va": "Italiano", "KuGwz": "🇮🇹", "So": "Italian", "ToKz": "it" },
+	// { "Vy": "ja", "Va": "日本語", "KuGwz": "🇯🇵", "So": "Japanese", "ToKz": "ja" },
+	// { "Vy": "ka", "Va": "ქართული", "KuGwz": "🇬🇪", "So": "Georgian", "ToKz": "ka" },
+	// { "Vy": "kk", "Va": "Қазақ тілі", "KuGwz": "🇰🇿", "So": "Kazakh", "ToKz": "kk" },
+	// { "Vy": "km", "Va": "ខ្មែរ", "KuGwz": "🇰🇭", "So": "Khmer", "ToKz": "km" },
+	// { "Vy": "kn", "Va": "ಕನ್ನಡ", "KuGwz": "🇮🇳", "So": "Kannada", "ToKz": "kn" },
+	// { "Vy": "ko", "Va": "한국어", "KuGwz": "🇰🇷", "So": "Korean", "ToKz": "ko" },
+	// { "Vy": "ky", "Va": "Кыргызча", "KuGwz": "🇰🇬", "So": "Kyrgyz", "ToKz": "ky" },
+	// { "Vy": "lo", "Va": "ລາວ", "KuGwz": "🇱🇦", "So": "Lao", "ToKz": "lo" },
+	// { "Vy": "lt", "Va": "Lietuvių", "KuGwz": "🇱🇹", "So": "Lithuanian", "ToKz": "lt" },
+	// { "Vy": "lv", "Va": "Latviešu", "KuGwz": "🇱🇻", "So": "Latvian", "ToKz": "lv" },
+	// { "Vy": "mk", "Va": "Македонски", "KuGwz": "🇲🇰", "So": "Macedonian", "ToKz": "mk" },
+	// { "Vy": "ml", "Va": "മലയാളം", "KuGwz": "🇮🇳", "So": "Malayalam", "ToKz": "ml" },
+	// { "Vy": "mn", "Va": "Монгол", "KuGwz": "🇲🇳", "So": "Mongolian", "ToKz": "mn" },
+	// { "Vy": "mr", "Va": "मराठी", "KuGwz": "🇮🇳", "So": "Marathi", "ToKz": "mr" },
+	// { "Vy": "ms", "Va": "Bahasa Melayu", "KuGwz": "🇲🇾", "So": "Malay", "ToKz": "ms" },
+	// { "Vy": "ms-MY", "Va": "Bahasa Melayu (Malaysia)", "KuGwz": "🇲🇾", "So": "Malay (Malaysia)", "ToKz": "ms" },
+	// { "Vy": "my", "Va": "ဗမာ", "KuGwz": "🇲🇲", "So": "Burmese", "ToKz": "my" },
+	// { "Vy": "ne", "Va": "नेपाली", "KuGwz": "🇳🇵", "So": "Nepali", "ToKz": "ne" },
+	// { "Vy": "nl", "Va": "Nederlands", "KuGwz": "🇳🇱", "So": "Dutch", "ToKz": "nl" },
+	// { "Vy": "no", "Va": "Norsk", "KuGwz": "🇳🇴", "So": "Norwegian", "ToKz": "no" },
+	// { "Vy": "pa", "Va": "ਪੰਜਾਬੀ", "KuGwz": "🇮🇳", "So": "Punjabi", "ToKz": "pa" },
+	// { "Vy": "pl", "Va": "Polski", "KuGwz": "🇵🇱", "So": "Polish", "ToKz": "pl" },
+	// { "Vy": "pt-BR", "Va": "Português (Brasil)", "KuGwz": "🇧🇷", "So": "Portuguese (Brazil)", "ToKz": "pt" },
+	// { "Vy": "pt-PT", "Va": "Português (Portugal)", "KuGwz": "🇵🇹", "So": "Portuguese (Portugal)", "ToKz": "pt" },
+	// { "Vy": "rm", "Va": "Rumantsch", "KuGwz": "🇨🇭", "So": "Romansh", "ToKz": "rm" },
+	// { "Vy": "ro", "Va": "Română", "KuGwz": "🇷🇴", "So": "Romanian", "ToKz": "ro" },
+	// { "Vy": "ru", "Va": "Русский", "KuGwz": "🇷🇺", "So": "Russian", "ToKz": "ru" },
+	// { "Vy": "si", "Va": "සිංහල", "KuGwz": "🇱🇰", "So": "Sinhala", "ToKz": "si" },
+	// { "Vy": "sk", "Va": "Slovenčina", "KuGwz": "🇸🇰", "So": "Slovak", "ToKz": "sk" },
+	// { "Vy": "sl", "Va": "Slovenščina", "KuGwz": "🇸🇮", "So": "Slovenian", "ToKz": "sl" },
+	// { "Vy": "sq", "Va": "Shqip", "KuGwz": "🇦🇱", "So": "Albanian", "ToKz": "sq" },
+	// { "Vy": "sr", "Va": "Српски", "KuGwz": "🇷🇸", "So": "Serbian", "ToKz": "sr" },
+	// { "Vy": "sv", "Va": "Svenska", "So": "Swedish", "KuGwz": "🇸🇪", "ToKz": "sv" },
+	// { "Vy": "sw", "Va": "Kiswahili", "KuGwz": "🇹🇿", "So": "Swahili", "ToKz": "sw" },
+	// { "Vy": "ta", "Va": "தமிழ்", "KuGwz": "🇮🇳", "So": "Tamil", "ToKz": "ta" },
+	// { "Vy": "te", "Va": "తెలుగు", "KuGwz": "🇮🇳", "So": "Telugu", "ToKz": "te" },
+	// { "Vy": "th", "Va": "ไทย", "KuGwz": "🇹🇭", "So": "Thai", "ToKz": "th" },
+	// { "Vy": "tl", "Va": "Filipino", "KuGwz": "🇵🇭", "So": "Filipino", "ToKz": "tl" },
+	// { "Vy": "tr", "Va": "Türkçe", "KuGwz": "🇹🇷", "So": "Turkish", "ToKz": "tr" },
+	// { "Vy": "uk", "Va": "Українська", "KuGwz": "🇺🇦", "So": "Ukrainian", "ToKz": "uk" },
+	// { "Vy": "ur", "Va": "اردو", "KuGwz": "🇵🇰", "So": "Urdu", "ToKz": "ur" },
+	// { "Vy": "vi", "Va": "Tiếng Việt", "KuGwz": "🇻🇳", "So": "Vietnamese", "ToKz": "vi" },
+	// { "Vy": "zh", "Va": "中文（简体）", "KuGwz": "🇨🇳", "So": "Chinese (Simplified)", "ToKz": "zh" },
+	// { "Vy": "zh-HK", "Va": "中文（香港）", "KuGwz": "🇭🇰", "So": "Chinese (Hong Kong)", "ToKz": "zh" },
+	// { "Vy": "zh-TW", "Va": "中文（繁體）", "KuGwz": "🇹🇼", "So": "Chinese (Traditional)", "ToKz": "zh" },
+	// { "Vy": "zu", "Va": "Zulu", "KuGwz": "🇿🇦", "So": "Zulu", "ToKz": "zu" },
+];
+
+
+//-------------------------------------------------
+// INIT CULTURE DEFAULTS
+//-------------------------------------------------
+function Hre1_Dru__BriYa()
 {
 	//@@@
-	// CHG LANG
-	console.log( "Lang: " + KeDru_l );
-	console.log( "Country: " + KuDru_l );
+	// FILL ENTRIES
+	const TaKeDru_v = document.getElementById( 'TaKeDru' );
+	while ( TaKeDru_v.firstChild )
+	{
+		TaKeDru_v.removeChild( TaKeDru_v.lastChild );
+	}
 
+	Hre1_Dru__Gra_v.forEach
+	(
+		function( Ti_v, Vx )
+		{
+			// console.log( "------ Vx:", Vx, Ti_v.Va );
+
+			const Kz_v = document.createElement('button');
+			Kz_v.innerHTML = `${Ti_v.KuGwz} ${Ti_v.Va}`;
+
+			//&&&
+			// ADD BTN
+			let JiTra_vutf8 =`Hre1_Dru__ChyKeDru( '${Ti_v.Vy}' );`;
+			// console.log( JiTra_vutf8 );
+			Kz_v.setAttribute( "onclick", JiTra_vutf8 );
+			Kz_v.className = 'Dx__BTN';
+
+			// var elemm = document.createElement('rvml:image');
+			// elemm.src = 'blah.png';
+			// elemm.className = 'rvml';
+			// elemm.onclick = "alert('blah')";
+			// document.body.appendChild(elemm);
+			// elemm.id = "gogo";
+			// elemm.style.position='absolute';
+			// elemm.style.width=55;
+
+			TaKeDru_v.appendChild( Kz_v );
+		}
+	);
+
+	//@@@
+	// SELECT DEFAULT
+	Hre1_Dru__ChyKeDru( navigator.language );
+}
+
+
+//-------------------------------------------------
+// DATE BUILD ELAPSED
+//-------------------------------------------------
+function Hre7_Me__TrzGiYe()
+{
+	//@@@
+	// DATETIME
+	var SaNoKu__GiFe_l = new Date();
+	const GiVuKe = SaNoKu__GiFe_l.toLocaleTimeString();
+	console.log( "Time_Now: " + GiVuKe );
+
+	const UTC__GiFe_l = Date.now();
+	const GiFe_vutf8 = new Intl.DateTimeFormat(navigator.languages).format(UTC__GiFe_l);
+	console.log( "Date_Now: " + GiFe_vutf8 );
+
+	//@@@
+	// BUILD DATE
+	const TrzFi__Gi_l = new Date( 823230245000 );
+	TrzFi__Gi_vutf8 = new Intl.DateTimeFormat(navigator.languages).format( TrzFi__Gi_l );
+	console.log( "Build_Date: " + TrzFi__Gi_vutf8 );
+
+	// ELAPSED
+	// Calculate the time difference in milliseconds
+	let Ze__GiDri_du = UTC__GiFe_l - TrzFi__Gi_l;
+
+	// Calculate the elapsed time in minutes, hours, and days
+	// GiKwu = Years
+	const GiKwu__GiDri_duk = 31556952000;
+	const Ze__GiKwu_wf = Math.floor( Ze__GiDri_du / GiKwu__GiDri_duk );
+	Ze__GiDri_du %= GiKwu__GiDri_duk;
+
+	// GiKi = Months
+	const GiKi__GiDri_duk = Math.floor( 30.5 * 86400000 );
+	const Ze__GiKi_wf = Math.floor( Ze__GiDri_du / GiKi__GiDri_duk );
+	Ze__GiDri_du %= GiKi__GiDri_duk;
+
+
+	// GiPo = Days
+	const GiPo__GiDri_duk = 86400000;
+	const Ze__GiPo_wf = Math.floor( Ze__GiDri_du / GiPo__GiDri_duk );
+	Ze__GiDri_du %= GiPo__GiDri_duk;
+
+	// GiBa = Hours
+	const GiBa__GiDri_duk = 3600000;
+	const Ze__GiBa_wf = Math.floor( Ze__GiDri_du / GiBa__GiDri_duk );
+	Ze__GiDri_du %= GiBa__GiDri_duk;
+
+	// GiKe = Minutes
+	const GiKe__GiDri_duk = 60000;
+	const Ze__GiKe_wf = Math.floor( Ze__GiDri_du / GiKe__GiDri_duk);
+	Ze__GiDri_du %= GiKe__GiDri_duk;
+
+	TrzZe__Gi_vutf8 = `${Ze__GiKwu_wf}_Years ${ Ze__GiKi_wf }_Months ${Ze__GiPo_wf}_Days ${Ze__GiBa_wf}_Hours ${Ze__GiKe_wf}_Min`;
+	console.log( "Build_Elapsed: " + TrzZe__Gi_vutf8 );
+}
+
+
+//-------------------------------------------------
+// CULTURE LOAD LANG
+//-------------------------------------------------
+async function Hre1_Dru__ChyKeDru( KeKuMi_vutf8 )
+{
+	//@@@
+	// LANG BASICS
+	Fe__KeKu_vutf8 = KeKuMi_vutf8;
+	Fe__KeDru_vutf8 = KeKuMi_vutf8.split("-")[0]
+	Fe__KuVa_vutf8 = KeKuMi_vutf8.split("-")[1]
+
+	console.log( "Locale: " + Fe__KeKu_vutf8 );
+	console.log( "Lang: " + Fe__KeDru_vutf8 );
+	console.log( "Country: " + Fe__KuVa_vutf8 ? Fe__KuVa_vutf8 : "No Country" );
+
+	//&&&
+	// CHECK LOCALE
+	let KeKu_l = Hre1_Dru__Gra_v.find( ( Ti_l ) => ( Ti_l.Vy === Fe__KeKu_vutf8 ) );
+	// IF NOT, CHECK just LANG
+	if( !KeKu_l ){ KeKu_l = Hre1_Dru__Gra_v.find( ( Ti_l ) => ( Ti_l.Vy === Fe__KeDru_vutf8 ) );}
+	if( KeKu_l )
+	{
+		console.log( 'LANG_FILE(KeDru): ' + KeKu_l.ToKz );
+		KeKu__ToKz_vutf8 = KeKu_l.ToKz;
+	}
 
 	//&&&
 	// TEXT_DIR
 	// Set text direction
 	const rtlLanguages = ['ar', 'he', 'fa'];
-	if( rtlLanguages.includes( KeDru_l ) )
+	if( rtlLanguages.includes( Fe__KeDru_vutf8 ) )
 		{ document.body.dir = 'rtl'; }
 	else { document.body.dir = 'ltr'; }
 
 
-	//&&&
-	// DATETIME
-	const GiFe_l = Date.now();
-	const GiKwu_FeDx = new Intl.DateTimeFormat(navigator.languages).format(GiFe_l);
-	console.log( "Date: " + GiKwu_FeDx );
-
-	var d = new Date();
-	const GiVuKe = d.toLocaleTimeString();
-	console.log( "Time: " + GiVuKe );
-
-
-	document.getElementById('JoNzVa').innerHTML = '&#x1F4D2' + JoNzVa_vutf8;
-	document.getElementById('JoJzVa').innerHTML = '&#x1F4C4' + JoJzVa_vutf8;
-	document.getElementById('KeDruVa').innerHTML = `&#x1F310 ${KeDru_l}_${KuDru_l}`;
-
-	document.getElementById('VyGi').innerHTML = `${GiKwu_FeDx} ${GiVuKe}`;
-
-
-	//&&&
-	// VER
-	document.getElementById('VyBzVa').innerHTML = `<b>${VyBzVa_vutf8}</b>`;
-	document.getElementById('VyDa').innerHTML = `${VyDa_vutf8} ${GiKwu_FeDx}`;
 
 	//@@@
+	// UPDATE
 	// ITER UNIQUE IDs & ASSIGN
-//	BriDz__ToFz_v = ToKz__JSON_v();
+	// console.log( "FILE_REQUEST" );
+	BriDz__KeDru_v = await ToKz__JSON_v( 'SuSmi03__KeDru/', 'KeDru.' + KeKu__ToKz_vutf8 );
+	// console.log( "FILE_DONE" );
+	if( !BriDz__KeDru_v ) alert( "NO LANGUAGE FILE!" );
+	// SmaDx__Kz_JSON( BriDz__KeDru_v );
 
-	if( BriDz__ToFz_v )	console.log( BriDz__ToFz_v );
 
 	//@@@
-	// ITER DECK COUNT
+	// UPDATE LANG NAMES
+	document.getElementById('VyBzVa').innerHTML = `<b>${VyBzVa_vutf8}</b>`;
+	document.getElementById('VyDa').innerHTML = `${DaVa_vutf8}${DaVx_vutf8} ${TrzFi__Gi_vutf8}`;
+	document.getElementById('VyGiZe').innerHTML = `${TrzZe_Gi_vutf8} ${TrzZe__Gi_vutf8}`;
+
+	document.getElementById('ToMi_BzVa').innerHTML = ToMi_BzVa_vutf8;
+	document.getElementById('KeDruVa').innerHTML = `${KeKu_l.KuGwz} ${KeKu_l.Va}`;
+
+	document.getElementById('VyMo_1').innerHTML = `${VyMo_1_vutf8}<i>${Ko__HrzByVa_vutf8} ${Ko__KaBz_vutf8}</i>`;
+	document.getElementById('VyMo_2').innerHTML = VyMo2_vutf8;
+	document.getElementById('VyMo_3').innerHTML = VyMo3_vutf8;
+
+	document.getElementById('VyKo__HrzBy_Kri').innerHTML = `<span class="GwzDo GwzDo_${Ko__HrzByVy_vutf8}"></span><br>${Ko__HrzByVy_vutf8}_${Ko__KaBz_vutf8}`;
 
 
+	//@@@
+	// UPDATE SLIDES
+	JoJz__ChyYe();
 }
 
 
 //==============================================
-// NODE
+// 3.0
+// Ko NODE
 //==============================================
 
 
@@ -195,7 +427,7 @@ function Hre1_Dru__ChyKeDru()
 // NODE
 //-------------------------------------------------
 // USER FACING
-let Ko__HrzBzVa_vutf8 = "Unknown";
+let Ko__HrzByVa_vutf8 = "Unknown";
 let Ko__KaBz_vutf8 = "Unknown";
 
 // INTERNAL
@@ -209,7 +441,7 @@ function BriDz__Ha()
 
 	if (navigator.userAgentData)
 	{
-		Ko__HrzBzVa_vutf8 = navigator.userAgentData.platform;
+		Ko__HrzByVa_vutf8 = navigator.userAgentData.platform;
 		//MOBILE = navigator.userAgentData.mobile;
 
 		// FAIL on Ko__KaBz_vutf8 as it doesn't match below
@@ -223,18 +455,18 @@ function BriDz__Ha()
 
 	{
 		//@@@
-		// Ko__HrzBzVa_vutf8
+		// Ko__HrzByVa_vutf8
 		// MOST ANDROID shows LINUX
 		if( NAV_NODE.includes("ANDROID") )
-		{Ko__HrzBzVa_vutf8 = "Android"; Ko__HrzByVy_vutf8 = "DRD"; Ko__ToKzJy_vutf8 = "apk"; }
+		{Ko__HrzByVa_vutf8 = "Android"; Ko__HrzByVy_vutf8 = "DRD"; Ko__ToKzJy_vutf8 = "apk"; }
 		else if( NAV_NODE.includes("LINUX") || NAV_NODE.includes("X11")  || NAV_NODE.includes("WAYLAND") )
-		{Ko__HrzBzVa_vutf8  = "Linux"; Ko__HrzByVy_vutf8 = "LNX"; Ko__ToKzJy_vutf8 = "elf"; }
+		{Ko__HrzByVa_vutf8  = "Linux"; Ko__HrzByVy_vutf8 = "LNX"; Ko__ToKzJy_vutf8 = "elf"; }
 		else if( NAV_NODE.includes("IPHONE") || NAV_NODE.includes("IPAD") )
-		{Ko__HrzBzVa_vutf8  = "iOS"; Ko__HrzByVy_vutf8 = "IOS"; Ko__ToKzJy_vutf8 = "ipa"; }
+		{Ko__HrzByVa_vutf8  = "iOS"; Ko__HrzByVy_vutf8 = "IOS"; Ko__ToKzJy_vutf8 = "ipa"; Ko__KaBz_vutf8  = "ARM64"; }
 		else if( NAV_NODE.includes("MAC") )
-		{Ko__HrzBzVa_vutf8  = "Mac"; Ko__HrzByVy_vutf8 = "MAC";  Ko__ToKzJy_vutf8 = "app"; }
+		{Ko__HrzByVa_vutf8  = "Mac"; Ko__HrzByVy_vutf8 = "MAC";  Ko__ToKzJy_vutf8 = "app"; Ko__KaBz_vutf8  = "ARM64"; }
 		else if( NAV_NODE.includes("WINDOWS") )
-		{Ko__HrzBzVa_vutf8  = "Windows"; Ko__HrzByVy_vutf8 = "WIN"; Ko__ToKzJy_vutf8 = "exe"; }
+		{Ko__HrzByVa_vutf8  = "Windows"; Ko__HrzByVy_vutf8 = "WIN"; Ko__ToKzJy_vutf8 = "exe"; }
 
 		//@@@
 		// Ko__KaBz_vutf8
@@ -247,18 +479,14 @@ function BriDz__Ha()
 	}
 
 	//@@@
-	// Smx
-//	document.getElementById('NODE_Detected').innerHTML = "<i>Click to Download *this machine's* detected Ko__HrzByVy_vutf8: " + NODE + "</i>";
-	document.getElementById('VyKo').innerHTML = `Running: <b>${Ko__HrzBzVa_vutf8}_${Ko__KaBz_vutf8}</b>`;
-
-	//@@@
 	// LOG
-	console.log( `Node: ${Ko__HrzBzVa_vutf8}_${Ko__KaBz_vutf8}` );
+	console.log( `Node: ${Ko__HrzByVa_vutf8}_${Ko__KaBz_vutf8}` );
 }
 
 
 //==============================================
-// Hry5_Smz
+// 4.0
+// Hry5_Smz SPATIAL
 //==============================================
 
 //-------------------------------------------------
@@ -457,8 +685,8 @@ function Hry5_Smz__ChyYe( Fe__GiDri_wf )
 		// !!!
 		// 2025.04: Firefox gives ERROR: Error in parsing value for ‘width’.  Declaration dropped.
 		// yet, we NEED these lines
-		MxSi.style.width = MxSi.clientWidth;
-		MxSi.style.height = MxSi.clientHeight;
+		MxSi.style.width = MxSi.clientWidth+ 'px';
+		MxSi.style.height = MxSi.clientHeight+ 'px';
 
 		// console.log( "TiGy: " + MxSi.clientWidth/ MxVeGx_wu + ", " + MxSi.clientHeight / MxVeGa_wu );
 
@@ -531,7 +759,7 @@ function Hry5_Smz__JoTra_ChyDry()
 {
 	JoTra_y = !JoTra_y;
 	if( JoTra_y ) { Fi__GiDri_wf =0; }
-	document.getElementById('JoTraYz').innerHTML = JoTra_y ? `&#x23F8` : `&#x23F5`
+	document.getElementById('JoTraYz').innerHTML = JoTra_y ? `&#x23EF` : `&#x23F5`
 }
 
 function Hry5_Smz__ChyBriYa( Vy )
@@ -543,6 +771,7 @@ function Hry5_Smz__ChyBriYa( Vy )
 }
 
 //==============================================
+// 5.0
 // ToMi DOWNLOAD
 //==============================================
 // TOGGLE INIT to 'not-show' DNLOAD first
@@ -594,17 +823,23 @@ function Hry5_Smz__ToMi_ChyDry()
 {
 	ToMi_y = !ToMi_y;
 
-	document.getElementById('BriDzToMi').innerHTML = ( ToMi_y ? `&#x1F4E5 ${BriDzToMi_vutf8}` : `&#x1F4E4 ${BriDzToKro_vutf8}` );
+	document.getElementById('BriDzToMi').innerHTML = ( ToMi_y ? `&#x1F4DA ${BriDzToKro_vutf8}` : `&#x1F4E5 ${BriDzToMi_vutf8}` );
 
 	document.getElementById('ToKro').style.display= ToMi_y ? 'none' : 'block';
 	document.getElementById('ToMi').style.display= ToMi_y ? 'block' : 'none';
 
-	JoJz__ChyYe();
+	document.getElementById('ToMi').style.display= ToMi_y ? 'block' : 'none';
 }
 
+function Hry5_Smz__ToKro_Chy()
+{
+	ToMi_y = true;
+	Hry5_Smz__ToMi_ChyDry();
+}
 
 //==============================================
-// MoMiKz
+// 6.0
+// MoMiKz CTRLS
 //==============================================
 
 //-------------------------------------------------
@@ -644,19 +879,75 @@ document.addEventListener('keydown', (e) =>
 
 
 //==============================================
-// Hrz5_Ki
+// 7.0
+// Hrz5_Ki ENGINE
 //==============================================
+function SmaDx__Kz_JSON( Kz_v )
+{
+	Object.entries( Kz_v ).forEach
+	(
+		function( [ Jy, Vu] )
+		{ console.log( `Jy: ${Jy} Vu: ${Vu}` );	}
+	);
+}
+
+function SmaDx__Ta_JSON( Ta_v )
+{
+	Ta_v.forEach
+	(
+		function( Ti_v, Vx )
+		{
+			console.log( "------ Vx:", Vx );
+			SmaDx__Kz_JSON( Ti_v );
+		}
+	);
+}
 
 //-------------------------------------------------
-function MENU_Toggle()
+// LOAD JSON
+//-------------------------------------------------
+async function ToKz__JSON_v( ChaKuTu_vutf8, ToKzVa_vutf8 )
+{
+	try
+	{
+		let KuTu_vutf8 = `https://powerourpeople.com/Mx07__SuSmi_WEBPG/${ChaKuTu_vutf8}${ToKzVa_vutf8}.json`;
+		console.log( `FILE: ${KuTu_vutf8}`);
+
+		const res = await fetch( KuTu_vutf8, { headers: { Accept: 'application/json' }} );
+		const json = await res.json();
+		return json;
+	}
+	catch( err )
+	{ console.error( `FileRead_Error: ${err}` ); }
+};
+
+//-------------------------------------------------
+function Hrz4_Bu__ChyNBAR()
 //-------------------------------------------------
 {
-  var x = document.getElementById("VyTaNe");
-  if (x.className === "Dx__NAVI") {
-    x.className += " responsive";
-  } else {
-    x.className = "Dx__NAVI";
-  }
+	var x = document.getElementById("Vy_NBAR");
+	if (x.className === "Dx__NBAR") { x.className += " responsive"; }
+	else { x.className = "Dx__NBAR"; }
+}
+
+//-------------------------------------------------
+async function Hrz5_Ki__BriYa()
+//-------------------------------------------------
+{
+	//@@@
+	// STATUS
+	BriDzYz_v = await ToKz__JSON_v( 'SuSmi03__KeDru/', 'KeDru_BriDzYz' );
+	if( !BriDz__KeDru_v ) alert( "NO STATUS FILE!" );
+
+	Hre7_Me__TrzGiYe();
+
+	//@@@
+	// CULTURE
+	await Hre1_Dru__BriYa();
+
+	//@@@
+	// TOPICS
+	await JoNz__Chy( 0 );
 }
 
 //-------------------------------------------------
@@ -665,26 +956,19 @@ function MENU_Toggle()
 (function BriDz__Ya()
 //-------------------------------------------------
 {
-	//&&&
+	//@@@
 	// NODE
 	BriDz__Ha()
 
-	//&&&
-	// CULTURE STARTUP
-	KeDru_l = navigator.language.split("-")[0]
-	KuDru_l = navigator.language.split("-")[1]
-	if (KuDru_l == ""){ KuDru_l = "?"; }
+	//@@@
+	// STATUS-CULTURE-TOPICS
+	Hrz5_Ki__BriYa();
 
 
-	//&&&
-	// STATUS
-	Hre1_Dru__ChyKeDru();
-	JoNz__Chy(0);
+	//@@@
+	// VISUAL
 	Hry5_Smz__JoTra_ChyDry();
 	Hry5_Smz__ToMi_ChyDry();
-
-	//&&&
-	// SPATIAL RUN
 	Hry5_Smz__KriYe = true;
 	Hry5_Smz__ChyYe();
 }
