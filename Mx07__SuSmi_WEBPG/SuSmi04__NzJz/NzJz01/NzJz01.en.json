@@ -1,9 +1,9 @@
 {
-	"SLIDES":
+	"THOTS":
 	[
 		{
-			"TITLE": "THOT02_01",
-			"TXT": "Human Dialog 'Meaning Coordinates' map out what is possible, at various levels of tech detail, and these Semantic-Shapes are mapped to various CPU/GPU Chip Instruction Templates, which are Regenerated & Profiled in Realtime. Wantware acts as a Meta-Computer since it operates by \"talking about computing\" and reconfiguring itself for all its task needs by regenerating its machine instructions and transforming its data structures & streams towards performance or wattage or other optimization goals. It handles the user specified needs by exposing all of its potential capabilities ( \"what it can do\" ) and current activities ( \"why and what its doing now\" ) to an interactive dialog in the user's language and style.",
+			"TITLE": "Consider #01",
+			"TXT": "EXAMPLE Paragraph for Testing Purposes only while site is under rennovation. Please ignore this message and return to the site in summer 2025.",
 
 			"NOTES":
 			[
@@ -29,15 +29,15 @@
 
 			"MEDIA":
 			{
-				"PATH": "SuKz02_JaPo__PICT",
+				"PATH": "SuKz02_JaPo__PICT/",
 				"IMG": "JaPo00__FyHo.jpg",
 				"CAPTION": "Mesage for image"
 			}
 		},
 
 		{
-			"TITLE": "THOT02_02",
-			"TXT": "Human Dialog 'Meaning Coordinates' map out what is possible, at various levels of tech detail, and these Semantic-Shapes are mapped to various CPU/GPU Chip Instruction Templates, which are Regenerated & Profiled in Realtime. Wantware acts as a Meta-Computer since it operates by \"talking about computing\" and reconfiguring itself for all its task needs by regenerating its machine instructions and transforming its data structures & streams towards performance or wattage or other optimization goals. It handles the user specified needs by exposing all of its potential capabilities ( \"what it can do\" ) and current activities ( \"why and what its doing now\" ) to an interactive dialog in the user's language and style.",
+			"TITLE": "Consider #02",
+			"TXT": "2nd pgraf.",
 
 			"NOTES":
 			[
@@ -63,15 +63,15 @@
 
 			"MEDIA":
 			{
-				"PATH": "SuKz02_JaPo__PICT",
+				"PATH": "SuKz02_JaPo__PICT/",
 				"IMG": "JaPo00__FyHo.jpg",
 				"CAPTION": "Mesage for image"
 			}
 		},
 
 		{
-			"TITLE": "THOT02_03",
-			"TXT": "Human Dialog 'Meaning Coordinates' map out what is possible, at various levels of tech detail, and these Semantic-Shapes are mapped to various CPU/GPU Chip Instruction Templates, which are Regenerated & Profiled in Realtime. Wantware acts as a Meta-Computer since it operates by \"talking about computing\" and reconfiguring itself for all its task needs by regenerating its machine instructions and transforming its data structures & streams towards performance or wattage or other optimization goals. It handles the user specified needs by exposing all of its potential capabilities ( \"what it can do\" ) and current activities ( \"why and what its doing now\" ) to an interactive dialog in the user's language and style.",
+			"TITLE": "Consider #03",
+			"TXT": "3rd pgraf.",
 
 			"NOTES":
 			[
@@ -97,7 +97,7 @@
 
 			"MEDIA":
 			{
-				"PATH": "SuKz02_JaPo__PICT",
+				"PATH": "SuKz02_JaPo__PICT/",
 				"IMG": "JaPo00__FyHo.jpg",
 				"CAPTION": "Mesage for image"
 			}

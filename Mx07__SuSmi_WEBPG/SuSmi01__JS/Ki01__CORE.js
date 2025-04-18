@@ -68,6 +68,7 @@ function JoNz__ChyZo( Zo_wi )
 	JoNz__Chy( JoNz__Fe_wu );
 }
 
+
 //@@@
 // TOPIC UPD
 async function JoNz__Chy( Nz_wu )
@@ -76,9 +77,14 @@ async function JoNz__Chy( Nz_wu )
 
 	//&&&
 	// TOPIC FILE
-	NzJz_v = await ToKz__JSON_v( 'SuSmi04__NzJz/NzJz00/', `NzJz00.${KeKu__ToKz_vutf8}` );
-	if( !NzJz_v ) alert( "NO TOPIC FILE!" );
+	if( !KeDru_v ) return;
+	const FeNzVa_vutf8 = KeDru_v.TOPICS[ JoNz__Fe_wu ].ID;
+	if( !FeNzVa_vutf8 ) { SmaTrx( "NO TOPIC ID!" ); return; }
 
+	Cannot read properties of undefined (reading 'ID')
+
+	NzJz_v = await ToKz__JSON_v( `SuSmi04__NzJz/${FeNzVa_vutf8}/`, `${FeNzVa_vutf8}.${KeKu__ToKz_vutf8}` );
+	if( !NzJz_v ) { SmaTrx( "NO TOPIC FILE!" ); return; }
 
 
 	//&&&
@@ -86,15 +92,27 @@ async function JoNz__Chy( Nz_wu )
 	document.getElementById('JoNzVa').innerHTML = `&#x1F4D2 ${ KeDru_v.TERMS.JoNzVa} ${JoNz__Fe_wu+1}/${JoNz__Fo_wu}`;
 
 	//&&&
-	// SLIDE LIST
-	JoJz__Fo_wu = NzJz_v.SLIDES.length;
+	// THOTS
+	const TaJoJz_v = document.getElementById( 'TaJoJz' );
+	Hri3_Ne__Ta_ChyStz( TaJoJz_v );
 
-	NzJz_v.SLIDES.forEach
+	JoJz__Fo_wu = NzJz_v.THOTS.length;
+	NzJz_v.THOTS.forEach
 	(
-		function( Ti_v, Vx )
+		function( Ti_v, Vx_wu )
 		{
-			console.log( "[" + Vx + "]------------" + Ti_v.TITLE );
 			// SmaDx__Kz_JSON( Ti_v );
+			// console.log( "[" + Vx_wu + "]------------" + Ti_v.TITLE );
+
+			//&&&
+			// ADD BTN
+			const Kz_v = document.createElement('button');
+			Kz_v.innerHTML = `${Ti_v.TITLE}`;
+			let JiTra_vutf8 =`JoJz__Chy( ${Vx_wu} );`;
+			// console.log( JiTra_vutf8 );
+			Kz_v.setAttribute( "onclick", JiTra_vutf8 );
+			Kz_v.className = 'Dx__BTN';
+			TaJoJz_v.appendChild( Kz_v );
 		}
 	);
 
@@ -104,7 +122,7 @@ async function JoNz__Chy( Nz_wu )
 	Fi__GiDri_wf = 0;
 	Fe__GiPa_wf = 0;
 
-	JoJz__ChyYe( 0 );
+	JoJz__Chy( 0 );
 }
 
 //-------------------------------------------------
@@ -118,39 +136,74 @@ function JoJz__ChyZo( Zo_wi )
 	if( JoJz__Fe_wu < 0 ){ JoJz__Fe_wu = JoJz__Fo_wu - 1; }
 	else if( JoJz__Fe_wu >= JoJz__Fo_wu ){ JoJz__Fe_wu = 0; }
 
-	JoJz__ChyYe( JoJz__Fe_wu );
+	JoJz__Chy( JoJz__Fe_wu );
 }
 
 //@@@
 // THOT_UPD
-async function JoJz__ChyYe( Jz_wu )
+async function JoJz__Chy( Jz_wu )
 {
 	JoJz__Fe_wu = ( Jz_wu % JoJz__Fo_wu );
 
 	Hry5_Smz__KriYe = true;
 
 	//&&&
-	// MENU COUNTER
+	// THOT COUNTER
 	document.getElementById('JoJzVa').innerHTML = `&#x1F4C4 ${KeDru_v.TERMS.JoJzVa} ${JoJz__Fe_wu+1}/${JoJz__Fo_wu} `;
 
 	// JoJiJa__Fe_wu = JoJz__Fe_wu;
+	const Jz_v = NzJz_v.THOTS[ JoJz__Fe_wu ];
+	if( !Jz_v ){ SmaTrx( `NO THOT ${JoJz__Fe_wu}` ); return; }
+
 
 	//&&&
 	// THOT DETAILS
-	document.getElementById('JzBz').innerHTML = `SLIDE`;
 
-	Object.entries( NzJz_v.SLIDES[ 0 ] ).forEach
-	(
-		function( [ Vy_vutf8, Va_vutf8 ] )
-		{
-			console.log( `${Vy_vutf8}: ${Va_vutf8}` );
-			// let Elm_l = document.getElementById( Vy_vutf8 );
-			// if( Elm_l ) { Elm_l.innerHTML = Va_vutf8; }
-			// else { console.log( `--------*SMISS*: ${Vy_vutf8}-----------` ); }
-		}
-	);
+	//%%%
+	// TXT
+	document.getElementById('JzBz').innerHTML = Jz_v.TITLE;
+	document.getElementById('JzKa').innerHTML =  Jz_v.TXT;
 
+	//%%%
+	// NOTES
+	const JoKz_ToHry_v = document.getElementById('JoKz_ToHry');
+	Hri3_Ne__Ta_ChyStz( JoKz_ToHry_v );
 
+	if( Jz_v.NOTES )
+	{
+		Jz_v.NOTES.forEach
+		(
+			function( Ti_v, Vx_wu )
+			{
+				// SmaDx__Kz_JSON( Ti_v );
+				// console.log( "[" + Vx_wu + "]------------" + Ti_v.TITLE );
+
+				//&&&
+				// ADD ICON
+				const Gwz_v = document.createElement('span');
+				Gwz_v.className = `GwzDo GwzDo_${Ti_v.ICON}`;
+				JoKz_ToHry_v.appendChild( Gwz_v );
+
+				//&&&
+				// ADD NOTE
+				const Dru_v = document.createElement('span');
+				Dru_v.className = 'Dx__NOTE';
+				Dru_v.innerHTML = Ti_v.MSG;
+				JoKz_ToHry_v.appendChild( Dru_v );
+			}
+		);
+
+	}
+
+	//%%%
+	// MEDIA
+	const SuKz_v = Jz_v.MEDIA;
+	if( SuKz_v )
+	{
+		//console.log(  `./Mx01__SuKz_MEDIA/${SuKz_v.PATH}${SuKz_v.IMG}` );
+		document.getElementById('JoKz_Va').innerHTML = SuKz_v.CAPTION;
+		document.getElementById('JoKz_SuKz').src = `./Mx01__SuKz_MEDIA/${SuKz_v.PATH}${SuKz_v.IMG}`;
+	}
 
 
 	//&&&
@@ -180,38 +233,32 @@ let KeKu__ToKz_vutf8 = 'en';
 //-------------------------------------------------
 // INIT CULTURE DEFAULTS
 //-------------------------------------------------
-function Hre1_Dru__BriYa()
+async function Hre1_Dru__BriYa()
 {
 	//@@@
 	// FILL ENTRIES
 	const TaKeDru_v = document.getElementById( 'TaKeDru' );
-	while ( TaKeDru_v.firstChild )
-	{
-		TaKeDru_v.removeChild( TaKeDru_v.lastChild );
-	}
+	Hri3_Ne__Ta_ChyStz( TaKeDru_v );
 
 	Hre1_Dru__Gra_v.forEach
 	(
-		function( Ti_v, Vx )
+		function( Ti_v, Vx_wu )
 		{
-			// console.log( "------ Vx:", Vx, Ti_v.Va );
-
-			const Kz_v = document.createElement('button');
-			Kz_v.innerHTML = `${Ti_v.KuGwz} ${Ti_v.Va}`;
+			// console.log( "------ Vx_wu:", Vx_wu, Ti_v.Va );
 
 			//&&&
 			// ADD BTN
+			const Kz_v = document.createElement('button');
+			Kz_v.innerHTML = `${Ti_v.KuGwz} ${Ti_v.Va}`;
 			let JiTra_vutf8 =`Hre1_Dru__ChyKeDru( '${Ti_v.Vy}' );`;
-			// console.log( JiTra_vutf8 );
+
 			Kz_v.setAttribute( "onclick", JiTra_vutf8 );
 			Kz_v.className = 'Dx__BTN';
-
-			// var elemm = document.createElement('rvml:image');
+			// elemm.id = "gogo";
 			// elemm.src = 'blah.png';
 			// elemm.className = 'rvml';
 			// elemm.onclick = "alert('blah')";
-			// document.body.appendChild(elemm);
-			// elemm.id = "gogo";
+			//
 			// elemm.style.position='absolute';
 			// elemm.style.width=55;
 
@@ -318,18 +365,24 @@ async function Hre1_Dru__ChyKeDru( KeKuMi_vutf8 )
 	//@@@
 	// LANG_FILE
 	KeDru_v = await ToKz__JSON_v( 'SuSmi03__KeDru/', `KeDru.${KeKu__ToKz_vutf8}` );
-	if( !KeDru_v ) alert( "NO LANGUAGE FILE!" );
+	if( !KeDru_v ){ SmaTrx( "NO LANGUAGE FILE!" ); return; }
+
 
 	//&&&
 	// TERMS
+	// FORMULATE
 	document.getElementById('VyDa').innerHTML = `${KeDru_v.TERMS.DaVa}${BriDzYz_v.MoDzDa} ${TrzFi__Gi_vutf8}`;
 	document.getElementById('VyGiZe').innerHTML = `${KeDru_v.TERMS.TrzZeVa} ${TrzZe__Gi_vutf8}`;
 	document.getElementById('KeDruVa').innerHTML = `${KeKu_l.KuGwz} ${KeKu_l.Va}`;
-	// document.getElementById('VyKo__HrzBy_Kri').innerHTML = `<span class="GwzDo GwzDo_${Ko__HrzByVy_vutf8}"></span><br>${Ko__HrzByVy_vutf8}_${Ko__KaBz_vutf8}`;
+	document.getElementById('VyKo__HrzBy_Kri').innerHTML = `<span class="GwzDo GwzDo_${Ko__HrzByVy_vutf8}"></span><br>${Ko__HrzByVy_vutf8}_${Ko__KaBz_vutf8}`;
 
+	//!!!
+	// Am Setting here redundantly as out-of-order not resolved w/ async/await;
+	document.getElementById('BriDzTo').innerHTML = ( ToMi_y ? `&#x1F4DA ${KeDru_v.TERMS.BriDzToKro}` : `&#x1F4E5 ${KeDru_v.TERMS.BriDzToMi}` );
 
 	//&&&
 	// LABELS
+	// AUTOMATE
 	SmaDx__Kz_JSON( KeDru_v.LABELS );
 	Object.entries( KeDru_v.LABELS ).forEach
 	(
@@ -344,7 +397,29 @@ async function Hre1_Dru__ChyKeDru( KeKuMi_vutf8 )
 
 	//&&&
 	// TOPICS
-	SmaDx__Ta_JSON( KeDru_v.TOPICS );
+	//SmaDx__Ta_JSON( KeDru_v.TOPICS );
+
+	const TaJoNz_v = document.getElementById( 'TaJoNz' );
+	Hri3_Ne__Ta_ChyStz( TaJoNz_v );
+
+	KeDru_v.TOPICS.forEach
+	(
+		function( Ti_v, Vx_wu )
+		{
+			// console.log( "------ Vx_wu:", Vx_wu, Ti_v.Va );
+
+			//&&&
+			// ADD BTN
+			const Kz_v = document.createElement('button');
+			Kz_v.innerHTML = `${Ti_v.NAME}`;
+			let JiTra_vutf8 =`JoNz__Chy( ${Vx_wu} );`;
+			// console.log( JiTra_vutf8 );
+			Kz_v.setAttribute( "onclick", JiTra_vutf8 );
+			Kz_v.className = 'Dx__BTN';
+			TaJoNz_v.appendChild( Kz_v );
+		}
+	);
+
 
 	// UPDATE LIST
 	await JoNz__Chy( JoNz__Fe_wu % JoNz__Fo_wu );
@@ -377,7 +452,7 @@ function BriDz__Ha()
 	{
 		Ko__HrzByVa_vutf8 = navigator.userAgentData.platform;
 		//MOBILE = navigator.userAgentData.mobile;
-
+		//
 		// FAIL on Ko__KaBz_vutf8 as it doesn't match below
 		// navigator.userAgentData.getHighEntropyValues( ["architecture", "platformVersion"])
 		// .then( ua =>
@@ -430,8 +505,8 @@ function Hry5_Smz__Ya()
 {
     const gl = MxSi.getContext('webgl2');
     if (!gl)
-		{
-        alert( 'Browser OUT of DATE: WebGL2 is Required! Please Update.');
+	{
+        SmaTrx( 'Browser OUT of DATE: WebGL2 is Required! Please Update.');
         return;
     }
 
@@ -713,7 +788,7 @@ function Hry5_Smz__ChyBriYa( Vy )
 {
 	var Ti_l = document.getElementById( Vy );
 	Ti_l.style.animation = 'none';
-	Ti_l.offsetHeight; /* trigger reflow */
+	Ti_l.offsetHeight; // trigger reflow
 	Ti_l.style.animation = null;
 }
 
@@ -766,10 +841,9 @@ function ToMi_JaPe__Yi()
 
 //@@@
 // TOGGLE DNLOAD
-function Hry5_Smz__ToMi_ChyDry()
+function Hry5_Smz__To_ChyDry()
 {
 	ToMi_y = !ToMi_y;
-
 	if( KeDru_v )
 	{
 		document.getElementById('BriDzTo').innerHTML = ( ToMi_y ? `&#x1F4DA ${KeDru_v.TERMS.BriDzToKro}` : `&#x1F4E5 ${KeDru_v.TERMS.BriDzToMi}` );
@@ -784,7 +858,7 @@ function Hry5_Smz__ToMi_ChyDry()
 function Hry5_Smz__ToKro_Chy()
 {
 	ToMi_y = true;
-	Hry5_Smz__ToMi_ChyDry();
+	Hry5_Smz__To_ChyDry();
 }
 
 //==============================================
@@ -804,7 +878,6 @@ document.addEventListener('keydown', (e) =>
 		case 'ArrowDown':JoNz__ChyZo(1); break;
 
 		case 'ArrowLeft': JoJz__ChyZo(-1); break;
-
 		case 'Tab':
 		case 'ArrowRight':
 			 JoJz__ChyZo(1);
@@ -813,7 +886,7 @@ document.addEventListener('keydown', (e) =>
 		// DNLOAD or LEARN
 		case 'Escape':
 		case 'Cancel':
-			Hry5_Smz__ToMi_ChyDry();
+			Hry5_Smz__To_ChyDry();
 		break;
 
 		// Play/Pause
@@ -832,6 +905,10 @@ document.addEventListener('keydown', (e) =>
 // 7.0
 // Hrz5_Ki ENGINE
 //==============================================
+
+//-------------------------------------------------
+// LOG
+//-------------------------------------------------
 function SmaDx__Kz_JSON( Kz_v )
 {
 	Object.entries( Kz_v ).forEach
@@ -845,19 +922,47 @@ function SmaDx__Ta_JSON( Ta_v )
 {
 	Ta_v.forEach
 	(
-		function( Ti_v, Vx )
+		function( Ti_v, Vx_wu )
 		{
-			console.log( "[" + Vx + "]------------" );
+			console.log( "[" + Vx_wu + "]------------" );
 			SmaDx__Kz_JSON( Ti_v );
 		}
 	);
 }
 
 //-------------------------------------------------
+// ERR
+//-------------------------------------------------
+function SmaTrx( Trx_vutf8 )
+{
+	console.error( Trx_vutf8 );
+	alert( Trx_vutf8 );
+}
+
+//-------------------------------------------------
+// MENU CLEAR
+//-------------------------------------------------
+function Hri3_Ne__Ta_ChyStz( Ta_v )
+{
+	while( Ta_v.firstChild )
+	{
+		Ta_v.removeChild( Ta_v.lastChild );
+	}
+}
+
+//-------------------------------------------------
 // LOAD JSON
 // NOTE: Attempts to use 'async import' for JSON failed via CORS
-// FAIL: turn off CORS in Firefox, type "about:config" in the address bar, accept the risk, and search for "content.cors.disable."
-// TEST: $google-chrome --disable-web-security --allow-file-access-from-files
+// FAIL: Firefox turn off CORS via type "about:config" @ address bar & toggle "content.cors.disable."
+// WIN: google-chrome has 2 file-access flags to run
+//
+// LAB ( Edit locally using FILES only )
+// const WEBPG_vutf8 = "Mx07__SuSmi_WEBPG/";
+// $google-chrome --allow-file-access-from-files --allow-file-access file:///mnt/Ku5_KoKri/Kri07__Mx_POST/index.html
+//
+// PUB ( Publish using REAL Site )
+//const WEBPG_vutf8 = "https://powerourpeople.com/Mx07__SuSmi_WEBPG/";
+// $google-chrome powerourpeople.com
 //
 //-------------------------------------------------
 async function ToKz__JSON_v( ChaKuTu_vutf8, ToKzVa_vutf8 )
@@ -872,7 +977,7 @@ async function ToKz__JSON_v( ChaKuTu_vutf8, ToKzVa_vutf8 )
 		return json;
 	}
 	catch( err )
-	{ alert( `FileRead_Error: ${err}` ); }
+	{ SmaTrx( `FileRead_Error: ${err}` ); }
 };
 
 //-------------------------------------------------
@@ -892,14 +997,13 @@ async function Hrz5_Ki__BriYa()
 	//@@@
 	// STATUS
 	BriDzYz_v = await ToKz__JSON_v( 'SuSmi04__NzJz/', 'BriDzYz' );
-	if( !BriDzYz_v ) alert( "NO STATUS FILE!" );
+	if( !BriDzYz_v ) { SmaTrx( "NO STATUS FILE!" ); return; }
 
 	Hre7_Me__TrzGiYe();
 
 	//@@@
 	// CULTURE
 	await Hre1_Dru__BriYa();
-
 }
 
 //-------------------------------------------------
@@ -919,8 +1023,7 @@ async function Hrz5_Ki__BriYa()
 	//@@@
 	// VISUAL
 	Hry5_Smz__JoTra_ChyDry();
-	Hry5_Smz__ToMi_ChyDry();
-	Hry5_Smz__KriYe = true;
+	Hry5_Smz__ToKro_Chy();
 	Hry5_Smz__ChyYe();
 }
 )();

@@ -1,13 +1,14 @@
 {
 	"TERMS":
 	{
-		"BriDzToMi": "ES=Get ESSENCE",
-		"BriDzToKro": "ES=About ESSENCE",
+		"JoNzVa": "ES=TOPICS",
+		"JoJzVa": "ES=SLIDES",
+
 		"DaVa": "ES=Build Ver: ",
 		"TrzZeVa": "ES=Last Build: ",
 
-		"JoNzVa": "ES=TOPICS",
-		"JoJzVa": "ES=SLIDES"
+		"BriDzToMi": "ES=Get ESSENCE",
+		"BriDzToKro": "ES=About ESSENCE"
 	},
 
 	"LABELS":
@@ -26,8 +27,7 @@
 
 	"TOPICS":
 	[
-		{ "NzJz00": "ES=Welcome to Wantware" },
-		{ "NzJz01": "ES=About Us" },
-		{ "NzJz02": "ES=Harnessing AI" }
+		{ "ID": "NzJz00", "NAME": "Bienvendios a Wantware" },
+		{ "ID": "NzJz02", "NAME": "Descubrir al Wantware" }
 	]
 }

@@ -1,13 +1,14 @@
 {
 	"TERMS":
 	{
-		"BriDzToMi": "Get ESSENCE",
-		"BriDzToKro": "About ESSENCE",
+		"JoNzVa": "Topic",
+		"JoJzVa": "Thought",
+
 		"DaVa": "Build Ver: ",
 		"TrzZeVa": "Last Build: ",
 
-		"JoNzVa": "Topic",
-		"JoJzVa": "Thought"
+		"BriDzToMi": "Get ESSENCE",
+		"BriDzToKro": "About ESSENCE"
 	},
 
 	"LABELS":
@@ -26,8 +27,8 @@
 
 	"TOPICS":
 	[
-		{ "NzJz00": "Welcome to Wantware" },
-		{ "NzJz01": "About Us" },
-		{ "NzJz02": "Harnessing AI" }
+		{ "ID": "NzJz00", "NAME": "Welcome to Wantware" },
+		{ "ID": "NzJz01", "NAME": "About Wantware" },
+		{ "ID": "NzJz02", "NAME": "Advanced Wantware" }
 	]
 }
