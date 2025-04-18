@@ -399,31 +399,19 @@ async function Hre1_Dru__ChyKeDru( KeKuMi_vutf8 )
 		{
 			let Elm_l = document.getElementById( Vy_vutf8 );
 			if( Elm_l ) { Elm_l.innerHTML = Va_vutf8; }
+			else { console.log( `--------*MISS*: ${Vy_vutf8}-----------` ); }
 		}
 	);
 
-
-	// 5 JoNzVa: TOPICS Ki00__CORE.js:888:13
-	// 17:13:54.485 JoJzVa: SLIDES Ki00__CORE.js:888:13
-	// 17:13:54.485 BriDzToMi: Get ESSENCE Ki00__CORE.js:888:13
-	// 17:13:54.485 BriDzToKro: About ESSENCE Ki00__CORE.js:888:13
-	// 17:13:54.485 ToMi_BzVa: Download ESSENCE Here Ki00__CORE.js:888:13
-	// 17:13:54.485 VyBzVa: ESSENCE LAB Ki00__CORE.js:888:13
-	// 17:13:54.485 DaVa: Build Ver: Ki00__CORE.js:888:13
-	// 17:13:54.485 TrzZe_Gi: Last Build: Ki00__CORE.js:888:13
 
 
 
 	//@@@
 	// SPECIAL LANG NAMES
-	//document.getElementById('VyBzVa').innerHTML = `<b>${VyBzVa_vutf8}</b>`;
 	document.getElementById('VyDa').innerHTML = `${DaVa_vutf8}${DaVx_vutf8} ${TrzFi__Gi_vutf8}`;
 	document.getElementById('VyGiZe').innerHTML = `${TrzZe_Gi_vutf8} ${TrzZe__Gi_vutf8}`;
 	document.getElementById('KeDruVa').innerHTML = `${KeKu_l.KuGwz} ${KeKu_l.Va}`;
 
-
-
-	// document.getElementById('ToMi_BzVa').innerHTML = ToMi_BzVa_vutf8;
 
 	// document.getElementById('VyMo_1').innerHTML = `${VyMo_1_vutf8}<i>${Ko__HrzByVa_vutf8} ${Ko__KaBz_vutf8}</i>`;
 	// document.getElementById('VyMo_2').innerHTML = VyMo2_vutf8;
@@ -435,7 +423,7 @@ async function Hre1_Dru__ChyKeDru( KeKuMi_vutf8 )
 	//@@@
 	// UPDATE LIST of TOPICS
 	SmaDx__Ta_JSON( KeDru_v.TaNz );
-	await JoNz__Chy( JoNz__Fe_wu );
+	await JoNz__Chy( JoNz__Fe_wu % JoNz__Fo_wu );
 }
 
 
@@ -845,11 +833,11 @@ function Hry5_Smz__ToMi_ChyDry()
 {
 	ToMi_y = !ToMi_y;
 
-	document.getElementById('BriDzToMi').innerHTML = ( ToMi_y ? `&#x1F4DA ${BriDzToKro_vutf8}` : `&#x1F4E5 ${BriDzToMi_vutf8}` );
+	document.getElementById('BriDzTo').innerHTML = ( ToMi_y ? `&#x1F4DA ${BriDzToKro_vutf8}` : `&#x1F4E5 ${BriDzToMi_vutf8}` );
 
+	//&&&
+	// TOGGLE HIDE
 	document.getElementById('ToKro').style.display= ToMi_y ? 'none' : 'block';
-	document.getElementById('ToMi').style.display= ToMi_y ? 'block' : 'none';
-
 	document.getElementById('ToMi').style.display= ToMi_y ? 'block' : 'none';
 }
 

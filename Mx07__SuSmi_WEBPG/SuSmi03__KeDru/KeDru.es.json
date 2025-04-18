@@ -1,16 +1,20 @@
 {
-	"KeDru":
+	"TERMS":
 	{
+		"BriDzToMi": "Get ESSENCE",
+		"BriDzToKro": "About ESSENCE",
+		"DaVa": "Build Ver: ",
+		"TrzZe_Gi": "Last Build: ",
+	},
+
+	"LABELS":
+	{
+		"VyBzVa": "ESSENCE LAB",
 		"JoNzVa": "TOPICS",
 		"JoJzVa": "SLIDES",
 
-		"BriDzToMi": "Get ESSENCE",
-		"BriDzToKro": "About ESSENCE",
 		"ToMi_BzVa": "Download ESSENCE Here",
-		"VyBzVa": "ESSENCE LAB",
 
-		"DaVa": "Build Ver: ",
-		"TrzZe_Gi": "Last Build: ",
 
 		"VyMo_1": "Tap Icon to Get *this machine's* Launcher: ",
 		"VyMo_2": "Or Click on your OS + CPU Platform of Choice to <i>Save As<i>",
@@ -21,7 +25,7 @@
 		"DryDzKy_JeFi": "Bonus: Legacy Website Starcrawl"
 	},
 
-	"TaNz":
+	"TOPICS":
 	[
 		{ "NzJz00": "Welcome to Wantware" },
 		{ "NzJz01": "About Us" },
