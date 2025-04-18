@@ -13,6 +13,7 @@
 // 7.0 Hrz5_Ki ENGINE
 //==============================================
 
+
 //-------------------------------------------------
 // CORE STRUCTS
 //-------------------------------------------------
@@ -29,7 +30,6 @@ let NzJz_v;
 // BUILD TIME & DIFF
 let TrzFi__Gi_vutf8;
 let TrzZe__Gi_vutf8;
-
 
 
 //==============================================
@@ -50,7 +50,7 @@ let JoJz__Fo_wu = 8;
 let JoJz__Fe_wu = 5;
 
 // TRAITS
-let JoJiJa__Fe_wu = 0;
+let JoJiJa__Fe_wu = 5;
 let JoPo__Fe_wu = 0;
 
 
@@ -87,7 +87,7 @@ async function JoNz__Chy( Nz_wu )
 
 	//&&&
 	// SLIDE LIST
-	JoJz__Fo_wu = NzJz_v.SLIDES.length();
+	JoJz__Fo_wu = NzJz_v.SLIDES.length;
 
 	NzJz_v.SLIDES.forEach
 	(
@@ -133,7 +133,7 @@ async function JoJz__ChyYe( Jz_wu )
 	// MENU COUNTER
 	document.getElementById('JoJzVa').innerHTML = `&#x1F4C4 ${KeDru_v.TERMS.JoJzVa} ${JoJz__Fe_wu+1}/${JoJz__Fo_wu} `;
 
-	JoJiJa__Fe_wu = JoJz__Fe_wu;
+	// JoJiJa__Fe_wu = JoJz__Fe_wu;
 
 	//&&&
 	// THOT DETAILS
@@ -176,104 +176,6 @@ async function JoJz__ChyYe( Jz_wu )
 let Fe__KeDru_vutf8 = 'en';
 let Fe__KuVa_vutf8 = "";
 let KeKu__ToKz_vutf8 = 'en';
-
-//-------------------------------------------------
-// LANG/COUNTRY
-// Vy: CODE
-// Va: Local Name
-// So: Reference English
-// KuGwz: Flag as Emoji
-//-------------------------------------------------
-const Hre1_Dru__Gra_v =
-[
-	// { "Vy": "af", "Va": "Afrikaans", "KuGwz": "🇿🇦", "So": "Afrikaans", "ToKz": "af" },
-	// { "Vy": "am", "Va": "አማርኛ", "KuGwz": "🇪🇹", "So": "Amharic", "ToKz": "am" },
-	// { "Vy": "ar", "Va": "العربية", "KuGwz": "🇸🇦", "So": "Arabic", "ToKz": "ar" },
-	// { "Vy": "az", "Va": "Azərbaycan dili", "KuGwz": "🇦🇿", "So": "Azerbaijani", "ToKz": "az" },
-	// { "Vy": "be", "Va": "Беларуская", "KuGwz": "🇧🇾", "So": "Belarusian", "ToKz": "be" },
-	// { "Vy": "bg", "Va": "Български", "KuGwz": "🇧🇬", "So": "Bulgarian", "ToKz": "bg" },
-	// { "Vy": "bn", "Va": "বাংলা", "KuGwz": "🇧🇩", "So": "Bengali", "ToKz": "bn" },
-	// { "Vy": "ca", "Va": "Català", "KuGwz": "🇪🇸", "So": "Catalan", "ToKz": "ca" },
-	// { "Vy": "cs", "Va": "Čeština", "KuGwz": "🇨🇿", "So": "Czech", "ToKz": "cs" },
-	// { "Vy": "da", "Va": "Dansk", "KuGwz": "🇩🇰", "So": "Danish", "ToKz": "da" },
-	// { "Vy": "de", "Va": "Deutsch", "KuGwz": "🇩🇪", "So": "German", "ToKz": "de" },
-	// { "Vy": "el", "Va": "Ελληνικά", "So": "Greek", "KuGwz": "🇬🇷", "ToKz": "el" },
-
-	// en
-	{ "Vy": "en", "Va": "English", "KuGwz": "🇺🇸", "So": "English", "ToKz": "en" },
-	{ "Vy": "en-AU", "Va": "English (Australia)", "KuGwz": "🇦🇺", "So": "English", "ToKz": "en" },
-	{ "Vy": "en-CA", "Va": "English (Canada)", "KuGwz": "🇨🇦", "So": "English", "ToKz": "en" },
-	{ "Vy": "en-GB", "Va": "English (United Kingdom)", "KuGwz": "🇬🇧", "So": "English", "ToKz": "en" },
-
-	// es
-	{ "Vy": "es", "Va": "Español (España)", "So": "Spanish (Spain)", "KuGwz": "🇪🇸", "ToKz": "es" },
-	{ "Vy": "es-419", "Va": "Español (Latinoamérica)", "So": "Spanish (Latin America)", "KuGwz": "🌎", "ToKz": "es" },
-	{ "Vy": "es-US", "Va": "Español (Estados Unidos)", "So": "Spanish (United States)", "KuGwz": "🇺🇸", "ToKz": "es" },
-
-	// { "Vy": "et", "Va": "Eesti", "KuGwz": "🇪🇪", "So": "Estonian", "ToKz": "et" },
-	// { "Vy": "eu", "Va": "Euskara", "KuGwz": "🇪🇸", "So": "Basque", "ToKz": "eu" },
-	// { "Vy": "fa", "Va": "فارسی", "KuGwz": "🇮🇷", "So": "Persian", "ToKz": "fa" },
-	// { "Vy": "fi", "Va": "Suomi", "KuGwz": "🇫🇮", "So": "Finnish", "ToKz": "fi" },
-	// { "Vy": "fr-CA", "Va": "Français (Canada)", "KuGwz": "🇨🇦", "So": "French", "ToKz": "fr" },
-	// { "Vy": "fr-FR", "Va": "Français (France)", "KuGwz": "🇫🇷", "So": "French", "ToKz": "fr" },
-	// { "Vy": "gl", "Va": "Galego", "KuGwz": "🇪🇸", "So": "Galician", "ToKz": "gl" },
-	// { "Vy": "gu", "Va": "ગુજરાતી", "KuGwz": "🇮🇳", "So": "Gujarati", "ToKz": "gu" },
-	// { "Vy": "he", "Va": "עברית", "KuGwz": "🇮🇱", "So": "Hebrew", "ToKz": "he" },
-	// { "Vy": "hi", "Va": "हिन्दी", "KuGwz": "🇮🇳", "So": "Hindi", "ToKz": "hi" },
-	// { "Vy": "hr", "Va": "Hrvatski", "KuGwz": "🇭🇷", "So": "Croatian", "ToKz": "hr" },
-	// { "Vy": "hu", "Va": "Magyar", "KuGwz": "🇭🇺", "So": "Hungarian", "ToKz": "hu" },
-	// { "Vy": "hy", "Va": "Հայերեն", "KuGwz": "🇦🇲", "So": "Armenian", "ToKz": "hy" },
-	// { "Vy": "id", "Va": "Indonesia", "KuGwz": "🇮🇩", "So": "Indonesian", "ToKz": "id" },
-	// { "Vy": "is", "Va": "Íslenska", "KuGwz": "🇮🇸", "So": "Icelandic", "ToKz": "is" },
-	// { "Vy": "it", "Va": "Italiano", "KuGwz": "🇮🇹", "So": "Italian", "ToKz": "it" },
-	// { "Vy": "ja", "Va": "日本語", "KuGwz": "🇯🇵", "So": "Japanese", "ToKz": "ja" },
-	// { "Vy": "ka", "Va": "ქართული", "KuGwz": "🇬🇪", "So": "Georgian", "ToKz": "ka" },
-	// { "Vy": "kk", "Va": "Қазақ тілі", "KuGwz": "🇰🇿", "So": "Kazakh", "ToKz": "kk" },
-	// { "Vy": "km", "Va": "ខ្មែរ", "KuGwz": "🇰🇭", "So": "Khmer", "ToKz": "km" },
-	// { "Vy": "kn", "Va": "ಕನ್ನಡ", "KuGwz": "🇮🇳", "So": "Kannada", "ToKz": "kn" },
-	// { "Vy": "ko", "Va": "한국어", "KuGwz": "🇰🇷", "So": "Korean", "ToKz": "ko" },
-	// { "Vy": "ky", "Va": "Кыргызча", "KuGwz": "🇰🇬", "So": "Kyrgyz", "ToKz": "ky" },
-	// { "Vy": "lo", "Va": "ລາວ", "KuGwz": "🇱🇦", "So": "Lao", "ToKz": "lo" },
-	// { "Vy": "lt", "Va": "Lietuvių", "KuGwz": "🇱🇹", "So": "Lithuanian", "ToKz": "lt" },
-	// { "Vy": "lv", "Va": "Latviešu", "KuGwz": "🇱🇻", "So": "Latvian", "ToKz": "lv" },
-	// { "Vy": "mk", "Va": "Македонски", "KuGwz": "🇲🇰", "So": "Macedonian", "ToKz": "mk" },
-	// { "Vy": "ml", "Va": "മലയാളം", "KuGwz": "🇮🇳", "So": "Malayalam", "ToKz": "ml" },
-	// { "Vy": "mn", "Va": "Монгол", "KuGwz": "🇲🇳", "So": "Mongolian", "ToKz": "mn" },
-	// { "Vy": "mr", "Va": "मराठी", "KuGwz": "🇮🇳", "So": "Marathi", "ToKz": "mr" },
-	// { "Vy": "ms", "Va": "Bahasa Melayu", "KuGwz": "🇲🇾", "So": "Malay", "ToKz": "ms" },
-	// { "Vy": "ms-MY", "Va": "Bahasa Melayu (Malaysia)", "KuGwz": "🇲🇾", "So": "Malay (Malaysia)", "ToKz": "ms" },
-	// { "Vy": "my", "Va": "ဗမာ", "KuGwz": "🇲🇲", "So": "Burmese", "ToKz": "my" },
-	// { "Vy": "ne", "Va": "नेपाली", "KuGwz": "🇳🇵", "So": "Nepali", "ToKz": "ne" },
-	// { "Vy": "nl", "Va": "Nederlands", "KuGwz": "🇳🇱", "So": "Dutch", "ToKz": "nl" },
-	// { "Vy": "no", "Va": "Norsk", "KuGwz": "🇳🇴", "So": "Norwegian", "ToKz": "no" },
-	// { "Vy": "pa", "Va": "ਪੰਜਾਬੀ", "KuGwz": "🇮🇳", "So": "Punjabi", "ToKz": "pa" },
-	// { "Vy": "pl", "Va": "Polski", "KuGwz": "🇵🇱", "So": "Polish", "ToKz": "pl" },
-	// { "Vy": "pt-BR", "Va": "Português (Brasil)", "KuGwz": "🇧🇷", "So": "Portuguese (Brazil)", "ToKz": "pt" },
-	// { "Vy": "pt-PT", "Va": "Português (Portugal)", "KuGwz": "🇵🇹", "So": "Portuguese (Portugal)", "ToKz": "pt" },
-	// { "Vy": "rm", "Va": "Rumantsch", "KuGwz": "🇨🇭", "So": "Romansh", "ToKz": "rm" },
-	// { "Vy": "ro", "Va": "Română", "KuGwz": "🇷🇴", "So": "Romanian", "ToKz": "ro" },
-	// { "Vy": "ru", "Va": "Русский", "KuGwz": "🇷🇺", "So": "Russian", "ToKz": "ru" },
-	// { "Vy": "si", "Va": "සිංහල", "KuGwz": "🇱🇰", "So": "Sinhala", "ToKz": "si" },
-	// { "Vy": "sk", "Va": "Slovenčina", "KuGwz": "🇸🇰", "So": "Slovak", "ToKz": "sk" },
-	// { "Vy": "sl", "Va": "Slovenščina", "KuGwz": "🇸🇮", "So": "Slovenian", "ToKz": "sl" },
-	// { "Vy": "sq", "Va": "Shqip", "KuGwz": "🇦🇱", "So": "Albanian", "ToKz": "sq" },
-	// { "Vy": "sr", "Va": "Српски", "KuGwz": "🇷🇸", "So": "Serbian", "ToKz": "sr" },
-	// { "Vy": "sv", "Va": "Svenska", "So": "Swedish", "KuGwz": "🇸🇪", "ToKz": "sv" },
-	// { "Vy": "sw", "Va": "Kiswahili", "KuGwz": "🇹🇿", "So": "Swahili", "ToKz": "sw" },
-	// { "Vy": "ta", "Va": "தமிழ்", "KuGwz": "🇮🇳", "So": "Tamil", "ToKz": "ta" },
-	// { "Vy": "te", "Va": "తెలుగు", "KuGwz": "🇮🇳", "So": "Telugu", "ToKz": "te" },
-	// { "Vy": "th", "Va": "ไทย", "KuGwz": "🇹🇭", "So": "Thai", "ToKz": "th" },
-	// { "Vy": "tl", "Va": "Filipino", "KuGwz": "🇵🇭", "So": "Filipino", "ToKz": "tl" },
-	// { "Vy": "tr", "Va": "Türkçe", "KuGwz": "🇹🇷", "So": "Turkish", "ToKz": "tr" },
-	// { "Vy": "uk", "Va": "Українська", "KuGwz": "🇺🇦", "So": "Ukrainian", "ToKz": "uk" },
-	// { "Vy": "ur", "Va": "اردو", "KuGwz": "🇵🇰", "So": "Urdu", "ToKz": "ur" },
-	// { "Vy": "vi", "Va": "Tiếng Việt", "KuGwz": "🇻🇳", "So": "Vietnamese", "ToKz": "vi" },
-	// { "Vy": "zh", "Va": "中文（简体）", "KuGwz": "🇨🇳", "So": "Chinese (Simplified)", "ToKz": "zh" },
-	// { "Vy": "zh-HK", "Va": "中文（香港）", "KuGwz": "🇭🇰", "So": "Chinese (Hong Kong)", "ToKz": "zh" },
-	// { "Vy": "zh-TW", "Va": "中文（繁體）", "KuGwz": "🇹🇼", "So": "Chinese (Traditional)", "ToKz": "zh" },
-	// { "Vy": "zu", "Va": "Zulu", "KuGwz": "🇿🇦", "So": "Zulu", "ToKz": "zu" },
-];
-
 
 //-------------------------------------------------
 // INIT CULTURE DEFAULTS
@@ -340,7 +242,7 @@ function Hre7_Me__TrzGiYe()
 
 	//@@@
 	// BUILD DATE
-	const TrzFi__Gi_l = new Date( 823230245000 );
+	const TrzFi__Gi_l = new Date( BriDzYz_v.MoDzGi );
 	TrzFi__Gi_vutf8 = new Intl.DateTimeFormat(navigator.languages).format( TrzFi__Gi_l );
 	console.log( "Build_Date: " + TrzFi__Gi_vutf8 );
 
@@ -420,7 +322,7 @@ async function Hre1_Dru__ChyKeDru( KeKuMi_vutf8 )
 
 	//&&&
 	// TERMS
-	document.getElementById('VyDa').innerHTML = `${KeDru_v.TERMS.DaVa}${BriDzYz.MoDzDa} ${TrzFi__Gi_vutf8}`;
+	document.getElementById('VyDa').innerHTML = `${KeDru_v.TERMS.DaVa}${BriDzYz_v.MoDzDa} ${TrzFi__Gi_vutf8}`;
 	document.getElementById('VyGiZe').innerHTML = `${KeDru_v.TERMS.TrzZeVa} ${TrzZe__Gi_vutf8}`;
 	document.getElementById('KeDruVa').innerHTML = `${KeKu_l.KuGwz} ${KeKu_l.Va}`;
 	// document.getElementById('VyKo__HrzBy_Kri').innerHTML = `<span class="GwzDo GwzDo_${Ko__HrzByVy_vutf8}"></span><br>${Ko__HrzByVy_vutf8}_${Ko__KaBz_vutf8}`;
@@ -619,7 +521,7 @@ function KuTo__QUAD_Trz(gl)
 // PLAY PAUSE
 let JoTra_y = false;
 let Hry5_Smz__KriYe = true;
-let Fe__JiJa_wu = 0;
+let Fe__JiJa_wuk = 0;
 
 let MxSi__YeFo_wu = 0;
 let Fi__GiDri_wf = 0;
@@ -691,7 +593,23 @@ function Hry5_Smz__ChyYe( Fe__GiDri_wf )
 {
 	//@@@
 	// CRAFT
-	Fe__JiJa_wu = JoJiJa__Fe_wu;
+	const Fe__JiJa_wuk = JoJiJa__Fe_wu;
+
+	//@@@
+	// RESIZE_DETECT
+	// clientDim is always below
+	let Ku_w = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
+	let Ku_h = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
+	if( MxSi.clientWidth !== Ku_w || MxSi.clientHeight !== Ku_h )
+	{
+		// MUST UPD style.width, NOT! clientWidth
+		MxSi.style.width = Ku_w + 'px';
+		MxSi.style.height = Ku_h + 'px';
+
+		// console.log( "BrzDi_Ku: " + Ku_w + ", " + Ku_h );
+		// console.log( "MxSi_HrzBu: " + MxSi.clientWidth + ", " + MxSi.clientHeight );
+	}
+
 
 	//@@@
 	// FRAME_SIZE
@@ -700,13 +618,9 @@ function Hry5_Smz__ChyYe( Fe__GiDri_wf )
 	let MxVeGx_wu = Math.ceil( ( ASP_wf >= 1. ) ? GyKri_wu : GyKri_wu * ASP_wf );
 	let MxVeGa_wu = Math.ceil( ( ASP_wf < 1. ) ? GyKri_wu : GyKri_wu / ASP_wf );
 
-	// clientDim is always below
-	//let Ku_w = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
-	//let Ku_h = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
  	if( MxSi.width !== MxVeGx_wu || MxSi.height !== MxVeGa_wu )
 	{
 		//console.log(  "Fr# " + MxSi__YeFo_wu + " DPR: " + window.devicePixelRatio + " ASP: " + ( MxSi.clientWidth / MxSi.clientHeight )  );
-		// console.log( "MxSi_HrzBu: " + MxSi.clientWidth + ", " + MxSi.clientHeight );
 		// console.log( "MxSi_VeFi: " + MxSi.width + ", " + MxSi.height );
 
 		MxSi.width = MxVeGx_wu;
@@ -740,17 +654,18 @@ function Hry5_Smz__ChyYe( Fe__GiDri_wf )
 
 		//@@@
 		// DRAW
+		gl.viewport(0, 0, gl.canvas.width, gl.canvas.height );
 		gl.clear( gl.COLOR_BUFFER_BIT );
 
 		// VERTS
 		gl.bindBuffer(gl.ARRAY_BUFFER, KuTo__QUAD_vwf2);
-		gl.vertexAttribPointer( ToGe__Vy_v[ Fe__JiJa_wu ], 2, gl.FLOAT, false, 0, 0);
-		gl.enableVertexAttribArray( ToGe__Vy_v[ Fe__JiJa_wu ] );
+		gl.vertexAttribPointer( ToGe__Vy_v[ Fe__JiJa_wuk ], 2, gl.FLOAT, false, 0, 0);
+		gl.enableVertexAttribArray( ToGe__Vy_v[ Fe__JiJa_wuk ] );
 
-		gl.useProgram( JiJa_v[ Fe__JiJa_wu ] );
+		gl.useProgram( JiJa_v[ Fe__JiJa_wuk ] );
 		gl.uniform4fv
 		(
-			ToBri__Vy_v[ Fe__JiJa_wu ]
+			ToBri__Vy_v[ Fe__JiJa_wuk ]
 			, [
 				// TIME, FRAME, HEIGHT/WIDTH
 				Fe__GiPa_wf, MxSi__YeFo_wu, MxSi.width, MxSi.height
@@ -760,7 +675,7 @@ function Hry5_Smz__ChyYe( Fe__GiDri_wf )
 		);
 		gl.uniform4fv
 		(
-			ToTy__Vy_v[ Fe__JiJa_wu ]
+			ToTy__Vy_v[ Fe__JiJa_wuk ]
 			, [
 				// PALETTE
 				0.2, 0.2, Bri__Dri6_wf, 1.0
@@ -941,15 +856,16 @@ function SmaDx__Ta_JSON( Ta_v )
 //-------------------------------------------------
 // LOAD JSON
 // NOTE: Attempts to use 'async import' for JSON failed via CORS
-// To turn off CORS in Firefox, type "about:config" in the address bar, accept the risk, and search for "content.cors.disable."
+// FAIL: turn off CORS in Firefox, type "about:config" in the address bar, accept the risk, and search for "content.cors.disable."
+// TEST: $google-chrome --disable-web-security --allow-file-access-from-files
+//
 //-------------------------------------------------
 async function ToKz__JSON_v( ChaKuTu_vutf8, ToKzVa_vutf8 )
 {
 	try
 	{
-		let KuTu_vutf8 = `https://powerourpeople.com/Mx07__SuSmi_WEBPG/${ChaKuTu_vutf8}${ToKzVa_vutf8}.json`;
-
-		console.log( `FILE: ${KuTu_vutf8}`);
+		let KuTu_vutf8 = `${WEBPG_vutf8}${ChaKuTu_vutf8}${ToKzVa_vutf8}.json`;
+		console.log( `FILE seeking: ${KuTu_vutf8}`);
 
 		const res = await fetch( KuTu_vutf8, { headers: { Accept: 'application/json' }} );
 		const json = await res.json();
@@ -968,6 +884,7 @@ function Hrz4_Bu__ChyNBAR()
 	else { x.className = "Dx__NBAR"; }
 }
 
+
 //-------------------------------------------------
 async function Hrz5_Ki__BriYa()
 //-------------------------------------------------
@@ -982,7 +899,6 @@ async function Hrz5_Ki__BriYa()
 	//@@@
 	// CULTURE
 	await Hre1_Dru__BriYa();
-
 
 }
 
@@ -999,7 +915,6 @@ async function Hrz5_Ki__BriYa()
 	//@@@
 	// STATUS-CULTURE-TOPICS
 	Hrz5_Ki__BriYa();
-
 
 	//@@@
 	// VISUAL
