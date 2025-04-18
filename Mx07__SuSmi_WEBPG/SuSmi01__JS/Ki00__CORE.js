@@ -401,7 +401,7 @@ async function Hre1_Dru__ChyKeDru( KeKuMi_vutf8 )
 	{
 		KeKu__ToKz_vutf8 = KeKu_l.ToKz;
 	}
-	console.log( "Words: " + KeKu__ToKz_vutf8 + " Locale: " + Fe__KeKu_vutf8 + " Lang: " + Fe__KeDru_vutf8 + " Country: " + ( Fe__KuVa_vutf8 ? Fe__KuVa_vutf8 : "Global" ) );
+	console.log( "CultureFile: " + KeKu__ToKz_vutf8 + " Locale: " + Fe__KeKu_vutf8 + " Lang: " + Fe__KeDru_vutf8 + " Country: " + ( Fe__KuVa_vutf8 ? Fe__KuVa_vutf8 : "Global" ) );
 
 
 	//&&&
@@ -940,12 +940,15 @@ function SmaDx__Ta_JSON( Ta_v )
 
 //-------------------------------------------------
 // LOAD JSON
+// NOTE: Attempts to use 'async import' for JSON failed via CORS
+// To turn off CORS in Firefox, type "about:config" in the address bar, accept the risk, and search for "content.cors.disable."
 //-------------------------------------------------
 async function ToKz__JSON_v( ChaKuTu_vutf8, ToKzVa_vutf8 )
 {
 	try
 	{
 		let KuTu_vutf8 = `https://powerourpeople.com/Mx07__SuSmi_WEBPG/${ChaKuTu_vutf8}${ToKzVa_vutf8}.json`;
+
 		console.log( `FILE: ${KuTu_vutf8}`);
 
 		const res = await fetch( KuTu_vutf8, { headers: { Accept: 'application/json' }} );
