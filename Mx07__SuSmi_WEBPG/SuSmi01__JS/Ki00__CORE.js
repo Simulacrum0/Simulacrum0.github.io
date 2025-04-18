@@ -23,6 +23,9 @@ let KeDru_v;
 // TOPIC
 let NzJz_v;
 
+//-------------------------------------------------
+// CALC'D
+//-------------------------------------------------
 // BUILD TIME & DIFF
 let TrzFi__Gi_vutf8;
 let TrzZe__Gi_vutf8;
@@ -35,7 +38,7 @@ let TrzZe__Gi_vutf8;
 //==============================================
 
 //-------------------------------------------------
-// TOPIC & THOTS
+// STATE
 //-------------------------------------------------
 
 // TOPIC
@@ -50,58 +53,107 @@ let JoJz__Fe_wu = 5;
 let JoJiJa__Fe_wu = 0;
 let JoPo__Fe_wu = 0;
 
-async function JoNz__Chy( n )
-{
-	JoNz__Fe_wu = n;
-	NzJz_v = await ToKz__JSON_v( 'SuSmi04__NzJz/NzJz00/', `NzJz00.${KeKu__ToKz_vutf8}` );
-	if( !NzJz_v ) alert( "NO TOPIC FILE!" );
 
-
-	//@@@
-	// RESET SHADER
-	Fi__GiDri_wf = 0;
-	Fe__GiPa_wf = 0;
-
-	JoJz__ChyYe();
-}
-
+//-------------------------------------------------
+// TOPIC
+//-------------------------------------------------
 //@@@
-// INCREMENT TOPIC/THOT
+// TOPIC INC
 function JoNz__ChyZo( Zo_wi )
 {
 	JoNz__Fe_wu += Zo_wi;
 	if( JoNz__Fe_wu < 0 ){ JoNz__Fe_wu = JoNz__Fo_wu - 1; }
 	else if( JoNz__Fe_wu >= JoNz__Fo_wu ){ JoNz__Fe_wu = 0; }
 
-	JoJz__ChyYe();
+	JoNz__Chy( JoNz__Fe_wu );
 }
 
+//@@@
+// TOPIC UPD
+async function JoNz__Chy( Nz_wu )
+{
+	JoNz__Fe_wu = ( Nz_wu % JoNz__Fo_wu );
+
+	//&&&
+	// TOPIC FILE
+	NzJz_v = await ToKz__JSON_v( 'SuSmi04__NzJz/NzJz00/', `NzJz00.${KeKu__ToKz_vutf8}` );
+	if( !NzJz_v ) alert( "NO TOPIC FILE!" );
+
+
+
+	//&&&
+	// MENU COUNTER
+	document.getElementById('JoNzVa').innerHTML = `&#x1F4D2 ${ KeDru_v.TERMS.JoNzVa} ${JoNz__Fe_wu+1}/${JoNz__Fo_wu}`;
+
+	//&&&
+	// SLIDE LIST
+	JoJz__Fo_wu = NzJz_v.SLIDES.length();
+
+	NzJz_v.SLIDES.forEach
+	(
+		function( Ti_v, Vx )
+		{
+			console.log( "[" + Vx + "]------------" + Ti_v.TITLE );
+			// SmaDx__Kz_JSON( Ti_v );
+		}
+	);
+
+
+	//&&&
+	// RESET SHADER
+	Fi__GiDri_wf = 0;
+	Fe__GiPa_wf = 0;
+
+	JoJz__ChyYe( 0 );
+}
+
+//-------------------------------------------------
+// THOTS
+//-------------------------------------------------
+//@@@
+// THOT INC
 function JoJz__ChyZo( Zo_wi )
 {
 	JoJz__Fe_wu += Zo_wi;
 	if( JoJz__Fe_wu < 0 ){ JoJz__Fe_wu = JoJz__Fo_wu - 1; }
 	else if( JoJz__Fe_wu >= JoJz__Fo_wu ){ JoJz__Fe_wu = 0; }
 
-	JoJz__ChyYe();
+	JoJz__ChyYe( JoJz__Fe_wu );
 }
 
 //@@@
-// THOT_UPDATE
-async function JoJz__ChyYe()
+// THOT_UPD
+async function JoJz__ChyYe( Jz_wu )
 {
-	JoJiJa__Fe_wu = JoJz__Fe_wu;
+	JoJz__Fe_wu = ( Jz_wu % JoJz__Fo_wu );
+
 	Hry5_Smz__KriYe = true;
 
-	//!!!
-	// UPDATE HERE ONLY
-	// MENU
-	document.getElementById('JoNzVa').innerHTML = `&#x1F4D2 ${JoNzVa_vutf8} ${JoNz__Fe_wu+1}/${JoNz__Fo_wu}`;
-	document.getElementById('JoJzVa').innerHTML = `&#x1F4C4 ${JoJzVa_vutf8} ${JoJz__Fe_wu+1}/${JoJz__Fo_wu} `;
+	//&&&
+	// MENU COUNTER
+	document.getElementById('JoJzVa').innerHTML = `&#x1F4C4 ${KeDru_v.TERMS.JoJzVa} ${JoJz__Fe_wu+1}/${JoJz__Fo_wu} `;
 
-	//!!!
-	// ToKri
+	JoJiJa__Fe_wu = JoJz__Fe_wu;
+
+	//&&&
+	// THOT DETAILS
 	document.getElementById('JzBz').innerHTML = `SLIDE`;
 
+	Object.entries( NzJz_v.SLIDES[ 0 ] ).forEach
+	(
+		function( [ Vy_vutf8, Va_vutf8 ] )
+		{
+			console.log( `${Vy_vutf8}: ${Va_vutf8}` );
+			// let Elm_l = document.getElementById( Vy_vutf8 );
+			// if( Elm_l ) { Elm_l.innerHTML = Va_vutf8; }
+			// else { console.log( `--------*SMISS*: ${Vy_vutf8}-----------` ); }
+		}
+	);
+
+
+
+
+	//&&&
 	// RESET FADEIN
 	Hry5_Smz__ChyBriYa( 'ToKro' );
 	Hry5_Smz__ChyBriYa( 'ToMi' );
@@ -124,26 +176,6 @@ async function JoJz__ChyYe()
 let Fe__KeDru_vutf8 = 'en';
 let Fe__KuVa_vutf8 = "";
 let KeKu__ToKz_vutf8 = 'en';
-
-
-
-
-let JoNzVa_vutf8 = 'TOPICS';
-let JoJzVa_vutf8 = 'SLIDES';
-let BriDzToMi_vutf8 = 'Get ESSENCE';
-let BriDzToKro_vutf8 = 'About ESSENCE';
-let ToMi_BzVa_vutf8 ='Download ESSENCE Here';
-let VyBzVa_vutf8 = 'ESSENCE LAB';
-let DaVa_vutf8 = 'Build Ver: ';
-let TrzZe_Gi_vutf8 = 'Last Build: ';
-let DaVx_vutf8 = '4.19';
-let VyMo_1_vutf8 = "Tap Icon to Get *this machine's* Launcher: ";
-let VyMo2_vutf8 = "Or Click on your OS + CPU Platform of Choice to <i>Save As<i>";
-let VyMo3_vutf8 = "After Download, Tap or Open the Essence File to Launch the Experience and Enjoy!";
-
-
-
-
 
 //-------------------------------------------------
 // LANG/COUNTRY
@@ -382,18 +414,22 @@ async function Hre1_Dru__ChyKeDru( KeKuMi_vutf8 )
 
 
 	//@@@
-	// UPDATE
-	// ITER UNIQUE IDs & ASSIGN
-	// console.log( "FILE_REQUEST" );
+	// LANG_FILE
 	KeDru_v = await ToKz__JSON_v( 'SuSmi03__KeDru/', `KeDru.${KeKu__ToKz_vutf8}` );
-	// console.log( "FILE_DONE" );
 	if( !KeDru_v ) alert( "NO LANGUAGE FILE!" );
+
+	//&&&
+	// TERMS
+	document.getElementById('VyDa').innerHTML = `${KeDru_v.TERMS.DaVa}${BriDzYz.MoDzDa} ${TrzFi__Gi_vutf8}`;
+	document.getElementById('VyGiZe').innerHTML = `${KeDru_v.TERMS.TrzZeVa} ${TrzZe__Gi_vutf8}`;
+	document.getElementById('KeDruVa').innerHTML = `${KeKu_l.KuGwz} ${KeKu_l.Va}`;
+	// document.getElementById('VyKo__HrzBy_Kri').innerHTML = `<span class="GwzDo GwzDo_${Ko__HrzByVy_vutf8}"></span><br>${Ko__HrzByVy_vutf8}_${Ko__KaBz_vutf8}`;
 
 
 	//&&&
-	// NAMES
-	SmaDx__Kz_JSON( KeDru_v.KeDru );
-	Object.entries( KeDru_v.KeDru ).forEach
+	// LABELS
+	SmaDx__Kz_JSON( KeDru_v.LABELS );
+	Object.entries( KeDru_v.LABELS ).forEach
 	(
 		function( [ Vy_vutf8, Va_vutf8 ] )
 		{
@@ -404,25 +440,11 @@ async function Hre1_Dru__ChyKeDru( KeKuMi_vutf8 )
 	);
 
 
+	//&&&
+	// TOPICS
+	SmaDx__Ta_JSON( KeDru_v.TOPICS );
 
-
-	//@@@
-	// SPECIAL LANG NAMES
-	document.getElementById('VyDa').innerHTML = `${DaVa_vutf8}${DaVx_vutf8} ${TrzFi__Gi_vutf8}`;
-	document.getElementById('VyGiZe').innerHTML = `${TrzZe_Gi_vutf8} ${TrzZe__Gi_vutf8}`;
-	document.getElementById('KeDruVa').innerHTML = `${KeKu_l.KuGwz} ${KeKu_l.Va}`;
-
-
-	// document.getElementById('VyMo_1').innerHTML = `${VyMo_1_vutf8}<i>${Ko__HrzByVa_vutf8} ${Ko__KaBz_vutf8}</i>`;
-	// document.getElementById('VyMo_2').innerHTML = VyMo2_vutf8;
-	// document.getElementById('VyMo_3').innerHTML = VyMo3_vutf8;
-
-	// document.getElementById('VyKo__HrzBy_Kri').innerHTML = `<span class="GwzDo GwzDo_${Ko__HrzByVy_vutf8}"></span><br>${Ko__HrzByVy_vutf8}_${Ko__KaBz_vutf8}`;
-
-
-	//@@@
-	// UPDATE LIST of TOPICS
-	SmaDx__Ta_JSON( KeDru_v.TaNz );
+	// UPDATE LIST
 	await JoNz__Chy( JoNz__Fe_wu % JoNz__Fo_wu );
 }
 
@@ -833,7 +855,10 @@ function Hry5_Smz__ToMi_ChyDry()
 {
 	ToMi_y = !ToMi_y;
 
-	document.getElementById('BriDzTo').innerHTML = ( ToMi_y ? `&#x1F4DA ${BriDzToKro_vutf8}` : `&#x1F4E5 ${BriDzToMi_vutf8}` );
+	if( KeDru_v )
+	{
+		document.getElementById('BriDzTo').innerHTML = ( ToMi_y ? `&#x1F4DA ${KeDru_v.TERMS.BriDzToKro}` : `&#x1F4E5 ${KeDru_v.TERMS.BriDzToMi}` );
+	}
 
 	//&&&
 	// TOGGLE HIDE
