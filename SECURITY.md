@@ -5,7 +5,7 @@
 Use this section to tell people about which versions of your project are
 currently being supported with security updates.
 
-| User Chosen Role | Security Scope          |
+| User Role | Security Scope          |
 | ------- | ------------------ |
 | :smiley: Core | "Core Sandbox (The app is not allowed to use any services or make any changes without express permission from the user.) |
 | :ghost: Ghost | Anonymous Ghost (The app allows local changes under the 'Ghost' user and is generally allowed to use any services and features provided to this user as an anonymous user.) |
