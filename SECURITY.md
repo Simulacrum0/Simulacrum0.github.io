@@ -1,21 +1,16 @@
 # Security Policy
 
-## Supported Versions
+## Role Based Security Limits
 
 Use this section to tell people about which versions of your project are
 currently being supported with security updates.
 
-| Version | Supported          |
+| Role | Features          |
 | ------- | ------------------ |
-| 5.1.x   | :white_check_mark: |
-| 5.0.x   | :x:                |
-| 4.0.x   | :white_check_mark: |
-| < 4.0   | :x:                |
+| :smiley: Core | "Core Sandbox (The app is not allowed to use any services or make any changes without express permission from the user.) |
+| :ghost: Ghost | Anonymous Ghost (The app allows local changes under the 'Ghost' user and is generally allowed to use any services and features provided to this user as an anonymous user.) |
+| :convenience_store: Kiosk | Community Kiosk (The app is not allowed to save any changes, access any local computer information except the pre-chosen experiences, and cannot quit the experience or switch to anything.) |
+| :sunglasses: Pro | Tech Professional (The app has full access to all features and editing allowed this user including projects using many external files.) |
 
 ## Reporting a Vulnerability
-
-Use this section to tell people how to report a vulnerability.
-
-Tell them where to go, how often they can expect to get an update on a
-reported vulnerability, what to expect if the vulnerability is accepted or
-declined, etc.
+If you encounter any bugs, security violations or any feedback, please email 'support@MindAptiv.com' with a description of the problem and if possible, how to reproduce. We cannot guarantee any reply of message given modern email issues and spam rates. We aim to respond as able and address issues according to severity and our resources. Thanks for any efforts.
