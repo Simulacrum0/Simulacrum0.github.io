@@ -1,12 +1,13 @@
 ﻿/* ==================== */
 /* DOC */
 /* ==================== */
+html *
+{
+	font-family: sans-serif;
+};
+
 html
 {
-	body,a,p,span,h1,h2,h3,h4,h5
-	{
-		font-family: sans-serif
-	};
 	box-sizing:border-box;
 }*,*:before,*:after{box-sizing:inherit}
 
@@ -266,7 +267,7 @@ body
 	font-size: 90%;
 
 	margin: 0.5em;
-	
+
 	text-shadow:
 		-1px -1px 0 #444,
 		1px -1px 0 #444,
