@@ -1,6 +1,5 @@
 # LabEast's 'Wantware' Website
-*Simulacrum0's Website for Wantware Deployment*
-Handles a website for downloading the program, obtaining a store package and other deployment needs. Additionally contains documents, diagrams and other details to learn about the system.
+*Wantware Deployment* is for getting or learning about Essence. This website provides downloads of the Essence program by platform and launching chip (CPU) as well as various store packages and other deployment files. Additionally, it contains documents, diagrams and other details to learn about how wantware works.
 
 | **Places** | *Description* |
 |:--------|:-------:|
