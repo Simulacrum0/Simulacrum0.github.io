@@ -42,16 +42,16 @@ let TrzZe__Gi_vutf8;
 //-------------------------------------------------
 
 // TOPIC
-let JoNz__Fo_wu = 8;
+let JoNz__Fo_wu = 0;
 let JoNz__Fe_wu = 0;
 
 // THOT
-let JoJz__Fo_wu = 8;
-let JoJz__Fe_wu = 5;
+let JoJz__Fo_wu = 0;
+let JoJz__Fe_wu = 0;
 
 // TRAITS
-let JoJiJa__Fe_wu = 5;
-let JoPo__Fe_wu = 0;
+let JoJiJa__Fe_wu = undefined;
+let JoSuTy__Fe_wu = 0;
 
 
 //-------------------------------------------------
@@ -79,9 +79,8 @@ async function JoNz__Chy( Nz_wu )
 	// TOPIC FILE
 	if( !KeDru_v ) return;
 	const FeNzVa_vutf8 = KeDru_v.TOPICS[ JoNz__Fe_wu ].ID;
-	if( !FeNzVa_vutf8 ) { SmaTrx( "NO TOPIC ID!" ); return; }
+	if( !FeNzVa_vutf8 ) { SmaTrx( `NO TOPIC #${JoNz__Fe_wu} ID!` ); return; }
 
-	Cannot read properties of undefined (reading 'ID')
 
 	NzJz_v = await ToKz__JSON_v( `SuSmi04__NzJz/${FeNzVa_vutf8}/`, `${FeNzVa_vutf8}.${KeKu__ToKz_vutf8}` );
 	if( !NzJz_v ) { SmaTrx( "NO TOPIC FILE!" ); return; }
@@ -105,7 +104,7 @@ async function JoNz__Chy( Nz_wu )
 			// console.log( "[" + Vx_wu + "]------------" + Ti_v.TITLE );
 
 			//&&&
-			// ADD BTN
+			// ADD THOT BTNS
 			const Kz_v = document.createElement('button');
 			Kz_v.innerHTML = `${Ti_v.TITLE}`;
 			let JiTra_vutf8 =`JoJz__Chy( ${Vx_wu} );`;
@@ -151,59 +150,181 @@ async function JoJz__Chy( Jz_wu )
 	// THOT COUNTER
 	document.getElementById('JoJzVa').innerHTML = `&#x1F4C4 ${KeDru_v.TERMS.JoJzVa} ${JoJz__Fe_wu+1}/${JoJz__Fo_wu} `;
 
-	// JoJiJa__Fe_wu = JoJz__Fe_wu;
 	const Jz_v = NzJz_v.THOTS[ JoJz__Fe_wu ];
 	if( !Jz_v ){ SmaTrx( `NO THOT ${JoJz__Fe_wu}` ); return; }
 
 
 	//&&&
-	// THOT DETAILS
-
-	//%%%
-	// TXT
+	// THOT ROOT DETAILS
+	//
+	// TITLE, BG, HUE_SHIFT, COMMENTS
 	document.getElementById('JzBz').innerHTML = Jz_v.TITLE;
-	document.getElementById('JzKa').innerHTML =  Jz_v.TXT;
 
-	//%%%
-	// NOTES
-	const JoKz_ToHry_v = document.getElementById('JoKz_ToHry');
-	Hri3_Ne__Ta_ChyStz( JoKz_ToHry_v );
-
-	if( Jz_v.NOTES )
+	if( Jz_v.hasOwnProperty( 'BG' ) )
 	{
-		Jz_v.NOTES.forEach
+		JoJiJa__Fe_wu = JiJa__Va_wu[ Jz_v.BG ];
+	}
+	if( Jz_v.hasOwnProperty( 'HUE_SHIFT' ) )
+	{
+		JoSuTy__Fe_wu = SuTy__Va_wu[ Jz_v.HUE_SHIFT ];
+	}
+	if( Jz_v.INTERNAL_COMMENTS )
+	{ console.log( "COMMENT: " + Jz_v.INTERNAL_COMMENTS ); }
+
+
+	//&&&
+	// CONTENT_LIST
+	const JoKz_ToKro_v = document.getElementById('JoKz_ToKro');
+	Hri3_Ne__Ta_ChyStz( JoKz_ToKro_v );
+
+	if( Jz_v.CONTENT )
+	{
+		Jz_v.CONTENT.forEach
 		(
 			function( Ti_v, Vx_wu )
 			{
+				//$$$
+				// DBG
 				// SmaDx__Kz_JSON( Ti_v );
-				// console.log( "[" + Vx_wu + "]------------" + Ti_v.TITLE );
+				// console.log( "[" + Vx_wu + "]------------" + Ti_v );
 
-				//&&&
-				// ADD ICON
-				const Gwz_v = document.createElement('span');
-				Gwz_v.className = `GwzDo GwzDo_${Ti_v.ICON}`;
-				JoKz_ToHry_v.appendChild( Gwz_v );
+				//%%%
+				// ADD TXT
+				if( Ti_v.hasOwnProperty( 'TXT' ) )
+				{
+					const Ku_v = document.createElement('div');
+					Ku_v.className = `Dx__BOX Dx__FADE_IN`;
 
-				//&&&
+					const Cha_v = document.createElement('p');
+					Cha_v.className = `Dx__TXT`;
+					Cha_v.innerHTML = Ti_v.TXT + '<br>';
+
+					Ku_v.appendChild( Cha_v );
+					JoKz_ToKro_v.appendChild( Ku_v );
+				}
+
+				//%%%
 				// ADD NOTE
-				const Dru_v = document.createElement('span');
-				Dru_v.className = 'Dx__NOTE';
-				Dru_v.innerHTML = Ti_v.MSG;
-				JoKz_ToHry_v.appendChild( Dru_v );
-			}
-		);
+				if( Ti_v.hasOwnProperty( 'NOTE' ) )
+				{
+					const Cha_v = document.createElement('span');
+					Cha_v.className = 'Dx__NOTE Dx__FADE_IN';
+					Cha_v.innerHTML = '<br><b>' + Ti_v.NOTE + '</b><br>';
+					JoKz_ToKro_v.appendChild( Cha_v );
+				}
 
+				//%%%
+				// ADD ICON
+				if( Ti_v.hasOwnProperty( 'ICON_TXT' ) || Ti_v.hasOwnProperty( 'ICON_BW' ) || Ti_v.hasOwnProperty( 'ICON_CLR' ) )
+				{
+					const Ku_v = document.createElement('div');
+					Ku_v.className = `Dx__NOTE Dx__FADE_IN`;
+
+					if( Ti_v.hasOwnProperty( 'ICON_CLR' ) )
+					{
+						const Cha_v = document.createElement('span');
+						Cha_v.className = `GwzDoPo GwzDo_${Ti_v.ICON_CLR}`;
+						Ku_v.appendChild( Cha_v );
+					}
+
+					if( Ti_v.hasOwnProperty( 'ICON_BW' ) )
+					{
+						const Cha_v = document.createElement('span');
+						Cha_v.className = `GwzDoVo GwzDo_${Ti_v.ICON_BW}`;
+						Ku_v.appendChild( Cha_v );
+					}
+
+					if( Ti_v.hasOwnProperty( 'ICON_TXT' ) )
+					{
+						const Cha_v = document.createElement('span');
+						Cha_v.className = 'Dx__NOTE';
+						Cha_v.innerHTML = '<br><b>' + Ti_v.ICON_TXT + '</b><br>';
+						Ku_v.appendChild( Cha_v );
+					}
+					JoKz_ToKro_v.appendChild( Ku_v );
+				}
+
+				//%%%
+				// ADD IMG
+				if( Ti_v.hasOwnProperty( 'PATH' ) && Ti_v.hasOwnProperty( 'IMG' ) )
+				{
+					//console.log(  `./Mx01__SuKz_MEDIA/${Ti_v.PATH}${Ti_v.IMG}` );
+					const Ku_v = document.createElement('figure');
+					Ku_v.className = 'Dx__FADE_IN';
+
+					const Cha_v = document.createElement('img');
+					Cha_v.className = 'Dx__MEDIA Dx__FADE_IN';
+					Cha_v.src = `./Mx01__SuKz_MEDIA/${Ti_v.PATH}${Ti_v.IMG}`;
+					Ku_v.appendChild( Cha_v );
+
+					if( Ti_v.hasOwnProperty( 'CAPTION' ) )
+					{
+						const KeDru_v = document.createElement('figcaption');
+						Ku_v.className = 'Dx__CAPTION';
+						KeDru_v.innerHTML =  Ti_v.CAPTION;
+						Ku_v.appendChild( KeDru_v );
+					}
+
+					JoKz_ToKro_v.appendChild( Ku_v );
+				}
+
+				//%%%
+				// ADD DRAW
+				if( Ti_v.hasOwnProperty( 'DRAW' ) )
+				{
+					const Ku_v = document.createElement('div');
+					Ku_v.className = `Dx__BOX Dx__FADE_IN`;
+
+					const Cha_v = document.createElement( "svg" );
+					Cha_v.className = 'Dx__MEDIA Dx__FADE_IN';
+
+					Cha_v.innerHTML =  Ti_v.DRAW;
+					JoKz_ToKro_v.appendChild( Cha_v );
+
+					const bb = Cha_v.getBBox();
+					Cha_v.setAttribute("width", bb.width);
+					Cha_v.setAttribute("height", bb.height);
+
+					// RESCALE any SVG into 600 x 250
+					Cha_v.setAttribute
+					(
+						"transform",
+					  	"translate(-" + bb.width / 2 + ",-" + bb.height / 2 + ") \
+					  	scale(" + 600 / bb.width + "," + 250 / bb.height + ") \
+					  	translate(" + bb.width / 2 + "," + bb.height / 2 + ")"
+					);
+
+					Cha_v.setAttribute("width", 600 );
+					Cha_v.setAttribute("height", 250 );
+
+				}
+
+				//%%%
+				// ADD FILM
+				if( Ti_v.hasOwnProperty( 'FILM' ) )
+				{
+					const Ku_v = document.createElement('div');
+					Ku_v.className = `Dx__FILMBOX Dx__FADE_IN`;
+
+					const Cha_v = document.createElement( "iframe" );
+					Cha_v.className = 'Dx__FILMSRC Dx__FADE_IN';
+					Cha_v.src = "https://www.youtube.com/embed/" + Ti_v.FILM + "&amp;controls=0";
+
+					Cha_v.setAttribute("frameborder", "1" );
+					Cha_v.setAttribute( "allow", "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share;" );
+					Cha_v.setAttribute( "referrerpolicy", "strict-origin-when-cross-origin" );
+					Cha_v.setAttribute( "allowfullscreen", true );
+
+
+					Ku_v.appendChild( Cha_v );
+					JoKz_ToKro_v.appendChild( Ku_v );
+				}
+
+			}// ELM Func
+		);// for EACH
 	}
 
-	//%%%
-	// MEDIA
-	const SuKz_v = Jz_v.MEDIA;
-	if( SuKz_v )
-	{
-		//console.log(  `./Mx01__SuKz_MEDIA/${SuKz_v.PATH}${SuKz_v.IMG}` );
-		document.getElementById('JoKz_Va').innerHTML = SuKz_v.CAPTION;
-		document.getElementById('JoKz_SuKz').src = `./Mx01__SuKz_MEDIA/${SuKz_v.PATH}${SuKz_v.IMG}`;
-	}
+
 
 
 	//&&&
@@ -383,7 +504,7 @@ async function Hre1_Dru__ChyKeDru( KeKuMi_vutf8 )
 	//&&&
 	// LABELS
 	// AUTOMATE
-	SmaDx__Kz_JSON( KeDru_v.LABELS );
+	// SmaDx__Kz_JSON( KeDru_v.LABELS );
 	Object.entries( KeDru_v.LABELS ).forEach
 	(
 		function( [ Vy_vutf8, Va_vutf8 ] )
@@ -398,10 +519,10 @@ async function Hre1_Dru__ChyKeDru( KeKuMi_vutf8 )
 	//&&&
 	// TOPICS
 	//SmaDx__Ta_JSON( KeDru_v.TOPICS );
-
 	const TaJoNz_v = document.getElementById( 'TaJoNz' );
 	Hri3_Ne__Ta_ChyStz( TaJoNz_v );
 
+	JoNz__Fo_wu = KeDru_v.TOPICS.length;
 	KeDru_v.TOPICS.forEach
 	(
 		function( Ti_v, Vx_wu )
@@ -596,7 +717,6 @@ function KuTo__QUAD_Trz(gl)
 // PLAY PAUSE
 let JoTra_y = false;
 let Hry5_Smz__KriYe = true;
-let Fe__JiJa_wuk = 0;
 
 let MxSi__YeFo_wu = 0;
 let Fi__GiDri_wf = 0;
@@ -609,20 +729,117 @@ const gl = Hry5_Smz__Ya();
 const KuTo__QUAD_vwf2 = KuTo__QUAD_Trz( gl );
 const VS_wik = Hrz6_Tro__ChyJiKz( "QUAD_VERT", gl, gl.VERTEX_SHADER, JiJa__Ge_vkutf8 );
 
+//-------------------------------------------------
+// HUE_SHIFT_SuTy
+//-------------------------------------------------
+const JoSuTy__Fo_wuk = 8;
+const JoSuTy__Fx_wuk = ( JoSuTy__Fo_wuk - 1 );
 
+
+const SuTy__Va_wu =
+{
+	"STD": 0,
+	"WARM_SM": 1,
+	"WARM_MD": 2,
+	"WARM_LG": 3,
+
+	"ALT": 4,
+	"COOL_LG": 5,
+	"COOLD_MD": 6,
+	"COOL_SM": 7
+};
+
+/*
+//-----------------------------------
+PLAN: Use these 8 RGBA values as a PALETTE
+to remap CLRS based on (( HUE / 8 ).floor ) as Index.
+//-----------------------------------
+
+const JoSuTy_vv =
+[
+	// STD
+	[
+	0.2, 0.2, 1.0, 1.0
+	, 0.2, 1.0, 0.2, 1.0
+	, 1.0, 0.2, 0.2, 1.0
+	, 0.2, 0.2, 1.0, 1.0
+
+	, 0.2, 1.0, 0.2, 1.0
+	, 1.0, 0.2, 0.2, 1.0
+	, 0.2, 0.2, 1.0, 1.0
+	, 0.2, 1.0, 0.2, 1.0
+	],
+
+	// WARM
+	[
+		0.2, 0.2, 1.0, 1.0
+		, 0.2, 1.0, 0.2, 1.0
+		, 1.0, 0.2, 0.2, 1.0
+		, 0.2, 0.2, 1.0, 1.0
+
+		, 0.2, 1.0, 0.2, 1.0
+		, 1.0, 0.2, 0.2, 1.0
+		, 0.2, 0.2, 1.0, 1.0
+		, 0.2, 1.0, 0.2, 1.0
+	],
+
+	// COOL
+	[
+		0.2, 0.2, 1.0, 1.0
+		, 0.2, 1.0, 0.2, 1.0
+		, 1.0, 0.2, 0.2, 1.0
+		, 0.2, 0.2, 1.0, 1.0
+
+		, 0.2, 1.0, 0.2, 1.0
+		, 1.0, 0.2, 0.2, 1.0
+		, 0.2, 0.2, 1.0, 1.0
+		, 0.2, 1.0, 0.2, 1.0
+	],
+
+	// STARK
+	[
+		0.2, 0.2, 1.0, 1.0
+		, 0.2, 1.0, 0.2, 1.0
+		, 1.0, 0.2, 0.2, 1.0
+		, 0.2, 0.2, 1.0, 1.0
+
+		, 0.2, 1.0, 0.2, 1.0
+		, 1.0, 0.2, 0.2, 1.0
+		, 0.2, 0.2, 1.0, 1.0
+		, 0.2, 1.0, 0.2, 1.0
+	]
+];
+*/
 //-------------------------------------------------
 // PROG_JiJa
 //-------------------------------------------------
+const JoJiJa__Fo_wuk = 8;
+const JoJiJa__Fx_wuk = ( JoJiJa__Fo_wuk - 1 );
+
+const JiJa__Va_wu =
+{
+	"HEXCIRC": 0,
+	"DROPZ": 1,
+	"PLAZ": 2,
+	"ETHER": 3,
+
+	"AURORA": 4,
+	"HEXSCROLL": 5,
+	"SUNRISE": 6,
+	"CODEX": 7
+};
+
+
 const JiJa_v =
 [
-	Hrz6_Tro__TrzJiJa( "JiJa00__HEX", gl, VS_wik, JiJa00__HEX_vkutf8 )
+	Hrz6_Tro__TrzJiJa( "JiJa00__HEXCIRC", gl, VS_wik, JiJa00__HEXCIRC_vkutf8 )
 	, Hrz6_Tro__TrzJiJa( "JiJa01__DROPZ", gl, VS_wik, JiJa01__DROPZ_vkutf8 )
 	, Hrz6_Tro__TrzJiJa( "JiJa02__PLAZ", gl, VS_wik, JiJa02__PLAZ_vkutf8 )
 	, Hrz6_Tro__TrzJiJa( "JiJa03__ETHER", gl, VS_wik, JiJa03__ETHER_vkutf8 )
 
 	, Hrz6_Tro__TrzJiJa( "JiJa04__AURORA", gl, VS_wik, JiJa04__AURORA_vkutf8 )
-	, Hrz6_Tro__TrzJiJa( "JiJa05__PILLAR", gl, VS_wik, JiJa05__PILLAR_vkutf8 )
-	, Hrz6_Tro__TrzJiJa( "JiJa06__SMOKE", gl, VS_wik, JiJa06__SMOKE_vkutf8 )
+	, Hrz6_Tro__TrzJiJa( "JiJa05__HEXSCROLL", gl, VS_wik, JiJa05__HEXSCROLL_vkutf8 )
+	, Hrz6_Tro__TrzJiJa( "JiJa06__SUNRISE", gl, VS_wik, JiJa06__SUNRISE_vkutf8 )
 	, Hrz6_Tro__TrzJiJa( "JiJa07__CODEX", gl, VS_wik, JiJa07__CODEX_vkutf8 )
 ];
 
@@ -648,17 +865,17 @@ const ToBri__Vy_v =
 	, gl.getUniformLocation( JiJa_v[ 6 ], 'ToBri_vwf4' )
 	, gl.getUniformLocation( JiJa_v[ 7 ], 'ToBri_vwf4' )
 ];
-const ToTy__Vy_v =
-[
-	gl.getUniformLocation( JiJa_v[ 0 ], 'ToTy_vwf4' )
-	, gl.getUniformLocation( JiJa_v[ 1 ], 'ToTy_vwf4' )
-	, gl.getUniformLocation( JiJa_v[ 2 ], 'ToTy_vwf4' )
-	, gl.getUniformLocation( JiJa_v[ 3 ], 'ToTy_vwf4' )
-	, gl.getUniformLocation( JiJa_v[ 4 ], 'ToTy_vwf4' )
-	, gl.getUniformLocation( JiJa_v[ 5 ], 'ToTy_vwf4' )
-	, gl.getUniformLocation( JiJa_v[ 6 ], 'ToTy_vwf4' )
-	, gl.getUniformLocation( JiJa_v[ 7 ], 'ToTy_vwf4' )
-];
+// const ToTy__Vy_v =
+// [
+// 	gl.getUniformLocation( JiJa_v[ 0 ], 'ToTy_vwf4' )
+// 	, gl.getUniformLocation( JiJa_v[ 1 ], 'ToTy_vwf4' )
+// 	, gl.getUniformLocation( JiJa_v[ 2 ], 'ToTy_vwf4' )
+// 	, gl.getUniformLocation( JiJa_v[ 3 ], 'ToTy_vwf4' )
+// 	, gl.getUniformLocation( JiJa_v[ 4 ], 'ToTy_vwf4' )
+// 	, gl.getUniformLocation( JiJa_v[ 5 ], 'ToTy_vwf4' )
+// 	, gl.getUniformLocation( JiJa_v[ 6 ], 'ToTy_vwf4' )
+// 	, gl.getUniformLocation( JiJa_v[ 7 ], 'ToTy_vwf4' )
+// ];
 
 
 //-------------------------------------------------
@@ -667,8 +884,10 @@ const ToTy__Vy_v =
 function Hry5_Smz__ChyYe( Fe__GiDri_wf )
 {
 	//@@@
-	// CRAFT
-	const Fe__JiJa_wuk = JoJiJa__Fe_wu;
+	// GFX_CFG
+	const Fe__JiJa_wuk = ( JoJiJa__Fe_wu );
+	const Fe__SuTy_wuk = ( JoSuTy__Fe_wu );
+
 
 	//@@@
 	// RESIZE_DETECT
@@ -716,7 +935,7 @@ function Hry5_Smz__ChyYe( Fe__GiDri_wf )
 
 	//@@@
 	// PLAY_PAUSE ANIM
-	if( JoTra_y || Hry5_Smz__KriYe )
+	if( ( JoTra_y || Hry5_Smz__KriYe ) && ( JoJiJa__Fe_wu != undefined ))
 	{
 		if( Fi__GiDri_wf > 0 )
 		{
@@ -744,27 +963,14 @@ function Hry5_Smz__ChyYe( Fe__GiDri_wf )
 			, [
 				// TIME, FRAME, HEIGHT/WIDTH
 				Fe__GiPa_wf, MxSi__YeFo_wu, MxSi.width, MxSi.height
-				// RSVRD
-				, 0.0, 0.0, 0.0, 0.0
+				// HUE_SHIFT_ID, CYC_wf, RSVRD[2]
+				, 6.2831853071 * ( Fe__SuTy_wuk / JoSuTy__Fo_wuk ), Bri__Dri6_wf, 0.0, 0.0
 			]
 		);
-		gl.uniform4fv
-		(
-			ToTy__Vy_v[ Fe__JiJa_wuk ]
-			, [
-				// PALETTE
-				0.2, 0.2, Bri__Dri6_wf, 1.0
-				, 0.2, Bri__Dri6_wf, 0.2, 1.0
-				, Bri__Dri6_wf, 0.2, 0.2, 1.0
-				, 0.2, 0.2, Bri__Dri6_wf, 1.0
-
-				, 0.2, Bri__Dri6_wf, 0.2, 1.0
-				, Bri__Dri6_wf, 0.2, 0.2, 1.0
-				, 0.2, 0.2, Bri__Dri6_wf, 1.0
-				, 0.2, Bri__Dri6_wf, 0.2, 1.0
-			]
-		);
-
+		//-----------------------------------
+		// PLAN: Upload as PALETTE for Mix
+		//-----------------------------------
+		// gl.uniform4fv( ToTy__Vy_v[ Fe__JiJa_wuk ], JoSuTy_vv[ Fe__SuTy_wuk ] );
 		gl.drawArrays(gl.TRIANGLE_FAN, 0, 4 );
 
 		MxSi__YeFo_wu++;
@@ -873,32 +1079,70 @@ document.addEventListener('keydown', (e) =>
 {
 	switch (e.key)
 	{
-		// NAVI
-		case 'ArrowUp':JoNz__ChyZo(-1); break;
-		case 'ArrowDown':JoNz__ChyZo(1); break;
+		// THOTS
+		case 'Home': JoJz__Chy( 0 ); return;
+		case 'End': JoJz__Chy( JoJz__Fo_wu - 1 ); return;
 
-		case 'ArrowLeft': JoJz__ChyZo(-1); break;
-		case 'Tab':
-		case 'ArrowRight':
-			 JoJz__ChyZo(1);
-		break;
+		case 'ArrowLeft':JoJz__ChyZo(-1); return;
+		case 'ArrowRight':JoJz__ChyZo(1); return;
+		case '-':JoJz__ChyZo( -1 ); return;
+		case '=':JoJz__ChyZo( 1 ); return;
+
+		// TOPIC
+		case '[': JoNz__ChyZo(-1); return;
+		case ']': JoNz__ChyZo(1); return;
+
 
 		// DNLOAD or LEARN
 		case 'Escape':
 		case 'Cancel':
 			Hry5_Smz__To_ChyDry();
-		break;
+		return;
 
-		// Play/Pause
+		// PLAY/PAUSE
 		case 'Enter':
 		case ' ':
 			Hry5_Smz__JoTra_ChyDry();
-		 break;
+			return;
+
+		// GFX
+		// BREAK to CLAMP & LOG
+		case ';': JoSuTy__Fe_wu--; break;
+		case '\'': JoSuTy__Fe_wu++; break;
+
+		case ',': JoJiJa__Fe_wu--; break;
+		case '.': JoJiJa__Fe_wu++; break;
 
 		// OTHERWISE
 		default: return;
 	}
+
+	// CLAMP GFX
+	JoJiJa__Fe_wu &= ( JoJiJa__Fx_wuk );
+	JoSuTy__Fe_wu &= ( JoSuTy__Fx_wuk );
+
+	// LOG CHANGES
+	SmaDx__JiJa_SuTy();
 });
+
+//-------------------------------------------------
+// POINTER
+//-------------------------------------------------
+function Hrz4_Bu__Dri_Tra( e )
+{
+	// POINTER-DOWN (PRESS)
+	console.log( `Offset X/Y: ${e.offsetX}, ${e.offsetY}
+    Viewport X/Y: ${e.clientX}, ${e.clientY}
+    Page X/Y: ${e.pageX}, ${e.pageY}
+    Screen X/Y: ${e.screenX}, ${e.screenY}` );
+}
+
+
+function Hrz4_Bu__Dri_ChyGe( e )
+{
+	// POINTER-MOVE
+	// COULD DRAW or DRAG
+}
 
 
 //==============================================
@@ -909,6 +1153,12 @@ document.addEventListener('keydown', (e) =>
 //-------------------------------------------------
 // LOG
 //-------------------------------------------------
+function SmaDx__JiJa_SuTy()
+{
+
+	console.log( `BG: ${ Object.keys( JiJa__Va_wu )[ JoJiJa__Fe_wu ]} HUE_SHIFT: ${ Object.keys( SuTy__Va_wu )[ JoSuTy__Fe_wu ]}` );
+}
+
 function SmaDx__Kz_JSON( Kz_v )
 {
 	Object.entries( Kz_v ).forEach
@@ -1004,6 +1254,14 @@ async function Hrz5_Ki__BriYa()
 	//@@@
 	// CULTURE
 	await Hre1_Dru__BriYa();
+
+	//@@@
+	// CTRLS
+	// Add Pointer Events for Canvas
+	// document.addEventListener( "pointerdown", Hrz4_Bu__Dri_Tra, false);
+	// document.addEventListener( "pointermove", Hrz4_Bu__Dri_ChyGe, false);
+
+
 }
 
 //-------------------------------------------------

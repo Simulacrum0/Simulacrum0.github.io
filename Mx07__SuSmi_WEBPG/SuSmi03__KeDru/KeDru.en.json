@@ -27,8 +27,8 @@
 
 	"TOPICS":
 	[
-		{ "ID": "NzJz00", "NAME": "Welcome to Wantware" },
-		{ "ID": "NzJz01", "NAME": "About Wantware" },
-		{ "ID": "NzJz02", "NAME": "Advanced Wantware" }
+		{ "ID": "NzJz00", "NAME": "Sample #1 Construction" },
+		{ "ID": "NzJz01", "NAME": "Sample #2 Technologies" },
+		{ "ID": "NzJz02", "NAME": "Sample #3 Made_Stuff" }
 	]
 }

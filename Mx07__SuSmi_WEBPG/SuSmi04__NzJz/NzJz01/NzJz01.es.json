@@ -1,0 +1,173 @@
+{
+	"THOTS":
+	[
+		{
+			"TITLE": "Tech",
+			"BG": "SUNRISE",
+			"HUE_SHIFT": "STD",
+
+			"CONTENT":
+			[
+				{
+					"ICON_CLR": "WIN",
+					"ICON_TXT": "Descubrir esto ICON"
+				},
+				{
+					"ICON_CLR": "IOS",
+					"ICON_TXT": "Descubrir esto ICON"
+				},
+				{
+					"ICON_CLR": "MAC",
+					"ICON_TXT": "Descubrir esto ICON"
+				},
+				{
+					"ICON_CLR": "DRD",
+					"ICON_TXT": "Descubrir esto ICON"
+				},
+				{
+					"ICON_CLR": "LNX",
+					"ICON_TXT": "Descubrir esto ICON"
+				},
+				{
+					"ICON_CLR": "ESRB",
+					"ICON_TXT": "Descubrir esto ICON"
+				},
+				{
+					"ICON_CLR": "PEGI",
+					"ICON_TXT": "Descubrir esto ICON"
+				},
+				{
+					"ICON_CLR": "GDPR",
+					"ICON_TXT": "Descubrir esto ICON"
+				},
+
+				{
+					"ICON_CLR": "CCPA",
+					"ICON_TXT": "Descubrir esto ICON"
+				},
+				{
+					"ICON_CLR": "SPIRV",
+					"ICON_TXT": "Descubrir esto ICON"
+				},
+				{
+					"ICON_CLR": "VK",
+					"ICON_TXT": "Descubrir esto ICON"
+				},
+				{
+					"ICON_CLR": "CURL",
+					"ICON_TXT": "Descubrir esto ICON"
+				},
+				{
+					"ICON_CLR": "SDL",
+					"ICON_TXT": "Descubrir esto ICON"
+				},
+				{
+					"ICON_CLR": "MSL",
+					"ICON_TXT": "Descubrir esto ICON"
+				},
+				{
+					"ICON_CLR": "C",
+					"ICON_TXT": "Descubrir esto ICON"
+				},
+				{
+					"ICON_CLR": "PSX",
+					"ICON_TXT": "Descubrir esto ICON"
+				},
+				{
+					"ICON_CLR": "BULLET",
+					"ICON_TXT": "Descubrir esto ICON"
+				},
+				{
+					"ICON_CLR": "INTEL",
+					"ICON_TXT": "Descubrir esto ICON"
+				},
+				{
+					"ICON_CLR": "AMD",
+					"ICON_TXT": "Descubrir esto ICON"
+				},
+				{
+					"ICON_CLR": "ARM",
+					"ICON_TXT": "Descubrir esto ICON"
+				},
+				{
+					"ICON_CLR": "RISCV",
+					"ICON_TXT": "Descubrir esto ICON"
+				},
+				{
+					"ICON_CLR": "NVIDIA",
+					"ICON_TXT": "Descubrir esto ICON"
+				},
+				{
+					"ICON_CLR": "QUALCOMM",
+					"ICON_TXT": "Descubrir esto ICON"
+				},
+				{
+					"ICON_CLR": "BROADCOM",
+					"ICON_TXT": "Descubrir esto ICON"
+				},
+				{
+					"ICON_CLR": "VIVANTE",
+					"ICON_TXT": "Descubrir esto ICON"
+				}
+			]
+		},
+
+		{
+			"TITLE": "2 FILM SAMPLES",
+			"BG": "ETHER",
+			"HUE_SHIFT": "STD",
+			"INTERNAL_COMMENTS": "Just testing YouTube embedding",
+
+			"CONTENT":
+			[
+				{
+					"TXT": "About this video"
+				},
+				{ "FILM": "HeMgPGg7Yhc?si=o9RapOau0N8lPRet" },
+
+				{
+					"TXT": "About this video"
+				},
+				{ "FILM": "/wOver8cUW0g?si=v9Qh59PYYWHuorfI" }
+			]
+		},
+
+		{
+			"TITLE": "Essence Features",
+
+			"CONTENT":
+			[
+				{ "TXT": "Descubrir what is special with speed, space, storage, and bandwidth." },
+				{
+					"ICON_CLR": "NET",
+					"ICON_TXT": "Descubrir esto ICON"
+				},
+				{
+					"ICON_CLR": "SECURITY",
+					"ICON_TXT": "Descubrir esto ICON"
+				},
+				{
+					"ICON_CLR": "GLOBAL",
+					"ICON_TXT": "Descubrir esto ICON"
+				},
+				{
+					"ICON_CLR": "STORAGE",
+					"ICON_TXT": "Descubrir esto ICON"
+				},
+				{
+					"ICON_CLR": "SPEED",
+					"ICON_TXT": "Descubrir esto ICON"
+				},
+				{
+					"ICON_CLR": "BATTERY",
+					"ICON_TXT": "Descubrir esto ICON"
+				},
+				{
+					"ICON_CLR": "PLUG",
+					"ICON_TXT": "Descubrir esto ICON"
+				}
+
+			]
+		}
+	]
+}

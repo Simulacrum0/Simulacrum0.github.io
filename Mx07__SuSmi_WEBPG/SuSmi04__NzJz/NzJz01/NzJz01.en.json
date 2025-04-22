@@ -2,106 +2,171 @@
 	"THOTS":
 	[
 		{
-			"TITLE": "Consider #01",
-			"TXT": "EXAMPLE Paragraph for Testing Purposes only while site is under rennovation. Please ignore this message and return to the site in summer 2025.",
+			"TITLE": "Tech supported and interfaced with is described below",
+			"BG": "SUNRISE",
+			"HUE_SHIFT": "COOL_LG",
+			"INTERNAL_COMMENTS": "jake needs to fill these in",
 
-			"NOTES":
+			"CONTENT":
 			[
 				{
-					"ICON": "WIN",
-					"MSG": "BEGIN. Details. Details. Details. Details. Details. Details. Details. Details. Details. Details. Details. Details. Details. Details. Details. Details. Details. Details. Details. Details. Details. END"
+					"ICON_CLR": "WIN",
+					"ICON_TXT": "Explain why this ICON matters in Essence"
 				},
 				{
-					"ICON": "DRD",
-					"MSG": "BEGIN. Blah. Blah. Blah. Blah. Blah. Blah. Blah. Blah. Blah. Blah. Blah. Blah. Blah. Blah. Blah. Blah. Blah. Blah. Blah. Blah. Blah. END"
+					"ICON_CLR": "IOS",
+					"ICON_TXT": "Explain why this ICON matters in Essence"
+				},
+				{
+					"ICON_CLR": "MAC",
+					"ICON_TXT": "Explain why this ICON matters in Essence"
+				},
+				{
+					"ICON_CLR": "DRD",
+					"ICON_TXT": "Explain why this ICON matters in Essence"
+				},
+				{
+					"ICON_CLR": "LNX",
+					"ICON_TXT": "Explain why this ICON matters in Essence"
+				},
+				{
+					"ICON_CLR": "ESRB",
+					"ICON_TXT": "Explain why this ICON matters in Essence"
+				},
+				{
+					"ICON_CLR": "PEGI",
+					"ICON_TXT": "Explain why this ICON matters in Essence"
+				},
+				{
+					"ICON_CLR": "GDPR",
+					"ICON_TXT": "Explain why this ICON matters in Essence"
 				},
 
 				{
-					"ICON": "LNX",
-					"MSG": "BEGIN. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. END"
+					"ICON_CLR": "CCPA",
+					"ICON_TXT": "Explain why this ICON matters in Essence"
 				},
-
 				{
-					"ICON": "MAC",
-					"MSG": "BEGIN. TESTO. TESTO. TESTO. TESTO. TESTO. TESTO. TESTO. TESTO. TESTO. TESTO. TESTO. TESTO. TESTO. TESTO. TESTO. TESTO. TESTO. TESTO. TESTO. TESTO. TESTO. END"
+					"ICON_CLR": "SPIRV",
+					"ICON_TXT": "Explain why this ICON matters in Essence"
+				},
+				{
+					"ICON_CLR": "VK",
+					"ICON_TXT": "Explain why this ICON matters in Essence"
+				},
+				{
+					"ICON_CLR": "CURL",
+					"ICON_TXT": "Explain why this ICON matters in Essence"
+				},
+				{
+					"ICON_CLR": "SDL",
+					"ICON_TXT": "We use the SDL library to comply with window operations on various OS's and for some drivers."
+				},
+				{
+					"ICON_CLR": "MSL",
+					"ICON_TXT": "Explain why this ICON matters in Essence"
+				},
+				{
+					"ICON_CLR": "C",
+					"ICON_TXT": "Explain why this ICON matters in Essence"
+				},
+				{
+					"ICON_CLR": "PSX",
+					"ICON_TXT": "Explain why this ICON matters in Essence"
+				},
+				{
+					"ICON_CLR": "BULLET",
+					"ICON_TXT": "Explain why this ICON matters in Essence"
+				},
+				{
+					"ICON_CLR": "INTEL",
+					"ICON_TXT": "Explain why this ICON matters in Essence"
+				},
+				{
+					"ICON_CLR": "AMD",
+					"ICON_TXT": "Explain why this ICON matters in Essence"
+				},
+				{
+					"ICON_CLR": "ARM",
+					"ICON_TXT": "Explain why this ICON matters in Essence"
+				},
+				{
+					"ICON_CLR": "RISCV",
+					"ICON_TXT": "Explain why this ICON matters in Essence"
+				},
+				{
+					"ICON_CLR": "NVIDIA",
+					"ICON_TXT": "Explain why this ICON matters in Essence"
+				},
+				{
+					"ICON_CLR": "QUALCOMM",
+					"ICON_TXT": "Explain why this ICON matters in Essence"
+				},
+				{
+					"ICON_CLR": "BROADCOM",
+					"ICON_TXT": "Explain why this ICON matters in Essence"
+				},
+				{
+					"ICON_CLR": "VIVANTE",
+					"ICON_TXT": "Explain why this ICON matters in Essence"
 				}
-			],
-
-			"MEDIA":
-			{
-				"PATH": "SuKz02_JaPo__PICT/",
-				"IMG": "JaPo00__FyHo.jpg",
-				"CAPTION": "Mesage for image"
-			}
+			]
 		},
 
 		{
-			"TITLE": "Consider #02",
-			"TXT": "2nd pgraf.",
+			"TITLE": "2 FILM SAMPLES",
+			"BG": "CODEX",
+			"HUE_SHIFT": "STD",
+			"INTERNAL_COMMENTS": "Just testing YouTube embedding",
 
-			"NOTES":
+			"CONTENT":
 			[
-				{
-					"ICON": "WIN",
-					"MSG": "BEGIN. Details. Details. Details. Details. Details. Details. Details. Details. Details. Details. Details. Details. Details. Details. Details. Details. Details. Details. Details. Details. Details. END"
-				},
-				{
-					"ICON": "DRD",
-					"MSG": "BEGIN. Blah. Blah. Blah. Blah. Blah. Blah. Blah. Blah. Blah. Blah. Blah. Blah. Blah. Blah. Blah. Blah. Blah. Blah. Blah. Blah. Blah. END"
-				},
+				{ "TXT": "2nd pgraf. Longer story...explain video, etc. Say stuff and more stuff and then some stuff and more stuff and then some stuff and more stuff and then some stuff and more stuff and then some stuff and more stuff and then some stuff and more stuff and then some stuff!" },
+				{ "FILM": "wOver8cUW0g?si=wZzCrQrDttCZ0dfP" },
 
-				{
-					"ICON": "LNX",
-					"MSG": "BEGIN. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. END"
-				},
-
-				{
-					"ICON": "MAC",
-					"MSG": "BEGIN. TESTO. TESTO. TESTO. TESTO. TESTO. TESTO. TESTO. TESTO. TESTO. TESTO. TESTO. TESTO. TESTO. TESTO. TESTO. TESTO. TESTO. TESTO. TESTO. TESTO. TESTO. END"
-				}
-			],
-
-			"MEDIA":
-			{
-				"PATH": "SuKz02_JaPo__PICT/",
-				"IMG": "JaPo00__FyHo.jpg",
-				"CAPTION": "Mesage for image"
-			}
+				{ "TXT": "BEGIN. Blah. Blah. Blah. Blah. Blah. Blah. Blah. Blah. Blah. Blah. Blah. Blah. Blah. Blah. Blah. Blah. Blah. Blah. Blah. Blah. Blah. END"	},
+				{ "FILM": "HeMgPGg7Yhc?si=o9RapOau0N8lPRet" }
+			]
 		},
 
 		{
-			"TITLE": "Consider #03",
-			"TXT": "3rd pgraf.",
+			"TITLE": "Essence Features",
+			"BG": "CODEX",
+			"HUE_SHIFT": "STD",
 
-			"NOTES":
+			"CONTENT":
 			[
+				{ "TXT": "Explain what is special with speed, space, storage, and bandwidth.<br><br>" },
 				{
-					"ICON": "WIN",
-					"MSG": "BEGIN. Details. Details. Details. Details. Details. Details. Details. Details. Details. Details. Details. Details. Details. Details. Details. Details. Details. Details. Details. Details. Details. END"
+					"ICON_CLR": "NET",
+					"ICON_TXT": "Explain why this ICON matters in Essence"
 				},
 				{
-					"ICON": "DRD",
-					"MSG": "BEGIN. Blah. Blah. Blah. Blah. Blah. Blah. Blah. Blah. Blah. Blah. Blah. Blah. Blah. Blah. Blah. Blah. Blah. Blah. Blah. Blah. Blah. END"
+					"ICON_CLR": "SECURITY",
+					"ICON_TXT": "Explain why this ICON matters in Essence"
 				},
-
 				{
-					"ICON": "LNX",
-					"MSG": "BEGIN. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. END"
+					"ICON_CLR": "GLOBAL",
+					"ICON_TXT": "Explain why this ICON matters in Essence"
 				},
-
 				{
-					"ICON": "MAC",
-					"MSG": "BEGIN. TESTO. TESTO. TESTO. TESTO. TESTO. TESTO. TESTO. TESTO. TESTO. TESTO. TESTO. TESTO. TESTO. TESTO. TESTO. TESTO. TESTO. TESTO. TESTO. TESTO. TESTO. END"
+					"ICON_CLR": "STORAGE",
+					"ICON_TXT": "Explain why this ICON matters in Essence"
+				},
+				{
+					"ICON_CLR": "SPEED",
+					"ICON_TXT": "Explain why this ICON matters in Essence"
+				},
+				{
+					"ICON_CLR": "BATTERY",
+					"ICON_TXT": "Explain why this ICON matters in Essence"
+				},
+				{
+					"ICON_CLR": "PLUG",
+					"ICON_TXT": "Explain why this ICON matters in Essence"
 				}
-			],
 
-			"MEDIA":
-			{
-				"PATH": "SuKz02_JaPo__PICT/",
-				"IMG": "JaPo00__FyHo.jpg",
-				"CAPTION": "Mesage for image"
-			}
+			]
 		}
-
 	]
 }

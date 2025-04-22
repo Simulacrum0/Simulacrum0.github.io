@@ -2,106 +2,96 @@
 	"THOTS":
 	[
 		{
-			"TITLE": "Discover #01",
-			"TXT": "EXAMPLE Paragraph for Testing Purposes only while site is under rennovation. Please ignore this message and return to the site in summer 2025.",
+			"TITLE": "Samples of \"Aptiv Made\" Images",
+			"BG": "HEXSCROLL",
+			"HUE_SHIFT": "STD",
 
-			"NOTES":
+			"CONTENT":
 			[
 				{
-					"ICON": "WIN",
-					"MSG": "BEGIN. Details. Details. Details. Details. Details. Details. Details. Details. Details. Details. Details. Details. Details. Details. Details. Details. Details. Details. Details. Details. Details. END"
+					"IMG": "TxTrz00__BANNER_4_1.jpg",
+					"PATH": "SuKz03_TxTrz__APTIV_MADE/",
+					"CAPTION": "Mesage for Image"
 				},
 				{
-					"ICON": "DRD",
-					"MSG": "BEGIN. Blah. Blah. Blah. Blah. Blah. Blah. Blah. Blah. Blah. Blah. Blah. Blah. Blah. Blah. Blah. Blah. Blah. Blah. Blah. Blah. Blah. END"
+					"IMG": "TxTrz01__GEMS.jpg",
+					"PATH": "SuKz03_TxTrz__APTIV_MADE/",
+					"CAPTION": "Mesage for Image"
 				},
-
 				{
-					"ICON": "LNX",
-					"MSG": "BEGIN. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. END"
+					"IMG": "TxTrz02__QUAD.jpg",
+					"PATH": "SuKz03_TxTrz__APTIV_MADE/",
+					"CAPTION": "Mesage for Image"
 				},
-
 				{
-					"ICON": "MAC",
-					"MSG": "BEGIN. TESTO. TESTO. TESTO. TESTO. TESTO. TESTO. TESTO. TESTO. TESTO. TESTO. TESTO. TESTO. TESTO. TESTO. TESTO. TESTO. TESTO. TESTO. TESTO. TESTO. TESTO. END"
+					"IMG": "TxTrz04__HEX.jpg",
+					"PATH": "SuKz03_TxTrz__APTIV_MADE/",
+					"CAPTION": "Mesage for Image"
+				},
+				{
+					"IMG": "TxTrz05__ORANGE.jpg",
+					"PATH": "SuKz03_TxTrz__APTIV_MADE/",
+					"CAPTION": "Mesage for Image"
+				},
+				{
+					"IMG": "TxTrz06__MEMVIEW.jpg",
+					"PATH": "SuKz03_TxTrz__APTIV_MADE/",
+					"CAPTION": "Mesage for Image"
+				},
+				{
+					"IMG": "TxTrz07__LINES.jpg",
+					"PATH": "SuKz03_TxTrz__APTIV_MADE/",
+					"CAPTION": "Mesage for Image"
+				},
+				{
+					"IMG": "TxTrz08__PyDru.jpg",
+					"PATH": "SuKz03_TxTrz__APTIV_MADE/",
+					"CAPTION": "Mesage for Image"
+				},
+				{
+					"IMG": "TxTrz09__SATELLITE.jpg",
+					"PATH": "SuKz03_TxTrz__APTIV_MADE/",
+					"CAPTION": "Mesage for Image"
+				},
+				{
+					"IMG": "TxTrz10__UNCLOAK.jpeg",
+					"PATH": "SuKz03_TxTrz__APTIV_MADE/",
+					"CAPTION": "Mesage for Image"
+				},
+				{
+					"IMG": "TxTrz11__COUCH.jpg",
+					"PATH": "SuKz03_TxTrz__APTIV_MADE/",
+					"CAPTION": "Mesage for Image"
+				},
+				{
+					"IMG": "TxTrz13__GUG.jpg",
+					"PATH": "SuKz03_TxTrz__APTIV_MADE/",
+					"CAPTION": "Mesage for Image"
+				},
+				{
+					"IMG": "TxTrz14__FLOW.jpg",
+					"PATH": "SuKz03_TxTrz__APTIV_MADE/",
+					"CAPTION": "Mesage for Image"
+				},
+				{
+					"IMG": "TxTrz15__DIALOG.jpg",
+					"PATH": "SuKz03_TxTrz__APTIV_MADE/",
+					"CAPTION": "Mesage for Image"
+				},
+				{
+					"IMG": "TxTrz16__SCHED.jpg",
+					"PATH": "SuKz03_TxTrz__APTIV_MADE/",
+					"CAPTION": "Mesage for Image"
 				}
-			],
-
-			"MEDIA":
-			{
-				"PATH": "SuKz02_JaPo__PICT/",
-				"IMG": "JaPo00__FyHo.jpg",
-				"CAPTION": "Mesage for image"
-			}
+			]
 		},
 
 		{
-			"TITLE": "Discover #02",
-			"TXT": "EXAMPLE Paragraph for Testing Purposes only while site is under rennovation. Please ignore this message and return to the site in summer 2025.",
-
-			"NOTES":
+			"TITLE": "Empty Thot Slide",
+			"CONTENT":
 			[
-				{
-					"ICON": "WIN",
-					"MSG": "BEGIN. Details. Details. Details. Details. Details. Details. Details. Details. Details. Details. Details. Details. Details. Details. Details. Details. Details. Details. Details. Details. Details. END"
-				},
-				{
-					"ICON": "DRD",
-					"MSG": "BEGIN. Blah. Blah. Blah. Blah. Blah. Blah. Blah. Blah. Blah. Blah. Blah. Blah. Blah. Blah. Blah. Blah. Blah. Blah. Blah. Blah. Blah. END"
-				},
-
-				{
-					"ICON": "LNX",
-					"MSG": "BEGIN. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. END"
-				},
-
-				{
-					"ICON": "MAC",
-					"MSG": "BEGIN. TESTO. TESTO. TESTO. TESTO. TESTO. TESTO. TESTO. TESTO. TESTO. TESTO. TESTO. TESTO. TESTO. TESTO. TESTO. TESTO. TESTO. TESTO. TESTO. TESTO. TESTO. END"
-				}
-			],
-
-			"MEDIA":
-			{
-				"PATH": "SuKz02_JaPo__PICT/",
-				"IMG": "JaPo00__FyHo.jpg",
-				"CAPTION": "Mesage for image"
-			}
-		},
-
-		{
-			"TITLE": "Discover #03",
-			"TXT": "EXAMPLE Paragraph for Testing Purposes only while site is under rennovation. Please ignore this message and return to the site in summer 2025.",
-
-			"NOTES":
-			[
-				{
-					"ICON": "WIN",
-					"MSG": "BEGIN. Details. Details. Details. Details. Details. Details. Details. Details. Details. Details. Details. Details. Details. Details. Details. Details. Details. Details. Details. Details. Details. END"
-				},
-				{
-					"ICON": "DRD",
-					"MSG": "BEGIN. Blah. Blah. Blah. Blah. Blah. Blah. Blah. Blah. Blah. Blah. Blah. Blah. Blah. Blah. Blah. Blah. Blah. Blah. Blah. Blah. Blah. END"
-				},
-
-				{
-					"ICON": "LNX",
-					"MSG": "BEGIN. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. END"
-				},
-
-				{
-					"ICON": "MAC",
-					"MSG": "BEGIN. TESTO. TESTO. TESTO. TESTO. TESTO. TESTO. TESTO. TESTO. TESTO. TESTO. TESTO. TESTO. TESTO. TESTO. TESTO. TESTO. TESTO. TESTO. TESTO. TESTO. TESTO. END"
-				}
-			],
-
-			"MEDIA":
-			{
-				"PATH": "SuKz02_JaPo__PICT/",
-				"IMG": "JaPo00__FyHo.jpg",
-				"CAPTION": "Mesage for image"
-			}
+				{ "TXT": "No pgraf." }
+			]
 		}
-
 	]
 }

@@ -1,12 +1,12 @@
 //-------------------------------------------------
 // // GLSL_Ya
 //-------------------------------------------------
-const JiJa06__SMOKE_vkutf8
+const JiJa06__SUNRISE_vkutf8
  =`#version 300 es
 #line 7
 precision highp float;
 uniform vec4 ToBri_vwf4[ 2 ];
-uniform vec4 ToTy_vwf4[ 4 ];
+// uniform vec4 ToTy_vwf4[ 4 ];
 out vec4 Se_wfa4;
 
 	float Gi_wfk;
@@ -60,7 +60,23 @@ float fbm(vec2 p, int lv)
 }
 
 
+
+//----------------------------------------------------------------------------------------
+vec3 PoChyGo_wf3(vec3 Po_wf3, float Po_GoZo_wf)
+//----------------------------------------------------------------------------------------
+{
+	float s = sin(Po_GoZo_wf);
+	float c = cos(Po_GoZo_wf);
+	return (Po_wf3 * c) + (Po_wf3 * s) * mat3(
+		vec3(0.167444, 0.329213, -0.496657),
+		vec3(-0.327948, 0.035669, 0.292279),
+		vec3(1.250268, -1.047561, -0.202707)
+	) + dot(vec3(0.299, 0.587, 0.114), Po_wf3) * (1.0 - c);
+}
+
+//----------------------------------------------------------------------------------------
 void main(void)
+//----------------------------------------------------------------------------------------
 {
 	Gi_wfk = ToBri_vwf4[ 0 ].x;
 	VeGy_wf2 = ToBri_vwf4[ 0 ].zw;
@@ -125,7 +141,9 @@ void main(void)
     // col += 0.03 * (hash12( gl_FragCoord.xy )-0.5) * sqrt(VeGy_wf2.y/400.);
 
     // Output to screen
-    Se_wfa4 = vec4( col, 1.0);
+  	col = PoChyGo_wf3( col, ToBri_vwf4[ 1 ].x );
+
+      Se_wfa4 = vec4( col, 1.0);
 }
 
 `;
