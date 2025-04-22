@@ -31,7 +31,7 @@ const Hre1_Dru__Gra_v =
 	// es
 	{ "Vy": "es", "Va": "Español (España)", "So": "Spanish (Spain)", "KuGwz": "🇪🇸", "ToKz": "es" },
 	{ "Vy": "es-419", "Va": "Español (Latinoamérica)", "So": "Spanish (Latin America)", "KuGwz": "🌎", "ToKz": "es" },
-	{ "Vy": "es-US", "Va": "Español (Estados Unidos)", "So": "Spanish (United States)", "KuGwz": "🇺🇸", "ToKz": "es" },
+	{ "Vy": "es-US", "Va": "Español (Estados Unidos)", "So": "Spanish (United States)", "KuGwz": "🇺🇸", "ToKz": "es" }
 
 	// { "Vy": "et", "Va": "Eesti", "KuGwz": "🇪🇪", "So": "Estonian", "ToKz": "et" },
 	// { "Vy": "eu", "Va": "Euskara", "KuGwz": "🇪🇸", "So": "Basque", "ToKz": "eu" },

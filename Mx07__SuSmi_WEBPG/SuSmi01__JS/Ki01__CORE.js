@@ -81,7 +81,6 @@ async function JoNz__Chy( Nz_wu )
 	const FeNzVa_vutf8 = KeDru_v.TOPICS[ JoNz__Fe_wu ].ID;
 	if( !FeNzVa_vutf8 ) { SmaTrx( `NO TOPIC #${JoNz__Fe_wu} ID!` ); return; }
 
-
 	NzJz_v = await ToKz__JSON_v( `SuSmi04__NzJz/${FeNzVa_vutf8}/`, `${FeNzVa_vutf8}.${KeKu__ToKz_vutf8}` );
 	if( !NzJz_v ) { SmaTrx( "NO TOPIC FILE!" ); return; }
 
@@ -1207,12 +1206,12 @@ function Hri3_Ne__Ta_ChyStz( Ta_v )
 // WIN: google-chrome has 2 file-access flags to run
 //
 // LAB ( Edit locally using FILES only )
-// const WEBPG_vutf8 = "Mx07__SuSmi_WEBPG/";
 // $google-chrome --allow-file-access-from-files --allow-file-access file:///mnt/Ku5_KoKri/Kri07__Mx_POST/index.html
+// const WEBPG_vutf8 = "Mx07__SuSmi_WEBPG/";
 //
 // PUB ( Publish using REAL Site )
-//const WEBPG_vutf8 = "https://powerourpeople.com/Mx07__SuSmi_WEBPG/";
 // $google-chrome powerourpeople.com
+//const WEBPG_vutf8 = "https://powerourpeople.com/Mx07__SuSmi_WEBPG/";
 //
 //-------------------------------------------------
 async function ToKz__JSON_v( ChaKuTu_vutf8, ToKzVa_vutf8 )
