@@ -67,16 +67,6 @@
 		},
 
 		{
-			"TITLE": "BG TEST",
-			"BG": "SUNRISE",
-			"HUE_SHIFT": "STD",
-			"CONTENT":
-			[
-				{ "TXT": "EXAMPLE Paragraph for Testing Purposes only while site is under rennovation. Please ignore this message and return to the site in summer 2025." }
-			]
-		},
-
-		{
 			"TITLE": "Sample Y",
 			"BG": "SUNRISE",
 			"HUE_SHIFT": "COOL_LG",
@@ -105,6 +95,17 @@
 					"ICON_CLR": "LNX",
 					"ICON_TXT": "BEGIN. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. END"
 				}
+			]
+		},
+
+
+		{
+			"TITLE": "BG TEST",
+			"BG": "SUNRISE",
+			"HUE_SHIFT": "STD",
+			"CONTENT":
+			[
+				{ "TXT": "EXAMPLE Paragraph for Testing Purposes only while site is under rennovation. Please ignore this message and return to the site in summer 2025." }
 			]
 		}
 	]
