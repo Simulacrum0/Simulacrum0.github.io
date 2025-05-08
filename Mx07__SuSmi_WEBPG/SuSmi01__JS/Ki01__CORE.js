@@ -4,7 +4,7 @@
 
 //==============================================
 // CONTENTS
-// 1.0 JoNz TOPIC
+// 1.0 KxDri MINDMAPS
 // 2.0 Hre1_Dru CULTURE
 // 3.0 Ko NODE
 // 4.0 Hry5_Smz SPATIAL
@@ -21,8 +21,6 @@
 let BriDzYz_v;
 // APP LANG
 let KeDru_v;
-// TOPIC
-let NzJz_v;
 
 //-------------------------------------------------
 // CALC'D
@@ -34,24 +32,108 @@ let TrzZe__Gi_vutf8;
 
 //==============================================
 // 1.0
-// JoNz_TOPIC
+// MINDMAPS^KxDri
+//
+// SUBJECT: Telescope: 1F52D
+// TOPIC: Magnify: 1F50D
+// THOT: Microscope: 1F52C
+//
 //==============================================
 
 //-------------------------------------------------
 // STATE
 //-------------------------------------------------
 
+// SUBJECT
+let TzKa_v = undefined;
+let TzKa__Fo_wu = 0;
+let TzKa__Fe_wu = 0;
+let TzVa__Fe_vutf8 = undefined;
+
 // TOPIC
-let JoNz__Fo_wu = 0;
-let JoNz__Fe_wu = 0;
+let NzKa_v = undefined;
+let NzKa__Fo_wu = 0;
+let NzKa__Fe_wu = 0;
 
 // THOT
-let JoJz__Fo_wu = 0;
-let JoJz__Fe_wu = 0;
+let JzKa__Fo_wu = 0;
+let JzKa__Fe_wu = 0;
 
 // TRAITS
 let JoJiJa__Fe_wu = undefined;
 let JoSuTy__Fe_wu = 0;
+
+//-------------------------------------------------
+// SUBJECT
+//-------------------------------------------------
+//@@@
+// SUBJECT INC
+function TzKa__ChyZo( Zo_wi )
+{
+	TzKa__Fe_wu += Zo_wi;
+	if( TzKa__Fe_wu < 0 ){ TzKa__Fe_wu = TzKa__Fo_wu - 1; }
+	else if( TzKa__Fe_wu >= TzKa__Fo_wu ){ TzKa__Fe_wu = 0; }
+
+	TzKa__Chy( TzKa__Fe_wu );
+}
+
+
+//@@@
+// SUBJECT UPD
+async function TzKa__Chy( Tz_wu )
+{
+	TzKa__Fe_wu = ( Tz_wu % TzKa__Fo_wu );
+
+	// console.log( "Tz_wu" + Tz_wu );
+	// console.log( "TzKa__Fe_wu" + TzKa__Fe_wu );
+	// console.log( "TzKa__Fo_wu" + TzKa__Fo_wu );
+
+
+	//&&&
+	// SUBJECT FILE
+	if( !KeDru_v ) return;
+	TzVa__Fe_vutf8 = KeDru_v.SUBJECTS[ TzKa__Fe_wu ].ID;
+	if( !TzVa__Fe_vutf8 ) { SmaTrx( `NO SUBJECT #${TzKa__Fe_wu} ID!` ); return; }
+
+	TzKa_v = await ToKz__JSON_v( `SuSmi04__SUBJECTS/${TzVa__Fe_vutf8}/_MENU/`, `${TzVa__Fe_vutf8}.${KeKu__ToKz_vutf8}` );
+	if( !TzKa_v ) { SmaTrx( "NO SUBJECT FILE!" ); return; }
+	NzKa__Fo_wu = TzKa_v.TOPICS.length;
+
+
+	//&&&
+	// MENU COUNTER
+	document.getElementById('TzKaVa').innerHTML = `&#x1F52D ${ KeDru_v.TERMS.TzKaVa} ${TzKa__Fe_wu+1}/${TzKa__Fo_wu}`;
+
+
+	//&&&
+	// TOPIC FILL by LANG
+	const TaNzKa_v = document.getElementById( 'TaNzKa' );
+	Hri3_Ne__Ta_ChyStz( TaNzKa_v );
+
+	TzKa_v.TOPICS.forEach
+	(
+		function( Ti_v, Vx_wu )
+		{
+			// SmaDx__Kz_JSON( Ti_v );
+			// console.log( "[" + Vx_wu + "]------------" + Ti_v.TITLE );
+
+			//&&&
+			// ADD THOT BTNS
+			const Kz_v = document.createElement('button');
+			Kz_v.innerHTML = `${Ti_v.NAME}`;
+			let JiTra_vutf8 =`NzKa__Chy( ${Vx_wu} );`;
+			// console.log( JiTra_vutf8 );
+			Kz_v.setAttribute( "onclick", JiTra_vutf8 );
+			Kz_v.className = 'Dx__BTN';
+			TaNzKa_v.appendChild( Kz_v );
+		}
+	);
+
+	//&&&
+	// ALWAYS LOAD FIRST TOPIC's TJPTS
+	NzKa__Fe_wu = 0;
+	await NzKa__Chy( NzKa__Fe_wu );
+}
 
 
 //-------------------------------------------------
@@ -59,43 +141,43 @@ let JoSuTy__Fe_wu = 0;
 //-------------------------------------------------
 //@@@
 // TOPIC INC
-function JoNz__ChyZo( Zo_wi )
+function NzKa__ChyZo( Zo_wi )
 {
-	JoNz__Fe_wu += Zo_wi;
-	if( JoNz__Fe_wu < 0 ){ JoNz__Fe_wu = JoNz__Fo_wu - 1; }
-	else if( JoNz__Fe_wu >= JoNz__Fo_wu ){ JoNz__Fe_wu = 0; }
+	NzKa__Fe_wu += Zo_wi;
+	if( NzKa__Fe_wu < 0 ){ NzKa__Fe_wu = NzKa__Fo_wu - 1; }
+	else if( NzKa__Fe_wu >= NzKa__Fo_wu ){ NzKa__Fe_wu = 0; }
 
-	JoNz__Chy( JoNz__Fe_wu );
+	NzKa__Chy( NzKa__Fe_wu );
 }
 
 
 //@@@
 // TOPIC UPD
-async function JoNz__Chy( Nz_wu )
+async function NzKa__Chy( Nz_wu )
 {
-	JoNz__Fe_wu = ( Nz_wu % JoNz__Fo_wu );
+	NzKa__Fe_wu = ( Nz_wu % NzKa__Fo_wu );
 
 	//&&&
 	// TOPIC FILE
-	if( !KeDru_v ) return;
-	const FeNzVa_vutf8 = KeDru_v.TOPICS[ JoNz__Fe_wu ].ID;
-	if( !FeNzVa_vutf8 ) { SmaTrx( `NO TOPIC #${JoNz__Fe_wu} ID!` ); return; }
+	if( !TzKa_v ) return;
+	const NzVa__Fe_vutf8 = TzKa_v.TOPICS[ NzKa__Fe_wu ].ID;
+	if( !NzVa__Fe_vutf8 ) { SmaTrx( `NO TOPIC #${NzKa__Fe_wu} ID!` ); return; }
 
-	NzJz_v = await ToKz__JSON_v( `SuSmi04__NzJz/${FeNzVa_vutf8}/`, `${FeNzVa_vutf8}.${KeKu__ToKz_vutf8}` );
-	if( !NzJz_v ) { SmaTrx( "NO TOPIC FILE!" ); return; }
+	NzKa_v = await ToKz__JSON_v( `SuSmi04__SUBJECTS/${TzVa__Fe_vutf8}/${NzVa__Fe_vutf8}/`, `${NzVa__Fe_vutf8}.${KeKu__ToKz_vutf8}` );
+	if( !NzKa_v ) { SmaTrx( "NO TOPIC FILE!" ); return; }
+	JzKa__Fo_wu = NzKa_v.THOTS.length;
 
 
 	//&&&
 	// MENU COUNTER
-	document.getElementById('JoNzVa').innerHTML = `&#x1F4D2 ${ KeDru_v.TERMS.JoNzVa} ${JoNz__Fe_wu+1}/${JoNz__Fo_wu}`;
+	document.getElementById('NzKaVa').innerHTML = `&#x1F50D ${ KeDru_v.TERMS.NzKaVa} ${NzKa__Fe_wu+1}/${NzKa__Fo_wu}`;
 
 	//&&&
 	// THOTS
-	const TaJoJz_v = document.getElementById( 'TaJoJz' );
-	Hri3_Ne__Ta_ChyStz( TaJoJz_v );
+	const TaJzKa_v = document.getElementById( 'TaJzKa' );
+	Hri3_Ne__Ta_ChyStz( TaJzKa_v );
 
-	JoJz__Fo_wu = NzJz_v.THOTS.length;
-	NzJz_v.THOTS.forEach
+	NzKa_v.THOTS.forEach
 	(
 		function( Ti_v, Vx_wu )
 		{
@@ -106,11 +188,11 @@ async function JoNz__Chy( Nz_wu )
 			// ADD THOT BTNS
 			const Kz_v = document.createElement('button');
 			Kz_v.innerHTML = `${Ti_v.TITLE}`;
-			let JiTra_vutf8 =`JoJz__Chy( ${Vx_wu} );`;
+			let JiTra_vutf8 =`JzKa__Chy( ${Vx_wu} );`;
 			// console.log( JiTra_vutf8 );
 			Kz_v.setAttribute( "onclick", JiTra_vutf8 );
 			Kz_v.className = 'Dx__BTN';
-			TaJoJz_v.appendChild( Kz_v );
+			TaJzKa_v.appendChild( Kz_v );
 		}
 	);
 
@@ -120,7 +202,7 @@ async function JoNz__Chy( Nz_wu )
 	Fi__GiDri_wf = 0;
 	Fe__GiPa_wf = 0;
 
-	JoJz__Chy( 0 );
+	JzKa__Chy( 0 );
 }
 
 //-------------------------------------------------
@@ -128,29 +210,29 @@ async function JoNz__Chy( Nz_wu )
 //-------------------------------------------------
 //@@@
 // THOT INC
-function JoJz__ChyZo( Zo_wi )
+function JzKa__ChyZo( Zo_wi )
 {
-	JoJz__Fe_wu += Zo_wi;
-	if( JoJz__Fe_wu < 0 ){ JoJz__Fe_wu = JoJz__Fo_wu - 1; }
-	else if( JoJz__Fe_wu >= JoJz__Fo_wu ){ JoJz__Fe_wu = 0; }
+	JzKa__Fe_wu += Zo_wi;
+	if( JzKa__Fe_wu < 0 ){ JzKa__Fe_wu = JzKa__Fo_wu - 1; }
+	else if( JzKa__Fe_wu >= JzKa__Fo_wu ){ JzKa__Fe_wu = 0; }
 
-	JoJz__Chy( JoJz__Fe_wu );
+	JzKa__Chy( JzKa__Fe_wu );
 }
 
 //@@@
 // THOT_UPD
-async function JoJz__Chy( Jz_wu )
+async function JzKa__Chy( Jz_wu )
 {
-	JoJz__Fe_wu = ( Jz_wu % JoJz__Fo_wu );
+	JzKa__Fe_wu = ( Jz_wu % JzKa__Fo_wu );
 
 	Hry5_Smz__KriYe = true;
 
 	//&&&
 	// THOT COUNTER
-	document.getElementById('JoJzVa').innerHTML = `&#x1F4C4 ${KeDru_v.TERMS.JoJzVa} ${JoJz__Fe_wu+1}/${JoJz__Fo_wu} `;
+	document.getElementById('JzKaVa').innerHTML = `&#x1F52C ${KeDru_v.TERMS.JzKaVa} ${JzKa__Fe_wu+1}/${JzKa__Fo_wu} `;
 
-	const Jz_v = NzJz_v.THOTS[ JoJz__Fe_wu ];
-	if( !Jz_v ){ SmaTrx( `NO THOT ${JoJz__Fe_wu}` ); return; }
+	const Jz_v = NzKa_v.THOTS[ JzKa__Fe_wu ];
+	if( !Jz_v ){ SmaTrx( `NO THOT ${JzKa__Fe_wu}` ); return; }
 
 
 	//&&&
@@ -484,8 +566,8 @@ async function Hre1_Dru__ChyKeDru( KeKuMi_vutf8 )
 
 	//@@@
 	// LANG_FILE
-	KeDru_v = await ToKz__JSON_v( 'SuSmi03__KeDru/', `KeDru.${KeKu__ToKz_vutf8}` );
-	if( !KeDru_v ){ SmaTrx( "NO LANGUAGE FILE!" ); return; }
+	KeDru_v = await ToKz__JSON_v( 'SuSmi03__CONTENTS/', `KeDru.${KeKu__ToKz_vutf8}` );
+	if( !KeDru_v ){ SmaTrx( "NO CONTENTS FILE!" ); return; }
 
 
 	//&&&
@@ -516,13 +598,13 @@ async function Hre1_Dru__ChyKeDru( KeKuMi_vutf8 )
 
 
 	//&&&
-	// TOPICS
-	//SmaDx__Ta_JSON( KeDru_v.TOPICS );
-	const TaJoNz_v = document.getElementById( 'TaJoNz' );
-	Hri3_Ne__Ta_ChyStz( TaJoNz_v );
+	// SUBJECTS FILL by LANG
+	//SmaDx__Ta_JSON( KeDru_v.SUBJECTS );
+	const TaTzKa_v = document.getElementById( 'TaTzKa' );
+	Hri3_Ne__Ta_ChyStz( TaTzKa_v );
 
-	JoNz__Fo_wu = KeDru_v.TOPICS.length;
-	KeDru_v.TOPICS.forEach
+	TzKa__Fo_wu = KeDru_v.SUBJECTS.length;
+	KeDru_v.SUBJECTS.forEach
 	(
 		function( Ti_v, Vx_wu )
 		{
@@ -532,17 +614,17 @@ async function Hre1_Dru__ChyKeDru( KeKuMi_vutf8 )
 			// ADD BTN
 			const Kz_v = document.createElement('button');
 			Kz_v.innerHTML = `${Ti_v.NAME}`;
-			let JiTra_vutf8 =`JoNz__Chy( ${Vx_wu} );`;
+			let JiTra_vutf8 =`TzKa__Chy( ${Vx_wu} );`;
 			// console.log( JiTra_vutf8 );
 			Kz_v.setAttribute( "onclick", JiTra_vutf8 );
 			Kz_v.className = 'Dx__BTN';
-			TaJoNz_v.appendChild( Kz_v );
+			TaTzKa_v.appendChild( Kz_v );
 		}
 	);
 
 
-	// UPDATE LIST
-	await JoNz__Chy( JoNz__Fe_wu % JoNz__Fo_wu );
+	// UPDATE SUBJECT w/ new lists
+	await TzKa__Chy(  TzKa__Fe_wu % TzKa__Fo_wu );
 }
 
 
@@ -1079,17 +1161,21 @@ document.addEventListener('keydown', (e) =>
 	switch (e.key)
 	{
 		// THOTS
-		case 'Home': JoJz__Chy( 0 ); return;
-		case 'End': JoJz__Chy( JoJz__Fo_wu - 1 ); return;
+		case 'Home': JzKa__Chy( 0 ); return;
+		case 'End': JzKa__Chy( JzKa__Fo_wu - 1 ); return;
 
-		case 'ArrowLeft':JoJz__ChyZo(-1); return;
-		case 'ArrowRight':JoJz__ChyZo(1); return;
-		case '-':JoJz__ChyZo( -1 ); return;
-		case '=':JoJz__ChyZo( 1 ); return;
+		case 'ArrowLeft':JzKa__ChyZo(-1); return;
+		case 'ArrowRight':JzKa__ChyZo(1); return;
+		case '-':JzKa__ChyZo( -1 ); return;
+		case '=':JzKa__ChyZo( 1 ); return;
+
+		// SUBJECT
+		case '9': TzKa__ChyZo(-1); return;
+		case '0': TzKa__ChyZo(1); return;
 
 		// TOPIC
-		case '[': JoNz__ChyZo(-1); return;
-		case ']': JoNz__ChyZo(1); return;
+		case '[': NzKa__ChyZo(-1); return;
+		case ']': NzKa__ChyZo(1); return;
 
 
 		// DNLOAD or LEARN
@@ -1219,7 +1305,7 @@ async function ToKz__JSON_v( ChaKuTu_vutf8, ToKzVa_vutf8 )
 	try
 	{
 		let KuTu_vutf8 = `${WEBPG_vutf8}${ChaKuTu_vutf8}${ToKzVa_vutf8}.json`;
-		console.log( `FILE seeking: ${KuTu_vutf8}`);
+		// console.log( `FILE seeking: ${KuTu_vutf8}`);
 
 		const res = await fetch( KuTu_vutf8, { headers: { Accept: 'application/json' }} );
 		const json = await res.json();
@@ -1245,7 +1331,7 @@ async function Hrz5_Ki__BriYa()
 {
 	//@@@
 	// STATUS
-	BriDzYz_v = await ToKz__JSON_v( 'SuSmi04__NzJz/', 'BriDzYz' );
+	BriDzYz_v = await ToKz__JSON_v( 'SuSmi05__STATUS/', 'BriDzYz' );
 	if( !BriDzYz_v ) { SmaTrx( "NO STATUS FILE!" ); return; }
 
 	Hre7_Me__TrzGiYe();
