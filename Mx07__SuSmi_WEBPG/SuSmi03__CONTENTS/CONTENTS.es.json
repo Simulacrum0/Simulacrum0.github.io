@@ -1,0 +1,34 @@
+{
+	"TERMS":
+	{
+		"TzKaVa": "ES=Subject",
+		"NzKaVa": "ES=TOPICS",
+		"JzKaVa": "ES=SLIDES",
+
+		"DaVa": "ES=Build Ver: ",
+		"TrzZeVa": "ES=Last Build: ",
+
+		"BriDzToMi": "ES=Get ESSENCE",
+		"BriDzToKro": "ES=About ESSENCE"
+	},
+
+	"LABELS":
+	{
+		"VyBzVa": "ES=ESSENCE LAB",
+		"ToMi_BzVa": "ES=Download ESSENCE Here",
+
+		"VyMo_1": "ES=Tap Icon to Get *this machine's* Launcher: ",
+		"VyMo_2": "ES=Or Click on your OS + CPU Platform of Choice to <i>Save As<i>",
+		"VyMo_3": "ES=After Download, Tap or Open the Essence File to Launch the Experience and Enjoy!",
+
+		"DryDzKy_Grx": "ES=This website uses MindAptiv Corp.'s' Technologies.<br>Use involves informing, distributing and primarily testing distribution of Essence.<br>All rights reserved by MindAptiv LLC.",
+		"DryDzKy_Tu": "ES=Check out MindAptiv's Website !!",
+		"DryDzKy_JeFi": "ES=Bonus: Legacy Website Starcrawl"
+	},
+
+	"SUBJECTS":
+	[
+		{ "ID": "Everyone", "NAME": "Para Todos" },
+		{ "ID": "Features", "NAME": "Si, Se Puede" }
+	]
+}

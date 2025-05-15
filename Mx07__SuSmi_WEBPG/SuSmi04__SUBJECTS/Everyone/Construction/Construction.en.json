@@ -7,12 +7,22 @@
 			"HUE_SHIFT": "STD",
 			"CONTENT":
 			[
-				{ "TXT": "Please ignore this message and return to the site in fall 2025." },
+				{ "TXT": "Please ignore this message and return to the site in Fall 2025." },
 				{
 					"IMG": "TxTrz00__BANNER_4_1.jpg",
 					"PATH": "SuKz03_TxTrz__APTIV_MADE/",
 					"CAPTION": "Under Construction"
 				}
+			]
+		},
+
+		{
+			"TITLE": "BG TEST",
+			"BG": "SUNRISE",
+			"HUE_SHIFT": "STD",
+			"CONTENT":
+			[
+				{ "TXT": "EXAMPLE Paragraph for Testing Purposes only while site is under rennovation. Please ignore this message and return to the site in summer 2025." }
 			]
 		},
 
@@ -96,17 +106,7 @@
 					"ICON_TXT": "BEGIN. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. WORDZ. END"
 				}
 			]
-		},
-
-
-		{
-			"TITLE": "BG TEST",
-			"BG": "SUNRISE",
-			"HUE_SHIFT": "STD",
-			"CONTENT":
-			[
-				{ "TXT": "EXAMPLE Paragraph for Testing Purposes only while site is under rennovation. Please ignore this message and return to the site in summer 2025." }
-			]
 		}
+
 	]
 }

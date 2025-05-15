@@ -1,0 +1,37 @@
+#==============================================================
+[CONTENTS]
+l
+#==============================================================
+
+[TERMS]
+TzKaVa: Area
+NzKaVa: Topic
+JzKaVa: Note
+
+DaVa: Build Ver:
+TrzZeVa: Last Build:
+
+BriDzToMi: Get ESSENCE
+BriDzToKro: About ESSENCE
+
+
+[LABELS]
+VyBzVa: ESSENCE LAB:
+ToMi_BzVa: Download ESSENCE Here
+
+VyMo_1: Tap Icon to Get *this machine's* Launcher:
+VyMo_2: Or Click on your OS + CPU Platform of Choice to <i>Save As<i>
+VyMo_3: After Download, Tap or Open the Essence File to Launch the Experience and Enjoy!
+
+DryDzKy_Grx: This website uses MindAptiv Corp.'s' Technologies.<br>Use involves informing, distributing and primarily testing distribution of Essence.<br>All rights reserved by MindAptiv LLC.
+DryDzKy_Tu: Check out MindAptiv's Website !!
+DryDzKy_JeFi: Bonus: Legacy Website Starcrawl
+
+
+[SUBJECTS]
+- Everyone: 1) Introduction for Everyone
+- Features: 2) Features for Solutions
+- Developers: 3) Tech for Developers
+- Usecases: 4) Usecases for Industries
+- History: 5) History of Wantware
+- Vision: 6) Vision for a Better Future

@@ -1,0 +1,97 @@
+{
+	"THOTS":
+	[
+		{
+			"TITLE": "Samples of \"Aptiv Made\" Images",
+			"BG": "HEXSCROLL",
+			"HUE_SHIFT": "STD",
+
+			"CONTENT":
+			[
+				{
+					"IMG": "TxTrz00__BANNER_4_1.jpg",
+					"PATH": "SuKz03_TxTrz__APTIV_MADE/",
+					"CAPTION": "Mesage for Image"
+				},
+				{
+					"IMG": "TxTrz01__GEMS.jpg",
+					"PATH": "SuKz03_TxTrz__APTIV_MADE/",
+					"CAPTION": "Mesage for Image"
+				},
+				{
+					"IMG": "TxTrz02__QUAD.jpg",
+					"PATH": "SuKz03_TxTrz__APTIV_MADE/",
+					"CAPTION": "Mesage for Image"
+				},
+				{
+					"IMG": "TxTrz04__HEX.jpg",
+					"PATH": "SuKz03_TxTrz__APTIV_MADE/",
+					"CAPTION": "Mesage for Image"
+				},
+				{
+					"IMG": "TxTrz05__ORANGE.jpg",
+					"PATH": "SuKz03_TxTrz__APTIV_MADE/",
+					"CAPTION": "Mesage for Image"
+				},
+				{
+					"IMG": "TxTrz06__MEMVIEW.jpg",
+					"PATH": "SuKz03_TxTrz__APTIV_MADE/",
+					"CAPTION": "Mesage for Image"
+				},
+				{
+					"IMG": "TxTrz07__LINES.jpg",
+					"PATH": "SuKz03_TxTrz__APTIV_MADE/",
+					"CAPTION": "Mesage for Image"
+				},
+				{
+					"IMG": "TxTrz08__PyDru.jpg",
+					"PATH": "SuKz03_TxTrz__APTIV_MADE/",
+					"CAPTION": "Mesage for Image"
+				},
+				{
+					"IMG": "TxTrz09__SATELLITE.jpg",
+					"PATH": "SuKz03_TxTrz__APTIV_MADE/",
+					"CAPTION": "Mesage for Image"
+				},
+				{
+					"IMG": "TxTrz10__UNCLOAK.jpeg",
+					"PATH": "SuKz03_TxTrz__APTIV_MADE/",
+					"CAPTION": "Mesage for Image"
+				},
+				{
+					"IMG": "TxTrz11__COUCH.jpg",
+					"PATH": "SuKz03_TxTrz__APTIV_MADE/",
+					"CAPTION": "Mesage for Image"
+				},
+				{
+					"IMG": "TxTrz13__GUG.jpg",
+					"PATH": "SuKz03_TxTrz__APTIV_MADE/",
+					"CAPTION": "Mesage for Image"
+				},
+				{
+					"IMG": "TxTrz14__FLOW.jpg",
+					"PATH": "SuKz03_TxTrz__APTIV_MADE/",
+					"CAPTION": "Mesage for Image"
+				},
+				{
+					"IMG": "TxTrz15__DIALOG.jpg",
+					"PATH": "SuKz03_TxTrz__APTIV_MADE/",
+					"CAPTION": "Mesage for Image"
+				},
+				{
+					"IMG": "TxTrz16__SCHED.jpg",
+					"PATH": "SuKz03_TxTrz__APTIV_MADE/",
+					"CAPTION": "Mesage for Image"
+				}
+			]
+		},
+
+		{
+			"TITLE": "Empty Thot Slide",
+			"CONTENT":
+			[
+				{ "TXT": "No pgraf." }
+			]
+		}
+	]
+}

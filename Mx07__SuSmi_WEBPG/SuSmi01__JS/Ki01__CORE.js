@@ -19,7 +19,7 @@
 //-------------------------------------------------
 // APP STATUS
 let BriDzYz_v;
-// APP LANG
+// APP LANG (for CONTENTS)
 let KeDru_v;
 
 //-------------------------------------------------
@@ -95,14 +95,14 @@ async function TzKa__Chy( Tz_wu )
 	TzVa__Fe_vutf8 = KeDru_v.SUBJECTS[ TzKa__Fe_wu ].ID;
 	if( !TzVa__Fe_vutf8 ) { SmaTrx( `NO SUBJECT #${TzKa__Fe_wu} ID!` ); return; }
 
-	TzKa_v = await ToKz__JSON_v( `SuSmi04__SUBJECTS/${TzVa__Fe_vutf8}/_MENU/`, `${TzVa__Fe_vutf8}.${KeKu__ToKz_vutf8}` );
+	TzKa_v = await ToKz__JSON_v( `SuSmi04__SUBJECTS/${TzVa__Fe_vutf8}/_TOPICS/`, `${TzVa__Fe_vutf8}.${KeKu__ToKz_vutf8}` );
 	if( !TzKa_v ) { SmaTrx( "NO SUBJECT FILE!" ); return; }
 	NzKa__Fo_wu = TzKa_v.TOPICS.length;
 
 
 	//&&&
-	// MENU COUNTER
-	document.getElementById('TzKaVa').innerHTML = `&#x1F52D ${ KeDru_v.TERMS.TzKaVa} ${TzKa__Fe_wu+1}/${TzKa__Fo_wu}`;
+	// SUBJECT COUNTER
+	document.getElementById('TzKaVa').innerHTML = `&#x1F5EB ${ KeDru_v.TERMS.TzKaVa} ${TzKa__Fe_wu+1}/${TzKa__Fo_wu}`;
 
 
 	//&&&
@@ -169,8 +169,8 @@ async function NzKa__Chy( Nz_wu )
 
 
 	//&&&
-	// MENU COUNTER
-	document.getElementById('NzKaVa').innerHTML = `&#x1F50D ${ KeDru_v.TERMS.NzKaVa} ${NzKa__Fe_wu+1}/${NzKa__Fo_wu}`;
+	// TOPIC MENU COUNTER
+	document.getElementById('NzKaVa').innerHTML = `&#x1F5EA ${ KeDru_v.TERMS.NzKaVa} ${NzKa__Fe_wu+1}/${NzKa__Fo_wu}`;
 
 	//&&&
 	// THOTS
@@ -229,7 +229,7 @@ async function JzKa__Chy( Jz_wu )
 
 	//&&&
 	// THOT COUNTER
-	document.getElementById('JzKaVa').innerHTML = `&#x1F52C ${KeDru_v.TERMS.JzKaVa} ${JzKa__Fe_wu+1}/${JzKa__Fo_wu} `;
+	document.getElementById('JzKaVa').innerHTML = `&#x1F5E8 ${KeDru_v.TERMS.JzKaVa} ${JzKa__Fe_wu+1}/${JzKa__Fo_wu} `;
 
 	const Jz_v = NzKa_v.THOTS[ JzKa__Fe_wu ];
 	if( !Jz_v ){ SmaTrx( `NO THOT ${JzKa__Fe_wu}` ); return; }
@@ -566,7 +566,7 @@ async function Hre1_Dru__ChyKeDru( KeKuMi_vutf8 )
 
 	//@@@
 	// LANG_FILE
-	KeDru_v = await ToKz__JSON_v( 'SuSmi03__CONTENTS/', `KeDru.${KeKu__ToKz_vutf8}` );
+	KeDru_v = await ToKz__JSON_v( 'SuSmi03__CONTENTS/', `CONTENTS.${KeKu__ToKz_vutf8}` );
 	if( !KeDru_v ){ SmaTrx( "NO CONTENTS FILE!" ); return; }
 
 
@@ -1099,7 +1099,12 @@ function DOWNLOAD_Dy( EXE )
 {
 	const EXE_URL = "Mx05__KoDz_EXE/Essence__" + EXE;
 	// console.log( EXE_URL );
-	window.location.assign( EXE_URL );
+
+	// ONLY OFFER AVAILABLE EXE
+	if(
+		(( Ko__KaBz_vutf8 ===  "X64") && ( Ko__HrzByVy_vutf8 === "LNX" ))
+		)
+	{ window.location.assign( EXE_URL ); }
 
 	ToMi_JaPe__Ya();
 	//document.getElementById('ToMi').style.display='none';
@@ -1229,6 +1234,25 @@ function Hrz4_Bu__Dri_ChyGe( e )
 	// COULD DRAW or DRAG
 }
 
+//-------------------------------------------------
+// SWIPE
+//-------------------------------------------------
+var xDown = null, yDown = null, xUp = null, yUp = null;
+document.addEventListener('touchstart', touchstart, false);
+document.addEventListener('touchmove', touchmove, false);
+document.addEventListener('touchend', touchend, false);
+function touchstart(evt) { const firstTouch = (evt.touches || evt.originalEvent.touches)[0]; xDown = firstTouch.clientX; yDown = firstTouch.clientY; }
+function touchmove(evt) { if (!xDown || !yDown ) return; xUp = evt.touches[0].clientX; yUp = evt.touches[0].clientY; }
+function touchend(evt)
+{
+    var xDiff = xUp - xDown, yDiff = yUp - yDown;
+    if ((Math.abs(xDiff) > Math.abs(yDiff)) && (Math.abs(xDiff) > 0.33 * document.body.clientWidth))
+	{
+        if (xDiff < 0){ JzKa__ChyZo(-1); }
+        else { JzKa__ChyZo(-1); }
+    }
+    xDown = null, yDown = null;
+}
 
 //==============================================
 // 7.0

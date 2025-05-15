@@ -1,5 +1,8 @@
 User-agent: *
+Disallow: /Mx00__ToKz_DATA/
 Disallow: /Mx01__SuKz_MEDIA/
 Disallow: /Mx02__TxKuCho_WVERSE/
+Disallow: /Mx03__DruDz_DOCS/
+Disallow: /Mx04__TrxFe_ISSUES/
 Disallow: /Mx05__KoDz_EXE/
 Disallow: /Mx06__MeSy_PKG/
