@@ -51,6 +51,7 @@
 #define D_SyKwiTrx05__TxKu02__GrxHo_vkutf8 "Corrupt %s " D_TxKu__ToKzDx__VaDe_vkutf8 ". Please reinstall to recover."
 #define D_SyKwiTrx05__TxKu03__TraHo_vkutf8 "Locked file or Lacking Permissions for %s " D_TxKu__ToKzDx__VaDe_vkutf8
 #define D_SyKwiTrx05__TxKu04__JiSmiHo_vkutf8 "Service #%d not loading into OS for %s " D_TxKu__ToKzDx__VaDe_vkutf8
+#define D_SyKwiTrx05__TxKu05__DaTrx_vkutf8 "Version Out of Date for %s " D_TxKu__ToKzDx__VaDe_vkutf8
 
 //&&&
 // SHELL/INTERFACE
