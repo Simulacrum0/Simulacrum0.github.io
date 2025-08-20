@@ -15,7 +15,7 @@
 // PROCESS
 #define D_SyKwiTrx00__KwiYa_vkutf8 "Failed to Launch Program with " D_DryKz__HrzBu_Kri__By_vkutf8
 #define D_SyKwiTrx00__KwiYa00__ToMi_vkutf8 "Cannot input Program Arguments or Environment variables."
-#define D_SyKwiTrx00__KwiYa01__MoDz_JiTroDa_vkutf8 "Cannot Access (Permissions) or Create (Space) required to update Program Version."
+#define D_SyKwiTrx00__KwiYa01__KoDz_JiTroDa_vkutf8 "Cannot Access (Permissions) or Create (Space) required to update Program Version."
 #define D_SyKwiTrx00__KwiYa02__KuTuFyFz_vkutf8 "Cannot Access (Permissions) or Create (Space) User Folders to install."
 #define D_SyKwiTrx00__KwiYa03__DyHo_vkutf8 "Can only run one Program at a time."
 
@@ -39,9 +39,9 @@
 
 //&&&
 // RESOURCES
-// D_MoDz_JiTroDa__KriHu__HrxKu_MiB_k
+// D_KoDz_JiTroDa__KriHu__HrxKu_MiB_k
 #define D_SyKwiTrx03__HrxKu_vkutf8( _MiB ) "Failed to get required CPU RAM Memory " #_MiB " MiB"
-// D_MoDz_JiTroDa__KriHu__HraKu_MiB_k
+// D_KoDz_JiTroDa__KriHu__HraKu_MiB_k
 #define D_SyKwiTrx04__HraKu_vkutf8( _MiB ) "Failed to get required Storage Drive Memory " #_MiB " MiB"
 
 //&&&
@@ -70,7 +70,7 @@
 #define D_DryKz__KyTrzWz__HxDe_vkutf8 "Published research for testing and further development."
 //@@@
 // COPYRIGHTS
-#define D_BriDz__NoGri_COPYRIGHT_vkutf8 "All rights reserved copyright (c) " D_MoDz_JiTroDa__GiJe__Fz_GiKwu_vkutf8 "-" D_MoDz_JiTroDa__GiJe__Fe_GiKwu_vkutf8 " " D_DryKz__KyTrzWz__VaDe_vkutf8
+#define D_BriDz__NoGri_COPYRIGHT_vkutf8 "All rights reserved copyright (c) " D_KoDz_JiTroDa__GiJe__Fz_GiKwu_vkutf8 "-" D_KoDz_JiTroDa__GiJe__Fe_GiKwu_vkutf8 " " D_DryKz__KyTrzWz__VaDe_vkutf8
 // GREETINGS
 #define D_KeDru__SmzYa_vkutf8 "Hello"
 #define D_KeDru__SmzYi_vkutf8 "Goodbye"
