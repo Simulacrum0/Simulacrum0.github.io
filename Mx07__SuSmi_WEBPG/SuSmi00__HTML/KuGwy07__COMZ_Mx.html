@@ -78,6 +78,7 @@
       if (window.innerWidth > 600)
 	  {
         log(qr(clientURL));
+		
       } else
 	  {
         log();
@@ -112,12 +113,16 @@
   }
 
 
-  // generate a text based qr code
-
-  function qr(txt)
-  {
+//===================================
+// QR Print
+//===================================
+function qr(txt)
+{
     var q = QRCode.create(txt);
+
     var code = "\n\n";
+
+
     for (var i=0; i<2; i++) {
       code += "  ████";
       for (var j=0; j<q.modules.size; j++) {
@@ -140,7 +145,8 @@
       code += "████\n";
     }
     return code + "\n\n";
-  }
+}
+
 
   /*** API editing ***/
 
@@ -190,7 +196,7 @@ b.register("ping", function(pk, args, cb) {
 <script>reload(document.getElementById("api-source").innerHTML);</script>
 
 <style>
-	
+
   body { background-color: #FF8; margin: 0px }
   pre { color: #00F; white-space: pre-wrap; word-wrap: break-word; line-height: 1em; margin: 1em; }
   .CodeMirror { height: auto; }

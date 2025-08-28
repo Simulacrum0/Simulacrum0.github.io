@@ -18113,7 +18113,7 @@
 						'use asm';
 						var H$843 = new stdlib$840.Int32Array(heap$842);
 						return {
-							hash: function (k$845, x$846)
+							hash: function KX(k$845, x$846)
 							{
 								k$845 |= 0, x$846 |= 0;
 								var i$847 = 0,
