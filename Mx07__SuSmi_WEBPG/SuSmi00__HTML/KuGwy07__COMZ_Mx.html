@@ -4,15 +4,20 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1" name="viewport">
-  <title>Bugout demo server</title>
+  <title>SelfServ demo server</title>
 
   <script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.39.2/codemirror.min.js"></script>
+
+
   <script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.39.2/mode/javascript/javascript.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.39.2/addon/edit/matchbrackets.min.js"></script>
+
+
   <link href="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.39.2/codemirror.min.css" rel="stylesheet">
   <script src="//cdn.rawgit.com/papnkukn/qrcode-svg/master/dist/qrcode.min.js"></script>
-  
-  <script src="bugout.min.js" type="application/javascript"></script>
+
+  <script src="../SuSmi01__JS/Kru05__Hra4_Bru00__Sy.js" type="application/javascript"></script>
+
   <script src="//cdn.jsdelivr.net/npm/qrcode@latest/build/qrcode.min.js"></script>
 
 </head>
@@ -22,17 +27,17 @@
 <pre id="log"></pre>
 </body>
 <script>
-  log("*BUGOUT*\n");
+  log("*SelfServ*\n");
   log("Server log started.\n");
 
-  // instantiate our bugout instance
+  // instantiate our SelfServ instance
   var b = new Bugout({seed: localStorage["bugout-demo-server-seed"]});
 
   // save the seed for next time
   localStorage["bugout-demo-server-seed"] = b.seed;
 
   // log this server's address
-  log("\nThis browser tab is running a Bugout server.");
+  log("\nThis browser tab is running a SelfServ server.");
   log("This server's address:", b.address());
   log("announcing...");
 
@@ -127,7 +132,7 @@
     editor.save();
     b.api = {};
     eval(api.value);
-    localStorage["bugout-demo-api"] = api.value;
+    localStorage["SelfServ-demo-api"] = api.value;
   }
 
   // when the user clicks the reload button
@@ -135,6 +140,8 @@
     reload();
   }
 </script>
+
+
 <script id="api-source">// Bugout demo server API code
 // Edit this to change the live API this server is running:
 
@@ -144,6 +151,8 @@ b.register("ping", function(pk, args, cb) {
   cb(args);
 }, "Respond to ping with 'pong'.");
 </script>
+
+
 <script>reload(document.getElementById("api-source").innerHTML);</script>
 <style>
   body { background-color: #333; margin: 0px }
