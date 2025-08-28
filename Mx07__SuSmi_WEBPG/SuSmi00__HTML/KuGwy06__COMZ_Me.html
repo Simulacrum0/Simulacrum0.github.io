@@ -40,12 +40,12 @@
 <pre><code id="source" class="javascript">
 
 // connect to server using its public address
-log( "Win LOCATION " + window.location.hash.substr(1))();
+log( "Win LOCATION " + ${window.location} )();
 
 var b = new Bugout( window.location.hash.substr(1) || "bUH7ukDvd9R2xLLRKMKWZ1mGPkgdVfufye");
 
 log("My address is " + b.address())();
-log("Connecting...Be PATIENT")();
+log("Waiting to Connect...Be PATIENT")();
 
 // wait for connection to the server
 b.on("server", function()
@@ -91,15 +91,19 @@ function log(prefix) {
 }
 
 var source = document.getElementById("source");
+
 var user = document.getElementById("user");
 
 // update the address if one was passed in
 var address = window.location.hash.substr(1);
+
 if (address)
 {
   source.textContent = source.innerHTML.replace("7Z3mcHq86AS7znzudowr8DhheFKuSL6VpZALmRARCej1", address);
   var instructions = document.getElementsByClassName("instructions");
-  for (var i=0; i<instructions.length; i++) {
+
+  for (var i=0; i<instructions.length; i++)
+  {
     instructions[i].style.display = "none";
   }
 }

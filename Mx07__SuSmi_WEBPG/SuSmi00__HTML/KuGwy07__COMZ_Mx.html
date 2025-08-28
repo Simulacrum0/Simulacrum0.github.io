@@ -22,10 +22,14 @@
 
 </head>
 <body>
+
 <textarea id="api" rows="20"></textarea>
+
 <button id="reload">reload</button>
 <pre id="log"></pre>
 </body>
+
+
 <script>
   log("*SelfServ*\n");
   log("Server log started.\n");
@@ -45,22 +49,31 @@
 
   // log when network connectivity changes
   var connected = false;
-  b.on("connections", function(c) {
-    if (c == 0 && connected == false) {
+  b.on("connections", function(c)
+  {
+    if (c == 0 && connected == false)
+	{
       connected = true;
       log("ready");
+
       // link to the messageboard client URL
       var clientURL = document.location.href.replace("KuGwy07__COMZ_Mx.html", "") + "#" + b.address();
+
       // qrcode for the client URL
-      if (window.innerWidth > 600) {
+      if (window.innerWidth > 600)
+	  {
         log(qr(clientURL));
-      } else {
+      } else
+	  {
         log();
       }
+
       log(clientURL + "\n");
-      log("Connect back to this server-in-a-tab using the link above.");
+      log("Connect to this server-in-a-tab using the link above.");
     }
+
     log("connections:", c);
+
   });
 
   // log when a client sends a message
@@ -73,13 +86,15 @@
   b.on("seen", function(address) { log("seen:", address); });
 
   // simple logging function
-  function log() {
+  function log()
+  {
     var args = Array.prototype.slice.call(arguments);
     console.log.apply(null, args);
     args = args.map(function(a) { if (typeof(a) == "string") return a; else return JSON.stringify(a); });
     document.getElementById("log").textContent += args.join(" ") + "\n";
   }
 
+  
   // generate a text based qr code
 
   function qr(txt)
@@ -125,7 +140,8 @@
   });
 
   // function to reload the API from the textarea
-  function reload(code) {
+  function reload(code)
+  {
     if (code) {
       editor.getDoc().setValue(code);
     }
@@ -136,7 +152,8 @@
   }
 
   // when the user clicks the reload button
-  document.getElementById("reload").onclick = function() {
+  document.getElementById("reload").onclick = function()
+  {
     reload();
   }
 </script>
@@ -154,6 +171,7 @@ b.register("ping", function(pk, args, cb) {
 
 
 <script>reload(document.getElementById("api-source").innerHTML);</script>
+
 <style>
   body { background-color: #333; margin: 0px }
   pre { color: #eee; white-space: pre-wrap; word-wrap: break-word; line-height: 1em; margin: 1em; }
