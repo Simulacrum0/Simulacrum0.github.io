@@ -58,7 +58,7 @@
 						var trackeropts = opts.tracker || {};
 						if (opts.iceServers && (trackeropts.rtcConfig = {
 								iceServers: opts.iceServers
-							}), this.announce = opts.announce || ["wss://hub.bugout.link", "wss://tracker.openwebtorrent.com", "wss://tracker.btorrent.xyz"], this.wt = opts.wt, this.nacl = nacl, this.seed = opts.seed ? opts.seed : this.encodeseed(nacl.randomBytes(32)), this.timeout = opts.timeout || 300000, this.keyPair = opts.keyPair || nacl.sign.keyPair.fromSeed(Uint8Array.from(bs58check.decode(this.seed)).slice(2)), this.keyPairEncrypt = nacl.box.keyPair(), this.pk = bs58.encode(Buffer.from(this.keyPair.publicKey)), this.ek = bs58.encode(Buffer.from(this.keyPairEncrypt.publicKey)), this.identifier = identifier || this.address(), this.peers = {}, this.seen = {}, this.lastwirecount = null, this.api = {}, this.callbacks = {}, this.serveraddress = null, this.heartbeattimer = null, debug("address", this.address()), debug("identifier", this.identifier), debug("public key", this.pk), debug("encryption key", this.ek), "object" == typeof File) var blob = new File([this.identifier], this.identifier);
+							}), this.announce = opts.announce || [ "wss://tracker.openwebtorrent.com", "wss://tracker.btorrent.xyz"], this.wt = opts.wt, this.nacl = nacl, this.seed = opts.seed ? opts.seed : this.encodeseed(nacl.randomBytes(32)), this.timeout = opts.timeout || 300000, this.keyPair = opts.keyPair || nacl.sign.keyPair.fromSeed(Uint8Array.from(bs58check.decode(this.seed)).slice(2)), this.keyPairEncrypt = nacl.box.keyPair(), this.pk = bs58.encode(Buffer.from(this.keyPair.publicKey)), this.ek = bs58.encode(Buffer.from(this.keyPairEncrypt.publicKey)), this.identifier = identifier || this.address(), this.peers = {}, this.seen = {}, this.lastwirecount = null, this.api = {}, this.callbacks = {}, this.serveraddress = null, this.heartbeattimer = null, debug("address", this.address()), debug("identifier", this.identifier), debug("public key", this.pk), debug("encryption key", this.ek), "object" == typeof File) var blob = new File([this.identifier], this.identifier);
 						else {
 							var blob = new Buffer.from(this.identifier);
 							blob.name = this.identifier
@@ -18113,7 +18113,8 @@
 						'use asm';
 						var H$843 = new stdlib$840.Int32Array(heap$842);
 						return {
-							hash: function (k$845, x$846) {
+							hash: function (k$845, x$846)
+							{
 								k$845 |= 0, x$846 |= 0;
 								var i$847 = 0,
 									j$848 = 0,
