@@ -6,8 +6,12 @@
   <meta content="width=device-width, initial-scale=1" name="viewport">
   <meta content="yes" name="mobile-web-app-capable">
   <meta content="black" name="apple-mobile-web-app-status-bar-style">
-  <title>SelfServ client test page</title>
-  <link href="style.css" rel="stylesheet">
+
+
+
+
+  <title>SelfServ CLIENT</title>
+
 
   <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/javascript.min.js"></script>
@@ -27,27 +31,31 @@
 
 
 
-<h3>Demo client</h3>
-<p class="instructions">This demo connects to a live SelfServ server using its public address and then runs the "ping" function on that server and displays the result in the log below.</p>
-<p class="instructions">You can also <a href="server.html" target="_NEW">run a copy of the SelfServ server in your own browser tab</a> to try it out locally on your machine.</p>
-<pre><code id="source" class="javascript">
-// connect to server using its public address
+<h3>SELF SERV USER</h3>
+<p class="instructions">!!!HOLA!!! LabEast TEST using SelfServ to connect.</p>
+<p class="instructions">You can also <a href="KuGwy07__COMZ_Mx.html" target="_NEW">run YOUR copy of SelfServ in your own browser tab</p>
 
-log("Win LOCATION " + window.location.hash.substr(1) );
+
+
+<pre><code id="source" class="javascript">
+
+// connect to server using its public address
+log( "Win LOCATION " + window.location.hash.substr(1))();
 
 var b = new Bugout( window.location.hash.substr(1) || "bUH7ukDvd9R2xLLRKMKWZ1mGPkgdVfufye");
 
 log("My address is " + b.address())();
-log("Connecting to the server...\n(this can take a minute)")();
+log("Connecting...Be PATIENT")();
 
 // wait for connection to the server
-b.on("server", function() {
+b.on("server", function()
+{
   // ok, we're connected
-  log("Connected to the server.")();
+  log("Connected!!!.")();
   // make an RPC API call on the server and log the result
-  b.rpc("ping", {"Hello": "world"}, log("response:"));
-  // watch for {"Hello": "world", "pong": true} in the log below
-  // show a simple UI for testing the server API
+
+  b.rpc("ping", { "CLIENT": " Greetings"}, log("response:"));
+
   showUI();
 });
 
@@ -87,7 +95,8 @@ var user = document.getElementById("user");
 
 // update the address if one was passed in
 var address = window.location.hash.substr(1);
-if (address) {
+if (address)
+{
   source.textContent = source.innerHTML.replace("7Z3mcHq86AS7znzudowr8DhheFKuSL6VpZALmRARCej1", address);
   var instructions = document.getElementsByClassName("instructions");
   for (var i=0; i<instructions.length; i++) {
@@ -99,7 +108,8 @@ if (address) {
 var editor = null;
 
 // function to show the rpc ui once connected
-function showUI() {
+function showUI()
+{
   document.getElementById("ui").style = "block";
   // add a codemirror editor
   editor = CodeMirror.fromTextArea(document.getElementById("user"), {
@@ -112,7 +122,8 @@ function showUI() {
 }
 
 // when the user clicks the reload button
-document.getElementById("run").onclick = function() {
+document.getElementById("run").onclick = function()
+{
   editor.save();
   eval(user.value);
 }
