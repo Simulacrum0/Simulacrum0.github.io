@@ -61,18 +61,18 @@
 
 	  var clientURL = document.location.href.replace("KuGwy07__COMZ_Mx", "KuGwy06__COMZ_Me") + "#" + b.address();
 
-// Call the API
-let request = await fetch(`https://api.shrtco.de/v2/shorten?url=${encodeURIComponent(clientURL)}`);
+// // Call the API
+// let request = await fetch(`https://api.shrtco.de/v2/shorten?url=${encodeURIComponent(clientURL)}`);
 
-// Get the response
-let response = await request.json();
+// // Get the response
+// let response = await request.json();
 
-// The shortened URL
-let friendURL = response.result.full_short_link;
+// // The shortened URL
+// let friendURL = response.result.full_short_link;
 
-console.log(friendURL);
+// console.log(friendURL);
 
-clientURL = friendURL;
+// clientURL = friendURL;
 
       // qrcode for the client URL
       if (window.innerWidth > 600)
