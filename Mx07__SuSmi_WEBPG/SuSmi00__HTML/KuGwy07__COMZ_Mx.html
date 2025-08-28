@@ -49,6 +49,9 @@
 
   // log when network connectivity changes
   var connected = false;
+
+
+
   b.on("connections", function(c)
   {
     if (c == 0 && connected == false)
@@ -57,7 +60,7 @@
       log("ready");
 
       // link to the messageboard client URL
-      var clientURL = document.location.href.replace("KuGwy07__COMZ_Mx.html", "") + "#" + b.address();
+      var clientURL = document.location.href.replace("KuGwy07__COMZ_Mx.html", "KuGwy06__COMZ_Me.html") + "#" + b.address();
 
       // qrcode for the client URL
       if (window.innerWidth > 600)
@@ -85,6 +88,8 @@
   // log when we see a new client address
   b.on("seen", function(address) { log("seen:", address); });
 
+
+
   // simple logging function
   function log()
   {
@@ -94,7 +99,7 @@
     document.getElementById("log").textContent += args.join(" ") + "\n";
   }
 
-  
+
   // generate a text based qr code
 
   function qr(txt)
@@ -122,7 +127,7 @@
       }
       code += "████\n";
     }
-    return code + "\n\n";
+    return "ADR" code + "\n\n";
   }
 
   /*** API editing ***/
