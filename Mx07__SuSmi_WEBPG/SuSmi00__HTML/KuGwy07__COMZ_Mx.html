@@ -42,8 +42,8 @@
 
 
   // log this server's address
-  log( "Your BrowserTab is a SelfServ HUB (web-server)" );
-  log( "HUB ID#:", b.address());
+  log( "Your BrowserTab is a SelfServ HUB aka web-server" );
+  // log( "HUB ID#:", b.address());
 
 
 
@@ -58,7 +58,7 @@
       log("ready");
 
       // link to the messageboard client URL
-      var clientURL = document.location.href.replace("KuGwy07__COMZ_Mx.html", "KuGwy06__COMZ_Me.html") + "#" + b.address();
+      var clientURL = document.location.href.replace("KuGwy07__COMZ_Mx", "KuGwy06__COMZ_Me") + "#" + b.address();
 
       // qrcode for the client URL
       if (window.innerWidth > 600)
