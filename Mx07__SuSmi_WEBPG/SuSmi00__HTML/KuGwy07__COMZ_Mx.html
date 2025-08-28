@@ -36,25 +36,20 @@
 
   // instantiate our SelfServ instance
   var b = new Bugout({seed: localStorage["bugout-demo-server-seed"]});
-
   // save the seed for next time
   localStorage["bugout-demo-server-seed"] = b.seed;
 
 
 
   // log this server's address
-  log("Your BrowserTab is a SelfServ HUB (web-server)");
+  log( "Your BrowserTab is a SelfServ HUB (web-server)" );
   log( "HUB ID#:", b.address());
 
-  
 
-  /*** logging ***/
+
 
   // log when network connectivity changes
   var connected = false;
-
-
-
   b.on("connections", function(c)
   {
     if (c == 0 && connected == false)
@@ -64,7 +59,6 @@
 
       // link to the messageboard client URL
       var clientURL = document.location.href.replace("KuGwy07__COMZ_Mx.html", "KuGwy06__COMZ_Me.html") + "#" + b.address();
-
 
       // qrcode for the client URL
       if (window.innerWidth > 600)
@@ -131,7 +125,7 @@
       }
       code += "████\n";
     }
-    return "ADR" code + "\n\n";
+    return code + "\n\n";
   }
 
   /*** API editing ***/
