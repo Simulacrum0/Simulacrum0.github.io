@@ -40,10 +40,13 @@
   // save the seed for next time
   localStorage["bugout-demo-server-seed"] = b.seed;
 
+
+
   // log this server's address
-  log("\nThis browser tab is running a SelfServ server.");
-  log("This server's address:", b.address());
-  log("announcing...");
+  log("Your BrowserTab is a SelfServ HUB (web-server)");
+  log( "HUB ID#:", b.address());
+
+  
 
   /*** logging ***/
 
@@ -61,6 +64,7 @@
 
       // link to the messageboard client URL
       var clientURL = document.location.href.replace("KuGwy07__COMZ_Mx.html", "KuGwy06__COMZ_Me.html") + "#" + b.address();
+
 
       // qrcode for the client URL
       if (window.innerWidth > 600)
