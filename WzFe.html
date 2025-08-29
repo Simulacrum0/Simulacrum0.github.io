@@ -205,14 +205,13 @@ function qr(txt)
 </script>
 
 
-<script id="api-source">// Bugout demo server API code
-// Edit this to change the live API this server is running:
+<script id="api-source">
 
-// respond to ping calls by sending back "pong"
-b.register("ping", function(pk, args, cb) {
+b.register("ping", function(pk, args, cb)
+{
   args["pong"] = true;
   cb(args);
-}, "Respond to ping with 'pong'.");
+}, "- ACK: Acknowledge Message -");
 
 
 reload(document.getElementById("api-source").innerHTML);
