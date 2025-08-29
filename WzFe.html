@@ -22,10 +22,10 @@
 		<meta property="og:image" content="http://powerourpeople.com/Mx01__SuKz_MEDIA/SuKz07_DryDz__BIZ/DryDzGwz00__ESSENCE.png" />
 
 		<!-- STYLE & MEDIA -->
-		<link rel="stylesheet" href="Mx07__SuSmi_WEBPG/SuSmi02__CSS/JoDx00__Do.css">
+		<!-- <link rel="stylesheet" href="Mx07__SuSmi_WEBPG/SuSmi02__CSS/JoDx00__Do.css"> -->
 
 		<!-- SCRIPTS -->
-		<script defer src="Mx07__SuSmi_WEBPG/SuSmi01__JS/JiJa00__HEXCIRC.js"></script>
+		<!-- <script defer src="Mx07__SuSmi_WEBPG/SuSmi01__JS/JiJa00__HEXCIRC.js"></script>
 		<script defer src="Mx07__SuSmi_WEBPG/SuSmi01__JS/JiJa01__DROPZ.js"></script>
 		<script defer src="Mx07__SuSmi_WEBPG/SuSmi01__JS/JiJa02__PLAZ.js"></script>
 		<script defer src="Mx07__SuSmi_WEBPG/SuSmi01__JS/JiJa03__ETHER.js"></script>
@@ -37,165 +37,407 @@
 
 		<script defer src="Mx07__SuSmi_WEBPG/SuSmi01__JS/Ki00__PUB.js"></script>
 		<script defer src="Mx07__SuSmi_WEBPG/SuSmi01__JS/Ki01__CORE.js"></script>
-		<script defer src="Mx07__SuSmi_WEBPG/SuSmi01__JS/Ki02__LANG.js"></script>
-
-	</head>
-
-<!-- AUDIO -->
-<audio id="ToMi_JaPe">
-	<source src="Mx01__SuKz_MEDIA/SuKz01_JaPe__SND/JaPe00__ToMi.wav" type="audio/wav">
-	Your browser does not support the audio element.
-</audio>
+		<script defer src="Mx07__SuSmi_WEBPG/SuSmi01__JS/Ki02__LANG.js"></script> -->
 
 
-<body class="Dx__BODY">
-<canvas id="VyMxSi" class="Dx__BG Dx__FADE_IN" width="512px" height="512px"></canvas>
+		  <script id="JoDi" defer src="Mx07__SuSmi_WEBPG/SuSmi01__JS/Kru03__Hrz2_Wy.js"></script>
+
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.39.2/codemirror.min.js"></script>
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.39.2/mode/javascript/javascript.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.39.2/addon/edit/matchbrackets.min.js"></script>
+
+
+  <link href="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.39.2/codemirror.min.css" rel="stylesheet">
+  <script src="//cdn.rawgit.com/papnkukn/qrcode-svg/master/dist/qrcode.min.js"></script>
+
+  <script src="Mx07__SuSmi_WEBPG/SuSmi01__JS/Kru05__Hra4_Bru00__Sy.js" type="application/javascript"></script>
+
+  <script src="//cdn.jsdelivr.net/npm/qrcode@latest/build/qrcode.min.js"></script>
+
+
+
+
+<!---------------------------------------------------
+
+------------------------------------------------- -->
+
+<script>
+  log("*SelfServ*\n");
+
+  // instantiate our SelfServ instance
+  var b = new Bugout({seed: localStorage["bugout-demo-server-seed"]});
+  // save the seed for next time
+  localStorage["bugout-demo-server-seed"] = b.seed;
+
+
+  // log this server's address
+  log( "Your BrowserTab is a SelfServ HUB aka web-server" );
+  // log( "HUB ID#:", b.address());
+
+
+
+  // log when network connectivity changes
+  var connected = false;
+  b.on("connections", function(c)
+  {
+    if (c == 0 && connected == false)
+	{
+      connected = true;
+      log("ready");
+
+      // link to the messageboard client URL
+
+	  var clientURL = document.location.href.replace("WzFe", "WzFi") + "#" + b.address();
+
+// // Call the API
+// let request = await fetch(`https://api.shrtco.de/v2/shorten?url=${encodeURIComponent(clientURL)}`);
+
+// // Get the response
+// let response = await request.json();
+
+// // The shortened URL
+// let friendURL = response.result.full_short_link;
+
+// console.log(friendURL);
+
+// clientURL = friendURL;
+
+      // qrcode for the client URL
+      if (window.innerWidth > 600)
+	  {
+        log(qr(clientURL));
+
+      } else
+	  {
+        log();
+      }
+
+      log(clientURL + "\n");
+      log("Connect to this server-in-a-tab using the link above.");
+    }
+
+    log("connections:", c);
+
+  });
+
+  // log when a client sends a message
+  b.on("message", function(address, msg) { log("message:", address, msg); });
+
+  // log when a client makes an rpc call
+  b.on("rpc", function(address, call, args) { log("rpc:", address, call, args); });
+
+  // log when we see a new client address
+  b.on("seen", function(address) { log("seen:", address); });
+
+
+
+  // simple logging function
+  function log()
+  {
+    var args = Array.prototype.slice.call(arguments);
+    console.log.apply(null, args);
+    args = args.map(function(a) { if (typeof(a) == "string") return a; else return JSON.stringify(a); });
+    document.getElementById("log").textContent += args.join(" ") + "\n";
+  }
+
+// ===================================
+// QR Print
+// ===================================
+function qr(txt)
+{
+    var q = QRCode.create(txt);
+
+    var code = "\n\n";
+
+
+    for (var i=0; i<2; i++) {
+      code += "  ████";
+      for (var j=0; j<q.modules.size; j++) {
+        code += "██";
+      }
+      code += "████\n";
+    }
+    for (var i=0; i<q.modules.size; i++) {
+      code += "  ████";
+      for (var j=0; j<q.modules.size; j++) {
+        code += q.modules.data[i * q.modules.size + j] ? "  " : "██";
+      }
+      code += "████\n";
+    }
+    for (var i=0; i<2; i++) {
+      code += "  ████";
+      for (var j=0; j<q.modules.size; j++) {
+        code += "██";
+      }
+      code += "████\n";
+    }
+    return code + "\n\n";
+}
+
+
+  /*** API editing ***/
+
+  // reference to the API code textarea
+  var api = document.getElementById("api");
+
+  // add a codemirror editor
+  var editor = CodeMirror.fromTextArea(document.getElementById("api"), {
+    lineNumbers: true,
+    matchBrackets: true,
+    continueComments: "Enter",
+    viewportMargin: Infinity,
+    extraKeys: {"Ctrl-Q": "toggleComment"}
+  });
+
+  // function to reload the API from the textarea
+  function reload(code)
+  {
+    if (code) {
+      editor.getDoc().setValue(code);
+    }
+    editor.save();
+    b.api = {};
+    eval(api.value);
+    localStorage["SelfServ-demo-api"] = api.value;
+  }
+
+  // when the user clicks the reload button
+  document.getElementById("reload").onclick = function()
+  {
+    reload();
+  }
+</script>
+
+
+<script id="api-source">// Bugout demo server API code
+// Edit this to change the live API this server is running:
+
+// respond to ping calls by sending back "pong"
+b.register("ping", function(pk, args, cb) {
+  args["pong"] = true;
+  cb(args);
+}, "Respond to ping with 'pong'.");
+</script>
+
+
+<script>reload(document.getElementById("api-source").innerHTML);</script>
+
+<style>
+
+  body { background-color: #FF8; margin: 0px }
+  pre { color: #00F; white-space: pre-wrap; word-wrap: break-word; line-height: 1em; margin: 1em; }
+  .CodeMirror { height: auto; }
+  #reload {
+    border-radius: 5px;
+    background-color: #F00;
+    color: white;
+    border: none;
+    padding: 0.25em 1em;
+    font-size: 1.25em;
+    margin: 0.5em;
+  }
+
+</style>
+
+
+
+  <style>
+    html {
+      margin: 0;
+      padding: 0;
+      color: #EEE;
+      font-family: sans-serif;
+    }
+
+    body {
+      background: #622;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      margin: 0;
+    }
+
+    li, p {
+      line-height: 1.5;
+    }
+
+    #content {
+      display: flex;
+      flex-direction: column;
+      padding: 10px;
+      margin: 0 auto;
+      min-width: 300px;
+      max-width: 800px;
+      width: calc(100% - 20px);
+    }
+
+    #content {
+      max-width: 800px;
+      min-height: 100%;
+
+      justify-content: center;
+    }
+
+    #content .textual {
+      color: #DDD;
+    }
+
+    #content .textual {
+      font-size: 2em;
+    }
+
+    #content a:visited {
+      color: #FF7700;
+    }
+
+    #content a {
+      color: #0077FF;
+    }
+
+
+    #JoDi {
+      display: flex;
+      flex-direction: column;
+      margin: auto;
+    }
+
+    #JoDi button {
+      border: none; cursor: pointer;
+    }
+
+
+
+    #JoDi .color {
+      max-width: 20px; width: 20px; height: 20px; position: relative;
+    }
+
+
+    #JoDi canvas {
+      image-rendering: auto;
+      width: fit-content;
+    }
+
+    #JoDi .iconButton {
+      margin-left: -1px; padding: 0; width: 24px; height: 24px; padding-top: 4px;
+    }
+
+    #JoDi .erase {
+      position: absolute;  top: 2px; left: 1px;
+    }
+
+    #JoDi .arrow {
+      border: none; position: absolute;  top: 0; left: -17px; cursor: auto; color: white;
+    }
+
+    #JoDi .hidden {
+      display: none;
+    }
+  </style>
+
+
+</head>
+
+
+<!-- <body class="Dx__BODY">
+<canvas id="VyMxSi" class="Dx__BG Dx__FADE_IN" width="512px" height="512px"></canvas> -->
 
 <!-- ====================================================================== -->
 <!-- Ku01 HEADER Bz
 <!-- ====================================================================== -->
-<div><h2 id="VyBzVa" class="Dx__TITLE" ></h2></div>
-
-<div id="Vy_NBAR" class="Dx__NBAR">
-
-	  <a id="BriDzTo" href="javascript:void(0);" class="active" onclick="Hry5_Smz__To_ChyDry()"></a>
-	  <a id="JoTraYz" href="javascript:void(0);" onclick="Hry5_Smz__JoTra_ChyDry()"></a>
-
-		<div class="Dx__NAREA">
-			<button id="JzKaVa" class="Dx__NCAT"></button>
-			<div id="TaJzKa" class="Dx__NLST"></div>
-		</div>
-
-	  <div class="Dx__NAREA">
-		  <button id="NzKaVa" class="Dx__NCAT"></button>
-		  <div id="TaNzKa" class="Dx__NLST" ></div>
-	  </div>
-
-	  <div class="Dx__NAREA">
-		<button id="TzKaVa" class="Dx__NCAT"></button>
-		<div id="TaTzKa" class="Dx__NLST" ></div>
-	</div>
-
-
-	<div class="Dx__NAREA">
-		<button  id="KeDruVa" class="Dx__NCAT"></button>
-		<div  id="TaKeDru" class="Dx__NLST"></div>
-	</div>
-
-	<a href="javascript:void(0);" style="font-size:1em;" class="Dx__MOBILMENU" onclick="Hrz4_Bu__ChyNBAR()">&#9776;</a>
- </div>
 
 <!-- ====================================================================== -->
 <!-- Ku02 BODY Ka
 <!-- ====================================================================== -->
 
-<div id=NzKa__NoTi" class="Dx__THOT">
 
-	<!-- //------------------------------------------------- -->
-	<!-- ToKro SUBJECT-TOPIC-THOTS -->
-	<!-- //------------------------------------------------- -->
-	<div id="ToKro" class="Dx__OVERLAY" style="display:none">
-		<h2 id="JzBz" class="Dx__TXT Dx__FADE_IN"></h2>
+<body>
+    <h1 style="text-align: center;" >LabEast Fam Kolb Test v0.077</h1>
+	<br />
 
-		<div id="JoKz_ToKro" class="Dx__THOTFLOW Dx__FADE_IN"></div>
 
-		<a id="JoKz_ChyFi" class="Dx__THOT_GUI Dx__LEFT Dx__FADE_IN" onclick="JzKa__ChyZo(-1)">&#x23EA</a>
-		<a id="JoKz_ChyFa" class="Dx__THOT_GUI Dx__RIGHT Dx__FADE_IN" onclick="JzKa__ChyZo(+1)">&#x23E9</a>
-	</div>
+  <section id="content">
 
-	<!-- //------------------------------------------------- -->
-	<!-- ToMi DNLOAD -->
-	<!-- //------------------------------------------------- -->
-	<div id="ToMi" class="Dx__OVERLAY" style="display:none">
-			<h2 id="ToMi_BzVa" class="Dx__TXT Dx__FADE_IN"></h2>
+  <div id="Host">
+		<p>HOST an Event</p>
+		<textarea id="api" rows="20"></textarea>
+		<button id="reload">reload</button>
+		<pre id="log"></pre>
+ </div>
 
-			<!-- BROWSER_SUGGESTED_DNLOAD -->
-			<div class = "Dx__BOX" >
-				<!-- Add Space -->
-				<h4 id="VyMo_1" class="Dx__TXT Dx__FADE_IN"></h4> <br>
-				<h4 id="VyKo__HrzBy_Kri" class="Dx__TXT Dx__DNLOAD Dx__FADE_IN" style="background-color:transparent;" onclick="DOWNLOAD_Fe();"></h4><br>
-				<h4 id="VyMo_2" class="Dx__TXT Dx__FADE_IN" ></h4><br>
-			</div>
-			<br>
+  <div id="Join">
+	<p>JOIN an Event</p>
+  </div>
 
-			<!-- USER_SELECT_DNLOAD -->
-			<div class = "Dx__BOX" style="background-color:transparent" >
-				<table class="Dx__TBL Dx__FADE_IN">
-						<thead>
-							<tr class="Dx__TEDGE" >
-								<th scope="row"><span class=" GwzDo GwzDo_COMP GwzHu"></span><br>OS + CPU</th>
-								<th scope="row"><span class=" GwzDo GwzDo_ARM GwzHu"></span><br>ARMv8.2+</th>
-								<th scope="row"><span class=" GwzDo GwzDo_INTEL GwzHu"></span><br>Intel_x64</th>
-								<th scope="row"><span class=" GwzDo GwzDo_RISCV GwzHu"></span><br>RISC-V</th>
-							</tr>
-						</thead>
+   <div id="Message">
+	<p>MESSAGE</p>
+		<textarea id="msg" rows="20" columns=""80"></textarea>
+  </div>
 
-						<tbody>
-							<tr class="Dx__TEDGE" >
-								<th scope="row"><span class=" GwzDo GwzDo_DRD GwzHu"></span><br>Android</th>
-								<td class="Dx__DISABLE" onclick="DISABLE_Dy( 'DRD_ARM.w.apk' );">&#x1F4BE<br>DRD_ARM</td>
-								<td></td>
-								<td class="Dx__DISABLE" onclick="DISABLE_Dy( 'DRD_RSV.w.apk' );">&#x1F4BE<br>DRD_RSV</td>
-							</tr>
 
-							<tr class="Dx__TEDGE" >
-								<th scope="row"><span class=" GwzDo GwzDo_IOS GwzHu"></span><br>iOS</th>
-								<td class="Dx__DISABLE" onclick="DISABLE_Dy( 'IOS_ARM.w.ipa' );">&#x1F4BE<br>IOS_ARM</td>
-								<td></td>
-								<td></td>
-							</tr>
+    <div id="JoDi">
+      <div id="rc-canvas"></div>
+      <br />
 
-							<tr class="Dx__TEDGE" >
-								<th scope="row"><span class=" GwzDo GwzDo_MAC GwzHu"></span><br>macOS</th>
-								<td class="Dx__DISABLE" onclick="DISABLE_Dy( 'MAC_ARM.w.app' );">&#x1F4BE<br>MAC_ARM</td>
-								<td></td>
-								<td></td>
-							</tr>
+      <div id="outer-container"></div>
 
-							<tr class="Dx__TEDGE" >
-								<th scope="row"><span class=" GwzDo GwzDo_LNX GwzHu"></span><br>Linux</th>
+	  <div style="display: flex; align-items: center; gap: 4px">
+			<input type="checkbox" id="enable-srgb" checked>
+			<label for="enable-srgb">Brighten Mode</label>
+	  </div>
 
-								<td class="Dx__DISABLE" onclick="DISABLE_Dy( 'LNX_ARM.w.elf' );">&#x1F4BE<br>LNX_ARM</td>
-								<td class="Dx__DNLOAD" onclick="DOWNLOAD_Dy( 'LNX_X64.w.elf' );">&#x1F4BE<br>LNX_X64</td>
-								<td class="Dx__DISABLE" onclick="DISABLE_Dy( 'LNX_RSV.w.elf' );">&#x1F4BE<br>LNX_RSV</td>
 
-							</tr>
+	 <!-- HIDE TEK TWEAK -->
+      <div style="display: none;">
 
-							<tr class="Dx__TEDGE" >
-								<th scope="row"><span class="GwzDo GwzDo_WIN GwzHu"></span><br>Windows</th>
-								<td class="Dx__DISABLE" onclick="DISABLE_Dy( 'WIN_ARM.w.exe' );">&#x1F4BE<br>WIN_ARM</td>
-								<td class="Dx__DISABLE" onclick="DISABLE_Dy( 'WIN_X64.w.exe' );">&#x1F4BE<br>WIN_X64</td>
-								<td></td>
-							</tr>
+     <details style="cursor: pointer">
+    <summary>Tweak Tech</summary>
 
-						</tbody>
-					</table>
-				</div>
-				<br>
+      <div style="display: none; align-items: center; gap: 4px;">
+        <input type="checkbox" id="bilinear-fix">
+        <label for="bilinear-fix">Bilinear Fix</label>
+      </div>
 
-				<!--COMPANY LINKS -->
-				<div class = "Dx__BOX" >
-					<h4 id="VyMo_3" class="Dx__TXT Dx__FADE_IN" ></h4>
-					<br>
-					<p id="VyDa" class="Dx__TXT Dx__FADE_IN" ></p>
-					<p id="VyGiZe" class="Dx__TXT Dx__FADE_IN" ></p>
-					<br>
-					<p id="DryDzKy_Grx" class="Dx__LNK Dx__FADE_IN"></p>
-					<br>
-					<a id="DryDzKy_Tu" class="Dx__LNK Dx__FADE_IN" href="https://www.MindAptiv.com" target="_blank"></a>
-					<br>
-					<a id="DryDzKy_JeFi" class="Dx__LNK Dx__FADE_IN" href="Mx07__SuSmi_WEBPG/SuSmi00__HTML/KuGwy01__CRAWL.html" target="_blank"></a>
-					<br>
-					<br>
-					///home/kejimx/TaKu/Ku5_KoKri/Kri07__Mx_POST/Mx01__SuKz_MEDIA/SuKz07_DryDz__BIZ/DryDzGwz05__LAB_EAST.png
-					<a id="DryDzKy_WzFi" class="Dx__LNK Dx__FADE_IN" href="WzFi.html" target="_blank"></a>
-					<br>
-					<br>
-					<a id="DryDzKy_WzFe" class="Dx__LNK Dx__FADE_IN" href="WzFe.html" target="_blank"></a>
-				</div>
+      <div style="display: flex; align-items: center; gap: 4px;">
+        <input type="checkbox" id="disable-mips">
+        <label for="disable-mips">Disable Mips</label>
+      </div>
 
-	</div>
-</div>
+      <div style="display: flex; align-items: center; gap: 4px;">
+        <input type="checkbox" id="nonlinear-accumulation">
+        <label for="nonlinear-accumulation">Non-Linear Accumulation</label>
+      </div>
+
+      <div style="display: flex; align-items: center; gap: 4px">
+        <input type="checkbox" id="add-noise">
+        <label for="add-noise">Naive GI Noise</label>
+      </div>
+
+      <div style="display: none; align-items: center; gap: 4px">
+        <input type="checkbox" id="ringing-fix">
+        <label for="ringing-fix">Ringing Fix</label>
+      </div>
+
+      <div id="additional-controls-container">
+      </div>
+
+      <div style="display: flex; align-items: center; gap: 8px">
+      Sun Angle
+      <input id="rc-sun-angle-slider" class="slider" type="range" min="0" max="6.2" step="0.1" value="2.0" />
+        </div>
+
+        <div style="display: flex; align-items: center; gap: 4px">
+        <input type="checkbox" id="reduce-demand">
+        <label for="reduce-demand">Reduce Demand (Calculate over 2 frames)</label>
+      </div>
+
+      </details>
+    </div>
+
+</section>
+
+
 
 <!-- ====================================================================== -->
 <!-- END

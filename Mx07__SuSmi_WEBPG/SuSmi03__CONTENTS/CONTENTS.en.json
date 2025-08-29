@@ -30,11 +30,10 @@
 	},
 
 	"CREDITS":
-	{
-		"Cosm": "john jake kolb v @ PowerOurPeople.com",
-		"Bugout": "Chris McCormick @ https://github.com/chr15m/bugout/tree/master",
-
-	}
+	[
+		{ "ID": "Cosm", "OWN": "john jake kolb v", "URL": "https://PowerOurPeople.com" }
+		, { "ID": "Bugout", "OWN":  "Chris McCormick", "URL": "https://github.com/chr15m/bugout/tree/master" }
+	],
 
 	"SUBJECTS":
 	[

@@ -567,7 +567,7 @@ async function Hre1_Dru__ChyKeDru( KeKuMi_vutf8 )
 	//@@@
 	// LANG_FILE
 	KeDru_v = await ToKz__JSON_v( 'SuSmi03__CONTENTS/', `CONTENTS.${KeKu__ToKz_vutf8}` );
-	if( !KeDru_v ){ SmaTrx( "NO CONTENTS FILE!" ); return; }
+	if( !KeDru_v ){ SmaTrx( `NO CONTENTS FILE! ${KeKu__ToKz_vutf8}` ); return; }
 
 
 	//&&&
