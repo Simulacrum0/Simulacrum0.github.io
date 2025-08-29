@@ -60,7 +60,7 @@
 
 
 <!---------------------------------------------------
-
+BUGOUT
 ------------------------------------------------- -->
 
 <script>
@@ -218,15 +218,28 @@ b.register("ping", function(pk, args, cb) {
   args["pong"] = true;
   cb(args);
 }, "Respond to ping with 'pong'.");
+
+
+reload(document.getElementById("api-source").innerHTML);
+
+
+//---------------------------------------------------
+//TESTO
+//-------------------------------------------------
+
+
+
+//---------------------------------------------------
+//END SCRIPT
+//-------------------------------------------------
 </script>
 
 
-<script>reload(document.getElementById("api-source").innerHTML);</script>
 
 <style>
 
-  body { background-color: #FF8; margin: 0px }
-  pre { color: #00F; white-space: pre-wrap; word-wrap: break-word; line-height: 1em; margin: 1em; }
+  pre { color: rgb(0, 0, 0); white-space: pre-wrap; word-wrap: break-word; line-height: 1em; margin: 1em; }
+
   .CodeMirror { height: auto; }
   #reload {
     border-radius: 5px;
@@ -238,11 +251,9 @@ b.register("ping", function(pk, args, cb) {
     margin: 0.5em;
   }
 
-</style>
 
 
-
-  <style>
+  
     html {
       margin: 0;
       padding: 0;
