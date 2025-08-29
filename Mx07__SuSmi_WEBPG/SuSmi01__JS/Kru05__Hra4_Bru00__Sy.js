@@ -51,14 +51,44 @@
 		1: [function (require, module) {
 			(function (Buffer) {
 				(function () {
-					function Bugout(identifier, opts) {
+					function Bugout(identifier, opts)
+					{
 						identifier && "object" == typeof identifier && (opts = identifier, identifier = null);
 						var opts = opts || {};
 						if (!(this instanceof Bugout)) return new Bugout(identifier, opts);
+
 						var trackeropts = opts.tracker || {};
-						if (opts.iceServers && (trackeropts.rtcConfig = {
-								iceServers: opts.iceServers
-							}), this.announce = opts.announce || [ "wss://tracker.openwebtorrent.com", "wss://tracker.btorrent.xyz"], this.wt = opts.wt, this.nacl = nacl, this.seed = opts.seed ? opts.seed : this.encodeseed(nacl.randomBytes(32)), this.timeout = opts.timeout || 300000, this.keyPair = opts.keyPair || nacl.sign.keyPair.fromSeed(Uint8Array.from(bs58check.decode(this.seed)).slice(2)), this.keyPairEncrypt = nacl.box.keyPair(), this.pk = bs58.encode(Buffer.from(this.keyPair.publicKey)), this.ek = bs58.encode(Buffer.from(this.keyPairEncrypt.publicKey)), this.identifier = identifier || this.address(), this.peers = {}, this.seen = {}, this.lastwirecount = null, this.api = {}, this.callbacks = {}, this.serveraddress = null, this.heartbeattimer = null, debug("address", this.address()), debug("identifier", this.identifier), debug("public key", this.pk), debug("encryption key", this.ek), "object" == typeof File) var blob = new File([this.identifier], this.identifier);
+
+						if (opts.iceServers &&
+							(
+								trackeropts.rtcConfig =
+								{
+									iceServers: opts.iceServers
+								}
+							)
+							, this.announce = opts.announce || [ "wss://tracker.openwebtorrent.com", "wss://tracker.btorrent.xyz"]
+							, this.wt = opts.wt
+							, this.nacl = nacl
+							, this.seed = opts.seed ? opts.seed : this.encodeseed(nacl.randomBytes(32))
+							, this.timeout = opts.timeout || 300000
+							, this.keyPair = opts.keyPair || nacl.sign.keyPair.fromSeed(Uint8Array.from(bs58check.decode(this.seed)).slice(2))
+							, this.keyPairEncrypt = nacl.box.keyPair()
+							, this.pk = bs58.encode(Buffer.from(this.keyPair.publicKey))
+							, this.ek = bs58.encode(Buffer.from(this.keyPairEncrypt.publicKey))
+							, this.identifier = identifier || this.address()
+							, this.peers = {}
+							, this.seen = {}
+							, this.lastwirecount = null
+
+
+							, this.api = {}
+							, this.callbacks = {}
+							, this.serveraddress = null
+							, this.heartbeattimer = null, debug("address", this.address())
+							, debug("identifier", this.identifier)
+							, debug("public key", this.pk)
+							, debug("encryption key", this.ek)
+							, "object" == typeof File ) var blob = new File([this.identifier], this.identifier);
 						else {
 							var blob = new Buffer.from(this.identifier);
 							blob.name = this.identifier
@@ -75,7 +105,8 @@
 						}, this)), this.torrentCreated = !0), this.torrent.on("wire", partial(attach, this, this.identifier)), opts.heartbeat && this.heartbeat(opts.heartbeat)
 					}
 
-					function makePacket(bugout, params) {
+					function makePacket(bugout, params)
+					{
 						var p = {
 							t: now(),
 							i: bugout.identifier,
@@ -252,6 +283,8 @@
 							return fn.apply(null, args)
 						}
 					}
+
+
 					module.exports = Bugout;
 					var debug = require("debug")("bugout"),
 						WebTorrent = require("webtorrent"),
@@ -262,7 +295,10 @@
 						bs58 = require("bs58"),
 						bs58check = require("bs58check"),
 						ripemd160 = require("ripemd160");
+
 					inherits(Bugout, EventEmitter);
+
+					
 					Bugout.prototype.WebTorrent = WebTorrent, Bugout.prototype._onTorrent = function () {
 						debug("torrent", this.identifier, this.torrent), this.emit("torrent", this.identifier, this.torrent), this.torrent.discovery.tracker && this.torrent.discovery.tracker.on("update", partial(function (bugout, update) {
 							bugout.emit("tracker", bugout.identifier, update)
@@ -17473,7 +17509,6 @@
 				if ("string" != typeof file.name) throw new Error("missing or invalid file.name property");
 				if ("function" != typeof file.createReadStream) throw new Error("missing or invalid file.createReadStream property")
 			}
-
 			function getCodec(name) {
 				const extname = path.extname(name).toLowerCase();
 				return {

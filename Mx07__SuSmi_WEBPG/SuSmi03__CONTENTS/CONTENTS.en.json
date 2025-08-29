@@ -23,8 +23,18 @@
 
 		"DryDzKy_Grx": "This website uses MindAptiv Corp.'s' Technologies.<br>Use involves informing, distributing and primarily testing distribution of Essence.<br>All rights reserved by MindAptiv LLC.",
 		"DryDzKy_Tu": "Check out MindAptiv's Website !!",
-		"DryDzKy_JeFi": "Bonus: Legacy Website Starcrawl"
+		"DryDzKy_JeFi": "Bonus: Legacy Website Starcrawl",
+
+		"DryDzKy_WzFi": "Lab: Last Experiment",
+		"DryDzKy_WzFe": "Lab: Current Experiment"
 	},
+
+	"CREDITS":
+	{
+		"Cosm": "john jake kolb v @ PowerOurPeople.com",
+		"Bugout": "Chris McCormick @ https://github.com/chr15m/bugout/tree/master",
+
+	}
 
 	"SUBJECTS":
 	[
@@ -36,4 +46,6 @@
 		{ "ID": "History", "NAME": "5) History of Wantware" },
 		{ "ID": "Vision", "NAME": "6) Vision for a Better Future" }
 	]
+
+
 }
