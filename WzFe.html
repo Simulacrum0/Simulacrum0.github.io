@@ -66,9 +66,7 @@ BUGOUT
 ------------------------------------------------- -->
 
 <script>
-  log("*SelfServ*\n");
-
-  // instantiate our SelfServ instance
+  log("*SelfServ*\n");  // instantiate our SelfServ instance
   var b = new Bugout({seed: localStorage["bugout-demo-server-seed"]});
   // save the seed for next time
   localStorage["bugout-demo-server-seed"] = b.seed;
@@ -366,29 +364,32 @@ reload(document.getElementById("api-source").innerHTML);
   <section id="content">
 
   <div id="Host">
-	<p>HOST an Event</p>
+	<h2>HOST an Event</h2>
 	<button id="reload">Reload</button>
 
-	<textarea id="api" rows="20"></textarea>
+	<textarea id="api" style="display: none;" rows="20"></textarea>
 	<!-- <textarea id="log" rows="20"></textarea> -->
 </div>
 
 
 <div id="Join">
-	<p>JOIN an Event</p>
+	<h2>JOIN an Event</h2>
 	<button id="reload">Connect</button>
-	<textarea id="msg" rows="20" columns=""80"></textarea>
+	<textarea id="msg" style="display: none;" rows="20" columns=""80"></textarea>
 </div>
 
 
    <div id="Activity">
-		<p>LOG all Events</p>
+		<h2>LOG all Events</h2>
 	   <pre id="log"></pre>
   </div>
 
 
 
     <div id="JoDi">
+		<h2>DRAW walls and lights</h2>
+
+      <br />
       <div id="rc-canvas"></div>
       <br />
 
