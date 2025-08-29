@@ -105,15 +105,8 @@ BUGOUT
 // clientURL = friendURL;
 
       // qrcode for the client URL
-      if (window.innerWidth > 600)
-	  {
-        log(qr(clientURL));
-
-      } else
-	  {
-        log();
-      }
-
+      //  log(qr(clientURL));
+    log();
       log(clientURL + "\n");
       log("Connect to this server-in-a-tab using the link above.");
     }
@@ -238,12 +231,13 @@ reload(document.getElementById("api-source").innerHTML);
 
 <style>
 
-  pre { color: rgb(0, 0, 0); white-space: pre-wrap; word-wrap: break-word; line-height: 1em; margin: 1em; }
+  pre { color: #FFF; white-space: pre-wrap; word-wrap: break-word; line-height: 1em; margin: 1em; }
 
   .CodeMirror { height: auto; }
+
   #reload {
     border-radius: 5px;
-    background-color: #000;
+    background-color: #F00;
     color: white;
     border: none;
     padding: 0.25em 1em;
@@ -260,12 +254,13 @@ reload(document.getElementById("api-source").innerHTML);
       font-family: sans-serif;
     }
 
-    body {
-      background: #622;
+    body
+	{
+      background: #000;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      margin: 0;
+      margin: 32px;
     }
 
     li, p {
@@ -283,7 +278,7 @@ reload(document.getElementById("api-source").innerHTML);
     }
 
     #content {
-      max-width: 800px;
+      max-width: 1280px;
       min-height: 100%;
 
       justify-content: center;
@@ -391,7 +386,7 @@ reload(document.getElementById("api-source").innerHTML);
 
       <div id="outer-container"></div>
 
-	  <div style="display: flex; align-items: center; gap: 4px">
+	  <div style="display: flex; align-items: left; gap: 4px">
 			<input type="checkbox" id="enable-srgb" checked>
 			<label for="enable-srgb">Brighten Mode</label>
 	  </div>
@@ -403,27 +398,27 @@ reload(document.getElementById("api-source").innerHTML);
      <details style="cursor: pointer">
     <summary>Tweak Tech</summary>
 
-      <div style="display: none; align-items: center; gap: 4px;">
+      <div style="display: none; align-items: left; gap: 4px;">
         <input type="checkbox" id="bilinear-fix">
         <label for="bilinear-fix">Bilinear Fix</label>
       </div>
 
-      <div style="display: flex; align-items: center; gap: 4px;">
+      <div style="display: flex; align-items: left; gap: 4px;">
         <input type="checkbox" id="disable-mips">
         <label for="disable-mips">Disable Mips</label>
       </div>
 
-      <div style="display: flex; align-items: center; gap: 4px;">
+      <div style="display: flex; align-items: left; gap: 4px;">
         <input type="checkbox" id="nonlinear-accumulation">
         <label for="nonlinear-accumulation">Non-Linear Accumulation</label>
       </div>
 
-      <div style="display: flex; align-items: center; gap: 4px">
+      <div style="display: flex; align-items: left; gap: 4px">
         <input type="checkbox" id="add-noise">
         <label for="add-noise">Naive GI Noise</label>
       </div>
 
-      <div style="display: none; align-items: center; gap: 4px">
+      <div style="display: none; align-items: left; gap: 4px">
         <input type="checkbox" id="ringing-fix">
         <label for="ringing-fix">Ringing Fix</label>
       </div>
@@ -431,12 +426,12 @@ reload(document.getElementById("api-source").innerHTML);
       <div id="additional-controls-container">
       </div>
 
-      <div style="display: flex; align-items: center; gap: 8px">
+      <div style="display: flex; align-items: left; gap: 8px">
       Sun Angle
       <input id="rc-sun-angle-slider" class="slider" type="range" min="0" max="6.2" step="0.1" value="2.0" />
         </div>
 
-        <div style="display: flex; align-items: center; gap: 4px">
+        <div style="display: flex; align-items: left; gap: 4px">
         <input type="checkbox" id="reduce-demand">
         <label for="reduce-demand">Reduce Demand (Calculate over 2 frames)</label>
       </div>
