@@ -44,24 +44,23 @@
 		  <!-- <script id="JoDi" defer src="Mx07__SuSmi_WEBPG/SuSmi01__JS/Kru03__Hrz2_Wy.js"></script> -->
 
 
+  <link href="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.39.2/codemirror.min.css" rel="stylesheet">
   <script defer src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.39.2/codemirror.min.js"></script>
 
   <script defer src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.39.2/mode/javascript/javascript.min.js"></script>
   <script defer src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.39.2/addon/edit/matchbrackets.min.js"></script>
 
 
-  <link href="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.39.2/codemirror.min.css" rel="stylesheet">
 
   <script defer src="//cdn.rawgit.com/papnkukn/qrcode-svg/master/dist/qrcode.min.js"></script>
-
-
-
-  <script src="Mx07__SuSmi_WEBPG/SuSmi01__JS/Kru05__Hra4_Bru00__Sy.js" type="application/javascript"></script>
-<!-- <script src="Mx07__SuSmi_WEBPG/SuSmi01__JS/Kru05__Hra4_Bru01__SyZx.js" type="application/javascript"></script> -->
-
-
-
   <script src="//cdn.jsdelivr.net/npm/qrcode@latest/build/qrcode.min.js"></script>
+
+  <script defer src="Mx07__SuSmi_WEBPG/SuSmi01__JS/Kru05__Hra4_Bru00__Sy.js" type="application/javascript"></script>
+
+
+<!-- <script defer src="Mx07__SuSmi_WEBPG/SuSmi01__JS/Kru05__Hra4_Bru01__SyZx.js" type="application/javascript"></script> -->
+
+
 
 
 
@@ -71,10 +70,9 @@ BUGOUT
 
 <script>
 
+	document.getElementById("log").textContent += VER_vbg
 
-	document.getElementBy "v0.077"
-
-  log( "*SelfServ*\n" + VER_vbg );  // instantiate our SelfServ instance
+  log( "*SelfServ*" + VER_vbg +"\n" );  // instantiate our SelfServ instance
   var b = new Bugout({seed: localStorage["bugout-demo-server-seed"]});
   // save the seed for next time
   localStorage["bugout-demo-server-seed"] = b.seed;
@@ -387,7 +385,7 @@ reload(document.getElementById("api-source").innerHTML);
 <canvas id="VyMxSi" class="Dx__BG Dx__FADE_IN" width="512px" height="512px"></canvas> -->
 
 <body>
-    <h1 style="text-align: center;" id="Title" >LabEast Fam Kolb Test</h1>
+    <h1 style="text-align: center;" id="Title" >LabEast Fam Kolb Test </h1>
 	<br/>
 
   <section id="content">
