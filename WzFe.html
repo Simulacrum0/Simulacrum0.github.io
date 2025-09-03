@@ -70,17 +70,18 @@ BUGOUT
 
 <script>
 
-	document.getElementById("log").textContent += VER_vbg
-
-  log( "*SelfServ*" + VER_vbg +"\n" );  // instantiate our SelfServ instance
-  var b = new Bugout({seed: localStorage["bugout-demo-server-seed"]});
-  // save the seed for next time
-  localStorage["bugout-demo-server-seed"] = b.seed;
+	log( "*SelfServ*" + VER_vbg +"\n" );  // instantiate our SelfServ instance
+	var b = new Bugout({seed: localStorage["bugout-demo-server-seed"]});
+	// save the seed for next time
+	localStorage["bugout-demo-server-seed"] = b.seed;
 
 
-  // log this server's address
-  log( "Your BrowserTab is a SelfServ HUB aka web-server" );
-  // log( "HUB ID#:", b.address());
+	// log this server's address
+	log( "Your BrowserTab is a SelfServ HUB aka web-server" );
+	// log( "HUB ID#:", b.address());
+
+
+	document.getElementById("log").textContent += VER_vbg;
 
 
 
@@ -90,13 +91,13 @@ BUGOUT
   {
     if (c == 0 && connected == false)
 	{
-      connected = true;
-      log("ready");
+		connected = true;
+		log("ready");
 
-      // link to the messageboard client URL
+		// link to the messageboard client URL
 
 //	  var clientURL = document.location.href.replace("WzFe", "WzFi") + "#" + b.address();
-	  var clientURL = document.location.href.replace("WzFe.html", "Mx07__SuSmi_WEBPG/SuSmi00__HTML/KuGwy06__COMZ_Me.html") + "#" + b.address();
+var clientURL = document.location.href.replace("WzFe.html", "Mx07__SuSmi_WEBPG/SuSmi00__HTML/KuGwy06__COMZ_Me.html") + "#" + b.address();
 
 
 //------------------------------------------
@@ -114,9 +115,11 @@ BUGOUT
 
 // clientURL = friendURL;
 
-      // qrcode for the client URL
-	  document.add( ).text = Hre1_Dru__QR_vbg( clientURL );
+//	  document.add( ).text = Hre1_Dru__QR_vbg( clientURL );
 
+     log(qr(clientURL));
+
+      // qrcode for the client URL
 
 
       log(clientURL + "\n");
