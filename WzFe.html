@@ -70,7 +70,7 @@ BUGOUT
 
 <script>
 
-	log( "*SelfServ*" + VER_vbg +"\n" );  // instantiate our SelfServ instance
+	log( "*SelfServ*" + VER_vsg +"\n" );  // instantiate our SelfServ instance
 	var b = new Bugout({seed: localStorage["bugout-demo-server-seed"]});
 	// save the seed for next time
 	localStorage["bugout-demo-server-seed"] = b.seed;
@@ -81,7 +81,7 @@ BUGOUT
 	// log( "HUB ID#:", b.address());
 
 
-	document.getElementById("log").textContent += VER_vbg;
+	document.getElementById("log").textContent += VER_vsg;
 
 
 
