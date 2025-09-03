@@ -27,6 +27,10 @@ DryDzKy_Grx: This website uses MindAptiv Corp.'s' Technologies.<br>Use involves 
 DryDzKy_Tu: Check out MindAptiv's Website !!
 DryDzKy_JeFi: Bonus: Legacy Website Starcrawl
 
+[CREDITS]
+- ID: "Cosm", "OWN": "john jake kolb v", "URL": "https://PowerOurPeople.com"
+- ID": "Bugout", "OWN":  "Chris McCormick", "URL": "https://github.com/chr15m/bugout/tree/master"
+
 
 [SUBJECTS]
 - Everyone: 1) Introduction for Everyone

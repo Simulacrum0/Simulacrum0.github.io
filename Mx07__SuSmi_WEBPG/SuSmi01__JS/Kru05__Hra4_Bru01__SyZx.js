@@ -4,9 +4,6 @@
 
 module.exports = Bugout;
 
-//==============================================
-//
-//==============================================
 var debug = require("debug")("bugout");
 var WebTorrent = require("webtorrent");
 var bencode = require("bencode");
@@ -17,7 +14,6 @@ var bs58 = require("bs58");
 var bs58check = require("bs58check");
 var ripemd160 = require("ripemd160");
 
-
 inherits(Bugout, EventEmitter);
 
 var EXT = "bo_channel";
@@ -25,12 +21,10 @@ var PEERTIMEOUT = 5 * 60 * 1000;
 var SEEDPREFIX = "490a";
 var ADDRESSPREFIX = "55";
 
-//==============================================
-//
-/* Multi-party data channels on WebTorrent extension. */
-//==============================================
-function Bugout(identifier, opts)
-{
+/**
+ * Multi-party data channels on WebTorrent extension.
+ */
+function Bugout(identifier, opts) {
   // TODO: option to pass shared secret to encrypt swarm traffic
   if (identifier && typeof(identifier) == "object") {
 	opts = identifier;
@@ -45,7 +39,7 @@ function Bugout(identifier, opts)
 	trackeropts.rtcConfig = {iceServers: opts.iceServers};
   }
 
-  this.announce = opts.announce || ["wss://tracker.openwebtorrent.com", "wss://tracker.btorrent.xyz"];
+  this.announce = opts.announce || [ "wss://tracker.openwebtorrent.com", "wss://tracker.btorrent.xyz"];
   this.wt = opts.wt;
   this.nacl = nacl;
 
@@ -114,13 +108,9 @@ function Bugout(identifier, opts)
   }
 }
 
-//==============================================
-//
-//==============================================
 Bugout.prototype.WebTorrent = WebTorrent;
 
-Bugout.prototype._onTorrent = function()
-{
+Bugout.prototype._onTorrent = function() {
   debug("torrent", this.identifier, this.torrent);
   this.emit("torrent", this.identifier, this.torrent);
   if (this.torrent.discovery.tracker) {
@@ -134,28 +124,16 @@ Bugout.prototype._onTorrent = function()
   }, this));
 }
 
-//==============================================
-//
-//==============================================
-Bugout.encodeseed = Bugout.prototype.encodeseed = function(material)
-{
+Bugout.encodeseed = Bugout.prototype.encodeseed = function(material) {
   return bs58check.encode(Buffer.concat([Buffer.from(SEEDPREFIX, "hex"), Buffer.from(material)]));
 }
 
-//==============================================
-//
-//==============================================
-Bugout.encodeaddress = Bugout.prototype.encodeaddress = function(material)
-{
+Bugout.encodeaddress = Bugout.prototype.encodeaddress = function(material) {
   return bs58check.encode(Buffer.concat([Buffer.from(ADDRESSPREFIX, "hex"), new ripemd160().update(Buffer.from(nacl.hash(material))).digest()]));
 }
 
-//==============================================
-//
 // start a heartbeat and expire old "seen" peers who don't send us a heartbeat
-//==============================================
-Bugout.prototype.heartbeat = function(interval)
-{
+Bugout.prototype.heartbeat = function(interval) {
   var interval = interval || 30000;
   this.heartbeattimer = setInterval(partial(function (bugout) {
 	// broadcast a 'ping' message
@@ -175,12 +153,8 @@ Bugout.prototype.heartbeat = function(interval)
   }, this), interval);
 }
 
-//==============================================
-//
 // clean up this bugout instance
-//==============================================
-Bugout.prototype.destroy = function(cb)
-{
+Bugout.prototype.destroy = function(cb) {
   clearInterval(this.heartbeattimer);
   var packet = makePacket(this, {"y": "x"});
   sendRaw(this, packet);
@@ -190,16 +164,9 @@ Bugout.prototype.destroy = function(cb)
   }
 }
 
-//==============================================
-//
-//==============================================
 Bugout.prototype.close = Bugout.prototype.destroy;
 
-//==============================================
-//
-//==============================================
-Bugout.prototype.connections = function()
-{
+Bugout.prototype.connections = function() {
   if (this.torrent.wires.length != this.lastwirecount) {
 	this.lastwirecount = this.torrent.wires.length;
 	this.emit("connections", this.torrent.wires.length);
@@ -207,11 +174,7 @@ Bugout.prototype.connections = function()
   return this.lastwirecount;
 }
 
-//==============================================
-//
-//==============================================
-Bugout.prototype.address = function(pk)
-{
+Bugout.prototype.address = function(pk) {
   if (pk && typeof(pk) == "string") {
 	pk = bs58.decode(pk);
   } else if (pk && pk.length == 32) {
@@ -222,26 +185,15 @@ Bugout.prototype.address = function(pk)
   return this.encodeaddress(pk);
 }
 
-//==============================================
-//
-//==============================================
 Bugout.address = Bugout.prototype.address;
 
-//==============================================
-//
-//==============================================
-Bugout.prototype.ping = function()
-{
+Bugout.prototype.ping = function() {
 	// send a ping out so they know about us too
 	var packet = makePacket(this, {"y": "p"});
 	sendRaw(this, packet);
 }
 
-//==============================================
-//
-//==============================================
-Bugout.prototype.send = function(address, message)
-{
+Bugout.prototype.send = function(address, message) {
   if (!message) {
 	var message = address;
 	var address = null;
@@ -257,20 +209,12 @@ Bugout.prototype.send = function(address, message)
   sendRaw(this, packet);
 }
 
-//==============================================
-//
-//==============================================
-Bugout.prototype.register = function(call, fn, docstring)
-{
+Bugout.prototype.register = function(call, fn, docstring) {
   this.api[call] = fn;
   this.api[call].docstring = docstring;
 }
 
-//==============================================
-//
-//==============================================
-Bugout.prototype.rpc = function(address, call, args, callback)
-{
+Bugout.prototype.rpc = function(address, call, args, callback) {
   // my kingdom for multimethods lol
   // calling styles:
   // address, call, args, callback
@@ -293,11 +237,9 @@ Bugout.prototype.rpc = function(address, call, args, callback)
   }
 }
 
-//==============================================
 // outgoing
-//==============================================
-function makePacket(bugout, params)
-{
+
+function makePacket(bugout, params) {
   var p = {
 	"t": now(),
 	"i": bugout.identifier,
@@ -309,21 +251,14 @@ function makePacket(bugout, params)
 	p[k] = params[k];
   }
   var pe = bencode.encode(p);
-  return bencode.encode
-  ({
+  return bencode.encode({
 	"s": nacl.sign.detached(pe, bugout.keyPair.secretKey),
 	"p": pe,
   });
 }
 
-
-//==============================================
-//
-//==============================================
-function encryptPacket(bugout, pk, packet)
-{
-  if (bugout.peers[bugout.address(pk)])
-	{
+function encryptPacket(bugout, pk, packet) {
+  if (bugout.peers[bugout.address(pk)]) {
 	var nonce = nacl.randomBytes(nacl.box.nonceLength);
 	packet = bencode.encode({
 	  "n": nonce,
@@ -336,44 +271,27 @@ function encryptPacket(bugout, pk, packet)
   return packet;
 }
 
-
-//==============================================
-//
-//==============================================
-function sendRaw(bugout, message)
-{
+function sendRaw(bugout, message) {
   var wires = bugout.torrent.wires;
-
-  for (var w=0; w<wires.length; w++)
-	{
+  for (var w=0; w<wires.length; w++) {
 	var extendedhandshake = wires[w]["peerExtendedHandshake"];
-	if (extendedhandshake && extendedhandshake.m && extendedhandshake.m[EXT])
-	{
+	if (extendedhandshake && extendedhandshake.m && extendedhandshake.m[EXT]) {
 	  wires[w].extended(EXT, message);
 	}
   }
-
   var hash = toHex(nacl.hash(message).slice(16));
   debug("sent", hash, "to", wires.length, "wires");
 }
 
-
-//==============================================
-//
-//==============================================
-function makeEncryptSendPacket(bugout, pk, packet)
-{
+function makeEncryptSendPacket(bugout, pk, packet) {
   packet = makePacket(bugout, packet);
   packet = encryptPacket(bugout, pk, packet);
   sendRaw(bugout, packet);
 }
 
-
-//==============================================
 // incoming
-//==============================================
-function onMessage(bugout, identifier, wire, message)
-{
+
+function onMessage(bugout, identifier, wire, message) {
   // hash to reference incoming message
   var hash = toHex(nacl.hash(message).slice(16));
   var t = now();
@@ -392,8 +310,7 @@ function onMessage(bugout, identifier, wire, message)
 	  }
 	}
 	// if there's no data decryption failed
-	if (unpacked && unpacked.p)
-	{
+	if (unpacked && unpacked.p) {
 	  debug("unpacked message", unpacked);
 	  var packet = bencode.decode(unpacked.p);
 	  var pk = packet.pk.toString();
@@ -487,13 +404,9 @@ function onMessage(bugout, identifier, wire, message)
   bugout.seen[hash] = now();
 }
 
-
-//==============================================
-//
 // network functions
-//==============================================
-function rpcCall(bugout, pk, call, args, nonce, callback)
-{
+
+function rpcCall(bugout, pk, call, args, nonce, callback) {
   var packet = {"y": "rr", "rn": nonce};
   if (bugout.api[call]) {
 	bugout.api[call](bugout.address(pk), args, function(result) {
@@ -506,12 +419,7 @@ function rpcCall(bugout, pk, call, args, nonce, callback)
   }
 }
 
-
-//==============================================
-//
-//==============================================
-function sawPeer(bugout, pk, ek, identifier)
-{
+function sawPeer(bugout, pk, ek, identifier) {
   debug("sawPeer", bugout.address(pk), ek);
   var t = now();
   var address = bugout.address(pk);
@@ -541,35 +449,21 @@ function sawPeer(bugout, pk, ek, identifier)
   }
 }
 
-
-//==============================================
-//
-//==============================================
 // extension protocol plumbing
-function attach(bugout, identifier, wire, addr)
-{
+
+function attach(bugout, identifier, wire, addr) {
   debug("saw wire", wire.peerId, identifier);
   wire.use(extension(bugout, identifier, wire));
   wire.on("close", partial(detach, bugout, identifier, wire));
 }
 
-
-//==============================================
-//
-//==============================================
-function detach(bugout, identifier, wire)
-{
+function detach(bugout, identifier, wire) {
   debug("wire left", wire.peerId, identifier);
   bugout.emit("wireleft", bugout.torrent.wires.length, wire);
   bugout.connections();
 }
 
-
-//==============================================
-//
-//==============================================
-function extension(bugout, identifier, wire)
-{
+function extension(bugout, identifier, wire) {
   var ext = partial(wirefn, bugout, identifier);
   ext.prototype.name = EXT;
   ext.prototype.onExtendedHandshake = partial(onExtendedHandshake, bugout, identifier, wire);
@@ -577,12 +471,7 @@ function extension(bugout, identifier, wire)
   return ext;
 }
 
-
-//==============================================
-//
-//==============================================
-function wirefn(bugout, identifier, wire)
-{
+function wirefn(bugout, identifier, wire) {
   // TODO: sign handshake to prove key custody
   wire.extendedHandshake.id = identifier;
   wire.extendedHandshake.pk = bugout.pk;
@@ -597,34 +486,21 @@ function onExtendedHandshake(bugout, identifier, wire, handshake) {
   sawPeer(bugout, handshake.pk.toString(), handshake.ek.toString(), identifier);
 }
 
-
-//==============================================
-function now()
-//==============================================
 // utility fns
-{
+
+function now() {
   return (new Date()).getTime();
 }
 
-
-//==============================================
-//
 // https://stackoverflow.com/a/39225475/2131094
-//==============================================
-function toHex(x)
-{
+function toHex(x) {
   return x.reduce(function(memo, i) {
 	return memo + ('0' + i.toString(16)).slice(-2);
   }, '');
 }
 
-
-//==============================================
-//
 // javascript why
-//==============================================
-function partial(fn)
-{
+function partial(fn) {
   var slice = Array.prototype.slice;
   var stored_args = slice.call(arguments, 1);
   return function () {
@@ -633,7 +509,6 @@ function partial(fn)
 	return fn.apply(null, args);
   };
 }
-
 
 //=============
 // END
