@@ -70,6 +70,10 @@ BUGOUT
 ------------------------------------------------- -->
 
 <script>
+
+
+	document.getElementBy "v0.077"
+
   log( "*SelfServ*\n" + VER_vbg );  // instantiate our SelfServ instance
   var b = new Bugout({seed: localStorage["bugout-demo-server-seed"]});
   // save the seed for next time
@@ -113,7 +117,8 @@ BUGOUT
 // clientURL = friendURL;
 
       // qrcode for the client URL
-	  document.add( ).text = qr(clientURL);
+	  document.add( ).text = Hre1_Dru__QR_vbg( clientURL );
+
 
 
       log(clientURL + "\n");
@@ -147,7 +152,7 @@ BUGOUT
 // ===================================
 // QR Print
 // ===================================
-function Hre1_Dru__QR_vkutf16( txt )
+function Hre1_Dru__QR_vbg( txt )
 {
 	//@@@
     var q = QRCode.create( txt );
@@ -382,7 +387,7 @@ reload(document.getElementById("api-source").innerHTML);
 <canvas id="VyMxSi" class="Dx__BG Dx__FADE_IN" width="512px" height="512px"></canvas> -->
 
 <body>
-    <h1 style="text-align: center;" >LabEast Fam Kolb Test v0.077</h1>
+    <h1 style="text-align: center;" id="Title" >LabEast Fam Kolb Test</h1>
 	<br/>
 
   <section id="content">
