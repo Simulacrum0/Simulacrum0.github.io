@@ -7,6 +7,8 @@
 // SkiWIN
 // $google-chrome --allow-file-access-from-files --allow-file-access file:///mnt/Ku5_KoKri/Kri07__Mx_POST/index.html
 
+const VER_vbg = "0.78"
+
 //=============
 // LAB ( Edit locally using FILES only )
 //=============

@@ -70,7 +70,7 @@ BUGOUT
 ------------------------------------------------- -->
 
 <script>
-  log("*SelfServ*\n");  // instantiate our SelfServ instance
+  log( "*SelfServ*\n" + VER_vbg );  // instantiate our SelfServ instance
   var b = new Bugout({seed: localStorage["bugout-demo-server-seed"]});
   // save the seed for next time
   localStorage["bugout-demo-server-seed"] = b.seed;
@@ -389,17 +389,16 @@ reload(document.getElementById("api-source").innerHTML);
 
   <div id="Host">
 	<h2>HOST an Event</h2>
-	<button id="reload">Reload</button>
-
+	<button id="reload">Host</button>
 	<textarea id="api" style="display: none;" rows="20"></textarea>
-	<!-- <textarea id="log" rows="20"></textarea> -->
+	<textarea id="log" rows="20"></textarea>
 </div>
 
 
 <div id="Join">
 	<h2>JOIN an Event</h2>
-	<button id="reload">Connect</button>
-	<textarea id="msg" style="display: none;" rows="20" columns="80"></textarea>
+	<button id="connect">Join</button>
+	<textarea id="msg" style="display: none;" rows="20"></textarea>
 </div>
 
 
@@ -409,8 +408,8 @@ reload(document.getElementById("api-source").innerHTML);
   </div>
 
 
-<!--
-    <div id="JoDi">
+
+    <!-- <div id="JoDi">
 		<h2>DRAW walls and lights</h2>
 
       <br />
@@ -422,13 +421,12 @@ reload(document.getElementById("api-source").innerHTML);
 	  <div style="display: flex; align-items: left; gap: 4px">
 			<input type="checkbox" id="enable-srgb" checked>
 			<label for="enable-srgb">Brighten Mode</label>
-	  </div>
-
+	  </div> -->
 
 
 
 	 <!-- HIDE TEK TWEAK -->
-      <div style="display: none;">
+      <!-- <div style="display: none;">
 
      <details style="cursor: pointer">
     <summary>Tweak Tech</summary>
@@ -480,7 +478,7 @@ reload(document.getElementById("api-source").innerHTML);
 
 
 <!-- ====================================================================== -->
-<!-- END
+<!-- END -->
  <!-- ====================================================================== -->
 
 </body>
