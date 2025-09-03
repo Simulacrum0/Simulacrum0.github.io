@@ -12,13 +12,13 @@ const VER_vbg = "0.78"
 //=============
 // LAB ( Edit locally using FILES only )
 //=============
-//const WEBPG_vutf8 = "Mx07__SuSmi_WEBPG/";
+//const WEBPG__SuGwy_vsg = "Mx07__SuSmi_WEBPG/";
 
 //=============
 // PUB ( Publish using REAL Site )
 // $google-chrome powerourpeople.com
 //=============
-const WEBPG_vutf8 = "https://powerourpeople.com/Mx07__SuSmi_WEBPG/";
+const WEBPG__SuGwy_vsg = "https://powerourpeople.com/Mx07__SuSmi_WEBPG/";
 
 //=============
 // END
