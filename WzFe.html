@@ -33,462 +33,565 @@
 		<script defer src="Mx07__SuSmi_WEBPG/SuSmi01__JS/JiJa04__AURORA.js"></script>
 		<script defer src="Mx07__SuSmi_WEBPG/SuSmi01__JS/JiJa05__HEXSCROLL.js"></script>
 		<script defer src="Mx07__SuSmi_WEBPG/SuSmi01__JS/JiJa06__SUNRISE.js"></script>
-		<script defer src="Mx07__SuSmi_WEBPG/SuSmi01__JS/JiJa07__CODEX.js"></script>
- -->
+		<script defer src="Mx07__SuSmi_WEBPG/SuSmi01__JS/JiJa07__CODEX.js"></script> -->
 
 		<script src="Mx07__SuSmi_WEBPG/SuSmi01__JS/Ki00__PUB.js"></script>
+		<!-- <script src="Mx07__SuSmi_WEBPG/SuSmi01__JS/Ki01__CORE.js"></script> -->
+		<!-- <script src="Mx07__SuSmi_WEBPG/SuSmi01__JS/Ki02__LANG.js"></script> -->
+		<!-- <script src="Mx07__SuSmi_WEBPG/SuSmi01__JS/Ki03__CFG.js"></script> -->
 
-		<!-- <script defer src="Mx07__SuSmi_WEBPG/SuSmi01__JS/Ki01__CORE.js"></script> -->
-		<!-- <script defer src="Mx07__SuSmi_WEBPG/SuSmi01__JS/Ki02__LANG.js"></script> -->
+		<script src="//cdn.jsdelivr.net/npm/qrcode@latest/build/qrcode.min.js"></script>
 
 
-		  <!-- <script id="JoDi" defer src="Mx07__SuSmi_WEBPG/SuSmi01__JS/Kru03__Hrz2_Wy.js"></script> -->
+		<script src="Mx07__SuSmi_WEBPG/SuSmi01__JS/Kru05__Hra4_Bru00__SyDe.js" type="application/javascript"></script>
+		<!-- <script src="Mx07__SuSmi_WEBPG/SuSmi01__JS/Kru05__Hra4_Bru00__SyZx.js" type="application/javascript"></script> -->
+		<!-- <script src="Mx07__SuSmi_WEBPG/SuSmi01__JS/Kru05__Hra4_Bru01__Tra.js" type="application/javascript"></script> -->
 
+	</head>
 
-  <link href="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.39.2/codemirror.min.css" rel="stylesheet">
-  <script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.39.2/codemirror.min.js"></script>
 
-  <script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.39.2/mode/javascript/javascript.min.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.39.2/addon/edit/matchbrackets.min.js"></script>
-
-
-
-  <script src="//cdn.rawgit.com/papnkukn/qrcode-svg/master/dist/qrcode.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/qrcode@latest/build/qrcode.min.js"></script>
-
-  <script src="Mx07__SuSmi_WEBPG/SuSmi01__JS/Kru05__Hra4_Bru00__Sy.js" type="application/javascript"></script>
-
-
-<!-- <script src="Mx07__SuSmi_WEBPG/SuSmi01__JS/Kru05__Hra4_Bru01__SyZx.js" type="application/javascript"></script> -->
-
-
-
-
-
-<!---------------------------------------------------
-BUGOUT
-------------------------------------------------- -->
-
-<script>
-
-	log( "*SelfServ*" + VER_vsg +"\n" );  // instantiate our SelfServ instance
-	var b = new Bugout({seed: localStorage["bugout-demo-server-seed"]});
-	// save the seed for next time
-	localStorage["bugout-demo-server-seed"] = b.seed;
-
-
-	// log this server's address
-	log( "Your BrowserTab is a SelfServ HUB aka web-server" );
-	// log( "HUB ID#:", b.address());
-
-
-	document.getElementById("log").textContent += VER_vsg;
-
-
-
-  // log when network connectivity changes
-  var connected = false;
-  b.on("connections", function(c)
-  {
-    if (c == 0 && connected == false)
-	{
-		connected = true;
-		log("ready");
-
-		// link to the messageboard client URL
-
-//	  var clientURL = document.location.href.replace("WzFe", "WzFi") + "#" + b.address();
-var clientURL = document.location.href.replace("WzFe.html", "Mx07__SuSmi_WEBPG/SuSmi00__HTML/KuGwy06__COMZ_Me.html") + "#" + b.address();
-
-
-//------------------------------------------
-// Call the API
-//------------------------------------------
-// let request = await fetch(`https://api.shrtco.de/v2/shorten?url=${encodeURIComponent(clientURL)}`);
-
-// // Get the response
-// let response = await request.json();
-
-// // The shortened URL
-// let friendURL = response.result.full_short_link;
-
-// console.log(friendURL);
-
-// clientURL = friendURL;
-
-//	  document.add( ).text = qr( clientURL );
-
-     log(qr(clientURL));
-
-      // qrcode for the client URL
-
-
-      log(clientURL + "\n");
-      log("Connect to this server-in-a-tab using the link above.");
-    }
-
-    log("connections:", c);
-
-  });
-
-  // log when a client sends a message
-  b.on("message", function(address, msg) { log("message:", address, msg); });
-
-  // log when a client makes an rpc call
-  b.on("rpc", function(address, call, args) { log("rpc:", address, call, args); });
-
-  // log when we see a new client address
-  b.on("seen", function(address) { log("seen:", address); });
-
-
-
-  // simple logging function
-  function log()
-  {
-    var args = Array.prototype.slice.call(arguments);
-    console.log.apply(null, args);
-    args = args.map(function(a) { if (typeof(a) == "string") return a; else return JSON.stringify(a); });
-    document.getElementById("log").textContent += args.join(" ") + "\n";
-  }
-
-// ===================================
-// QR Print
-// ===================================
-function qr( txt )
-{
-	//@@@
-    var q = QRCode.create( txt );
-	var code = "\n\n";
-
-
-	//@@@
-    for (var i=0; i<2; i++)
-	{
-      code += "  ████";
-      for (var j=0; j<q.modules.size; j++)
-	  {
-        code += "██";
-      }
-      code += "████\n";
-    }
-
-	//@@@
-	for (var i=0; i<q.modules.size; i++)
-	{
-      code += "  ████";
-      for (var j=0; j<q.modules.size; j++)
-	  {
-        code += q.modules.data[i * q.modules.size + j] ? "  " : "██";
-      }
-      code += "████\n";
-    }
-
-	//@@@
-	for (var i=0; i<2; i++)
-	{
-      code += "  ████";
-      for (var j=0; j<q.modules.size; j++)
-	  {
-        code += "██";
-      }
-      code += "████\n";
-    }
-
-	//@@@
-	return code + "\n\n";
-}
-
-
-  /*** API editing ***/
-  // reference to the API code textarea
-
-  var api = document.getElementById("api");
-
-  // add a codemirror editor
-  var editor = CodeMirror.fromTextArea(document.getElementById("api"), {
-    lineNumbers: true,
-    matchBrackets: true,
-    continueComments: "Enter",
-    viewportMargin: Infinity,
-    extraKeys: {"Ctrl-Q": "toggleComment"}
-  });
-
-  // function to reload the API from the textarea
-  function reload(code)
-  {
-    if (code) {
-      editor.getDoc().setValue(code);
-    }
-    editor.save();
-    b.api = {};
-    eval(api.value);
-    localStorage["SelfServ-demo-api"] = api.value;
-  }
-
-  // when the user clicks the reload button
-  document.getElementById("reload").onclick = function()
-  {
-    reload();
-  }
-</script>
-
-
-<script id="api-source">
-
-b.register("ping", function(pk, args, cb)
-{
-  args["pong"] = true;
-  cb(args);
-}, "- ACK: Acknowledge Message -");
-
-
-reload(document.getElementById("api-source").innerHTML);
-
-
-//---------------------------------------------------
-//TESTO
-//-------------------------------------------------
-
-
-
-//---------------------------------------------------
-//END SCRIPT
-//-------------------------------------------------
-</script>
-
-
-
-<!-- //---------------------------------------------------
-// STYLE
-//------------------------------------------------- -->
+	<!-- ====================================================================== -->
+	<!-- Ku01 STYLE
+	<!-- ====================================================================== -->
 <style>
+  * {
+	  box-sizing: border-box;
+	}
 
-  pre { color: #FFF; white-space: pre-wrap; word-wrap: break-word; line-height: 1em; margin: 1em; }
+	body
+	{
+		background-color: #EE6;
+		max-width: 800px;
+		font-family: Impact;
+		font-size: 1.25em;
+		text-align: center;
+		margin: auto;
+		width: 100%;
+		padding: 0.5em;
+	}
 
-  .CodeMirror { height: auto; }
+	pre
+	{
+		background-color: #FFF;
+		color:#000;
+		border-style: groove;
 
-  #reload {
+	  width: 100%;
+	  padding: 0 em;
+	  margin: auto;
+
+	  border-radius: 1px;
+      border-color: #F00;
+
+	  text-align: center;
+	  word-wrap: break-word;
+	  white-space: pre-wrap;
+	  /* line-height: 1.em; */
+
+	  font-family: monospace;
+	  font-size: 0.125em;
+
+	}
+
+
+	input
+	{
+	    background-color: #00F;
+    	color: #EE6;
+
+		font-family: Arial Bold;
+		font-size: 1.25em;
+
+		border-style: groove;
+
+		word-wrap: normal;
+	  	white-space: pre-wrap;
+
+		text-align: left;
+
+		width: 100%;
+		height: 2.0em;
+  }
+
+
+  .BUF
+  {
+	background-color: #FFF;
+	color: #00A;
+    width: 100%;
+    padding: 1.0 em;
+	margin: 1.0 em;
+
+	border-color: #00F;
+    border-radius: 3px;
+	border-style: groove;
+
+    text-align: left;
+
+    word-wrap: break-word;
+    white-space: pre-wrap;
+	line-height: 1.0em;
+
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 1.0em;
+  }
+
+  button
+  {
     border-radius: 15px;
-    background-color: #D70;
+    background-color: #F22;
     color: white;
     border: none;
     padding: 0.25em 1em;
     font-size: 1.25em;
-    margin: 0.5em;
+    margin-top: 0.5em;
   }
 
 
 
-    html {
-      margin: 0;
-      padding: 0;
-      color: #EEE;
-      font-family: sans-serif;
-    }
+</style>
 
-    body
+
+	<!-- ====================================================================== -->
+	<!-- Ku01 BODY Bz
+	<!-- ====================================================================== -->
+	<body >
+<div>
+
+	<h1 id="VyBzVa" >FAM_KOLB: Msg-Room Test </h1>
+	<br>
+	<p>People in Room: <span id="connected">no</span></p>
+	<br>
+	<pre id="QRKode" class="QRKode" style="display: none" ></pre>
+	<br>
+
+	<div>
+		<h2>TESTO</h2>
+		<br>
+  		<button id="Tst_A">Tst_A</button>
+		<button id="Tst_B">Tst_B</button>
+		<button id="Tst_C">Tst_C</button>
+		<button id="Tst_D">Tst_D</button>
+		<!-- <button id="Tst_E">Tst_E</button> -->
+	</div>
+	<br>
+
+
+<div id="ui" style="display: none">
+
+  <h2>INPUT</h2>
+  <br>
+  <input id="message" maxlength="279" placeholder="TYPE HERE..."/>
+  <br>
+  <button id="send">Send MSG</button>
+  <button id="copy">Copy Room ID</button>
+  <button id="email">Email Room ID</button>
+
+  <p class="button"><a href="WzMx.html" target="_NEW">Launch New HOST.</a></p>
+
+</div>
+
+	<h2>MESSAGES</h2>
+	<p id="messages" class="BUF"></p>
+	<br>
+
+	<h2>LOG</h2>
+	<p id="log" class="BUF"></p>
+	<br>
+
+
+</div>
+</body>
+
+
+<!-- ====================================================================== -->
+<!-- Ku01 SCRIPT
+<!-- ====================================================================== -->
+<script>
+
+	// VAR
+	var connected = false;
+	var JOIN_y = ( window.location.hash.length > 1 ) ? true : false ;
+	var msglist = document.getElementById("messages");
+	var b;
+	var messages = [];
+	var HUB__Vy_vsg;
+	var KeDru__Fo_wu = 0;
+
+
+	// PROG BEGIN
+	document.getElementById("VyBzVa").textContent += VER_vsg;
+
+
+//@@@
+// JOINER
+if( JOIN_y )
+{
+	var HUB__Vy_vsg = window.location.hash.substr(1) || "bUH7ukDvd9R2xLLRKMKWZ1mGPkgdVfufye";
+	b = new Bugout(HUB__Vy_vsg);
+
+	// msglist.textContent = "Join = Hub @" + HUB__Vy_vsg + "\nSelf @" + b.address().slice( 0, 4 );
+	log( "SPOKE @", b.address().slice( 0, 4 ), "\n" );
+
+
+
+	// if the user clicks the send button
+	document.getElementById("send").onclick = function(ev)
 	{
-      background: #000;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      margin: 32px;
+		var m = document.getElementById("message");
+		if (m.value)
+		{
+			msglist.textContent = "Sending message...";
+
+			b.rpc("post", m.value, function ()
+			{
+				// server will send refresh message if messages are changed
+			 	//refreshMessages();
+			});
+			m.value = "";
+		}
+	}
+
+	// watch for connection to the server
+	b.on("server", function()
+	{
+		refreshMessages();
+	});
+
+
+	b.on("message", function( adr, msg)
+	{
+		if (msg == "refresh")
+		{
+			refreshMessages();
+		}
+		else
+		{
+			log("- MSG( Spoke ):", adr.slice( 0, 4 ), msg);
+		}
+	});
+
+	b.on("Je", function( adr, msg) { log( "- RECV( Spoke ): ", adr.slice( 0, 4 ), msg ); });
+
+
+}
+
+// ======================================================================
+// HUB
+// ======================================================================
+else
+{
+	//@@@
+	// instantiate our bugout instance
+	b = new Bugout({seed: localStorage["TaKeDru_VxYa"]});
+
+	// save the seed for next time
+	localStorage["TaKeDru_VxYa"] = b.seed;
+
+	HUB__Vy_vsg = b.seed;
+
+	// log this server's address
+	log( "- HUB @", b.address().slice( 0, 4 ), "\n" );
+
+
+	// load messages from previous run
+	if (localStorage["TaKeDruKz"])
+	{
+		messages = JSON.parse(localStorage["TaKeDruKz"]);
+	}
+	if (typeof(messages) != "object" || !messages["length"])
+	{ messages = []; }
+
+
+	//---------------------------
+	// PING
+	//---------------------------
+	b.register("ping", function( adr, args, cb)
+	{
+		args["pong"] = Math.random();
+		cb(args);
+	});
+
+	//---------------------------
+	//---------------------------
+  b.register("post", function( adr, message, cb)
+  {
+	  if (typeof(message) == "string" && message.length < 280)
+	  {
+		  var m = {address: adr, m: message, t: (new Date()).getTime()};
+
+		  log("messageboard:", m);
+
+		  messages.push(m);
+      		messages = messages.slice(Math.max(0, messages.length - 8 ));
+
+      		localStorage["TaKeDruKz"] = JSON.stringify(messages);
+
+			cb(true);
+
+	      b.send("refresh");
+    } else
+	{
+		cb(false);
     }
+}, "Post a message to the board");
 
-    li, p {
-      line-height: 1.5;
+
+	//---------------------------
+	//---------------------------
+	b.register("list", function( adr, args, cb)
+	{
+		cb(messages.slice().reverse());
+	}, "List most recent messages");
+
+
+	//---------------------------
+	//---------------------------
+  b.on("connections", function(c)
+  {
+	  if (c == 0 && connected == false )
+	  {
+		  connected = true;
+		  // log("FIRST NODE");
+
+		  // link to the messageboard client URL
+		  // var clientURL = document.location.href.replace("Mx", "Me") + "#" + b.address();
+		  var clientURL = document.location.href + "#" + b.address();
+
+   	  	//  log(qr(clientURL));
+		document.getElementById("QRKode").textContent = qr(clientURL);
+		document.getElementById("QRKode").style.display = "block";
+	}
+
+	//	log( "- Spoke[ ", c, "] Joined @ ", clientURL );
+  });
+
+  	//---------------------------
+	 // log when we see a new client adr
+	//---------------------------
+  	b.on("seen", function( adr ) { log("- Spoke Joined @ ", adr.slice( 0, 4 )  ); });
+  	b.on("left", function( adr ) { log("- Spoke Exited @ ", adr.slice( 0, 4 )  ); });
+
+  	//---------------------------
+	// MSG
+	//---------------------------
+	b.on("message", function( adr, msg) { log( "- MSG( Hub ): ", adr.slice( 0, 4 ), msg ); });
+	b.on("Je", function( adr, msg) { log( "- RECV( Hub ): ", adr.slice( 0, 4 ), msg ); });
+
+
+	//---------------------------
+	// RPC
+	//---------------------------
+	// log when a client makes an rpc call
+	b.on("rpc", function( adr, call, args)
+	{
+	//	log("FN:", adr, call, args);
+	//	log( "- ", call, " = ", args);
+		log( "- FN: ", call );
+
+	});
+}
+
+//@@@
+// END JOIN or HUB
+
+
+
+
+//---------------------------
+// INIT LOG
+//---------------------------
+
+// log( "Self_ID: ", b.address().slice( 0, 4 ) );
+// log( " Fam: ", b.localFamily, " Loc: ", b.localAddress, " Rem: ", b.remoteAddress );
+
+b.heartbeat( 30000 );
+
+//---------------------------
+// WIRES
+//---------------------------
+// if we see a wire join or leave
+b.on("wireseen", updateWires);
+b.on("wireleft", updateWires);
+
+
+function updateWires(count)
+{
+  if (count)
+  {
+    document.getElementById("ui").style.display = "block";
+  }
+
+  // b.torrent.wires.length
+  document.getElementById("connected").textContent = count ? "yes ( " + count + " )" : "no";
+
+}
+
+//---------------------------
+// TST
+//---------------------------
+
+	document.getElementById("Tst_A").onclick = function(evt)
+	{
+		log( "\n- Tst_A @ ", b.Fe_vsg().toString() );
+
+		KeDru__Fo_wu++;
+
+		// DATA
+		// From a length
+		const To_vbu = new Uint8Array( KeDru__Fo_wu + 3 );
+
+		// CORS Kills Use
+		// const ToDu_vbu = new SharedArrayBuffer( KeDru__Fo_wu + 3 );
+		// const To_vbu = new Uint8Array( ToDu_vbu );
+
+		//		const To_vbu = new SharedArrayBuffer( 4 );
+
+		// 		// 1. Create a SharedArrayBuffer
+		// // The size is in bytes (e.g., 1024 bytes for a 1KB buffer)
+		// const sharedBuffer = new SharedArrayBuffer(1024);
+
+		// // 2. Create a Uint8Array view over the SharedArrayBuffer
+		// // This creates a typed array that interprets the buffer's contents as 8-bit unsigned integers.
+		// const sharedUint8Array = new Uint8Array(sharedBuffer);
+
+		// // Now, sharedUint8Array can be used to read and write data.
+		// // Any changes made to sharedUint8Array in one thread will be visible in other threads
+		// // that also have a view over the same sharedBuffer.
+
+		// // Example of setting a value:
+		// sharedUint8Array[0] = 255;
+
+		// // You can then pass sharedBuffer (or sharedUint8Array itself if the environment supports it)
+		// // to a Web Worker to enable shared memory communication.
+
+
+		To_vbu[0] = KeDru__Fo_wu;
+
+		// console.log(To_vbu[0]);
+		// console.log(To_vbu.length);
+		// console.log(To_vbu.BYTES_PER_ELEMENT); // 1
+
+		try{ b.Me( null, To_vbu ); } catch(e){ log( "Me FAILED" ); }
+
+	}
+
+	document.getElementById("Tst_B").onclick = function(evt)
+	{
+		log( "\n- Tst_B @ ", b.Fe_vsg().toString() );
+
+
+
+	}
+
+	document.getElementById("Tst_C").onclick = function(evt)
+	{
+		log( "\n- Tst_C", b.Fe_vsg().toString() );
+
+		try{ b.Me( null,  { "Me" : i  } ); } catch(e){ log( "Me FAILED" ); }
+
+
+	}
+
+	document.getElementById("Tst_D").onclick = function(evt)
+	{
+		log( "\n- Tst_D", b.Fe_vsg().toString() );
+
+		var i = 0;
+		for( var adr in b.wires )
+		{
+	  	 	// log( "- Person[", i, "]: ", b.peers[ i ].timestamp ); timestamp = NONE
+	  	 	log( "- Person[", i, "]: ", adr.slice( 0, 4 ) );
+			i++;
+
+			try{ b.Me( adr,  { "Me" : i  } ); } catch(e){ log( "Me FAILED" ); }
+		}
+	}
+
+
+//---------------------------
+// UTILITY FUNCTIONS
+//---------------------------
+function refreshMessages()
+{
+  msglist.textContent = "Refreshing messages...";
+
+
+  // get a list of the messages
+  b.rpc("list", null, function(messages)
+  {
+    updateMessagelist(messages);
+  });
+
+}
+
+function updateMessagelist(messages)
+{
+  msglist.textContent =
+    messages.map(function (m)
+	{
+      return m.m;
+
+	//   return (new Date(m.t)).toString() + "\n" +
+    //   "From: " + m.adr.slice( 0, 4 ) + "\n" +
+    //   "\n" + m.m + "\n";
+
+    }).join("\n\n");
+
+}
+
+//---------------------------
+// LOG
+//---------------------------
+function log()
+{
+    var args = Array.prototype.slice.call(arguments);
+    console.log.apply(null, args);
+
+	args = args.map(function(a) { if (typeof(a) == "string") return a; else return JSON.stringify(a); });
+    document.getElementById("log").textContent += args.join(" ") + "\n";
+}
+
+//---------------------------
+// QR
+// generate a text based qr code
+//---------------------------
+function qr(txt)
+{
+    var q = QRCode.create(txt);
+
+    var code = "\n\n";
+    for (var i=0; i<2; i++) {
+      code += "  ████";
+      for (var j=0; j<q.modules.size; j++) {
+        code += "██";
+      }
+      code += "████\n";
     }
-
-    #content {
-      display: flex;
-      flex-direction: column;
-      padding: 10px;
-      margin: 0 auto;
-      min-width: 300px;
-      max-width: 800px;
-      width: calc(100% - 20px);
+    for (var i=0; i<q.modules.size; i++) {
+      code += "  ████";
+      for (var j=0; j<q.modules.size; j++) {
+        code += q.modules.data[i * q.modules.size + j] ? "  " : "██";
+      }
+      code += "████\n";
     }
-
-    #content {
-      max-width: 1280px;
-      min-height: 50%;
-
-      justify-content: left;
+    for (var i=0; i<2; i++) {
+      code += "  ████";
+      for (var j=0; j<q.modules.size; j++) {
+        code += "██";
+      }
+      code += "████\n";
     }
+    return code + "\n\n";
+}
 
-    #content .textual {
-      color: #DDD;
-    }
-
-    #content .textual {
-      font-size: 2em;
-    }
-
-    #content a:visited {
-      color: #FF7700;
-    }
-
-    #content a {
-      color: #0077FF;
-    }
-
-
-    #JoDi {
-      display: flex;
-      flex-direction: column;
-      margin: auto;
-    }
-
-    #JoDi button {
-      border: none; cursor: pointer;
-    }
-
-
-
-    #JoDi .color {
-      max-width: 20px; width: 20px; height: 20px; position: relative;
-    }
-
-
-    #JoDi canvas {
-      image-rendering: auto;
-      width: fit-content;
-    }
-
-    #JoDi .iconButton {
-      margin-left: -1px; padding: 0; width: 24px; height: 24px; padding-top: 4px;
-    }
-
-    #JoDi .erase {
-      position: absolute;  top: 2px; left: 1px;
-    }
-
-    #JoDi .arrow {
-      border: none; position: absolute;  top: 0; left: -17px; cursor: auto; color: white;
-    }
-
-    #JoDi .hidden {
-      display: none;
-    }
-  </style>
-
-
-</head>
-
+</script>
 
 
 <!-- ====================================================================== -->
-<!-- Ku01 HEADER Bz
-<!-- ====================================================================== -->
-
-<!-- ====================================================================== -->
-<!-- Ku02 BODY Ka
-<!-- ====================================================================== -->
-
-<!-- <body class="Dx__BODY">
-<canvas id="VyMxSi" class="Dx__BG Dx__FADE_IN" width="512px" height="512px"></canvas> -->
-
-<body>
-    <h1 style="text-align: center;" id="Title" >LabEast Fam Kolb Test </h1>
-	<br/>
-
-  <section id="content">
-
-  <div id="Host">
-	<h2>HOST an Event</h2>
-	<button id="reload">Host</button>
-	<textarea id="api" style="display: none;" rows="20"></textarea>
-	<textarea id="log" rows="20"></textarea>
-</div>
-
-
-<div id="Join">
-	<h2>JOIN an Event</h2>
-	<button id="reload">JOIN</button>
-	<textarea id="msg" style="display: none;" rows="20"></textarea>
-</div>
-
-
-   <div id="Activity">
-		<h2>LOG all Events</h2>
-	   <pre id="log"></pre>
-  </div>
-
-
-
-    <!-- <div id="JoDi">
-		<h2>DRAW walls and lights</h2>
-
-      <br />
-      <div id="rc-canvas"></div>
-      <br />
-
-      <div id="outer-container"></div>
-
-	  <div style="display: flex; align-items: left; gap: 4px">
-			<input type="checkbox" id="enable-srgb" checked>
-			<label for="enable-srgb">Brighten Mode</label>
-	  </div> -->
-
-
-
-	 <!-- HIDE TEK TWEAK -->
-      <!-- <div style="display: none;">
-
-     <details style="cursor: pointer">
-    <summary>Tweak Tech</summary>
-
-      <div style="display: none; align-items: left; gap: 4px;">
-        <input type="checkbox" id="bilinear-fix">
-        <label for="bilinear-fix">Bilinear Fix</label>
-      </div>
-
-      <div style="display: flex; align-items: left; gap: 4px;">
-        <input type="checkbox" id="disable-mips">
-        <label for="disable-mips">Disable Mips</label>
-      </div>
-
-      <div style="display: flex; align-items: left; gap: 4px;">
-        <input type="checkbox" id="nonlinear-accumulation">
-        <label for="nonlinear-accumulation">Non-Linear Accumulation</label>
-      </div>
-
-      <div style="display: flex; align-items: left; gap: 4px">
-        <input type="checkbox" id="add-noise">
-        <label for="add-noise">Naive GI Noise</label>
-      </div>
-
-      <div style="display: none; align-items: left; gap: 4px">
-        <input type="checkbox" id="ringing-fix">
-        <label for="ringing-fix">Ringing Fix</label>
-      </div>
-
-      <div id="additional-controls-container">
-      </div>
-
-      <div style="display: flex; align-items: left; gap: 8px">
-      Sun Angle
-      <input id="rc-sun-angle-slider" class="slider" type="range" min="0" max="6.2" step="0.1" value="2.0" />
-        </div>
-
-        <div style="display: flex; align-items: left; gap: 4px">
-        <input type="checkbox" id="reduce-demand">
-        <label for="reduce-demand">Reduce Demand (Calculate over 2 frames)</label>
-      </div>
-
-      </details>
-    </div> -->
-
-
-
-</section>
-
-
-<!-- ====================================================================== -->
-<!-- END -->
+<!-- END
  <!-- ====================================================================== -->
 
-</body>
 </html>
 
 <!-- ====================================================================== -->

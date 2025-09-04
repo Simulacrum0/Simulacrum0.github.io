@@ -4,7 +4,7 @@ TITLE: Under Construction
 BG: HEXSCROLL
 HUE_SHIFT: STD
 
-[Contents]:
+[SLIDE01]
 TXT: Please ignore this message and return to the site in Fall 2025.
 IMG: TxTrz00__BANNER_4_1.jpgPATH: SuKz03_TxTrz__APTIV_MADE/CAPTION: Under Construction
 
@@ -13,12 +13,12 @@ TITLE: BG TEST
 BG: SUNRISE
 HUE_SHIFT: STD
 
-[Contents]:
+[SLIDE02]
 TXT: EXAMPLE Paragraph for Testing Purposes only while site is under rennovation. Please ignore this message and return to the site in summer 2025.
 
 TITLE: Sample XBG: HEXSCROLLHUE_SHIFT: STDINTERNAL_COMMENTS: So you can leave any special comments here as reminders, saved text or other ideas that are paused. Note that CONTENTs are a list of TXT, ICON (TXT= icon paragraph, BW = black and white, CLR = color), IMG (JPEG or PNG image), DRAW (embed SVG file), FILM (embed video link, such as YouTube ) and potential other CONTENT types. BG = HEXCIRC, DROPZ, PLAZ, ETHER, AURORA, HEXSCROLL, SUNRISE, CODEX } and HUE_SHIFT = STD, WARM_SM, WARM_MD, WARM_LG, ALT, COOL_LG, COOL_MD, COOL_SM }.  The current 'BG' and 'HUE_SHIFT' are listed in the LOG ( press F12 in Chrome or other Browsers and select 'Console' tab ). Running in Chrome '$google-chrome --allow-file-access-from-files --allow-file-access /Kri07__Mx_POST/index.html'.  Keyboard shortcuts include SPACE (toggle Play/Pause BG), ESCAPE (toggle Download or Learn), [/] (change Topics), +/- (change Thoughts).
 
-[Contents]:
+[SLIDE03]
 TXT: EXAMPLE Paragraph for Testing Purposes only while site is under rennovation. Please ignore this message and return to the site in summer 2025.  Paragraph for Testing Purposes only while site is under rennovation. Please ignore this message and return to the site in summer 2025.  Paragraph for Testing Purposes only while site is under rennovation. Please ignore this message and return to the site in summer 2025.  Paragraph for Testing Purposes only while site is under rennovation. Please ignore this message and return to the site in summer 2025.  Paragraph for Testing Purposes only while site is under rennovation. Please ignore this message and return to the site in summer 2025.
 
 
@@ -51,14 +51,14 @@ BG: SUNRISE
 HUE_SHIFT: COOL_LG
 INTERNAL_COMMENTS: Just putting this here as a placeholder
 
-[Contents]:
+[SLIDE04]
 TXT: 2nd pgraf. Longer story...explain video, etc. Say stuff and more stuff and then some stuff and more stuff and then some stuff and more stuff and then some stuff and more stuff and then some stuff and more stuff and then some stuff and more stuff and then some stuff!
 
 TITLE: Sample Z
 BG: AURORA
 HUE_SHIFT: STD
 
-[Contents]:
+[SLIDE05]
 TXT: 3rd pgraf.
 PATH: SuKz02_JaPo__PICT/
 IMG: JaPo00__FyHo.jpg

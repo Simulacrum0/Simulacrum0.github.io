@@ -7,26 +7,35 @@ module.exports = Bugout;
 var debug = require("debug")("bugout");
 var WebTorrent = require("webtorrent");
 var bencode = require("bencode");
+
 var nacl = require("tweetnacl");
 var EventEmitter = require('events').EventEmitter;
 var inherits = require('inherits');
+
 var bs58 = require("bs58");
 var bs58check = require("bs58check");
 var ripemd160 = require("ripemd160");
 
 inherits(Bugout, EventEmitter);
 
+
 var EXT = "bo_channel";
+
 var PEERTIMEOUT = 5 * 60 * 1000;
+
 var SEEDPREFIX = "490a";
 var ADDRESSPREFIX = "55";
 
-/**
- * Multi-party data channels on WebTorrent extension.
- */
-function Bugout(identifier, opts) {
+//=====================================
+// INIT
+// Multi-party data channels on WebTorrent extension.
+//
+//=====================================
+function Bugout(identifier, opts)
+{
   // TODO: option to pass shared secret to encrypt swarm traffic
-  if (identifier && typeof(identifier) == "object") {
+  if (identifier && typeof(identifier) == "object")
+	{
 	opts = identifier;
 	identifier = null;
   }
@@ -108,9 +117,13 @@ function Bugout(identifier, opts) {
   }
 }
 
+//=====================================
+// WEB TORRENT
+//=====================================
 Bugout.prototype.WebTorrent = WebTorrent;
 
-Bugout.prototype._onTorrent = function() {
+Bugout.prototype._onTorrent = function()
+{
   debug("torrent", this.identifier, this.torrent);
   this.emit("torrent", this.identifier, this.torrent);
   if (this.torrent.discovery.tracker) {
@@ -124,6 +137,9 @@ Bugout.prototype._onTorrent = function() {
   }, this));
 }
 
+//=====================================
+// ADDRESS
+//=====================================
 Bugout.encodeseed = Bugout.prototype.encodeseed = function(material) {
   return bs58check.encode(Buffer.concat([Buffer.from(SEEDPREFIX, "hex"), Buffer.from(material)]));
 }
@@ -166,6 +182,10 @@ Bugout.prototype.destroy = function(cb) {
 
 Bugout.prototype.close = Bugout.prototype.destroy;
 
+
+//=====================================
+// CONNECTIONS
+//=====================================
 Bugout.prototype.connections = function() {
   if (this.torrent.wires.length != this.lastwirecount) {
 	this.lastwirecount = this.torrent.wires.length;
@@ -193,7 +213,11 @@ Bugout.prototype.ping = function() {
 	sendRaw(this, packet);
 }
 
-Bugout.prototype.send = function(address, message) {
+//=====================================
+// SEND
+//=====================================
+Bugout.prototype.send = function(address, message)
+{
   if (!message) {
 	var message = address;
 	var address = null;
@@ -209,11 +233,17 @@ Bugout.prototype.send = function(address, message) {
   sendRaw(this, packet);
 }
 
+//=====================================
+// REGISTER RPC
+//=====================================
 Bugout.prototype.register = function(call, fn, docstring) {
   this.api[call] = fn;
   this.api[call].docstring = docstring;
 }
 
+//=====================================
+// RPC CALL
+//=====================================
 Bugout.prototype.rpc = function(address, call, args, callback) {
   // my kingdom for multimethods lol
   // calling styles:
@@ -239,6 +269,9 @@ Bugout.prototype.rpc = function(address, call, args, callback) {
 
 // outgoing
 
+//=====================================
+// PACKET
+//=====================================
 function makePacket(bugout, params) {
   var p = {
 	"t": now(),
@@ -289,9 +322,12 @@ function makeEncryptSendPacket(bugout, pk, packet) {
   sendRaw(bugout, packet);
 }
 
+//=====================================
+// MSG
 // incoming
-
-function onMessage(bugout, identifier, wire, message) {
+//=====================================
+function onMessage(bugout, identifier, wire, message)
+{
   // hash to reference incoming message
   var hash = toHex(nacl.hash(message).slice(16));
   var t = now();
@@ -310,7 +346,8 @@ function onMessage(bugout, identifier, wire, message) {
 	  }
 	}
 	// if there's no data decryption failed
-	if (unpacked && unpacked.p) {
+	if (unpacked && unpacked.p)
+		{
 	  debug("unpacked message", unpacked);
 	  var packet = bencode.decode(unpacked.p);
 	  var pk = packet.pk.toString();
@@ -406,7 +443,12 @@ function onMessage(bugout, identifier, wire, message) {
 
 // network functions
 
-function rpcCall(bugout, pk, call, args, nonce, callback) {
+
+//=====================================
+// RPC CALL FUNC
+//=====================================
+function rpcCall(bugout, pk, call, args, nonce, callback)
+{
   var packet = {"y": "rr", "rn": nonce};
   if (bugout.api[call]) {
 	bugout.api[call](bugout.address(pk), args, function(result) {
@@ -419,7 +461,11 @@ function rpcCall(bugout, pk, call, args, nonce, callback) {
   }
 }
 
-function sawPeer(bugout, pk, ek, identifier) {
+//=====================================
+// PEER CONNECT
+//=====================================
+function sawPeer(bugout, pk, ek, identifier)
+{
   debug("sawPeer", bugout.address(pk), ek);
   var t = now();
   var address = bugout.address(pk);
@@ -449,13 +495,16 @@ function sawPeer(bugout, pk, ek, identifier) {
   }
 }
 
+//=====================================
+// ATTACH
+//=====================================
 // extension protocol plumbing
-
 function attach(bugout, identifier, wire, addr) {
   debug("saw wire", wire.peerId, identifier);
   wire.use(extension(bugout, identifier, wire));
   wire.on("close", partial(detach, bugout, identifier, wire));
 }
+
 
 function detach(bugout, identifier, wire) {
   debug("wire left", wire.peerId, identifier);
@@ -463,6 +512,10 @@ function detach(bugout, identifier, wire) {
   bugout.connections();
 }
 
+//=====================================
+// EXTENSION?
+//
+//=====================================
 function extension(bugout, identifier, wire) {
   var ext = partial(wirefn, bugout, identifier);
   ext.prototype.name = EXT;
@@ -470,6 +523,7 @@ function extension(bugout, identifier, wire) {
   ext.prototype.onMessage = partial(onMessage, bugout, identifier, wire);
   return ext;
 }
+
 
 function wirefn(bugout, identifier, wire) {
   // TODO: sign handshake to prove key custody
@@ -486,8 +540,9 @@ function onExtendedHandshake(bugout, identifier, wire, handshake) {
   sawPeer(bugout, handshake.pk.toString(), handshake.ek.toString(), identifier);
 }
 
-// utility fns
-
+//=====================================
+// UTILITY FNS
+//=====================================
 function now() {
   return (new Date()).getTime();
 }

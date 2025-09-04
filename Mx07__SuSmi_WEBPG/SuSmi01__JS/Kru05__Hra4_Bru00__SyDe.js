@@ -143,18 +143,24 @@
 						packet = makePacket(bugout, packet), packet = encryptPacket(bugout, pk, packet), sendRaw(bugout, packet)
 					}
 
-					function onMessage(bugout, identifier, wire, message) {
+					function onMessage(bugout, identifier, wire, message)
+					{
 						var hash = toHex(nacl.hash(message).slice(16)),
-							t = now();
-						if (debug("raw message", identifier, message.length, hash), !bugout.seen[hash]) {
+						t = now();
+
+						if (debug("raw message", identifier, message.length, hash), !bugout.seen[hash])
+						{
 							var unpacked = bencode.decode(message);
-							if (unpacked.e && unpacked.n && unpacked.ek) {
+							if (unpacked.e && unpacked.n && unpacked.ek)
+							{
 								var ek = unpacked.ek.toString();
 								debug("message encrypted by", ek, unpacked);
 								var decrypted = nacl.box.open(unpacked.e, unpacked.n, bs58.decode(ek), bugout.keyPairEncrypt.secretKey);
 								unpacked = decrypted ? bencode.decode(decrypted) : null
 							}
-							if (unpacked && unpacked.p) {
+
+							if (unpacked && unpacked.p)
+							{
 								debug("unpacked message", unpacked);
 								var packet = bencode.decode(unpacked.p),
 									pk = packet.pk.toString(),
@@ -162,9 +168,13 @@
 									checksig = nacl.sign.detached.verify(unpacked.p, unpacked.s, bs58.decode(pk)),
 									checkid = id == identifier,
 									checktime = packet.t + bugout.timeout > t;
-								if (debug("packet", packet), checksig && checkid && checktime) {
+
+								if (debug("packet", packet), checksig && checkid && checktime)
+								{
 									var ek = packet.ek.toString();
-									if (sawPeer(bugout, pk, ek, identifier), "m" == packet.y) {
+
+									if( sawPeer(bugout, pk, ek, identifier), "m" == packet.y )
+									{
 										debug("message", identifier, packet);
 										var messagestring = packet.v.toString(),
 											messagejson = null;
@@ -173,8 +183,19 @@
 										} catch (e) {
 											debug("Malformed message JSON: " + messagestring)
 										}
-										messagejson && bugout.emit("message", bugout.address(pk), messagejson, packet)
-									} else if ("r" == packet.y) {
+										messagejson && bugout.emit( "message", bugout.address(pk), messagejson, packet)
+									}
+
+									// BINARY STREAM
+									else if ( "b" == packet.y )
+									{
+										debug("Je", identifier, packet );
+										var	PKT_l = packet.v;
+										PKT_l && bugout.emit( "Je", bugout.address(pk), PKT_l, packet)
+									}
+
+									else if ("r" == packet.y)
+									{
 										debug("rpc", identifier, packet);
 										var call = packet.c.toString(),
 											argsstring = packet.a.toString();
@@ -185,8 +206,10 @@
 											debug("Malformed args JSON: " + argsstring)
 										}
 										var nonce = packet.rn;
-										bugout.emit("rpc", bugout.address(pk), call, args, toHex(nonce)), rpcCall(bugout, pk, call, args, nonce)
-									} else if ("rr" == packet.y) {
+										bugout.emit( "rpc", bugout.address(pk), call, args, toHex(nonce)), rpcCall(bugout, pk, call, args, nonce)
+									}
+									else if ("rr" == packet.y)
+									{
 										var nonce = toHex(packet.rn);
 										if (bugout.callbacks[nonce]) {
 											if ("undefined" != typeof packet.rr) var responsestring = packet.rr.toString();
@@ -199,17 +222,30 @@
 											}
 											bugout.callbacks[nonce] && responsestringstruct ? (debug("rpc-response", bugout.address(pk), nonce, responsestringstruct), bugout.emit("rpc-response", bugout.address(pk), nonce, responsestringstruct), bugout.callbacks[nonce](responsestringstruct), delete bugout.callbacks[nonce]) : debug("RPC response nonce not known:", nonce)
 										} else debug("dropped response with no callback.", nonce)
-									} else if ("p" == packet.y) {
+
+									}
+									else if ("p" == packet.y)
+									{
 										var address = bugout.address(pk);
 										debug("ping from", address), bugout.emit("ping", address)
-									} else if ("x" == packet.y) {
+									}
+									else if ("x" == packet.y)
+									{
 										var address = bugout.address(pk);
 										debug("got left from", address), delete bugout.peers[address], bugout.emit("left", address)
-									} else debug("unknown packet type")
-								} else debug("dropping bad packet", hash, checksig, checkid, checktime)
-							} else debug("skipping packet with no payload", hash, unpacked);
+									}
+									else debug("unknown packet type")
+
+								}
+								else debug("dropping bad packet", hash, checksig, checkid, checktime)
+							}
+							else debug("skipping packet with no payload", hash, unpacked);
+
 							sendRaw(bugout, message)
+
+
 						} else debug("already seen", hash);
+
 						bugout.seen[hash] = now()
 					}
 
@@ -298,7 +334,45 @@
 
 					inherits(Bugout, EventEmitter);
 
-					
+
+					Bugout.prototype.Fe_vsg = function Fe_vsg()
+					{
+						var d = new Date();
+						return d.getMonth() + "/" + d.getDay() + " " + d.getHours() + ":" + d.getMinutes();
+					}
+
+
+
+					Bugout.prototype.Me = function (adr, To_vbu )
+					{
+						console.log( "Me[ " + To_vbu.length + " ] = " + To_vbu.toString() );
+
+						if( !To_vbu ) return;
+
+						// PKT
+						var packet = makePacket(this,
+						{
+							y: "b",
+							// v: JSON.stringify( To_v )
+							v: To_vbu
+						});
+
+						// CRYPT
+						// if (adr)
+						// 	if (this.peers[adr]) packet = encryptPacket(this, this.peers[adr].pk, packet);
+						// 	else throw adr + " not seen - no public key.";
+
+
+						//
+
+
+						// SEND
+						sendRaw( this, packet);
+					}
+
+
+
+
 					Bugout.prototype.WebTorrent = WebTorrent, Bugout.prototype._onTorrent = function () {
 						debug("torrent", this.identifier, this.torrent), this.emit("torrent", this.identifier, this.torrent), this.torrent.discovery.tracker && this.torrent.discovery.tracker.on("update", partial(function (bugout, update) {
 							bugout.emit("tracker", bugout.identifier, update)
@@ -336,7 +410,10 @@
 							y: "p"
 						});
 						sendRaw(this, packet)
-					}, Bugout.prototype.send = function (address, message) {
+					}
+
+					, Bugout.prototype.send = function (address, message)
+					{
 						if (!message) var message = address,
 							address = null;
 						var packet = makePacket(this, {
@@ -7291,16 +7368,22 @@
 				return res = res.concat(r, [2, s.length], s), Buffer.from(res)
 			}
 
-			function getKey(x, q, hash, algo) {
-				if (x = Buffer.from(x.toArray()), x.length < q.byteLength()) {
+			function getKey(x, q, hash, algo)
+			{
+				if (x = Buffer.from(x.toArray()), x.length < q.byteLength())
+				{
 					var zeros = Buffer.alloc(q.byteLength() - x.length);
 					x = Buffer.concat([zeros, x])
 				}
+
 				var hlen = hash.length,
 					hbits = bits2octets(hash, q),
 					v = Buffer.alloc(hlen);
+
 				v.fill(1);
+
 				var k = Buffer.alloc(hlen);
+
 				return k = createHmac(algo, k).update(v).update(Buffer.from([0])).update(x).update(hbits).digest(), v = createHmac(algo, k).update(v).digest(), k = createHmac(algo, k).update(v).update(Buffer.from([1])).update(x).update(hbits).digest(), v = createHmac(algo, k).update(v).digest(), {
 					k: k,
 					v: v
