@@ -294,9 +294,10 @@ a:active {
 
 		<h2>SELF_SERV: Actions</h2>
 		<button id="Tst_A">Send Msg</button>
-		<button id="Tst_B">Map Maker</button>
-		<button id="Tst_C">Test C</button>
-		<button id="Tst_D">Test D</button>
+		<button id="Tst_B">Right</button>
+		<button id="Tst_C">Left</button>
+		<button id="Tst_D">Up</button>
+		<button id="Tst_E">Down</button>
 		<br>
 		<br>
 
@@ -413,6 +414,10 @@ a:active {
 	var messages = [];
 	var HUB__Vy_vsg;
 	var KeDru__Fo_wu = 0;
+
+	var GeGx = 150;
+	var GeGa = 150;
+
 
 
 	// PROG BEGIN
@@ -584,12 +589,16 @@ else
 //@@@
 // END JOIN or HUB
 
-b.on("Je", function( adr, pkt )
+b.on("Je", function( adr, To_vbu )
 {
-	log( "- Je[ ", adr.slice( 0, 4 ), " ]: ", pkt );
+//	log( "- Je[ ", adr.slice( 0, 4 ), " ]: ", To_vbu );
 
-	/*
-	var Uint8Array To_vbu = pkt[ "data" ];
+	var To_vsu = new Uint16Array( To_vbu );
+/*
+		log( "su[ 0 ]: ", To_vsu[ 0 ] );
+		log( "su[ 1 ]: ", To_vsu[ 1 ] );
+		log( "su[ 2 ]: ", To_vsu[ 2 ] ); */
+
 	switch( To_vbu[ 0 ] )
 	{
 		//&&&
@@ -611,10 +620,38 @@ b.on("Je", function( adr, pkt )
 		//&&&
 		// MAP UPDATE
 		case 3:
+/*
+		let GeYa = { x: To_vsu[ 2 ], y: To_vsu[ 3 ] };
+		let GeYi = { x: To_vsu[ 4 ], y: To_vsu[ 5 ] }; */
+
+
+		let GeYa = { x: To_vsu[ 4 ], y: To_vsu[ 6 ] };
+		let GeYi = { x: To_vsu[ 8 ], y: To_vsu[ 10 ] };
+
+
+		//log( "GeYa ", GeYa, " GeYi ", GeYi );
+
+		let wrc = window.radianceCascades;
+		return new Promise((resolve) =>
+		{
+			//wrc.clear();
+			//wrc.setHex("#FFAA00FF");
+			// wrc.setHex("#000000FF");
+
+			wrc.surface.drawSmoothLine( GeYa, GeYi );
+			// wrc.surface.drawSmoothLine( { x:150, y:0 }, { x:150, y:300 } );
+
+		})
+		.then(() => {
+				wrc.isDrawing = false;
+				wrc.renderPass();
+				requestAnimationFrame();
+			});
+
 
 		break;
 	}
-*/
+
 
 });
 
@@ -689,68 +726,134 @@ document.getElementById("sms").onclick = function(evt)
 	document.getElementById("Tst_A").onclick = function(evt)
 	{
 		log( "\n- Tst_A @ ", b.Fe_vsg().toString() );
-
 		KeDru__Fo_wu++;
 
 		// DATA
-		// From a length
-		const To_vbu = new Uint8Array( KeDru__Fo_wu + 3 );
-
-		// CORS Kills Use
-		// const ToDu_vbu = new SharedArrayBuffer( KeDru__Fo_wu + 3 );
-		// const To_vbu = new Uint8Array( ToDu_vbu );
-
-		//		const To_vbu = new SharedArrayBuffer( 4 );
-
-		// 		// 1. Create a SharedArrayBuffer
-		// // The size is in bytes (e.g., 1024 bytes for a 1KB buffer)
-		// const sharedBuffer = new SharedArrayBuffer(1024);
-
-		// // 2. Create a Uint8Array view over the SharedArrayBuffer
-		// // This creates a typed array that interprets the buffer's contents as 8-bit unsigned integers.
-		// const sharedUint8Array = new Uint8Array(sharedBuffer);
-
-		// // Now, sharedUint8Array can be used to read and write data.
-		// // Any changes made to sharedUint8Array in one thread will be visible in other threads
-		// // that also have a view over the same sharedBuffer.
-
-		// // Example of setting a value:
-		// sharedUint8Array[0] = 255;
-
-		// // You can then pass sharedBuffer (or sharedUint8Array itself if the environment supports it)
-		// // to a Web Worker to enable shared memory communication.
-
+		const To_vbu = new Uint8Array( 8 );
 		To_vbu[0] = 1;
 		To_vbu[1] = KeDru__Fo_wu;
-
-		// console.log(To_vbu[0]);
-		// console.log(To_vbu.length);
-		// console.log(To_vbu.BYTES_PER_ELEMENT); // 1
-
 		try{ b.Me( null, To_vbu ); } catch(e){ log( "Me FAILED" ); }
 
 	}
 
 	document.getElementById("Tst_B").onclick = function(evt)
 	{
-		log( "\n- Tst_B @ ", b.Fe_vsg().toString() );
+	//	log( "\n- Tst_B @ ", b.Fe_vsg().toString() );
+		KeDru__Fo_wu++;
 
+		var To_vbu = new Uint8Array( 16 );
+		To_vbu[0] = 3;
+		To_vbu[1] = KeDru__Fo_wu;
+
+		let To_vsu = new Uint16Array( To_vbu.buffer );
+
+		To_vsu[ 2 ] = GeGx;
+		To_vsu[ 3 ] = GeGa;
+
+		GeGx += 15;
+
+
+		To_vsu[ 4 ] = GeGx;
+		To_vsu[ 5 ] = GeGa;
+
+		try{ b.Me( null, To_vsu ); } catch(e){ log( "Me FAILED" ); }
+
+		/*
+
+		let wrc = window.radianceCascades;
+		return new Promise((resolve) =>
+		{
+			wrc.clear();
+
+			wrc.setHex("#FFAA00FF");
+			wrc.surface.drawSmoothLine( { x:0, y:0 }, { x:300, y:300 } );
+
+			wrc.setHex("#000000FF");
+			wrc.surface.drawSmoothLine( { x:150, y:0 }, { x:150, y:300 } );
+		})
+		.then(() => {
+				wrc.isDrawing = false;
+				wrc.renderPass();
+				requestAnimationFrame();
+			}); */
 
 
 	}
 
 	document.getElementById("Tst_C").onclick = function(evt)
 	{
-		log( "\n- Tst_C @ ", b.Fe_vsg().toString() );
+		//log( "\n- Tst_C @ ", b.Fe_vsg().toString() );
+		KeDru__Fo_wu++;
 
-		//try{ b.Me( null,  { "Me" :   } ); } catch(e){ log( "Me FAILED" ); }
+		var To_vbu = new Uint8Array( 16 );
+		To_vbu[0] = 3;
+		To_vbu[1] = KeDru__Fo_wu;
 
+		let To_vsu = new Uint16Array( To_vbu.buffer );
+
+		To_vsu[ 2 ] = GeGx;
+		To_vsu[ 3 ] = GeGa;
+
+		GeGx -= 15;
+
+		To_vsu[ 4 ] = GeGx;
+		To_vsu[ 5 ] = GeGa;
+
+		try{ b.Me( null, To_vsu ); } catch(e){ log( "Me FAILED" ); }
+
+
+		/* let wrc = window.radianceCascades;
+
+		wrc.clear();
+		let last = undefined;
+
+		// wrc.isDrawing = true;
+		return new Promise((resolve) =>
+		{
+				wrc.setHex("#f9a875");
+				requestAnimationFrame(() => wrc.draw(last, 0, false, resolve));
+			})
+			 .then(() => new Promise((resolve) =>
+			{
+				last = undefined;
+				requestAnimationFrame(() => {
+					wrc.setHex("#000000");
+					requestAnimationFrame(() => wrc.draw(last, 0, true, resolve));
+				});
+			})) */
+
+			/* .then(() => {
+				wrc.isDrawing = false;
+				wrc.renderPass();
+				requestAnimationFrame(() => wrc.setHex("#fff6d3"));
+			}); */
 
 	}
 
 	document.getElementById("Tst_D").onclick = function(evt)
 	{
-		log( "\n- LIST Peers @ ", b.Fe_vsg().toString() );
+		//log( "\n- LIST Peers @ ", b.Fe_vsg().toString() );
+		KeDru__Fo_wu++;
+
+		var To_vbu = new Uint8Array( 16 );
+		To_vbu[0] = 3;
+		To_vbu[1] = KeDru__Fo_wu;
+
+		let To_vsu = new Uint16Array( To_vbu.buffer );
+
+		To_vsu[ 2 ] = GeGx;
+		To_vsu[ 3 ] = GeGa;
+
+		GeGa -= 15;
+
+		To_vsu[ 4 ] = GeGx;
+		To_vsu[ 5 ] = GeGa;
+
+		try{ b.Me( null, To_vsu ); } catch(e){ log( "Me FAILED" ); }
+
+
+		/* let wrc = window.radianceCascades;
+		wrc.reset();
 
 		var i = 0;
 		for( var adr in b.wires )
@@ -758,11 +861,42 @@ document.getElementById("sms").onclick = function(evt)
 	  	 	// log( "- Person[", i, "]: ", b.peers[ i ].timestamp ); timestamp = NONE
 	  	 	log( "- Person[", i, "]: ", adr.slice( 0, 4 ) );
 			i++;
-
-		//	try{ b.Me( adr,  { "Me" : i  } ); } catch(e){ log( "Me FAILED" ); }
-		}
+		} */
 	}
 
+	document.getElementById("Tst_E").onclick = function(evt)
+	{
+		//log( "\n- LIST Peers @ ", b.Fe_vsg().toString() );
+		KeDru__Fo_wu++;
+
+		var To_vbu = new Uint8Array( 16 );
+		To_vbu[0] = 3;
+		To_vbu[1] = KeDru__Fo_wu;
+
+		let To_vsu = new Uint16Array( To_vbu.buffer );
+
+		To_vsu[ 2 ] = GeGx;
+		To_vsu[ 3 ] = GeGa;
+
+		GeGa += 15;
+
+		To_vsu[ 4 ] = GeGx;
+		To_vsu[ 5 ] = GeGa;
+
+		try{ b.Me( null, To_vsu ); } catch(e){ log( "Me FAILED" ); }
+
+
+		/* let wrc = window.radianceCascades;
+		wrc.reset();
+
+		var i = 0;
+		for( var adr in b.wires )
+		{
+	  	 	// log( "- Person[", i, "]: ", b.peers[ i ].timestamp ); timestamp = NONE
+	  	 	log( "- Person[", i, "]: ", adr.slice( 0, 4 ) );
+			i++;
+		} */
+	}
 
 //---------------------------
 // UTILITY FUNCTIONS

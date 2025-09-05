@@ -473,11 +473,16 @@ function intializeCanvas({
 	colors = [
 		"#fff6d3", "#f9a875", "#eb6b6f", "#7c3f58", "#03C4A1", "#3d9efc", "#000000", "#00000000"
 	]
-}) {
+})
+{
+
 	const clearDom = clear ? `<button id="${id}-clear" class="iconButton">${clearSvg}</button>` : "";
 	const resetDom = reset ? `<button id="${id}-reset" class="iconButton">${resetSvg}</button>` : "";
 	const sunMoonDom = toggleSun ? `<button id="${id}-sun" class="iconButton">${sunMoonSvg}</button>` : "";
+
+
 	const thisId = document.querySelector(`#${id}`);
+
 	thisId.innerHTML = `
     <div style="display: flex; gap: 20px;">
       <div id="${id}-canvas-container"></div>
@@ -645,7 +650,8 @@ class PaintableCanvas {
 		this.onUpdateTextures();
 	}
 
-	startDrawing(e) {
+	startDrawing(e)
+	{
 		this.isDrawing = true;
 		this.currentMousePosition = this.lastPoint = this.currentPoint = this.getMousePos(e);
 		try {
@@ -1356,6 +1362,8 @@ class BaseSurface {
 	reset() {
 		this.clear();
 		let last = undefined;
+
+		
 		// this.isDrawing = true;
 		return new Promise((resolve) => {
 				this.setHex("#f9a875");
@@ -1376,7 +1384,8 @@ class BaseSurface {
 	}
 
 	draw(last, t, isShadow, resolve) {
-		if (t >= 10.0) {
+		if (t >= 10.0)
+		{
 			// this.surface.fromToRender = undefined;
 			resolve();
 			return;
@@ -2545,14 +2554,17 @@ initializeParameters(setUniforms)
 			this.rcUniforms.srgb = this.enableSrgb.checked ? 2.2 : 1.0;
 			this.renderPass();
 		});
+
 		this.addNoise.addEventListener("input", () => {
 			this.rcUniforms.addNoise = this.addNoise.checked;
 			this.renderPass();
 		});
+
 		this.sunAngleSlider.addEventListener("input", () => {
 			this.rcUniforms.sunAngle = this.sunAngleSlider.value;
 			this.renderPass();
 		});
+
 		super.load();
 	}
 }
