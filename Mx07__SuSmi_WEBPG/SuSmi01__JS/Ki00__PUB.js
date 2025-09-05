@@ -1,4 +1,4 @@
-const VER_vsg = "0.27"; 
+const VER_vsg = "0.28"; 
  //const WEBPG__SuGwy_vsg = "Mx07__SuSmi_WEBPG/"; 
  const WEBPG__SuGwy_vsg = "https://powerourpeople.com/Mx07__SuSmi_WEBPG/"; 
 
