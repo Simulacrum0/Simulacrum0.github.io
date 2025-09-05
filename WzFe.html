@@ -105,12 +105,12 @@
       border-color: #F00;
 
 	  text-align: center;
-	  word-wrap: break-word;
-	  white-space: pre-wrap;
+	  word-wrap: normal;
+	  white-space: pre;
 	  /* line-height: 1.em; */
 
 	  font-family: monospace;
-	  font-size: 0.125em;
+	  font-size: 0.1em;
 
 	}
 
@@ -191,6 +191,8 @@ a:active {
     }
 
     #content {
+
+	text-align: center;
       display: flex;
       flex-direction: column;
       padding: 10px;
@@ -299,7 +301,7 @@ a:active {
 		<br>
 
 		<h2>SELF_SERV: Share Links</h2>
-		<button id="copy">Copy Clipboard</button>
+		<button id="clip">Copy Clipboard</button>
 		<button id="email">Email </button>
 		<button id="sms">TXT (sms)</button>
 		<button id="new_room"><a href="WzFe.html" target="_NEW">Open New Room</a></button>
@@ -319,7 +321,8 @@ a:active {
 		<br>
 		<button id="send">Send MSG</button>
 		<br>
-</div>
+	</div>
+
 
 	<h2>MESSAGE_BOX</h2>
 	<p id="messages" class="BUF"></p>
@@ -338,15 +341,15 @@ a:active {
       	<div id="rc-canvas"></div>
     	<br />
 
-      <div id="outer-container">
+      <div id="outer-container" >
         <div style="display: flex; align-items: center; gap: 4px">
+		 <label for="enable-srgb">Brighten</label>
           <input type="checkbox" id="enable-srgb" checked>
-          <label for="enable-srgb">Brighten</label>
         </div>
       </div>
 
       <details style="cursor: pointer; display: none;">
-        <summary>Additional Controls</summary>
+        <summary>GFX_Tweaks</summary>
 
       <div style="display: none; align-items: center; gap: 4px;">
         <input type="checkbox" id="bilinear-fix">
@@ -464,9 +467,6 @@ if( JOIN_y )
 		}
 	});
 
-	b.on("Je", function( adr, msg) { log( "- RECV( Spoke ): ", adr.slice( 0, 4 ), msg ); });
-
-
 }
 
 // ======================================================================
@@ -544,11 +544,8 @@ else
   {
 	  if (c == 0 && connected == false )
 	  {
-		  connected = true;
 		  // log("FIRST NODE");
-
-		  // link to the messageboard client URL
-		  // var clientURL = document.location.href.replace("Mx", "Me") + "#" + b.address();
+		  connected = true;
 		  var clientURL = document.location.href + "#" + b.address();
 
    	  	//  log(qr(clientURL));
@@ -569,7 +566,6 @@ else
 	// MSG
 	//---------------------------
 	b.on("message", function( adr, msg) { log( "- MSG( Hub ): ", adr.slice( 0, 4 ), msg ); });
-	b.on("Je", function( adr, msg) { log( "- RECV( Hub ): ", adr.slice( 0, 4 ), msg ); });
 
 
 	//---------------------------
@@ -587,6 +583,41 @@ else
 
 //@@@
 // END JOIN or HUB
+
+b.on("Je", function( adr, pkt )
+{
+	log( "- Je[ ", adr.slice( 0, 4 ), " ]: ", pkt );
+
+	/*
+	var Uint8Array To_vbu = pkt[ "data" ];
+	switch( To_vbu[ 0 ] )
+	{
+		//&&&
+		// KEEP_ALIVE_PING
+		case 0:
+		break;
+
+		//&&&
+		// NAME UPDATE
+		case 1:
+		break;
+
+		//&&&
+		// MSG UPDATE
+		case 2:
+		break;
+
+
+		//&&&
+		// MAP UPDATE
+		case 3:
+
+		break;
+	}
+*/
+
+});
+
 
 //---------------------------
 // INIT PROG
@@ -623,6 +654,33 @@ function updateWires(count)
   document.getElementById("connected").textContent = count ? "yes ( " + count + " )" : "no";
 
 }
+
+//---------------------------
+// SHARE
+//---------------------------
+document.getElementById("clip").onclick = function(evt)
+{
+	var clientURL = document.location.href + "#" + b.address();
+	copyToClipboard( clientURL );
+	log( "Clip: ", clientURL );
+}
+
+
+document.getElementById("email").onclick = function(evt)
+{
+	var clientURL = document.location.href + "#" + b.address();
+
+	//content-type=text/html
+	window.location.href = 'mailto:?subject=Self_Serv Test Link&body=Open Room Link here:\n\n' + encodeURI( clientURL );
+}
+
+
+document.getElementById("sms").onclick = function(evt)
+{
+	var clientURL = document.location.href + "#" + b.address();
+	window.location.href = 'sms:?body=Click Here: \n\n' + encodeURI(clientURL);
+}
+
 
 //---------------------------
 // TST
@@ -662,8 +720,8 @@ function updateWires(count)
 		// // You can then pass sharedBuffer (or sharedUint8Array itself if the environment supports it)
 		// // to a Web Worker to enable shared memory communication.
 
-
-		To_vbu[0] = KeDru__Fo_wu;
+		To_vbu[0] = 1;
+		To_vbu[1] = KeDru__Fo_wu;
 
 		// console.log(To_vbu[0]);
 		// console.log(To_vbu.length);
@@ -683,16 +741,16 @@ function updateWires(count)
 
 	document.getElementById("Tst_C").onclick = function(evt)
 	{
-		log( "\n- Tst_C", b.Fe_vsg().toString() );
+		log( "\n- Tst_C @ ", b.Fe_vsg().toString() );
 
-		try{ b.Me( null,  { "Me" : i  } ); } catch(e){ log( "Me FAILED" ); }
+		//try{ b.Me( null,  { "Me" :   } ); } catch(e){ log( "Me FAILED" ); }
 
 
 	}
 
 	document.getElementById("Tst_D").onclick = function(evt)
 	{
-		log( "\n- Tst_D", b.Fe_vsg().toString() );
+		log( "\n- LIST Peers @ ", b.Fe_vsg().toString() );
 
 		var i = 0;
 		for( var adr in b.wires )
@@ -701,7 +759,7 @@ function updateWires(count)
 	  	 	log( "- Person[", i, "]: ", adr.slice( 0, 4 ) );
 			i++;
 
-			try{ b.Me( adr,  { "Me" : i  } ); } catch(e){ log( "Me FAILED" ); }
+		//	try{ b.Me( adr,  { "Me" : i  } ); } catch(e){ log( "Me FAILED" ); }
 		}
 	}
 

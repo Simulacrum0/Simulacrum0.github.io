@@ -291,8 +291,9 @@ class GPUTimer {
 	constructor(gl, disabled = false) {
 		this.gl = gl;
 		this.ext = !disabled && this.gl.getExtension('EXT_disjoint_timer_query_webgl2');
-		if (!this.ext) {
-			console.warn('EXT_disjoint_timer_query_webgl2 not available');
+		if (!this.ext)
+		{
+			console.log( 'WebGL: EXT_disjoint_timer_query_webgl2 NOT available');
 		}
 		this.queries = new Map();
 		this.results = new Map();
@@ -547,15 +548,15 @@ function intializeCanvas({
 	const container = document.querySelector(`#${id}-canvas-container`);
 	container.appendChild(canvas);
 
-	canvas.addEventListener('touchstart', startDrawing);
-	canvas.addEventListener('mousedown', startDrawing);
+	canvas.addEventListener('touchstart', startDrawing, {passive: true} );
+	canvas.addEventListener('mousedown', startDrawing );
 	canvas.addEventListener('mouseenter', (e) => {
 		if (e.buttons === 1) {
 			startDrawing(e);
 		}
 	});
 	canvas.addEventListener('mousemove', onMouseMove);
-	canvas.addEventListener('touchmove', onMouseMove);
+	canvas.addEventListener('touchmove', onMouseMove, {passive: true} );
 	canvas.addEventListener('mouseup', (e) => stopDrawing(e, false));
 	canvas.addEventListener('touchend', (e) => stopDrawing(e, false));
 	canvas.addEventListener('touchcancel', (e) => stopDrawing(e, true));

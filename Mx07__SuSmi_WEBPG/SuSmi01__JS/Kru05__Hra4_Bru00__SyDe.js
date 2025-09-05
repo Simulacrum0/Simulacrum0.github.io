@@ -186,13 +186,17 @@
 										messagejson && bugout.emit( "message", bugout.address(pk), messagejson, packet)
 									}
 
+
+
+
 									// BINARY STREAM
 									else if ( "b" == packet.y )
 									{
-										debug("Je", identifier, packet );
+										// debug("Je", identifier, packet );
 										var	PKT_l = packet.v;
-										PKT_l && bugout.emit( "Je", bugout.address(pk), PKT_l, packet)
+										PKT_l && bugout.emit( "Je", bugout.address( pk ), PKT_l, packet)
 									}
+
 
 									else if ("r" == packet.y)
 									{
@@ -208,6 +212,8 @@
 										var nonce = packet.rn;
 										bugout.emit( "rpc", bugout.address(pk), call, args, toHex(nonce)), rpcCall(bugout, pk, call, args, nonce)
 									}
+
+
 									else if ("rr" == packet.y)
 									{
 										var nonce = toHex(packet.rn);
@@ -335,17 +341,20 @@
 					inherits(Bugout, EventEmitter);
 
 
+
+
+
+
 					Bugout.prototype.Fe_vsg = function Fe_vsg()
 					{
 						var d = new Date();
-						return d.getMonth() + "/" + d.getDay() + " " + d.getHours() + ":" + d.getMinutes();
+						return d.getYear() + "/" + d.getMonth() + "/" + d.getDay() + " " + d.getHours() + ":" + d.getMinutes();
 					}
-
-
 
 					Bugout.prototype.Me = function (adr, To_vbu )
 					{
-						console.log( "Me[ " + To_vbu.length + " ] = " + To_vbu.toString() );
+						//$$$
+						//console.log( "Me[ " + To_vbu.length + " ] = " + To_vbu.toString() );
 
 						if( !To_vbu ) return;
 
@@ -353,7 +362,6 @@
 						var packet = makePacket(this,
 						{
 							y: "b",
-							// v: JSON.stringify( To_v )
 							v: To_vbu
 						});
 
@@ -362,13 +370,11 @@
 						// 	if (this.peers[adr]) packet = encryptPacket(this, this.peers[adr].pk, packet);
 						// 	else throw adr + " not seen - no public key.";
 
-
-						//
-
-
 						// SEND
 						sendRaw( this, packet);
 					}
+
+
 
 
 
@@ -18231,7 +18237,7 @@
 						'use asm';
 						var H$843 = new stdlib$840.Int32Array(heap$842);
 						return {
-							hash: function KXFuncHash(k$845, x$846)
+							hash: function HSHFNNM(k$845, x$846)
 							{
 								k$845 |= 0, x$846 |= 0;
 								var i$847 = 0,
