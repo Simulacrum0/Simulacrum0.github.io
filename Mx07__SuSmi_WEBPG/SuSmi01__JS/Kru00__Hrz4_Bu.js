@@ -3,7 +3,8 @@
 //=============
 
 // ref : https://stackoverflow.com/questions/400212/how-do-i-copy-to-the-clipboard-in-javascript
-function copyToClipboard(text) {
+function copyToClipboard(text)
+{
     if (window.clipboardData && window.clipboardData.setData) {
         return window.clipboardData.setData("Text", text);
     }

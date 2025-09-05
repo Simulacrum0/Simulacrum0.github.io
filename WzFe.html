@@ -47,6 +47,8 @@
 		<!-- <script src="Mx07__SuSmi_WEBPG/SuSmi01__JS/Kru05__Hra4_Bru00__SyZx.js" type="application/javascript"></script> -->
 		<!-- <script src="Mx07__SuSmi_WEBPG/SuSmi01__JS/Kru05__Hra4_Bru01__Tra.js" type="application/javascript"></script> -->
 
+		<script src="Mx07__SuSmi_WEBPG/SuSmi01__JS/Kru00__Hrz4_Bu.js" type="application/javascript"></script>
+
 	</head>
 
 
@@ -58,16 +60,35 @@
 	  box-sizing: border-box;
 	}
 
+    html
+	{
+      margin: 0;
+      padding: 0;
+      color: #000;
+      font-family: sans-serif;
+    }
+
 	body
 	{
 		background-color: #EE6;
 		max-width: 800px;
-		font-family: Impact;
-		font-size: 1.25em;
+		font-family: Arial, Helvetica, sans-serif;
+
+		font-size: 1.0em;
 		text-align: center;
 		margin: auto;
 		width: 100%;
-		padding: 0.5em;
+		padding: 1.0em;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+	}
+
+	h1, h2
+	{
+		font-family: Impact, sans-serif;
+		text-align: center;
 	}
 
 	pre
@@ -99,15 +120,12 @@
 	    background-color: #00F;
     	color: #EE6;
 
-		font-family: Arial Bold;
-		font-size: 1.25em;
-
 		border-style: groove;
 
 		word-wrap: normal;
 	  	white-space: pre-wrap;
 
-		text-align: left;
+		text-align: center;
 
 		width: 100%;
 		height: 2.0em;
@@ -132,21 +150,115 @@
     white-space: pre-wrap;
 	line-height: 1.0em;
 
-	font-family: Arial, Helvetica, sans-serif;
 	font-size: 1.0em;
   }
 
   button
   {
-    border-radius: 15px;
+    border-radius: 16px;
     background-color: #F22;
     color: white;
+
     border: none;
-    padding: 0.25em 1em;
+    padding: 0.5em 1em;
     font-size: 1.25em;
-    margin-top: 0.5em;
   }
 
+/* unvisited link */
+a:link {
+  color: #FFF;
+}
+
+/* visited link */
+a:visited {
+  color: #DDD;
+}
+
+/* mouse over link */
+a:hover {
+  color: #BBF;
+}}
+
+/* selected link */
+a:active {
+  color: #FFB;
+}
+
+
+
+    li, p {
+      line-height: 1.5;
+    }
+
+    #content {
+      display: flex;
+      flex-direction: column;
+      padding: 10px;
+      margin: 0 auto;
+      min-width: 300px;
+      max-width: 800px;
+      width: calc(100% - 20px);
+    }
+
+    #content {
+      max-width: 800px;
+      min-height: 100%;
+
+      justify-content: center;
+    }
+
+    #content .textual {
+      color: #DDD;
+    }
+
+    #content .textual {
+      font-size: 2em;
+    }
+
+    #content a:visited {
+      color: #FF7700;
+    }
+
+    #content a {
+      color: #0077FF;
+    }
+
+
+
+
+    #rc-demo {
+      display: flex;
+      flex-direction: column;
+      margin: auto;
+    }
+
+    #rc-demo button {
+      border: none; cursor: pointer;
+    }
+
+    #rc-demo .color {
+      max-width: 20px; width: 20px; height: 20px; position: relative;
+    }
+
+    #rc-demo canvas {
+      image-rendering: auto;
+      width: fit-content;
+    }
+
+    #rc-demo .iconButton {
+      margin-left: -1px; padding: 0; width: 24px; height: 24px; padding-top: 4px;
+    }
+
+    #rc-demo .erase {
+      position: absolute;  top: 2px; left: 1px;
+    }
+
+    #rc-demo .arrow {
+      border: none; position: absolute;  top: 0; left: -17px; cursor: auto; color: white;
+    }
+
+    #rc-demo .hidden {
+      display: none;
 
 
 </style>
@@ -158,49 +270,130 @@
 	<body >
 <div>
 
-	<h1 id="VyBzVa" >FAM_KOLB: Msg-Room Test </h1>
-	<br>
-	<p>People in Room: <span id="connected">no</span></p>
+	<h1 id="VyBzVa" >SELF_SERV: Portal v</h1>
 	<br>
 	<pre id="QRKode" class="QRKode" style="display: none" ></pre>
 	<br>
 
 	<div>
-		<h2>TESTO</h2>
+		<h2>SELF_SERV: Setup</h2>
 		<br>
-  		<button id="Tst_A">Tst_A</button>
-		<button id="Tst_B">Tst_B</button>
-		<button id="Tst_C">Tst_C</button>
-		<button id="Tst_D">Tst_D</button>
-		<!-- <button id="Tst_E">Tst_E</button> -->
+		<h3>Your Name:</h3>
+		<!-- <br> -->
+		<input id="SaNo_VaSy" maxlength="63" value="?" />
+		<br>
+
+		<h3>Your Message:</h3>
+		<!-- <br> -->
+		<input id="SaNo_MeKz" maxlength="127" value="?" />
+		<br>
+		<br>
+
+
+		<h2>SELF_SERV: Actions</h2>
+		<button id="Tst_A">Send Msg</button>
+		<button id="Tst_B">Map Maker</button>
+		<button id="Tst_C">Test C</button>
+		<button id="Tst_D">Test D</button>
+		<br>
+		<br>
+
+		<h2>SELF_SERV: Share Links</h2>
+		<button id="copy">Copy Clipboard</button>
+		<button id="email">Email </button>
+		<button id="sms">TXT (sms)</button>
+		<button id="new_room"><a href="WzFe.html" target="_NEW">Open New Room</a></button>
+		<h3>People in Room: <span id="connected">no</span></h3>
+		<br>
+
 	</div>
 	<br>
 
 
-<div id="ui" style="display: none">
+	<div id="ui" style="display: none">
 
-  <h2>INPUT</h2>
-  <br>
-  <input id="message" maxlength="279" placeholder="TYPE HERE..."/>
-  <br>
-  <button id="send">Send MSG</button>
-  <button id="copy">Copy Room ID</button>
-  <button id="email">Email Room ID</button>
-
-  <p class="button"><a href="WzMx.html" target="_NEW">Launch New HOST.</a></p>
-
+		<h2>INPUT</h2>
+		<br>
+		<input id="message" maxlength="279" placeholder="TYPE HERE..."/>
+		<br>
+		<br>
+		<button id="send">Send MSG</button>
+		<br>
 </div>
 
-	<h2>MESSAGES</h2>
+	<h2>MESSAGE_BOX</h2>
 	<p id="messages" class="BUF"></p>
 	<br>
 
-	<h2>LOG</h2>
+	<h2>LOG_BOX</h2>
 	<p id="log" class="BUF"></p>
 	<br>
 
-
 </div>
+
+  <section id="content">
+    <div id="rc-demo">
+
+		<h2>MAP_MAKER</h2>
+      	<div id="rc-canvas"></div>
+    	<br />
+
+      <div id="outer-container">
+        <div style="display: flex; align-items: center; gap: 4px">
+          <input type="checkbox" id="enable-srgb" checked>
+          <label for="enable-srgb">Brighten</label>
+        </div>
+      </div>
+
+      <details style="cursor: pointer; display: none;">
+        <summary>Additional Controls</summary>
+
+      <div style="display: none; align-items: center; gap: 4px;">
+        <input type="checkbox" id="bilinear-fix">
+        <label for="bilinear-fix">Bilinear Fix</label>
+      </div>
+
+      <div style="display: flex; align-items: center; gap: 4px;">
+        <input type="checkbox" id="disable-mips">
+        <label for="disable-mips">Disable Mips</label>
+      </div>
+
+      <div style="display: flex; align-items: center; gap: 4px;">
+        <input type="checkbox" id="nonlinear-accumulation">
+        <label for="nonlinear-accumulation">Non-Linear Accumulation</label>
+      </div>
+
+      <div style="display: flex; align-items: center; gap: 4px">
+        <input type="checkbox" id="add-noise">
+        <label for="add-noise">Naive GI Noise</label>
+      </div>
+
+      <div style="display: none; align-items: center; gap: 4px">
+        <input type="checkbox" id="ringing-fix">
+        <label for="ringing-fix">Ringing Fix</label>
+      </div>
+
+      <div id="additional-controls-container">
+      </div>
+
+      <div style="display: flex; align-items: center; gap: 8px">
+      Sun Angle
+      <input id="rc-sun-angle-slider" class="slider" type="range" min="0" max="6.2" step="0.1" value="2.0" />
+        </div>
+
+        <div style="display: flex; align-items: center; gap: 4px">
+        <input type="checkbox" id="reduce-demand">
+        <label for="reduce-demand">Reduce Demand (Calculate over 2 frames)</label>
+      </div>
+
+      </details>
+
+    </div>
+    </section>
+
+  <script id="radiance-cascades-logic" src="Mx07__SuSmi_WEBPG/SuSmi01__JS/Kru03__Hrz2_Wy.js" type="application/javascript"></script>
+
+
 </body>
 
 
@@ -395,17 +588,21 @@ else
 //@@@
 // END JOIN or HUB
 
-
-
-
 //---------------------------
-// INIT LOG
+// INIT PROG
 //---------------------------
 
 // log( "Self_ID: ", b.address().slice( 0, 4 ) );
 // log( " Fam: ", b.localFamily, " Loc: ", b.localAddress, " Rem: ", b.remoteAddress );
 
 b.heartbeat( 30000 );
+
+
+const VaSy_l = document.getElementById('SaNo_VaSy');
+// VaSy_l.setSelectionRange( 0, 9 );
+VaSy_l.focus();
+
+
 
 //---------------------------
 // WIRES
