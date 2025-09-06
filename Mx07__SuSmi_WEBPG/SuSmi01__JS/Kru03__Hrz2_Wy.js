@@ -427,15 +427,9 @@ const vertexShader = `
     gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
   }`;
 
-const resetSvg = `<svg  xmlns="http://www.w3.org/2000/svg"  width="16"  height="16"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="1"  stroke-linecap="round"  stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M20 11a8.1 8.1 0 0 0 -15.5 -2m-.5 -4v4h4" /><path d="M4 13a8.1 8.1 0 0 0 15.5 2m.5 4v-4h-4" /></svg>`;
 
-const eraseSvg = `<svg  xmlns="http://www.w3.org/2000/svg"  width="16"  height="16"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="1"  stroke-linecap="round"  stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M19 20h-10.5l-4.21 -4.3a1 1 0 0 1 0 -1.41l10 -10a1 1 0 0 1 1.41 0l5 5a1 1 0 0 1 0 1.41l-9.2 9.3" /><path d="M18 13.3l-6.3 -6.3" /></svg>`;
-
-const clearSvg = `<svg  xmlns="http://www.w3.org/2000/svg"  width="16"  height="16"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="1"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-trash"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 7l16 0" /><path d="M10 11l0 6" /><path d="M14 11l0 6" /><path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" /><path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" /></svg>`;
-
-const sunMoonSvg = `<svg  xmlns="http://www.w3.org/2000/svg"  width="16"  height="16"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="1"  stroke-linecap="round"  stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9.173 14.83a4 4 0 1 1 5.657 -5.657" /><path d="M11.294 12.707l.174 .247a7.5 7.5 0 0 0 8.845 2.492a9 9 0 0 1 -14.671 2.914" /><path d="M3 12h1" /><path d="M12 3v1" /><path d="M5.6 5.6l.7 .7" /><path d="M3 21l18 -18" /></svg>`
-
-function hexToRgb(hex) {
+function hexToRgb(hex)
+{
 	const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})?$/i.exec(hex);
 	return result ? {
 		r: parseInt(result[1], 16),
@@ -445,7 +439,8 @@ function hexToRgb(hex) {
 	} : null;
 }
 
-function rgbToHex(r, g, b, a) {
+function rgbToHex(r, g, b, a)
+{
 	if (a !== undefined) {
 		return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1) +
 			Math.round(a * 255).toString(16).padStart(2, '0');
@@ -470,35 +465,34 @@ function intializeCanvas({
 	clear,
 	reset,
 	toggleSun,
-
 	colors =
 	[
 		"#fff6d3"
-		,"#FF0"
-		, "#F80"
-		, "#2F2"
-		, "#6A6"
-		, "#080"
-		, "#228"
-		, "#66A"
-		, "#A0A"
+		,"#FFFF00"
+		, "#FF8800"
+		, "#22FF22"
+		, "#66AA66"
+		, "#008800"
+		, "#222288"
+		, "#6666AA"
+		, "#AA00AA"
 
 		, "#000000"
 		, "#00000000"
+
 	]
 })
 {
 
-	const clearDom = clear ? `<button id="${id}-clear" class="iconButton">${clearSvg}</button>` : "";
-	const resetDom = reset ? `<button id="${id}-reset" class="iconButton">${resetSvg}</button>` : "";
-	const sunMoonDom = toggleSun ? `<button id="${id}-sun" class="iconButton">${sunMoonSvg}</button>` : "";
+	const clearDom = clear ? `<button id="${id}-clear">Clear</button>` : "";
+	const resetDom = reset ? `<button id="${id}-reset" >Replay</button>` : "";
+	const sunMoonDom = toggleSun ? `<button id="${id}-sun">Bloom</button>` : "";
 
 
 	const thisId = document.querySelector(`#${id}`);
 
 	thisId.innerHTML = `
     <div style="display: flex; gap: 20px;">
-      <div id="${id}-canvas-container"></div>
 
       <div style="display: flex; flex-direction: column; justify-content: space-between;">
           <div id="${id}-color-picker" style="display: flex; flex-direction: column;  border: solid 1px white; margin: 1px;">
@@ -510,6 +504,9 @@ function intializeCanvas({
         ${resetDom}
         </div>
       </div>
+
+      <div id="${id}-canvas-container"></div>
+
   </div>`;
 	const colorInput = document.getElementById(`${id}-color-input`);
 
@@ -557,7 +554,7 @@ function intializeCanvas({
 		colorButton.style.backgroundColor = color;
 		colorButton.innerHTML = `<span class="arrow hidden">&#9654;</span>`;
 		if (color === "#00000000") {
-			colorButton.innerHTML += `<span class="erase">${eraseSvg}</span>`;
+			colorButton.innerHTML += `<span style="color:#000;" class="erase">Eraser</span>`;
 			colorButton.style.backgroundColor = "var(--pre-background)";
 		}
 		colorPicker.appendChild(colorButton);
@@ -566,8 +563,11 @@ function intializeCanvas({
 	const container = document.querySelector(`#${id}-canvas-container`);
 	container.appendChild(canvas);
 
+
+
 	canvas.addEventListener('touchstart', startDrawing, {passive: true} );
 	canvas.addEventListener('mousedown', startDrawing );
+
 	canvas.addEventListener('mouseenter', (e) => {
 		if (e.buttons === 1) {
 			startDrawing(e);
@@ -2593,8 +2593,11 @@ const dp = urlParams.get('pixelRatio') ?? 2.0;
 const rcScale = urlParams.get('rcScale') ?? dp;
 const classic = urlParams.get('classic');
 
-const widthParam = widthString ? parseInt(widthString) : (isMobile ? 300 : 512);
-const heightParam = heightString ? parseInt(heightString) : (isMobile ? 400 : 512);
+// const widthParam = widthString ? parseInt(widthString) : (isMobile ? 300 : 512);
+// const heightParam = heightString ? parseInt(heightString) : (isMobile ? 400 : 512);
+const widthParam = widthString ? parseInt(widthString) : 256;
+const heightParam = heightString ? parseInt(heightString) : 256;
+
 let [width, height] = [widthParam, heightParam];
 
 window.radianceCascades = new RC({

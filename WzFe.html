@@ -145,7 +145,7 @@
 	margin: 1.0 em;
 
 	border-color: #00F;
-    border-radius: 3px;
+    border-radius: 2px;
 	border-style: groove;
 
     text-align: left;
@@ -188,11 +188,19 @@ a:active {
   color: #FFB;
 }
 
-
+	.BOX
+	{
+		border-color: #DD5;
+    	border-radius: 32px;
+		border-style: groove;
+		padding: 1em 1em;
+	}
 
     li, p {
       line-height: 1.5;
     }
+
+
 
     #content {
 
@@ -251,9 +259,6 @@ a:active {
       width: fit-content;
     }
 
-    #rc-demo .iconButton {
-      margin-left: -1px; padding: 0; width: 24px; height: 24px; padding-top: 4px;
-    }
 
     #rc-demo .erase {
       position: absolute;  top: 2px; left: 1px;
@@ -274,15 +279,15 @@ a:active {
 	<!-- Ku01 BODY Bz
 	<!-- ====================================================================== -->
 	<body >
-<div>
 
-	<h1 id="VyBzVa" >SELF_SERV: Portal v</h1>
+	<h1 id="VyBzVa" >SELF_SERV v</h1>
 	<br>
-	<div>
 
-		<h2>SELF_SERV: Share Links</h2>
+	<div class="BOX" >
+	<h2>#1 JOIN</h2>
+
+		<h3>People in Room: <span id="connected">no</span></h3>
 		<h3>Your Name:</h3>
-		<br>
 		<input id="SaNo_VaSy" maxlength="63" value="?" />
 		<br>
 		<div id="QRDiv"></div>
@@ -291,47 +296,32 @@ a:active {
 		<button id="email">Email </button>
 		<button id="sms">TXT (sms)</button>
 		<button id="new_room"><a href="WzFe.html" target="_NEW">Open New Room</a></button>
-		<h3>People in Room: <span id="connected">no</span></h3>
-		<br>
-
-		<h2>LOG_BOX</h2>
-		<p id="log" class="BUF"></p>
-		<br>
-
-		<h3>Your Message:</h3>
-		<br>
-		<input id="SaNo_MeKz" maxlength="127" value="?" />
-		<br>
-		<br>
-
-		<h2>MESSAGE_BOX</h2>
-		<p id="messages" class="BUF"></p>
-		<br>
-
-		<h2>SELF_SERV: Actions</h2>
-		<button id="Tst_A">Send Msg</button>
-		<button id="Tst_B">Right</button>
-		<button id="Tst_C">Left</button>
-		<button id="Tst_D">Up</button>
-		<button id="Tst_E">Down</button>
-		<br>
-		<br>
-
 	</div>
 	<br>
-
-</div>
-
-  <section id="content">
-	<h2>MAP_MAKER</h2>
 	<br>
-    <div id="rc-demo">
 
-		<div id="outer-container" >
-			<div style="display: flex; align-items: center; gap: 4px">
-				<label for="enable-srgb">Brighten</label>
-				<input type="checkbox" id="enable-srgb" checked>
-				</div>
+	<div class="BOX" >
+	<h2>#2 MESSAGES</h2>
+		<h3>Your Message:</h3>
+		<input id="SaNo_MeKz" maxlength="127" value="?" />
+		<br>
+		<p id="messages" class="BUF"></p>
+		<button id="Tst_A">Send Msg</button>
+		<br>
+	</div>
+	<br>
+	<br>
+
+	<div class="BOX" >
+		<h2>#3 MAP_MAKER</h2>
+
+		<section id="content">
+			<div id="rc-demo">
+				<div id="outer-container" >
+					<div style="display: flex; align-items: center; gap: 4px">
+						<label for="enable-srgb">Brighten</label>
+						<input type="checkbox" id="enable-srgb" checked>
+					</div>
 				</div>
 
 				<details style="cursor: pointer; display: none;">
@@ -340,53 +330,64 @@ a:active {
 					<div style="display: none; align-items: center; gap: 4px;">
 						<input type="checkbox" id="bilinear-fix">
 						<label for="bilinear-fix">Bilinear Fix</label>
-						</div>
-
-						<div style="display: flex; align-items: center; gap: 4px;">
-        <input type="checkbox" id="disable-mips">
-        <label for="disable-mips">Disable Mips</label>
-		</div>
-
-      <div style="display: flex; align-items: center; gap: 4px;">
-        <input type="checkbox" id="nonlinear-accumulation">
-        <label for="nonlinear-accumulation">Non-Linear Accumulation</label>
-		</div>
-
-		<div style="display: flex; align-items: center; gap: 4px">
-			<input type="checkbox" id="add-noise">
-			<label for="add-noise">Naive GI Noise</label>
-			</div>
-
-			<div style="display: none; align-items: center; gap: 4px">
-				<input type="checkbox" id="ringing-fix">
-				<label for="ringing-fix">Ringing Fix</label>
-				</div>
-
-				<div id="additional-controls-container">
 					</div>
 
-					<div style="display: flex; align-items: center; gap: 8px">
-						Sun Angle
-						<input id="rc-sun-angle-slider" class="slider" type="range" min="0" max="6.2" step="0.1" value="2.0" />
-						</div>
+					<div style="display: flex; align-items: center; gap: 4px;">
+						<input type="checkbox" id="disable-mips">
+						<label for="disable-mips">Disable Mips</label>
+					</div>
 
-											<div style="display: flex; align-items: center; gap: 4px">
-												<input type="checkbox" id="reduce-demand">
-												<label for="reduce-demand">Reduce Demand (Calculate over 2 frames)</label>
-												</div>
+				<div style="display: flex; align-items: center; gap: 4px;">
+					<input type="checkbox" id="nonlinear-accumulation">
+					<label for="nonlinear-accumulation">Non-Linear Accumulation</label>
+					</div>
 
-							</details>
+					<div style="display: flex; align-items: center; gap: 4px">
+						<input type="checkbox" id="add-noise">
+						<label for="add-noise">Naive GI Noise</label>
+					</div>
 
-							<br />
-			<div id="rc-canvas"></div>
+					<div style="display: none; align-items: center; gap: 4px">
+						<input type="checkbox" id="ringing-fix">
+						<label for="ringing-fix">Ringing Fix</label>
+					</div>
 
-    </div>
-    </section>
+					<div id="additional-controls-container">
+					</div>
+
+					<div style="display: flex; align-items: center; gap: 8px">BLOOM<input id="rc-sun-angle-slider" class="slider" type="range" min="0" max="6.2" step="0.1" value="2.0" />
+					</div>
+
+					<div style="display: flex; align-items: center; gap: 4px">
+						<input type="checkbox" id="reduce-demand">
+						<label for="reduce-demand">Reduce Demand (Calculate over 2 frames)</label>
+					</div>
+				</details>
+				<br/>
+				<div id="rc-canvas"></div>
+		</div>
+		</section>
+
+		<br>
+		<button id="Tst_B">--></button>
+		<button id="Tst_C"><--</button>
+		<button id="Tst_D">^</button>
+		<button id="Tst_E">v</button>
+
+
+	</div>
+	<br>
+	<br>
+
+	<div class="BOX" >
+		<h2>#4 LOG</h2>
+		<p id="log" class="BUF"></p>
+	</div>
+
 
   <script id="radiance-cascades-logic" src="Mx07__SuSmi_WEBPG/SuSmi01__JS/Kru03__Hrz2_Wy.js" type="application/javascript"></script>
 
-
-</body>
+  </body>
 
 
 <!-- ====================================================================== -->
@@ -406,9 +407,8 @@ a:active {
 
 	var KeDru__Fo_wu = 0;
 
-	var GeGx = 150;
-	var GeGa = 150;
-
+	var GeGx = 128;
+	var GeGa = 128;
 
 
 	// PROG BEGIN
@@ -589,8 +589,8 @@ b.on("Je", function( adr, To_vbu )
 		let GeYi = { x: To_vsu[ 4 ], y: To_vsu[ 5 ] }; */
 
 
-		let GeYa = { x: To_vsu[ 4 ] * 2, y: To_vsu[ 6 ] * 2 };
-		let GeYi = { x: To_vsu[ 8 ] * 2, y: To_vsu[ 10 ] * 2 };
+		let GeYa = { x: To_vsu[ 4 ], y: To_vsu[ 6 ] };
+		let GeYi = { x: To_vsu[ 8 ], y: To_vsu[ 10 ] };
 
 
 		//log( "GeYa ", GeYa, " GeYi ", GeYi );
@@ -762,7 +762,7 @@ document.getElementById("sms").onclick = function(evt)
 		To_vsu[ 2 ] = GeGx;
 		To_vsu[ 3 ] = GeGa;
 
-		GeGx -= 15;
+		GeGx -= 5;
 
 		To_vsu[ 4 ] = GeGx;
 		To_vsu[ 5 ] = GeGa;
@@ -812,7 +812,7 @@ document.getElementById("sms").onclick = function(evt)
 		To_vsu[ 2 ] = GeGx;
 		To_vsu[ 3 ] = GeGa;
 
-		GeGa -= 15;
+		GeGa -= 5;
 
 		To_vsu[ 4 ] = GeGx;
 		To_vsu[ 5 ] = GeGa;
@@ -846,7 +846,7 @@ document.getElementById("sms").onclick = function(evt)
 		To_vsu[ 2 ] = GeGx;
 		To_vsu[ 3 ] = GeGa;
 
-		GeGa += 15;
+		GeGa += 5;
 
 		To_vsu[ 4 ] = GeGx;
 		To_vsu[ 5 ] = GeGa;
