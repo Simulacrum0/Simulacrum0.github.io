@@ -470,8 +470,21 @@ function intializeCanvas({
 	clear,
 	reset,
 	toggleSun,
-	colors = [
-		"#fff6d3", "#f9a875", "#eb6b6f", "#7c3f58", "#03C4A1", "#3d9efc", "#000000", "#00000000"
+
+	colors =
+	[
+		"#fff6d3"
+		,"#FF0"
+		, "#F80"
+		, "#2F2"
+		, "#6A6"
+		, "#080"
+		, "#228"
+		, "#66A"
+		, "#A0A"
+
+		, "#000000"
+		, "#00000000"
 	]
 })
 {
@@ -1363,7 +1376,7 @@ class BaseSurface {
 		this.clear();
 		let last = undefined;
 
-		
+
 		// this.isDrawing = true;
 		return new Promise((resolve) => {
 				this.setHex("#f9a875");
@@ -1536,7 +1549,7 @@ class Drawing extends BaseSurface {
 
 		this.alphaSlider = addSlider({
 			id: "outer-container",
-			name: "Paint Transparency",
+			name: "Fade",
 			onUpdate: (value) => {
 				this.alpha = value;
 				this.onSetColor(this.surface.currentColor);
@@ -2240,7 +2253,7 @@ class RC extends DistanceField {
 //==============================================
 		this.radiusSlider = addSlider({
 			id: "outer-container",
-			name: "Paint Size",
+			name: "Size",
 			onUpdate: (value) => {
 				this.surface.RADIUS = value;
 				this.drawUniforms.radiusSquared = Math.pow(this.surface.RADIUS, 2.0);

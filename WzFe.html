@@ -40,8 +40,7 @@
 		<!-- <script src="Mx07__SuSmi_WEBPG/SuSmi01__JS/Ki02__LANG.js"></script> -->
 		<!-- <script src="Mx07__SuSmi_WEBPG/SuSmi01__JS/Ki03__CFG.js"></script> -->
 
-		<script src="//cdn.jsdelivr.net/npm/qrcode@latest/build/qrcode.min.js"></script>
-
+		<script src="https://cdn.jsdelivr.net/npm/qrcode@1.4.4/build/qrcode.min.js"></script>
 
 		<script src="Mx07__SuSmi_WEBPG/SuSmi01__JS/Kru05__Hra4_Bru00__SyDe.js" type="application/javascript"></script>
 		<!-- <script src="Mx07__SuSmi_WEBPG/SuSmi01__JS/Kru05__Hra4_Bru00__SyZx.js" type="application/javascript"></script> -->
@@ -113,6 +112,11 @@
 	  font-size: 0.1em;
 
 	}
+
+
+#QRDiv {
+    margin-top: 20px;
+}
 
 
 	input
@@ -274,20 +278,15 @@ a:active {
 
 	<h1 id="VyBzVa" >SELF_SERV: Portal v</h1>
 	<br>
-	<pre id="QRKode" class="QRKode" style="display: none" ></pre>
-	<canvas id="QRImg" width="300" height="300" style="display: block" ></canvas>
-
-	<br>
-
 	<div>
-		<h2>SELF_SERV: Setup</h2>
-		<br>
-		<h3>Your Name:</h3>
-		<!-- <br> -->
-		<input id="SaNo_VaSy" maxlength="63" value="?" />
-		<br>
 
 		<h2>SELF_SERV: Share Links</h2>
+		<h3>Your Name:</h3>
+		<br>
+		<input id="SaNo_VaSy" maxlength="63" value="?" />
+		<br>
+		<div id="QRDiv"></div>
+		<br>
 		<button id="clip">Copy Clipboard</button>
 		<button id="email">Email </button>
 		<button id="sms">TXT (sms)</button>
@@ -300,7 +299,7 @@ a:active {
 		<br>
 
 		<h3>Your Message:</h3>
-		<br> -->
+		<br>
 		<input id="SaNo_MeKz" maxlength="127" value="?" />
 		<br>
 		<br>
@@ -324,61 +323,62 @@ a:active {
 </div>
 
   <section id="content">
+	<h2>MAP_MAKER</h2>
+	<br>
     <div id="rc-demo">
 
-		<h2>MAP_MAKER</h2>
-      	<div id="rc-canvas"></div>
-    	<br />
+		<div id="outer-container" >
+			<div style="display: flex; align-items: center; gap: 4px">
+				<label for="enable-srgb">Brighten</label>
+				<input type="checkbox" id="enable-srgb" checked>
+				</div>
+				</div>
 
-      <div id="outer-container" >
-        <div style="display: flex; align-items: center; gap: 4px">
-		 <label for="enable-srgb">Brighten</label>
-          <input type="checkbox" id="enable-srgb" checked>
-        </div>
-      </div>
+				<details style="cursor: pointer; display: none;">
+					<summary>GFX_Tweaks</summary>
 
-      <details style="cursor: pointer; display: none;">
-        <summary>GFX_Tweaks</summary>
+					<div style="display: none; align-items: center; gap: 4px;">
+						<input type="checkbox" id="bilinear-fix">
+						<label for="bilinear-fix">Bilinear Fix</label>
+						</div>
 
-      <div style="display: none; align-items: center; gap: 4px;">
-        <input type="checkbox" id="bilinear-fix">
-        <label for="bilinear-fix">Bilinear Fix</label>
-      </div>
-
-      <div style="display: flex; align-items: center; gap: 4px;">
+						<div style="display: flex; align-items: center; gap: 4px;">
         <input type="checkbox" id="disable-mips">
         <label for="disable-mips">Disable Mips</label>
-      </div>
+		</div>
 
       <div style="display: flex; align-items: center; gap: 4px;">
         <input type="checkbox" id="nonlinear-accumulation">
         <label for="nonlinear-accumulation">Non-Linear Accumulation</label>
-      </div>
+		</div>
 
-      <div style="display: flex; align-items: center; gap: 4px">
-        <input type="checkbox" id="add-noise">
-        <label for="add-noise">Naive GI Noise</label>
-      </div>
+		<div style="display: flex; align-items: center; gap: 4px">
+			<input type="checkbox" id="add-noise">
+			<label for="add-noise">Naive GI Noise</label>
+			</div>
 
-      <div style="display: none; align-items: center; gap: 4px">
-        <input type="checkbox" id="ringing-fix">
-        <label for="ringing-fix">Ringing Fix</label>
-      </div>
+			<div style="display: none; align-items: center; gap: 4px">
+				<input type="checkbox" id="ringing-fix">
+				<label for="ringing-fix">Ringing Fix</label>
+				</div>
 
-      <div id="additional-controls-container">
-      </div>
+				<div id="additional-controls-container">
+					</div>
 
-      <div style="display: flex; align-items: center; gap: 8px">
-      Sun Angle
-      <input id="rc-sun-angle-slider" class="slider" type="range" min="0" max="6.2" step="0.1" value="2.0" />
-        </div>
+					<div style="display: flex; align-items: center; gap: 8px">
+						Sun Angle
+						<input id="rc-sun-angle-slider" class="slider" type="range" min="0" max="6.2" step="0.1" value="2.0" />
+						</div>
 
-        <div style="display: flex; align-items: center; gap: 4px">
-        <input type="checkbox" id="reduce-demand">
-        <label for="reduce-demand">Reduce Demand (Calculate over 2 frames)</label>
-      </div>
+											<div style="display: flex; align-items: center; gap: 4px">
+												<input type="checkbox" id="reduce-demand">
+												<label for="reduce-demand">Reduce Demand (Calculate over 2 frames)</label>
+												</div>
 
-      </details>
+							</details>
+
+							<br />
+			<div id="rc-canvas"></div>
 
     </div>
     </section>
@@ -400,7 +400,10 @@ a:active {
 	var msglist = document.getElementById("messages");
 	var b;
 	var messages = [];
+
 	var HUB__Vy_vsg;
+	var URL_HUB__Vy_vsg;
+
 	var KeDru__Fo_wu = 0;
 
 	var GeGx = 150;
@@ -417,10 +420,13 @@ a:active {
 if( JOIN_y )
 {
 	var HUB__Vy_vsg = window.location.hash.substr(1) || "bUH7ukDvd9R2xLLRKMKWZ1mGPkgdVfufye";
-	b = new Bugout(HUB__Vy_vsg);
+	b = new Bugout( HUB__Vy_vsg );
+
+	URL_HUB__Vy_vsg = document.location.href;
 
 	// msglist.textContent = "Join = Hub @" + HUB__Vy_vsg + "\nSelf @" + b.address().slice( 0, 4 );
 	log( "SPOKE @", b.address().slice( 0, 4 ), "\n" );
+
 
 
 	// watch for connection to the server
@@ -457,6 +463,8 @@ else
 	localStorage["TaKeDru_VxYa"] = b.seed;
 
 	HUB__Vy_vsg = b.seed;
+	URL_HUB__Vy_vsg = document.location.href + "#" + b.address();
+
 
 	// log this server's address
 	log( "- HUB @", b.address().slice( 0, 4 ), "\n" );
@@ -471,14 +479,6 @@ else
 	{ messages = []; }
 
 
-	//---------------------------
-	// PING
-	//---------------------------
-	b.register("ping", function( adr, args, cb)
-	{
-		args["pong"] = Math.random();
-		cb(args);
-	});
 
 	//---------------------------
 	//---------------------------
@@ -514,21 +514,15 @@ else
 
 
 	//---------------------------
+	// SERVER CONNECTED
 	//---------------------------
   b.on("connections", function(c)
   {
 	  if (c == 0 && connected == false )
 	  {
-		  // log("FIRST NODE");
-		  connected = true;
-		  var clientURL = document.location.href + "#" + b.address();
-
-   	  	//  log(qr(clientURL));
-		document.getElementById("QRKode").textContent = qr(clientURL);
-
-		document.getElementById("QRKode").style.display = "block";
+		// log("FIRST NODE");
+		connected = true;
 	}
-
 	//	log( "- Spoke[ ", c, "] Joined @ ", clientURL );
   });
 
@@ -551,7 +545,6 @@ else
 	b.on("rpc", function( adr, call, args)
 	{
 	//	log("FN:", adr, call, args);
-	//	log( "- ", call, " = ", args);
 		log( "- FN: ", call );
 
 	});
@@ -636,12 +629,25 @@ b.on("Je", function( adr, To_vbu )
 
 b.heartbeat( 30000 );
 
-
 const VaSy_l = document.getElementById('SaNo_VaSy');
 // VaSy_l.setSelectionRange( 0, 9 );
 VaSy_l.focus();
 
 
+//---------------------------
+// QR
+//---------------------------
+
+const qrCodeContainer = document.getElementById('QRDiv');
+// Clear any existing QR code
+qrCodeContainer.innerHTML = '';
+// Create a new canvas element
+const canvas = document.createElement('canvas');
+qrCodeContainer.appendChild(canvas);
+QRCode.toCanvas(canvas, URL_HUB__Vy_vsg
+	, { width: 200, height: 200 }
+	, function (error) { if (error) { console.error(error); }
+});
 
 //---------------------------
 // WIRES
@@ -663,25 +669,21 @@ function updateWires(count)
 //---------------------------
 document.getElementById("clip").onclick = function(evt)
 {
-	var clientURL = document.location.href + "#" + b.address();
-	copyToClipboard( clientURL );
-	log( "Clip: ", clientURL );
+	copyToClipboard( URL_HUB__Vy_vsg );
+	log( "Clip: ", URL_HUB__Vy_vsg );
 }
 
 
 document.getElementById("email").onclick = function(evt)
 {
-	var clientURL = document.location.href + "#" + b.address();
-
 	//content-type=text/html
-	window.location.href = 'mailto:?subject=Self_Serv Test Link&body=Open Room Link here:\n\n' + encodeURI( clientURL );
+	window.location.href = 'mailto:?subject=Self_Serv Test Link&body=Open Room Link here:\n\n' + encodeURI( URL_HUB__Vy_vsg );
 }
 
 
 document.getElementById("sms").onclick = function(evt)
 {
-	var clientURL = document.location.href + "#" + b.address();
-	window.location.href = 'sms:?body=Click Here: \n\n' + encodeURI(clientURL);
+	window.location.href = 'sms:?body=Click Here: \n\n' + encodeURI(URL_HUB__Vy_vsg);
 }
 
 
@@ -907,38 +909,6 @@ function log()
     document.getElementById("log").textContent += args.join(" ") + "\n";
 }
 
-//---------------------------
-// QR
-// generate a text based qr code
-//---------------------------
-function qr(txt)
-{
-    var q = QRCode.create(txt);
-
-    var code = "\n\n";
-    for (var i=0; i<2; i++) {
-      code += "  ████";
-      for (var j=0; j<q.modules.size; j++) {
-        code += "██";
-      }
-      code += "████\n";
-    }
-    for (var i=0; i<q.modules.size; i++) {
-      code += "  ████";
-      for (var j=0; j<q.modules.size; j++) {
-        code += q.modules.data[i * q.modules.size + j] ? "  " : "██";
-      }
-      code += "████\n";
-    }
-    for (var i=0; i<2; i++) {
-      code += "  ████";
-      for (var j=0; j<q.modules.size; j++) {
-        code += "██";
-      }
-      code += "████\n";
-    }
-    return code + "\n\n";
-}
 
 </script>
 
