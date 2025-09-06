@@ -275,6 +275,8 @@ a:active {
 	<h1 id="VyBzVa" >SELF_SERV: Portal v</h1>
 	<br>
 	<pre id="QRKode" class="QRKode" style="display: none" ></pre>
+	<canvas id="QRImg" width="300" height="300" style="display: block" ></canvas>
+
 	<br>
 
 	<div>
@@ -285,12 +287,27 @@ a:active {
 		<input id="SaNo_VaSy" maxlength="63" value="?" />
 		<br>
 
+		<h2>SELF_SERV: Share Links</h2>
+		<button id="clip">Copy Clipboard</button>
+		<button id="email">Email </button>
+		<button id="sms">TXT (sms)</button>
+		<button id="new_room"><a href="WzFe.html" target="_NEW">Open New Room</a></button>
+		<h3>People in Room: <span id="connected">no</span></h3>
+		<br>
+
+		<h2>LOG_BOX</h2>
+		<p id="log" class="BUF"></p>
+		<br>
+
 		<h3>Your Message:</h3>
-		<!-- <br> -->
+		<br> -->
 		<input id="SaNo_MeKz" maxlength="127" value="?" />
 		<br>
 		<br>
 
+		<h2>MESSAGE_BOX</h2>
+		<p id="messages" class="BUF"></p>
+		<br>
 
 		<h2>SELF_SERV: Actions</h2>
 		<button id="Tst_A">Send Msg</button>
@@ -301,36 +318,7 @@ a:active {
 		<br>
 		<br>
 
-		<h2>SELF_SERV: Share Links</h2>
-		<button id="clip">Copy Clipboard</button>
-		<button id="email">Email </button>
-		<button id="sms">TXT (sms)</button>
-		<button id="new_room"><a href="WzFe.html" target="_NEW">Open New Room</a></button>
-		<h3>People in Room: <span id="connected">no</span></h3>
-		<br>
-
 	</div>
-	<br>
-
-
-	<div id="ui" style="display: none">
-
-		<h2>INPUT</h2>
-		<br>
-		<input id="message" maxlength="279" placeholder="TYPE HERE..."/>
-		<br>
-		<br>
-		<button id="send">Send MSG</button>
-		<br>
-	</div>
-
-
-	<h2>MESSAGE_BOX</h2>
-	<p id="messages" class="BUF"></p>
-	<br>
-
-	<h2>LOG_BOX</h2>
-	<p id="log" class="BUF"></p>
 	<br>
 
 </div>
@@ -435,24 +423,6 @@ if( JOIN_y )
 	log( "SPOKE @", b.address().slice( 0, 4 ), "\n" );
 
 
-
-	// if the user clicks the send button
-	document.getElementById("send").onclick = function(ev)
-	{
-		var m = document.getElementById("message");
-		if (m.value)
-		{
-			msglist.textContent = "Sending message...";
-
-			b.rpc("post", m.value, function ()
-			{
-				// server will send refresh message if messages are changed
-			 	//refreshMessages();
-			});
-			m.value = "";
-		}
-	}
-
 	// watch for connection to the server
 	b.on("server", function()
 	{
@@ -555,6 +525,7 @@ else
 
    	  	//  log(qr(clientURL));
 		document.getElementById("QRKode").textContent = qr(clientURL);
+
 		document.getElementById("QRKode").style.display = "block";
 	}
 
@@ -682,11 +653,6 @@ b.on("wireleft", updateWires);
 
 function updateWires(count)
 {
-  if (count)
-  {
-    document.getElementById("ui").style.display = "block";
-  }
-
   // b.torrent.wires.length
   document.getElementById("connected").textContent = count ? "yes ( " + count + " )" : "no";
 
