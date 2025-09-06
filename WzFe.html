@@ -301,15 +301,16 @@ a:active {
 	<br>
 	<br>
 
-	<div class="BOX" >
+	<div id ="TaKeDruGry" class="BOX" >
 	<h2>#2 MESSAGES</h2>
 		<h3>Your Message:</h3>
 		<input id="SaNo_MeKz" maxlength="127" value="?" />
 		<br>
+		<br>
+		<button id="MeKz_Me">Send Msg</button>
+		<br>
 		<h3>Message History:</h3>
 		<p id="messages" class="BUF"></p>
-		<button id="Tst_A">Send Msg</button>
-		<br>
 	</div>
 	<br>
 	<br>
@@ -442,6 +443,22 @@ if( JOIN_y )
 	});
 
 
+document.getElementById("MeKz_Me").onclick = function(ev)
+{
+  var m = document.getElementById("SaNo_MeKz");
+  if (m.value)
+  {
+    msglist.textContent = "Sending message...";
+    b.rpc("post", m.value, function ()
+	{
+      // refreshMessages();
+      // server will send refresh message if messages are changed
+    });
+    m.value = "?";
+  }
+}
+
+
 	b.on("message", function( adr, msg)
 	{
 		if (msg == "refresh")
@@ -450,7 +467,7 @@ if( JOIN_y )
 		}
 		else
 		{
-			log("- MSG( Spoke ):", adr.slice( 0, 4 ), msg);
+			//  log("- MSG( Spoke ):", adr.slice( 0, 4 ), msg);
 		}
 	});
 
@@ -472,6 +489,7 @@ else
 	URL_HUB__Vy_vsg = document.location.href + "#" + b.address();
 
 
+
 	// log this server's address
 	log( "- HUB @", b.address().slice( 0, 4 ), "\n" );
 
@@ -485,6 +503,7 @@ else
 	{ messages = []; }
 
 
+	document.getElementById("TaKeDruGry").style.display = "none";
 
 	//---------------------------
 	//---------------------------
@@ -494,7 +513,7 @@ else
 	  {
 		  var m = {address: adr, m: message, t: (new Date()).getTime()};
 
-		  log("messageboard:", m);
+		 // log("messageboard:", m);
 
 		  messages.push(m);
       		messages = messages.slice(Math.max(0, messages.length - 8 ));
@@ -541,7 +560,7 @@ else
   	//---------------------------
 	// MSG
 	//---------------------------
-	b.on("message", function( adr, msg) { log( "- MSG( Hub ): ", adr.slice( 0, 4 ), msg ); });
+	// b.on("message", function( adr, msg) { log( "- MSG( Hub ): ", adr.slice( 0, 4 ), msg ); });
 
 
 	//---------------------------
@@ -551,7 +570,7 @@ else
 	b.on("rpc", function( adr, call, args)
 	{
 	//	log("FN:", adr, call, args);
-		log( "- FN: ", call );
+	//	log( "- FN: ", call );
 
 	});
 }
@@ -695,9 +714,9 @@ document.getElementById("sms").onclick = function(evt)
 // ARROWS
 //---------------------------
 
-	document.getElementById("Tst_A").onclick = function(evt)
+	document.getElementById("ChyGe__GxZe").onclick = function(evt)
 	{
-		log( "\n- Tst_A @ ", b.Fe_vsg().toString() );
+		log( "\n- ChyGe__GxZe @ ", b.Fe_vsg().toString() );
 		KeDru__Fo_wu++;
 
 		// DATA
@@ -877,7 +896,6 @@ function refreshMessages()
 {
   msglist.textContent = "Refreshing messages...";
 
-
   // get a list of the messages
   b.rpc("list", null, function(messages)
   {
@@ -885,6 +903,7 @@ function refreshMessages()
   });
 
 }
+
 
 function updateMessagelist(messages)
 {
