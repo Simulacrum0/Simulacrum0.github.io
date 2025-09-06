@@ -192,7 +192,8 @@ a:active {
 	{
 		border-color: #DD5;
     	border-radius: 32px;
-		border-style: groove;
+		border-style: double;
+		border-width: 8px;
 		padding: 1em 1em;
 	}
 
@@ -288,7 +289,7 @@ a:active {
 
 		<h3>People in Room: <span id="connected">no</span></h3>
 		<h3>Your Name:</h3>
-		<input id="SaNo_VaSy" maxlength="63" value="?" />
+		<input id="SaNo_VaSy" maxlength="63" value="?" style="width: 50%;" />
 		<br>
 		<div id="QRDiv"></div>
 		<br>
@@ -305,6 +306,7 @@ a:active {
 		<h3>Your Message:</h3>
 		<input id="SaNo_MeKz" maxlength="127" value="?" />
 		<br>
+		<h3>Message History:</h3>
 		<p id="messages" class="BUF"></p>
 		<button id="Tst_A">Send Msg</button>
 		<br>

@@ -1516,10 +1516,10 @@ class BaseSurface {
 
 
 //==============================================
-// DRAW
+// BEGIN CLASS DRAW
 //==============================================
-
-class Drawing extends BaseSurface {
+class Drawing extends BaseSurface
+{
 	initializeSmoothSurface() {
 		const props = this.initWebGL2({
 			uniforms: {
@@ -1669,7 +1669,12 @@ class Drawing extends BaseSurface {
 		this.initialized = true;
 	}
 
-	drawPass() {
+
+//==============================================
+//
+//==============================================
+drawPass()
+{
 		this.surface.fromToRender = undefined;
 		this.drawUniforms.inputTexture = this.renderTargets[this.renderIndex].texture;
 
@@ -1697,7 +1702,8 @@ class Drawing extends BaseSurface {
 
 		this.surface.lastPoint = this.surface.currentPoint;
 
-		if (this.scaling > 1.0) {
+		if (this.scaling > 1.0)
+		{
 			this.drawUniforms.inputTexture = this.renderTargetsHigh[this.renderIndexHigh].texture;
 			this.renderIndexHigh = 1 - this.renderIndexHigh;
 			this.drawUniforms.scale = this.scaling;
@@ -1706,18 +1712,27 @@ class Drawing extends BaseSurface {
 			this.render();
 			this.drawUniforms.scale = 1.0;
 			this.drawPassTextureHigh = this.renderTargetsHigh[this.renderIndexHigh].texture;
-		} else {
+		}
+		else
+		{
 			this.drawPassTextureHigh = this.renderTargets[this.renderIndex].texture;
 		}
 
 		return toReturn;
-	}
-
-	renderPass() {
+}
+//==============================================
+//
+//==============================================
+renderPass()
+{
 		this.drawPass();
 		this.renderer.setRenderTarget(null);
 		this.render();
-	}
+}
+
+//==============================================
+// END CLASS DRAW
+//==============================================
 }
 
 
@@ -2376,7 +2391,12 @@ initializeParameters(setUniforms)
 		}
 	}
 
-	triggerDraw() {
+
+//==============================================
+// TRIGGER DRAW
+//==============================================
+	triggerDraw()
+	{
 		if (this.overlay) {
 			this.renderer.setRenderTarget(null);
 			this.render();
@@ -2384,6 +2404,11 @@ initializeParameters(setUniforms)
 		}
 		super.triggerDraw();
 	}
+
+
+//==============================================
+// CANVAS CHG
+//==============================================
 
 	canvasModifications() {
 		return {
@@ -2431,6 +2456,7 @@ initializeParameters(setUniforms)
 		}
 
 		const halfway = Math.floor((this.firstLayer - this.lastLayer) / 2);
+
 		const last = this.frame == 0 && !this.forceFullPass ? halfway + 1 : this.lastLayer;
 		this.rcPassCount = this.frame == 0 ? this.firstLayer : halfway;
 
@@ -2524,6 +2550,9 @@ initializeParameters(setUniforms)
 		}
 	}
 
+//==============================================
+//
+//==============================================
 	animate() {
 		this.animating = true;
 
@@ -2539,6 +2568,9 @@ initializeParameters(setUniforms)
 		});
 	}
 
+//==============================================
+//
+//==============================================
 	clear() {
 		this.lastFrame = null;
 		if (this.initialized) {
@@ -2550,6 +2582,9 @@ initializeParameters(setUniforms)
 		super.clear();
 	}
 
+//==============================================
+//
+//==============================================
 	// LOAD ADD EVENTS
 	load()
 	{
