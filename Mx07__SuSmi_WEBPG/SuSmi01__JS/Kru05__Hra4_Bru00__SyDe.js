@@ -364,7 +364,6 @@
                         }
                     }
 
-
                     module.exports = Bugout;
                     var debug = require( "debug" )( "bugout" ),
                         WebTorrent = require( "webtorrent" ),
@@ -380,9 +379,6 @@
 
 
 
-
-
-
                     Bugout.prototype.Fe_vsg = function Fe_vsg()
                     {
                         var d = new Date();
@@ -391,10 +387,9 @@
 
                     Bugout.prototype.Me = function( adr, To_vbu )
                     {
+                        if ( !To_vbu ) return;
                         //$$$
                         //console.log( "Me[ " + To_vbu.length + " ] = " + To_vbu.toString() );
-
-                        if ( !To_vbu ) return;
 
                         // PKT
                         var packet = makePacket( this,

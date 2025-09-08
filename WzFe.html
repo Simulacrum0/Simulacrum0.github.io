@@ -728,7 +728,7 @@ document.getElementById("sms").onclick = function(evt)
 
 	document.getElementById("ChyGe__GxZo").onclick = function(evt)
 	{
-	//	log( "\n- ChyGe__GxZo @ ", b.Fe_vsg().toString() );
+		log( "\n- ChyGe__GxZo @ ", b.Fe_vsg().toString() );
 		KeDru__Fo_wu++;
 
 		var To_vbu = new Uint8Array( 16 );
@@ -772,7 +772,7 @@ document.getElementById("sms").onclick = function(evt)
 
 	document.getElementById("ChyGe__GxZe").onclick = function(evt)
 	{
-		//log( "\n- ChyGe__GxZe @ ", b.Fe_vsg().toString() );
+		log( "\n- ChyGe__GxZe @ ", b.Fe_vsg().toString() );
 		KeDru__Fo_wu++;
 
 		var To_vbu = new Uint8Array( 16 );
@@ -791,38 +791,11 @@ document.getElementById("sms").onclick = function(evt)
 
 		try{ b.Me( null, To_vsu ); } catch(e){ log( "Me FAILED" ); }
 
-
-		/* let wrc = window.radianceCascades;
-
-		wrc.clear();
-		let last = undefined;
-
-		// wrc.isDrawing = true;
-		return new Promise((resolve) =>
-		{
-				wrc.setHex("#f9a875");
-				requestAnimationFrame(() => wrc.draw(last, 0, false, resolve));
-			})
-			 .then(() => new Promise((resolve) =>
-			{
-				last = undefined;
-				requestAnimationFrame(() => {
-					wrc.setHex("#000000");
-					requestAnimationFrame(() => wrc.draw(last, 0, true, resolve));
-				});
-			})) */
-
-			/* .then(() => {
-				wrc.isDrawing = false;
-				wrc.renderPass();
-				requestAnimationFrame(() => wrc.setHex("#fff6d3"));
-			}); */
-
 	}
 
 	document.getElementById("ChyGe__GaZo").onclick = function(evt)
 	{
-		//log( "\n- LIST Peers @ ", b.Fe_vsg().toString() );
+		log( "\n- LIST Peers @ ", b.Fe_vsg().toString() );
 		KeDru__Fo_wu++;
 
 		var To_vbu = new Uint8Array( 16 );
