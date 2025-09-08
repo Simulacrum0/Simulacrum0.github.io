@@ -1532,25 +1532,27 @@ class BaseSurface
 
 
         // this.isDrawing = true;
-        return new Promise( ( resolve ) =>
-            {
-                this.setHex( "#f9a875" );
-                requestAnimationFrame( () => this.draw( last, 0, false, resolve ) );
-            } ).then( () => new Promise( ( resolve ) =>
-            {
-                last = undefined;
-                requestAnimationFrame( () =>
-                {
-                    this.setHex( "#000000" );
-                    requestAnimationFrame( () => this.draw( last, 0, true, resolve ) );
-                } );
-            } ) )
-            .then( () =>
-            {
+        // return new Promise( ( resolve ) =>
+        //     {
+        //         this.setHex( "#f9a875" );
+        //         requestAnimationFrame( () => this.draw( last, 0, false, resolve ) );
+        //     } )
+		// 	.then( () => new Promise( ( resolve ) =>
+        //     {
+        //         last = undefined;
+        //         requestAnimationFrame( () =>
+        //         {
+        //             this.setHex( "#000000" );
+        //             requestAnimationFrame( () => this.draw( last, 0, true, resolve ) );
+        //         } );
+        //     } ) )
+        //     .then( () =>
+        //     {
+
                 this.isDrawing = false;
                 this.renderPass();
                 requestAnimationFrame( () => this.setHex( "#fff6d3" ) );
-            } );
+            // } );
 
     }
 
@@ -1563,47 +1565,48 @@ class BaseSurface
             return;
         }
 
-        const angle = ( t * 0.05 ) * Math.PI * 2;
+        // const angle = ( t * 0.05 ) * Math.PI * 2;
 
-        let
-        {
-            x,
-            y
-        } = isShadow
-            ?
-            {
-                x: 90 + 16 * t,
-                y: 300 + 0 * t,
-            } :
-            {
-                x: 100 + 100 * Math.sin( angle + 1.0 ) * Math.cos( angle * 0.25 ),
-                y: 50 + 100 * Math.sin( angle * 0.7 )
-            };
+        // let
+        // {
+        //     x,
+        //     y
+        // } = isShadow
+        //     ?
+        //     {
+        //         x: 90 + 16 * t,
+        //         y: 300 + 0 * t,
+        //     } :
+        //     {
+        //         x: 100 + 100 * Math.sin( angle + 1.0 ) * Math.cos( angle * 0.25 ),
+        //         y: 50 + 100 * Math.sin( angle * 0.7 )
+        //     };
 
-        if ( this.canvasScale != null )
-        {
-            x /= this.canvasScale;
-            y /= this.canvasScale;
-        }
+        // if ( this.canvasScale != null )
+        // {
+        //     x /= this.canvasScale;
+        //     y /= this.canvasScale;
+        // }
 
-        last ??=
-        {
-            x,
-            y
-        };
+        // last ??=
+        // {
+        //     x,
+        //     y
+        // };
 
-        this.surface.drawSmoothLine( last,
-        {
-            x,
-            y
-        } );
-        last = {
-            x,
-            y
-        };
+        // this.surface.drawSmoothLine( last,
+        // {
+        //     x,
+        //     y
+        // } );
+        // last = {
+        //     x,
+        //     y
+        // };
 
-        const step = instantMode ? 5.0 : ( isShadow ? 0.7 : 0.3 );
-        requestAnimationFrame( () => this.draw( last, t + step, isShadow, resolve ) );
+        // const step = instantMode ? 5.0 : ( isShadow ? 0.7 : 0.3 );
+        // requestAnimationFrame( () => this.draw( last, t + step, isShadow, resolve ) );
+
     }
 
     buildCanvas()
@@ -2928,11 +2931,11 @@ const dp = urlParams.get( 'pixelRatio' ) ?? 2.0;
 const rcScale = urlParams.get( 'rcScale' ) ?? dp;
 const classic = urlParams.get( 'classic' );
 
-const widthParam = widthString ? parseInt(widthString) : (isMobile ? 256 : 512);
-const heightParam = heightString ? parseInt(heightString) : (isMobile ? 256 : 512);
+// const widthParam = widthString ? parseInt(widthString) : (isMobile ? 256 : 512);
+// const heightParam = heightString ? parseInt(heightString) : (isMobile ? 256 : 512);
 
-// const widthParam = widthString ? parseInt( widthString ) : 256;
-// const heightParam = heightString ? parseInt( heightString ) : 256;
+const widthParam = widthString ? parseInt( widthString ) : 256;
+const heightParam = heightString ? parseInt( heightString ) : 256;
 
 let [ width, height ] = [ widthParam, heightParam ];
 
