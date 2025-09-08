@@ -595,11 +595,8 @@ function intializeCanvas(
 
 
 
-    canvas.addEventListener( 'touchstart', startDrawing,
-    {
-        passive: true
-    } );
-    canvas.addEventListener( 'mousedown', startDrawing );
+    canvas.addEventListener( 'touchstart', startDrawing, { passive: false } );
+    canvas.addEventListener( 'mousedown', startDrawing, { passive: false } );
 
     canvas.addEventListener( 'mouseenter', ( e ) =>
     {
@@ -608,13 +605,14 @@ function intializeCanvas(
             startDrawing( e );
         }
     } );
-    canvas.addEventListener( 'mousemove', onMouseMove );
-    canvas.addEventListener( 'touchmove', onMouseMove,
-    {
-        passive: true
-    } );
-    canvas.addEventListener( 'mouseup', ( e ) => stopDrawing( e, false ) );
+
+    canvas.addEventListener( 'mousemove', onMouseMove, { passive: false } );
+    canvas.addEventListener( 'touchmove', onMouseMove, { passive: false } );
+
+
+	canvas.addEventListener( 'mouseup', ( e ) => stopDrawing( e, false ) );
     canvas.addEventListener( 'touchend', ( e ) => stopDrawing( e, false ) );
+
     canvas.addEventListener( 'touchcancel', ( e ) => stopDrawing( e, true ) );
     canvas.addEventListener( 'mouseleave', ( e ) => stopDrawing( e, true ) );
 
@@ -725,7 +723,8 @@ class PaintableCanvas
         {
             console.error( e );
         }
-        console.log( "STARTED DRAWING;" )
+
+        // console.log( "STARTED DRAWING;" )
         this.mouseMoved = false;
     }
 
@@ -784,17 +783,25 @@ class PaintableCanvas
             let len = Math.max( dist - Math.sqrt( this.RADIUS ), 0 );
             let ease = 1 - Math.pow( this.FRICTION, 1 / 60 * 10 );
 
-            this.currentPoint = {
+            this.currentPoint =
+			{
                 x: this.currentPoint.x + dir.x * len * ease,
                 y: this.currentPoint.y + dir.y * len * ease
             };
+
+
+			//if( ( this.lastPoint.x != this.currentPoint.x ) ||
+			{
+			}
+			this.drawSmoothLine( this.lastPoint, this.currentPoint );
+
         }
         else
         {
             this.currentPoint = newPoint;
         }
 
-        this.drawSmoothLine( this.lastPoint, this.currentPoint );
+
     }
 
 
@@ -2921,10 +2928,11 @@ const dp = urlParams.get( 'pixelRatio' ) ?? 2.0;
 const rcScale = urlParams.get( 'rcScale' ) ?? dp;
 const classic = urlParams.get( 'classic' );
 
-// const widthParam = widthString ? parseInt(widthString) : (isMobile ? 300 : 512);
-// const heightParam = heightString ? parseInt(heightString) : (isMobile ? 400 : 512);
-const widthParam = widthString ? parseInt( widthString ) : 256;
-const heightParam = heightString ? parseInt( heightString ) : 256;
+const widthParam = widthString ? parseInt(widthString) : (isMobile ? 256 : 512);
+const heightParam = heightString ? parseInt(heightString) : (isMobile ? 256 : 512);
+
+// const widthParam = widthString ? parseInt( widthString ) : 256;
+// const heightParam = heightString ? parseInt( heightString ) : 256;
 
 let [ width, height ] = [ widthParam, heightParam ];
 

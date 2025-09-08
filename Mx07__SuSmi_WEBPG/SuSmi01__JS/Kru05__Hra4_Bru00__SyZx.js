@@ -19,7 +19,7 @@ var ripemd160 = require( "ripemd160" );
 inherits( Bugout, EventEmitter );
 
 
-var EXT = "bo_channel";
+var EXT = "KoKri_CHN";
 
 var PEERTIMEOUT = 5 * 60 * 1000;
 

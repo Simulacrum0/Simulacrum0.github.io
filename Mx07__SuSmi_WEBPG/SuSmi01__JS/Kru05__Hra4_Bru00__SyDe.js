@@ -142,7 +142,7 @@
 
                     function sendRaw( bugout, message )
                     {
-                        for ( var wires = bugout.torrent.wires, w = 0, extendedhandshake; w < wires.length; w++ ) extendedhandshake = wires[ w ].peerExtendedHandshake, extendedhandshake && extendedhandshake.m && extendedhandshake.m.bo_channel && wires[ w ].extended( "bo_channel", message );
+                        for ( var wires = bugout.torrent.wires, w = 0, extendedhandshake; w < wires.length; w++ ) extendedhandshake = wires[ w ].peerExtendedHandshake, extendedhandshake && extendedhandshake.m && extendedhandshake.m.KoKri_CHN && wires[ w ].extended( "KoKri_CHN", message );
                         var hash = toHex( nacl.hash( message ).slice( 16 ) );
                         debug( "sent", hash, "to", wires.length, "wires" )
                     }
@@ -326,7 +326,7 @@
                     function extension( bugout, identifier, wire )
                     {
                         var ext = partial( wirefn, bugout, identifier );
-                        return ext.prototype.name = "bo_channel", ext.prototype.onExtendedHandshake = partial( onExtendedHandshake, bugout, identifier, wire ), ext.prototype.onMessage = partial( onMessage, bugout, identifier, wire ), ext
+                        return ext.prototype.name = "KoKri_CHN", ext.prototype.onExtendedHandshake = partial( onExtendedHandshake, bugout, identifier, wire ), ext.prototype.onMessage = partial( onMessage, bugout, identifier, wire ), ext
                     }
 
                     function wirefn( bugout, identifier, wire )
@@ -399,9 +399,11 @@
                         } );
 
                         // CRYPT
-                        // if (adr)
-                        // 	if (this.peers[adr]) packet = encryptPacket(this, this.peers[adr].pk, packet);
-                        // 	else throw adr + " not seen - no public key.";
+                        if (adr)
+                        {
+							if (this.peers[adr]) packet = encryptPacket(	this, this.peers[adr].pk, packet	);
+                        	else throw adr + " not seen - no public key.";
+						}
 
                         // SEND
                         sendRaw( this, packet );
