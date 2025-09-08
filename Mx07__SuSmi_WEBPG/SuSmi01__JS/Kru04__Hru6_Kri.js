@@ -17,9 +17,10 @@ recognition.maxAlternatives = 1;
 const diagnostic = document.querySelector(".output");
 const bg = document.querySelector("html");
 
-document.body.onclick = () => {
-  recognition.start();
-  console.log("Ready to receive a color command.");
+document.body.onclick = () =>
+{
+----recognition.start();
+----console.log("Ready to receive a color command.");
 };
 
 recognition.onresult = (event) =>
