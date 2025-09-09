@@ -466,6 +466,7 @@
 	// Starting Coords
     var GeGx = 128;
     var GeGa = 128;
+	var GeKwe = 5;
 
 
     // PROG BEGIN
@@ -644,16 +645,12 @@
 
     //@@@
     // END JOIN or HUB
-
     b.on( "Je", function( adr, To_vbu )
     {
-        //	log( "- Je[ ", adr.slice( 0, 4 ), " ]: ", To_vbu );
+        log( "- MiJe[ ", adr.slice( 0, 4 ), " ]: ", To_vbu );
 
-        var To_vsu = new Uint16Array( To_vbu );
-        /*
-        		log( "su[ 0 ]: ", To_vsu[ 0 ] );
-        		log( "su[ 1 ]: ", To_vsu[ 1 ] );
-        		log( "su[ 2 ]: ", To_vsu[ 2 ] ); */
+		// WRONG BUG
+        const JyNo = new DataView( To_vbu.buffer, To_vbu.offset, To_vbu.byteLength );
 
         switch ( To_vbu[ 0 ] )
         {
@@ -676,42 +673,46 @@
                 //&&&
                 // MAP UPDATE
             case 3:
-                /*
-                		let GeYa = { x: To_vsu[ 2 ], y: To_vsu[ 3 ] };
-                		let GeYi = { x: To_vsu[ 4 ], y: To_vsu[ 5 ] }; */
+
+			// JyNo.getUint8( 0 );
+			// JyNo.getUint8( 1 );
+
+			// Brush Size
+			let DriGy_su = JyNo.getUint16( 2, true );
+
+			// Color
+			let Po_wu = JyNo.getUint32( 4, true );
 
 
-                let GeYa = {
-                    x: To_vsu[ 4 ],
-                    y: To_vsu[ 6 ]
-                };
-                let GeYi = {
-                    x: To_vsu[ 8 ],
-                    y: To_vsu[ 10 ]
-                };
+			let GeYa =
+			{
+				x: JyNo.getUint16( 8, true ),
+				y: JyNo.getUint16( 10, true )
+			};
+
+			let GeYi =
+			{
+				x: JyNo.getUint16( 12, true ),
+				y: JyNo.getUint16( 14, true )
+			};
 
 
-                //log( "GeYa ", GeYa, " GeYi ", GeYi );
+			const DriGy_hex = DriGy_su.toString(16);
+			const Po_hex = Po_wu.toString(16);
+			log( "-- Mi: GeYa: ", GeYa, " GeYi: ", GeYi, " DriGy: ", DriGy_hex, " Po: ", Po_hex );
 
-                let wrc = window.radianceCascades;
-                return new Promise( ( resolve ) =>
-                    {
-                        //wrc.clear();
-                        //wrc.setHex("#FFAA00FF");
-                        // wrc.setHex("#000000FF");
-
-                        wrc.surface.drawSmoothLine( GeYa, GeYi );
-                        // wrc.surface.drawSmoothLine( { x:150, y:0 }, { x:150, y:300 } );
-
-                    } )
-                    .then( () =>
-                    {
-                        wrc.isDrawing = false;
-                        wrc.renderPass();
-                        requestAnimationFrame();
-                    } );
-
-
+			let wrc = window.radianceCascades;
+			return new Promise( ( resolve ) =>
+			{
+				// wrc.setHex( "#FFAA00FF" );
+				wrc.surface.drawSmoothLine( GeYa, GeYi );
+			} )
+			.then( () =>
+			{
+			wrc.isDrawing = false;
+			wrc.renderPass();
+			requestAnimationFrame();
+			} );
                 break;
         }
 
@@ -736,7 +737,6 @@
     //---------------------------
     // QR
     //---------------------------
-
     const qrCodeContainer = document.getElementById( 'QRDiv' );
     // Clear any existing QR code
     qrCodeContainer.innerHTML = '';
@@ -810,12 +810,12 @@
 
 
     //---------------------------
-    // ARROWS
+    // TXT_MSG
     //---------------------------
-
-    document.getElementById( "ChyGe__GxZe" ).onclick = function( evt )
+	/*
+    document.getElementById( "ChyKeDruKz" ).onclick = function( evt )
     {
-        log( "\n- ChyGe__GxZe @ ", b.Fe_vsg().toString() );
+        // log( "\n- ChyGe__GxZe @ ", b.Fe_vsg().toString() );
         KeDru__Fo_wu++;
 
         // DATA
@@ -824,132 +824,48 @@
         To_vbu[ 1 ] = KeDru__Fo_wu;
         try
         {
-            b.Me( null, To_vbu );
-        }
-        catch ( e )
-        {
-            log( "Me FAILED" );
-        }
-
-    }
-
-    document.getElementById( "ChyGe__GxZo" ).onclick = function( evt )
-    {
-        // log( "\n- ChyGe__GxZo @ ", b.Fe_vsg().toString() );
-        KeDru__Fo_wu++;
-
-        var To_vbu = new Uint8Array( 16 );
-        To_vbu[ 0 ] = 3;
-        To_vbu[ 1 ] = KeDru__Fo_wu;
-
-        let To_vsu = new Uint16Array( To_vbu.buffer );
-
-        To_vsu[ 2 ] = GeGx;
-        To_vsu[ 3 ] = GeGa;
-
-        GeGx += 15;
-
-
-        To_vsu[ 4 ] = GeGx;
-        To_vsu[ 5 ] = GeGa;
-
-        try
-        {
-            b.Me( null, To_vsu );
+            b.Me( b.address(), To_vbu );
         }
         catch ( e )
         {
             log( "Me FAILED" );
         }
     }
+	*/
 
-    document.getElementById( "ChyGe__GxZe" ).onclick = function( evt )
-    {
-        // log( "\n- ChyGe__GxZe @ ", b.Fe_vsg().toString() );
-        KeDru__Fo_wu++;
+    //---------------------------
+    // SEND_DRAW
+    //---------------------------
+	function Me_ChyDri( GxVu, GaVu )
+	{
+		log( "\n- ChyGe__GxZo @ ", b.Fe_vsg().toString() );
+		KeDru__Fo_wu++;
 
-        var To_vbu = new Uint8Array( 16 );
-        To_vbu[ 0 ] = 3;
-        To_vbu[ 1 ] = KeDru__Fo_wu;
+		const To_vbu = new ArrayBuffer( 16 );
+		const JyNo = new DataView( To_vbu );
 
-        let To_vsu = new Uint16Array( To_vbu.buffer );
 
-        To_vsu[ 2 ] = GeGx;
-        To_vsu[ 3 ] = GeGa;
+        JyNo.setUint8( 0, 0x3 );
+        JyNo.setUint8( 1, KeDru__Fo_wu );
 
-        GeGx -= 5;
+		// Brush Size
+        JyNo.setUint16( 2, 0x55AA );
 
-        To_vsu[ 4 ] = GeGx;
-        To_vsu[ 5 ] = GeGa;
+		// Color
+		JyNo.setUint32( 4, 0x03020100, true );
 
-        try
-        {
-            b.Me( null, To_vsu );
-        }
-        catch ( e )
-        {
-            log( "Me FAILED" );
-        }
+		JyNo.setUint16( 8, GeGx, true );
+		JyNo.setUint16( 10, GeGa, true );
 
-    }
+		log( "-- Me: GeYa x: ", GeGx, " y: ", GeGa );
 
-    document.getElementById( "ChyGe__GaZo" ).onclick = function( evt )
-    {
-        // log( "\n- LIST Peers @ ", b.Fe_vsg().toString() );
-        KeDru__Fo_wu++;
+        GeGx += GxVu;
+        GeGa += GaVu;
 
-        var To_vbu = new Uint8Array( 16 );
-        To_vbu[ 0 ] = 3;
-        To_vbu[ 1 ] = KeDru__Fo_wu;
+		JyNo.setUint16( 12, GeGx, true );
+		JyNo.setUint16( 14, GeGa, true );
 
-        let To_vsu = new Uint16Array( To_vbu.buffer );
-
-        To_vsu[ 2 ] = GeGx;
-        To_vsu[ 3 ] = GeGa;
-
-        GeGa -= 5;
-
-        To_vsu[ 4 ] = GeGx;
-        To_vsu[ 5 ] = GeGa;
-
-        try
-        {
-            b.Me( null, To_vsu );
-        }
-        catch ( e )
-        {
-            log( "Me FAILED" );
-        }
-    }
-
-    document.getElementById( "ChyGe__GaZe" ).onclick = function( evt )
-    {
-        //log( "\n- LIST Peers @ ", b.Fe_vsg().toString() );
-        KeDru__Fo_wu++;
-
-        var To_vbu = new Uint8Array( 16 );
-        To_vbu[ 0 ] = 3;
-        To_vbu[ 1 ] = KeDru__Fo_wu;
-
-        let To_vsu = new Uint16Array( To_vbu.buffer );
-
-        To_vsu[ 2 ] = GeGx;
-        To_vsu[ 3 ] = GeGa;
-
-        GeGa += 5;
-
-        To_vsu[ 4 ] = GeGx;
-        To_vsu[ 5 ] = GeGa;
-
-        try
-        {
-            b.Me( null, To_vsu );
-        }
-        catch ( e )
-        {
-            log( "Me FAILED" );
-        }
-
+		log( "GeYi x: ", GeGx, " y: ", GeGa );
 
         /* let wrc = window.radianceCascades;
 		wrc.reset();
@@ -961,7 +877,50 @@
 	  	 	log( "- Person[", i, "]: ", adr.slice( 0, 4 ) );
 			i++;
 		} */
-    }
+
+
+        try
+        {
+	        b.Me( null, To_vbu );
+        }
+        catch ( e )
+        {
+            log( "Me FAILED" );
+        }
+
+
+		let GeYa =
+		{
+			x: JyNo.getUint16( 8, true ),
+			y: JyNo.getUint16( 10, true )
+		};
+
+		let GeYi =
+		{
+			x: JyNo.getUint16( 12, true ),
+			y: JyNo.getUint16( 14, true )
+		};
+
+		log( "-- TSTO: GeYa ", GeYa, " GeYi ", GeYi );
+
+	}
+
+
+    //---------------------------
+    // ARROWS
+    //---------------------------
+    document.getElementById( "ChyGe__GxZo" ).onclick = function( evt )
+    { Me_ChyDri( GeKwe, 0 ); }
+
+    document.getElementById( "ChyGe__GxZe" ).onclick = function( evt )
+    { Me_ChyDri( -GeKwe, 0 ); }
+
+	document.getElementById( "ChyGe__GaZo" ).onclick = function( evt )
+    { Me_ChyDri( 0, GeKwe ); }
+
+    document.getElementById( "ChyGe__GaZe" ).onclick = function( evt )
+    { Me_ChyDri( 0, GeKwe ); }
+
 
     //---------------------------
     // UTILITY FUNCTIONS
@@ -977,7 +936,6 @@
         } );
 
     }
-
 
     function updateMessagelist( messages )
     {

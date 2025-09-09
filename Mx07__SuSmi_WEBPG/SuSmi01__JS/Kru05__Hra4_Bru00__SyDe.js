@@ -401,7 +401,7 @@
                         // CRYPT
                         if (adr)
                         {
-							if (this.peers[adr]) packet = encryptPacket(	this, this.peers[adr].pk, packet	);
+							if (this.peers[adr]) packet = encryptPacket( this, this.peers[adr].pk, packet );
                         	else throw adr + " not seen - no public key.";
 						}
 

@@ -512,17 +512,18 @@ function intializeCanvas(
       <div style="display: flex; flex-direction: column; justify-content: space-between;">
           <div id="${id}-color-picker" style="display: flex; flex-direction: column;  border: solid 1px white; margin: 1px;">
             <input type="color" id="${id}-color-input" value="#ffffff" style="width: 20px; height: 20px; padding: 0; border: none;" >
+			<br>
         </div>
         <div style="display: flex; flex-direction: column; gap: 2px">
+		<br>
         ${sunMoonDom}
         ${clearDom}
         ${resetDom}
         </div>
       </div>
-
-      <div id="${id}-canvas-container"></div>
-
+    <div id="${id}-canvas-container"></div>
   </div>`;
+
     const colorInput = document.getElementById( `${id}-color-input` );
 
     function setColor( r, g, b, a )
@@ -592,7 +593,6 @@ function intializeCanvas(
     } );
     const container = document.querySelector( `#${id}-canvas-container` );
     container.appendChild( canvas );
-
 
 
     canvas.addEventListener( 'touchstart', startDrawing, { passive: false } );
