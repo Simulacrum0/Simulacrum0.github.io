@@ -365,7 +365,7 @@
                     }
 
                     module.exports = Bugout;
-                    var debug = require( "debug" )( "bugout" ),
+                    var debug = require( "debug" )( "HraBru" ),
                         WebTorrent = require( "webtorrent" ),
                         bencode = require( "bencode" ),
                         nacl = require( "tweetnacl" ),
@@ -389,7 +389,8 @@
                     {
                         if ( !To_vbu ) return;
                         //$$$
-                        //console.log( "Me[ " + To_vbu.length + " ] = " + To_vbu.toString() );
+                        console.log( "Me = " + To_vbu.toString() );
+                        // console.log( "Me[ " + To_vbu.length + " ] = " + To_vbu.buffer.toString() );
 
                         // PKT
                         var packet = makePacket( this,

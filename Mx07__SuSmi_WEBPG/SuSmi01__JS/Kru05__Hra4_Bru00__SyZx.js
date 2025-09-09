@@ -26,7 +26,73 @@ var PEERTIMEOUT = 5 * 60 * 1000;
 var SEEDPREFIX = "490a";
 var ADDRESSPREFIX = "55";
 
+/*
+enum PacketType
+{
+	Disconnect = 'x',
+		Ping = 'p',
+		Message = 'm',
+}
+const PACKETS =
+{
+	DISCONNECT:
+	{
+		y: PacketType.Disconnect
+	},
+	PING:
+	{
+		y: PacketType.Ping
+	},
+};
 
+type P2PClientOptions =
+{
+	seed ? : string;
+};
+
+type PeerData =
+{
+	publicKey: string;
+	encryptionKey: string;
+	lastSeen: number;
+};
+
+type BasicPacket =
+{
+	y: PacketType;
+	[ key: string ]: any;
+};
+
+type PreparedPacket = BasicPacket &
+{
+	// current time
+	t: number;
+	// identifier of sender
+	i: string;
+	// public key of sender
+	pk: string;
+	// encryption key of sender
+	ek: string;
+	// nonce
+	n: Uint8Array;
+};
+
+type SignedPacket =
+{
+	// signature
+	s: Uint8Array;
+	// payload
+	p: any;
+};
+
+type EncryptedPacket =
+{
+		e: any;
+		n: Uint8Array;
+		ek: string;
+};
+
+*/
 
 //=====================================
 // INIT
@@ -700,6 +766,7 @@ function onExtendedHandshake( bugout, identifier, wire, handshake )
 //=====================================
 function now()
 {
+	// UTC-1970
     return ( new Date() ).getTime();
 }
 

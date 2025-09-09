@@ -453,7 +453,7 @@
 <script>
     // VAR
     var connected = false;
-    var JOIN_y = ( window.location.hash.length > 1 ) ? true : false;
+    var SPOKE_y = ( window.location.hash.length > 1 ) ? true : false;
     var msglist = document.getElementById( "messages" );
     var b;
     var messages = [];
@@ -472,10 +472,24 @@
     // PROG BEGIN
     document.getElementById( "VyBzVa" ).textContent += VER_vsg;
 
+	//!!!
+	// CLEAR LOCAL STORAGE
+	// BraHi: 5 MiB
+	// String ONLY
+	// INSECURE
+	// localStorage.clear();
+	log( "Secure:", window.isSecureContext, " LocStore_Fo:", localStorage.length );
+
+
+	//$$$
+	// Sme
+	localStorage.removeItem( "debug" );
+	localStorage.debug = "HraBru";
+
 
     //@@@
-    // JOINER
-    if ( JOIN_y )
+    // SPOKE
+    if ( SPOKE_y )
     {
         var HUB__Vy_vsg = window.location.hash.substr( 1 ) || "bUH7ukDvd9R2xLLRKMKWZ1mGPkgdVfufye";
         b = new Bugout( HUB__Vy_vsg );
@@ -610,19 +624,6 @@
                 // log("FIRST NODE");
                 connected = true;
             }
-            //	log( "- Spoke[ ", c, "] Joined @ ", clientURL );
-        } );
-
-        //---------------------------
-        // log when we see a new client adr
-        //---------------------------
-        b.on( "seen", function( adr )
-        {
-            log( "- Spoke Joined @ ", adr.slice( 0, 4 ) );
-        } );
-        b.on( "left", function( adr )
-        {
-            log( "- Spoke Exited @ ", adr.slice( 0, 4 ) );
         } );
 
         //---------------------------
@@ -635,71 +636,120 @@
         // RPC
         //---------------------------
         // log when a client makes an rpc call
-        b.on( "rpc", function( adr, call, args )
+        /* b.on( "rpc", function( adr, call, args )
         {
             //	log("FN:", adr, call, args);
             //	log( "- FN: ", call );
-
-        } );
+        } ); */
     }
 
     //@@@
-    // END JOIN or HUB
+    // END SPOKE or HUB
+
+
+    //---------------------------
+    // INIT PROG
+    //---------------------------
+    //
+    // log( "Self_ID: ", b.address().slice( 0, 4 ) );
+    // log( " Fam: ", b.localFamily, " Loc: ", b.localAddress, " Rem: ", b.remoteAddress );
+
+	//@@@
+	// PULSE ms
+    b.heartbeat( 5 * 1000 );
+
+
+	//@@@
+	// SELF NAME
+    const VaSy_l = document.getElementById( 'SaNo_VaSy' );
+    VaSy_l.textContent = localStorage.VaSy_l;
+
+	//@@@
+	// MSG
+    const MeKz_l = document.getElementById( 'SaNo_MeKz' );
+
+    MeKz_l.focus();
+
+
+	//---------------------------
+	// log when we see a new client adr
+	//---------------------------
+	b.on( "seen", function( adr )
+	{
+		log( "- Spoke Joined @ ", adr.slice( 0, 4 ) );
+	} );
+	b.on( "left", function( adr )
+	{
+		log( "- Spoke Exited @ ", adr.slice( 0, 4 ) );
+	} );
+
+
+	//---------------------------
+	// EVT_RECV
+	//---------------------------
     b.on( "Je", function( adr, To_vbu )
     {
-        log( "- MiJe[ ", adr.slice( 0, 4 ), " ]: ", To_vbu );
 
-		// WRONG BUG
+
+		//@@@
+		// PKT 'hasa'
         const JyNo = new DataView( To_vbu.buffer, To_vbu.offset, To_vbu.byteLength );
+		const MoJy = JyNo.getUint8( 0 );
 
-        switch ( To_vbu[ 0 ] )
+        switch ( MoJy )
         {
-            //&&&
+			//&&&
             // KEEP_ALIVE_PING
             case 0:
-                break;
+			break;
 
-                //&&&
-                // NAME UPDATE
-            case 1:
-                break;
+			//&&&
+			// NAME UPDATE
+			case 1:
+			log( "- MiJe_NAME[ ", adr.slice( 0, 4 ), " ]: ", To_vbu );
 
-                //&&&
-                // MSG UPDATE
-            case 2:
-                break;
+			break;
+
+			//&&&
+			// BLAB
+			case 2:
+			log( "- MiJe_BLAB[ ", adr.slice( 0, 4 ), " ]: ", To_vbu );
+
+			break;
 
 
-                //&&&
-                // MAP UPDATE
+			//&&&
+			// BRUSH
             case 3:
 
-			// JyNo.getUint8( 0 );
 			// JyNo.getUint8( 1 );
 
 			// Brush Size
-			let DriGy_su = JyNo.getUint16( 2, true );
+			let DriGy_su = JyNo.getUint16( 2 );
 
 			// Color
-			let Po_wu = JyNo.getUint32( 4, true );
+			let Po_wu = JyNo.getUint32( 4 );
 
 
 			let GeYa =
 			{
-				x: JyNo.getUint16( 8, true ),
-				y: JyNo.getUint16( 10, true )
+				x: JyNo.getUint16( 8 ),
+				y: JyNo.getUint16( 10 )
 			};
 
 			let GeYi =
 			{
-				x: JyNo.getUint16( 12, true ),
-				y: JyNo.getUint16( 14, true )
+				x: JyNo.getUint16( 12 ),
+				y: JyNo.getUint16( 14 )
 			};
 
 
-			const DriGy_hex = DriGy_su.toString(16);
-			const Po_hex = Po_wu.toString(16);
-			log( "-- Mi: GeYa: ", GeYa, " GeYi: ", GeYi, " DriGy: ", DriGy_hex, " Po: ", Po_hex );
+			const DriGy_hex = DriGy_su.toString(16).toUpperCase().padStart( 4, '0');
+			const Po_hex = Po_wu.toString(16).toUpperCase().padStart( 7, '0');
+
+
+			//log( "- MiJe_BRUSH[ ", adr.slice( 0, 4 ), " ]" );
+			log( "- MiJe_BRUSH[ ", adr.slice( 0, 4 ), " ] GeYa:", GeYa, " GeYi:", GeYi, " DriGy:", DriGy_hex, " Po:", Po_hex );
 
 			let wrc = window.radianceCascades;
 			return new Promise( ( resolve ) =>
@@ -716,22 +766,7 @@
                 break;
         }
 
-
     } );
-
-
-    //---------------------------
-    // INIT PROG
-    //---------------------------
-    //
-    // log( "Self_ID: ", b.address().slice( 0, 4 ) );
-    // log( " Fam: ", b.localFamily, " Loc: ", b.localAddress, " Rem: ", b.remoteAddress );
-
-    b.heartbeat( 30000 );
-
-    const VaSy_l = document.getElementById( 'SaNo_VaSy' );
-    // VaSy_l.setSelectionRange( 0, 9 );
-    VaSy_l.focus();
 
 
     //---------------------------
@@ -759,11 +794,10 @@
 
     //---------------------------
     // WIRES
-    //---------------------------
     // if we see a wire join or leave
+    //---------------------------
     b.on( "wireseen", updateWires );
     b.on( "wireleft", updateWires );
-
     function updateWires( count )
     {
         // b.torrent.wires.length
@@ -774,11 +808,11 @@
     //---------------------------
 	// AUDIO PLAY
     //---------------------------
-	let ToMi_JaPe = document.getElementById("ToMi_JaPe");
+	let ToMi_JaPe = document.getElementById( "ToMi_JaPe" );
 	function ToMi_JaPe__Ya()
 	{
+		// log( "Aud" );
 		ToMi_JaPe.play();
-		log( "Aud" );
 	}
 
 	function ToMi_JaPe__Yi()
@@ -787,26 +821,18 @@
 	}
 
     //---------------------------
-    // SHARE HUB LINK
+    // TXT ZONE
     //---------------------------
-    document.getElementById( "clip" ).onclick = function( evt )
+    VaSy_l.onclick = function( evt )
     {
-        copyToClipboard( URL_HUB__Vy_vsg );
-        log( "Clip: ", URL_HUB__Vy_vsg );
+		log( "VaSy", VaSy_l.value );
+	}
 
-		ToMi_JaPe__Ya();
-    }
 
-    document.getElementById( "email" ).onclick = function( evt )
+    document.getElementById( "MeKz_Me" ).onclick = function( evt )
     {
-        //content-type=text/html
-        window.location.href = 'mailto:?subject=Self_Serv Test Link&body=Open Room Link here:\n\n' + encodeURI( URL_HUB__Vy_vsg );
-    }
-
-    document.getElementById( "sms" ).onclick = function( evt )
-    {
-        window.location.href = 'sms:?body=Click Here: \n\n' + encodeURI( URL_HUB__Vy_vsg );
-    }
+		log( "MeKz", MeKz_l.value );
+	}
 
 
     //---------------------------
@@ -825,84 +851,95 @@
         try
         {
             b.Me( b.address(), To_vbu );
-        }
-        catch ( e )
+			}
+			catch ( e )
         {
             log( "Me FAILED" );
-        }
-    }
-	*/
+			}
+			}
+			*/
+
+
+	//---------------------------
+	// SHARE HUB LINK
+	//---------------------------
+	document.getElementById( "clip" ).onclick = function( evt )
+	{
+		copyToClipboard( URL_HUB__Vy_vsg );
+		log( "Clip: ", URL_HUB__Vy_vsg );
+
+		ToMi_JaPe__Ya();
+	}
+
+	document.getElementById( "email" ).onclick = function( evt )
+	{
+		//content-type=text/html
+		window.location.href = 'mailto:?subject=Self_Serv Test Link&body=Open Room Link here:\n\n' + encodeURI( URL_HUB__Vy_vsg );
+	}
+
+	document.getElementById( "sms" ).onclick = function( evt )
+	{
+		window.location.href = 'sms:?body=Click Here: \n\n' + encodeURI( URL_HUB__Vy_vsg );
+	}
+
 
     //---------------------------
-    // SEND_DRAW
+    // EVT_SEND
+	// BRUSH
     //---------------------------
 	function Me_ChyDri( GxVu, GaVu )
 	{
-		log( "\n- ChyGe__GxZo @ ", b.Fe_vsg().toString() );
-		KeDru__Fo_wu++;
+		// log( "\n- ChyGe__GxZo @ ", b.Fe_vsg().toString() );
 
 		const To_vbu = new ArrayBuffer( 16 );
 		const JyNo = new DataView( To_vbu );
 
-
+		// CMD
         JyNo.setUint8( 0, 0x3 );
+
+		// VER
+		KeDru__Fo_wu++;
         JyNo.setUint8( 1, KeDru__Fo_wu );
 
-		// Brush Size
+		// BRUSH SIZE
         JyNo.setUint16( 2, 0x55AA );
 
-		// Color
-		JyNo.setUint32( 4, 0x03020100, true );
+		// COLOR
+		JyNo.setUint32( 4, 0xFF8800FF );
 
-		JyNo.setUint16( 8, GeGx, true );
-		JyNo.setUint16( 10, GeGa, true );
-
-		log( "-- Me: GeYa x: ", GeGx, " y: ", GeGa );
+		// LOC
+		// log( "-- Me: GeYa x: ", GeGx, " y: ", GeGa );
+		JyNo.setUint16( 8, GeGx );
+		JyNo.setUint16( 10, GeGa );
 
         GeGx += GxVu;
         GeGa += GaVu;
 
-		JyNo.setUint16( 12, GeGx, true );
-		JyNo.setUint16( 14, GeGa, true );
+		//log( "GeYi x: ", GeGx, " y: ", GeGa );
+		JyNo.setUint16( 12, GeGx );
+		JyNo.setUint16( 14, GeGa );
 
-		log( "GeYi x: ", GeGx, " y: ", GeGa );
-
-        /* let wrc = window.radianceCascades;
-		wrc.reset();
-
-		var i = 0;
-		for( var adr in b.wires )
+		// ITER PEER ADR
+		 let i = 0;
+		let SeVy = null;
+		for( var adr in b.peers )
 		{
-	  	 	// log( "- Person[", i, "]: ", b.peers[ i ].timestamp ); timestamp = NONE
 	  	 	log( "- Person[", i, "]: ", adr.slice( 0, 4 ) );
 			i++;
-		} */
+			SeVy = adr;
+		}
+
 
 
         try
         {
-	        b.Me( null, To_vbu );
+			// SeVy = null --> TO ALL, else --> KeDy
+			b.Me( SeVy, To_vbu );
         }
         catch ( e )
         {
-            log( "Me FAILED" );
+            log( "Me_ChyDri FAILED", e );
         }
-
-
-		let GeYa =
-		{
-			x: JyNo.getUint16( 8, true ),
-			y: JyNo.getUint16( 10, true )
-		};
-
-		let GeYi =
-		{
-			x: JyNo.getUint16( 12, true ),
-			y: JyNo.getUint16( 14, true )
-		};
-
-		log( "-- TSTO: GeYa ", GeYa, " GeYi ", GeYi );
-
 	}
 
 
