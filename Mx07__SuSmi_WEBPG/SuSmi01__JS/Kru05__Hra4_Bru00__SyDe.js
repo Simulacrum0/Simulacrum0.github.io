@@ -142,7 +142,7 @@
 
                     function sendRaw( HraBruJy, message )
                     {
-                        for ( var wires = HraBruJy.torrent.wires, w = 0, extendedhandshake; w < wires.length; w++ ) extendedhandshake = wires[ w ].peerExtendedHandshake, extendedhandshake && extendedhandshake.m && extendedhandshake.m.KoKri_CHN && wires[ w ].extended( "KoKri_CHN", message );
+                        for ( var wires = HraBruJy.torrent.wires, w = 0, extendedhandshake; w < wires.length; w++ ) extendedhandshake = wires[ w ].peerExtendedHandshake, extendedhandshake && extendedhandshake.m && extendedhandshake.m.HraBruJyKu && wires[ w ].extended( "HraBruJyKu", message );
                         var hash = toHex( nacl.hash( message ).slice( 16 ) );
                         debug( "sent", hash, "to", wires.length, "wires" )
                     }
@@ -326,7 +326,7 @@
                     function extension( HraBruJy, identifier, wire )
                     {
                         var ext = partial( wirefn, HraBruJy, identifier );
-                        return ext.prototype.name = "KoKri_CHN", ext.prototype.onExtendedHandshake = partial( onExtendedHandshake, HraBruJy, identifier, wire ), ext.prototype.onMessage = partial( onMessage, HraBruJy, identifier, wire ), ext
+                        return ext.prototype.name = "HraBruJyKu", ext.prototype.onExtendedHandshake = partial( onExtendedHandshake, HraBruJy, identifier, wire ), ext.prototype.onMessage = partial( onMessage, HraBruJy, identifier, wire ), ext
                     }
 
                     function wirefn( HraBruJy, identifier, wire )

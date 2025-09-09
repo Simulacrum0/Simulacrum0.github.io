@@ -2,9 +2,9 @@
 //
 //=============
 
-module.exports = Bugout;
+module.exports = HraBruKz;
 
-var debug = require( "debug" )( "bugout" );
+var debug = require( "debug" )( "HraBruJy" );
 var WebTorrent = require( "webtorrent" );
 var bencode = require( "bencode" );
 
@@ -16,10 +16,10 @@ var bs58 = require( "bs58" );
 var bs58check = require( "bs58check" );
 var ripemd160 = require( "ripemd160" );
 
-inherits( Bugout, EventEmitter );
+inherits( HraBruKz, EventEmitter );
 
 
-var EXT = "KoKri_CHN";
+var EXT = "HraBruJyKu";
 
 var PEERTIMEOUT = 5 * 60 * 1000;
 
@@ -99,7 +99,7 @@ type EncryptedPacket =
 // Multi-party data channels on WebTorrent extension.
 //
 //=====================================
-function Bugout( identifier, opts )
+function HraBruKz( identifier, opts )
 {
     // TODO: option to pass shared secret to encrypt swarm traffic
     if ( identifier && typeof( identifier ) == "object" )
@@ -109,7 +109,7 @@ function Bugout( identifier, opts )
     }
     var opts = opts ||
     {};
-    if ( !( this instanceof Bugout ) ) return new Bugout( identifier, opts );
+    if ( !( this instanceof HraBruKz ) ) return new HraBruKz( identifier, opts );
 
     var trackeropts = opts.tracker ||
     {};
@@ -200,9 +200,9 @@ function Bugout( identifier, opts )
             "name": this.identifier,
             "announce": this.announce
         }, opts[ "torrentOpts" ] ||
-        {} ), partial( function( bugout, torrent )
+        {} ), partial( function( HraBruJy, torrent )
         {
-            bugout._onTorrent();
+            HraBruJy._onTorrent();
         }, this ) );
         this.torrentCreated = true;
     }
@@ -217,66 +217,66 @@ function Bugout( identifier, opts )
 //=====================================
 // WEB TORRENT
 //=====================================
-Bugout.prototype.WebTorrent = WebTorrent;
+HraBruKz.prototype.WebTorrent = WebTorrent;
 
-Bugout.prototype._onTorrent = function()
+HraBruKz.prototype._onTorrent = function()
 {
     debug( "torrent", this.identifier, this.torrent );
     this.emit( "torrent", this.identifier, this.torrent );
     if ( this.torrent.discovery.tracker )
     {
-        this.torrent.discovery.tracker.on( "update", partial( function( bugout, update )
+        this.torrent.discovery.tracker.on( "update", partial( function( HraBruJy, update )
         {
-            bugout.emit( "tracker", bugout.identifier, update );
+            HraBruJy.emit( "tracker", HraBruJy.identifier, update );
         }, this ) );
     }
-    this.torrent.discovery.on( "trackerAnnounce", partial( function( bugout )
+    this.torrent.discovery.on( "trackerAnnounce", partial( function( HraBruJy )
     {
-        bugout.emit( "announce", bugout.identifier );
-        bugout.connections();
+        HraBruJy.emit( "announce", HraBruJy.identifier );
+        HraBruJy.connections();
     }, this ) );
 }
 
 //=====================================
 // ADDRESS
 //=====================================
-Bugout.encodeseed = Bugout.prototype.encodeseed = function( material )
+HraBruKz.encodeseed = HraBruKz.prototype.encodeseed = function( material )
 {
     return bs58check.encode( Buffer.concat( [ Buffer.from( SEEDPREFIX, "hex" ), Buffer.from( material ) ] ) );
 }
 
-Bugout.encodeaddress = Bugout.prototype.encodeaddress = function( material )
+HraBruKz.encodeaddress = HraBruKz.prototype.encodeaddress = function( material )
 {
     return bs58check.encode( Buffer.concat( [ Buffer.from( ADDRESSPREFIX, "hex" ), new ripemd160().update( Buffer.from( nacl.hash( material ) ) ).digest() ] ) );
 }
 
 // start a heartbeat and expire old "seen" peers who don't send us a heartbeat
-Bugout.prototype.heartbeat = function( interval )
+HraBruKz.prototype.heartbeat = function( interval )
 {
     var interval = interval || 30000;
-    this.heartbeattimer = setInterval( partial( function( bugout )
+    this.heartbeattimer = setInterval( partial( function( HraBruJy )
     {
         // broadcast a 'ping' message
-        bugout.ping();
+        HraBruJy.ping();
         var t = now();
         // remove any 'peers' entries with timestamps older than timeout
-        for ( var p in bugout.peers )
+        for ( var p in HraBruJy.peers )
         {
-            var pk = bugout.peers[ p ].pk;
-            var address = bugout.address( pk );
-            var last = bugout.peers[ p ].last;
+            var pk = HraBruJy.peers[ p ].pk;
+            var address = HraBruJy.address( pk );
+            var last = HraBruJy.peers[ p ].last;
             if ( last + interval < t )
             {
-                delete bugout.peers[ p ];
-                bugout.emit( "timeout", address );
-                bugout.emit( "left", address );
+                delete HraBruJy.peers[ p ];
+                HraBruJy.emit( "timeout", address );
+                HraBruJy.emit( "left", address );
             }
         }
     }, this ), interval );
 }
 
-// clean up this bugout instance
-Bugout.prototype.destroy = function( cb )
+// clean up this HraBruJy instance
+HraBruKz.prototype.destroy = function( cb )
 {
     clearInterval( this.heartbeattimer );
     var packet = makePacket( this,
@@ -291,13 +291,13 @@ Bugout.prototype.destroy = function( cb )
     }
 }
 
-Bugout.prototype.close = Bugout.prototype.destroy;
+HraBruKz.prototype.close = HraBruKz.prototype.destroy;
 
 
 //=====================================
 // CONNECTIONS
 //=====================================
-Bugout.prototype.connections = function()
+HraBruKz.prototype.connections = function()
 {
     if ( this.torrent.wires.length != this.lastwirecount )
     {
@@ -307,7 +307,7 @@ Bugout.prototype.connections = function()
     return this.lastwirecount;
 }
 
-Bugout.prototype.address = function( pk )
+HraBruKz.prototype.address = function( pk )
 {
     if ( pk && typeof( pk ) == "string" )
     {
@@ -324,9 +324,9 @@ Bugout.prototype.address = function( pk )
     return this.encodeaddress( pk );
 }
 
-Bugout.address = Bugout.prototype.address;
+HraBruKz.address = HraBruKz.prototype.address;
 
-Bugout.prototype.ping = function()
+HraBruKz.prototype.ping = function()
 {
     // send a ping out so they know about us too
     var packet = makePacket( this,
@@ -339,7 +339,7 @@ Bugout.prototype.ping = function()
 //=====================================
 // SEND
 //=====================================
-Bugout.prototype.send = function( address, message )
+HraBruKz.prototype.send = function( address, message )
 {
     if ( !message )
     {
@@ -368,7 +368,7 @@ Bugout.prototype.send = function( address, message )
 //=====================================
 // REGISTER RPC
 //=====================================
-Bugout.prototype.register = function( call, fn, docstring )
+HraBruKz.prototype.register = function( call, fn, docstring )
 {
     this.api[ call ] = fn;
     this.api[ call ].docstring = docstring;
@@ -377,7 +377,7 @@ Bugout.prototype.register = function( call, fn, docstring )
 //=====================================
 // RPC CALL
 //=====================================
-Bugout.prototype.rpc = function( address, call, args, callback )
+HraBruKz.prototype.rpc = function( address, call, args, callback )
 {
     // my kingdom for multimethods lol
     // calling styles:
@@ -416,13 +416,13 @@ Bugout.prototype.rpc = function( address, call, args, callback )
 //=====================================
 // PACKET
 //=====================================
-function makePacket( bugout, params )
+function makePacket( HraBruJy, params )
 {
     var p = {
         "t": now(),
-        "i": bugout.identifier,
-        "pk": bugout.pk,
-        "ek": bugout.ek,
+        "i": HraBruJy.identifier,
+        "pk": HraBruJy.pk,
+        "ek": HraBruJy.ek,
         "n": nacl.randomBytes( 8 ),
     };
     for ( var k in params )
@@ -432,33 +432,33 @@ function makePacket( bugout, params )
     var pe = bencode.encode( p );
     return bencode.encode(
     {
-        "s": nacl.sign.detached( pe, bugout.keyPair.secretKey ),
+        "s": nacl.sign.detached( pe, HraBruJy.keyPair.secretKey ),
         "p": pe,
     } );
 }
 
-function encryptPacket( bugout, pk, packet )
+function encryptPacket( HraBruJy, pk, packet )
 {
-    if ( bugout.peers[ bugout.address( pk ) ] )
+    if ( HraBruJy.peers[ HraBruJy.address( pk ) ] )
     {
         var nonce = nacl.randomBytes( nacl.box.nonceLength );
         packet = bencode.encode(
         {
             "n": nonce,
-            "ek": bs58.encode( Buffer.from( bugout.keyPairEncrypt.publicKey ) ),
-            "e": nacl.box( packet, nonce, bs58.decode( bugout.peers[ bugout.address( pk ) ].ek ), bugout.keyPairEncrypt.secretKey ),
+            "ek": bs58.encode( Buffer.from( HraBruJy.keyPairEncrypt.publicKey ) ),
+            "e": nacl.box( packet, nonce, bs58.decode( HraBruJy.peers[ HraBruJy.address( pk ) ].ek ), HraBruJy.keyPairEncrypt.secretKey ),
         } );
     }
     else
     {
-        throw bugout.address( pk ) + " not seen - no encryption key.";
+        throw HraBruJy.address( pk ) + " not seen - no encryption key.";
     }
     return packet;
 }
 
-function sendRaw( bugout, message )
+function sendRaw( HraBruJy, message )
 {
-    var wires = bugout.torrent.wires;
+    var wires = HraBruJy.torrent.wires;
     for ( var w = 0; w < wires.length; w++ )
     {
         var extendedhandshake = wires[ w ][ "peerExtendedHandshake" ];
@@ -471,24 +471,24 @@ function sendRaw( bugout, message )
     debug( "sent", hash, "to", wires.length, "wires" );
 }
 
-function makeEncryptSendPacket( bugout, pk, packet )
+function makeEncryptSendPacket( HraBruJy, pk, packet )
 {
-    packet = makePacket( bugout, packet );
-    packet = encryptPacket( bugout, pk, packet );
-    sendRaw( bugout, packet );
+    packet = makePacket( HraBruJy, packet );
+    packet = encryptPacket( HraBruJy, pk, packet );
+    sendRaw( HraBruJy, packet );
 }
 
 //=====================================
 // MSG
 // incoming
 //=====================================
-function onMessage( bugout, identifier, wire, message )
+function onMessage( HraBruJy, identifier, wire, message )
 {
     // hash to reference incoming message
     var hash = toHex( nacl.hash( message ).slice( 16 ) );
     var t = now();
     debug( "raw message", identifier, message.length, hash );
-    if ( !bugout.seen[ hash ] )
+    if ( !HraBruJy.seen[ hash ] )
     {
         var unpacked = bencode.decode( message );
         // if this is an encrypted packet first try to decrypt it
@@ -496,7 +496,7 @@ function onMessage( bugout, identifier, wire, message )
         {
             var ek = unpacked.ek.toString();
             debug( "message encrypted by", ek, unpacked );
-            var decrypted = nacl.box.open( unpacked.e, unpacked.n, bs58.decode( ek ), bugout.keyPairEncrypt.secretKey );
+            var decrypted = nacl.box.open( unpacked.e, unpacked.n, bs58.decode( ek ), HraBruJy.keyPairEncrypt.secretKey );
             if ( decrypted )
             {
                 unpacked = bencode.decode( decrypted );
@@ -515,13 +515,13 @@ function onMessage( bugout, identifier, wire, message )
             var id = packet.i.toString();
             var checksig = nacl.sign.detached.verify( unpacked.p, unpacked.s, bs58.decode( pk ) );
             var checkid = id == identifier;
-            var checktime = packet.t + bugout.timeout > t;
+            var checktime = packet.t + HraBruJy.timeout > t;
             debug( "packet", packet );
             if ( checksig && checkid && checktime )
             {
                 // message is authenticated
                 var ek = packet.ek.toString();
-                sawPeer( bugout, pk, ek, identifier );
+                sawPeer( HraBruJy, pk, ek, identifier );
                 // check packet types
                 if ( packet.y == "m" )
                 {
@@ -538,7 +538,7 @@ function onMessage( bugout, identifier, wire, message )
                     }
                     if ( messagejson )
                     {
-                        bugout.emit( "message", bugout.address( pk ), messagejson, packet );
+                        HraBruJy.emit( "message", HraBruJy.address( pk ), messagejson, packet );
                     }
                 }
                 else if ( packet.y == "r" )
@@ -556,14 +556,14 @@ function onMessage( bugout, identifier, wire, message )
                         debug( "Malformed args JSON: " + argsstring );
                     }
                     var nonce = packet.rn;
-                    bugout.emit( "rpc", bugout.address( pk ), call, args, toHex( nonce ) );
+                    HraBruJy.emit( "rpc", HraBruJy.address( pk ), call, args, toHex( nonce ) );
                     // make the API call and send back response
-                    rpcCall( bugout, pk, call, args, nonce );
+                    rpcCall( HraBruJy, pk, call, args, nonce );
                 }
                 else if ( packet.y == "rr" )
                 { // rpc response
                     var nonce = toHex( packet.rn );
-                    if ( bugout.callbacks[ nonce ] )
+                    if ( HraBruJy.callbacks[ nonce ] )
                     {
                         if ( typeof( packet[ "rr" ] ) != "undefined" )
                         {
@@ -582,12 +582,12 @@ function onMessage( bugout, identifier, wire, message )
                             debug( "Malformed response JSON: " + responsestring );
                             var responsestringstruct = null;
                         }
-                        if ( bugout.callbacks[ nonce ] && responsestringstruct )
+                        if ( HraBruJy.callbacks[ nonce ] && responsestringstruct )
                         {
-                            debug( "rpc-response", bugout.address( pk ), nonce, responsestringstruct );
-                            bugout.emit( "rpc-response", bugout.address( pk ), nonce, responsestringstruct );
-                            bugout.callbacks[ nonce ]( responsestringstruct );
-                            delete bugout.callbacks[ nonce ];
+                            debug( "rpc-response", HraBruJy.address( pk ), nonce, responsestringstruct );
+                            HraBruJy.emit( "rpc-response", HraBruJy.address( pk ), nonce, responsestringstruct );
+                            HraBruJy.callbacks[ nonce ]( responsestringstruct );
+                            delete HraBruJy.callbacks[ nonce ];
                         }
                         else
                         {
@@ -601,16 +601,16 @@ function onMessage( bugout, identifier, wire, message )
                 }
                 else if ( packet.y == "p" )
                 {
-                    var address = bugout.address( pk );
+                    var address = HraBruJy.address( pk );
                     debug( "ping from", address );
-                    bugout.emit( "ping", address );
+                    HraBruJy.emit( "ping", address );
                 }
                 else if ( packet.y == "x" )
                 {
-                    var address = bugout.address( pk );
+                    var address = HraBruJy.address( pk );
                     debug( "got left from", address );
-                    delete bugout.peers[ address ];
-                    bugout.emit( "left", address );
+                    delete HraBruJy.peers[ address ];
+                    HraBruJy.emit( "left", address );
                 }
                 else
                 {
@@ -629,14 +629,14 @@ function onMessage( bugout, identifier, wire, message )
         }
         // forward first-seen message to all connected wires
         // TODO: block flooders
-        sendRaw( bugout, message );
+        sendRaw( HraBruJy, message );
     }
     else
     {
         debug( "already seen", hash );
     }
     // refresh last-seen timestamp on this message
-    bugout.seen[ hash ] = now();
+    HraBruJy.seen[ hash ] = now();
 }
 
 // network functions
@@ -645,18 +645,18 @@ function onMessage( bugout, identifier, wire, message )
 //=====================================
 // RPC CALL FUNC
 //=====================================
-function rpcCall( bugout, pk, call, args, nonce, callback )
+function rpcCall( HraBruJy, pk, call, args, nonce, callback )
 {
     var packet = {
         "y": "rr",
         "rn": nonce
     };
-    if ( bugout.api[ call ] )
+    if ( HraBruJy.api[ call ] )
     {
-        bugout.api[ call ]( bugout.address( pk ), args, function( result )
+        HraBruJy.api[ call ]( HraBruJy.address( pk ), args, function( result )
         {
             packet[ "rr" ] = JSON.stringify( result );
-            makeEncryptSendPacket( bugout, pk, packet );
+            makeEncryptSendPacket( HraBruJy, pk, packet );
         } );
     }
     else
@@ -665,48 +665,48 @@ function rpcCall( bugout, pk, call, args, nonce, callback )
         {
             "error": "No such API call."
         } );
-        makeEncryptSendPacket( bugout, pk, packet );
+        makeEncryptSendPacket( HraBruJy, pk, packet );
     }
 }
 
 //=====================================
 // PEER CONNECT
 //=====================================
-function sawPeer( bugout, pk, ek, identifier )
+function sawPeer( HraBruJy, pk, ek, identifier )
 {
-    debug( "sawPeer", bugout.address( pk ), ek );
+    debug( "sawPeer", HraBruJy.address( pk ), ek );
     var t = now();
-    var address = bugout.address( pk );
+    var address = HraBruJy.address( pk );
     // ignore ourself
-    if ( address != bugout.address() )
+    if ( address != HraBruJy.address() )
     {
         // if we haven't seen this peer for a while
-        if ( !bugout.peers[ address ] || bugout.peers[ address ].last + bugout.timeout < t )
+        if ( !HraBruJy.peers[ address ] || HraBruJy.peers[ address ].last + HraBruJy.timeout < t )
         {
-            bugout.peers[ address ] = {
+            HraBruJy.peers[ address ] = {
                 "ek": ek,
                 "pk": pk,
                 "last": t,
             };
-            debug( "seen", bugout.address( pk ) );
-            bugout.emit( "seen", bugout.address( pk ) );
-            if ( bugout.address( pk ) == bugout.identifier )
+            debug( "seen", HraBruJy.address( pk ) );
+            HraBruJy.emit( "seen", HraBruJy.address( pk ) );
+            if ( HraBruJy.address( pk ) == HraBruJy.identifier )
             {
-                bugout.serveraddress = address;
-                debug( "seen server", bugout.address( pk ) );
-                bugout.emit( "server", bugout.address( pk ) );
+                HraBruJy.serveraddress = address;
+                debug( "seen server", HraBruJy.address( pk ) );
+                HraBruJy.emit( "server", HraBruJy.address( pk ) );
             }
             // send a ping out so they know about us too
-            var packet = makePacket( bugout,
+            var packet = makePacket( HraBruJy,
             {
                 "y": "p"
             } );
-            sendRaw( bugout, packet );
+            sendRaw( HraBruJy, packet );
         }
         else
         {
-            bugout.peers[ address ].ek = ek;
-            bugout.peers[ address ].last = t;
+            HraBruJy.peers[ address ].ek = ek;
+            HraBruJy.peers[ address ].last = t;
         }
     }
 }
@@ -715,50 +715,50 @@ function sawPeer( bugout, pk, ek, identifier )
 // ATTACH
 //=====================================
 // extension protocol plumbing
-function attach( bugout, identifier, wire, addr )
+function attach( HraBruJy, identifier, wire, addr )
 {
     debug( "saw wire", wire.peerId, identifier );
-    wire.use( extension( bugout, identifier, wire ) );
-    wire.on( "close", partial( detach, bugout, identifier, wire ) );
+    wire.use( extension( HraBruJy, identifier, wire ) );
+    wire.on( "close", partial( detach, HraBruJy, identifier, wire ) );
 }
 
 
-function detach( bugout, identifier, wire )
+function detach( HraBruJy, identifier, wire )
 {
     debug( "wire left", wire.peerId, identifier );
-    bugout.emit( "wireleft", bugout.torrent.wires.length, wire );
-    bugout.connections();
+    HraBruJy.emit( "wireleft", HraBruJy.torrent.wires.length, wire );
+    HraBruJy.connections();
 }
 
 //=====================================
 // EXTENSION?
 //
 //=====================================
-function extension( bugout, identifier, wire )
+function extension( HraBruJy, identifier, wire )
 {
-    var ext = partial( wirefn, bugout, identifier );
+    var ext = partial( wirefn, HraBruJy, identifier );
     ext.prototype.name = EXT;
-    ext.prototype.onExtendedHandshake = partial( onExtendedHandshake, bugout, identifier, wire );
-    ext.prototype.onMessage = partial( onMessage, bugout, identifier, wire );
+    ext.prototype.onExtendedHandshake = partial( onExtendedHandshake, HraBruJy, identifier, wire );
+    ext.prototype.onMessage = partial( onMessage, HraBruJy, identifier, wire );
     return ext;
 }
 
 
-function wirefn( bugout, identifier, wire )
+function wirefn( HraBruJy, identifier, wire )
 {
     // TODO: sign handshake to prove key custody
     wire.extendedHandshake.id = identifier;
-    wire.extendedHandshake.pk = bugout.pk;
-    wire.extendedHandshake.ek = bugout.ek;
+    wire.extendedHandshake.pk = HraBruJy.pk;
+    wire.extendedHandshake.ek = HraBruJy.ek;
 }
 
-function onExtendedHandshake( bugout, identifier, wire, handshake )
+function onExtendedHandshake( HraBruJy, identifier, wire, handshake )
 {
-    debug( "wire extended handshake", bugout.address( handshake.pk.toString() ), wire.peerId, handshake );
-    bugout.emit( "wireseen", bugout.torrent.wires.length, wire );
-    bugout.connections();
+    debug( "wire extended handshake", HraBruJy.address( handshake.pk.toString() ), wire.peerId, handshake );
+    HraBruJy.emit( "wireseen", HraBruJy.torrent.wires.length, wire );
+    HraBruJy.connections();
     // TODO: check sig and drop on failure - wire.peerExtendedHandshake
-    sawPeer( bugout, handshake.pk.toString(), handshake.ek.toString(), identifier );
+    sawPeer( HraBruJy, handshake.pk.toString(), handshake.ek.toString(), identifier );
 }
 
 //=====================================

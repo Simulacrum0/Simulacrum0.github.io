@@ -501,22 +501,23 @@ function intializeCanvas(
 
     const clearDom = clear ? `<button id="${id}-clear">Clear</button>` : "";
     const resetDom = reset ? `<button id="${id}-reset" >Replay</button>` : "";
-    const sunMoonDom = toggleSun ? `<button id="${id}-sun">Bloom</button>` : "";
+    const BLOOM_Dom = toggleSun ? `<button id="${id}-sun">Bloom</button>` : "";
 
 
     const thisId = document.querySelector( `#${id}` );
 
     thisId.innerHTML = `
-    <div style="display: flex; gap: 20px;">
+    <div style="display: flex; gap: 16px;">
 
       <div style="display: flex; flex-direction: column; justify-content: space-between;">
-          <div id="${id}-color-picker" style="display: flex; flex-direction: column;  border: solid 1px white; margin: 1px;">
+
+	  	<div id="${id}-color-picker" style="display: flex; flex-direction: column;  border: solid 1px white; margin: 1px;">
             <input type="color" id="${id}-color-input" value="#ffffff" style="width: 20px; height: 20px; padding: 0; border: none;" >
 			<br>
         </div>
         <div style="display: flex; flex-direction: column; gap: 2px">
 		<br>
-        ${sunMoonDom}
+        ${BLOOM_Dom}
         ${clearDom}
         ${resetDom}
         </div>

@@ -74,19 +74,17 @@
         margin: 0;
         padding: 0;
         color: #000;
-        font-family: sans-serif;
+		font-family: Arial, Helvetica, sans-serif;
     }
 
     body
     {
         background-color: #EE6;
         max-width: 800px;
-        font-family: Arial, Helvetica, sans-serif;
 
         font-size: 1.0em;
         text-align: center;
         margin: auto;
-        width: 100%;
         padding: 1.0em;
 
         display: flex;
@@ -105,41 +103,16 @@
         text-align: center;
     }
 
-    pre
-    {
-        background-color: #FFF;
-        color: #000;
-        border-style: groove;
-
-        width: 100%;
-        padding: 0 em;
-        margin: auto;
-
-        border-radius: 1px;
-        border-color: #F00;
-
-        text-align: center;
-        word-wrap: normal;
-        white-space: pre;
-        /* line-height: 1.em; */
-
-        font-family: monospace;
-        font-size: 0.1em;
-
-    }
-
-
     #QRDiv
     {
         margin-top: 20px;
     }
 
 
-    input
+    input, textarea
     {
         background-color: #00F;
         color: #EE6;
-
         border-style: groove;
 
         word-wrap: normal;
@@ -147,8 +120,8 @@
 
         text-align: center;
 
-        width: 100%;
-        height: 2.0em;
+		font-family: Arial, Helvetica, sans-serif;
+		font-size: 1.5em;
     }
 
 
@@ -181,7 +154,7 @@
 
         border: none;
         padding: 0.5em 1em;
-        font-size: 1.25em;
+        font-size: 1.0em;
     }
 
     button:hover
@@ -259,7 +232,7 @@
 
     #content .textual
     {
-        font-size: 2em;
+        font-size: 1em;
     }
 
     #content a:visited
@@ -271,8 +244,6 @@
     {
         color: #0077FF;
     }
-
-
 
 
     #rc-demo
@@ -338,16 +309,20 @@
     <div class="BOX">
         <h2 id="DuKu_VaSy">#1 JOIN</h2>
 
-        <h3>Visitors in Room: <span id="KeDyCha">no</span></h3>
+        <h3>People in Room: <span id="KeDyCha">no</span></h3>
         <h3>Your Name:</h3>
         <input id="SaNo_VaSy" maxlength="63" value="?" style="width: 50%;" />
+        <br><br>
+        <button id="SaNo_VaSy_Tra">Sync Name</button>
+        <button id="SaNoKu_ChxGry">Erase History</button>
         <br>
         <div id="QRDiv"></div>
         <br>
-        <button id="clip">Copy Clipboard</button>
-        <button id="email">Email </button>
-        <button id="sms">TXT (sms)</button>
-        <button id="new_room"><a href="WzFe.html" target="_NEW">Open New Room</a></button>
+        <button id="Me_SHARE">Share</button>
+        <button id="Me_CLIP">Copy</button>
+        <button id="Me_EMAIL">Email </button>
+        <button id="Me_SMS">Txt</button>
+        <button id="Me_URL_ROOM"><a href="WzFe.html" target="_NEW">New Room</a></button>
     </div>
     <br>
     <br>
@@ -355,13 +330,17 @@
     <div id="TaKeDruGry" class="BOX">
         <h2>#2 MESSAGES</h2>
         <h3>Your Message:</h3>
-        <input id="SaNo_MeKz" maxlength="127" value="?" />
+        <textarea id="SaNo_MeKz" rows="5" columns="32" style="width: 75%;" />Testo</textarea>
         <br>
         <br>
-        <button id="MeKz_Me">Send Msg</button>
+        <button id="MeKeDru_Gry">Send All</button>
+        <button style="display: none;" id="MeKeDru_Stz" >Send 0</button>
+        <button style="display: none;" id="MeKeDru_Stx" >Send 1</button>
+        <button style="display: none;" id="MeKeDru_Sta" >Send 2</button>
+        <button style="display: none;" id="MeKeDru_Sti" >Send 3</button>
         <br>
         <h3>Message History:</h3>
-        <p id="messages" class="BUF"></p>
+        <p id="TaKeDru_Ku" class="BUF"></p>
     </div>
     <br>
     <br>
@@ -420,17 +399,17 @@
                 </details>
                 <br />
                 <div id="rc-canvas"></div>
-            </div>
-        </div>
+			</div>
+		</div>
 
-        <br>
-        <button id="ChyGe__GaZo">^<br>||</button>
-        <br>
-        <button id="ChyGe__GxZe"><==</button>
-        <span> + </span>
-        <button id="ChyGe__GxZo">==></button>
-        <br>
-        <button id="ChyGe__GaZe">||<br>v</button>
+		<br>
+		<button id="ChyGe__GaZo">^<br>||</button>
+		<br>
+		<button id="ChyGe__GxZe"><==</button>
+		<span> + </span>
+		<button id="ChyGe__GxZo">==></button>
+		<br>
+		<button id="ChyGe__GaZe">||<br>v</button>
 
     </div>
     <br>
@@ -452,25 +431,30 @@
 <!-- ====================================================================== -->
 <script>
     // VAR
+    var b;
     var connected = false;
     var SPOKE_y = ( window.location.hash.length > 1 ) ? true : false;
-    var msglist = document.getElementById( "messages" );
-    var b;
-    var messages = [];
-
     var HUB__Vy_vsg;
     var URL_HUB__Vy_vsg;
 
+
+	//@@@
+	// MSGS
     var KeDru__Fo_wu = 0;
 
-	// Starting Coords
     var GeGx = 128;
     var GeGa = 128;
 	var GeKwe = 5;
 
 
-    // PROG BEGIN
+	//@@@
+    // APP TITLE
     document.getElementById( "VyBzVa" ).textContent += VER_vsg;
+
+	//@@@
+	// SHARE CTRLS
+    document.getElementById( "Me_SHARE" ).style.display = (navigator.share) ? "block" : "none";
+
 
 	//!!!
 	// CLEAR LOCAL STORAGE
@@ -480,206 +464,93 @@
 	// localStorage.clear();
 	log( "Secure:", window.isSecureContext, " LocStore_Fo:", localStorage.length );
 
+
 	//$$$
 	// Sme
-	localStorage.removeItem( "debug" );
 	// localStorage.debug = "HraBru";
+	localStorage.removeItem( "debug" );
 
+
+    // ======================================================================
+    // ADR_BEGIN: HUB OR SPOKE
+    // ======================================================================
 
     //@@@
     // SPOKE
     if ( SPOKE_y )
     {
+		// ADR GEN
         var HUB__Vy_vsg = window.location.hash.substr( 1 ) || "bUH7ukDvd9R2xLLRKMKWZ1mGPkgdVfufye";
         b = new HraBruKz( HUB__Vy_vsg );
 
+		// ADR PUB
         URL_HUB__Vy_vsg = document.location.href;
         document.getElementById( "DuKu_VaSy" ).textContent = "#1 HUB Joined";
-
-        // msglist.textContent = "Join = Hub @" + HUB__Vy_vsg + "\nSelf @" + b.address().slice( 0, 4 );
         log( "SPOKE @", b.address().slice( 0, 4 ), "\n" );
-
-
-
-        // watch for connection to the server
-        b.on( "server", function()
-        {
-            refreshMessages();
-        } );
-
-
-        document.getElementById( "MeKz_Me" ).onclick = function( ev )
-        {
-            var m = document.getElementById( "SaNo_MeKz" );
-            if ( m.value )
-            {
-                msglist.textContent = "Sending message...";
-                b.rpc( "post", m.value, function()
-                {
-                    // refreshMessages();
-                    // server will send refresh message if messages are changed
-                } );
-                m.value = "?";
-            }
-        }
-
-
-        b.on( "message", function( adr, msg )
-        {
-            if ( msg == "refresh" )
-            {
-                refreshMessages();
-            }
-            else
-            {
-                //  log("- MSG( Spoke ):", adr.slice( 0, 4 ), msg);
-            }
-        } );
-
     }
-
-    // ======================================================================
-    // HUB
-    // ======================================================================
+	//@@@
+	// HUB
     else
     {
         //@@@
-        // instantiate our HraBruJy instance
-        b = new HraBruKz(
-        {
-            seed: localStorage[ "TaKeDru_VxYa" ]
-        } );
-
-        // save the seed for next time
+        // SEED
+        b = new HraBruKz( { seed: localStorage[ "TaKeDru_VxYa" ] } );
         localStorage[ "TaKeDru_VxYa" ] = b.seed;
 
         HUB__Vy_vsg = b.seed;
         URL_HUB__Vy_vsg = document.location.href + "#" + b.address();
-        document.getElementById( "DuKu_VaSy" ).textContent = "#1 HUB Host";
-
-
-        // log this server's address
+        document.getElementById( "DuKu_VaSy" ).textContent = "#1 HUB Hosting";
         log( "- HUB @", b.address().slice( 0, 4 ), "\n" );
-
-
-        // load messages from previous run
-        if ( localStorage[ "TaKeDruKz" ] )
-        {
-            messages = JSON.parse( localStorage[ "TaKeDruKz" ] );
-        }
-        if ( typeof( messages ) != "object" || !messages[ "length" ] )
-        {
-            messages = [];
-        }
-
-
-        document.getElementById( "TaKeDruGry" ).style.display = "none";
-
-        //---------------------------
-        //---------------------------
-        b.register( "post", function( adr, message, cb )
-        {
-            if ( typeof( message ) == "string" && message.length < 280 )
-            {
-                var m = {
-                    address: adr,
-                    m: message,
-                    t: ( new Date() ).getTime()
-                };
-
-                // log("messageboard:", m);
-
-                messages.push( m );
-                messages = messages.slice( Math.max( 0, messages.length - 8 ) );
-
-                localStorage[ "TaKeDruKz" ] = JSON.stringify( messages );
-
-                cb( true );
-
-                b.send( "refresh" );
-            }
-            else
-            {
-                cb( false );
-            }
-        }, "Post a message to the board" );
-
-
-        //---------------------------
-        //---------------------------
-        b.register( "list", function( adr, args, cb )
-        {
-            cb( messages.slice().reverse() );
-        }, "List most recent messages" );
-
-
-        //---------------------------
-        // SERVER CONNECTED
-        //---------------------------
-        b.on( "connections", function( c )
-        {
-            if ( c == 0 && connected == false )
-            {
-                // log("FIRST NODE");
-                connected = true;
-            }
-        } );
-
-        //---------------------------
-        // MSG
-        //---------------------------
-        // b.on("message", function( adr, msg) { log( "- MSG( Hub ): ", adr.slice( 0, 4 ), msg ); });
-
-
-        //---------------------------
-        // RPC
-        //---------------------------
-        // log when a client makes an rpc call
-        /* b.on( "rpc", function( adr, call, args )
-        {
-            //	log("FN:", adr, call, args);
-            //	log( "- FN: ", call );
-        } ); */
     }
 
-    //@@@
-    // END SPOKE or HUB
-
+    // ======================================================================
+    // ADR_END: SPOKE or HUB
+    // ======================================================================
 
     //---------------------------
-    // INIT PROG
+    // POST_ADR_INIT
     //---------------------------
-    //
     // log( "Self_ID: ", b.address().slice( 0, 4 ) );
     // log( " Fam: ", b.localFamily, " Loc: ", b.localAddress, " Rem: ", b.remoteAddress );
 
 	//@@@
 	// PULSE ms
-    b.heartbeat( 5 * 1000 );
+    b.heartbeat( 12 * 1000 );
 
 
 	//@@@
 	// SELF NAME
-    const VaSy_l = document.getElementById( 'SaNo_VaSy' );
-    VaSy_l.textContent = localStorage.VaSy_l;
+    const SaNo_VaSy_l = document.getElementById( 'SaNo_VaSy' );
+    SaNo_VaSy_l.value = localStorage.SaNo_VaSy ? localStorage.SaNo_VaSy : b.address().slice( 0, 5 );
+
 
 	//@@@
-	// MSG
-    const MeKz_l = document.getElementById( 'SaNo_MeKz' );
+	// MSG FOCUS
+    const SaNo_MeKz_l = document.getElementById( 'SaNo_MeKz' );
+    SaNo_MeKz_l.value = localStorage.SaNo_MeKz ? localStorage.SaNo_MeKz : "Test Message";
+	SaNo_MeKz_l.focus();
 
-    MeKz_l.focus();
 
+    //---------------------------
+    // EVT_SPOKES
+	// Join or Exit
+    //---------------------------
+    function SPOKE__FoYy( count )
+    {
+        // b.torrent.wires.length = count
+		count += 1; // SERVER = +1
+        document.getElementById( "KeDyCha" ).textContent = count ? "yes ( " + count + " )" : "no";
+    }
+	b.on( "wireseen", SPOKE__FoYy );
+    b.on( "wireleft", SPOKE__FoYy );
 
-	//---------------------------
-	// log when we see a new client adr
-	//---------------------------
 	b.on( "seen", function( adr )
 	{
-		log( "- Spoke Joined @ ", adr.slice( 0, 4 ) );
+		log( "- Spoke Join @ ", adr.slice( 0, 4 ) );
 	} );
 	b.on( "left", function( adr )
 	{
-		log( "- Spoke Exited @ ", adr.slice( 0, 4 ) );
+		log( "- Spoke Exit @ ", adr.slice( 0, 4 ) );
 	} );
 
 
@@ -688,8 +559,6 @@
 	//---------------------------
     b.on( "Je", function( adr, To_vbu )
     {
-
-
 		//@@@
 		// PKT 'hasa'
         const JyNo = new DataView( To_vbu.buffer, To_vbu.offset, To_vbu.byteLength );
@@ -792,19 +661,6 @@
 
 
     //---------------------------
-    // WIRES
-    // if we see a wire join or leave
-    //---------------------------
-    b.on( "wireseen", updateWires );
-    b.on( "wireleft", updateWires );
-    function updateWires( count )
-    {
-        // b.torrent.wires.length
-        document.getElementById( "KeDyCha" ).textContent = count ? "yes ( " + count + " )" : "no";
-    }
-
-
-    //---------------------------
 	// AUDIO PLAY
     //---------------------------
 	let ToMi_JaPe = document.getElementById( "ToMi_JaPe" );
@@ -819,50 +675,36 @@
 		ToMi_JaPe.pause();
 	}
 
-    //---------------------------
-    // TXT ZONE
-    //---------------------------
-    VaSy_l.onclick = function( evt )
-    {
-		log( "VaSy", VaSy_l.value );
-	}
-
-
-    document.getElementById( "MeKz_Me" ).onclick = function( evt )
-    {
-		log( "MeKz", MeKz_l.value );
-	}
-
-
-    //---------------------------
-    // TXT_MSG
-    //---------------------------
-	/*
-    document.getElementById( "ChyKeDruKz" ).onclick = function( evt )
-    {
-        // log( "\n- ChyGe__GxZe @ ", b.Fe_vsg().toString() );
-        KeDru__Fo_wu++;
-
-        // DATA
-        const To_vbu = new Uint8Array( 8 );
-        To_vbu[ 0 ] = 1;
-        To_vbu[ 1 ] = KeDru__Fo_wu;
-        try
-        {
-            b.Me( b.address(), To_vbu );
-			}
-			catch ( e )
-        {
-            log( "Me FAILED" );
-			}
-			}
-			*/
-
-
 	//---------------------------
 	// SHARE HUB LINK
 	//---------------------------
-	document.getElementById( "clip" ).onclick = function( evt )
+	document.getElementById( "Me_SHARE" ).onclick = function (evt )
+	{
+		if (navigator.share)
+		{
+			navigator.share(
+			{
+				title: 'Self_Serv Shared Link',
+				text: 'To Join a Self_Serv Room, Click Here: ',
+				url: URL_HUB__Vy_vsg,
+				//----
+				// CAN attach files ( JPG, OPUS, PDF, etc. )
+				// files: https://developer.mozilla.org/en-US/docs/Web/API/Navigator/share
+			}).catch( err => { log( "Web Share API Failed:", err ); } );
+		}
+
+		//!!!
+		// Vibrate 'SOS' in Morse for 200ms
+		if( navigator.vibrate )
+		{
+			navigator.vibrate
+			([
+				100, 30, 100, 30, 100, 30, 200, 30, 200, 30, 200, 30, 100, 30, 100, 30, 100,
+			]);
+		}
+	}
+
+	document.getElementById( "Me_CLIP" ).onclick = function( evt )
 	{
 		copyToClipboard( URL_HUB__Vy_vsg );
 		log( "Clip: ", URL_HUB__Vy_vsg );
@@ -870,15 +712,74 @@
 		ToMi_JaPe__Ya();
 	}
 
-	document.getElementById( "email" ).onclick = function( evt )
+	document.getElementById( "Me_EMAIL" ).onclick = function( evt )
 	{
 		//content-type=text/html
-		window.location.href = 'mailto:?subject=Self_Serv Test Link&body=Open Room Link here:\n\n' + encodeURI( URL_HUB__Vy_vsg );
+		window.location.href = 'mailto:?subject=Self_Serv Shared Link&body=Open Room Link here:\n\n' + encodeURI( URL_HUB__Vy_vsg );
 	}
 
-	document.getElementById( "sms" ).onclick = function( evt )
+	document.getElementById( "Me_SMS" ).onclick = function( evt )
 	{
 		window.location.href = 'sms:?body=Click Here: \n\n' + encodeURI( URL_HUB__Vy_vsg );
+	}
+
+
+    //---------------------------
+    // TXT NAME
+    //---------------------------
+	document.getElementById( 'SaNo_VaSy_Tra' ).onclick = function( evt ){ Mx_SaNo_VaSy(); }
+	document.getElementById( 'SaNoKu_ChxGry' ).onclick = function( evt ){ localStorage.clear(); }
+	function Mx_SaNo_VaSy()
+	{
+		localStorage.SaNo_VaSy = SaNo_VaSy_l.value;
+
+		log( "VaSy", SaNo_VaSy_l.value );
+
+		const To_vbu = new ArrayBuffer( 32 );
+		const JyNo = new DataView( To_vbu );
+
+		// CMD
+        JyNo.setUint8( 0, 0x1 );
+
+
+		// TGT
+		let SeVy = null;
+
+		try{ b.Me( SeVy, To_vbu ); }
+		catch ( e ) { log( "Mx_GeDri FAILED", e ); }
+	}
+
+
+    //---------------------------
+    // TXT MSG
+    //---------------------------
+	document.getElementById( 'MeKeDru_Gry' ).onclick = function( evt ){ Mx_SaNo_MeKz( -1 ); }
+	document.getElementById( 'MeKeDru_Stz' ).onclick = function( evt ){ Mx_SaNo_MeKz( 0 ); }
+	document.getElementById( 'MeKeDru_Stx' ).onclick = function( evt ){ Mx_SaNo_MeKz( 1 ); }
+	document.getElementById( 'MeKeDru_Sta' ).onclick = function( evt ){ Mx_SaNo_MeKz( 2 ); }
+	document.getElementById( 'MeKeDru_Sti' ).onclick = function( evt ){ Mx_SaNo_MeKz( 3 ); }
+
+	function Mx_SaNo_MeKz( SeVx )
+	{
+		log( "MeKz:", SaNo_MeKz_l.value, " SeVx:", SeVx );
+
+		let SeVy = null;
+		// ITER PEER ADR
+
+		let i = 0;
+		for( var adr in b.peers )
+		{
+			if( i > SeVx ) break;
+	  	 	log( "- Person[", i, "]: ", adr.slice( 0, 4 ) );
+			SeVy = adr;
+			i++;
+		}
+
+    	document.getElementById( "TaKeDru_Ku" ).textContent += "@" + localStorage.SaNo_VaSy + ": \"" + SaNo_MeKz_l.value + "\"\n";
+
+		// CLEAR TXT & REFOCUS on TXT AREA!
+		SaNo_MeKz_l.value = "";
+		SaNo_MeKz_l.focus();
 	}
 
 
@@ -886,7 +787,7 @@
     // EVT_SEND
 	// BRUSH
     //---------------------------
-	function Me_ChyDri( GxVu, GaVu )
+	function Mx_GeDri( GxVu, GaVu )
 	{
 		// log( "\n- ChyGe__GxZo @ ", b.Fe_vsg().toString() );
 
@@ -918,18 +819,9 @@
 		JyNo.setUint16( 12, GeGx );
 		JyNo.setUint16( 14, GeGa );
 
-		// ITER PEER ADR
-		 let i = 0;
+		//@@@
+		// TGT
 		let SeVy = null;
-		for( var adr in b.peers )
-		{
-	  	 	log( "- Person[", i, "]: ", adr.slice( 0, 4 ) );
-			i++;
-			SeVy = adr;
-		}
-
-
-
         try
         {
 			// SeVy = null --> TO ALL, else --> KeDy
@@ -937,7 +829,7 @@
         }
         catch ( e )
         {
-            log( "Me_ChyDri FAILED", e );
+            log( "Mx_GeDri FAILED", e );
         }
 	}
 
@@ -946,47 +838,17 @@
     // ARROWS
     //---------------------------
     document.getElementById( "ChyGe__GxZo" ).onclick = function( evt )
-    { Me_ChyDri( GeKwe, 0 ); }
+    { Mx_GeDri( GeKwe, 0 ); }
 
     document.getElementById( "ChyGe__GxZe" ).onclick = function( evt )
-    { Me_ChyDri( -GeKwe, 0 ); }
+    { Mx_GeDri( -GeKwe, 0 ); }
 
 	document.getElementById( "ChyGe__GaZo" ).onclick = function( evt )
-    { Me_ChyDri( 0, GeKwe ); }
+    { Mx_GeDri( 0, GeKwe ); }
 
     document.getElementById( "ChyGe__GaZe" ).onclick = function( evt )
-    { Me_ChyDri( 0, GeKwe ); }
+    { Mx_GeDri( 0, GeKwe ); }
 
-
-    //---------------------------
-    // UTILITY FUNCTIONS
-    //---------------------------
-    function refreshMessages()
-    {
-        msglist.textContent = "Refreshing messages...";
-
-        // get a list of the messages
-        b.rpc( "list", null, function( messages )
-        {
-            updateMessagelist( messages );
-        } );
-
-    }
-
-    function updateMessagelist( messages )
-    {
-        msglist.textContent =
-            messages.map( function( m )
-            {
-                return m.m;
-
-                //   return (new Date(m.t)).toString() + "\n" +
-                //   "From: " + m.adr.slice( 0, 4 ) + "\n" +
-                //   "\n" + m.m + "\n";
-
-            } ).join( "\n\n" );
-
-    }
 
     //---------------------------
     // LOG
@@ -1001,6 +863,7 @@
             if ( typeof( a ) == "string" ) return a;
             else return JSON.stringify( a );
         } );
+
         document.getElementById( "log" ).textContent += args.join( " " ) + "\n";
     }
 </script>
