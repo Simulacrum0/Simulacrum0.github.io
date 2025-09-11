@@ -103,11 +103,6 @@
         text-align: center;
     }
 
-    #QRDiv
-    {
-        margin-top: 20px;
-    }
-
 
     input, textarea
     {
@@ -119,31 +114,10 @@
         white-space: pre-wrap;
 
         text-align: center;
+		resize: none;
 
 		font-family: Arial, Helvetica, sans-serif;
 		font-size: 1.5em;
-    }
-
-
-    .BUF
-    {
-        background-color: #FFF;
-        color: #00A;
-        width: 100%;
-        padding: 1.0 em;
-        margin: 1.0 em;
-
-        border-color: #00F;
-        border-radius: 2px;
-        border-style: groove;
-
-        text-align: left;
-
-        word-wrap: break-word;
-        white-space: pre-wrap;
-        line-height: 1.0em;
-
-        font-size: 1.0em;
     }
 
     button
@@ -151,6 +125,7 @@
         border-radius: 16px;
         background-color: #F22;
         color: white;
+
 
         border: none;
         padding: 0.5em 1em;
@@ -161,8 +136,8 @@
     {
         color: #F22;
         background-color: white;
+		font-family: bold sans-serif;
     }
-
 
     /* unvisited link */
     a:link
@@ -188,6 +163,53 @@
         color: #FFB;
     }
 
+	ul
+	{
+		 list-style-type: none;
+		margin: 0; /* Remove default margins */
+		padding: 0; /* Remove default padding */
+	}
+
+
+    li
+    {
+		line-height: 1.0em;
+	    font: italic 1.0em sans-serif;
+		padding: 0px;
+		margin: 0px 0px 0px 0px;
+		margin-bottom: 0px; /* Control space between items */
+
+		text-indent: -0.9rem;
+    }
+
+  li::before
+  {
+    content: "➡️ ";
+  }
+
+    .BUF
+    {
+        background-color: #FFF;
+        color: #00A;
+        width: 100%;
+		height: 16em;
+        padding: 1.0 em;
+        margin: 1.0 em;
+
+        border-color: #00F;
+        border-radius: 2px;
+        border-style: groove;
+
+        text-align: left;
+
+        word-wrap: break-word;
+		overflow-y: scroll;
+        white-space: pre-wrap;
+        line-height: 1.0em;
+
+        font-size: 1.0em;
+    }
+
     .BOX
     {
         border-color: #DD5;
@@ -197,12 +219,23 @@
         padding: 1em 1em;
     }
 
-    li,
-    p
-    {
-        line-height: 1.5;
-    }
 
+	#SF_MxPo
+	{
+        border-color: #00F;
+        border-radius: 2px;
+        border-style: groove;
+
+        padding: 0em 0em;
+
+		width: calc(100% - 0.5em );
+		aspect-ratio: 1.0;
+	}
+
+    #QRDiv
+    {
+        margin-top: 20px;
+    }
 
 
     #content
@@ -214,7 +247,7 @@
         margin: 0 auto;
         min-width: 360px;
         max-width: 1280px;
-        width: calc(100% - 16px);
+        width: calc(100% - 0.5em );
     }
 
     #content
@@ -318,11 +351,11 @@
         <br>
         <div id="QRDiv"></div>
         <br>
-        <button id="Me_SHARE">Share</button>
         <button id="Me_CLIP">Copy</button>
         <button id="Me_EMAIL">Email </button>
         <button id="Me_SMS">Txt</button>
         <button id="Me_URL_ROOM"><a href="WzFe.html" target="_NEW">New Room</a></button>
+        <button id="Me_SHARE">Share</button>
     </div>
     <br>
     <br>
@@ -334,13 +367,13 @@
         <br>
         <br>
         <button id="MeKeDru_Gry">Send All</button>
-        <button style="display: none;" id="MeKeDru_Stz" >Send 0</button>
-        <button style="display: none;" id="MeKeDru_Stx" >Send 1</button>
-        <button style="display: none;" id="MeKeDru_Sta" >Send 2</button>
-        <button style="display: none;" id="MeKeDru_Sti" >Send 3</button>
+        <button style="display: none;" id="MeKeDru_0" >Send 0</button>
+        <button style="display: none;" id="MeKeDru_1" >Send 1</button>
+        <button style="display: none;" id="MeKeDru_2" >Send 2</button>
+        <button style="display: none;" id="MeKeDru_3" >Send 3</button>
         <br>
         <h3>Message History:</h3>
-        <p id="TaKeDru_Ku" class="BUF"></p>
+        <div id="TaKeDru_Ku" class="BUF"></div>
     </div>
     <br>
     <br>
@@ -401,6 +434,16 @@
                 <div id="rc-canvas"></div>
 			</div>
 		</div>
+	</div>
+	<br>
+	<br>
+	<div id="GAME_TEST" class="BOX">
+		<h2>#4 GAME TEST</h2>
+
+		<img style="position:center;" src="Mx01__SuKz_MEDIA/SuKz02_JaPo__PICT/JaPo__SF/SF_P00.png"></img>
+		<br>
+		<br>
+		<canvas id="SF_MxPo"></canvas>
 
 		<br>
 		<button id="ChyGe__GaZo">^<br>||</button>
@@ -410,15 +453,18 @@
 		<button id="ChyGe__GxZo">==></button>
 		<br>
 		<button id="ChyGe__GaZe">||<br>v</button>
-
-    </div>
+		<br>
+		<br>
+		<button id="MxHi"; onclick="HraBu_ChyMxHi();" style="display: block;">Use Fullscreen</button>
+		<button id="MxDe"; onclick="HraBu_ChyMxDe();" style="display: none;">Use Window</button>
+	</div>
+	<br>
     <br>
-    <br>
-
     <div class="BOX">
-        <h2>#4 LOG</h2>
-        <p id="log" class="BUF"></p>
+        <h2>#5 LOG</h2>
+        <div id="SmaDx" class="BUF"></div>
     </div>
+
 
 
     <script id="radiance-cascades-logic" src="Mx07__SuSmi_WEBPG/SuSmi01__JS/Kru03__Hrz2_Wy.js" type="application/javascript"></script>
@@ -431,20 +477,33 @@
 <!-- ====================================================================== -->
 <script>
     // VAR
-    var b;
-    var connected = false;
-    var SPOKE_y = ( window.location.hash.length > 1 ) ? true : false;
-    var HUB__Vy_vsg;
-    var URL_HUB__Vy_vsg;
+    const SPOKE_y = ( window.location.hash.length > 1 ) ? true : false;
+    let HraBru;
+    let HUB__Vy_vsg;
+    let URL_HUB__Vy_vsg;
 
+	//@@@
+	// IMG
+	const BG_JaPo = new Image();
+	const Dz_TaJaPo = [];
 
 	//@@@
 	// MSGS
-    var KeDru__Fo_wu = 0;
+	let Ta_VaVy_VaSy = new Map();
 
-    var GeGx = 128;
-    var GeGa = 128;
-	var GeKwe = 5;
+//	let Ta_KeDru = [ { "t": 0, "n": 0, "m": "Messages" } ];
+	let Ta_KeDru = [ "Messages" ];
+
+	let Ta_SmaDx = [ "Log" ];
+
+    let JeKz__Fo_du = 0;
+	let KeDru__GeZo_du = 0;
+	let SmaDx__GeZo_du = 0;
+
+
+    let GeGx = 128;
+    let GeGa = 128;
+	let GeKwe = 5;
 
 
 	//@@@
@@ -462,7 +521,7 @@
 	// String ONLY
 	// INSECURE
 	// localStorage.clear();
-	log( "Secure:", window.isSecureContext, " LocStore_Fo:", localStorage.length );
+	SmaDx( "Secure:", window.isSecureContext, " Online: ", navigator.onLine, " LocStore_Fo:", localStorage.length );
 
 
 	//$$$
@@ -480,27 +539,26 @@
     if ( SPOKE_y )
     {
 		// ADR GEN
-        var HUB__Vy_vsg = window.location.hash.substr( 1 ) || "bUH7ukDvd9R2xLLRKMKWZ1mGPkgdVfufye";
-        b = new HraBruKz( HUB__Vy_vsg );
+		// substr(1) skips the 'HASH SYMBOL' for PAGE TARGET
+        let HUB__Vy_vsg = window.location.hash.substr( 1 ) || "bUH7ukDvd9R2xLLRKMKWZ1mGPkgdVfufye";
+        HraBru = new HraBruKz( HUB__Vy_vsg );
 
 		// ADR PUB
         URL_HUB__Vy_vsg = document.location.href;
         document.getElementById( "DuKu_VaSy" ).textContent = "#1 HUB Joined";
-        log( "SPOKE @", b.address().slice( 0, 4 ), "\n" );
     }
 	//@@@
 	// HUB
     else
     {
-        //@@@
+        //&&&
         // SEED
-        b = new HraBruKz( { seed: localStorage[ "TaKeDru_VxYa" ] } );
-        localStorage[ "TaKeDru_VxYa" ] = b.seed;
+        HraBru = new HraBruKz( { seed: localStorage[ "TaKeDru_VxYa" ] } );
+        localStorage[ "TaKeDru_VxYa" ] = HraBru.seed;
 
-        HUB__Vy_vsg = b.seed;
-        URL_HUB__Vy_vsg = document.location.href + "#" + b.address();
+        HUB__Vy_vsg = HraBru.seed;
+        URL_HUB__Vy_vsg = document.location.href + "#" + HraBru.address();
         document.getElementById( "DuKu_VaSy" ).textContent = "#1 HUB Hosting";
-        log( "- HUB @", b.address().slice( 0, 4 ), "\n" );
     }
 
     // ======================================================================
@@ -510,19 +568,21 @@
     //---------------------------
     // POST_ADR_INIT
     //---------------------------
-    // log( "Self_ID: ", b.address().slice( 0, 4 ) );
-    // log( " Fam: ", b.localFamily, " Loc: ", b.localAddress, " Rem: ", b.remoteAddress );
+    // SmaDx( " Fam: ", HraBru.localFamily, " Loc: ", HraBru.localAddress, " Rem: ", HraBru.remoteAddress );
 
 	//@@@
 	// PULSE ms
-    b.heartbeat( 12 * 1000 );
+    HraBru.heartbeat( 12 * 1000 );
 
 
 	//@@@
 	// SELF NAME
     const SaNo_VaSy_l = document.getElementById( 'SaNo_VaSy' );
-    SaNo_VaSy_l.value = localStorage.SaNo_VaSy ? localStorage.SaNo_VaSy : b.address().slice( 0, 5 );
+    SaNo_VaSy_l.value = localStorage.SaNo_VaSy ? localStorage.SaNo_VaSy : HraBru.address().slice( 0, 5 );
 
+	Ta_VaVy_VaSy.set( HraBru.address, SaNo_VaSy_l.value );
+
+	SmaDx( SPOKE_y ? "SPOKE@" : "HUB@", SaNo_VaSy_l.value );
 
 	//@@@
 	// MSG FOCUS
@@ -531,33 +591,362 @@
 	SaNo_MeKz_l.focus();
 
 
+	//@@@
+	// SF
+	SF_Ya();
+
     //---------------------------
     // EVT_SPOKES
 	// Join or Exit
     //---------------------------
     function SPOKE__FoYy( count )
     {
-        // b.torrent.wires.length = count
+        // HraBru.torrent.wires.length = count
 		count += 1; // SERVER = +1
         document.getElementById( "KeDyCha" ).textContent = count ? "yes ( " + count + " )" : "no";
     }
-	b.on( "wireseen", SPOKE__FoYy );
-    b.on( "wireleft", SPOKE__FoYy );
+	HraBru.on( "wireseen", SPOKE__FoYy );
+    HraBru.on( "wireleft", SPOKE__FoYy );
 
-	b.on( "seen", function( adr )
+	HraBru.on( "seen", function( adr )
 	{
-		log( "- Spoke Join @ ", adr.slice( 0, 4 ) );
+		// Use Initials to start
+		Ta_VaVy_VaSy.set( adr, adr.slice( 0, 5 ) );
+
+		SmaDx( "Spoke Join @ ", Ta_VaVy_VaSy[ adr ] );
+
+		let c = 0;
+		for( let adr in Ta_VaVy_VaSy )
+		{
+			SmaDx( c, " = ", Ta_VaVy_VaSy[ adr ] );
+
+		}
+
 	} );
-	b.on( "left", function( adr )
+	HraBru.on( "left", function( adr )
 	{
-		log( "- Spoke Exit @ ", adr.slice( 0, 4 ) );
+		SmaDx( "Spoke Exit @ ", Ta_VaVy_VaSy[ adr ] );
+
+		Ta_VaVy_VaSy.delete( adr );
+
 	} );
+
+
+    //---------------------------
+    // QR
+    //---------------------------
+    const qrCodeContainer = document.getElementById( 'QRDiv' );
+    // Clear any existing QR code
+    qrCodeContainer.innerHTML = '';
+    // Create a new canvas element
+    const canvas = document.createElement( 'canvas' );
+    qrCodeContainer.appendChild( canvas );
+
+    QRCode.toCanvas( canvas, URL_HUB__Vy_vsg,
+    {
+        width: 200,
+        height: 200
+    }, function( error )
+    {
+        if ( error )
+        {
+            console.error( error );
+        }
+    } );
+
+
+    //---------------------------
+	// AUDIO PLAY
+    //---------------------------
+	let ToMi_JaPe = document.getElementById( "ToMi_JaPe" );
+	function ToMi_JaPe__Ya()
+	{
+		// SmaDx( "Aud" );
+		ToMi_JaPe.play();
+	}
+
+	function ToMi_JaPe__Yi()
+	{
+		ToMi_JaPe.pause();
+	}
+
+	//---------------------------
+	// SHARE HUB LINK
+	//---------------------------
+	document.getElementById( "Me_SHARE" ).onclick = function (evt )
+	{
+		if (navigator.share)
+		{
+			navigator.share(
+			{
+				title: 'Self_Serv Shared Link',
+				text: 'To Join a Self_Serv Room, Click Here: ',
+				url: URL_HUB__Vy_vsg,
+				//----
+				// CAN attach files ( JPG, OPUS, PDF, etc. )
+				// files: https://developer.mozilla.org/en-US/docs/Web/API/Navigator/share
+			}).catch( err => { SmaDx( "Web Share API Failed:", err ); } );
+		}
+
+		//!!!
+		// Vibrate 'SOS' in Morse for 200ms
+		if( navigator.vibrate )
+		{
+			navigator.vibrate
+			([
+				100, 30, 100, 30, 100, 30, 200, 30, 200, 30, 200, 30, 100, 30, 100, 30, 100,
+			]);
+		}
+	}
+
+	document.getElementById( "Me_CLIP" ).onclick = function( evt )
+	{
+		copyToClipboard( URL_HUB__Vy_vsg );
+		SmaDx( "Clip: ", URL_HUB__Vy_vsg );
+
+		ToMi_JaPe__Ya();
+	}
+
+	document.getElementById( "Me_EMAIL" ).onclick = function( evt )
+	{
+		//content-type=text/html
+		window.location.href = 'mailto:?subject=Self_Serv Shared Link&body=Open Room Link here:\n\n' + encodeURI( URL_HUB__Vy_vsg );
+	}
+
+	document.getElementById( "Me_SMS" ).onclick = function( evt )
+	{
+		window.location.href = 'sms:?body=Click Here: \n\n' + encodeURI( URL_HUB__Vy_vsg );
+	}
+
+
+    //---------------------------
+    // EVT_SEND TXT NAME
+    //---------------------------
+	document.getElementById( 'SaNo_VaSy_Tra' ).onclick = function( evt ){ Mx_SaNo_VaSy(); }
+	document.getElementById( 'SaNoKu_ChxGry' ).onclick = function( evt ){ localStorage.clear(); }
+
+	function Mx_SaNo_VaSy()
+	{
+		localStorage.SaNo_VaSy = SaNo_VaSy_l.value;
+
+		// SmaDx( "VaSy", SaNo_VaSy_l.value );
+
+		let ChyNu_vsg_vbg = new TextEncoder();
+		let SaNo_VaSy_vbg = ChyNu_vsg_vbg.encode( SaNo_VaSy_l.value );
+		let SaNo_VaSy__Fo_du = SaNo_VaSy_vbg.length;
+
+
+		// 4 bytes + 4pad + Fo
+		const To_vbu = new ArrayBuffer( SaNo_VaSy__Fo_du + 8 );
+		const JyNo = new DataView( To_vbu );
+
+		// CMD
+        JyNo.setUint8( 0, 0x1 );
+        JyNo.setUint8( 1, 0x1 );
+        JyNo.setUint8( 2, 0x1 );
+        JyNo.setUint8( 3, 0x1 );
+
+		for( let k = 0; k < SaNo_VaSy__Fo_du; k++ )
+		{
+			JyNo.setUint8( 4 +k, SaNo_VaSy_vbg[ k ] );
+		}
+
+		// TGT
+		let SeVy = null;
+		try{ HraBru.Me( SeVy, To_vbu ); }
+		catch ( e ) { SmaDx( "Name Share FAILED", e ); }
+	}
+
+
+    //---------------------------
+    // EVT_SEND TXT MSG
+    //---------------------------
+	document.getElementById( 'MeKeDru_Gry' ).onclick = function( evt ){ Mx_SaNo_MeKz( -1 ); }
+	document.getElementById( 'MeKeDru_0' ).onclick = function( evt ){ Mx_SaNo_MeKz( 0 ); }
+	document.getElementById( 'MeKeDru_1' ).onclick = function( evt ){ Mx_SaNo_MeKz( 1 ); }
+	document.getElementById( 'MeKeDru_2' ).onclick = function( evt ){ Mx_SaNo_MeKz( 2 ); }
+	document.getElementById( 'MeKeDru_3' ).onclick = function( evt ){ Mx_SaNo_MeKz( 3 ); }
+
+	function Mx_SaNo_MeKz( SeVx )
+	{
+		SmaDx( "MeKz:", SaNo_MeKz_l.value, " SeVx:", ( SeVx >= 0 ) ? SeVx : "ALL" );
+
+
+		let ChyNu_vsg_vbg = new TextEncoder();
+		let SaNo_MeKz_vbg = ChyNu_vsg_vbg.encode( SaNo_MeKz_l.value );
+		let SaNo_MeKz__Fo_du = SaNo_MeKz_vbg.length;
+
+		// 4 bytes + 4pad + Fo
+		const To_vbu = new ArrayBuffer( SaNo_MeKz__Fo_du + 8 );
+		const JyNo = new DataView( To_vbu );
+
+		// CMD
+        JyNo.setUint8( 0, 0x2 );
+        JyNo.setUint8( 1, 0x2 );
+        JyNo.setUint8( 2, 0x2 );
+        JyNo.setUint8( 3, 0x2 );
+
+		for( let k = 0; k < SaNo_MeKz__Fo_du; k++ )
+		{
+			JyNo.setUint8( 4 +k, SaNo_MeKz_vbg[ k ] );
+		}
+
+		let SeVy = null;
+
+		let i = 0;
+		// ITER PEER ADR
+		for( let adr in HraBru.peers )
+		{
+			if( i > SeVx ) break;
+	  	 	// SmaDx( "Person[", i, "]: ", Ta_VaVy_VaSy[ adr ] );
+
+			SeVy = adr;
+			i++;
+		}
+
+		//@@@
+		// SEND
+		try{ HraBru.Me( SeVy, To_vbu ); }
+		catch ( e ) { SmaDx( "Msg Share FAILED", e ); }
+
+		// CLEAR TXT & REFOCUS on TXT AREA!
+		SaNo_MeKz_l.value = "";
+		SaNo_MeKz_l.focus();
+	}
+
+
+    //---------------------------
+    // EVT_SEND BRUSH
+    //---------------------------
+	function Mx_GeDri( GxVu, GaVu )
+	{
+		// SmaDx( "ChyGe__GxZo @ ", HraBru.Fe_vsg().toString() );
+
+		const To_vbu = new ArrayBuffer( 16 );
+		const JyNo = new DataView( To_vbu );
+
+		// CMD
+        JyNo.setUint8( 0, 0x3 );
+
+		// VER
+		JeKz__Fo_du++;
+        JyNo.setUint8( 1, JeKz__Fo_du );
+
+		// BRUSH SIZE
+        JyNo.setUint16( 2, 0x55AA );
+
+		// COLOR
+		JyNo.setUint32( 4, 0xFF8800FF );
+
+		// LOC
+		// SmaDx( "Me: GeYa x: ", GeGx, " y: ", GeGa );
+		JyNo.setUint16( 8, GeGx );
+		JyNo.setUint16( 10, GeGa );
+
+        GeGx += GxVu;
+        GeGa += GaVu;
+
+		//SmaDx( "GeYi x: ", GeGx, " y: ", GeGa );
+		JyNo.setUint16( 12, GeGx );
+		JyNo.setUint16( 14, GeGa );
+
+		//@@@
+		// TGT
+		let SeVy = null;
+        try
+        {
+			// SeVy = null --> TO ALL, else --> KeDy
+			HraBru.Me( SeVy, To_vbu );
+        }
+        catch ( e )
+        {
+            SmaDx( "Mx_GeDri FAILED", e );
+        }
+	}
+
+
+    //---------------------------
+    // ARROWS
+    //---------------------------
+    document.getElementById( "ChyGe__GxZo" ).onclick = function( evt )
+    { Mx_GeDri( GeKwe, 0 ); }
+
+    document.getElementById( "ChyGe__GxZe" ).onclick = function( evt )
+    { Mx_GeDri( -GeKwe, 0 ); }
+
+	document.getElementById( "ChyGe__GaZo" ).onclick = function( evt )
+    { Mx_GeDri( 0, GeKwe ); }
+
+    document.getElementById( "ChyGe__GaZe" ).onclick = function( evt )
+    { Mx_GeDri( 0, -GeKwe ); }
+
+
+	//---------------------------
+    // MSG Ye
+    //---------------------------
+    function Mi_KeDru( adr, ChaKeDru )
+    {
+		//@@@
+		// ADD STRING
+		Ta_KeDru.push( ChaKeDru );
+
+		// KEEP N items and track
+		if( Ta_KeDru.length >= 64 ){ Ta_KeDru.splice( 0, 1 ); KeDru__GeZo_du++; }
+		const KeDruFo = Ta_KeDru.length;
+
+
+		let SmeDeKu = document.getElementById( "TaKeDru_Ku" );
+		SmeDeKu.innerHTML = "<ul>";
+
+		for (let i = 0; i < KeDruFo; i++)
+		{
+			let GwxVa = ( i + SmaDx__GeZo_du ).toString().padStart( 4, '0');
+			SmeDeKu.innerHTML += "<li>" + GwxVa + "> "+ Ta_KeDru[i] + "</li>";
+		}
+		SmeDeKu.innerHTML += "</ul>";
+    }
+
+
+	//---------------------------
+    // LOG YeYy
+    //---------------------------
+    function SmaDx()
+    {
+        let args = Array.prototype.slice.call( arguments );
+
+        console.log.apply( null, args );
+        args = args.map( function( a )
+        {
+            if ( typeof( a ) == "string" ) return a;
+            else return JSON.stringify( a );
+        } );
+
+		//@@@
+		// ADD STRING
+		Ta_SmaDx.push( args.join( " " ) );
+
+		// KEEP N items and track
+		if( Ta_SmaDx.length >= 64 ){ Ta_SmaDx.splice( 0, 1 ); SmaDx__GeZo_du++; }
+		const KeDruFo = Ta_SmaDx.length;
+
+
+
+		let SmeDeKu = document.getElementById( "SmaDx" );
+		SmeDeKu.innerHTML = "<ul>";
+
+		for( let i = KeDruFo - 1; i >= 0; i-- )
+		{
+			let GwxVa = ( i + SmaDx__GeZo_du ).toString().padStart( 4, '0');
+			SmeDeKu.innerHTML += "<li>" + GwxVa + "> "+ Ta_SmaDx[i] + "</li>";
+		}
+		SmeDeKu.innerHTML += "</ul>";
+    }
 
 
 	//---------------------------
 	// EVT_RECV
 	//---------------------------
-    b.on( "Je", function( adr, To_vbu )
+    HraBru.on( "Je", function( adr, To_vbu )
     {
 		//@@@
 		// PKT 'hasa'
@@ -574,15 +963,30 @@
 			//&&&
 			// NAME UPDATE
 			case 1:
-			log( "- MiJe_NAME[ ", adr.slice( 0, 4 ), " ]: ", To_vbu );
+			{
+				const ChyNu_vbg_vsg = new TextDecoder('utf-8');
+				const ChyNuKz = new DataView( To_vbu.buffer, To_vbu.offset + 4, To_vbu.byteLength - 4 );
+				const VaSy_vsg = ChyNu_vbg_vsg.decode( ChyNuKz );
 
+				Ta_VaVy_VaSy.set( adr, VaSy_vsg );
+
+				SmaDx( "MiJe_NAME[ ",  Ta_VaVy_VaSy.get( adr ), " ]: ", VaSy_vsg );
+			}
 			break;
 
-			//&&&
-			// BLAB
-			case 2:
-			log( "- MiJe_BLAB[ ", adr.slice( 0, 4 ), " ]: ", To_vbu );
 
+			//&&&
+			// MSG SYNC
+			case 2:
+			{
+				const ChyNu_vbg_vsg = new TextDecoder('utf-8');
+				const ChyNuKz = new DataView( To_vbu.buffer, To_vbu.offset + 4, To_vbu.byteLength - 4 );
+				const KeDru_vsg = ChyNu_vbg_vsg.decode( ChyNuKz );
+
+				Mi_KeDru( adr, KeDru_vsg );
+
+				SmaDx( "MiJe_MSG[ ", Ta_VaVy_VaSy.get( adr ), " ]: ", KeDru_vsg );
+			}
 			break;
 
 
@@ -616,8 +1020,8 @@
 			const Po_hex = Po_wu.toString(16).toUpperCase().padStart( 7, '0');
 
 
-			//log( "- MiJe_BRUSH[ ", adr.slice( 0, 4 ), " ]" );
-			log( "- MiJe_BRUSH[ ", adr.slice( 0, 4 ), " ] GeYa:", GeYa, " GeYi:", GeYi, " DriGy:", DriGy_hex, " Po:", Po_hex );
+			//SmaDx( "MiJe_BRUSH[ ", Ta_VaVy_VaSy[ adr ], " ]" );
+			SmaDx( "MiJe_BRUSH[ ", Ta_VaVy_VaSy[ adr ], " ] GeYa:", GeYa, " GeYi:", GeYi, " DriGy:", DriGy_hex, " Po:", Po_hex );
 
 			let wrc = window.radianceCascades;
 			return new Promise( ( resolve ) =>
@@ -636,236 +1040,71 @@
 
     } );
 
-
-    //---------------------------
-    // QR
-    //---------------------------
-    const qrCodeContainer = document.getElementById( 'QRDiv' );
-    // Clear any existing QR code
-    qrCodeContainer.innerHTML = '';
-    // Create a new canvas element
-    const canvas = document.createElement( 'canvas' );
-    qrCodeContainer.appendChild( canvas );
-
-    QRCode.toCanvas( canvas, URL_HUB__Vy_vsg,
-    {
-        width: 200,
-        height: 200
-    }, function( error )
-    {
-        if ( error )
-        {
-            console.error( error );
-        }
-    } );
-
-
-    //---------------------------
-	// AUDIO PLAY
-    //---------------------------
-	let ToMi_JaPe = document.getElementById( "ToMi_JaPe" );
-	function ToMi_JaPe__Ya()
+   // ======================================================================
+    // FULLSCREEN
+    // ======================================================================
+	function HraBu_ChyMxHi()
 	{
-		// log( "Aud" );
-		ToMi_JaPe.play();
-	}
-
-	function ToMi_JaPe__Yi()
-	{
-		ToMi_JaPe.pause();
-	}
-
-	//---------------------------
-	// SHARE HUB LINK
-	//---------------------------
-	document.getElementById( "Me_SHARE" ).onclick = function (evt )
-	{
-		if (navigator.share)
+		var elem = document.getElementById('GAME_TEST' );
+		if(elem.requestFullscreen)
 		{
-			navigator.share(
-			{
-				title: 'Self_Serv Shared Link',
-				text: 'To Join a Self_Serv Room, Click Here: ',
-				url: URL_HUB__Vy_vsg,
-				//----
-				// CAN attach files ( JPG, OPUS, PDF, etc. )
-				// files: https://developer.mozilla.org/en-US/docs/Web/API/Navigator/share
-			}).catch( err => { log( "Web Share API Failed:", err ); } );
+			elem.requestFullscreen();
+			 document.getElementById( "MxHi" ).style.display = "none";
+			 document.getElementById( "MxDe" ).style.display = "block";
 		}
-
-		//!!!
-		// Vibrate 'SOS' in Morse for 200ms
-		if( navigator.vibrate )
+	}
+	function HraBu_ChyMxDe()
+	{
+		if(document.exitFullscreen)
 		{
-			navigator.vibrate
-			([
-				100, 30, 100, 30, 100, 30, 200, 30, 200, 30, 200, 30, 100, 30, 100, 30, 100,
-			]);
+			document.exitFullscreen();
+			document.getElementById( "MxHi" ).style.display = "block";
+			 document.getElementById( "MxDe" ).style.display = "none";
 		}
 	}
 
-	document.getElementById( "Me_CLIP" ).onclick = function( evt )
+    // ======================================================================
+    // SF_Bri
+    // ======================================================================
+
+	async function SF_Ya()
 	{
-		copyToClipboard( URL_HUB__Vy_vsg );
-		log( "Clip: ", URL_HUB__Vy_vsg );
+		// LOAD BG
+		BG_JaPo.src = "Mx01__SuKz_MEDIA/SuKz02_JaPo__PICT/JaPo__SF/SF_M00.png";
 
-		ToMi_JaPe__Ya();
-	}
-
-	document.getElementById( "Me_EMAIL" ).onclick = function( evt )
-	{
-		//content-type=text/html
-		window.location.href = 'mailto:?subject=Self_Serv Shared Link&body=Open Room Link here:\n\n' + encodeURI( URL_HUB__Vy_vsg );
-	}
-
-	document.getElementById( "Me_SMS" ).onclick = function( evt )
-	{
-		window.location.href = 'sms:?body=Click Here: \n\n' + encodeURI( URL_HUB__Vy_vsg );
-	}
-
-
-    //---------------------------
-    // TXT NAME
-    //---------------------------
-	document.getElementById( 'SaNo_VaSy_Tra' ).onclick = function( evt ){ Mx_SaNo_VaSy(); }
-	document.getElementById( 'SaNoKu_ChxGry' ).onclick = function( evt ){ localStorage.clear(); }
-	function Mx_SaNo_VaSy()
-	{
-		localStorage.SaNo_VaSy = SaNo_VaSy_l.value;
-
-		log( "VaSy", SaNo_VaSy_l.value );
-
-		const To_vbu = new ArrayBuffer( 32 );
-		const JyNo = new DataView( To_vbu );
-
-		// CMD
-        JyNo.setUint8( 0, 0x1 );
-
-
-		// TGT
-		let SeVy = null;
-
-		try{ b.Me( SeVy, To_vbu ); }
-		catch ( e ) { log( "Mx_GeDri FAILED", e ); }
-	}
-
-
-    //---------------------------
-    // TXT MSG
-    //---------------------------
-	document.getElementById( 'MeKeDru_Gry' ).onclick = function( evt ){ Mx_SaNo_MeKz( -1 ); }
-	document.getElementById( 'MeKeDru_Stz' ).onclick = function( evt ){ Mx_SaNo_MeKz( 0 ); }
-	document.getElementById( 'MeKeDru_Stx' ).onclick = function( evt ){ Mx_SaNo_MeKz( 1 ); }
-	document.getElementById( 'MeKeDru_Sta' ).onclick = function( evt ){ Mx_SaNo_MeKz( 2 ); }
-	document.getElementById( 'MeKeDru_Sti' ).onclick = function( evt ){ Mx_SaNo_MeKz( 3 ); }
-
-	function Mx_SaNo_MeKz( SeVx )
-	{
-		log( "MeKz:", SaNo_MeKz_l.value, " SeVx:", SeVx );
-
-		let SeVy = null;
-		// ITER PEER ADR
-
-		let i = 0;
-		for( var adr in b.peers )
+		// LOAD COUNTERS
+		for( let k = 0; k < 16; k++ )
 		{
-			if( i > SeVx ) break;
-	  	 	log( "- Person[", i, "]: ", adr.slice( 0, 4 ) );
-			SeVy = adr;
-			i++;
+			const JaPo = new Image();
+			JaPo.src = "Mx01__SuKz_MEDIA/SuKz02_JaPo__PICT/JaPo__SF/SF_C" + k.toString().padStart( 2, '0' ) + ".png";
+			Dz_TaJaPo.push( JaPo );
 		}
 
-    	document.getElementById( "TaKeDru_Ku" ).textContent += "@" + localStorage.SaNo_VaSy + ": \"" + SaNo_MeKz_l.value + "\"\n";
+		for( let k = 0; k < 16; k++ )
+		{
+			const JaPo = Dz_TaJaPo[ k ];
+			await JaPo.decode();
+		}
 
-		// CLEAR TXT & REFOCUS on TXT AREA!
-		SaNo_MeKz_l.value = "";
-		SaNo_MeKz_l.focus();
+		SF_Ye();
 	}
 
-
-    //---------------------------
-    // EVT_SEND
-	// BRUSH
-    //---------------------------
-	function Mx_GeDri( GxVu, GaVu )
+	function SF_Ye()
 	{
-		// log( "\n- ChyGe__GxZo @ ", b.Fe_vsg().toString() );
+		const MxPoKz = document.getElementById('SF_MxPo');
+		const MxPoSx = MxPoKz.getContext('2d');
 
-		const To_vbu = new ArrayBuffer( 16 );
-		const JyNo = new DataView( To_vbu );
+		// BG
+		MxPoSx.drawImage( BG_JaPo, 0, 0, BG_JaPo.width, BG_JaPo.height, 0, 0, MxPoKz.width, MxPoKz.height );
 
-		// CMD
-        JyNo.setUint8( 0, 0x3 );
-
-		// VER
-		KeDru__Fo_wu++;
-        JyNo.setUint8( 1, KeDru__Fo_wu );
-
-		// BRUSH SIZE
-        JyNo.setUint16( 2, 0x55AA );
-
-		// COLOR
-		JyNo.setUint32( 4, 0xFF8800FF );
-
-		// LOC
-		// log( "-- Me: GeYa x: ", GeGx, " y: ", GeGa );
-		JyNo.setUint16( 8, GeGx );
-		JyNo.setUint16( 10, GeGa );
-
-        GeGx += GxVu;
-        GeGa += GaVu;
-
-		//log( "GeYi x: ", GeGx, " y: ", GeGa );
-		JyNo.setUint16( 12, GeGx );
-		JyNo.setUint16( 14, GeGa );
-
-		//@@@
-		// TGT
-		let SeVy = null;
-        try
-        {
-			// SeVy = null --> TO ALL, else --> KeDy
-			b.Me( SeVy, To_vbu );
-        }
-        catch ( e )
-        {
-            log( "Mx_GeDri FAILED", e );
-        }
+		// SPRITE per PLAYER
+		const P1_JaPo = Dz_TaJaPo[ 8 ];
+//			MxPoSx.drawImage( P1_JaPo, 0, 0, P1_JaPo.width, P1_JaPo.height, MxPoKz.width / 5, MxPoKz.height / 5 );
+			MxPoSx.drawImage( P1_JaPo, 0, 0 );
 	}
 
 
-    //---------------------------
-    // ARROWS
-    //---------------------------
-    document.getElementById( "ChyGe__GxZo" ).onclick = function( evt )
-    { Mx_GeDri( GeKwe, 0 ); }
 
-    document.getElementById( "ChyGe__GxZe" ).onclick = function( evt )
-    { Mx_GeDri( -GeKwe, 0 ); }
-
-	document.getElementById( "ChyGe__GaZo" ).onclick = function( evt )
-    { Mx_GeDri( 0, GeKwe ); }
-
-    document.getElementById( "ChyGe__GaZe" ).onclick = function( evt )
-    { Mx_GeDri( 0, GeKwe ); }
-
-
-    //---------------------------
-    // LOG
-    //---------------------------
-    function log()
-    {
-        var args = Array.prototype.slice.call( arguments );
-        console.log.apply( null, args );
-
-        args = args.map( function( a )
-        {
-            if ( typeof( a ) == "string" ) return a;
-            else return JSON.stringify( a );
-        } );
-
-        document.getElementById( "log" ).textContent += args.join( " " ) + "\n";
-    }
 </script>
 
 

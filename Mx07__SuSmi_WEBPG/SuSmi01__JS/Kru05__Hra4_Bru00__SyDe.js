@@ -389,7 +389,7 @@
                     {
                         if ( !To_vbu ) return;
                         //$$$
-                        console.log( "Me = " + To_vbu.toString() );
+                        // console.log( "Me = " + To_vbu.toString() );
                         // console.log( "Me[ " + To_vbu.length + " ] = " + To_vbu.buffer.toString() );
 
                         // PKT
