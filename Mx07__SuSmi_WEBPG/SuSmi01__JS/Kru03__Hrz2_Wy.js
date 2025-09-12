@@ -477,53 +477,59 @@ function rgbToHex( r, g, b, a )
 //==============================================
 // CANVAS
 //==============================================
-
 // This is the html plumbing / structure / controls for little canvases
-function intializeCanvas(
-{
+
+function intializeCanvas
+({
     id,
     canvas,
+
     onSetColor,
     startDrawing,
     onMouseMove,
     stopDrawing,
+
     clear,
     reset,
-    toggleSun,
+    HrySpe__BLOOM,
+
     colors = [
         "#fff6d3", "#FFFF00", "#FF8800", "#22FF22", "#66AA66", "#008800", "#222288", "#6666AA", "#AA00AA"
 
         , "#000000", "#00000000"
-
     ]
+
 } )
 {
 
     const clearDom = clear ? `<button id="${id}-clear">Clear</button>` : "";
     const resetDom = reset ? `<button id="${id}-reset" >Replay</button>` : "";
-    const BLOOM_Dom = toggleSun ? `<button id="${id}-sun">Bloom</button>` : "";
-
+    const BLOOM_Dom = HrySpe__BLOOM ? `<button id="${id}-sun">Bloom</button>` : "";
 
     const thisId = document.querySelector( `#${id}` );
 
     thisId.innerHTML = `
-    <div style="display: flex; gap: 16px;">
+    <div style="display: flex; gap: 8px;">
+		<div style="display: flex; flex-direction: column; justify-content: space-between;">
 
-      <div style="display: flex; flex-direction: column; justify-content: space-between;">
+			<div id="${id}-color-picker" style="display: flex; flex-direction: row;  border: solid 0px white; margin: 1px;">
+				<input type="color" id="${id}-color-input" value="#ffffff" style="width: 1em; height: 1em; padding: 0; border: none;" >
+				<br>
+				<br>
+			</div>
 
-	  	<div id="${id}-color-picker" style="display: flex; flex-direction: column;  border: solid 1px white; margin: 1px;">
-            <input type="color" id="${id}-color-input" value="#ffffff" style="width: 20px; height: 20px; padding: 0; border: none;" >
+			<div style="display: flex; flex-direction: row; gap: 2px">
+			${BLOOM_Dom}
+			${clearDom}
+			${resetDom}
+			</div>
+			</div>
 			<br>
-        </div>
-        <div style="display: flex; flex-direction: column; gap: 2px">
-		<br>
-        ${BLOOM_Dom}
-        ${clearDom}
-        ${resetDom}
-        </div>
-      </div>
-    <div id="${id}-canvas-container"></div>
-  </div>`;
+			</div>
+			<br>
+			<br>
+		<div id="${id}-canvas-container"></div>
+	`;
 
     const colorInput = document.getElementById( `${id}-color-input` );
 
@@ -583,7 +589,8 @@ function intializeCanvas(
         const colorButton = document.createElement( "button" );
         colorButton.className = "color";
         colorButton.style.backgroundColor = color;
-        colorButton.innerHTML = `<span class="arrow hidden">&#9654;</span>`;
+		// ARROW SYMBOL
+        colorButton.innerHTML = `<span class="arrow hidden">🖌️</span>`;
         if ( color === "#00000000" )
         {
             colorButton.innerHTML += `<span style="color:#000;" class="erase">Eraser</span>`;
@@ -598,7 +605,6 @@ function intializeCanvas(
 
     canvas.addEventListener( 'touchstart', startDrawing, { passive: false } );
     canvas.addEventListener( 'mousedown', startDrawing, { passive: false } );
-
     canvas.addEventListener( 'mouseenter', ( e ) =>
     {
         if ( e.buttons === 1 )
@@ -633,11 +639,11 @@ function intializeCanvas(
         } );
     }
 
-    if ( toggleSun )
+    if ( HrySpe__BLOOM )
     {
         document.querySelector( `#${id}-sun` ).addEventListener( "click", ( e ) =>
         {
-            toggleSun( e );
+            HrySpe__BLOOM( e );
         } );
     }
 
@@ -1757,11 +1763,6 @@ class Drawing extends BaseSurface
         this.drawUniforms = props.uniforms;
         this.drawUniforms.asciiTexture = this.renderer.font;
 
-        document.addEventListener( "keydown", ( e ) =>
-        {
-            this.drawUniforms.character = e.key.charCodeAt( 0 );
-            this.renderPass();
-        } );
 
         this.surface.drawSmoothLine = ( from, to ) =>
         {
@@ -2266,9 +2267,41 @@ class DistanceField extends JFA
 //==============================================
 //
 //==============================================
-
 class RC extends DistanceField
 {
+
+	//==============================================
+	//
+	//==============================================
+	setTint( r, g, b, a )
+	{
+		const colorInput = document.getElementById( `${this.id}-color-input` );
+		colorInput.value = rgbToHex( r, g, b );
+
+		const alpha = a == 0 ? a : this.alpha;
+
+		this.surface.currentColor =
+		{
+			r,
+			g,
+			b,
+			a: alpha
+		};
+
+		this.drawUniforms.color =
+		[
+			this.surface.currentColor.r / 255.0,
+			this.surface.currentColor.g / 255.0,
+			this.surface.currentColor.b / 255.0,
+			alpha,
+		];
+
+	}
+
+
+	//==============================================
+	//
+	//==============================================
     innerInitialize()
     {
         this.lastRequest = Date.now();
@@ -2534,8 +2567,8 @@ class RC extends DistanceField
             name: "Size",
             onUpdate: ( value ) =>
             {
-                this.surface.RADIUS = value;
-                this.drawUniforms.radiusSquared = Math.pow( this.surface.RADIUS, 2.0 );
+				this.surface.RADIUS = value;
+				this.drawUniforms.radiusSquared = Math.pow( this.surface.RADIUS, 2.0 );
                 this.renderPass();
                 return this.surface.RADIUS;
             },
@@ -2686,7 +2719,6 @@ class RC extends DistanceField
     //==============================================
     // CANVAS CHG
     //==============================================
-
     canvasModifications()
     {
         return {
@@ -2707,7 +2739,7 @@ class RC extends DistanceField
                 this.lastRequest = Date.now();
                 this.surface.stopDrawing( e, redraw );
             },
-            toggleSun: ( e ) =>
+            HrySpe__BLOOM: ( e ) =>
             {
                 if ( e.currentTarget.getAttribute( "selected" ) === "true" )
                 {
@@ -2919,7 +2951,8 @@ class RC extends DistanceField
 
         super.load();
     }
-}
+
+}// END Class RC
 
 
 //==============================================
@@ -2935,8 +2968,14 @@ const classic = urlParams.get( 'classic' );
 // const widthParam = widthString ? parseInt(widthString) : (isMobile ? 256 : 512);
 // const heightParam = heightString ? parseInt(heightString) : (isMobile ? 256 : 512);
 
-const widthParam = widthString ? parseInt( widthString ) : 256;
-const heightParam = heightString ? parseInt( heightString ) : 256;
+const widthParam = 256;
+const heightParam = 256;
+
+// const widthParam = (isMobile ? 256 : 1024 );
+// const heightParam = (isMobile ? 256 : 1024 );
+
+// const widthParam = widthString ? parseInt( widthString ) : 256;
+// const heightParam = heightString ? parseInt( heightString ) : 256;
 
 let [ width, height ] = [ widthParam, heightParam ];
 
@@ -2949,3 +2988,8 @@ window.radianceCascades = new RC(
     dpr: rcScale,
     canvasScale: rcScale / dp
 } );
+
+
+//==============================================
+// END
+//==============================================
