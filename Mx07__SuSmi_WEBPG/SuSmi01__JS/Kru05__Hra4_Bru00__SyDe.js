@@ -80,7 +80,24 @@
                                 trackeropts.rtcConfig = {
                                     iceServers: opts.iceServers
                                 }
-                            ), this.announce = opts.announce || [ "wss://tracker.openwebtorrent.com", "wss://tracker.btorrent.xyz" ], this.wt = opts.wt, this.nacl = nacl, this.seed = opts.seed ? opts.seed : this.encodeseed( nacl.randomBytes( 32 ) ), this.timeout = opts.timeout || 300000, this.keyPair = opts.keyPair || nacl.sign.keyPair.fromSeed( Uint8Array.from( bs58check.decode( this.seed ) ).slice( 2 ) ), this.keyPairEncrypt = nacl.box.keyPair(), this.pk = bs58.encode( Buffer.from( this.keyPair.publicKey ) ), this.ek = bs58.encode( Buffer.from( this.keyPairEncrypt.publicKey ) ), this.identifier = identifier || this.address(), this.peers = {}, this.seen = {}, this.lastwirecount = null
+                            ), this.announce = opts.announce ||
+
+							[
+								"wss://tracker.webtorrent.dev:443"
+
+								// ONE of these FAILS
+								// , "wss://tracker.sloppyta.co:443",
+							  	// , "wss://tracker.novage.com.ua:443"
+
+								, "wss://tracker.files.fm:7073/announce"
+								, "wss://tracker.ghostchu-services.top:443/announce"
+
+								, "wss://tracker.openwebtorrent.com"
+								//, "wss://tracker.btorrent.xyz"
+
+							]
+
+							, this.wt = opts.wt, this.nacl = nacl, this.seed = opts.seed ? opts.seed : this.encodeseed( nacl.randomBytes( 32 ) ), this.timeout = opts.timeout || 300000, this.keyPair = opts.keyPair || nacl.sign.keyPair.fromSeed( Uint8Array.from( bs58check.decode( this.seed ) ).slice( 2 ) ), this.keyPairEncrypt = nacl.box.keyPair(), this.pk = bs58.encode( Buffer.from( this.keyPair.publicKey ) ), this.ek = bs58.encode( Buffer.from( this.keyPairEncrypt.publicKey ) ), this.identifier = identifier || this.address(), this.peers = {}, this.seen = {}, this.lastwirecount = null
 
 
                             , this.api = {}, this.callbacks = {}, this.serveraddress = null, this.heartbeattimer = null, debug( "address", this.address() ), debug( "identifier", this.identifier ), debug( "public key", this.pk ), debug( "encryption key", this.ek ), "object" == typeof File ) var blob = new File( [ this.identifier ], this.identifier );
@@ -11318,14 +11335,27 @@
                         "function" == typeof opts && ( [ opts, cb ] = [ cb, opts ] ), opts = opts ? Object.assign(
                         {}, opts ) :
                         {}, _parseInput( input, opts, cb )
-                    }, module.exports.announceList = [
+                    }, module.exports.announceList =
+					[
                         [ "udp://tracker.leechers-paradise.org:6969" ],
                         [ "udp://tracker.coppersurfer.tk:6969" ],
                         [ "udp://tracker.opentrackr.org:1337" ],
                         [ "udp://explodie.org:6969" ],
                         [ "udp://tracker.empire-js.us:1337" ],
-                        [ "wss://tracker.btorrent.xyz" ],
-                        [ "wss://tracker.openwebtorrent.com" ]
+
+
+						[ "wss://tracker.webtorrent.dev:443" ],
+
+						// ONE of these FAILS
+						// [ "wss://tracker.sloppyta.co:443" ],
+  						// [ "wss://tracker.novage.com.ua:443" ],
+
+						[ "wss://tracker.files.fm:7073/announce" ],
+						[ "wss://tracker.ghostchu-services.top:443/announce" ],
+
+                        [ "wss://tracker.openwebtorrent.com" ],
+                        // [ "wss://tracker.btorrent.xyz" ]
+
                     ], module.exports.isJunkPath = isJunkPath
                 } ).call( this )
             } ).call( this, "undefined" == typeof global ? "undefined" == typeof self ? "undefined" == typeof window ?

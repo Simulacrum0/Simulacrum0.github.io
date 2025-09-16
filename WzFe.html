@@ -477,14 +477,58 @@
 		<br>
 		<br>
 		<!-- 2550, 1200 /5 = 510, 240 -->
-		<canvas id="SF_KuGwy" width="1275" height="600" onclick="SF__KuKwy_DzNe"></canvas>
+		<canvas id="SF_KuGwy" width="1275" height="600" onclick="SF__KuGwy_DzNe"></canvas>
 		<br>
 		<br>
+		<div style="display: flex; flex-direction: row;  justify-content: stretch; flex-wrap: wrap;" >
+			<div class="CTRL_BOX" >
+				<span id="SF_SaNoVaHx"></span>
+			</div>
+			<div class="CTRL_BOX" >
+				<img id="SF_SaNoJaPo"; style="position:left;"></img>
+			</div>
+			<div class="CTRL_BOX" >
+				<span id="SF_SaNoHaVu"></span>
+			</div>
+		</div>
+		<br>
+		<br>
+
 		<!--  -->
-		<canvas id="SF_KuSe" width="1000" height="1000" ></canvas>
+		<canvas id="SF_KuSe" width="1000" height="1000" " onclick="SF__KuSe_DzNe" ></canvas>
 		<br>
 		<br>
 		<div style="display: flex; flex-direction: row;  justify-content: space-between; flex-wrap: wrap;" >
+
+				<div class="CTRL_BOX" >
+					<h3 class="CTRL_LBL" title="Move in Scene"; >MOVE</h3>
+					<button onclick="SF_ChyGe( -1, 1 );" title=""; >↖️</button>
+					<button onclick="SF_ChyGe( 0, 1 );" title=""; >⬆️</button>
+					<button onclick="SF_ChyGe( 1, 1 );" title=""; >↗️</button>
+					<br>
+					<button onclick="SF_ChyGe( -1, 0 );" title=""; >⬅️</button>
+					<button onclick="SF_ChyGe( 0, 0 );" title=""; >⏺️</button>
+					<button onclick="SF_ChyGe( 1, 0 );" title=""; >➡️</button>
+					<br>
+					<button onclick="SF_ChyGe( -1, -1 );" title=""; >↙️</button>
+					<button onclick="SF_ChyGe( 0, -1 );" title=""; >⬇️</button>
+					<button onclick="SF_ChyGe( 1, -1 );" title=""; >↘️</button>
+				</div>
+
+				<div class="CTRL_BOX" >
+					<h3 class="CTRL_LBL" title="Use Items"; >USE</h3>
+					<button onclick="SF_TraMo( TraMoKu.Punch.Vi, 1 );" title="Punch"; >👊</button>
+					<button onclick="SF_TraMo( TraMoKu.Chop.Vi, 1 );" title="Chop"; >🪓</button>
+					<button onclick="SF_TraMo( TraMoKu.Shoot.Vi, 1 );" title="Shoot"; >🔫</button>
+					<br>
+					<button onclick="SF_TraMo( TraMoKu.Heal.Vi, 1 );" title="Heal"; >💊</button>
+					<button onclick="SF_TraMo( TraMoKu.Magnet.Vi, 1 );" title="Magnet"; >🧲</button>
+					<button onclick="SF_TraMo( TraMoKu.Dig.Vi, 1 );" title="Dig"; >🪏</button>
+					<br>
+					<button onclick="SF_TraMo( TraMoKu.Flashlight.Vi, 1 );" title="Flashlight"; >🔦</button>
+					<button onclick="SF_TraMo( TraMoKu.Bomb.Vi, 1 );" title="SmokeBomb"; >💣</button>
+					<button onclick="SF_TraMo( TraMoKu.Alarm.Vi, 1 );" title="Alarm"; >🔊</button>
+				</div>
 
 			<div class="CTRL_BOX">
 				<h3 class="CTRL_LBL" title="Communicate"; >COMZ</h3>
@@ -492,43 +536,13 @@
 				<button onclick="SF_HraKe( HraKeKu.Yell.Vi, 1 );" title="Yell"; >🗯️</button>
 				<button onclick="SF_HraKe( HraKeKu.Whisper.Vi, 1 );" title="Whisper"; >💭</button>
 				<br>
-				<button onclick="SF_HraKe( 1, 1 );" title="LIKE"; >👍</button>
-				<button onclick="SF_HraKe( 1, 1 );" title="WAVE"; >👋</button>
-				<button onclick="SF_HraKe( 1, 1 );" title="DISLIKE"; >👎</button>
+				<button onclick="SF_HraKe( HraKeKu.Like.Vi, 1 );" title="LIKE"; >👍</button>
+				<button onclick="SF_HraKe( HraKeKu.Wave.Vi, 1 );" title="WAVE"; >👋</button>
+				<button onclick="SF_HraKe( HraKeKu.Dislike.Vi, 1 );" title="DISLIKE"; >👎</button>
 				<br>
-				<button onclick="SF_HraKe( 1, 1 );" title=""; >👀</button>
-				<button onclick="SF_HraKe( 1, 1 );" title=""; >👂</button>
-				<button onclick="SF_HraKe( 1, 1 );" title=""; >👃</button>
-			</div>
-
-			<div class="CTRL_BOX" >
-				<h3 class="CTRL_LBL" title="Move in Scene"; >MOVE</h3>
-				<button onclick="SF_ChyGe( -1, 1 );" title=""; >↖️</button>
-				<button onclick="SF_ChyGe( 0, 1 );" title=""; >⬆️</button>
-				<button onclick="SF_ChyGe( 1, 1 );" title=""; >↗️</button>
-				<br>
-				<button onclick="SF_ChyGe( -1, 0 );" title=""; >⬅️</button>
-				<button onclick="SF_ChyGe( 0, 0 );" title=""; >⏺️</button>
-				<button onclick="SF_ChyGe( 1, 0 );" title=""; >➡️</button>
-				<br>
-				<button onclick="SF_ChyGe( -1, -1 );" title=""; >↙️</button>
-				<button onclick="SF_ChyGe( 0, -1 );" title=""; >⬇️</button>
-				<button onclick="SF_ChyGe( 1, -1 );" title=""; >↘️</button>
-			</div>
-
-			<div class="CTRL_BOX" >
-				<h3 class="CTRL_LBL" title="Use Items"; >USE</h3>
-				<button onclick="SF_TraMo( TraMoKu.Punch.Vi, 1 );" title="Punch"; >👊</button>
-				<button onclick="SF_TraMo( TraMoKu.Chop.Vi, 1 );" title="Chop"; >🪓</button>
-				<button onclick="SF_TraMo( TraMoKu.Shoot.Vi, 1 );" title="Shoot"; >🔫</button>
-				<br>
-				<button onclick="SF_TraMo( 1, 1 );" title=""; >💊</button>
-				<button onclick="SF_TraMo( 1, 1 );" title=""; >🧲</button>
-				<button onclick="SF_TraMo( 1, 1 );" title=""; >🪏</button>
-				<br>
-				<button onclick="SF_TraMo( 1, 1 );" title=""; >🔦</button>
-				<button onclick="SF_TraMo( 1, 1 );" title=""; >💣</button>
-				<button onclick="SF_TraMo( 1, 1 );" title=""; >🔊</button>
+				<button onclick="SF_HraKe( HraKeKu.Search.Vi, 1 );" title=""; >👀</button>
+				<button onclick="SF_HraKe( HraKeKu.Listen.Vi, 1 );" title=""; >👂</button>
+				<button onclick="SF_HraKe( HraKeKu.Taste.Vi, 1 );" title=""; >👅</button>
 			</div>
 
 		</div>
@@ -565,49 +579,105 @@
 		, Yell: { Vi: 1, Va: "Yell Message to Target" }
 		, Whisper: { Vi: 2, Va: "Whisper Message to Target" }
 
-		// LIKE: 3,
-		// GREET: 4,
-		// DISLIKE: 5,
-		// SEE: 6
+		, Like: { Vi: 3, Va: "Express Like of Target" }
+		, Wave: { Vi: 4, Va: "Wave for Attention of Target" }
+		, Dislike: { Vi: 5, Va: "Express Dislike of Target" }
+
+		, Search: { Vi: 6, Va: "Yell Message to Target" }
+		, Listen: { Vi: 7, Va: "Whisper Message to Target" }
+		, Taste: { Vi: 8, Va: "Taste Item and Express to Target" }
 	});
 
 	const TraMoKu = Object.freeze
 	({
 		Punch: { Vi: 0, Va: "Punch Target if close" }
 		, Chop: { Vi: 1, Va: "Chop at Target" }
-		, Shoot: { Vi: 2, Va: "Fire at Target" }
+		, Shoot: { Vi: 2, Va: "Fire Paintgun at Target" }
 
+		, Heal: { Vi: 3, Va: "Consume Medicine" }
+		, Magnet: { Vi: 4, Va: "Magnetize in a Direction" }
+		, Dig: { Vi: 5, Va: "Dig with Shovel at Location" }
 
+		, Flashlight: { Vi: 6, Va: "Toggle your Flashlight" }
+		, Bomb: { Vi: 7, Va: "Toss 5 second Smoke-Bomb at Target" }
+		, Alarm: { Vi: 8, Va: "Sound alarm" }
 	});
 
+
+    //======================================================================
+    // Hro_Zz
+    //======================================================================
+	function clamp(number, lowerBound, upperBound)
+	{
+  		const clampedToLower = Math.max(number, lowerBound);
+	  	const clampedToRange = Math.min(clampedToLower, upperBound);
+  		return clampedToRange;
+	}
+
+	//@@@
+	var Math_Random_Seed = 1972;
+	function HrxGu_Vo_wfa()
+	{
+		var x = Math.sin( Math_Random_Seed++ ) * 10000;
+		return x - Math.floor(x);
+	}
+
+	function HrxGuVo_wf( BraHi_wf ){ return ( HrxGu_Vo_wfa() * BraHi_wf ); }
+	function HrxGuVo_wu( BraHi_wu ){ return ( Math.round( HrxGu_Vo_wfa() * BraHi_wu )); }
+
+	function HrxGuVo__Grx_wf( BraHi_wf ){ return ( Math.random() * BraHi_wf ); }
+	function HrxGuVo__Grx_wu( BraHi_wu ){ return ( Math.round( Math.random() * BraHi_wu )); }
+
+
+    //======================================================================
+    // DzDyKu
+    //======================================================================
+
+	//@@@
+	// MAP
 	const KuGry_BraHiGx = 51;
 	const KuGry_BraHiGa = 24;
+	const Ku_JaPo = new Image();
+
+
+	//@@@
+	// SPRITES
+	// 100px / Sqr
+	const DzJy_TaFo_wuk = 18;
+	const DzJy_TaJaPo = [];
+
 
 	const DzDyKu =
 	[
-		{ Vx: 0, Va: "Human A", x: 4, y: 4, KeMo: -1 }
-		, { Vx: 1, Va: " A", x: 3, y: 8, KeMo: -1 }
-		, { Vx: 2, Va: " A", x: Math.round(Math.random() * 19 ), y: 9, KeMo: -1 }
-		, { Vx: 3, Va: " A", x: 2, y: 3, KeMo: -1 }
+		{ Ka: 0, Va: "Flash", Jy: "Human Male A", DiHx: "Backstory: StarLaw Ranger Explorer Type" }
+		, { Ka: 1, Va: "Dale", Jy: "Human Female B", DiHx: "Backstory: StarLaw Commander" }
+		, { Ka: 2, Va: "Bobbb", Jy: "Dralasite B", DiHx: "Backstory: Seeker of Shiny Baubles" }
+		, { Ka: 3, Va: "Slurrrp", Jy: "Dralasite C", DiHx: "Backstory: Ponderer of Deep Thoughts" }
 
-		, { Vx: 4, Va: "?", x: Math.round(Math.random() * 50 ), y: Math.round(Math.random() * 23 ), KeMo: -1 }
-		, { Vx: 5, Va: "?", x: Math.round(Math.random() * 50 ), y: Math.round(Math.random() * 23 ), KeMo: -1 }
-		, { Vx: 6, Va: "?", x: Math.round(Math.random() * 50 ), y: Math.round(Math.random() * 23 ), KeMo: -1 }
-		, { Vx: 7, Va: "?", x: Math.round(Math.random() * 50 ), y: Math.round(Math.random() * 23 ), KeMo: -1 }
+		, { Ka: 4, Va: "Chittrz", Jy: "Vrusk A", DiHx: "Backstory: Never tell me the odds" }
+		, { Ka: 5, Va: "ZyxFanx", Jy: "Vrusk B", DiHx: "Backstory: Calculating the odds..." }
+		, { Ka: 6, Va: "Hemak", Jy: "Yazarian A", DiHx: "Backstory: Ready for battle rage" }
+		, { Ka: 7, Va: "Conak", Jy: "Yazarian B", DiHx: "Backstory: Looking to bust some badguys" }
 
-		, { Vx: 8, Va: "?", x: Math.round(Math.random() * 50 ), y: Math.round(Math.random() * 23 ), KeMo: -1 }
-		, { Vx: 9, Va: "?", x: Math.round(Math.random() * 50 ), y: Math.round(Math.random() * 23 ), KeMo: -1 }
-		, { Vx: 10, Va: "?", x: Math.round(Math.random() * 50 ), y: Math.round(Math.random() * 23 ), KeMo: -1 }
-		, { Vx: 11, Va: "?", x: Math.round(Math.random() * 50 ), y: Math.round(Math.random() * 23 ), KeMo: -1 }
+		, { Ka: 8, Va: "Sssam", Jy: "Sathar B", DiHx: "Backstory: Agent of reason" }
+		, { Ka: 9, Va: "Sssue", Jy: "Sathar C", DiHx: "Backstory: Agent of deception" }
+		, { Ka: 10, Va: "Arrrga", Jy: "Pirate Yazarian C", DiHx: "Backstory: Career Pirate by Family Tradition. Prefers hologames" }
+		, { Ka: 11, Va: "Barrrba", Jy: "Pirate Dralasite D", DiHx: "Backstory: Pretending as a Pirate for a life purpose" }
 
-		, { Vx: 12, Va: "?", x: Math.round(Math.random() * 50 ), y: Math.round(Math.random() * 23 ), KeMo: -1 }
-		, { Vx: 13, Va: "?", x: Math.round(Math.random() * 50 ), y: Math.round(Math.random() * 23 ), KeMo: -1 }
-		, { Vx: 14, Va: "?", x: Math.round(Math.random() * 50 ), y: Math.round(Math.random() * 23 ), KeMo: -1 }
-		, { Vx: 15, Va: "?", x: Math.round(Math.random() * 50 ), y: Math.round(Math.random() * 23 ), KeMo: -1 }
+		, { Ka: 12, Va: "Charka", Jy: "Pirate Vrusk B", DiHx: "Backstory: Take from the Rich and Give to the Poor" }
+		, { Ka: 13, Va: "Copter-781", Jy: "Jet Copter", DiHx: "Backstory: Power Thrust but dangerously Vulnerable" }
+		, { Ka: 14, Va: "RuumBad", Jy: "Combat Robot", DiHx: "Backstory: Unstoppable War Machine" }
+		, { Ka: 15, Va: "Pod-321Go", Jy: "Work Pod", DiHx: "Backstory: Space Mech Vehicle" }
+
+		, { Ka: 16, Va: "Screenie", Jy: "Masking Screen", DiHx: "Backstory: Screens prevent energy weapons" }
+		, { Ka: 17, Va: "Fuego", Jy: "Fire", DiHx: "Backstory: Not a character as much as a phenomena to test" }
 	];
 
+	//@@@
+	// SIM
+	let JoDi_Gi = 1;
 	// STARTING PLAYER
-	let SaNo_DzDy = 3;
+	let SaNo_DzDy = HrxGuVo__Grx_wu( DzDyKu.length - 1 );
 
 
     // @@@
@@ -617,21 +687,16 @@
     let HUB__Vy_vsg;
     let URL_HUB__Vy_vsg;
 
-	//@@@
-	// IMG
-	const Ku_JaPo = new Image();
-	const Dz_TaJaPo = [];
-
 
 	// MAP_FAR
 	// 2550 x 1200 @ 50px / Sqr
-	const KuKwy_TiGyGx = 2550 * 0.5;
-	const KuKwy_TiGyGa = 1200 * 0.5;
-	const KuKwy_TiGyVu = 50 * 0.5;
+	const KuGwy_TiGyGx = 2550 * 0.5;
+	const KuGwy_TiGyGa = 1200 * 0.5;
+	const KuGwy_TiGyVu = 50 * 0.5;
 
 	// LOC CLAMP
-	const Ku_GeGyGx = KuKwy_TiGyGx / KuKwy_TiGyVu;
-	const Ku_GeGyGa = KuKwy_TiGyGa / KuKwy_TiGyVu;
+	const KuGwy_GeGyGx = KuGwy_TiGyGx / KuGwy_TiGyVu;
+	const KuGwy_GeGyGa = KuGwy_TiGyGa / KuGwy_TiGyVu;
 
 
 	// MAP_FOCUS
@@ -652,7 +717,6 @@
 
 //	let Ta_KeDru = [ { "t": 0, "n": 0, "m": "Messages" } ];
 	let Ta_KeDru = [ "Messages" ];
-
 	let Ta_SmaDx = [ "Log" ];
 
     let JeKz__Fo_du = 0;
@@ -1226,6 +1290,8 @@
 				Dz_l.x = JyNo.getUint16( 4 );
 				Dz_l.y = JyNo.getUint16( 6 );
 
+				Dz_l.Se_DzDy = -1;
+
 				SF_Ye();
 
 				break;
@@ -1391,15 +1457,6 @@
 		HrySx.fillText( KeDruDri_vsg, x, y);
 	}
 
-    // ======================================================================
-    // Hro_Zz
-    // ======================================================================
-	function clamp(number, lowerBound, upperBound)
-	{
-  		const clampedToLower = Math.max(number, lowerBound);
-	  	const clampedToRange = Math.min(clampedToLower, upperBound);
-  		return clampedToRange;
-	}
 
     // ======================================================================
     // SF_Chy
@@ -1429,13 +1486,13 @@
 	{
 		const DzDy_l = DzDyKu[ SaNo_DzDy ];
 
-		// SmaDx( "SF_ChyGe", Gx, Ga, Ku_GeGyGx, Ku_GeGyGa );
+		// SmaDx( "SF_ChyGe", Gx, Ga, KuGwy_GeGyGx, KuGwy_GeGyGa );
 		DzDy_l.x += Gx;
 		DzDy_l.y -= Ga;
 
-		DzDy_l.x = clamp( DzDy_l.x, 0, Ku_GeGyGx -1 );
-		DzDy_l.y = clamp( DzDy_l.y, 0, Ku_GeGyGa -1 );
-		// SmaDx( "SF_ChyGe", DzDy_l.x, DzDy_l.y, Ku_GeGyGx, Ku_GeGyGa );
+		DzDy_l.x = clamp( DzDy_l.x, 0, KuGwy_GeGyGx -1 );
+		DzDy_l.y = clamp( DzDy_l.y, 0, KuGwy_GeGyGa -1 );
+		// SmaDx( "SF_ChyGe", DzDy_l.x, DzDy_l.y, KuGwy_GeGyGx, KuGwy_GeGyGa );
 
 		//&&&
 		// SEND
@@ -1462,6 +1519,8 @@
 		}
 
 
+		//@@@
+		// UPDATE
 		SF_Ye();
 	}
 
@@ -1469,13 +1528,29 @@
     // SF_DzNe
     // ======================================================================
 	document.getElementById( "SF_KuGwy" ).addEventListener( "click", ( e ) =>
-	SF__KuKwy_DzNe( ( e.clientX - canvas.offsetTop ), ( e.clientY - canvas.offsetLeft ) ) );
+	SF__KuGwy_DzNe( ( e.clientX ), ( e.clientY ) ) );
 
-	function SF__KuKwy_DzNe( x, y )
+	function SF__KuGwy_DzNe( x, y )
 	{
-		SmaDx( "Scene FAR Pick:", x, y );
+		const KuGwyKz = document.getElementById( 'SF_KuGwy' );
+		const Kwi = KuGwyKz.getBoundingClientRect();
 
+		// KuGwy_GeGyGx
+		x = Math.floor( ( x - Kwi.left ) / ( Kwi.right - Kwi.left + 1 ) * KuGwy_GeGyGx );
+		y = Math.floor( ( y - Kwi.top ) / ( Kwi.bottom - Kwi.top + 1 ) * KuGwy_GeGyGa );
+		// SmaDx( "Scene FAR Pick:", x, y );
 
+		DzDyKu.forEach(( DzDy_l, Vx ) =>
+		{
+			if( ( x === DzDy_l.x ) && ( y === DzDy_l.y ) )
+			{
+				SaNo_DzDy = Vx;
+
+				// UPDATE
+				SF_Ye();
+				return;
+			}
+		}); // FOR EACH THING
 
 	}
 
@@ -1489,18 +1564,23 @@
 
 		x = Math.floor( ( x - Kwi.left ) / ( Kwi.right - Kwi.left + 1 ) * KuSe_GeGyGx );
 		y = Math.floor( ( y - Kwi.top ) / ( Kwi.bottom - Kwi.top + 1 ) * KuSe_GeGyGa );
-
-		SmaDx( "Scene NEAR Pick:", x, y );
+		// SmaDx( "Scene NEAR Pick:", x, y );
 
 		DzDyKu.forEach(( DzDy_l, Vx ) =>
 		{
-			if( ( x === DzDy_l.x ) || ( y === DzDy_l.y ) )
+			if( ( x === DzDy_l.x ) && ( y === DzDy_l.y ) )
 			{
-				SaNo_DzDy = Vx;
+				if( SaNo_DzDy !== Vx )
+				{
+					// PRV TGT is 'NEW' PICK
+					DzDyKu[ SaNo_DzDy ].Se_DzDy = Vx;
+					SaNo_DzDy = Vx;
+					// UPDATE
+					SF_Ye();
+				}
 				return;
 			}
 		}); // FOR EACH THING
-
 
 	}
 
@@ -1509,28 +1589,55 @@
     // ======================================================================
 	async function SF_Ya()
 	{
-		// LOAD BG
+		// LOAD MAP
 		Ku_JaPo.src = "Mx01__SuKz_MEDIA/SuKz02_JaPo__PICT/JaPo__SF/SF_M00.png";
 
-		// LOAD COUNTERS
-		for( let k = 0; k < 16; k++ )
+		// LOAD SPRITES
+		for( let k = 0; k < DzJy_TaFo_wuk; k++ )
 		{
 			const JaPo = new Image();
 			JaPo.src = "Mx01__SuKz_MEDIA/SuKz02_JaPo__PICT/JaPo__SF/SF_C" + k.toString().padStart( 2, '0' ) + ".png";
-			Dz_TaJaPo.push( JaPo );
+			DzJy_TaJaPo.push( JaPo );
 		}
 
-		for( let k = 0; k < 16; k++ )
+		// WAIT TILL ALL DONE
+		for( let k = 0; k < DzJy_TaFo_wuk; k++ )
 		{
-			const JaPo = Dz_TaJaPo[ k ];
+			const JaPo = DzJy_TaJaPo[ k ];
 			await JaPo.decode();
 		}
+		await Ku_JaPo.decode();
 
+		// INIT CHARS
+		DzDyKu.forEach(( DzDy_l, Vx ) =>
+		{
+			DzDy_l.x = HrxGuVo_wu( KuGry_BraHiGx -1 );
+			DzDy_l.y = HrxGuVo_wu( KuGry_BraHiGa -1 );
+
+			DzDy_l.x = HrxGuVo_wu( 10 -1 );
+			DzDy_l.y = HrxGuVo_wu( 10 -1 );
+
+
+			DzDy_l.STR_STA = 5 * ( 6 + HrxGuVo_wu( 12 ));
+			DzDy_l.DEX_RS =  5 * ( 6 + HrxGuVo_wu( 12 ));
+			DzDy_l.INT_LOG =  5 * ( 6 + HrxGuVo_wu( 12 ));
+			DzDy_l.PER_LDR =  5 * ( 6 + HrxGuVo_wu( 12 ));
+
+			DzDy_l.Se_DzDy = HrxGuVo_wu( DzDyKu.length - 1 );
+			if( DzDy_l.Se_DzDy === Vx ){ DzDy_l.Se_DzDy = -1; }
+
+		}); // FOR EACH THING
+
+		// REDRAW
 		SF_Ye();
 	}
 
 	function SF_Ye()
 	{
+		//@@@
+		// NEXT TURN
+		JoDi_Gi++;
+
 		//@@@
 		// SPATIAL SESSION
 		const KuGwyKz = document.getElementById( 'SF_KuGwy' );
@@ -1539,6 +1646,9 @@
 		const KuGwyKz_HrySx = KuGwyKz.getContext( '2d' );
 		const KuSeKz_HrySx = KuSeKz.getContext( '2d' );
 
+		//@@@
+		// SELF
+		const SaNo__DzDy_l = DzDyKu[ SaNo_DzDy ];
 
 		//@@@
 		// GLOBAL MAP
@@ -1557,14 +1667,14 @@
 
 		//&&&
 		// UNITS
-		const DzGwy_BraHiGx = KuGwyKz.width / KuKwy_TiGyVu;
-		const DzGwy_BraHiGa = KuGwyKz.height / KuKwy_TiGyVu;
+		const DzGwy_BraHiGx = KuGwyKz.width / KuGwy_TiGyVu;
+		const DzGwy_BraHiGa = KuGwyKz.height / KuGwy_TiGyVu;
 
 		const DzSe_BraHiGx = KuSeKz.width / KuSe_TiGyVu;
 		const DzSe_BraHiGa = KuSeKz.height / KuSe_TiGyVu;
 
-		const DzGwy_GeGyGx = KuKwy_TiGyVu;
-		const DzGwy_GeGyGa = KuKwy_TiGyVu;
+		const DzGwy_GeGyGx = KuGwy_TiGyVu;
+		const DzGwy_GeGyGa = KuGwy_TiGyVu;
 
 		const DzSe_GeGyGx = KuSe_TiGyVu;
 		const DzSe_GeGyGa = KuSe_TiGyVu;
@@ -1577,12 +1687,12 @@
 
 		DzDyKu.forEach(( DzDy_l, Vx ) =>
 		{
-			const Fe_JaPo = Dz_TaJaPo[ Vx ];
+			const Fe_JaPo = DzJy_TaJaPo[ Vx ];
 
-			// FAR MAP: Draw ALL
+			// GLOBAL MAP: Draw ALL
 			KuGwyKz_HrySx.drawImage( Fe_JaPo, 0, 0, Fe_JaPo.width, Fe_JaPo.height, DzDy_l.x * DzGwy_GeGyGx, DzDy_l.y * DzGwy_GeGyGa, DzGwy_GeGyGx, DzGwy_GeGyGa );
 
-			// NEAR MAP: Draw LIMITED
+			// FOCUS MAP: Draw LIMITED
 			KuSeKz_HrySx.drawImage( Fe_JaPo, 0, 0, Fe_JaPo.width, Fe_JaPo.height, DzDy_l.x * DzSe_GeGyGx, DzDy_l.y * DzSe_GeGyGa, DzSe_GeGyGx, DzSe_GeGyGa );
 
 			// SmaDx( "Ge:", DzGwy_GeGyGx, DzGwy_GeGyGa, DzSe_GeGyGx, DzSe_GeGyGa );
@@ -1591,13 +1701,34 @@
 
 		KuSeKz_HrySx.globalCompositeOperation = "source-over";
 
+
 		//@@@
 		// TXT for SELF
 		{
-			const DzDy_l = DzDyKu[ SaNo_DzDy ];
-			let KeDruDri_vsg = "Thing: " + SaNo_DzDy + " Loc: " + DzDy_l.x + ", " + DzDy_l.y + " ☢️";
+			let KeDruDri_vsg = "Turn #" + JoDi_Gi + " ☢️";
 			drawStroked( KuGwyKz_HrySx, KeDruDri_vsg, KuGwyKz.width / 2, KuGwyKz.height / 2 );
 		}
+
+		//@@@
+		// STATS
+
+		document.getElementById( 'SF_SaNoVaHx' ).innerHTML =
+		"CHARACTER DATA"
+		+ "<br>Name: " + SaNo__DzDy_l.Va
+		+ "<br>Race: " + SaNo__DzDy_l.Jy
+		+ "<br>ID: " + SaNo__DzDy_l.Ka
+		+ "<br>Details: " + SaNo__DzDy_l.DiHx
+		;
+
+		document.getElementById( 'SF_SaNoJaPo' ).src = DzJy_TaJaPo[ SaNo_DzDy ].src;
+
+		document.getElementById( 'SF_SaNoHaVu' ).innerHTML =
+			"PHYSICAL DATA"
+			+ "<br>STR/STA: " + SaNo__DzDy_l.STR_STA
+			+ "<br>DEX/RS: " + SaNo__DzDy_l.DEX_RS
+			+ "<br>INT/LOG: " + SaNo__DzDy_l.INT_LOG
+			+ "<br>PER/LDR: " + SaNo__DzDy_l.PER_LDR
+
 	}
 
 
