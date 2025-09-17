@@ -1,0 +1,77 @@
+{
+	"short_name": "C-PoP",
+	"name": "Cosm-PoP",
+	"description": "A solution maker tool to build and share simulations and behaviors.",
+
+	"id": "/?source=pwa",
+	"scope": "/",
+	"start_url": "/",
+
+
+	"theme_color": "#FA9A22",
+	"background_color": "#332277",
+	"display": "standalone",
+
+	"icons":
+	[
+		{
+			"src": "Mx01__SuKz_MEDIA/SuKz07_DryDz__BIZ/DryDzGwz05__THINKER_512.png",
+			"type": "image/png",
+			"sizes": "512x512"
+		},
+		{
+			"src": "Mx01__SuKz_MEDIA/SuKz07_DryDz__BIZ/DryDzGwz05__THINKER_192.png",
+			"type": "image/png",
+			"sizes": "192x192"
+		}
+	],
+
+	"shortcuts":
+	[
+		{
+		"name": "New Event",
+		"url": "/ChaJe"
+		},
+		{
+		"name": "View Currents Events",
+		"url": "/JeFe"
+		}
+	],
+
+	"share_target":
+	{
+		"action": "/ChaSuKz",
+		"enctype": "multipart/form-data",
+
+		"method": "POST",
+		"params":
+		{
+			"files": [
+			{
+				"name": "media",
+				"accept": [
+					"audio/*",
+					"image/*",
+					"video/*"
+				]
+			} ]
+		}
+	},
+
+	"screenshots":
+	[
+		{
+			"src": "Mx01__SuKz_MEDIA/SuKz03_TxTrz__APTIV_MADE/TxTrz01__GEMS.jpg",
+			"type": "image/jpg",
+			"sizes": "657x387",
+			"form_factor": "wide"
+		}
+		,
+		{
+			"src": "Mx01__SuKz_MEDIA/SuKz03_TxTrz__APTIV_MADE/TxTrz02__QUAD.jpg",
+			"type": "image/jpg",
+			"sizes": "425x947",
+			"form_factor": "narrow"
+		}
+	]
+}
