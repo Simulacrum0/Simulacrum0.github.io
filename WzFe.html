@@ -478,58 +478,33 @@
 		<br>
 		<br>
 		<!-- 2550, 1200 /5 = 510, 240 -->
-		<canvas id="SF_KuGwy" width="1275" height="600" onclick="SF__KuGwy_DzNe"></canvas>
+		<canvas id="SF_KuGwy" width="1275" height="600"></canvas>
 		<br>
 		<br>
 		<div style="display: flex; flex-direction: row;  justify-content: stretch; flex-wrap: wrap;" >
+
 			<div class="CTRL_BOX" >
 				<span id="SF_SaNoVaHx"></span>
 			</div>
+
 			<div class="CTRL_BOX" >
-				<img id="SF_SaNoJaPo"; style="position:left;"></img>
+				<h3 class="CTRL_LBL" title="Use Items"; >USE</h3>
+				<button onclick="SF_TraMo( TraMoKu.Punch.Vi, 1 );" title="Punch"; >👊</button>
+				<button onclick="SF_TraMo( TraMoKu.Chop.Vi, 1 );" title="Chop"; >🪓</button>
+				<button onclick="SF_TraMo( TraMoKu.Shoot.Vi, 1 );" title="Shoot"; >🔫</button>
+				<br>
+				<button onclick="SF_TraMo( TraMoKu.Heal.Vi, 1 );" title="Heal"; >💊</button>
+				<button onclick="SF_TraMo( TraMoKu.Magnet.Vi, 1 );" title="Magnet"; >🧲</button>
+				<button onclick="SF_TraMo( TraMoKu.Dig.Vi, 1 );" title="Dig"; >🪏</button>
+				<br>
+				<button onclick="SF_TraMo( TraMoKu.Flashlight.Vi, 1 );" title="Flashlight"; >🔦</button>
+				<button onclick="SF_TraMo( TraMoKu.Bomb.Vi, 1 );" title="SmokeBomb"; >💣</button>
+				<button onclick="SF_TraMo( TraMoKu.Alarm.Vi, 1 );" title="Alarm"; >🔊</button>
 			</div>
+
 			<div class="CTRL_BOX" >
 				<span id="SF_SaNoHaVu"></span>
 			</div>
-		</div>
-		<br>
-		<br>
-
-		<!--  -->
-		<canvas id="SF_KuSe" width="1000" height="1000" " onclick="SF__KuSe_DzNe" ></canvas>
-		<br>
-		<br>
-		<div style="display: flex; flex-direction: row;  justify-content: space-between; flex-wrap: wrap;" >
-
-				<div class="CTRL_BOX" >
-					<h3 class="CTRL_LBL" title="Move in Scene"; >MOVE</h3>
-					<button onclick="SF_ChyGe( -1, 1 );" title=""; >↖️</button>
-					<button onclick="SF_ChyGe( 0, 1 );" title=""; >⬆️</button>
-					<button onclick="SF_ChyGe( 1, 1 );" title=""; >↗️</button>
-					<br>
-					<button onclick="SF_ChyGe( -1, 0 );" title=""; >⬅️</button>
-					<button onclick="SF_ChyGe( 0, 0 );" title=""; >⏺️</button>
-					<button onclick="SF_ChyGe( 1, 0 );" title=""; >➡️</button>
-					<br>
-					<button onclick="SF_ChyGe( -1, -1 );" title=""; >↙️</button>
-					<button onclick="SF_ChyGe( 0, -1 );" title=""; >⬇️</button>
-					<button onclick="SF_ChyGe( 1, -1 );" title=""; >↘️</button>
-				</div>
-
-				<div class="CTRL_BOX" >
-					<h3 class="CTRL_LBL" title="Use Items"; >USE</h3>
-					<button onclick="SF_TraMo( TraMoKu.Punch.Vi, 1 );" title="Punch"; >👊</button>
-					<button onclick="SF_TraMo( TraMoKu.Chop.Vi, 1 );" title="Chop"; >🪓</button>
-					<button onclick="SF_TraMo( TraMoKu.Shoot.Vi, 1 );" title="Shoot"; >🔫</button>
-					<br>
-					<button onclick="SF_TraMo( TraMoKu.Heal.Vi, 1 );" title="Heal"; >💊</button>
-					<button onclick="SF_TraMo( TraMoKu.Magnet.Vi, 1 );" title="Magnet"; >🧲</button>
-					<button onclick="SF_TraMo( TraMoKu.Dig.Vi, 1 );" title="Dig"; >🪏</button>
-					<br>
-					<button onclick="SF_TraMo( TraMoKu.Flashlight.Vi, 1 );" title="Flashlight"; >🔦</button>
-					<button onclick="SF_TraMo( TraMoKu.Bomb.Vi, 1 );" title="SmokeBomb"; >💣</button>
-					<button onclick="SF_TraMo( TraMoKu.Alarm.Vi, 1 );" title="Alarm"; >🔊</button>
-				</div>
 
 			<div class="CTRL_BOX">
 				<h3 class="CTRL_LBL" title="Communicate"; >COMZ</h3>
@@ -546,8 +521,32 @@
 				<button onclick="SF_HraKe( HraKeKu.Taste.Vi, 1 );" title=""; >👅</button>
 			</div>
 
+			<div class="CTRL_BOX" >
+				<img id="SF_SaNoJaPo";></img>
+			</div>
+
+			<div class="CTRL_BOX" >
+				<h3 class="CTRL_LBL" title="Move in Scene"; >MOVE</h3>
+				<button onclick="SF_ChyGe( -1, 1 );" title=""; >↖️</button>
+				<button onclick="SF_ChyGe( 0, 1 );" title=""; >⬆️</button>
+				<button onclick="SF_ChyGe( 1, 1 );" title=""; >↗️</button>
+				<br>
+				<button onclick="SF_ChyGe( -1, 0 );" title=""; >⬅️</button>
+				<button onclick="SF_ChyGe( 0, 0 );" title=""; >⏺️</button>
+				<button onclick="SF_ChyGe( 1, 0 );" title=""; >➡️</button>
+				<br>
+				<button onclick="SF_ChyGe( -1, -1 );" title=""; >↙️</button>
+				<button onclick="SF_ChyGe( 0, -1 );" title=""; >⬇️</button>
+				<button onclick="SF_ChyGe( 1, -1 );" title=""; >↘️</button>
 		</div>
 
+		</div>
+		<br>
+		<br>
+
+		<!--  -->
+		<canvas id="SF_KuSe" width="1000" height="1000"></canvas>
+		<br>
 		<br>
 		<button id="MxHi"; onclick="HraBu_ChyMxHi();" style="display: block;">Use Fullscreen</button>
 		<button id="MxDe"; onclick="HraBu_ChyMxDe();" style="display: none;">Use Window</button>
@@ -1693,8 +1692,8 @@
 				const Se_DzDy_x = DzDyKu[ Se_Vy ].x;
 				const Se_DzDy_y = DzDyKu[ Se_Vy ].y;
 
-				let Zo_x = ( DzDy_l.x < Se_DzDy_x ) ? 1 : ( ( DzDy_l.x > Se_DzDy_x )  ? -1 : 0 );
-				let Zo_y = ( DzDy_l.y < Se_DzDy_y ) ? 1 : ( ( DzDy_l.y > Se_DzDy_y )  ? -1 : 0 );
+				let Zo_x = ( ( DzDy_l.x < Se_DzDy_x ) ? +1 : ( ( DzDy_l.x > Se_DzDy_x )  ? -1 : 0 ) );
+				let Zo_y = ( ( DzDy_l.y < Se_DzDy_y ) ? +1 : ( ( DzDy_l.y > Se_DzDy_y )  ? -1 : 0 ) );
 
 				// ONLY IF TGT EMPTY!
 				if( ( JoDiKu[ DzDy_l.x + Zo_x ][ DzDy_l.y + Zo_y ] == -1 ))
@@ -1715,7 +1714,6 @@
 					DzDy_l.y += Zo_y;
 					JoDiKu[ DzDy_l.x ][ DzDy_l.y ] = Vx;
 				}
-
 
 			}
 

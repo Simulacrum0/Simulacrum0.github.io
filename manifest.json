@@ -7,10 +7,11 @@
 	"scope": "/",
 	"start_url": "/",
 
-
 	"theme_color": "#FA9A22",
 	"background_color": "#332277",
-	"display": "standalone",
+
+	"display_override": [ "fullscreen", "standalone", "minimal-ui"],
+	"display": "fullscreen",
 
 	"icons":
 	[
