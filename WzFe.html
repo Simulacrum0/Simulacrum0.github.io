@@ -477,8 +477,14 @@
 		<img style="position:center; width: calc(100% - 0.5em );" src="Mx01__SuKz_MEDIA/SuKz02_JaPo__PICT/JaPo__SF/SF_P00.png"></img>
 		<br>
 		<br>
+		<button id="MxHi"; onclick="HraBu_ChyMxHi();" style="display: block;">Use Fullscreen</button>
+		<button id="MxDe"; onclick="HraBu_ChyMxDe();" style="display: none;">Use Window</button>
+		<br>
+		<br>
+
 		<!-- 2550, 1200 /5 = 510, 240 -->
 		<canvas id="SF_KuGwy" width="1275" height="600"></canvas>
+
 		<br>
 		<br>
 		<div style="display: flex; flex-direction: row;  justify-content: stretch; flex-wrap: wrap;" >
@@ -527,17 +533,17 @@
 
 			<div class="CTRL_BOX" >
 				<h3 class="CTRL_LBL" title="Move in Scene"; >MOVE</h3>
-				<button onclick="SF_ChyGe( -1, 1 );" title=""; >↖️</button>
-				<button onclick="SF_ChyGe( 0, 1 );" title=""; >⬆️</button>
-				<button onclick="SF_ChyGe( 1, 1 );" title=""; >↗️</button>
+				<button onclick="SF_ChyGe( -1, -1 );" title=""; >↖️</button>
+				<button onclick="SF_ChyGe( 0, -1 );" title=""; >⬆️</button>
+				<button onclick="SF_ChyGe( +1, -1 );" title=""; >↗️</button>
 				<br>
 				<button onclick="SF_ChyGe( -1, 0 );" title=""; >⬅️</button>
 				<button onclick="SF_ChyGe( 0, 0 );" title=""; >⏺️</button>
-				<button onclick="SF_ChyGe( 1, 0 );" title=""; >➡️</button>
+				<button onclick="SF_ChyGe( +1, 0 );" title=""; >➡️</button>
 				<br>
-				<button onclick="SF_ChyGe( -1, -1 );" title=""; >↙️</button>
-				<button onclick="SF_ChyGe( 0, -1 );" title=""; >⬇️</button>
-				<button onclick="SF_ChyGe( 1, -1 );" title=""; >↘️</button>
+				<button onclick="SF_ChyGe( -1, +1 );" title=""; >↙️</button>
+				<button onclick="SF_ChyGe( 0, +1 );" title=""; >⬇️</button>
+				<button onclick="SF_ChyGe( +1, +1 );" title=""; >↘️</button>
 		</div>
 
 		</div>
@@ -546,10 +552,6 @@
 
 		<!--  -->
 		<canvas id="SF_KuSe" width="1000" height="1000"></canvas>
-		<br>
-		<br>
-		<button id="MxHi"; onclick="HraBu_ChyMxHi();" style="display: block;">Use Fullscreen</button>
-		<button id="MxDe"; onclick="HraBu_ChyMxDe();" style="display: none;">Use Window</button>
 
 	</div>
 	<br>
@@ -1349,6 +1351,9 @@
 				SF_ChyGe( 0, -1 );
 				break;
 
+
+
+
 			//$$$
 			// LOG
 			// default: SmaDx( "Key:", e.code );
@@ -1500,7 +1505,7 @@
 		{
 			// SmaDx( "SF_ChyGe", Gx, Ga, KuGwy_GeGyGx, KuGwy_GeGyGa );
 			DzDy_l.x += Gx;
-			DzDy_l.y -= Ga;
+			DzDy_l.y += Ga;
 
 			DzDy_l.x = clamp( DzDy_l.x, 0, KuGwy_GeGyGx -1 );
 			DzDy_l.y = clamp( DzDy_l.y, 0, KuGwy_GeGyGa -1 );
@@ -1644,6 +1649,7 @@
 			DzDy_l.PER_LDR =  5 * ( 6 + HrxGuVo_wu( 12 ));
 
 			DzDy_l.Se_DzDy = HrxGuVo_wu( DzDyKu.length - 1 );
+
 			if( DzDy_l.Se_DzDy === Vx ){ DzDy_l.Se_DzDy = -1; }
 
 		}); // FOR EACH THING
@@ -1659,11 +1665,14 @@
 		SF_ChyGe( 0, 0 );
 	}
 
+//===========================================
+// UPDATE
+//===========================================
 	function SF_Ye()
 	{
-		//===========================================
+		//------------------------------------------------------
 		// SIM
-		//===========================================
+		//------------------------------------------------------
 
 		//@@@
 		// SIM-TURN-STEP
@@ -1724,9 +1733,9 @@
 
 		// SmaDx( JoDiKu.slice( 0, 8 ) );
 
-		//===========================================
+		//------------------------------------------------------
 		// RENDER
-		//===========================================
+		//------------------------------------------------------
 
 		//@@@
 		// SPATIAL SESSION
