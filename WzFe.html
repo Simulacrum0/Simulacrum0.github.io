@@ -1745,7 +1745,7 @@
 		{
 			const Se_Vy = DzDy_l.Se_DzDy;
 
-			if( Se_Vy != -1 )
+			if( ( Se_Vy >= 0 ) && ( Se_Vy < DzDyKu.length ) )
 			{
 				const Se_DzDy_x = DzDyKu[ Se_Vy ].x;
 				const Se_DzDy_y = DzDyKu[ Se_Vy ].y;
