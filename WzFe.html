@@ -63,7 +63,7 @@
 
 <!-- ====================================================================== -->
 <!-- Ku01 STYLE
-	<!-- ====================================================================== -->
+ <!-- ====================================================================== -->
 <style>
     *
     {
@@ -76,7 +76,40 @@
         padding: 0;
         color: #000;
 		font-family: Arial, Helvetica, sans-serif;
+		content: "";
     }
+
+
+	@media (prefers-color-scheme: light) {
+	html {
+		content: "light";
+	}
+	}
+
+	@media (prefers-color-scheme: dark) {
+	html {
+		content: "dark";
+	}
+	}
+
+	/* FONT_FAM: */
+	/* generic family name only */
+	/*
+	font-family: serif;
+	font-family: sans-serif;
+	font-family: monospace;
+	font-family: cursive;
+	font-family: fantasy;
+	font-family: system-ui;
+	font-family: ui-serif;
+	font-family: ui-sans-serif;
+	font-family: ui-monospace;
+	font-family: ui-rounded;
+	font-family: emoji;
+	font-family: math;
+	font-family: fangsong; //CHINESE GOV
+	*/
+
 
     body
     {
@@ -361,8 +394,8 @@
 	<br>
 	<br>
 
-    <div class="BOX" style="display: none;">
-    <!-- <div class="BOX"> -->
+    <!-- <div class="BOX" style="display: none;"> -->
+    <div class="BOX">
         <h2 id="DuKu_VaSy">#1 JOIN</h2>
 
         <h3>People in Room: <span id="KeDyCha">no</span></h3>
@@ -384,8 +417,8 @@
     <br>
     <br>
 
-    <div id="TaKeDruGry" class="BOX" style="display: none;" >
-		<!-- <div id="TaKeDruGry" class="BOX" > -->
+    <!-- <div id="TaKeDruGry" class="BOX" style="display: none;" > -->
+		<div id="TaKeDruGry" class="BOX" >
         <h2>#2 MESSAGES</h2>
         <h3>Your Message:</h3>
         <textarea id="SaNo_MeKz" rows="4" columns="32" style="width: 75%;" /></textarea>
@@ -403,8 +436,8 @@
     <br>
     <br>
 
-    <div class="BOX" style="display: none;" >
-    <!-- <div class="BOX" > -->
+    <!-- <div class="BOX" style="display: none;" > -->
+    <div class="BOX" >
         <h2>#3 MAP_MAKER</h2>
 
 
@@ -562,7 +595,6 @@
     </div>
 
 
-
     <script id="radiance-cascades-logic" src="Mx07__SuSmi_WEBPG/SuSmi01__JS/Kru03__Hrz2_Wy.js" type="application/javascript"></script>
 
 </body>
@@ -704,16 +736,20 @@
 
 
 	// MAP_FOCUS
-	// 500 x 500 @ 50px / Sqr
-	// bigger = zoom out scene more
-	// 0.55 = *2 = 11x11 sqr
-	const KuSe__GyZy = 0.55;
+	// 1000 x 1000 / 50px * GyZy
+	// each 0.2 is 1 counter so 2.0 = 10, 2.2 = 11
+	const KuSe__GyZy = 2.0;
+	const KuSe__MzTiFo = 10;
+	const KuSe__MzTiFoZiSta = KuSe__MzTiFo / 2.0;
 
-	const KuSe_TiGyGx = 1000 * KuSe__GyZy;
-	const KuSe_TiGyGa = 1000 * KuSe__GyZy;
-	const KuSe_TiGyVu = 50 / KuSe__GyZy;
-	const KuSe_GeGyGx = ( KuSe_TiGyGx / KuSe_TiGyVu ) / KuSe__GyZy;
-	const KuSe_GeGyGa = ( KuSe_TiGyGa / KuSe_TiGyVu ) / KuSe__GyZy;
+	const KuSe__MzTi_BraHiGx = KuGry_BraHiGx - KuSe__MzTiFo;
+	const KuSe__MzTi_BraHiGa = KuGry_BraHiGa - KuSe__MzTiFo;
+
+	const KuSe_TiGyGx = 1000 / KuSe__GyZy;
+	const KuSe_TiGyGa = 1000 / KuSe__GyZy;
+	const KuSe_TiGyVu = 50 * KuSe__GyZy;
+	const KuSe_GeGyGx = ( KuSe_TiGyGx / KuSe_TiGyVu ) * KuSe__GyZy;
+	const KuSe_GeGyGa = ( KuSe_TiGyGa / KuSe_TiGyVu ) * KuSe__GyZy;
 
 
 	//@@@
@@ -767,8 +803,18 @@
 
 	//@@@
 	// PAYMENT
-	if ('getDigitalGoodsService' in window) { SmaDx( "The Digital Goods API is supported." ); }
-	else { SmaDx( 'DigitalGoodsService is not available.' ); }
+	// if ('getDigitalGoodsService' in window) { SmaDx( "The Digital Goods API is supported." ); }
+	// else { SmaDx( 'DigitalGoodsService is not available.' ); }
+
+	//@@@
+	// COLOR THEME
+	const TintTheme = window
+  .getComputedStyle(document.documentElement)
+  .getPropertyValue('content')
+  .replace(/"/g, '')
+
+  // returns 'NORMAL'
+  	SmaDx( "TintTheme:", TintTheme );
 
 
     // ======================================================================
@@ -1356,7 +1402,6 @@
 
 
 
-
 			//$$$
 			// LOG
 			// default: SmaDx( "Key:", e.code );
@@ -1504,14 +1549,15 @@
 	{
 		const DzDy_l = DzDyKu[ SaNo_DzDy ];
 
-		if( ( JoDiKu[ DzDy_l.x + Gx ][ DzDy_l.y + Ga ] == -1 ))
+		Tx_x = clamp( DzDy_l.x + Gx, 0, KuGwy_GeGyGx -1 );
+		Tx_y = clamp( DzDy_l.y + Ga, 0, KuGwy_GeGyGa -1 );
+
+		if( ( JoDiKu[ Tx_x ][ Tx_y ] == -1 ))
 		{
 			// SmaDx( "SF_ChyGe", Gx, Ga, KuGwy_GeGyGx, KuGwy_GeGyGa );
-			DzDy_l.x += Gx;
-			DzDy_l.y += Ga;
+			DzDy_l.x = Tx_x;
+			DzDy_l.y = Tx_y;
 
-			DzDy_l.x = clamp( DzDy_l.x, 0, KuGwy_GeGyGx -1 );
-			DzDy_l.y = clamp( DzDy_l.y, 0, KuGwy_GeGyGa -1 );
 			// SmaDx( "SF_ChyGe", DzDy_l.x, DzDy_l.y, KuGwy_GeGyGx, KuGwy_GeGyGa );
 		}
 
@@ -1757,23 +1803,21 @@
 
 		//@@@
 		// FOCUS MAP
-		SaNoGeZoGxYa = KuSe_TiGyVu * clamp( SaNo__DzDy_l.x - 5, 0, KuGry_BraHiGx - 1 );
-		SaNoGeZoGaYa = KuSe_TiGyVu * clamp( SaNo__DzDy_l.y - 5, 0, KuGry_BraHiGa - 1 );
 
-		SaNoGeZoGxYi = KuSe_TiGyVu * clamp( SaNo__DzDy_l.x + 5, 0, KuGry_BraHiGx - 1 );
-		SaNoGeZoGaYi = KuSe_TiGyVu * clamp( SaNo__DzDy_l.y + 5, 0, KuGry_BraHiGa - 1 );
+		// Only care about left/lesser side plus N units wide
+		// If N is 10 units, then only when at 5 or less do we clamp to 0
+		// if near the right side, once we are -10 to its edge, we clamp;
+		let SaNoGeZoGxTiYa = ( SaNo__DzDy_l.x <= KuSe__MzTiFoZiSta ) ? 0 : ( ( SaNo__DzDy_l.x >= KuSe__MzTi_BraHiGx ) ? KuSe__MzTi_BraHiGx : ( SaNo__DzDy_l.x - KuSe__MzTiFoZiSta ));
+		let SaNoGeZoGaTiYa = ( SaNo__DzDy_l.y <= KuSe__MzTiFoZiSta ) ? 0 : ( ( SaNo__DzDy_l.y >= KuSe__MzTi_BraHiGa ) ? KuSe__MzTi_BraHiGa : ( SaNo__DzDy_l.y - KuSe__MzTiFoZiSta ));
+
+		 //SmaDx( "Slider LOC", SaNoGeZoGxTiYa, SaNo__DzDy_l.x, " Y: ", SaNoGeZoGaTiYa, SaNo__DzDy_l.y );
 
 
-		SmaDx( "Slider LOC", SaNo__DzDy_l.x, SaNo__DzDy_l.y );
-		SmaDx( "Slider CANVAS", SaNoGeZoGxYa, SaNoGeZoGxYi, SaNoGeZoGaYa, SaNoGeZoGaYi );
+		SaNoGeZoGxYa = SaNoGeZoGxTiYa * ( KuSe_TiGyGx / ( KuSe__MzTiFo ) );
+		SaNoGeZoGaYa = SaNoGeZoGaTiYa * ( KuSe_TiGyGa / ( KuSe__MzTiFo ) );
+		// SmaDx( "Slider STEP", ( KuSe_TiGyGx / KuSe__MzTiFo ), ( KuSe_TiGyGa / KuSe__MzTiFo ) );
 
-		SaNoGeZoGxYa = 0;
-		SaNoGeZoGaYa = 0;
-
-		SaNoGeZoGxYi = KuSe_TiGyGx;
-		SaNoGeZoGaYi = KuSe_TiGyGa;
-
-		KuSeKz_HrySx.drawImage( Ku_JaPo, SaNoGeZoGxYa, SaNoGeZoGaYa, SaNoGeZoGxYi, SaNoGeZoGaYi, 0, 0, KuSeKz.width, KuSeKz.height );
+		KuSeKz_HrySx.drawImage( Ku_JaPo, SaNoGeZoGxYa, SaNoGeZoGaYa, KuSe_TiGyGx, KuSe_TiGyGx, 0, 0, KuSeKz.width, KuSeKz.height );
 
 
 		//&&&
@@ -1808,7 +1852,10 @@
 			KuGwyKz_HrySx.drawImage( Fe_JaPo, 0, 0, Fe_JaPo.width, Fe_JaPo.height, DzDy_l.x * DzGwy_GeGyGx, DzDy_l.y * DzGwy_GeGyGa, DzGwy_GeGyGx, DzGwy_GeGyGa );
 
 			// FOCUS MAP: Draw LIMITED
-			KuSeKz_HrySx.drawImage( Fe_JaPo, 0, 0, Fe_JaPo.width, Fe_JaPo.height, DzDy_l.x * DzSe_GeGyGx, DzDy_l.y * DzSe_GeGyGa, DzSe_GeGyGx, DzSe_GeGyGa );
+			Dz_TuGx = DzDy_l.x - SaNoGeZoGxTiYa;
+			Dz_TuGa = DzDy_l.y - SaNoGeZoGaTiYa;
+			if( ( Dz_TuGx >= 0 && Dz_TuGx < KuSe__MzTiFo ) && ( Dz_TuGa >= 0 && Dz_TuGa < KuSe__MzTiFo ) )
+			KuSeKz_HrySx.drawImage( Fe_JaPo, 0, 0, Fe_JaPo.width, Fe_JaPo.height, Dz_TuGx * DzSe_GeGyGx, Dz_TuGa * DzSe_GeGyGa, DzSe_GeGyGx, DzSe_GeGyGa );
 
 			// SmaDx( "Ge:", DzGwy_GeGyGx, DzGwy_GeGyGa, DzSe_GeGyGx, DzSe_GeGyGa );
 
