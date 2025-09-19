@@ -63,7 +63,7 @@
 
 <!-- ====================================================================== -->
 <!-- Ku01 STYLE
-	<!-- ====================================================================== -->
+ <!-- ====================================================================== -->
 <style>
     *
     {
@@ -76,7 +76,40 @@
         padding: 0;
         color: #000;
 		font-family: Arial, Helvetica, sans-serif;
+		content: "";
     }
+
+
+	@media (prefers-color-scheme: light) {
+	html {
+		content: "light";
+	}
+	}
+
+	@media (prefers-color-scheme: dark) {
+	html {
+		content: "dark";
+	}
+	}
+
+	/* FONT_FAM: */
+	/* generic family name only */
+	/*
+	font-family: serif;
+	font-family: sans-serif;
+	font-family: monospace;
+	font-family: cursive;
+	font-family: fantasy;
+	font-family: system-ui;
+	font-family: ui-serif;
+	font-family: ui-sans-serif;
+	font-family: ui-monospace;
+	font-family: ui-rounded;
+	font-family: emoji;
+	font-family: math;
+	font-family: fangsong; //CHINESE GOV
+	*/
+
 
     body
     {
@@ -477,59 +510,40 @@
 		<img style="position:center; width: calc(100% - 0.5em );" src="Mx01__SuKz_MEDIA/SuKz02_JaPo__PICT/JaPo__SF/SF_P00.png"></img>
 		<br>
 		<br>
+		<button id="MxHi"; onclick="HraBu_ChyMxHi();" style="display: block;">Use Fullscreen</button>
+		<button id="MxDe"; onclick="HraBu_ChyMxDe();" style="display: none;">Use Window</button>
+		<br>
+		<br>
+
 		<!-- 2550, 1200 /5 = 510, 240 -->
-		<canvas id="SF_KuGwy" width="1275" height="600" onclick="SF__KuGwy_DzNe"></canvas>
+		<canvas id="SF_KuGwy" width="1275" height="600"></canvas>
+
 		<br>
 		<br>
 		<div style="display: flex; flex-direction: row;  justify-content: stretch; flex-wrap: wrap;" >
+
 			<div class="CTRL_BOX" >
 				<span id="SF_SaNoVaHx"></span>
 			</div>
+
 			<div class="CTRL_BOX" >
-				<img id="SF_SaNoJaPo"; style="position:left;"></img>
+				<h3 class="CTRL_LBL" title="Use Items"; >USE</h3>
+				<button onclick="SF_TraMo( TraMoKu.Punch.Vi, 1 );" title="Punch"; >👊</button>
+				<button onclick="SF_TraMo( TraMoKu.Chop.Vi, 1 );" title="Chop"; >🪓</button>
+				<button onclick="SF_TraMo( TraMoKu.Shoot.Vi, 1 );" title="Shoot"; >🔫</button>
+				<br>
+				<button onclick="SF_TraMo( TraMoKu.Heal.Vi, 1 );" title="Heal"; >💊</button>
+				<button onclick="SF_TraMo( TraMoKu.Magnet.Vi, 1 );" title="Magnet"; >🧲</button>
+				<button onclick="SF_TraMo( TraMoKu.Dig.Vi, 1 );" title="Dig"; >🪏</button>
+				<br>
+				<button onclick="SF_TraMo( TraMoKu.Flashlight.Vi, 1 );" title="Flashlight"; >🔦</button>
+				<button onclick="SF_TraMo( TraMoKu.Bomb.Vi, 1 );" title="SmokeBomb"; >💣</button>
+				<button onclick="SF_TraMo( TraMoKu.Alarm.Vi, 1 );" title="Alarm"; >🔊</button>
 			</div>
+
 			<div class="CTRL_BOX" >
 				<span id="SF_SaNoHaVu"></span>
 			</div>
-		</div>
-		<br>
-		<br>
-
-		<!--  -->
-		<canvas id="SF_KuSe" width="1000" height="1000" " onclick="SF__KuSe_DzNe" ></canvas>
-		<br>
-		<br>
-		<div style="display: flex; flex-direction: row;  justify-content: space-between; flex-wrap: wrap;" >
-
-				<div class="CTRL_BOX" >
-					<h3 class="CTRL_LBL" title="Move in Scene"; >MOVE</h3>
-					<button onclick="SF_ChyGe( -1, 1 );" title=""; >↖️</button>
-					<button onclick="SF_ChyGe( 0, 1 );" title=""; >⬆️</button>
-					<button onclick="SF_ChyGe( 1, 1 );" title=""; >↗️</button>
-					<br>
-					<button onclick="SF_ChyGe( -1, 0 );" title=""; >⬅️</button>
-					<button onclick="SF_ChyGe( 0, 0 );" title=""; >⏺️</button>
-					<button onclick="SF_ChyGe( 1, 0 );" title=""; >➡️</button>
-					<br>
-					<button onclick="SF_ChyGe( -1, -1 );" title=""; >↙️</button>
-					<button onclick="SF_ChyGe( 0, -1 );" title=""; >⬇️</button>
-					<button onclick="SF_ChyGe( 1, -1 );" title=""; >↘️</button>
-				</div>
-
-				<div class="CTRL_BOX" >
-					<h3 class="CTRL_LBL" title="Use Items"; >USE</h3>
-					<button onclick="SF_TraMo( TraMoKu.Punch.Vi, 1 );" title="Punch"; >👊</button>
-					<button onclick="SF_TraMo( TraMoKu.Chop.Vi, 1 );" title="Chop"; >🪓</button>
-					<button onclick="SF_TraMo( TraMoKu.Shoot.Vi, 1 );" title="Shoot"; >🔫</button>
-					<br>
-					<button onclick="SF_TraMo( TraMoKu.Heal.Vi, 1 );" title="Heal"; >💊</button>
-					<button onclick="SF_TraMo( TraMoKu.Magnet.Vi, 1 );" title="Magnet"; >🧲</button>
-					<button onclick="SF_TraMo( TraMoKu.Dig.Vi, 1 );" title="Dig"; >🪏</button>
-					<br>
-					<button onclick="SF_TraMo( TraMoKu.Flashlight.Vi, 1 );" title="Flashlight"; >🔦</button>
-					<button onclick="SF_TraMo( TraMoKu.Bomb.Vi, 1 );" title="SmokeBomb"; >💣</button>
-					<button onclick="SF_TraMo( TraMoKu.Alarm.Vi, 1 );" title="Alarm"; >🔊</button>
-				</div>
 
 			<div class="CTRL_BOX">
 				<h3 class="CTRL_LBL" title="Communicate"; >COMZ</h3>
@@ -546,11 +560,31 @@
 				<button onclick="SF_HraKe( HraKeKu.Taste.Vi, 1 );" title=""; >👅</button>
 			</div>
 
+			<div class="CTRL_BOX" >
+				<img id="SF_SaNoJaPo";></img>
+			</div>
+
+			<div class="CTRL_BOX" >
+				<h3 class="CTRL_LBL" title="Move in Scene"; >MOVE</h3>
+				<button onclick="SF_ChyGe( -1, -1 );" title=""; >↖️</button>
+				<button onclick="SF_ChyGe( 0, -1 );" title=""; >⬆️</button>
+				<button onclick="SF_ChyGe( +1, -1 );" title=""; >↗️</button>
+				<br>
+				<button onclick="SF_ChyGe( -1, 0 );" title=""; >⬅️</button>
+				<button onclick="SF_ChyGe( 0, 0 );" title=""; >⏺️</button>
+				<button onclick="SF_ChyGe( +1, 0 );" title=""; >➡️</button>
+				<br>
+				<button onclick="SF_ChyGe( -1, +1 );" title=""; >↙️</button>
+				<button onclick="SF_ChyGe( 0, +1 );" title=""; >⬇️</button>
+				<button onclick="SF_ChyGe( +1, +1 );" title=""; >↘️</button>
 		</div>
 
+		</div>
 		<br>
-		<button id="MxHi"; onclick="HraBu_ChyMxHi();" style="display: block;">Use Fullscreen</button>
-		<button id="MxDe"; onclick="HraBu_ChyMxDe();" style="display: none;">Use Window</button>
+		<br>
+
+		<!--  -->
+		<canvas id="SF_KuSe" width="1000" height="1000"></canvas>
 
 	</div>
 	<br>
@@ -559,7 +593,6 @@
         <h2>#5 LOG</h2>
         <div id="SmaDx" class="BUF"></div>
     </div>
-
 
 
     <script id="radiance-cascades-logic" src="Mx07__SuSmi_WEBPG/SuSmi01__JS/Kru03__Hrz2_Wy.js" type="application/javascript"></script>
@@ -640,6 +673,8 @@
 	const KuGry_BraHiGa = 24;
 	const Ku_JaPo = new Image();
 
+	let Gwx2 = (x,y,De) => [...Array( x )].map(_=>Array( y ).fill( De ));
+	let JoDiKu = null;
 
 	//@@@
 	// SPRITES
@@ -701,16 +736,20 @@
 
 
 	// MAP_FOCUS
-	// 500 x 500 @ 50px / Sqr
-	// bigger = zoom out scene more
-	// 0.55 = *2 = 11x11 sqr
-	const KuSe__GyZy = 0.55;
+	// 1000 x 1000 / 50px * GyZy
+	// each 0.2 is 1 counter so 2.0 = 10, 2.2 = 11
+	const KuSe__GyZy = 2.0;
+	const KuSe__MzTiFo = 10;
+	const KuSe__MzTiFoZiSta = KuSe__MzTiFo / 2.0;
 
-	const KuSe_TiGyGx = 1000 * KuSe__GyZy;
-	const KuSe_TiGyGa = 1000 * KuSe__GyZy;
-	const KuSe_TiGyVu = 50 / KuSe__GyZy;
-	const KuSe_GeGyGx = ( KuSe_TiGyGx / KuSe_TiGyVu ) / KuSe__GyZy;
-	const KuSe_GeGyGa = ( KuSe_TiGyGa / KuSe_TiGyVu ) / KuSe__GyZy;
+	const KuSe__MzTi_BraHiGx = KuGry_BraHiGx - KuSe__MzTiFo;
+	const KuSe__MzTi_BraHiGa = KuGry_BraHiGa - KuSe__MzTiFo;
+
+	const KuSe_TiGyGx = 1000 / KuSe__GyZy;
+	const KuSe_TiGyGa = 1000 / KuSe__GyZy;
+	const KuSe_TiGyVu = 50 * KuSe__GyZy;
+	const KuSe_GeGyGx = ( KuSe_TiGyGx / KuSe_TiGyVu ) * KuSe__GyZy;
+	const KuSe_GeGyGa = ( KuSe_TiGyGa / KuSe_TiGyVu ) * KuSe__GyZy;
 
 
 	//@@@
@@ -764,8 +803,18 @@
 
 	//@@@
 	// PAYMENT
-	if ('getDigitalGoodsService' in window) { SmaDx( "The Digital Goods API is supported." ); }
-	else { SmaDx( 'DigitalGoodsService is not available.' ); }
+	// if ('getDigitalGoodsService' in window) { SmaDx( "The Digital Goods API is supported." ); }
+	// else { SmaDx( 'DigitalGoodsService is not available.' ); }
+
+	//@@@
+	// COLOR THEME
+	const TintTheme = window
+  .getComputedStyle(document.documentElement)
+  .getPropertyValue('content')
+  .replace(/"/g, '')
+
+  // returns 'NORMAL'
+  	SmaDx( "TintTheme:", TintTheme );
 
 
     // ======================================================================
@@ -1151,6 +1200,7 @@
         args = args.map( function( a )
         {
             if ( typeof( a ) == "string" ) return a;
+			if( typeof( a ) == "Gwx2" ) return ( JSON.stringify( a ).replace(/(\[\[)(.*)(\]\])/g,'[\n  [$2]\n]').replace(/],/g,'],\n ' ) );
             else return JSON.stringify( a );
         } );
 
@@ -1298,7 +1348,7 @@
 				Dz_l.x = JyNo.getUint16( 4 );
 				Dz_l.y = JyNo.getUint16( 6 );
 
-				Dz_l.Se_DzDy = -1;
+				Dz_l.Se_DzDy = JyNo.getUint16( 8 );
 
 				SF_Ye();
 
@@ -1334,18 +1384,23 @@
 				// Left pressed
 				SF_ChyGe( -1, 0 );
 				break;
-				case "ArrowRight":
+
+			case "ArrowRight":
 					// Right pressed
-					SF_ChyGe( 1, 0 );
+					SF_ChyGe( +1, 0 );
 				break;
-				case "ArrowUp":
-					// Up pressed
-				SF_ChyGe( 0, 1 );
-				break;
-			case "ArrowDown":
-				// Down pressed
+
+			case "ArrowUp":
+				// Up pressed
 				SF_ChyGe( 0, -1 );
 				break;
+
+			case "ArrowDown":
+				// Down pressed
+				SF_ChyGe( 0, +1 );
+				break;
+
+
 
 			//$$$
 			// LOG
@@ -1494,13 +1549,17 @@
 	{
 		const DzDy_l = DzDyKu[ SaNo_DzDy ];
 
-		// SmaDx( "SF_ChyGe", Gx, Ga, KuGwy_GeGyGx, KuGwy_GeGyGa );
-		DzDy_l.x += Gx;
-		DzDy_l.y -= Ga;
+		Tx_x = clamp( DzDy_l.x + Gx, 0, KuGwy_GeGyGx -1 );
+		Tx_y = clamp( DzDy_l.y + Ga, 0, KuGwy_GeGyGa -1 );
 
-		DzDy_l.x = clamp( DzDy_l.x, 0, KuGwy_GeGyGx -1 );
-		DzDy_l.y = clamp( DzDy_l.y, 0, KuGwy_GeGyGa -1 );
-		// SmaDx( "SF_ChyGe", DzDy_l.x, DzDy_l.y, KuGwy_GeGyGx, KuGwy_GeGyGa );
+		if( ( JoDiKu[ Tx_x ][ Tx_y ] == -1 ))
+		{
+			// SmaDx( "SF_ChyGe", Gx, Ga, KuGwy_GeGyGx, KuGwy_GeGyGa );
+			DzDy_l.x = Tx_x;
+			DzDy_l.y = Tx_y;
+
+			// SmaDx( "SF_ChyGe", DzDy_l.x, DzDy_l.y, KuGwy_GeGyGx, KuGwy_GeGyGa );
+		}
 
 		//&&&
 		// SEND
@@ -1517,6 +1576,9 @@
 			// LOC
         	JyNo.setUint16( 4, DzDy_l.x );
         	JyNo.setUint16( 6, DzDy_l.y );
+
+			JyNo.setUint16( 8, DzDy_l.Se_DzDy );
+
 
 			//%%%
 			// SEND
@@ -1535,8 +1597,7 @@
     // ======================================================================
     // SF_DzNe
     // ======================================================================
-	document.getElementById( "SF_KuGwy" ).addEventListener( "click", ( e ) =>
-	SF__KuGwy_DzNe( ( e.clientX ), ( e.clientY ) ) );
+	document.getElementById( "SF_KuGwy" ).addEventListener( "click", ( e ) => SF__KuGwy_DzNe( ( e.clientX ), ( e.clientY ) ) );
 
 	function SF__KuGwy_DzNe( x, y )
 	{
@@ -1552,18 +1613,22 @@
 		{
 			if( ( x === DzDy_l.x ) && ( y === DzDy_l.y ) )
 			{
-				SaNo_DzDy = Vx;
-
-				// UPDATE
-				SF_Ye();
+				if( SaNo_DzDy !== Vx )
+				{
+					// PRV TGT is 'NEW' PICK
+					// DzDyKu[ SaNo_DzDy ].Se_DzDy = Vx;
+					DzDyKu[ Vx ].Se_DzDy = -1;
+					SaNo_DzDy = Vx;
+					// UPDATE
+					SF_ChyGe( 0, 0 );
+				}
 				return;
 			}
 		}); // FOR EACH THING
 
 	}
 
-	document.getElementById( "SF_KuSe" ).addEventListener( "click", ( e ) =>
-	SF__KuSe_DzNe( ( e.clientX ), ( e.clientY ) ) );
+	document.getElementById( "SF_KuSe" ).addEventListener( "click", ( e ) =>SF__KuSe_DzNe( ( e.clientX ), ( e.clientY ) ) );
 
 	function SF__KuSe_DzNe( x, y )
 	{
@@ -1581,10 +1646,11 @@
 				if( SaNo_DzDy !== Vx )
 				{
 					// PRV TGT is 'NEW' PICK
-					DzDyKu[ SaNo_DzDy ].Se_DzDy = Vx;
+					// DzDyKu[ SaNo_DzDy ].Se_DzDy = Vx;
+					DzDyKu[ Vx ].Se_DzDy = -1;
 					SaNo_DzDy = Vx;
 					// UPDATE
-					SF_Ye();
+					SF_ChyGe( 0, 0 );
 				}
 				return;
 			}
@@ -1632,19 +1698,30 @@
 			DzDy_l.PER_LDR =  5 * ( 6 + HrxGuVo_wu( 12 ));
 
 			DzDy_l.Se_DzDy = HrxGuVo_wu( DzDyKu.length - 1 );
+
 			if( DzDy_l.Se_DzDy === Vx ){ DzDy_l.Se_DzDy = -1; }
 
 		}); // FOR EACH THING
 
-		// REDRAW
+
+		// CLEAR FIRST CONTROLLED PLAYER TGT
+		DzDyKu[SaNo_DzDy ].Se_DzDy = -1;
+
+		/// FILL IN MAP OCCUPANCY
 		SF_Ye();
+
+		// BROADCAST to OTHERS
+		SF_ChyGe( 0, 0 );
 	}
 
+//===========================================
+// UPDATE
+//===========================================
 	function SF_Ye()
 	{
-		//===========================================
+		//------------------------------------------------------
 		// SIM
-		//===========================================
+		//------------------------------------------------------
 
 		//@@@
 		// SIM-TURN-STEP
@@ -1653,29 +1730,61 @@
 		//@@@
 		// SELF
 		const SaNo__DzDy_l = DzDyKu[ SaNo_DzDy ];
+		//console.log(JSON.stringify(m).replace(/(\[\[)(.*)(\]\])/g,'[\n  [$2]\n]').replace(/],/g,'],\n ' ) );
 
-		const JoDiKu = new Array( ).fill( -1 ).map(() => new Array( ).fill( -1 ));
+		JoDiKu = Gwx2( KuGry_BraHiGx, KuGry_BraHiGa, -1 );
+
 
 		DzDyKu.forEach(( DzDy_l, Vx ) =>
 		{
-			const Fe_JaPo = DzJy_TaJaPo[ Vx ];
-
-
+			JoDiKu[ DzDy_l.x ][ DzDy_l.y ] = Vx;
 		}); // FOR EACH THING
 
 
 		DzDyKu.forEach(( DzDy_l, Vx ) =>
 		{
-			const Fe_JaPo = DzJy_TaJaPo[ Vx ];
+			const Se_Vy = DzDy_l.Se_DzDy;
 
-			// SmaDx( "Ge:", DzGwy_GeGyGx, DzGwy_GeGyGa, DzSe_GeGyGx, DzSe_GeGyGa );
+			if( ( Se_Vy >= 0 ) && ( Se_Vy < DzDyKu.length ) )
+			{
+				const Se_DzDy_x = DzDyKu[ Se_Vy ].x;
+				const Se_DzDy_y = DzDyKu[ Se_Vy ].y;
+
+				let Zo_x = ( ( DzDy_l.x < Se_DzDy_x ) ? +1 : ( ( DzDy_l.x > Se_DzDy_x )  ? -1 : 0 ) );
+				let Zo_y = ( ( DzDy_l.y < Se_DzDy_y ) ? +1 : ( ( DzDy_l.y > Se_DzDy_y )  ? -1 : 0 ) );
+
+				// ONLY IF TGT EMPTY!
+				if( ( JoDiKu[ DzDy_l.x + Zo_x ][ DzDy_l.y + Zo_y ] == -1 ))
+				{
+					DzDy_l.x += Zo_x;
+					DzDy_l.y += Zo_y;
+					JoDiKu[ DzDy_l.x ][ DzDy_l.y ] = Vx;
+				}
+				// TRY X
+				else if( ( JoDiKu[ DzDy_l.x + Zo_x ][ DzDy_l.y ] == -1 ))
+				{
+					DzDy_l.x += Zo_x;
+					JoDiKu[ DzDy_l.x ][ DzDy_l.y ] = Vx;
+				}
+				// TRY Y
+				else if( ( JoDiKu[ DzDy_l.x ][ DzDy_l.y + Zo_y ] == -1 ))
+				{
+					DzDy_l.y += Zo_y;
+					JoDiKu[ DzDy_l.x ][ DzDy_l.y ] = Vx;
+				}
+
+			}
+
 		}); // FOR EACH THING
 
 
+		// SmaDx( "Ge:", DzGwy_GeGyGx, DzGwy_GeGyGa, DzSe_GeGyGx, DzSe_GeGyGa );
 
-		//===========================================
+		// SmaDx( JoDiKu.slice( 0, 8 ) );
+
+		//------------------------------------------------------
 		// RENDER
-		//===========================================
+		//------------------------------------------------------
 
 		//@@@
 		// SPATIAL SESSION
@@ -1694,23 +1803,21 @@
 
 		//@@@
 		// FOCUS MAP
-		SaNoGeZoGxYa = KuSe_TiGyVu * clamp( SaNo__DzDy_l.x - 5, 0, KuGry_BraHiGx - 1 );
-		SaNoGeZoGaYa = KuSe_TiGyVu * clamp( SaNo__DzDy_l.y - 5, 0, KuGry_BraHiGa - 1 );
 
-		SaNoGeZoGxYi = KuSe_TiGyVu * clamp( SaNo__DzDy_l.x + 5, 0, KuGry_BraHiGx - 1 );
-		SaNoGeZoGaYi = KuSe_TiGyVu * clamp( SaNo__DzDy_l.y + 5, 0, KuGry_BraHiGa - 1 );
+		// Only care about left/lesser side plus N units wide
+		// If N is 10 units, then only when at 5 or less do we clamp to 0
+		// if near the right side, once we are -10 to its edge, we clamp;
+		let SaNoGeZoGxTiYa = ( SaNo__DzDy_l.x <= KuSe__MzTiFoZiSta ) ? 0 : ( ( SaNo__DzDy_l.x >= KuSe__MzTi_BraHiGx ) ? KuSe__MzTi_BraHiGx : ( SaNo__DzDy_l.x - KuSe__MzTiFoZiSta ));
+		let SaNoGeZoGaTiYa = ( SaNo__DzDy_l.y <= KuSe__MzTiFoZiSta ) ? 0 : ( ( SaNo__DzDy_l.y >= KuSe__MzTi_BraHiGa ) ? KuSe__MzTi_BraHiGa : ( SaNo__DzDy_l.y - KuSe__MzTiFoZiSta ));
+
+		 //SmaDx( "Slider LOC", SaNoGeZoGxTiYa, SaNo__DzDy_l.x, " Y: ", SaNoGeZoGaTiYa, SaNo__DzDy_l.y );
 
 
-		SmaDx( "Slider LOC", SaNo__DzDy_l.x, SaNo__DzDy_l.y );
-		SmaDx( "Slider CANVAS", SaNoGeZoGxYa, SaNoGeZoGxYi, SaNoGeZoGaYa, SaNoGeZoGaYi );
+		SaNoGeZoGxYa = SaNoGeZoGxTiYa * ( KuSe_TiGyGx / ( KuSe__MzTiFo ) );
+		SaNoGeZoGaYa = SaNoGeZoGaTiYa * ( KuSe_TiGyGa / ( KuSe__MzTiFo ) );
+		// SmaDx( "Slider STEP", ( KuSe_TiGyGx / KuSe__MzTiFo ), ( KuSe_TiGyGa / KuSe__MzTiFo ) );
 
-		SaNoGeZoGxYa = 0;
-		SaNoGeZoGaYa = 0;
-
-		SaNoGeZoGxYi = KuSe_TiGyGx;
-		SaNoGeZoGaYi = KuSe_TiGyGa;
-
-		KuSeKz_HrySx.drawImage( Ku_JaPo, SaNoGeZoGxYa, SaNoGeZoGaYa, SaNoGeZoGxYi, SaNoGeZoGaYi, 0, 0, KuSeKz.width, KuSeKz.height );
+		KuSeKz_HrySx.drawImage( Ku_JaPo, SaNoGeZoGxYa, SaNoGeZoGaYa, KuSe_TiGyGx, KuSe_TiGyGx, 0, 0, KuSeKz.width, KuSeKz.height );
 
 
 		//&&&
@@ -1745,7 +1852,10 @@
 			KuGwyKz_HrySx.drawImage( Fe_JaPo, 0, 0, Fe_JaPo.width, Fe_JaPo.height, DzDy_l.x * DzGwy_GeGyGx, DzDy_l.y * DzGwy_GeGyGa, DzGwy_GeGyGx, DzGwy_GeGyGa );
 
 			// FOCUS MAP: Draw LIMITED
-			KuSeKz_HrySx.drawImage( Fe_JaPo, 0, 0, Fe_JaPo.width, Fe_JaPo.height, DzDy_l.x * DzSe_GeGyGx, DzDy_l.y * DzSe_GeGyGa, DzSe_GeGyGx, DzSe_GeGyGa );
+			Dz_TuGx = DzDy_l.x - SaNoGeZoGxTiYa;
+			Dz_TuGa = DzDy_l.y - SaNoGeZoGaTiYa;
+			if( ( Dz_TuGx >= 0 && Dz_TuGx < KuSe__MzTiFo ) && ( Dz_TuGa >= 0 && Dz_TuGa < KuSe__MzTiFo ) )
+			KuSeKz_HrySx.drawImage( Fe_JaPo, 0, 0, Fe_JaPo.width, Fe_JaPo.height, Dz_TuGx * DzSe_GeGyGx, Dz_TuGa * DzSe_GeGyGa, DzSe_GeGyGx, DzSe_GeGyGa );
 
 			// SmaDx( "Ge:", DzGwy_GeGyGx, DzGwy_GeGyGa, DzSe_GeGyGx, DzSe_GeGyGa );
 
