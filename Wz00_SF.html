@@ -1379,26 +1379,50 @@
 	document.addEventListener( "keydown", ( e ) =>
 	{
 
-		switch (e.key)
+		switch (e.code)
 		{
+			case "Numpad4":
 			case "ArrowLeft":
 				// Left pressed
 				SF_ChyGe( -1, 0 );
 				break;
 
+			case "Numpad6":
 			case "ArrowRight":
 					// Right pressed
 					SF_ChyGe( +1, 0 );
 				break;
 
+			case "Numpad8":
 			case "ArrowUp":
 				// Up pressed
 				SF_ChyGe( 0, -1 );
 				break;
 
+			case "Numpad2":
 			case "ArrowDown":
 				// Down pressed
 				SF_ChyGe( 0, +1 );
+				break;
+
+			case "Numpad1":
+			case "End":
+				SF_ChyGe( -1, +1 );
+				break;
+
+			case "Numpad3":
+			case "Home":
+				SF_ChyGe( +1, +1 );
+				break;
+
+			case "Numpad7":
+			case "PageDown":
+				SF_ChyGe( -1, -1 );
+				break;
+
+			case "Numpad9":
+			case "PageUp":
+				SF_ChyGe( +1, -1 );
 				break;
 
 
@@ -1907,7 +1931,7 @@
 		"CHARACTER DATA"
 		+ "<br>Name: " + SaNo__DzDy_l.Va
 		+ "<br>Race: " + SaNo__DzDy_l.Jy
-		+ "<br>Tgt: " + ( ( SaNo__DzDy_l.Se_DzDy === -1 )? "None" : ( (( SaNo__DzDy_l.Ka & 1 ) ? "Chase " : "Flee " ) + DzDyKu[ SaNo__DzDy_l.Se_DzDy ].Va ))
+		+ "<br>Tgt: " + ( (( SaNo__DzDy_l.Se_DzDy >= 0 ) && ( SaNo__DzDy_l.Se_DzDy < DzJy_TaFo_wuk )) ? ( (( SaNo__DzDy_l.Ka & 1 ) ? "Chase " : "Flee " ) + DzDyKu[ SaNo__DzDy_l.Se_DzDy ].Va ) : "None" )
 		+ "<br>Details: " + SaNo__DzDy_l.DiHx
 		;
 
