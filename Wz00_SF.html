@@ -1757,9 +1757,26 @@
 			{
 				const Se_DzDy_x = DzDyKu[ Se_Vy ].x;
 				const Se_DzDy_y = DzDyKu[ Se_Vy ].y;
+				let Zo_x = 0;
+				let Zo_y = 0;
 
-				let Zo_x = ( ( DzDy_l.x < Se_DzDy_x ) ? +1 : ( ( DzDy_l.x > Se_DzDy_x )  ? -1 : 0 ) );
-				let Zo_y = ( ( DzDy_l.y < Se_DzDy_y ) ? +1 : ( ( DzDy_l.y > Se_DzDy_y )  ? -1 : 0 ) );
+				// CHASE
+				if( SaNo__DzDy_l.Ka & 1 )
+				{
+					Zo_x = ( ( DzDy_l.x < Se_DzDy_x ) ? +1 : ( ( DzDy_l.x > Se_DzDy_x )  ? -1 : 0 ) );
+					Zo_y = ( ( DzDy_l.y < Se_DzDy_y ) ? +1 : ( ( DzDy_l.y > Se_DzDy_y )  ? -1 : 0 ) );
+				}
+				// FLEE
+				else
+				{
+					Zo_x = ( ( DzDy_l.x < Se_DzDy_x ) ? -1 : ( ( DzDy_l.x > Se_DzDy_x )  ? +1 : 0 ) );
+					Zo_y = ( ( DzDy_l.y < Se_DzDy_y ) ? -1 : ( ( DzDy_l.y > Se_DzDy_y )  ? +1 : 0 ) );
+				}
+
+				// CLAMP to edges
+				if( ( DzDy_l.x + Zo_x >= KuGry_BraHiGx ) ||  ( DzDy_l.x + Zo_x < 0 )){ Zo_x = 0; }
+				if( ( DzDy_l.y + Zo_y >= KuGry_BraHiGa ) ||  ( DzDy_l.y + Zo_y < 0 )){ Zo_y = 0; }
+
 
 				// ONLY IF TGT EMPTY!
 				if( ( JoDiKu[ DzDy_l.x + Zo_x ][ DzDy_l.y + Zo_y ] == -1 ))
@@ -1890,8 +1907,7 @@
 		"CHARACTER DATA"
 		+ "<br>Name: " + SaNo__DzDy_l.Va
 		+ "<br>Race: " + SaNo__DzDy_l.Jy
-		+ "<br>ID: " + SaNo__DzDy_l.Ka
-		+ "<br>Tgt: " + ( ( SaNo__DzDy_l.Se_DzDy === -1 )? "None" : DzDyKu[ SaNo__DzDy_l.Se_DzDy ].Va )
+		+ "<br>Tgt: " + ( ( SaNo__DzDy_l.Se_DzDy === -1 )? "None" : ( (( SaNo__DzDy_l.Ka & 1 ) ? "Chase " : "Flee " ) + DzDyKu[ SaNo__DzDy_l.Se_DzDy ].Va ))
 		+ "<br>Details: " + SaNo__DzDy_l.DiHx
 		;
 

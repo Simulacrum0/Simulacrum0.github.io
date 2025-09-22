@@ -1750,8 +1750,23 @@
 				const Se_DzDy_x = DzDyKu[ Se_Vy ].x;
 				const Se_DzDy_y = DzDyKu[ Se_Vy ].y;
 
-				let Zo_x = ( ( DzDy_l.x < Se_DzDy_x ) ? +1 : ( ( DzDy_l.x > Se_DzDy_x )  ? -1 : 0 ) );
-				let Zo_y = ( ( DzDy_l.y < Se_DzDy_y ) ? +1 : ( ( DzDy_l.y > Se_DzDy_y )  ? -1 : 0 ) );
+				// TRACK
+				if( SaNo__DzDy_l.Ka & 1 )
+				{
+					let Zo_x = ( ( DzDy_l.x < Se_DzDy_x ) ? +1 : ( ( DzDy_l.x > Se_DzDy_x )  ? -1 : 0 ) );
+					let Zo_y = ( ( DzDy_l.y < Se_DzDy_y ) ? +1 : ( ( DzDy_l.y > Se_DzDy_y )  ? -1 : 0 ) );
+				}
+				// FLEE
+				else
+				{
+					let Zo_x = ( ( DzDy_l.x < Se_DzDy_x ) ? -1 : ( ( DzDy_l.x > Se_DzDy_x )  ? +1 : 0 ) );
+					let Zo_y = ( ( DzDy_l.y < Se_DzDy_y ) ? -1 : ( ( DzDy_l.y > Se_DzDy_y )  ? +1 : 0 ) );
+				}
+
+				// CLAMP
+				if( DzDy_l.x + Zo_x >
+				[ DzDy_l.y + Zo_y
+
 
 				// ONLY IF TGT EMPTY!
 				if( ( JoDiKu[ DzDy_l.x + Zo_x ][ DzDy_l.y + Zo_y ] == -1 ))
@@ -1772,7 +1787,6 @@
 					DzDy_l.y += Zo_y;
 					JoDiKu[ DzDy_l.x ][ DzDy_l.y ] = Vx;
 				}
-
 			}
 
 		}); // FOR EACH THING
@@ -1872,13 +1886,12 @@
 
 		//@@@
 		// STATS
-
 		document.getElementById( 'SF_SaNoVaHx' ).innerHTML =
 		"CHARACTER DATA"
 		+ "<br>Name: " + SaNo__DzDy_l.Va
 		+ "<br>Race: " + SaNo__DzDy_l.Jy
 		+ "<br>ID: " + SaNo__DzDy_l.Ka
-		+ "<br>Tgt: " + ( ( SaNo__DzDy_l.Se_DzDy === -1 )? "None" : DzDyKu[ SaNo__DzDy_l.Se_DzDy ].Va )
+		+ "<br>Tgt: " + ( ( SaNo__DzDy_l.Se_DzDy === -1 )? "None" : ( (( SaNo__DzDy_l.Ka & 1 ) ? "Chase " : "Flee " ) + DzDyKu[ SaNo__DzDy_l.Se_DzDy ].Va ))
 		+ "<br>Details: " + SaNo__DzDy_l.DiHx
 		;
 
