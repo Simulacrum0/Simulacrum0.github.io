@@ -679,7 +679,7 @@
 	//@@@
 	// SPRITES
 	// 100px / Sqr
-	const DzJy_TaFo_wuk = 18;
+	const DzJy_TaFo_wuk = 20;
 	const DzJy_TaJaPo = [];
 
 
@@ -707,8 +707,10 @@
 
 		, { Ka: 16, Va: "Screenie", Jy: "Masking Screen", DiHx: "Backstory: Screens prevent energy weapons" }
 		, { Ka: 17, Va: "Fuego", Jy: "Fire", DiHx: "Backstory: Not a character as much as a phenomena to test" }
-	];
+		, { Ka: 18, Va: "Sqklrrb", Jy: "Alien", DiHx: "Backstory: Incomprehensible" }
+		, { Ka: 19, Va: "Downtime", Jy: "Mine Layer", DiHx: "Backstory: Mine laying vehicle" }
 
+	];
 	//@@@
 	// SIM
 	let JoDi_Gi = 1;
@@ -742,8 +744,6 @@
 	const KuSe__MzTiFo = 10;
 	const KuSe__MzTiFoZiSta = KuSe__MzTiFo / 2.0;
 
-	const KuSe__MzTi_BraHiGx = KuGry_BraHiGx - KuSe__MzTiFo;
-	const KuSe__MzTi_BraHiGa = KuGry_BraHiGa - KuSe__MzTiFo;
 
 	const KuSe_TiGyGx = 1000 / KuSe__GyZy;
 	const KuSe_TiGyGa = 1000 / KuSe__GyZy;
@@ -1378,6 +1378,7 @@
     // ======================================================================
 	document.addEventListener( "keydown", ( e ) =>
 	{
+
 		switch (e.key)
 		{
 			case "ArrowLeft":
@@ -1401,12 +1402,19 @@
 				break;
 
 
-
 			//$$$
 			// LOG
-			// default: SmaDx( "Key:", e.code );
+			default:
+			// SmaDx( "Key:", e.code );
+			//!!!
+			// EXIT for 'normal behavior'
+			return;
 
 		}// END SWITCH
+
+		//@@@
+		// ELSE STOP SCROLLING
+		e.preventDefault();
 
 	});
 
@@ -1807,8 +1815,12 @@
 		// Only care about left/lesser side plus N units wide
 		// If N is 10 units, then only when at 5 or less do we clamp to 0
 		// if near the right side, once we are -10 to its edge, we clamp;
-		let SaNoGeZoGxTiYa = ( SaNo__DzDy_l.x <= KuSe__MzTiFoZiSta ) ? 0 : ( ( SaNo__DzDy_l.x >= KuSe__MzTi_BraHiGx ) ? KuSe__MzTi_BraHiGx : ( SaNo__DzDy_l.x - KuSe__MzTiFoZiSta ));
-		let SaNoGeZoGaTiYa = ( SaNo__DzDy_l.y <= KuSe__MzTiFoZiSta ) ? 0 : ( ( SaNo__DzDy_l.y >= KuSe__MzTi_BraHiGa ) ? KuSe__MzTi_BraHiGa : ( SaNo__DzDy_l.y - KuSe__MzTiFoZiSta ));
+		const KuSe__MzTi_BraHiGx = KuGry_BraHiGx - KuSe__MzTiFo;
+		const KuSe__MzTi_BraHiGa = KuGry_BraHiGa - KuSe__MzTiFo;
+
+
+		let SaNoGeZoGxTiYa = ( SaNo__DzDy_l.x <= KuSe__MzTiFoZiSta ) ? 0 : ( ( SaNo__DzDy_l.x >= ( KuGry_BraHiGx - KuSe__MzTiFoZiSta ) ) ? KuSe__MzTi_BraHiGx : ( SaNo__DzDy_l.x - KuSe__MzTiFoZiSta ));
+		let SaNoGeZoGaTiYa = ( SaNo__DzDy_l.y <= KuSe__MzTiFoZiSta ) ? 0 : ( ( SaNo__DzDy_l.y >= ( KuGry_BraHiGa - KuSe__MzTiFoZiSta ) ) ? KuSe__MzTi_BraHiGa : ( SaNo__DzDy_l.y - KuSe__MzTiFoZiSta ));
 
 		 //SmaDx( "Slider LOC", SaNoGeZoGxTiYa, SaNo__DzDy_l.x, " Y: ", SaNoGeZoGaTiYa, SaNo__DzDy_l.y );
 
