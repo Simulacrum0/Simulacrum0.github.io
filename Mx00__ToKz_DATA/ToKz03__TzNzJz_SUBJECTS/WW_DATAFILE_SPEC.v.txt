@@ -1,7 +1,7 @@
 #==============================================================
 #--------------------------------------------------------------
 # WANTVERSE DATABASE TEXT FORMAT
-# *.w.txt
+# *.v.txt
 # Design to rapidly ingest sloppy notes, curated values, and export-import for legibility.
 # Goals are clearly defined spec for reproducible results, ease of use for human editing, and utilizing feature needs as a database.
 #

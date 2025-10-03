@@ -1112,7 +1112,7 @@ function DOWNLOAD_Dy( EXE )
 
 function DOWNLOAD_Fe()
 {
-	const EXE = Ko__HrzByVy_vutf8 +"_" + Ko__KaBz_vutf8 + ".w." + Ko__ToKzJy_vutf8;
+	const EXE = Ko__HrzByVy_vutf8 +"_" + Ko__KaBz_vutf8 + ".v." + Ko__ToKzJy_vutf8;
 	// console.log( EXE );
 	DOWNLOAD_Dy( EXE )
 }
