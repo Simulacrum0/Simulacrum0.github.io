@@ -587,7 +587,7 @@ function createExportWrapper(name, nargs) {
 var wasmBinaryFile;
 
 function findWasmBinary() {
-    return locateFile('Wz03_EDT.wasm');
+    return locateFile('BriDzKwi.wasm');
 }
 
 function getBinarySync(file) {
@@ -679,10 +679,10 @@ async function createWasm() {
   function receiveInstance(instance, module) {
     wasmExports = instance.exports;
 
-    
+
 
     wasmMemory = wasmExports['memory'];
-    
+
     assert(wasmMemory, 'memory not found in wasm exports');
     updateMemoryViews();
 
@@ -760,19 +760,19 @@ async function createWasm() {
   var addOnPreRun = (cb) => onPreRuns.push(cb);
 
   var runDependencies = 0;
-  
-  
+
+
   var dependenciesFulfilled = null;
-  
+
   var runDependencyTracking = {
   };
-  
+
   var runDependencyWatcher = null;
   var removeRunDependency = (id) => {
       runDependencies--;
-  
+
       Module['monitorRunDependencies']?.(runDependencies);
-  
+
       assert(id, 'removeRunDependency requires an ID');
       assert(runDependencyTracking[id]);
       delete runDependencyTracking[id];
@@ -788,13 +788,13 @@ async function createWasm() {
         }
       }
     };
-  
-  
+
+
   var addRunDependency = (id) => {
       runDependencies++;
-  
+
       Module['monitorRunDependencies']?.(runDependencies);
-  
+
       assert(id, 'addRunDependency requires an ID')
       assert(!runDependencyTracking[id]);
       runDependencyTracking[id] = 1;
@@ -825,7 +825,7 @@ async function createWasm() {
     };
 
 
-  
+
     /**
      * @param {number} ptr
      * @param {string} type
@@ -855,7 +855,7 @@ async function createWasm() {
     };
 
 
-  
+
     /**
      * @param {number} ptr
      * @param {number} value
@@ -890,9 +890,9 @@ async function createWasm() {
     };
 
   var printCharBuffers = [null,[],[]];
-  
+
   var UTF8Decoder = typeof TextDecoder != 'undefined' ? new TextDecoder() : undefined;
-  
+
   var findStringEnd = (heapOrArray, idx, maxBytesToRead, ignoreNul) => {
       var maxIdx = idx + maxBytesToRead;
       if (ignoreNul) return maxIdx;
@@ -903,8 +903,8 @@ async function createWasm() {
       while (heapOrArray[idx] && !(idx >= maxIdx)) ++idx;
       return idx;
     };
-  
-  
+
+
     /**
      * Given a pointer 'idx' to a null-terminated UTF8-encoded string in the given
      * array that contains uint8 values, returns a copy of that string as a
@@ -916,9 +916,9 @@ async function createWasm() {
      * @return {string}
      */
   var UTF8ArrayToString = (heapOrArray, idx = 0, maxBytesToRead, ignoreNul) => {
-  
+
       var endPtr = findStringEnd(heapOrArray, idx, maxBytesToRead, ignoreNul);
-  
+
       // When using conditional TextDecoder, skip it for short strings as the overhead of the native call is not worth it.
       if (endPtr - idx > 16 && heapOrArray.buffer && UTF8Decoder) {
         return UTF8Decoder.decode(heapOrArray.subarray(idx, endPtr));
@@ -940,7 +940,7 @@ async function createWasm() {
           if ((u0 & 0xF8) != 0xF0) warnOnce('Invalid UTF-8 leading byte ' + ptrToString(u0) + ' encountered when deserializing a UTF-8 string in wasm memory to a JS string!');
           u0 = ((u0 & 7) << 18) | (u1 << 12) | (u2 << 6) | (heapOrArray[idx++] & 63);
         }
-  
+
         if (u0 < 0x10000) {
           str += String.fromCharCode(u0);
         } else {
@@ -960,16 +960,16 @@ async function createWasm() {
         buffer.push(curr);
       }
     };
-  
+
   var flush_NO_FILESYSTEM = () => {
       // flush anything remaining in the buffers during shutdown
       _fflush(0);
       if (printCharBuffers[1].length) printChar(1, 10);
       if (printCharBuffers[2].length) printChar(2, 10);
     };
-  
-  
-  
+
+
+
     /**
      * Given a pointer 'ptr' to a null-terminated UTF8-encoded string in the
      * emscripten HEAP, returns a copy of that string as a Javascript String object.
@@ -1010,7 +1010,7 @@ async function createWasm() {
       return 0;
     };
 
-  
+
   var runtimeKeepaliveCounter = 0;
   var keepRuntimeAlive = () => noExitRuntime || runtimeKeepaliveCounter > 0;
   var _proc_exit = (code) => {
@@ -1021,20 +1021,20 @@ async function createWasm() {
       }
       quit_(code, new ExitStatus(code));
     };
-  
-  
+
+
   /** @param {boolean|number=} implicit */
   var exitJS = (status, implicit) => {
       EXITSTATUS = status;
-  
+
       checkUnflushedContent();
-  
+
       // if exit() was called explicitly, warn the user if the runtime isn't actually being shut down
       if (keepRuntimeAlive() && !implicit) {
         var msg = `program exited (with status: ${status}), but keepRuntimeAlive() is set (counter=${runtimeKeepaliveCounter}) due to an async operation, so halting execution but not exiting the runtime or preventing further async execution (you can use emscripten_force_exit, if you want to force a true shutdown)`;
         err(msg);
       }
-  
+
       _proc_exit(status);
     };
 
@@ -1056,10 +1056,10 @@ async function createWasm() {
       quit_(1, e);
     };
 
-  
+
   var _exit = exitJS;
-  
-  
+
+
   var maybeExit = () => {
       if (!keepRuntimeAlive()) {
         try {
@@ -1081,25 +1081,25 @@ async function createWasm() {
         handleException(e);
       }
     };
-  
+
   function getFullscreenElement() {
       return document.fullscreenElement || document.mozFullScreenElement ||
              document.webkitFullscreenElement || document.webkitCurrentFullScreenElement ||
              document.msFullscreenElement;
     }
-  
+
   /** @param {number=} timeout */
   var safeSetTimeout = (func, timeout) => {
-      
+
       return setTimeout(() => {
-        
+
         callUserCallback(func);
       }, timeout);
     };
-  
-  
+
+
   var preloadPlugins = [];
-  
+
   var Browser = {
   useWebGL:false,
   isFullscreen:false,
@@ -1114,7 +1114,7 @@ async function createWasm() {
   init() {
         if (Browser.initted) return;
         Browser.initted = true;
-  
+
         // Support for plugins that can process preloaded files. You can add more of these to
         // your app by creating and appending to preloadPlugins.
         //
@@ -1122,7 +1122,7 @@ async function createWasm() {
         // it is given the file's raw data. When it is done, it calls a callback with the file's
         // (possibly modified) data. For example, a plugin might decompress a file, or it
         // might create some side data structure for use later (like an Image element, etc.).
-  
+
         var imagePlugin = {};
         imagePlugin['canHandle'] = function imagePlugin_canHandle(name) {
           return !Module['noImageDecoding'] && /\.(jpg|jpeg|png|bmp|webp)$/i.test(name);
@@ -1155,7 +1155,7 @@ async function createWasm() {
           });
         };
         preloadPlugins.push(imagePlugin);
-  
+
         var audioPlugin = {};
         audioPlugin['canHandle'] = function audioPlugin_canHandle(name) {
           return !Module['noAudioDecoding'] && name.slice(-4) in { '.ogg': 1, '.wav': 1, '.mp3': 1 };
@@ -1211,9 +1211,9 @@ async function createWasm() {
           });
         };
         preloadPlugins.push(audioPlugin);
-  
+
         // Canvas event setup
-  
+
         function pointerLockChange() {
           var canvas = Browser.getCanvas();
           Browser.pointerLock = document.pointerLockElement === canvas;
@@ -1222,9 +1222,9 @@ async function createWasm() {
         if (canvas) {
           // forced aspect ratio can be enabled by defining 'forcedAspectRatio' on Module
           // Module['forcedAspectRatio'] = 4 / 3;
-  
+
           document.addEventListener('pointerlockchange', pointerLockChange, false);
-  
+
           if (Module['elementPointerLock']) {
             canvas.addEventListener("click", (ev) => {
               if (!Browser.pointerLock && Browser.getCanvas().requestPointerLock) {
@@ -1237,7 +1237,7 @@ async function createWasm() {
       },
   createContext(/** @type {HTMLCanvasElement} */ canvas, useWebGL, setInModule, webGLContextAttributes) {
         if (useWebGL && Module['ctx'] && canvas == Browser.getCanvas()) return Module['ctx']; // no need to recreate GL context if it's already been created for this canvas.
-  
+
         var ctx;
         var contextHandle;
         if (useWebGL) {
@@ -1247,13 +1247,13 @@ async function createWasm() {
             alpha: false,
             majorVersion: 1,
           };
-  
+
           if (webGLContextAttributes) {
             for (var attribute in webGLContextAttributes) {
               contextAttributes[attribute] = webGLContextAttributes[attribute];
             }
           }
-  
+
           // This check of existence of GL is here to satisfy Closure compiler, which yells if variable GL is referenced below but GL object is not
           // actually compiled in because application is not doing any GL operations. TODO: Ideally if GL is not being used, this function
           // Browser.createContext() should not even be emitted.
@@ -1266,9 +1266,9 @@ async function createWasm() {
         } else {
           ctx = canvas.getContext('2d');
         }
-  
+
         if (!ctx) return null;
-  
+
         if (setInModule) {
           if (!useWebGL) assert(typeof GLctx == 'undefined', 'cannot set in module if GLctx is used, but we are a non-GL context that would replace it');
           Module['ctx'] = ctx;
@@ -1287,7 +1287,7 @@ async function createWasm() {
         Browser.resizeCanvas = resizeCanvas;
         if (typeof Browser.lockPointer == 'undefined') Browser.lockPointer = true;
         if (typeof Browser.resizeCanvas == 'undefined') Browser.resizeCanvas = false;
-  
+
         var canvas = Browser.getCanvas();
         function fullscreenChange() {
           Browser.isFullscreen = false;
@@ -1305,7 +1305,7 @@ async function createWasm() {
             // remove the full screen specific parent of the canvas again to restore the HTML structure from before going full screen
             canvasContainer.parentNode.insertBefore(canvas, canvasContainer);
             canvasContainer.parentNode.removeChild(canvasContainer);
-  
+
             if (Browser.resizeCanvas) {
               Browser.setWindowedCanvasSize();
             } else {
@@ -1315,7 +1315,7 @@ async function createWasm() {
           Module['onFullScreen']?.(Browser.isFullscreen);
           Module['onFullscreen']?.(Browser.isFullscreen);
         }
-  
+
         if (!Browser.fullscreenHandlersInstalled) {
           Browser.fullscreenHandlersInstalled = true;
           document.addEventListener('fullscreenchange', fullscreenChange, false);
@@ -1323,19 +1323,19 @@ async function createWasm() {
           document.addEventListener('webkitfullscreenchange', fullscreenChange, false);
           document.addEventListener('MSFullscreenChange', fullscreenChange, false);
         }
-  
+
         // create a new parent to ensure the canvas has no siblings. this allows browsers to optimize full screen performance when its parent is the full screen root
         var canvasContainer = document.createElement("div");
         canvas.parentNode.insertBefore(canvasContainer, canvas);
         canvasContainer.appendChild(canvas);
-  
+
         // use parent of canvas as full screen root to allow aspect ratio correction (Firefox stretches the root to screen size)
         canvasContainer.requestFullscreen = canvasContainer['requestFullscreen'] ||
                                             canvasContainer['mozRequestFullScreen'] ||
                                             canvasContainer['msRequestFullscreen'] ||
                                            (canvasContainer['webkitRequestFullscreen'] ? () => canvasContainer['webkitRequestFullscreen'](Element['ALLOW_KEYBOARD_INPUT']) : null) ||
                                            (canvasContainer['webkitRequestFullScreen'] ? () => canvasContainer['webkitRequestFullScreen'](Element['ALLOW_KEYBOARD_INPUT']) : null);
-  
+
         canvasContainer.requestFullscreen();
       },
   requestFullScreen() {
@@ -1348,7 +1348,7 @@ async function createWasm() {
         if (!Browser.isFullscreen) {
           return false;
         }
-  
+
         var CFS = document['exitFullscreen'] ||
                   document['cancelFullScreen'] ||
                   document['mozCancelFullScreen'] ||
@@ -1440,7 +1440,7 @@ async function createWasm() {
         // in the coordinates.
         var canvas = Browser.getCanvas();
         var rect = canvas.getBoundingClientRect();
-  
+
         // Neither .scrollX or .pageXOffset are defined in a spec, but
         // we prefer .scrollX because it is currently in a spec draft.
         // (see: http://www.w3.org/TR/2013/WD-cssom-view-20131217/)
@@ -1451,13 +1451,13 @@ async function createWasm() {
         assert((typeof scrollX != 'undefined') && (typeof scrollY != 'undefined'), 'Unable to retrieve scroll position, mouse positions likely broken.');
         var adjustedX = pageX - (scrollX + rect.left);
         var adjustedY = pageY - (scrollY + rect.top);
-  
+
         // the canvas might be CSS-scaled compared to its backbuffer;
         // SDL-using content will want mouse coordinates in terms
         // of backbuffer units.
         adjustedX = adjustedX * (canvas.width / rect.width);
         adjustedY = adjustedY * (canvas.height / rect.height);
-  
+
         return { x: adjustedX, y: adjustedY };
       },
   setMouseCoords(pageX, pageY) {
@@ -1479,7 +1479,7 @@ async function createWasm() {
             Browser.mouseMovementX = Browser.getMovementX(event);
             Browser.mouseMovementY = Browser.getMovementY(event);
           }
-  
+
           // add the mouse delta to the current absolute mouse position
           Browser.mouseX += Browser.mouseMovementX;
           Browser.mouseY += Browser.mouseMovementY;
@@ -1488,10 +1488,10 @@ async function createWasm() {
             var touch = event.touch;
             if (touch === undefined) {
               return; // the "touch" property is only defined in SDL
-  
+
             }
             var coords = Browser.calculateMouseCoords(touch.pageX, touch.pageY);
-  
+
             if (event.type === 'touchstart') {
               Browser.lastTouches[touch.identifier] = coords;
               Browser.touches[touch.identifier] = coords;
@@ -1503,7 +1503,7 @@ async function createWasm() {
             }
             return;
           }
-  
+
           Browser.setMouseCoords(event.pageX, event.pageY);
         }
       },
@@ -2205,4 +2205,3 @@ createWasm();
 run();
 
 // end include: postamble.js
-
