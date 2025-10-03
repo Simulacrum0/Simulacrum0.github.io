@@ -1316,7 +1316,7 @@ function Hri3_Ne__Ta_ChyStz( Ta_v )
 // WIN: google-chrome has 2 file-access flags to run
 //
 // LAB ( Edit locally using FILES only )
-// $google-chrome --allow-file-access-from-files --allow-file-access file:///mnt/Ku5_KoKri/Kri07__Mx_POST/index.html
+// $google-chrome --allow-file-access-from-files --allow-file-access file:///mnt/Ku5_KoKri/Nz07_Mx/index.html
 // const WEBPG__SuGwy_vsg = "Mx07__SuSmi_WEBPG/";
 //
 // PUB ( Publish using REAL Site )

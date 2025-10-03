@@ -391,14 +391,14 @@ __Files 955
 __Directories 111
 
 #--------------
-Kri06__Dy_BRANDS
+Nz06_Dy
 __Lines 177245
 __Size 74M .
 __Files 346
 __Directories 103
 
 #--------------
-Kri07__Mx_POST
+Nz07_Mx
 __Lines 42028
 __Size 16M .
 __Files 143
