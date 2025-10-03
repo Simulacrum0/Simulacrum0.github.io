@@ -25,10 +25,9 @@
 		"DryDzKy_Tu": "ES=Check out MindAptiv's Website !!",
 		"DryDzKy_JeFi": "ES=Bonus: Legacy Website Starcrawl",
 
-		"DryDzKy_Wz01_SF": "Debug: SF",
-		"DryDzKy_Wz02_CAN": "Debug: CAN",
-		"DryDzKy_Wz03_EDT": "Debug: EDT",
-
+		"DryDzKy_Wz01": "Debug: SF",
+		"DryDzKy_Wz02": "Debug: CAN",
+		"DryDzKy_Wz03": "Debug: EDT",
 		"DryDzKy_WzFe": "Debug: Fe"
 	},
 
