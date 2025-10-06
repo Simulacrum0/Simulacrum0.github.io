@@ -1,5 +1,12 @@
-// Check if the browser supports the Web Speech API
+<html>
+    <h1>Speech to Text Example</h1>
+    <button id="LISTEN">Speech to Text</button>
 
+	<p id="interim"></p>
+	<p id="result"></p>
+</html>
+
+// Check if the browser supports the Web Speech API ( currently ONLY Chrome! Not Chromium Derived )
 
 const grammar =
   "#JSGF V1.0; grammar colors; public <color> = aqua | azure | beige | bisque | black | blue | brown | chocolate | coral | crimson | cyan | fuchsia | ghostwhite | gold | goldenrod | gray | green | indigo | ivory | khaki | lavender | lime | linen | magenta | maroon | moccasin | navy | olive | orange | orchid | peru | pink | plum | purple | red | salmon | sienna | silver | snow | tan | teal | thistle | tomato | turquoise | violet | white | yellow ;";
