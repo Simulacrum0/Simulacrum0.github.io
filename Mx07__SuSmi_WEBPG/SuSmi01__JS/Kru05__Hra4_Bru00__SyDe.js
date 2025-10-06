@@ -22581,8 +22581,7 @@
                     {
                         'use asm';
                         var H$843 = new stdlib$840.Int32Array( heap$842 );
-                        return
-						{
+                        return {
                             hash: function HSHFNNM( k$845, x$846 )
                             {
                                 k$845 |= 0, x$846 |= 0;

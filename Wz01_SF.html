@@ -751,6 +751,9 @@
 	const KuSe_GeGyGx = ( KuSe_TiGyGx / KuSe_TiGyVu ) * KuSe__GyZy;
 	const KuSe_GeGyGa = ( KuSe_TiGyGa / KuSe_TiGyVu ) * KuSe__GyZy;
 
+	let SaNoGeZoGxTiYa = 0;
+	let SaNoGeZoGaTiYa = 0;
+
 
 	//@@@
 	// MSGS
@@ -1627,7 +1630,7 @@
 	}
 
     // ======================================================================
-    // SF_DzNe
+    // SF_DzNe PICK
     // ======================================================================
 	document.getElementById( "SF_KuGwy" ).addEventListener( "click", ( e ) => SF__KuGwy_DzNe( ( e.clientX ), ( e.clientY ) ) );
 
@@ -1667,9 +1670,9 @@
 		const KuSeKz = document.getElementById( 'SF_KuSe' );
 		const Kwi = KuSeKz.getBoundingClientRect();
 
-		x = Math.floor( ( x - Kwi.left ) / ( Kwi.right - Kwi.left + 1 ) * KuSe_GeGyGx );
-		y = Math.floor( ( y - Kwi.top ) / ( Kwi.bottom - Kwi.top + 1 ) * KuSe_GeGyGa );
-		// SmaDx( "Scene NEAR Pick:", x, y );
+		x = SaNoGeZoGxTiYa + Math.floor( ( x - Kwi.left ) / ( Kwi.right - Kwi.left + 1 ) * KuSe_GeGyGx );
+		y = SaNoGeZoGaTiYa + Math.floor( ( y - Kwi.top ) / ( Kwi.bottom - Kwi.top + 1 ) * KuSe_GeGyGa );
+		SmaDx( "Scene NEAR Pick:", x, y );
 
 		DzDyKu.forEach(( DzDy_l, Vx ) =>
 		{
@@ -1860,8 +1863,8 @@
 		const KuSe__MzTi_BraHiGa = KuGry_BraHiGa - KuSe__MzTiFo;
 
 
-		let SaNoGeZoGxTiYa = ( SaNo__DzDy_l.x <= KuSe__MzTiFoZiSta ) ? 0 : ( ( SaNo__DzDy_l.x >= ( KuGry_BraHiGx - KuSe__MzTiFoZiSta ) ) ? KuSe__MzTi_BraHiGx : ( SaNo__DzDy_l.x - KuSe__MzTiFoZiSta ));
-		let SaNoGeZoGaTiYa = ( SaNo__DzDy_l.y <= KuSe__MzTiFoZiSta ) ? 0 : ( ( SaNo__DzDy_l.y >= ( KuGry_BraHiGa - KuSe__MzTiFoZiSta ) ) ? KuSe__MzTi_BraHiGa : ( SaNo__DzDy_l.y - KuSe__MzTiFoZiSta ));
+		SaNoGeZoGxTiYa = ( SaNo__DzDy_l.x <= KuSe__MzTiFoZiSta ) ? 0 : ( ( SaNo__DzDy_l.x >= ( KuGry_BraHiGx - KuSe__MzTiFoZiSta ) ) ? KuSe__MzTi_BraHiGx : ( SaNo__DzDy_l.x - KuSe__MzTiFoZiSta ));
+		SaNoGeZoGaTiYa = ( SaNo__DzDy_l.y <= KuSe__MzTiFoZiSta ) ? 0 : ( ( SaNo__DzDy_l.y >= ( KuGry_BraHiGa - KuSe__MzTiFoZiSta ) ) ? KuSe__MzTi_BraHiGa : ( SaNo__DzDy_l.y - KuSe__MzTiFoZiSta ));
 
 		 //SmaDx( "Slider LOC", SaNoGeZoGxTiYa, SaNo__DzDy_l.x, " Y: ", SaNoGeZoGaTiYa, SaNo__DzDy_l.y );
 

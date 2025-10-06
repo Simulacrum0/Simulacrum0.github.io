@@ -909,11 +909,11 @@ class Pass
     updateFragmentShader( fragmentShader )
     {
         this.fragmentShader = fragmentShader;
-        this.program = this.v.createProgram(
+        this.program = this.w.createProgram(
             this.vertexShader,
             `${prefix}${this.fragmentShader}`
         );
-        this.v.programs.set( this.name, this.program );
+        this.w.programs.set( this.name, this.program );
     }
 
     set( updates )
@@ -926,7 +926,7 @@ class Pass
 
     render( overrides = {} )
     {
-        this.v.render(
+        this.w.render(
             this.name,
             {
                 ...this.uniforms,
@@ -1456,7 +1456,7 @@ function webGlInit(
         renderer: w,
         scaling,
         uniforms: pass.uniforms,
-        gl: pipeline.v.gl,
+        gl: pipeline.w.gl,
         stage: pass,
     };
 }
