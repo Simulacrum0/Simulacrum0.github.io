@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>WzFe</title>
 
-	<script type="text/javascript" src="Hrx4_Che__CORS.js"></script>
+	<script type="text/javascript" src="Hrx4_Che__MeGrx_CORS.js"></script>
     <script type="text/javascript" src="Mx07__SuSmi_WEBPG/SuSmi01__JS/Ki00__PUB.js"></script>
 
 <style>
@@ -81,27 +81,15 @@ canvas.emscripten
       // See http://www.khronos.org/registry/webgl/specs/latest/1.0/#5.15.2
       canvasElement.addEventListener('webglcontextlost', (e) =>
 	  {
-        alert('WebGL context lost. You will need to reload the page.');
+        alert('ERR001: WebGL context lost. You will need to reload the page.');
         e.preventDefault();
       }, false);
 
-
-window.coi = {
-    // // A function that is run to decide whether to register the SW or not.
-    // You could for instance make this return a value based on whether you actually need to be cross origin isolated or not.
-    shouldRegister: () => true,
-    // If this function returns true, any existing service worker will be deregistered (and nothing else will happen).
-    shouldDeregister: () => false,
-    // A function that is run to decide whether to use "Cross-Origin-Embedder-Policy: credentialless" or not.
-    // See https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cross-Origin-Embedder-Policy#browser_compatibility
-    coepCredentialless: () => !(navigator.userAgent.indexOf("CriOS") > -1 || !window.chrome),
-    // Override this if you want to prompt the user and do reload at your own leisure. Maybe show the user a message saying:
-    // "Click OK to refresh the page to enable <...>"
-    doReload: () => window.location.reload(),
-    // Set to true if you don't want coi to log anything to the console.
-    quiet: false
-}
-	  console.log( "CORS: " + window.crossOriginIsolated );
+	  console.log( "CORS: " + ( window.crossOriginIsolated  ? "✅" : "❌" ) );
+	  if( !window.crossOriginIsolated )
+	  {
+		alert( 'ERR002: Your System Prevents CORS and we cannot run. Examples include Incognito mode or Security Policies.');
+	  }
 
         function resizeCanvas()
 		{
