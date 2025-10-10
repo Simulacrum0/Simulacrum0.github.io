@@ -1,190 +1,235 @@
 <!doctype html>
 <html lang="en-us">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>WzFe</title>
 
-	<script type="text/javascript" src="Hrx4_Che__MeGrx_CORS.js"></script>
-    <script type="text/javascript" src="Mx07__SuSmi_WEBPG/SuSmi01__JS/Ki00__PUB.js"></script>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="Content-Type"
+		content="text/html; charset=utf-8">
+	<title>WzFe</title>
 
-<style>
-body
-{
-	font-family: arial;
-	font-weight: bold;
+	<script type="text/javascript"
+		src="Hrx4_Che__MeGrx_CORS.js"></script>
+	<script type="text/javascript"
+		src="Mx07__SuSmi_WEBPG/SuSmi01__JS/Ki00__PUB.js"></script>
 
-	margin: 0;
-	padding: none;
-	background-color: rgb( 0, 0, 0 );
-}
+	<style>
+		body {
+			font-family: arial;
+			font-weight: bold;
 
-canvas.emscripten
-{
-	display: block;
-	position: absolute;
-	left: 0dvw;
-	top: 0.0dvh;
-	width: 100dvw;
-	height: calc( 100dvh - 2.0em);
-	margin: 0;
-	padding: none;
+			margin: 0;
+			padding: none;
+			background-color: rgb(0, 0, 0);
+		}
 
-	image-rendering: smooth;
-	image-rendering: optimizeSpeed;
-	/* background-color: rgb( 0, 0, 0 ); */
-}
+		canvas.emscripten {
+			display: block;
+			position: absolute;
+			left: 0dvw;
+			top: 0.0dvh;
+			width: 100dvw;
+			height: calc(100dvh - 2.0em);
+			margin: 0;
+			padding: none;
 
-
-#status
-{
-	display: block;
-	position: absolute;
-	left: 0dvw;
-	top: calc( 100dvh - 2.0em);
-	width: 100dvw;
-	height: 2em;
-	margin: 0;
-	padding: none;
-
-	font-size: 2em;
-	background-color: rgb( 255, 32, 32 );
-  	color: rgb( 255, 255, 255 );
-}
-
-</style>
+			image-rendering: smooth;
+			image-rendering: optimizeSpeed;
+			/* background-color: rgb( 0, 0, 0 ); */
+		}
 
 
- </head>
+		#status {
+			display: block;
+			position: absolute;
+			left: 0dvw;
+			top: calc(100dvh - 2.0em);
+			width: 100dvw;
+			height: 2em;
+			margin: 0;
+			padding: none;
+
+			font-size: 2em;
+			background-color: rgb(255, 32, 32);
+			color: rgb(255, 255, 255);
+		}
+	</style>
 
 
- <body>
+</head>
+
+
+<body>
 	<!-- <canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault()" tabindex=-1></canvas> -->
-	<canvas class="emscripten" id="canvas" tabindex=-1></canvas>
-	<p class="emscripten" id="status"  tabindex=1>Downloading...</p>
+	<canvas class="emscripten" id="canvas"
+		tabindex=-1></canvas>
+	<p class="emscripten" id="status" tabindex=1>
+		Downloading...</p>
 
 	<!-- <span><input type="checkbox" id="resize">Resize canvas</span>
     <span><input type="checkbox" id="pointerLock" checked>Lock/hide mouse pointer &nbsp;&nbsp;&nbsp;</span>
     <span><input type="button" value="Fullscreen" onclick="Module.requestFullscreen(document.getElementById('pointerLock').checked, document.getElementById('resize').checked)"></span> -->
 
+	<script type='text/javascript'>
 
-    <script type='text/javascript'>
+		console.log("CORS: "+(window.crossOriginIsolated? "✅":"❌"));
+		if(!window.crossOriginIsolated)
+		{
+			//???
+			// SHOULD ADD TO DOM
+			//console.log( 'ERR002: Your System Prevents CORS and we cannot run. Examples include Incognito mode or Security Policies.');
+			console.log('WAITING: Engaging HTTPS CORS in order to run under Security Policies.');
+			abort();
+		}
 
-      var statusElement = document.getElementById('status');
-      var canvasElement = document.getElementById('canvas');
 
+		//@@@
+		// MxPo
+		// SCREEN
+		var canvasElement=document.getElementById('canvas');
+		var statusElement=document.getElementById('status');
 
-	  //@@@
-	  // GL LOST
-      // As a default initial behavior, pop up an alert when webgl context is lost. To make your
-      // application robust, you may want to override this behavior before shipping!
-      // See http://www.khronos.org/registry/webgl/specs/latest/1.0/#5.15.2
-      canvasElement.addEventListener('webglcontextlost', (e) =>
-	  {
-        alert('ERR001: WebGL context lost. You will need to reload the page.');
-        e.preventDefault();
-      }, false);
+		//@@@
+		// GL LOST
+		// As a default initial behavior, pop up an alert when webgl context is lost. To make your
+		// application robust, you may want to override this behavior before shipping!
+		// See http://www.khronos.org/registry/webgl/specs/latest/1.0/#5.15.2
+		canvasElement.addEventListener('webglcontextlost',(e) =>
+		{
+			alert('ERR001: WebGL context lost. You will need to reload the page.');
+			e.preventDefault();
+		},false);
 
-	  console.log( "CORS: " + ( window.crossOriginIsolated  ? "✅" : "❌" ) );
-	  if( !window.crossOriginIsolated )
-	  {
-		console.log( 'ERR002: Your System Prevents CORS and we cannot run. Examples include Incognito mode or Security Policies.');
-	  }
-
-        function resizeCanvas()
+		function resizeCanvas()
 		{
 			//console.log( "Pre-Resize: " + canvas.width + ", " + canvas.height );
 
-			const displayWidth = canvas.clientWidth;
-			const displayHeight = canvas.clientHeight;
+			const displayWidth=canvas.clientWidth;
+			const displayHeight=canvas.clientHeight;
 
-			if (canvas.width !== displayWidth || canvas.height !== displayHeight)
+			if(canvas.width!==displayWidth||canvas.height!==displayHeight)
 			{
-				canvas.width = displayWidth;
-				canvas.height = displayHeight;
+				canvas.width=displayWidth;
+				canvas.height=displayHeight;
 
 				//console.log( "Resize: " + canvas.width + ", " + canvas.height );
-				statusElement.innerHTML = "MicroCosm: " + VER_vsg + ": " + canvas.width + ", " + canvas.height;
+				statusElement.innerHTML="MicroCosm: "+VER_vsg+": "+canvas.width+", "+canvas.height;
 			}
-        }
+		}
 
-        window.addEventListener('resize', resizeCanvas);
-        window.addEventListener('DOMContentLoaded', resizeCanvas);
-
-
-	//@@@
-	// MEM MONITOR
-	function runMemoryMeasurements()
-	{
-  		const interval = -Math.log(Math.random()) * 5 * 60 * 1000;
-  		console.log(`Next measurement in ${Math.round(interval / 1000)} seconds.`);
-  	setTimeout(measureMemory, interval);
-	}
-
-	async function measureMemory()
-	{
-		const memorySample = await performance.measureUserAgentSpecificMemory();
-		console.log(memorySample);
-		runMemoryMeasurements();
-	}
-	measureMemory();
+		window.addEventListener('resize',resizeCanvas);
+		window.addEventListener('DOMContentLoaded',resizeCanvas);
 
 
-
-	  //@@@
-	  // EMCC IFACE
-      var Module =
-	  {
-		canvas: canvasElement,
-
-		// Define how notification messages from Emscripten are displayed via Module.print attribute.
-		//'print': function(text) { alert('MSG: ' + text) },
-        'print': function(text) { console.log('MSG: ' + text ); },
-
-  		//'printErr': function(text) { alert('ERR: ' + text) },
-  		'printErr': function(text) { console.log('ERR: ' + text) },
-
-		'onAbort': function(text) { alert('FAIL: ' + text) },
-
-		// SPINNER & TEXT
-        setStatus(text)
+		//@@@
+		// FMT
+		function HreDru_DxSI(num)
 		{
-        	statusElement.innerHTML = text;
-        },
+			const si=[
+				{value: 1e12,symbol: "T"},
+				{value: 1e9,symbol: "G"},
+				{value: 1e6,symbol: "M"},
+				{value: 1e3,symbol: "k"},
+				{value: 1,symbol: ""}
+			];
 
-        totalDependencies: 0,
-        monitorRunDependencies(left)
+			for(let i=0;i<si.length;i++)
+			{
+				if(num>=si[i].value)
+				{
+					return (num/si[i].value).toFixed(2)+si[i].symbol;
+				}
+			}
+			return num.toString();
+		}
+
+
+		//@@@
+		// MEM MONITOR
+		function runMemoryMeasurements()
 		{
-          this.totalDependencies = Math.max(this.totalDependencies, left);
-          Module.setStatus(left ? 'Preparing... (' + (this.totalDependencies-left) + '/' + this.totalDependencies + ')' : 'All downloads complete.');
-        }
-      };
-      Module.setStatus('Downloading...');
+			const interval= 60*1000;
+			// console.log(`Next measurement in ${Math.round(interval/1000)} seconds.`);
+			setTimeout(measureMemory, interval );
+		}
 
-
-	window.setInterval(function(){ resizeCanvas(); }, 500 );
-	window.onerror = (event) =>
-	{
-		// TODO: do not warn on ok events like simulating an infinite loop or exitStatus
-		Module.setStatus('Exception thrown, see JavaScript console');
-		Module.setStatus = (text) =>
+		async function measureMemory()
 		{
-			if (text) console.error('[post-exception status] ' + text);
+			const HrxKuHa=await performance.measureUserAgentSpecificMemory();
+			// console.log(HrxKuHa);
+
+			console.log("MEM: "+HreDru_DxSI(HrxKuHa.bytes));
+			HrxKuHa.breakdown.forEach(function(Ti_v,Vx_wu)
+			{
+				if( Ti_v.bytes )
+				{ console.log(Ti_v.types[0]+": "+HreDru_DxSI( Ti_v.bytes )); }
+			});
+
+			runMemoryMeasurements();
+		}
+
+		measureMemory();
+
+
+		//@@@
+		// EMCC IFACE
+		var Module=
+		{
+			canvas: canvasElement,
+
+			// Define how notification messages from Emscripten are displayed via Module.print attribute.
+			//'print': function(text) { alert('MSG: ' + text) },
+			'print': function(text) {console.log('MSG: '+text);},
+
+			//'printErr': function(text) { alert('ERR: ' + text) },
+			'printErr': function(text) {console.log('ERR: '+text)},
+
+			'onAbort': function(text) {alert('FAIL: '+text)},
+
+			// SPINNER & TEXT
+			setStatus(text)
+			{
+				statusElement.innerHTML=text;
+			},
+
+			totalDependencies: 0,
+			monitorRunDependencies(left)
+			{
+				this.totalDependencies=Math.max(this.totalDependencies,left);
+				Module.setStatus(left? 'Preparing... ('+(this.totalDependencies-left)+'/'+this.totalDependencies+')':'All downloads complete.');
+			}
 		};
-    };
+		Module.setStatus('Downloading...');
 
 
-    </script>
+		window.setInterval(function() {resizeCanvas();},500);
 
-    <script async type="text/javascript" src="Mx07__SuSmi_WEBPG/SuSmi01__JS/Ki04__EVT.js"></script>
+		//!!!
+		// GENERIC ERROR
+		window.onerror=(event) =>
+		{
+			// TODO: do not warn on ok events like simulating an infinite loop or exitStatus
+			Module.setStatus('Exception thrown, see JavaScript console');
+			Module.setStatus=(text) =>
+			{
+				if(text) console.error('[post-exception status] '+text);
+			};
+		};
 
-    <script async type="text/javascript" src="Mx07__SuSmi_WEBPG/SuSmi06__BIN/BriDz.js"></script>
+
+	</script>
+
+	<script async type="text/javascript"
+		src="Mx07__SuSmi_WEBPG/SuSmi01__JS/Ki04__EVT.js"></script>
+
+	<script async type="text/javascript"
+		src="Mx07__SuSmi_WEBPG/SuSmi06__BIN/BriDz.js"></script>
 
 
 	<!-- <script src="https://cdn.jsdelivr.net/npm/qrcode@1.4.4/build/qrcode.min.js"></script> -->
-    <!-- <script src="Mx07__SuSmi_WEBPG/SuSmi01__JS/Kru05__Hra4_Bru00__SyDe.js" type="application/javascript"></script> -->
-    <!-- <script src="Mx07__SuSmi_WEBPG/SuSmi01__JS/Kru00__Hrz4_Bu.js" type="application/javascript"></script> -->
+	<!-- <script src="Mx07__SuSmi_WEBPG/SuSmi01__JS/Kru05__Hra4_Bru00__SyDe.js" type="application/javascript"></script> -->
+	<!-- <script src="Mx07__SuSmi_WEBPG/SuSmi01__JS/Kru00__Hrz4_Bu.js" type="application/javascript"></script> -->
 
 
-  </body>
+</body>
+
 </html>
