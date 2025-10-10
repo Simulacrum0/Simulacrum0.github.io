@@ -11,7 +11,7 @@
 // 5.0 ToMi DOWNLOAD
 // 6.0 MoMiKz CTRLS
 // 7.0 Hrz5_Ki ENGINE
-c
+
 // APP STATUS
 let BriDzYz_v;
 // APP LANG (for CONTENTS)

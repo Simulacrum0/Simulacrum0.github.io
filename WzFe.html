@@ -68,11 +68,11 @@ canvas.emscripten
     <span><input type="button" value="Fullscreen" onclick="Module.requestFullscreen(document.getElementById('pointerLock').checked, document.getElementById('resize').checked)"></span> -->
 
 
-
-
     <script type='text/javascript'>
+
       var statusElement = document.getElementById('status');
       var canvasElement = document.getElementById('canvas');
+
 
 	  //@@@
 	  // GL LOST
@@ -88,7 +88,7 @@ canvas.emscripten
 	  console.log( "CORS: " + ( window.crossOriginIsolated  ? "✅" : "❌" ) );
 	  if( !window.crossOriginIsolated )
 	  {
-		alert( 'ERR002: Your System Prevents CORS and we cannot run. Examples include Incognito mode or Security Policies.');
+		console.log( 'ERR002: Your System Prevents CORS and we cannot run. Examples include Incognito mode or Security Policies.');
 	  }
 
         function resizeCanvas()
@@ -103,21 +103,48 @@ canvas.emscripten
 				canvas.width = displayWidth;
 				canvas.height = displayHeight;
 
-				console.log( "Resize: " + canvas.width + ", " + canvas.height );
+				//console.log( "Resize: " + canvas.width + ", " + canvas.height );
 				statusElement.innerHTML = "MicroCosm: " + VER_vsg + ": " + canvas.width + ", " + canvas.height;
-
 			}
         }
 
         window.addEventListener('resize', resizeCanvas);
         window.addEventListener('DOMContentLoaded', resizeCanvas);
 
+
+	//@@@
+	// MEM MONITOR
+	function runMemoryMeasurements()
+	{
+  		const interval = -Math.log(Math.random()) * 5 * 60 * 1000;
+  		console.log(`Next measurement in ${Math.round(interval / 1000)} seconds.`);
+  	setTimeout(measureMemory, interval);
+	}
+
+	async function measureMemory()
+	{
+		const memorySample = await performance.measureUserAgentSpecificMemory();
+		console.log(memorySample);
+		runMemoryMeasurements();
+	}
+	measureMemory();
+
+
+
 	  //@@@
 	  // EMCC IFACE
       var Module =
 	  {
 		canvas: canvasElement,
-        print(...args){ console.log(...args); },
+
+		// Define how notification messages from Emscripten are displayed via Module.print attribute.
+		//'print': function(text) { alert('MSG: ' + text) },
+        'print': function(text) { console.log('MSG: ' + text ); },
+
+  		//'printErr': function(text) { alert('ERR: ' + text) },
+  		'printErr': function(text) { console.log('ERR: ' + text) },
+
+		'onAbort': function(text) { alert('FAIL: ' + text) },
 
 		// SPINNER & TEXT
         setStatus(text)
