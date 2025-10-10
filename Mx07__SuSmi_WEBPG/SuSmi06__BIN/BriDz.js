@@ -10793,10 +10793,10 @@ function checkIncomingModuleAPI() {
 }
 
 var ASM_CONSTS = {
-  345684: () => {
+  345700: () => {
     window.close();
   },
-  345702: $0 => {
+  345718: $0 => {
     var str = UTF8ToString($0) + "\n\n" + "Abort/Retry/Ignore/AlwaysIgnore? [ariA] :";
     var reply = window.prompt(str, "i");
     if (reply === null) {
@@ -10804,7 +10804,7 @@ var ASM_CONSTS = {
     }
     return reply.length === 1 ? reply.charCodeAt(0) : -1;
   },
-  345917: () => {
+  345933: () => {
     if (typeof (Module["SDL3"]) === "undefined") {
       Module["SDL3"] = {};
     }
@@ -10813,7 +10813,7 @@ var ASM_CONSTS = {
     Module["SDL3"].dummy_audio.timers[0] = undefined;
     Module["SDL3"].dummy_audio.timers[1] = undefined;
   },
-  346163: ($0, $1, $2, $3, $4) => {
+  346179: ($0, $1, $2, $3, $4) => {
     var a = Module["SDL3"].dummy_audio;
     if (a.timers[$0] !== undefined) {
       clearInterval(a.timers[$0]);
@@ -10822,14 +10822,14 @@ var ASM_CONSTS = {
       dynCall("vi", $3, [ $4 ]);
     }, ($1 / $2) * 1e3);
   },
-  346355: $0 => {
+  346371: $0 => {
     var a = Module["SDL3"].dummy_audio;
     if (a.timers[$0] !== undefined) {
       clearInterval(a.timers[$0]);
     }
     a.timers[$0] = undefined;
   },
-  346486: () => {
+  346502: () => {
     if (typeof (AudioContext) !== "undefined") {
       return true;
     } else if (typeof (webkitAudioContext) !== "undefined") {
@@ -10837,7 +10837,7 @@ var ASM_CONSTS = {
     }
     return false;
   },
-  346633: () => {
+  346649: () => {
     if ((typeof (navigator.mediaDevices) !== "undefined") && (typeof (navigator.mediaDevices.getUserMedia) !== "undefined")) {
       return true;
     } else if (typeof (navigator.webkitGetUserMedia) !== "undefined") {
@@ -10845,7 +10845,7 @@ var ASM_CONSTS = {
     }
     return false;
   },
-  346867: $0 => {
+  346883: $0 => {
     if (typeof (Module["SDL3"]) === "undefined") {
       Module["SDL3"] = {};
     }
@@ -10869,8 +10869,8 @@ var ASM_CONSTS = {
     }
     return (SDL3.audioContext !== undefined);
   },
-  347430: () => Module["SDL3"].audioContext.sampleRate,
-  347481: ($0, $1, $2, $3) => {
+  347446: () => Module["SDL3"].audioContext.sampleRate,
+  347497: ($0, $1, $2, $3) => {
     var SDL3 = Module["SDL3"];
     var have_microphone = function(stream) {
       if (SDL3.audio_recording.silenceTimer !== undefined) {
@@ -10912,7 +10912,7 @@ var ASM_CONSTS = {
       }, have_microphone, no_microphone);
     }
   },
-  349322: ($0, $1, $2, $3) => {
+  349338: ($0, $1, $2, $3) => {
     var SDL3 = Module["SDL3"];
     SDL3.audio_playback.scriptProcessorNode = SDL3.audioContext["createScriptProcessor"]($1, 0, $0);
     SDL3.audio_playback.scriptProcessorNode["onaudioprocess"] = function(e) {
@@ -10944,7 +10944,7 @@ var ASM_CONSTS = {
       SDL3.audio_playback.silenceTimer = setInterval(silence_callback, ($1 / SDL3.audioContext.sampleRate) * 1e3);
     }
   },
-  350638: $0 => {
+  350654: $0 => {
     var SDL3 = Module["SDL3"];
     if ($0) {
       if (SDL3.audio_recording.silenceTimer !== undefined) {
@@ -10978,7 +10978,7 @@ var ASM_CONSTS = {
       SDL3.audioContext = undefined;
     }
   },
-  351794: ($0, $1) => {
+  351810: ($0, $1) => {
     var buf = $0 >>> 2;
     var SDL3 = Module["SDL3"];
     var numChannels = SDL3.audio_playback.currentPlaybackBuffer["numberOfChannels"];
@@ -10992,7 +10992,7 @@ var ASM_CONSTS = {
       }
     }
   },
-  352307: ($0, $1) => {
+  352323: ($0, $1) => {
     var SDL3 = Module["SDL3"];
     var numChannels = SDL3.audio_recording.currentRecordingBuffer.numberOfChannels;
     for (var c = 0; c < numChannels; ++c) {
@@ -11011,7 +11011,7 @@ var ASM_CONSTS = {
       }
     }
   },
-  352934: $0 => {
+  352950: $0 => {
     var parms = new URLSearchParams(window.location.search);
     for (const [key, value] of parms) {
       if (key.startsWith("SDL_")) {
@@ -11025,7 +11025,7 @@ var ASM_CONSTS = {
       }
     }
   },
-  353241: () => {
+  353257: () => {
     if (!window.matchMedia) {
       return -1;
     }
@@ -11037,7 +11037,7 @@ var ASM_CONSTS = {
     }
     return -1;
   },
-  353450: () => {
+  353466: () => {
     if (typeof (Module["SDL3"]) !== "undefined") {
       var SDL3 = Module["SDL3"];
       SDL3.themeChangedMatchMedia.removeEventListener("change", SDL3.eventHandlerThemeChanged);
@@ -11045,17 +11045,17 @@ var ASM_CONSTS = {
       SDL3.eventHandlerThemeChanged = undefined;
     }
   },
-  353703: () => window.innerWidth,
-  353733: () => window.innerHeight,
-  353764: $0 => {
+  353719: () => window.innerWidth,
+  353749: () => window.innerHeight,
+  353780: $0 => {
     Module["requestFullscreen"] = function(lockPointer, resizeCanvas) {
       _requestFullscreenThroughSDL($0);
     };
   },
-  353873: () => {
+  353889: () => {
     Module["requestFullscreen"] = function(lockPointer, resizeCanvas) {};
   },
-  353947: () => {
+  353963: () => {
     if (window.matchMedia) {
       if (typeof (Module["SDL3"]) === "undefined") {
         Module["SDL3"] = {};
@@ -11068,7 +11068,7 @@ var ASM_CONSTS = {
       SDL3.themeChangedMatchMedia.addEventListener("change", SDL3.eventHandlerThemeChanged);
     }
   },
-  354338: ($0, $1, $2, $3) => {
+  354354: ($0, $1, $2, $3) => {
     var w = $0;
     var h = $1;
     var pixels = $2;
@@ -11128,7 +11128,7 @@ var ASM_CONSTS = {
     }
     SDL3.ctx.putImageData(SDL3.image, 0, 0);
   },
-  355567: ($0, $1, $2, $3, $4) => {
+  355583: ($0, $1, $2, $3, $4) => {
     var w = $0;
     var h = $1;
     var hot_x = $2;
@@ -11149,17 +11149,17 @@ var ASM_CONSTS = {
     stringToUTF8(url, urlBuf, url.length + 1);
     return urlBuf;
   },
-  356225: $0 => {
+  356241: $0 => {
     if (Module["canvas"]) {
       Module["canvas"].style["cursor"] = UTF8ToString($0);
     }
   },
-  356308: () => {
+  356324: () => {
     if (Module["canvas"]) {
       Module["canvas"].style["cursor"] = "none";
     }
   },
-  356377: ($0, $1, $2) => {
+  356393: ($0, $1, $2) => {
     var target = document.querySelector(UTF8ToString($1));
     if (target) {
       var data = $0;
@@ -11219,7 +11219,7 @@ var ASM_CONSTS = {
       target.addEventListener("pointermove", SDL3.eventHandlerPointerGeneric);
     }
   },
-  358170: ($0, $1, $2) => {
+  358186: ($0, $1, $2) => {
     var target = document.querySelector(UTF8ToString($1));
     if (target) {
       var data = $0;
@@ -11287,7 +11287,7 @@ var ASM_CONSTS = {
       target.addEventListener("dragleave", SDL3.eventHandlerDropDragend);
     }
   },
-  360323: $0 => {
+  360339: $0 => {
     var target = document.querySelector(UTF8ToString($0));
     if (target) {
       var SDL3 = Module["SDL3"];
@@ -11315,7 +11315,7 @@ var ASM_CONSTS = {
       SDL3.eventHandlerDropDragend = undefined;
     }
   },
-  361153: $0 => {
+  361169: $0 => {
     var target = document.querySelector(UTF8ToString($0));
     if (target) {
       var SDL3 = Module["SDL3"];
@@ -11338,6 +11338,8 @@ var _main = Module["_main"] = makeInvalidEarlyAccess("_main");
 var _SmaHe = Module["_SmaHe"] = makeInvalidEarlyAccess("_SmaHe");
 
 var _TestThread = Module["_TestThread"] = makeInvalidEarlyAccess("_TestThread");
+
+var _malloc = makeInvalidEarlyAccess("_malloc");
 
 var _SDL_free = Module["_SDL_free"] = makeInvalidEarlyAccess("_SDL_free");
 
@@ -11368,8 +11370,6 @@ var _requestFullscreenThroughSDL = Module["_requestFullscreenThroughSDL"] = make
 var _strerror = makeInvalidEarlyAccess("_strerror");
 
 var _fflush = makeInvalidEarlyAccess("_fflush");
-
-var _malloc = makeInvalidEarlyAccess("_malloc");
 
 var _free = makeInvalidEarlyAccess("_free");
 
@@ -11479,6 +11479,7 @@ function assignWasmExports(wasmExports) {
   Module["_main"] = _main = createExportWrapper("__main_argc_argv", 2);
   Module["_SmaHe"] = _SmaHe = createExportWrapper("SmaHe", 2);
   Module["_TestThread"] = _TestThread = createExportWrapper("TestThread", 0);
+  _malloc = createExportWrapper("malloc", 1);
   Module["_SDL_free"] = _SDL_free = createExportWrapper("SDL_free", 1);
   Module["_SDL_malloc"] = _SDL_malloc = createExportWrapper("SDL_malloc", 1);
   Module["_SDL_calloc"] = _SDL_calloc = createExportWrapper("SDL_calloc", 2);
@@ -11494,7 +11495,6 @@ function assignWasmExports(wasmExports) {
   Module["_requestFullscreenThroughSDL"] = _requestFullscreenThroughSDL = createExportWrapper("requestFullscreenThroughSDL", 1);
   _strerror = createExportWrapper("strerror", 1);
   _fflush = createExportWrapper("fflush", 1);
-  _malloc = createExportWrapper("malloc", 1);
   _free = createExportWrapper("free", 1);
   _emscripten_stack_get_end = wasmExports["emscripten_stack_get_end"];
   _emscripten_stack_get_base = wasmExports["emscripten_stack_get_base"];
@@ -11928,11 +11928,11 @@ function assignWasmImports() {
 function applySignatureConversions(wasmExports) {
   // First, make a copy of the incoming exports object
   wasmExports = Object.assign({}, wasmExports);
-  var makeWrapper_p_ = f => a0 => f(a0) >>> 0;
   var makeWrapper_pp = f => a0 => f(a0) >>> 0;
+  var makeWrapper_p_ = f => a0 => f(a0) >>> 0;
   var makeWrapper_p = f => () => f() >>> 0;
-  wasmExports["strerror"] = makeWrapper_p_(wasmExports["strerror"]);
   wasmExports["malloc"] = makeWrapper_pp(wasmExports["malloc"]);
+  wasmExports["strerror"] = makeWrapper_p_(wasmExports["strerror"]);
   wasmExports["emscripten_stack_get_end"] = makeWrapper_p(wasmExports["emscripten_stack_get_end"]);
   wasmExports["emscripten_stack_get_base"] = makeWrapper_p(wasmExports["emscripten_stack_get_base"]);
   wasmExports["_emscripten_stack_alloc"] = makeWrapper_pp(wasmExports["_emscripten_stack_alloc"]);
