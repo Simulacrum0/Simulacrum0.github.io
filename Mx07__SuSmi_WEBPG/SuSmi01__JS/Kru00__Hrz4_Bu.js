@@ -2,94 +2,101 @@
 // SYSTEM UTILS
 //=====================================
 
-
 //=====================================
 // SHARED ARRAY
 //=====================================
 
+// CORS Kills Use
+// const ToDu_vbu = new SharedArrayBuffer( KeDru__Fo_wu + 3 );
+// const To_vbu = new Uint8Array( ToDu_vbu );
 
-		// CORS Kills Use
-		// const ToDu_vbu = new SharedArrayBuffer( KeDru__Fo_wu + 3 );
-		// const To_vbu = new Uint8Array( ToDu_vbu );
+//		const To_vbu = new SharedArrayBuffer( 4 );
 
-		//		const To_vbu = new SharedArrayBuffer( 4 );
+// 		// 1. Create a SharedArrayBuffer
+// // The size is in bytes (e.g., 1024 bytes for a 1KB buffer)
+// const sharedBuffer = new SharedArrayBuffer(1024);
 
-		// 		// 1. Create a SharedArrayBuffer
-		// // The size is in bytes (e.g., 1024 bytes for a 1KB buffer)
-		// const sharedBuffer = new SharedArrayBuffer(1024);
+// // 2. Create a Uint8Array view over the SharedArrayBuffer
+// // This creates a typed array that interprets the buffer's contents as 8-bit unsigned integers.
+// const sharedUint8Array = new Uint8Array(sharedBuffer);
 
-		// // 2. Create a Uint8Array view over the SharedArrayBuffer
-		// // This creates a typed array that interprets the buffer's contents as 8-bit unsigned integers.
-		// const sharedUint8Array = new Uint8Array(sharedBuffer);
+// // Now, sharedUint8Array can be used to read and write data.
+// // Any changes made to sharedUint8Array in one thread will be visible in other threads
+// // that also have a view over the same sharedBuffer.
 
-		// // Now, sharedUint8Array can be used to read and write data.
-		// // Any changes made to sharedUint8Array in one thread will be visible in other threads
-		// // that also have a view over the same sharedBuffer.
+// // Example of setting a value:
+// sharedUint8Array[0] = 255;
 
-		// // Example of setting a value:
-		// sharedUint8Array[0] = 255;
+// // You can then pass sharedBuffer (or sharedUint8Array itself if the environment supports it)
+// // to a Web Worker to enable shared memory communication.
 
-		// // You can then pass sharedBuffer (or sharedUint8Array itself if the environment supports it)
-		// // to a Web Worker to enable shared memory communication.
+function checkSharedArrayBuffer()
+{
+	try
+	{
+		var a = SharedArrayBuffer;
+	}
+	catch ( e )
+	{
+		console.log( e instanceof ReferenceError ); // true
+		return false;
+	}
 
-function checkSharedArrayBuffer() {
-    try {
-        var a = SharedArrayBuffer;
-    } catch (e) {
-        console.log(e instanceof ReferenceError); // true
-        return false;
-    }
-
-    return true;
+	return true;
 }
-
 
 //=====================================
 //
 //=====================================
-function findGetParameter(parameterName)
+function findGetParameter( parameterName )
 {
-    var tmp = [];
-    var result = null;
-    var items = location.search.substr(1).split("&");
-    for (var index = 0; index < items.length; index++)
+	var tmp = [];
+	var result = null;
+	var items = location.search.substr( 1 ).split( "&" );
+	for ( var index = 0; index < items.length; index++ )
 	{
-        tmp = items[index].split("=");
-        if (tmp[0] === parameterName) result = decodeURIComponent(tmp[1]);
-    }
+		tmp = items[ index ].split( "=" );
+		if ( tmp[ 0 ] === parameterName ) result = decodeURIComponent( tmp[ 1 ] );
+	}
 
-    return result;
+	return result;
 }
-
 
 //=====================================
 //
 //=====================================
 // ref : https://stackoverflow.com/questions/400212/how-do-i-copy-to-the-clipboard-in-javascript
-function copyToClipboard(text)
+function copyToClipboard( text )
 {
-    if (window.clipboardData && window.clipboardData.setData) {
-        return window.clipboardData.setData("Text", text);
-    }
-    else if (document.queryCommandSupported && document.queryCommandSupported("copy")) {
-        var textarea = document.createElement("textarea");
-        textarea.textContent = text;
-        textarea.style.position = "fixed";
-        document.body.appendChild(textarea);
-        textarea.select();
-        textarea.setSelectionRange(0, 99999);
-        try {
-            document.execCommand("copy");
-        }
-        catch (ex) {
-            console.warn("Copy to clipboard failed.", ex);
-        }
-        finally {
-            document.body.removeChild(textarea);
-        }
-    } else {
-        console.warn("Copy to clipboard failed");
-    }
+	if ( window.clipboardData && window.clipboardData.setData )
+	{
+		return window.clipboardData.setData( "Text", text );
+	}
+	else if ( document.queryCommandSupported && document.queryCommandSupported( "copy" ) )
+	{
+		var textarea = document.createElement( "textarea" );
+		textarea.textContent = text;
+		textarea.style.position = "fixed";
+		document.body.appendChild( textarea );
+		textarea.select();
+		textarea.setSelectionRange( 0, 99999 );
+		try
+		{
+			document.execCommand( "copy" );
+		}
+		catch ( ex )
+		{
+			console.warn( "Copy to clipboard failed.", ex );
+		}
+		finally
+		{
+			document.body.removeChild( textarea );
+		}
+	}
+	else
+	{
+		console.warn( "Copy to clipboard failed" );
+	}
 }
 
 //=====================================
@@ -97,12 +104,180 @@ function copyToClipboard(text)
 //=====================================
 function mobileCheck()
 {
-    var check = false;
-    (function(a){if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows ce|xda|xiino/i.test(a)||/1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(a.substr(0,4))) check = true;})(navigator.userAgent||navigator.vendor||window.opera);
+	var check = false;
+	( function ( a )
+	{
+		if ( /(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows ce|xda|xiino/i.test( a ) || /1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test( a.substr( 0, 4 ) ) ) check = true;
+	} )( navigator.userAgent || navigator.vendor || window.opera );
 
-    return check;
+	return check;
 };
 
+//=====================================
+// INPUT
+// Fixup for 'passiveSupport' on touch/scroll events
+//=====================================
+export function passiveSupported( debug = false )
+{
+	let passiveSupported = false;
+
+	try
+	{
+		const options = Object.defineProperty(
+		{}, 'passive',
+		{
+			get: function ()
+			{
+				passiveSupported = true;
+			}
+		} );
+
+		window.addEventListener( 'testPassive', null, options );
+		window.removeEventListener( 'testPassive', null, options );
+	}
+	catch ( error )
+	{}
+
+	if ( debug )
+	{
+		const message = `[Passive Events Support] "passive" option is ${!passiveSupported ? 'not ' : ''}supported by your browser.`;
+
+		if ( passiveSupported )
+		{
+			console.info( message );
+		}
+		else
+		{
+			console.warn( message );
+		}
+	}
+
+	return passiveSupported;
+}
+
+function isEventSupported( event )
+{
+	return [
+		'touchstart',
+		'touchmove',
+		'touchenter',
+		'touchend',
+		'touchleave',
+		'wheel',
+		'mousewheel'
+	].includes( event );
+}
+
+export function passiveSupport( custom )
+{
+	const options = {
+		debug: false,
+		events: [],
+		listeners: [],
+		...custom
+	};
+
+	if ( options.debug )
+	{
+		console.info( '[Passive Events Support] Initialized With', options );
+
+		options.events = options.events.filter( ( event ) =>
+		{
+			const supported = isEventSupported( event );
+
+			if ( !supported )
+			{
+				console.warn( `[Passive Events Support] Unsupported Event: ${event}` );
+			}
+
+			return supported;
+		} );
+
+		options.listeners = options.listeners.filter( ( listener ) =>
+		{
+			const supported = isEventSupported( listener.event );
+
+			if ( !supported )
+			{
+				console.warn( `[Passive Events Support] Unsupported Listener:`, listener );
+			}
+
+			return supported;
+		} );
+	}
+
+	const
+	{
+		debug,
+		events,
+		listeners
+	} = options;
+	const originalFn = EventTarget.prototype.addEventListener;
+
+	EventTarget.prototype.addEventListener = function ( ...args )
+	{
+		// check if it is non-passive
+		const noPassiveOption = ( !args[ 2 ] || args[ 2 ].passive === undefined );
+
+		if ( isEventSupported( args[ 0 ] ) && noPassiveOption )
+		{
+			// check if it should be updated
+			const oldArguments = args[ 2 ];
+			const isEventFromList = events.includes( args[ 0 ] );
+			const isListenerFromList = listeners.find( (
+			{
+				element,
+				event
+			} ) => typeof this.matches === 'function' && this.matches( element ) && event === args[ 0 ] );
+			const shouldBeUpdated = isEventFromList || isListenerFromList;
+
+			// check if it is prevented
+			const fn = args[ 1 ].toString();
+			const [ fnDeclaration, ...fnContents ] = fn.split( '{' );
+			const fnName = fnDeclaration.replace( /(function|=>)/, '' ).trim();
+			const fnContent = fnContents.join( '{' );
+			const fnArgument = ( fnName.match( /\(([^)]+)\)/ ) || [ `(${fnName})` ] )[ 0 ].replace( /[()]/g, '' );
+			const fnPrevented = !!( fnContent.includes( 'preventDefault' ) || ( isListenerFromList && isListenerFromList.prevented ) );
+
+			// update arguments
+			if ( shouldBeUpdated )
+			{
+				args[ 2 ] = {
+					...( args[ 2 ] ||
+					{} ),
+					...( passiveSupported() &&
+					{
+						passive: !fnPrevented
+					} )
+				};
+			}
+
+			// console log the output
+			if ( debug )
+			{
+				console.info( '[Passive Events Support] Non-passive Event Listener',
+				{
+					element: this,
+					event: args[ 0 ],
+					handler:
+					{
+						fn: args[ 1 ],
+						fnArgument,
+						fnContent,
+						fnPrevented
+					},
+					arguments: oldArguments,
+					...( shouldBeUpdated &&
+					{
+						updatedArguments: args[ 2 ]
+					} )
+				} );
+			}
+		}
+
+		originalFn.call( this, ...args );
+	}
+}
 
 //=====================================
 // END

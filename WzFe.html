@@ -6,17 +6,30 @@
 	<meta http-equiv="Content-Type"
 		content="text/html; charset=utf-8">
 	<title>WzFe</title>
+	<link rel="manifest" href="manifest.json" />
 
 	<script type="text/javascript"
 		src="Hrx4_Che__MeGrx_CORS.js"></script>
 	<script type="text/javascript"
 		src="Mx07__SuSmi_WEBPG/SuSmi01__JS/Ki00__PUB.js"></script>
+	<script type="text/javascript"
+		src="Mx07__SuSmi_WEBPG/SuSmi01__JS/Ki05__KoToKz_OPFS.js"></script>
+
+	<script type="module" src="Mx07__SuSmi_WEBPG/SuSmi01__JS/Kru00__Hrz4_Bu.js"></script>
 
 	<style>
-		body {
-			font-family: arial;
-			font-weight: bold;
+		@font-face {
+			/* https://fonts.google.com/specimen/Raleway */
+			font-family: Raleway;
+			font-style: normal;
+			font-weight: 100;
+			src: url(https://fonts.gstatic.com/s/raleway/v36/1Ptxg8zYS_SKggPN4iEgvnHyvveLxVvaorCIPrQ.ttf) format('truetype')
+		}
 
+		body
+		{
+			font-family: Raleway;
+			font-weight: 100;
 			margin: 0;
 			padding: none;
 			background-color: rgb(0, 0, 0);
@@ -26,9 +39,9 @@
 			display: block;
 			position: absolute;
 			left: 0dvw;
-			top: 0.0dvh;
+			top: 2em;
 			width: 100dvw;
-			height: calc(100dvh - 2.0em);
+			height: calc(100dvh - 4em);
 			margin: 0;
 			padding: none;
 
@@ -37,12 +50,28 @@
 			/* background-color: rgb( 0, 0, 0 ); */
 		}
 
-
-		#status {
+		#BriDzYz__Bz
+		{
 			display: block;
 			position: absolute;
 			left: 0dvw;
-			top: calc(100dvh - 2.0em);
+			top: 0dvh;
+			width: 100dvw;
+			height: 2em;
+			margin: 0;
+			padding: none;
+
+			font-size: 2em;
+			background-color: rgb(255, 160, 32);
+			color: rgb(255, 255, 255);
+		}
+
+		#BriDzYz__Bo
+		{
+			display: block;
+			position: absolute;
+			left: 0dvw;
+			top: calc(100dvh - 2em);
 			width: 100dvw;
 			height: 2em;
 			margin: 0;
@@ -50,6 +79,24 @@
 
 			font-size: 2em;
 			background-color: rgb(255, 32, 32);
+			color: rgb(255, 255, 255);
+		}
+
+
+
+		button
+		{
+			display: block;
+			position: absolute;
+			left: 0dvw;
+			top: calc(100dvh - 4em);
+			width: 100dvw;
+			height: 2em;
+			margin: 0;
+			padding: none;
+
+			font-size: 2em;
+			background-color: rgb( 32, 32, 160 );
 			color: rgb(255, 255, 255);
 		}
 	</style>
@@ -60,9 +107,12 @@
 
 <body>
 	<!-- <canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault()" tabindex=-1></canvas> -->
+
 	<canvas class="emscripten" id="canvas"
 		tabindex=-1></canvas>
-	<p class="emscripten" id="status" tabindex=1>
+	<p class="emscripten" id="BriDzYz__Bz" tabindex=1>
+		Downloading...</p>
+	<p class="emscripten" id="BriDzYz__Bo" tabindex=2>
 		Downloading...</p>
 
 	<!-- <span><input type="checkbox" id="resize">Resize canvas</span>
@@ -71,157 +121,385 @@
 
 	<script type='text/javascript'>
 
-		console.log("CORS: "+(window.crossOriginIsolated? "✅":"❌"));
-		if(!window.crossOriginIsolated)
-		{
+		//==============================================
+		// CORS
+		//==============================================
+		console.log("CORS: " + (window.crossOriginIsolated ? "✅" : "❌"));
+		if (!window.crossOriginIsolated) {
 			//???
 			// SHOULD ADD TO DOM
-			//console.log( 'ERR002: Your System Prevents CORS and we cannot run. Examples include Incognito mode or Security Policies.');
 			console.log('WAITING: Engaging HTTPS CORS in order to run under Security Policies.');
 			abort();
 		}
 
+		//==============================================
+		// INPUT: PASSIVE_SUPPORT
+		//==============================================
+		// Before any third party import that causes issues
+		// import { passiveSupport } from 'Kru00__Hrz4_Bu.js';
+		// passiveSupport(
+		// {
+  		// 	events: 'touchstart', // or any other event tyoes
+		// });
+		// ??.addEventListener('touchstart', this.callPassedFuntion, { passive: false });
+
+		//==============================================
+		// SyKi
+		//==============================================
+
+		//@@@
+		// VALUES
+		//@@@
+		let ME_ToKzVy;
+		let OP_ToKzVy;
+
+		//@@@
+		// GLOBAL
+		var opfs = OPFS();
 
 		//@@@
 		// MxPo
 		// SCREEN
-		var canvasElement=document.getElementById('canvas');
-		var statusElement=document.getElementById('status');
+		let MxPoKu__Kz_l = document.getElementById('canvas');
+
+		//@@@
+		// ELEM
+		let BriDzYz__Bz_l = document.getElementById('BriDzYz__Bz');
+		let BriDzYz__Bo_l = document.getElementById('BriDzYz__Bo');
+
+		//==============================================
+		// SCREEN
+		//==============================================
+
 
 		//@@@
 		// GL LOST
-		// As a default initial behavior, pop up an alert when webgl context is lost. To make your
-		// application robust, you may want to override this behavior before shipping!
 		// See http://www.khronos.org/registry/webgl/specs/latest/1.0/#5.15.2
-		canvasElement.addEventListener('webglcontextlost',(e) =>
-		{
+		MxPoKu__Kz_l.addEventListener('webglcontextlost', (e) => {
 			alert('ERR001: WebGL context lost. You will need to reload the page.');
 			e.preventDefault();
-		},false);
+		}, false);
 
-		function resizeCanvas()
-		{
+		function resizeCanvas() {
 			//console.log( "Pre-Resize: " + canvas.width + ", " + canvas.height );
 
-			const displayWidth=canvas.clientWidth;
-			const displayHeight=canvas.clientHeight;
+			const displayWidth = canvas.clientWidth;
+			const displayHeight = canvas.clientHeight;
 
-			if(canvas.width!==displayWidth||canvas.height!==displayHeight)
-			{
-				canvas.width=displayWidth;
-				canvas.height=displayHeight;
+			if (canvas.width !== displayWidth || canvas.height !== displayHeight) {
+				canvas.width = displayWidth;
+				canvas.height = displayHeight;
 
 				//console.log( "Resize: " + canvas.width + ", " + canvas.height );
-				statusElement.innerHTML="MicroCosm: "+VER_vsg+": "+canvas.width+", "+canvas.height;
+				BriDzYz__Bz_l.innerHTML = "MicroCosm: " + VER_vsg + ": " + canvas.width + ", " + canvas.height;
 			}
 		}
 
-		window.addEventListener('resize',resizeCanvas);
-		window.addEventListener('DOMContentLoaded',resizeCanvas);
+		window.addEventListener('resize', resizeCanvas);
+		window.addEventListener('DOMContentLoaded', resizeCanvas);
 
+
+		//==============================================
+		// MEM
+		//==============================================
 
 		//@@@
 		// FMT
-		function HreDru_DxSI(num)
-		{
-			const si=[
-				{value: 1e12,symbol: "T"},
-				{value: 1e9,symbol: "G"},
-				{value: 1e6,symbol: "M"},
-				{value: 1e3,symbol: "k"},
-				{value: 1,symbol: ""}
+		function HreDru_DxSI(num) {
+			const si = [
+				{value: 1e12, symbol: "TiB"},
+				{value: 1e9, symbol: "GiB"},
+				{value: 1e6, symbol: "MiB"},
+				{value: 1e3, symbol: "KiB"},
+				{value: 1, symbol: ""}
 			];
 
-			for(let i=0;i<si.length;i++)
-			{
-				if(num>=si[i].value)
-				{
-					return (num/si[i].value).toFixed(2)+si[i].symbol;
+			for (let i = 0; i < si.length; i++) {
+				if (num >= si[i].value) {
+					return (num / si[i].value).toFixed(2) + si[i].symbol;
 				}
 			}
 			return num.toString();
 		}
 
-
 		//@@@
 		// MEM MONITOR
-		function runMemoryMeasurements()
-		{
-			const interval= 60*1000;
-			// console.log(`Next measurement in ${Math.round(interval/1000)} seconds.`);
-			setTimeout(measureMemory, interval );
+		var HraKuKx__MzFo_wu = 0;
+		function runMemoryMeasurements() {
+			// 6 Seconds
+			const interval = 6 * 1000;
+			HraKuKx__MzFo_wu++;
+
+			// Only run X times
+			if (HraKuKx__MzFo_wu < 1) {
+				setTimeout(measureMemory, interval);
+			}
 		}
 
-		async function measureMemory()
-		{
-			const HrxKuHa=await performance.measureUserAgentSpecificMemory();
+		async function measureMemory() {
+			const HrxKuHa = await performance.measureUserAgentSpecificMemory();
 			// console.log(HrxKuHa);
 
-			console.log("MEM: "+HreDru_DxSI(HrxKuHa.bytes));
-			HrxKuHa.breakdown.forEach(function(Ti_v,Vx_wu)
-			{
-				if( Ti_v.bytes )
-				{ console.log(Ti_v.types[0]+": "+HreDru_DxSI( Ti_v.bytes )); }
+			// TOTAL INVALID:
+			// console.log("\nTOTAL_MEM: "+HreDru_DxSI(HrxKuHa.bytes));
+			let JS_MEM_y = false;
+			let HrxKuHa__Frz_du = 0;
+			HrxKuHa.breakdown.forEach(function (Ti_v, Vx_wu) {
+
+				if (Ti_v.bytes && ((Ti_v.types[0] != 'JavaScript') || (JS_MEM_y == false))) {
+					console.log("#" + Vx_wu + " " + Ti_v.types[0] + ": " + HreDru_DxSI(Ti_v.bytes));
+					// ONLY ADD JS ONCE
+					HrxKuHa__Frz_du += Ti_v.bytes;
+				}
+
+				// DON"T OVERREPORT JS MEM
+				if (Ti_v.types[0] == 'JavaScript') {JS_MEM_y = true;}
 			});
+			console.log("\nTOTAL_MEM(OS): " + HreDru_DxSI(HrxKuHa__Frz_du));
+
 
 			runMemoryMeasurements();
-		}
 
+			//AVAIL RAM
+			// Chrome Only vs SDL?
+			// const memory = navigator.deviceMemory;
+			// console.log(`This device has at least ${memory}GiB of RAM.`);
+
+			// NOW CLOCK
+			// Level 2 (no clock change risks)
+			// currentTime = performance.timeOrigin + performance.now();
+
+		}
 		measureMemory();
 
 
+		async function OPFS_SmeStx() {
+			await opfs.writeFile('MEFS_A.txt', 'Hello World');
+			const fileData = await opfs.readFile('MEFS_A.txt');
+			console.log(await fileData.toText()); // "Hello World"
+
+			await opfs.appendFile('MEFS_A.txt', '\nMore');
+			// await opfs.renameFile('MEFS_A.txt', 'MEFS_B.txt');
+			await opfs.copyFile('MEFS_A.txt', 'copy.txt');
+
+			const exists = await opfs.fileExists('copy.txt');
+			console.log("Copy Exists: " + exists); // true
+
+			const files = await opfs.listFiles('.');
+			console.log("List Files: " + files);
+		}
+
+		//==============================================
+		// FONTS AVAIL
+		//==============================================
+		async function FNT_TaFuHa() {
+			try {
+				let Fe_wu = 0;
+				const availableFonts = await window.queryLocalFonts();
+				for (const fontData of availableFonts) {
+					// `blob()` returns a Blob containing valid and complete SFNT-wrapped font data.
+					// const sfnt = await fontData.blob();
+
+					// Slice out only the bytes we need: the first 4 bytes are the SFNT
+					// version info.
+					// Spec: https://docs.microsoft.com/en-us/typography/opentype/spec/otff#organization-of-an-opentype-font
+					// const sfntVersion = await sfnt.slice(0, 4).text();
+
+					// let outlineFormat = 'UNKNOWN';
+					// switch (sfntVersion)
+					// {
+					// 	case '\x00\x01\x00\x00':
+					// 	case 'true':
+					// 	case 'typ1':
+					// 		outlineFormat = 'truetype';
+					// 		break;
+					// 	case 'OTTO':
+					// 		outlineFormat = 'cff';
+					// 		break;
+					// }
+
+					console.log
+						(
+							"Fnt[ " + Fe_wu
+							+ " ] " + fontData.postscriptName
+							+ " @ " + fontData.fullName
+							+ " ( " + fontData.family
+							+ " )" + fontData.style
+						);
+					Fe_wu++;
+				}
+			}
+			catch (err) {
+				{console.error(err.name, err.message);}
+			}
+		}
+
+
+		//==============================================
+		// IDB STOR
+		//==============================================
+		//@@@
+		// IDB
+		const IDB_Ko_l = new Promise((resolve, reject) => {
+			// IDB NAME
+			const request = indexedDB.open('handle', 1);
+
+			request.onupgradeneeded = (event) => {
+				const db = event.target.result;
+				db.createObjectStore('handles', {keyPath: 'id'});
+			};
+
+			request.onsuccess = (event) => {
+				console.log("IDB_Good\n");
+				resolve(event.target.result);
+			};
+
+			request.onerror = (event) => {
+				console.error(event);
+				reject(event.target.error);
+			};
+		});
+
+		/**
+		 * Saves a directory handle to the database.
+		 * @param {FileSystemDirectoryHandle} ToKzVy  - The directory handle to save.
+		 * @returns {Promise<void>} A promise that resolves when the handle is saved.
+		 */
+		//async function
+		const IDB_ToKzVy__Chy = (Va, ToKzVy) => {
+			return new Promise((resolve, reject) => {
+				IDB_Ko_l.then((db) => {
+					const transaction = db.transaction(['handles'], 'readwrite');
+					const store = transaction.objectStore('handles');
+					const request = store.put({id: Va, handle: ToKzVy});
+
+					request.onsuccess = () => {
+						console.log("IDB Handle Saved\n");
+						resolve();
+					}
+					request.onerror = () => {
+						console.log("IDB Handle Failed\n");
+						reject(request.error);
+					}
+				});
+			});
+		};
+
+		/**
+		 * Retrieves the last saved folder handle from the database.
+		 * @returns {Promise<FileSystemDirectoryHandle|undefined>} A promise that resolves with the folder handle or undefined if not found.
+		 */
+		const IDB_ToKzVy__My = (Va) => {
+			return new Promise((resolve, reject) => {
+				IDB_Ko_l.then((db) => {
+					const transaction = db.transaction(['handles'], 'readonly');
+					const store = transaction.objectStore('handles');
+					const request = store.get(Va);
+
+					request.onsuccess = (event) => {
+						console.log("IDB Handle Found\n" + event.target.result);
+						resolve(event.target.result?.handle);
+					}
+					request.onerror = () => {
+						console.log("IDB Handle UNK\n");
+						reject(request.error);
+					}
+				});
+			});
+		};
+
+		//==============================================
+		// MODULE ENGINE
+		//==============================================
+		async function preventMultiTab() {
+			if (window.BroadcastChannel) {
+				var tab_sid = (new Date()).getTime();
+
+				sessionStorage.setItem('tab_sid', tab_sid);
+				var channel = new BroadcastChannel('tab-connections');
+
+				channel.postMessage('ping:get_back_all_ids');
+
+				channel.onmessage = function (e) {
+					var message = e.data.split(':');
+					if (message[0] == 'close') {
+						if (tab_sid > parseInt(message[1])) {
+							channel = null;
+							console.log('Extra Tab Detected.');
+						}
+					}
+					else if (message[0] == "ping") {
+						console.log('Closing Tab.');
+						channel.postMessage('close:' + tab_sid);
+					}
+				}
+			}
+		}
+
+		preventMultiTab();
+
+		//==============================================
+		// MODULE ENGINE
+		//==============================================
+
 		//@@@
 		// EMCC IFACE
-		var Module=
+		var Module =
 		{
-			canvas: canvasElement,
+			canvas: MxPoKu__Kz_l,
 
 			// Define how notification messages from Emscripten are displayed via Module.print attribute.
 			//'print': function(text) { alert('MSG: ' + text) },
-			'print': function(text) {console.log('MSG: '+text);},
+			'print': function (text) {console.log('MSG: ' + text);},
 
 			//'printErr': function(text) { alert('ERR: ' + text) },
-			'printErr': function(text) {console.log('ERR: '+text)},
+			'printErr': function (text) {console.log('ERR: ' + text)},
 
-			'onAbort': function(text) {alert('FAIL: '+text)},
+			'onAbort': function (text) {alert('FAIL: ' + text)},
 
 			// SPINNER & TEXT
 			setStatus(text)
 			{
-				statusElement.innerHTML=text;
+				BriDzYz__Bo_l.innerHTML = text;
 			},
 
 			totalDependencies: 0,
-			monitorRunDependencies(left)
-			{
-				this.totalDependencies=Math.max(this.totalDependencies,left);
-				Module.setStatus(left? 'Preparing... ('+(this.totalDependencies-left)+'/'+this.totalDependencies+')':'All downloads complete.');
+			monitorRunDependencies(left) {
+				this.totalDependencies = Math.max(this.totalDependencies, left);
+				Module.setStatus(left ? 'Preparing... (' + (this.totalDependencies - left) + '/' + this.totalDependencies + ')' : 'All downloads complete.');
 			}
 		};
+
 		Module.setStatus('Downloading...');
 
+		//==============================================
+		//
+		//==============================================
 
-		window.setInterval(function() {resizeCanvas();},500);
+
+
+		//@@@
+		// INTERVALS
+		window.setInterval(function () {resizeCanvas();}, 500);
 
 		//!!!
 		// GENERIC ERROR
-		window.onerror=(event) =>
+		window.onerror = (e) =>
 		{
 			// TODO: do not warn on ok events like simulating an infinite loop or exitStatus
-			Module.setStatus('Exception thrown, see JavaScript console');
-			Module.setStatus=(text) =>
-			{
-				if(text) console.error('[post-exception status] '+text);
-			};
+			Module.setStatus('ERR:');
+			Module.setStatus = (text) => {if (text) console.error('ERR: ' + text);};
 		};
-
 
 	</script>
 
-	<script async type="text/javascript"
+	//==============================================
+	//
+	//==============================================
+	<script type="module"
 		src="Mx07__SuSmi_WEBPG/SuSmi01__JS/Ki04__EVT.js"></script>
 
-	<script async type="text/javascript"
+	<script type="text/javascript"
 		src="Mx07__SuSmi_WEBPG/SuSmi06__BIN/BriDz.js"></script>
 
 
@@ -229,6 +507,8 @@
 	<!-- <script src="Mx07__SuSmi_WEBPG/SuSmi01__JS/Kru05__Hra4_Bru00__SyDe.js" type="application/javascript"></script> -->
 	<!-- <script src="Mx07__SuSmi_WEBPG/SuSmi01__JS/Kru00__Hrz4_Bu.js" type="application/javascript"></script> -->
 
+	<!-- <script async type="module" src="Mx07__SuSmi_WEBPG/SuSmi01__JS/Ki07__HrySmz_KiGL.js"></script> -->
+	<script type="module" src="Mx07__SuSmi_WEBPG/SuSmi01__JS/Ki07__HrySmz_KiWG.js"></script>
 
 </body>
 

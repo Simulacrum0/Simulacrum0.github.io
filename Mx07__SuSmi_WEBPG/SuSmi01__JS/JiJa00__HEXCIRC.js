@@ -1,8 +1,7 @@
 //-------------------------------------------------
 // // GLSL_Ya
 //-------------------------------------------------
-const JiJa00__HEXCIRC_vkutf8
- =`#version 300 es
+const JiJa00__HEXCIRC_vkutf8 = `#version 300 es
 #line 7
 precision highp float;
 uniform vec4 ToBri_vwf4[ 2 ];

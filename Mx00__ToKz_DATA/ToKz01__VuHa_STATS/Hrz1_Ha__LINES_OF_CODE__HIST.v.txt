@@ -356,35 +356,35 @@ __Files 14237
 __Directories 2562
 
 #--------------
-Kri01__Sy_TEK
+Nz04_Ki
 __Lines 178442
 __Size 16M .
 __Files 543
 __Directories 136
 
 #--------------
-Kri02__Dx_DESIGN
+Nz03_Jz
 __Lines 0
 __Size 8.0K .
 __Files 1
 __Directories 5
 
 #--------------
-Kri03__Smi_XPLORE
+Nz01_Ro
 __Lines 412874
 __Size 75M .
 __Files 71
 __Directories 49
 
 #--------------
-Kri04__Wz_FORGE
+Nz05_Wz
 __Lines 135475
 __Size 16M .
 __Files 978
 __Directories 197
 
 #--------------
-Kri05__Sa_JKV
+Nz00_Sa
 __Lines 1429174
 __Size 455M .
 __Files 955

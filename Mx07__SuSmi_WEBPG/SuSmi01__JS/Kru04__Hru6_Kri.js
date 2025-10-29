@@ -1,42 +1,43 @@
-<html>
-    <h1>Speech to Text Example</h1>
-    <button id="LISTEN">Speech to Text</button>
+< html >
+	<
+	h1 > Speech to Text Example < /h1> <
+button id = "LISTEN" > Speech to Text < /button>
 
-	<p id="interim"></p>
-	<p id="result"></p>
-</html>
+	<
+	p id = "interim" > < /p> <
+p id = "result" > < /p> < /
+html >
 
-// Check if the browser supports the Web Speech API ( currently ONLY Chrome! Not Chromium Derived )
+	// Check if the browser supports the Web Speech API ( currently ONLY Chrome! Not Chromium Derived )
 
-const grammar =
-  "#JSGF V1.0; grammar colors; public <color> = aqua | azure | beige | bisque | black | blue | brown | chocolate | coral | crimson | cyan | fuchsia | ghostwhite | gold | goldenrod | gray | green | indigo | ivory | khaki | lavender | lime | linen | magenta | maroon | moccasin | navy | olive | orange | orchid | peru | pink | plum | purple | red | salmon | sienna | silver | snow | tan | teal | thistle | tomato | turquoise | violet | white | yellow ;";
-
+	const grammar =
+		"#JSGF V1.0; grammar colors; public <color> = aqua | azure | beige | bisque | black | blue | brown | chocolate | coral | crimson | cyan | fuchsia | ghostwhite | gold | goldenrod | gray | green | indigo | ivory | khaki | lavender | lime | linen | magenta | maroon | moccasin | navy | olive | orange | orchid | peru | pink | plum | purple | red | salmon | sienna | silver | snow | tan | teal | thistle | tomato | turquoise | violet | white | yellow ;";
 
 const recognition = new SpeechRecognition();
 const speechRecognitionList = new SpeechGrammarList();
-speechRecognitionList.addFromString(grammar, 1);
+speechRecognitionList.addFromString( grammar, 1 );
 recognition.grammars = speechRecognitionList;
 recognition.continuous = true;
 recognition.lang = "en-US";
 recognition.interimResults = false;
 recognition.maxAlternatives = 1;
 
-const diagnostic = document.querySelector(".output");
-const bg = document.querySelector("html");
+const diagnostic = document.querySelector( ".output" );
+const bg = document.querySelector( "html" );
 
 document.body.onclick = () =>
 {
-----recognition.start();
-----console.log("Ready to receive a color command.");
+	-- --recognition.start();
+	-- --console.log( "Ready to receive a color command." );
 };
 
-recognition.onresult = (event) =>
+recognition.onresult = ( event ) =>
 {
-  const color = event.results[0][0].transcript;
+	const color = event.results[ 0 ][ 0 ].transcript;
 
-document.getElementById('result').innerText = `Result received: ${color}`;
+	document.getElementById( 'result' ).innerText = `Result received: ${color}`;
 
-  bg.style.backgroundColor = color;
+	bg.style.backgroundColor = color;
 };
 
 /*

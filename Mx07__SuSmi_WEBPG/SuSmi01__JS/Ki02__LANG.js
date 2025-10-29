@@ -7,8 +7,7 @@
 // So: Reference English
 // KuGwz: Flag as Emoji
 //-------------------------------------------------
-const Hre1_Dru__Gra_v =
-[
+const Hre1_Dru__Gra_v = [
 	// { "Vy": "af", "Va": "Afrikaans", "KuGwz": "🇿🇦", "So": "Afrikaans", "ToKz": "af" },
 	// { "Vy": "am", "Va": "አማርኛ", "KuGwz": "🇪🇹", "So": "Amharic", "ToKz": "am" },
 	// { "Vy": "ar", "Va": "العربية", "KuGwz": "🇸🇦", "So": "Arabic", "ToKz": "ar" },
@@ -16,7 +15,7 @@ const Hre1_Dru__Gra_v =
 	// { "Vy": "be", "Va": "Беларуская", "KuGwz": "🇧🇾", "So": "Belarusian", "ToKz": "be" },
 	// { "Vy": "bg", "Va": "Български", "KuGwz": "🇧🇬", "So": "Bulgarian", "ToKz": "bg" },
 	// { "Vy": "bn", "Va": "বাংলা", "KuGwz": "🇧🇩", "So": "Bengali", "ToKz": "bn" },
-	
+
 	// { "Vy": "ca", "Va": "Català", "KuGwz": "🇪🇸", "So": "Catalan", "ToKz": "ca" },
 	// { "Vy": "cs", "Va": "Čeština", "KuGwz": "🇨🇿", "So": "Czech", "ToKz": "cs" },
 	// { "Vy": "da", "Va": "Dansk", "KuGwz": "🇩🇰", "So": "Danish", "ToKz": "da" },
@@ -24,15 +23,57 @@ const Hre1_Dru__Gra_v =
 	// { "Vy": "el", "Va": "Ελληνικά", "So": "Greek", "KuGwz": "🇬🇷", "ToKz": "el" },
 
 	// en
-	{ "Vy": "en", "Va": "English", "KuGwz": "🇺🇸", "So": "English", "ToKz": "en" },
-	{ "Vy": "en-AU", "Va": "English (Australia)", "KuGwz": "🇦🇺", "So": "English", "ToKz": "en" },
-	{ "Vy": "en-CA", "Va": "English (Canada)", "KuGwz": "🇨🇦", "So": "English", "ToKz": "en" },
-	{ "Vy": "en-GB", "Va": "English (United Kingdom)", "KuGwz": "🇬🇧", "So": "English", "ToKz": "en" },
+	{
+		"Vy": "en",
+		"Va": "English",
+		"KuGwz": "🇺🇸",
+		"So": "English",
+		"ToKz": "en"
+	},
+	{
+		"Vy": "en-AU",
+		"Va": "English (Australia)",
+		"KuGwz": "🇦🇺",
+		"So": "English",
+		"ToKz": "en"
+	},
+	{
+		"Vy": "en-CA",
+		"Va": "English (Canada)",
+		"KuGwz": "🇨🇦",
+		"So": "English",
+		"ToKz": "en"
+	},
+	{
+		"Vy": "en-GB",
+		"Va": "English (United Kingdom)",
+		"KuGwz": "🇬🇧",
+		"So": "English",
+		"ToKz": "en"
+	},
 
 	// es
-	{ "Vy": "es", "Va": "Español (España)", "So": "Spanish (Spain)", "KuGwz": "🇪🇸", "ToKz": "es" },
-	{ "Vy": "es-419", "Va": "Español (Latinoamérica)", "So": "Spanish (Latin America)", "KuGwz": "🌎", "ToKz": "es" },
-	{ "Vy": "es-US", "Va": "Español (Estados Unidos)", "So": "Spanish (United States)", "KuGwz": "🇺🇸", "ToKz": "es" }
+	{
+		"Vy": "es",
+		"Va": "Español (España)",
+		"So": "Spanish (Spain)",
+		"KuGwz": "🇪🇸",
+		"ToKz": "es"
+	},
+	{
+		"Vy": "es-419",
+		"Va": "Español (Latinoamérica)",
+		"So": "Spanish (Latin America)",
+		"KuGwz": "🌎",
+		"ToKz": "es"
+	},
+	{
+		"Vy": "es-US",
+		"Va": "Español (Estados Unidos)",
+		"So": "Spanish (United States)",
+		"KuGwz": "🇺🇸",
+		"ToKz": "es"
+	}
 
 	// { "Vy": "et", "Va": "Eesti", "KuGwz": "🇪🇪", "So": "Estonian", "ToKz": "et" },
 	// { "Vy": "eu", "Va": "Euskara", "KuGwz": "🇪🇸", "So": "Basque", "ToKz": "eu" },
