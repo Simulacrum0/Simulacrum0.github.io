@@ -89,7 +89,8 @@
 								// , "wss://tracker.sloppyta.co:443",
 								// , "wss://tracker.novage.com.ua:443"
 
-								, "wss://tracker.files.fm:7073/announce", "wss://tracker.ghostchu-services.top:443/announce"
+								, "wss://tracker.files.fm:7073/announce"
+								, "wss://tracker.ghostchu-services.top:443/announce"
 
 								, "wss://tracker.openwebtorrent.com"
 								//, "wss://tracker.btorrent.xyz"
@@ -1234,7 +1235,7 @@
 					if ( buffer.isError( len ) ) return len;
 					let res;
 					if ( res = tag.primitive || null !== len ? buffer.skip( len ) : this._skipUntilEnd( buffer, fail ), buffer.isError( res ) ) return res;
-					if ( "end" === tag.tagStr ) break
+					if ( "end" === tag.tagStr ) break;
 				}
 			}, DERNode.prototype._decodeList = function ( buffer, tag, decoder, options )
 			{
@@ -1368,7 +1369,7 @@
 					{
 						if ( "END" !== match[ 1 ] ) break;
 						end = i;
-						break
+						break;
 					}
 				}
 				if ( -1 === start || -1 === end ) throw new Error( "PEM section not found for: " + label );
@@ -2561,7 +2562,7 @@
 						if ( a != b )
 						{
 							a < b ? res = -1 : a > b && ( res = 1 );
-							break
+							break;
 						}
 					}
 					return res
@@ -4332,7 +4333,7 @@
 						for ( ; !state.reading && !state.ended && ( state.length < state.highWaterMark || state.flowing && 0 === state.length ); )
 						{
 							var len = state.length;
-							if ( debug( "maybeReadMore read 0" ), stream.read( 0 ), len === state.length ) break
+							if ( debug( "maybeReadMore read 0" ), stream.read( 0 ), len === state.length ) break;
 						}
 						state.readingMore = !1
 					}
@@ -4902,7 +4903,7 @@
 									encoding = entry.encoding,
 									cb = entry.callback,
 									len = state.objectMode ? 1 : chunk.length;
-								if ( doWrite( stream, state, !1, len, chunk, encoding, cb ), entry = entry.next, state.bufferedRequestCount--, state.writing ) break
+								if ( doWrite( stream, state, !1, len, chunk, encoding, cb ), entry = entry.next, state.bufferedRequestCount--, state.writing ) break;
 							}
 							null === entry && ( state.lastBufferedRequest = null )
 						}
@@ -5398,7 +5399,7 @@
 							if ( ret += nb === str.length ? str : str.slice( 0, n ), n -= nb, 0 === n )
 							{
 								nb === str.length ? ( ++c, this.head = p.next ? p.next : this.tail = null ) : ( this.head = p, p.data = str.slice( nb ) );
-								break
+								break;
 							}++c
 						}
 						return this.length -= c, ret
@@ -5418,7 +5419,7 @@
 							if ( buf.copy( ret, ret.length - n, 0, nb ), n -= nb, 0 === n )
 							{
 								nb === buf.length ? ( ++c, this.head = p.next ? p.next : this.tail = null ) : ( this.head = p, p.data = buf.slice( nb ) );
-								break
+								break;
 							}++c
 						}
 						return this.length -= c, ret
@@ -7457,7 +7458,7 @@
 						if ( a != b )
 						{
 							a < b ? res = -1 : a > b && ( res = 1 );
-							break
+							break;
 						}
 					}
 					return res
@@ -8192,7 +8193,7 @@
 					else
 					{
 						item++, iv.writeUInt8( item, len );
-						break
+						break;
 					}
 			}
 		},
@@ -8232,7 +8233,7 @@
 					else
 					{
 						out = Buffer.concat( [ out, encryptStart( self, data, decrypt ) ] );
-						break
+						break;
 					} return out
 			}
 		},
@@ -9821,7 +9822,7 @@
 									if ( read( arr, i + j ) !== read( val, j ) )
 									{
 										found = !1;
-										break
+										break;
 									} if ( found ) return i
 							}
 						return -1
@@ -10122,7 +10123,7 @@
 							if ( a[ i ] !== b[ i ] )
 							{
 								x = a[ i ], y = b[ i ];
-								break
+								break;
 							} return x < y ? -1 : y < x ? 1 : 0
 					}, Buffer.isEncoding = function ( encoding )
 					{
@@ -10202,7 +10203,7 @@
 							if ( thisCopy[ i ] !== targetCopy[ i ] )
 							{
 								x = thisCopy[ i ], y = targetCopy[ i ];
-								break
+								break;
 							} return x < y ? -1 : y < x ? 1 : 0
 					}, Buffer.prototype.includes = function ( val, byteOffset, encoding )
 					{
@@ -14682,7 +14683,7 @@
 						if ( list[ i ] === listener || list[ i ].listener === listener )
 						{
 							originalListener = list[ i ].listener, position = i;
-							break
+							break;
 						} if ( 0 > position ) return this;
 					0 === position ? list.shift() : spliceOne( list, position ), 1 === list.length && ( events[ type ] = list[ 0 ] ), events.removeListener && this.emit( "removeListener", type, originalListener || listener )
 				}
@@ -16125,7 +16126,7 @@
 								}
 								catch ( err )
 								{
-									return
+									return;
 								}
 								this._wire.peerPieces.get( index ) && ( debug( "got donthave %d", index ), this._wire.peerPieces.set( index, !1 ), this.emit( "donthave", index ), this._failRequests( index ) )
 							}
@@ -16703,7 +16704,7 @@
 						for ( var i = 1; i < s; i++ )
 						{
 							if ( x = x.redSqr(), 0 === x.cmp( rone ) ) return !1;
-							if ( 0 === x.cmp( rn1 ) ) break
+							if ( 0 === x.cmp( rn1 ) ) break;
 						}
 						if ( i === s ) return !1
 					}
@@ -16727,7 +16728,7 @@
 						for ( var i = 1; i < s; i++ )
 						{
 							if ( x = x.redSqr(), 0 === x.cmp( rone ) ) return x.fromRed().subn( 1 ).gcd( n );
-							if ( 0 === x.cmp( rn1 ) ) break
+							if ( 0 === x.cmp( rn1 ) ) break;
 						}
 						if ( i === s ) return x = x.redSqr(), x.fromRed().subn( 1 ).gcd( n )
 					}
@@ -17794,7 +17795,7 @@
 								{
 									var buf = this._stream.read();
 									if ( !buf ) return void( this._want = !!this._stream );
-									if ( !this.push( buf ) ) return
+									if ( !this.push( buf ) ) return;
 								}
 						}
 						_read()
@@ -18841,7 +18842,7 @@
 							else if ( !matchedSlash )
 						{
 							start = i + 1;
-							break
+							break;
 						}
 						return -1 === end ? "" : path.slice( start, end )
 					}
@@ -18896,7 +18897,7 @@
 							if ( fromParts[ i ] !== toParts[ i ] )
 							{
 								samePartsLength = i;
-								break
+								break;
 							} for ( var outputParts = [], i = samePartsLength; i < fromParts.length; i++ ) outputParts.push( ".." );
 						return outputParts = outputParts.concat( toParts.slice( samePartsLength ) ), outputParts.join( "/" )
 					}, exports.sep = "/", exports.delimiter = ":", exports.dirname = function ( path )
@@ -18907,7 +18908,7 @@
 							else if ( !matchedSlash )
 						{
 							end = i;
-							break
+							break;
 						}
 						return -1 === end ? hasRoot ? "/" : "." : hasRoot && 1 === end ? "/" : path.slice( 0, end )
 					}, exports.basename = function ( path, ext )
@@ -18924,7 +18925,7 @@
 								if ( !matchedSlash )
 								{
 									startPart = i + 1;
-									break
+									break;
 								}
 								continue
 							} - 1 === end && ( matchedSlash = !1, end = i + 1 ), 46 === code ? -1 === startDot ? startDot = i : 1 !== preDotState && ( preDotState = 1 ) : -1 !== startDot && ( preDotState = -1 )
@@ -19445,7 +19446,7 @@
 					if ( i >= msg.length )
 					{
 						status++;
-						break
+						break;
 					} var ps = msg.slice( 2, i - 1 );
 				if ( ( "0002" !== p1.toString( "hex" ) && !reverse || "0001" !== p1.toString( "hex" ) && reverse ) && status++, 8 > ps.length && status++, status ) throw new Error( "decryption error" );
 				return msg.slice( i )
@@ -20066,7 +20067,7 @@
 						if ( writeEnd > chunk.length )
 						{
 							this._position += chunk.length, toWrite = 0 === writeStart ? chunk : chunk.slice( writeStart ), drained = currRange.stream.write( toWrite ) && drained;
-							break
+							break;
 						}
 						this._position += writeEnd, toWrite = 0 === writeStart && writeEnd === chunk.length ? chunk : chunk.slice( writeStart, writeEnd ), drained = currRange.stream.write( toWrite ) && drained, currRange.last && currRange.stream.end(), chunk = chunk.slice( writeEnd ), this._queue.shift()
 					}
@@ -20640,7 +20641,7 @@
 							if ( ret += nb === str.length ? str : str.slice( 0, n ), n -= nb, 0 === n )
 							{
 								nb === str.length ? ( ++c, list.head = p.next ? p.next : list.tail = null ) : ( list.head = p, p.data = str.slice( nb ) );
-								break
+								break;
 							}++c
 						}
 						return list.length -= c, ret
@@ -20658,7 +20659,7 @@
 							if ( buf.copy( ret, ret.length - n, 0, nb ), n -= nb, 0 === n )
 							{
 								nb === buf.length ? ( ++c, list.head = p.next ? p.next : list.tail = null ) : ( list.head = p, p.data = buf.slice( nb ) );
-								break
+								break;
 							}++c
 						}
 						return list.length -= c, ret
@@ -21138,7 +21139,7 @@
 									encoding = entry.encoding,
 									cb = entry.callback,
 									len = state.objectMode ? 1 : chunk.length;
-								if ( doWrite( stream, state, !1, len, chunk, encoding, cb ), entry = entry.next, state.bufferedRequestCount--, state.writing ) break
+								if ( doWrite( stream, state, !1, len, chunk, encoding, cb ), entry = entry.next, state.bufferedRequestCount--, state.writing ) break;
 							}
 							null === entry && ( state.lastBufferedRequest = null )
 						}
@@ -22564,8 +22565,9 @@
 					{
 						'use asm';
 						var H$843 = new stdlib$840.Int32Array( heap$842 );
-						return {
-							hash: function HSHFNNM( k$845, x$846 )
+
+						// HSHFN
+						return { hash: function( k$845, x$846 )
 							{
 								k$845 |= 0, x$846 |= 0;
 								var i$847 = 0,
@@ -22597,8 +22599,10 @@
 									y0$849 = 0 | y0$849 + z0$850, y1$851 = 0 | y1$851 + z1$852, y2$853 = 0 | y2$853 + z2$854, y3$855 = 0 | y3$855 + z3$856, y4$857 = 0 | y4$857 + z4$858
 								}
 								H$843[ x$846 + 320 >> 2 ] = y0$849, H$843[ x$846 + 324 >> 2 ] = y1$851, H$843[ x$846 + 328 >> 2 ] = y2$853, H$843[ x$846 + 332 >> 2 ] = y3$855, H$843[ x$846 + 336 >> 2 ] = y4$857
-							}
-						}
+
+							} // hash func
+							// if OBJ } return { hash: hash };
+						} // before hash: label
 					}
 				}, function ( module )
 				{
@@ -26627,7 +26631,7 @@
 										notHost = hostparts.slice( i + 1 ),
 										bit = part.match( /^([+a-z0-9A-Z_-]{0,63})(.*)$/ );
 									bit && ( validParts.push( bit[ 1 ] ), notHost.unshift( bit[ 2 ] ) ), notHost.length && ( rest = "/" + notHost.join( "." ) + rest ), this.hostname = validParts.join( "." );
-									break
+									break;
 								}
 							} this.hostname = 255 < this.hostname.length ? "" : this.hostname.toLowerCase(), ipv6Hostname || ( this.hostname = punycode.toASCII( this.hostname ) );
 					var p = this.port ? ":" + this.port : "",
@@ -26810,7 +26814,7 @@
 								}
 								catch ( err )
 								{
-									return
+									return;
 								}
 								switch ( dict.msg_type )
 								{
@@ -26909,7 +26913,7 @@
 									if ( !this._bitfield.get( piece ) )
 									{
 										done = !1;
-										break
+										break;
 									} if ( done )
 								{
 									const success = this.setMetadata( this.metadata );
@@ -28514,7 +28518,7 @@
 								if ( s.from === start && s.to === end && s.priority === priority )
 								{
 									this._selections.splice( i, 1 );
-									break
+									break;
 								}
 							}
 							this._updateSelections()
@@ -28642,7 +28646,7 @@
 								if ( this.pieces[ index ] && wire.peerPieces.get( index ) )
 								{
 									interested = !0;
-									break
+									break;
 								} interested ? wire.interested() : wire.uninterested()
 						}
 						_update()
@@ -28757,7 +28761,7 @@
 										}
 										else
 											for ( piece = next.to; piece >= next.from + next.offset; --piece )
-												if ( wire.peerPieces.get( piece ) && self._request( wire, piece, !1 ) ) return
+												if ( wire.peerPieces.get( piece ) && self._request( wire, piece, !1 ) ) return;
 									}
 							}();
 							const minOutstandingRequests = getBlockPipelineLength( wire, .5 );
@@ -28897,8 +28901,8 @@
 									if ( !this.bitfield.get( piece ) )
 									{
 										done = !1;
-										break
-									} if ( !done ) break
+										break;
+									} if ( !done ) break;
 							}
 							return !this.done && done && ( this.done = !0, this._debug( `torrent done: ${this.infoHash}` ), this.emit( "done" ) ), this._gcSelections(), done
 						}
@@ -28966,7 +28970,7 @@
 											newPeer && ( newPeer.retries = 0 )
 										}
 										else this._debug( "conn %s closed: will not re-add (max %s attempts)", peer.addr, RECONNECT_WAIT.length );
-										return
+										return;
 									}
 									const ms = RECONNECT_WAIT[ peer.retries ];
 									this._debug( "conn %s closed: will re-add to queue in %sms (attempt %s)", peer.addr, ms, peer.retries + 1 );

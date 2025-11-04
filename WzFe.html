@@ -8,99 +8,88 @@
 	<title>WzFe</title>
 	<link rel="manifest" href="manifest.json" />
 
-	<script type="text/javascript"
-		src="Hrx4_Che__MeGrx_CORS.js"></script>
-	<script type="text/javascript"
-		src="Mx07__SuSmi_WEBPG/SuSmi01__JS/Ki00__PUB.js"></script>
-	<script type="text/javascript"
-		src="Mx07__SuSmi_WEBPG/SuSmi01__JS/Ki05__KoToKz_OPFS.js"></script>
-
-	<script type="module" src="Mx07__SuSmi_WEBPG/SuSmi01__JS/Kru00__Hrz4_Bu.js"></script>
-
+	<script type="text/javascript" src="Hrx4_Che__MeGrx_CORS.js"></script>
+	<script type="text/javascript">
+		//==============================================
+		// CORS must RUN FIRST
+		//==============================================
+		console.log("CORS: " + (window.crossOriginIsolated ? "✅" : "❌"));
+		if (!window.crossOriginIsolated)
+		{
+			//???
+			// SHOULD ADD TO DOM
+			console.log('WAITING: Engaging HTTPS CORS in order to run under Security Policies.');
+			abort();
+		}
+		//==============================================
+		// NOW STYLE & BODY
+		//==============================================
+	</script>
 	<style>
-		@font-face {
+		@font-face
+		{
 			/* https://fonts.google.com/specimen/Raleway */
 			font-family: Raleway;
 			font-style: normal;
 			font-weight: 100;
 			src: url(https://fonts.gstatic.com/s/raleway/v36/1Ptxg8zYS_SKggPN4iEgvnHyvveLxVvaorCIPrQ.ttf) format('truetype')
 		}
-
 		body
 		{
-			font-family: Raleway;
-			font-weight: 100;
-			margin: 0;
-			padding: none;
 			background-color: rgb(0, 0, 0);
 		}
-
-		canvas.emscripten {
+		.HriDx
+		{
 			display: block;
 			position: absolute;
-			left: 0dvw;
-			top: 2em;
-			width: 100dvw;
-			height: calc(100dvh - 4em);
 			margin: 0;
 			padding: none;
+
+			font-family: Raleway;
+			font-weight: 100;
+			font-size: 2em;
+			color: rgb(255, 255, 255);
+		}
+		#MxPo_De
+		{
+			left: 0dvw;
+			top: 2.5em;
+			width: 100dvw;
+			/* height: calc( 100dvh - 4em); */
+			height: calc( 50dvh - 5em);
 
 			image-rendering: smooth;
 			image-rendering: optimizeSpeed;
-			/* background-color: rgb( 0, 0, 0 ); */
 		}
+		#MxPo_Zx
+		{
+			left: 0dvw;
+			top: calc( 50dvh + 0.5em);
+			width: 100dvw;
+			height: calc( 50dvh - 5em);
 
+			image-rendering: smooth;
+			image-rendering: optimizeSpeed;
+		}
 		#BriDzYz__Bz
 		{
-			display: block;
-			position: absolute;
 			left: 0dvw;
 			top: 0dvh;
 			width: 100dvw;
 			height: 2em;
-			margin: 0;
-			padding: none;
 
-			font-size: 2em;
 			background-color: rgb(255, 160, 32);
-			color: rgb(255, 255, 255);
 		}
-
 		#BriDzYz__Bo
 		{
-			display: block;
-			position: absolute;
 			left: 0dvw;
 			top: calc(100dvh - 2em);
 			width: 100dvw;
 			height: 2em;
-			margin: 0;
-			padding: none;
 
-			font-size: 2em;
 			background-color: rgb(255, 32, 32);
-			color: rgb(255, 255, 255);
-		}
-
-
-
-		button
-		{
-			display: block;
-			position: absolute;
-			left: 0dvw;
-			top: calc(100dvh - 4em);
-			width: 100dvw;
-			height: 2em;
-			margin: 0;
-			padding: none;
-
-			font-size: 2em;
-			background-color: rgb( 32, 32, 160 );
-			color: rgb(255, 255, 255);
 		}
 	</style>
-
 
 </head>
 
@@ -108,35 +97,23 @@
 <body>
 	<!-- <canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault()" tabindex=-1></canvas> -->
 
-	<canvas class="emscripten" id="canvas"
-		tabindex=-1></canvas>
-	<p class="emscripten" id="BriDzYz__Bz" tabindex=1>
+	<canvas class="HriDx" id="MxPo_De"	tabindex=-1></canvas>
+	<canvas class="HriDx" id="MxPo_Zx"	tabindex=-1></canvas>
+
+	<p class="HriDx" id="BriDzYz__Bz" tabindex=1>
+		Welcome...</p>
+	<p class="HriDx" id="BriDzYz__Bo" tabindex=2>
 		Downloading...</p>
-	<p class="emscripten" id="BriDzYz__Bo" tabindex=2>
-		Downloading...</p>
 
-	<!-- <span><input type="checkbox" id="resize">Resize canvas</span>
-    <span><input type="checkbox" id="pointerLock" checked>Lock/hide mouse pointer &nbsp;&nbsp;&nbsp;</span>
-    <span><input type="button" value="Fullscreen" onclick="Module.requestFullscreen(document.getElementById('pointerLock').checked, document.getElementById('resize').checked)"></span> -->
+</body>
 
-	<script type='text/javascript'>
-
-		//==============================================
-		// CORS
-		//==============================================
-		console.log("CORS: " + (window.crossOriginIsolated ? "✅" : "❌"));
-		if (!window.crossOriginIsolated) {
-			//???
-			// SHOULD ADD TO DOM
-			console.log('WAITING: Engaging HTTPS CORS in order to run under Security Policies.');
-			abort();
-		}
+	<script type='module'>
 
 		//==============================================
 		// INPUT: PASSIVE_SUPPORT
 		//==============================================
 		// Before any third party import that causes issues
-		// import { passiveSupport } from 'Kru00__Hrz4_Bu.js';
+		// import { passiveSupport } from 'JS00_Kru/Kru00__Hrz4_Bu_Ko_NODE.js';
 		// passiveSupport(
 		// {
   		// 	events: 'touchstart', // or any other event tyoes
@@ -148,56 +125,103 @@
 		//==============================================
 
 		//@@@
-		// VALUES
+		// FILE HANDLE TEST ONLY
 		//@@@
-		let ME_ToKzVy;
 		let OP_ToKzVy;
-
-		//@@@
-		// GLOBAL
-		var opfs = OPFS();
 
 		//@@@
 		// MxPo
 		// SCREEN
-		let MxPoKu__Kz_l = document.getElementById('canvas');
+		let MxPo_De_l = document.getElementById('MxPo_De');
 
 		//@@@
-		// ELEM
+		// BAR
 		let BriDzYz__Bz_l = document.getElementById('BriDzYz__Bz');
 		let BriDzYz__Bo_l = document.getElementById('BriDzYz__Bo');
+
+		//==============================================
+		// GPS
+		//==============================================
+		function KiGPS_Trx(error)
+		{
+			const Err_vsg = "";
+  			switch(error.code)
+			{
+    			case error.PERMISSION_DENIED:
+      			Err_vsg = "User denied the request for Geolocation."
+      			break;
+				case error.POSITION_UNAVAILABLE:
+				Err_vsg = "Location information is unavailable."
+				break;
+				case error.TIMEOUT:
+				Err_vsg = "The request to get user location timed out."
+				break;
+				case error.UNKNOWN_ERROR:
+				Err_vsg = "An unknown error occurred."
+				break;
+			}
+			console.log( "GPS_ERR: " + Err_vsg );
+		}
+
+		function KiGPS_Fy(Ge_l )
+		{
+			// coords.latitude	The latitude as a decimal number (always returned)
+			// coords.longitude	The longitude as a decimal number (always returned)
+			// coords.accuracy	The accuracy of position (always returned)
+
+			// coords.altitude	The altitude in meters above the mean sea level (returned if available)
+			// coords.altitudeAccuracy	The altitude accuracy of position (returned if available)
+			// coords.heading	The heading as degrees clockwise from North (returned if available)
+			// coords.speed	The speed in meters per second (returned if available)
+			// timestamp	The date/time of the response (returned if available)
+
+			console.log( "GPS: Lat: " + Ge_l.coords.latitude + " Lon: " + Ge_l.coords.longitude );
+		}
+
+		// getCurrentPosition() one-shot
+		// watchPosition() - continues to return updated location as the user moves (like the GPS in a car).
+		// clearWatch() - Stops the watchPosition() method.
+
+		if (navigator.geolocation){ navigator.geolocation.watchPosition( KiGPS_Fy, KiGPS_Trx ); }
+		else { console.log( "Geolocation is not supported by this browser." ); }
+
 
 		//==============================================
 		// SCREEN
 		//==============================================
 
+		// Module.requestFullscreen(document.getElementById('pointerLock').checked, document.getElementById('resize').checked)
 
 		//@@@
 		// GL LOST
 		// See http://www.khronos.org/registry/webgl/specs/latest/1.0/#5.15.2
-		MxPoKu__Kz_l.addEventListener('webglcontextlost', (e) => {
+		MxPo_De_l.addEventListener('webglcontextlost', (e) =>
+		{
 			alert('ERR001: WebGL context lost. You will need to reload the page.');
 			e.preventDefault();
 		}, false);
 
-		function resizeCanvas() {
-			//console.log( "Pre-Resize: " + canvas.width + ", " + canvas.height );
+		function resizeCanvas()
+		{
+			//console.log( "Pre-Resize: " + MxPo_De_l.width + ", " + MxPo_De_l.height );
 
-			const displayWidth = canvas.clientWidth;
-			const displayHeight = canvas.clientHeight;
+			const displayWidth = MxPo_De_l.clientWidth;
+			const displayHeight = MxPo_De_l.clientHeight;
 
-			if (canvas.width !== displayWidth || canvas.height !== displayHeight) {
-				canvas.width = displayWidth;
-				canvas.height = displayHeight;
+			if (MxPo_De_l.width !== displayWidth || MxPo_De_l.height !== displayHeight) {
+				MxPo_De_l.width = displayWidth;
+				MxPo_De_l.height = displayHeight;
 
-				//console.log( "Resize: " + canvas.width + ", " + canvas.height );
-				BriDzYz__Bz_l.innerHTML = "MicroCosm: " + VER_vsg + ": " + canvas.width + ", " + canvas.height;
+				//console.log( "Resize: " + MxPo_De_l.width + ", " + MxPo_De_l.height );
+				BriDzYz__Bz_l.innerHTML = "MicroCosm: " + VER_vsg + ": " + MxPo_De_l.width + ", " + MxPo_De_l.height;
 			}
 		}
 
+		//@@@
+		// DETECT
 		window.addEventListener('resize', resizeCanvas);
 		window.addEventListener('DOMContentLoaded', resizeCanvas);
-
+		// window.setInterval(function () {resizeCanvas();}, 500);
 
 		//==============================================
 		// MEM
@@ -224,19 +248,22 @@
 
 		//@@@
 		// MEM MONITOR
-		var HraKuKx__MzFo_wu = 0;
-		function runMemoryMeasurements() {
-			// 6 Seconds
-			const interval = 6 * 1000;
+		let HraKuKx__MzFo_wu = 0;
+		function runMemoryMeasurements()
+		{
+			// Seconds
+			const interval = 10 * 1000;
 			HraKuKx__MzFo_wu++;
 
 			// Only run X times
-			if (HraKuKx__MzFo_wu < 1) {
+			if (HraKuKx__MzFo_wu < 1)
+			{
 				setTimeout(measureMemory, interval);
 			}
 		}
 
-		async function measureMemory() {
+		async function measureMemory()
+		{
 			const HrxKuHa = await performance.measureUserAgentSpecificMemory();
 			// console.log(HrxKuHa);
 
@@ -273,21 +300,6 @@
 		measureMemory();
 
 
-		async function OPFS_SmeStx() {
-			await opfs.writeFile('MEFS_A.txt', 'Hello World');
-			const fileData = await opfs.readFile('MEFS_A.txt');
-			console.log(await fileData.toText()); // "Hello World"
-
-			await opfs.appendFile('MEFS_A.txt', '\nMore');
-			// await opfs.renameFile('MEFS_A.txt', 'MEFS_B.txt');
-			await opfs.copyFile('MEFS_A.txt', 'copy.txt');
-
-			const exists = await opfs.fileExists('copy.txt');
-			console.log("Copy Exists: " + exists); // true
-
-			const files = await opfs.listFiles('.');
-			console.log("List Files: " + files);
-		}
 
 		//==============================================
 		// FONTS AVAIL
@@ -334,110 +346,6 @@
 			}
 		}
 
-
-		//==============================================
-		// IDB STOR
-		//==============================================
-		//@@@
-		// IDB
-		const IDB_Ko_l = new Promise((resolve, reject) => {
-			// IDB NAME
-			const request = indexedDB.open('handle', 1);
-
-			request.onupgradeneeded = (event) => {
-				const db = event.target.result;
-				db.createObjectStore('handles', {keyPath: 'id'});
-			};
-
-			request.onsuccess = (event) => {
-				console.log("IDB_Good\n");
-				resolve(event.target.result);
-			};
-
-			request.onerror = (event) => {
-				console.error(event);
-				reject(event.target.error);
-			};
-		});
-
-		/**
-		 * Saves a directory handle to the database.
-		 * @param {FileSystemDirectoryHandle} ToKzVy  - The directory handle to save.
-		 * @returns {Promise<void>} A promise that resolves when the handle is saved.
-		 */
-		//async function
-		const IDB_ToKzVy__Chy = (Va, ToKzVy) => {
-			return new Promise((resolve, reject) => {
-				IDB_Ko_l.then((db) => {
-					const transaction = db.transaction(['handles'], 'readwrite');
-					const store = transaction.objectStore('handles');
-					const request = store.put({id: Va, handle: ToKzVy});
-
-					request.onsuccess = () => {
-						console.log("IDB Handle Saved\n");
-						resolve();
-					}
-					request.onerror = () => {
-						console.log("IDB Handle Failed\n");
-						reject(request.error);
-					}
-				});
-			});
-		};
-
-		/**
-		 * Retrieves the last saved folder handle from the database.
-		 * @returns {Promise<FileSystemDirectoryHandle|undefined>} A promise that resolves with the folder handle or undefined if not found.
-		 */
-		const IDB_ToKzVy__My = (Va) => {
-			return new Promise((resolve, reject) => {
-				IDB_Ko_l.then((db) => {
-					const transaction = db.transaction(['handles'], 'readonly');
-					const store = transaction.objectStore('handles');
-					const request = store.get(Va);
-
-					request.onsuccess = (event) => {
-						console.log("IDB Handle Found\n" + event.target.result);
-						resolve(event.target.result?.handle);
-					}
-					request.onerror = () => {
-						console.log("IDB Handle UNK\n");
-						reject(request.error);
-					}
-				});
-			});
-		};
-
-		//==============================================
-		// MODULE ENGINE
-		//==============================================
-		async function preventMultiTab() {
-			if (window.BroadcastChannel) {
-				var tab_sid = (new Date()).getTime();
-
-				sessionStorage.setItem('tab_sid', tab_sid);
-				var channel = new BroadcastChannel('tab-connections');
-
-				channel.postMessage('ping:get_back_all_ids');
-
-				channel.onmessage = function (e) {
-					var message = e.data.split(':');
-					if (message[0] == 'close') {
-						if (tab_sid > parseInt(message[1])) {
-							channel = null;
-							console.log('Extra Tab Detected.');
-						}
-					}
-					else if (message[0] == "ping") {
-						console.log('Closing Tab.');
-						channel.postMessage('close:' + tab_sid);
-					}
-				}
-			}
-		}
-
-		preventMultiTab();
-
 		//==============================================
 		// MODULE ENGINE
 		//==============================================
@@ -446,8 +354,10 @@
 		// EMCC IFACE
 		var Module =
 		{
-			canvas: MxPoKu__Kz_l,
+			canvas: MxPo_De_l,
+			KiWG: null,
 
+			totalDependencies: 0,
 			// Define how notification messages from Emscripten are displayed via Module.print attribute.
 			//'print': function(text) { alert('MSG: ' + text) },
 			'print': function (text) {console.log('MSG: ' + text);},
@@ -457,14 +367,16 @@
 
 			'onAbort': function (text) {alert('FAIL: ' + text)},
 
+
 			// SPINNER & TEXT
 			setStatus(text)
 			{
 				BriDzYz__Bo_l.innerHTML = text;
 			},
 
-			totalDependencies: 0,
-			monitorRunDependencies(left) {
+
+			monitorRunDependencies(left)
+			{
 				this.totalDependencies = Math.max(this.totalDependencies, left);
 				Module.setStatus(left ? 'Preparing... (' + (this.totalDependencies - left) + '/' + this.totalDependencies + ')' : 'All downloads complete.');
 			}
@@ -473,14 +385,8 @@
 		Module.setStatus('Downloading...');
 
 		//==============================================
-		//
+		// ERR
 		//==============================================
-
-
-
-		//@@@
-		// INTERVALS
-		window.setInterval(function () {resizeCanvas();}, 500);
 
 		//!!!
 		// GENERIC ERROR
@@ -491,25 +397,223 @@
 			Module.setStatus = (text) => {if (text) console.error('ERR: ' + text);};
 		};
 
+
+		//==============================================
+		// XR
+		//==============================================
+		if (navigator.xr)
+		{
+			const opt =
+			{
+				requiredFeatures: ['local-floor', 'hand-tracking']
+			};
+
+			navigator.xr.isSessionSupported('immersive-vr', opt ).then((Hy_y ) =>
+			{
+				console.log( "XR:VR Support " + Hy_y );
+				if( Hy_y )
+				{
+					// Request XR session
+				}
+			});
+
+			navigator.xr.isSessionSupported('immersive-ar', opt ).then((Hy_y ) =>
+			{
+				console.log( "XR:AR Support " + Hy_y );
+				if( Hy_y )
+				{
+					// Request XR session
+				}
+			});
+
+		}
+		else
+		{
+		    console.log("WebXR is not supported. Please use a compatible browser.");
+		}
+
+
+		//==============================================
+		// END TEST SCRIPTS
+		//==============================================
 	</script>
 
-	//==============================================
-	//
-	//==============================================
-	<script type="module"
-		src="Mx07__SuSmi_WEBPG/SuSmi01__JS/Ki04__EVT.js"></script>
 
-	<script type="text/javascript"
-		src="Mx07__SuSmi_WEBPG/SuSmi06__BIN/BriDz.js"></script>
+<!--
+//==============================================
+// LIB
+//==============================================
+-->
+<script type="text/javascript" src="Mx07__SuSmi_WEBPG/SuSmi01__JS/JS00_Kru/Kru00__MxDiDa_PUB.js"></script>
+<script type="text/javascript" src="Mx07__SuSmi_WEBPG/SuSmi06__BIN/BriDz.js"></script>
 
 
-	<!-- <script src="https://cdn.jsdelivr.net/npm/qrcode@1.4.4/build/qrcode.min.js"></script> -->
-	<!-- <script src="Mx07__SuSmi_WEBPG/SuSmi01__JS/Kru05__Hra4_Bru00__SyDe.js" type="application/javascript"></script> -->
-	<!-- <script src="Mx07__SuSmi_WEBPG/SuSmi01__JS/Kru00__Hrz4_Bu.js" type="application/javascript"></script> -->
+<script type="module" src="Mx07__SuSmi_WEBPG/SuSmi01__JS/Ki05__KoToKz_OPFS.js"></script>
+<script type="module" src="Mx07__SuSmi_WEBPG/SuSmi01__JS/Ki05__Hra6_Ku.js"></script>
 
-	<!-- <script async type="module" src="Mx07__SuSmi_WEBPG/SuSmi01__JS/Ki07__HrySmz_KiGL.js"></script> -->
-	<script type="module" src="Mx07__SuSmi_WEBPG/SuSmi01__JS/Ki07__HrySmz_KiWG.js"></script>
+<script type="text/javascript" src="Mx07__SuSmi_WEBPG/SuSmi01__JS/JS00_Kru/JS00_Kru/Kru00__Hrz4_Bu_Ko_NODE_Ko_NODE.js"></script>
 
-</body>
 
+<script type="text/javascript" src="Mx07__SuSmi_WEBPG/SuSmi01__JS/JS00_Kru/Kru04__Hro1_Zz__VxVe_MATH.js"></script>
+
+<script type="text/javascript" src="Mx07__SuSmi_WEBPG/SuSmi01__JS/JS03_Ki/Ki07__HrySmz00__KiGL.js"></script>
+<script type="text/javascript" src="Mx07__SuSmi_WEBPG/SuSmi01__JS/JS03_Ki/Ki07__HrySmz01__KiWG.js"></script>
+
+
+	<script  type="text/javascript" src="https://cdn.jsdelivr.net/npm/qrcode@1.4.4/build/qrcode.min.js"></script>
+    <script src="Mx07__SuSmi_WEBPG/SuSmi01__JS/JS03_Ki/Ki05__Hra4_Bru00_KiWT_De.js" type="application/javascript"></script>
+
+<!--
+//==============================================
+// LIFECYCLE
+//==============================================
+-->
+<script type="text/javascript">
+
+	//----------------------------
+	// OP^Zz
+	//----------------------------
+	function ChyNy( Sa, Vu ){ Sa = Vu };
+
+
+	//----------------------------
+	// QUAL^Vi
+	//----------------------------
+	const BriYz_qk = Object.freeze
+	({
+		HxHo: 0
+		, Trx: 1
+		, Ya: 2
+		, Ye: 3
+		, Yo: 4
+		, Yi: 5
+	});
+
+	//----------------------------
+	// SPEC
+	//----------------------------
+	const Ko =
+	{
+		YeFo_wu: 0,
+
+		Ta__KruKz: [],
+		Ta__SySmz: [],
+		Ta__KiSmz: []
+	};
+
+
+	//----------------------------
+	// ERS^Chi
+	//----------------------------
+	function KoTa__Yi( )
+	{
+		//@@@
+		// STATUS
+		if( Ko.BriYz_q === BriYz_qk.Yi ) return;
+		ChyNy( Ko.BriYz_q, BriYz_qk.Yi );
+
+		//@@@
+		// ERS TEK
+
+	}
+
+
+	//----------------------------
+	// CRT^Chz
+	//----------------------------
+	async function KoTa__Ya( )
+	{
+		//@@@
+		// STATUS
+		if( Ko.BriYz_q === BriYz_qk.Ya ) return;
+		ChyNy( Ko.BriYz_q, BriYz_qk.Ya );
+
+		//@@@
+		// CRT TEK
+
+		window.Ta_SySmz.push( await KiGL.BriYa() );
+		console.log( "Pre: " + window.createRobo );
+  		await import( "/Mx07__SuSmi_WEBPG/SuSmi01__JS/Ki04__EVT.js" );
+		  // import * as KiWG from "./Mx07__SuSmi_WEBPG/SuSmi01__JS/Ki07__HrySmz_KiWG.js";
+		  // import { HrySmz_Ya } from "./Mx07__SuSmi_WEBPG/SuSmi01__JS/Ki07__HrySmz_KiWG.js";
+
+		Ta_SySmz.push( await window.createRobo( 'Chuba' ) );
+		//window.createRobo = createRobo;
+
+		console.log( "Post: " + window.createRobo );
+		console.log( 'SERV ACTIVE' );
+		Ta_SySmz[0].Sma();
+
+
+		//@@@
+		// TOGGLE PLAY
+		KoTa__Yo( );
+	}
+
+
+	//----------------------------
+	// PAUSE^Yo
+	//----------------------------
+	function KoTa__Yo( )
+	{
+		//@@@
+		// TOGGLE PAUSE
+		if( Ko.BriYz_q === BriYz_qk.Ye ) return;
+		{
+			//&&&
+			// STATUS
+			ChyNy( Ko.BriYz_q, BriYz_qk.Yo );
+
+			//&&&
+			// BROADCAST
+
+
+		}
+
+		//@@@
+		// TOGGLE PLAY if not paused
+		if( Ko.BriYz_q !== BriYz_qk.Yo )
+		{
+			//&&&
+			// BROADCAST
+
+			//&&&
+			// STATUS
+			ChyNy( Ko.BriYz_q, BriYz_qk.Ye );
+			requestAnimationFrame( KoTa__Ye );
+			return;
+		}
+	}
+
+	//----------------------------
+	// UPD^Ye
+	//----------------------------
+	function KoTa__Ye( Gi )
+	{
+		//@@@
+		// VALID
+		if( Ko.BriYz_q !== BriYz_qk.Ye ) return;
+
+		//@@@
+		// SERV ITER & DISPATCH
+		Ko.YeFo_wu++;
+		BriDzYz__Bo_l.innerHTML = "Frm " + FRM_wu;
+
+
+		//@@@
+		// LOOP FOREVER
+		requestAnimationFrame( KoTa__Ye );
+	}
+
+	//@@@
+	// BEGIN
+	KoTa__Ya();
+
+</script>
+
+<!--
+//==============================================
+// END
+//==============================================
+-->
 </html>

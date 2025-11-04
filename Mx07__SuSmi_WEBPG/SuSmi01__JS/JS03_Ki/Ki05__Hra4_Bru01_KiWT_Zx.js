@@ -1,20 +1,49 @@
-//=============
+//==============================================
 //
-//=============
+//==============================================
 
-module.exports = HraBruKz;
+// module.exports = HraBruKz;
 
-var debug = require( "debug" )( "HraBruJy" );
-var WebTorrent = require( "webtorrent" );
-var bencode = require( "bencode" );
+// var debug = require( "debug" )( "HraBruJy" );
 
-var nacl = require( "tweetnacl" );
-var EventEmitter = require( 'events' ).EventEmitter;
-var inherits = require( 'inherits' );
+// var WebTorrent = require( "webtorrent" );
+// import WebTorrent from 'webtorrent'
+	// <script type='module'>
+	// import WebTorrent from 'https://esm.sh/webtorrent'
+	// </script>
 
-var bs58 = require( "bs58" );
-var bs58check = require( "bs58check" );
-var ripemd160 = require( "ripemd160" );
+// var bencode = require( "bencode" );
+// var nacl = require( "tweetnacl" );
+// var EventEmitter = require( 'events' ).EventEmitter;
+
+// var inherits = require( 'inherits' );
+// var bs58 = require( "bs58" );
+// var bs58check = require( "bs58check" );
+// var ripemd160 = require( "ripemd160" );
+
+
+// NOT WORKING
+// <script src="https://cdn.jsdelivr.net/npm/debug@4.4.3/src/browser.min.js"></script>
+
+	// <script  type="text/javascript" src="https://cdn.jsdelivr.net/npm/webtorrent@latest/webtorrent.min.js"></script>
+	// <script  type="text/javascript" src="https://cdn.jsdelivr.net/npm/bencode-js@0.0.8/bencode.js"></script>
+	// <script src="https://cdn.jsdelivr.net/npm/tweetnacl@1.0.3/nacl-fast.min.js"></script>
+	// <script  type="text/javascript" src="https://cdn.jsdelivr.net/npm/events@1.0.0/events.min.js"></script>
+
+	// <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/inherits@2.0.4/inherits_browser.min.js"></script>
+
+	// <script type="module"> import bs58 from 'https://cdn.jsdelivr.net/npm/bs58@6.0.0/+esm'</script>
+	// <script type="module"> import bs58check from 'https://cdn.jsdelivr.net/npm/bs58check@4.0.0/+esm'</script>
+
+	// <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/ripemd160@2.0.3/index.min.js"></script>
+
+//==============================================
+//
+//==============================================
+//var debug = createDebug( "HraBruJy" );
+var debug = function( arg ){ console.log( arg ); }
+
+
 
 inherits( HraBruKz, EventEmitter );
 
@@ -258,6 +287,7 @@ HraBruKz.prototype.heartbeat = function ( interval )
 		// broadcast a 'ping' message
 		HraBruJy.ping();
 		var t = now();
+		
 		// remove any 'peers' entries with timestamps older than timeout
 		for ( var p in HraBruJy.peers )
 		{

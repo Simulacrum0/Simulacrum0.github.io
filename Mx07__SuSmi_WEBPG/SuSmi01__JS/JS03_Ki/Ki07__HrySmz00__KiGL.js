@@ -1,13 +1,7 @@
 //==============================================
 //
 //==============================================
-import
-{
-	vec3,
-	mat4,
-}
-from './Ki06__MATH.js';
-
+"use strict";
 
 //==============================================
 // KiGL_BriYi
@@ -28,13 +22,19 @@ from './Ki06__MATH.js';
 //==============================================
 async function mainGL()
 {
-	await Module._HEAPO_wf;
-	const gl = document.querySelector( "canvas" ).getContext( "webgl" );
+	const STALL = await Module._HEAPO_wf;
+
+	const gl = document.getElementById( "MxPo_De" ).getContext( "webgl2", { xrCompatible: true } );
 	if ( !gl )
 	{
 		failGL( "need webgl" );
 		return;
 	}
+
+
+//	gl = webglCanvas.getContext('webgl2', { xrCompatible: true })
+//	if (!gl) throw new Error('getContext failed');
+
 
 	const vSrc = `
   uniform mat4 u_worldViewProjection;
@@ -234,7 +234,7 @@ async function mainGL()
 	requestAnimationFrame( renderGL );
 }
 
-export function failGL( msg )
+function failGL( msg )
 {
 	//   const elem = document.querySelector('#fail');
 	//   const contentElem = elem.querySelector('.content');
@@ -244,7 +244,7 @@ export function failGL( msg )
 	Module.setStatus( msg );
 }
 
-mainGL();
+//mainGL();
 
 //==============================================
 // END

@@ -1,6 +1,7 @@
 //==============================================
 //
 //==============================================
+"use strict";
 
 //-------------------------------------------------
 //
@@ -5832,28 +5833,29 @@ const
 	vec4: vec4n
 } = wgpuMatrixAPI( ZeroArray, Array, Array, Array, Array, Array );
 
-export
-{
-	mat3,
-	mat3d,
-	mat3n,
-	mat4,
-	mat4d,
-	mat4n,
-	quat,
-	quatd,
-	quatn,
-	utils,
-	vec2,
-	vec2d,
-	vec2n,
-	vec3,
-	vec3d,
-	vec3n,
-	vec4,
-	vec4d,
-	vec4n
-};
+
+// export
+// {
+// 	mat3,
+// 	mat3d,
+// 	mat3n,
+// 	mat4,
+// 	mat4d,
+// 	mat4n,
+// 	quat,
+// 	quatd,
+// 	quatn,
+// 	utils,
+// 	vec2,
+// 	vec2d,
+// 	vec2n,
+// 	vec3,
+// 	vec3d,
+// 	vec3n,
+// 	vec4,
+// 	vec4d,
+// 	vec4n
+// };
 
 //# sourceMappingURL=wgpu-matrix.module.js.map
 

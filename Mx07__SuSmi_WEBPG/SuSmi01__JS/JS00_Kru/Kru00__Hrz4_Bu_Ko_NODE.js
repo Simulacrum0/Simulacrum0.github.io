@@ -2,51 +2,10 @@
 // SYSTEM UTILS
 //=====================================
 
-//=====================================
-// SHARED ARRAY
-//=====================================
 
-// CORS Kills Use
-// const ToDu_vbu = new SharedArrayBuffer( KeDru__Fo_wu + 3 );
-// const To_vbu = new Uint8Array( ToDu_vbu );
-
-//		const To_vbu = new SharedArrayBuffer( 4 );
-
-// 		// 1. Create a SharedArrayBuffer
-// // The size is in bytes (e.g., 1024 bytes for a 1KB buffer)
-// const sharedBuffer = new SharedArrayBuffer(1024);
-
-// // 2. Create a Uint8Array view over the SharedArrayBuffer
-// // This creates a typed array that interprets the buffer's contents as 8-bit unsigned integers.
-// const sharedUint8Array = new Uint8Array(sharedBuffer);
-
-// // Now, sharedUint8Array can be used to read and write data.
-// // Any changes made to sharedUint8Array in one thread will be visible in other threads
-// // that also have a view over the same sharedBuffer.
-
-// // Example of setting a value:
-// sharedUint8Array[0] = 255;
-
-// // You can then pass sharedBuffer (or sharedUint8Array itself if the environment supports it)
-// // to a Web Worker to enable shared memory communication.
-
-function checkSharedArrayBuffer()
-{
-	try
-	{
-		var a = SharedArrayBuffer;
-	}
-	catch ( e )
-	{
-		console.log( e instanceof ReferenceError ); // true
-		return false;
-	}
-
-	return true;
-}
 
 //=====================================
-//
+// APP ARGs
 //=====================================
 function findGetParameter( parameterName )
 {
@@ -61,6 +20,32 @@ function findGetParameter( parameterName )
 
 	return result;
 }
+
+
+//=====================================
+// SMS on MOBILE
+//=====================================
+function sendSMS(phoneNumber, message)
+{
+	// Encode the message to handle special characters
+	const encodedMessage = encodeURIComponent(message);
+
+	// Construct the smsto URI
+	const smsURI = `smsto:${phoneNumber}?body=${encodedMessage}`;
+
+	// Open the URI, which will prompt the user's device to open their messaging app
+	window.location.href = smsURI;
+	}
+
+/*
+  // Example usage:
+  const recipientNumber = "1234567890"; // Replace with the actual phone number
+  const smsText = "Hello from my web application!";
+
+  // Call the function to initiate the SMS
+  sendSMS(recipientNumber, smsText);
+
+*/
 
 //=====================================
 //
@@ -117,7 +102,7 @@ function mobileCheck()
 // INPUT
 // Fixup for 'passiveSupport' on touch/scroll events
 //=====================================
-export function passiveSupported( debug = false )
+function passiveSupported( debug = false )
 {
 	let passiveSupported = false;
 
@@ -168,7 +153,7 @@ function isEventSupported( event )
 	].includes( event );
 }
 
-export function passiveSupport( custom )
+function passiveSupport( custom )
 {
 	const options = {
 		debug: false,
@@ -279,6 +264,84 @@ export function passiveSupport( custom )
 	}
 }
 
+//==============================================
+// MULTI_TAB
+//==============================================
+async function preventMultiTab()
+{
+	if (window.BroadcastChannel) {
+		var tab_sid = (new Date()).getTime();
+
+		sessionStorage.setItem('tab_sid', tab_sid);
+		var channel = new BroadcastChannel('tab-connections');
+
+		channel.postMessage('ping:get_back_all_ids');
+
+		channel.onmessage = function (e) {
+			var message = e.data.split(':');
+			if (message[0] == 'close') {
+				if (tab_sid > parseInt(message[1])) {
+					channel = null;
+					console.log('Extra Tab Detected.');
+				}
+			}
+			else if (message[0] == "ping") {
+				console.log('Closing Tab.');
+				channel.postMessage('close:' + tab_sid);
+			}
+		}
+	}
+}
+
+//=====================================
+// TRANSLATE_TXT
+//=====================================
+async function translateText(text, targetLang)
+{
+	try {
+		const url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=${targetLang}&dt=t&q=${encodeURIComponent(text)}`;
+
+		const res = await fetch(url);
+		if (!res.ok)
+		{
+			throw new Error(`HTTP error! Status: ${res.status}`);
+		}
+
+		const data = await res.json();
+		console.log("API Response:", data);
+
+		// Extract translated text
+		if (Array.isArray(data) && data[0] && Array.isArray(data[0][0]))
+		{
+			return data[0].map(sentence => sentence[0]).join(" ");
+		}
+		else
+		{
+			throw new Error("Unexpected response format");
+		}
+	}
+	catch (error)
+	{
+		console.error("Translation failed:", error.message);
+		return "Error during translation.";
+	}
+}
+
+
+//=====================================
+// EXPORT
+//=====================================
+/*
+export
+{
+	findGetParameter
+	, sendSMS
+	, copyToClipboard
+	, mobileCheck
+	, passiveSupport
+	, preventMultiTab
+}
+*/
 //=====================================
 // END
 //=====================================

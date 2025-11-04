@@ -27,28 +27,12 @@
     <!-- <link rel="stylesheet" href="Mx07__SuSmi_WEBPG/SuSmi02__CSS/JoDx00__Do.css"> -->
 
     <!-- SCRIPTS -->
-    <!-- <script defer src="Mx07__SuSmi_WEBPG/SuSmi01__JS/JiJa00__HEXCIRC.js"></script>
-		<script defer src="Mx07__SuSmi_WEBPG/SuSmi01__JS/JiJa01__DROPZ.js"></script>
-		<script defer src="Mx07__SuSmi_WEBPG/SuSmi01__JS/JiJa02__PLAZ.js"></script>
-		<script defer src="Mx07__SuSmi_WEBPG/SuSmi01__JS/JiJa03__ETHER.js"></script>
-
-		<script defer src="Mx07__SuSmi_WEBPG/SuSmi01__JS/JiJa04__AURORA.js"></script>
-		<script defer src="Mx07__SuSmi_WEBPG/SuSmi01__JS/JiJa05__HEXSCROLL.js"></script>
-		<script defer src="Mx07__SuSmi_WEBPG/SuSmi01__JS/JiJa06__SUNRISE.js"></script>
-		<script defer src="Mx07__SuSmi_WEBPG/SuSmi01__JS/JiJa07__CODEX.js"></script> -->
-
-    <script src="Mx07__SuSmi_WEBPG/SuSmi01__JS/Ki00__PUB.js"></script>
-    <!-- <script src="Mx07__SuSmi_WEBPG/SuSmi01__JS/Ki01__CORE.js"></script> -->
-    <!-- <script src="Mx07__SuSmi_WEBPG/SuSmi01__JS/Ki02__LANG.js"></script> -->
-    <!-- <script src="Mx07__SuSmi_WEBPG/SuSmi01__JS/Ki03__CFG.js"></script> -->
+    <script src="Mx07__SuSmi_WEBPG/SuSmi01__JS/JS00_Kru/Kru00__MxDiDa_PUB.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/qrcode@1.4.4/build/qrcode.min.js"></script>
 
-    <script src="Mx07__SuSmi_WEBPG/SuSmi01__JS/Kru05__Hra4_Bru00__SyDe.js" type="application/javascript"></script>
-    <!-- <script src="Mx07__SuSmi_WEBPG/SuSmi01__JS/Kru05__Hra4_Bru00__SyZx.js" type="application/javascript"></script> -->
-    <!-- <script src="Mx07__SuSmi_WEBPG/SuSmi01__JS/Kru05__Hra4_Bru01__Tra.js" type="application/javascript"></script> -->
-
-    <script src="Mx07__SuSmi_WEBPG/SuSmi01__JS/Kru00__Hrz4_Bu.js" type="application/javascript"></script>
+    <script src="Mx07__SuSmi_WEBPG/SuSmi01__JS/JS00_Kru/Kru00__Hrz4_Bu_Ko_NODE.js" type="application/javascript"></script>
+    <script src="Mx07__SuSmi_WEBPG/SuSmi01__JS/JS03_Ki/Ki05__Hra4_Bru00_KiWT_De.js" type="application/javascript"></script>
 
 </head>
 
@@ -411,102 +395,17 @@
         <button id="Me_CLIP">Copy</button>
         <button id="Me_EMAIL">Email </button>
         <button id="Me_SMS">Txt</button>
-        <button id="Me_URL_ROOM"><a href="Wz01_SF.html" target="_NEW">New Room</a></button>
+        <button id="Me_URL_ROOM"><a href="WzBru.html" target="_NEW">New Room</a></button>
         <button id="Me_SHARE">Share</button>
     </div>
     <br>
     <br>
 
-    <!-- <div id="TaKeDruGry" class="BOX" style="display: none;" > -->
-		<div id="TaKeDruGry" class="BOX" >
-        <h2>#2 MESSAGES</h2>
-        <h3>Your Message:</h3>
-        <textarea id="SaNo_MeKz" rows="4" columns="32" style="width: 75%;" /></textarea>
-        <br>
-        <br>
-        <button id="MeKeDru_Gry" onclick="Mx_SaNo_MeKz( -1 );" >Send All</button>
-        <button style="display: none;" id="MeKeDru_0" onclick="Mx_SaNo_MeKz( 0 );" >Send 0</button>
-        <button style="display: none;" id="MeKeDru_1" onclick="Mx_SaNo_MeKz( 1 );" >Send 1</button>
-        <button style="display: none;" id="MeKeDru_2" onclick="Mx_SaNo_MeKz( 2 );" >Send 2</button>
-        <button style="display: none;" id="MeKeDru_3" onclick="Mx_SaNo_MeKz( 3 );" >Send 3</button>
-        <br>
-        <h3>Message History:</h3>
-        <div id="TaKeDru_Ku" class="BUF"></div>
-    </div>
-    <br>
-    <br>
 
-    <!-- <div class="BOX" style="display: none;" > -->
-    <div class="BOX" >
-        <h2>#3 MAP_MAKER</h2>
-
-
-        <div id="content">
-            <div id="rc-demo">
-                <div id="outer-container">
-                    <div style="display: flex; align-items: center; gap: 4px">
-                        <label for="enable-srgb">Brighten</label>
-                        <input type="checkbox" id="enable-srgb" checked>
-                    </div>
-                </div>
-
-                <details style="cursor: pointer; display: none;">
-                    <summary>GFX_Tweaks</summary>
-
-                    <div style="display: none; align-items: center; gap: 4px;">
-                        <input type="checkbox" id="bilinear-fix">
-                        <label for="bilinear-fix">Bilinear Fix</label>
-                    </div>
-
-                    <div style="display: flex; align-items: center; gap: 4px;">
-                        <input type="checkbox" id="disable-mips">
-                        <label for="disable-mips">Disable Mips</label>
-                    </div>
-
-                    <div style="display: flex; align-items: center; gap: 4px;">
-                        <input type="checkbox" id="nonlinear-accumulation">
-                        <label for="nonlinear-accumulation">Non-Linear Accumulation</label>
-                    </div>
-
-                    <div style="display: flex; align-items: center; gap: 4px">
-                        <input type="checkbox" id="add-noise">
-                        <label for="add-noise">Naive GI Noise</label>
-                    </div>
-
-                    <div style="display: none; align-items: center; gap: 4px">
-                        <input type="checkbox" id="ringing-fix">
-                        <label for="ringing-fix">Ringing Fix</label>
-                    </div>
-
-                    <div id="additional-controls-container">
-                    </div>
-
-                    <div style="display: flex; align-items: center; gap: 8px">BLOOM<input id="rc-sun-angle-slider" class="slider" type="range" min="0" max="6.2" step="0.1" value="2.0" />
-                    </div>
-
-                    <div style="display: flex; align-items: center; gap: 4px">
-                        <input type="checkbox" id="reduce-demand">
-                        <label for="reduce-demand">Reduce Demand (Calculate over 2 frames)</label>
-                    </div>
-                </details>
-                <br />
-                <div id="rc-canvas" ></div>
-			</div>
-		</div>
-		<br>
-		<br>
-		<button id="ChyGe__GaZe">^<br>||</button>
-		<br>
-		<button id="ChyGe__GxZe"><==</button>
-		<span> -|- </span>
-		<button id="ChyGe__GxZo">==></button>
-		<br>
-		<button id="ChyGe__GaZo">||<br>v</button>
-	</div>
 	<br>
 	<br>
 	<div id="GAME_TEST" class="BOX">
-		<h2>#4 GAME TEST</h2>
+		<h2>#2 GAME TEST</h2>
 		<img style="position:center; width: calc(100% - 0.5em );" src="Mx01__SuKz_MEDIA/SuKz02_JaPo__PICT/JaPo__SF/SF_P00.png"></img>
 		<br>
 		<br>
@@ -595,7 +494,93 @@
     </div>
 
 
-    <script id="radiance-cascades-logic" src="Mx07__SuSmi_WEBPG/SuSmi01__JS/Kru03__Hrz2_Wy.js" type="application/javascript"></script>
+    <!-- <div id="TaKeDruGry" class="BOX" style="display: none;" > -->
+		<div id="TaKeDruGry" class="BOX" >
+        <h2>#4 MESSAGES</h2>
+        <h3>Your Message:</h3>
+        <textarea id="SaNo_MeKz" rows="4" columns="32" style="width: 75%;" /></textarea>
+        <br>
+        <br>
+        <button id="MeKeDru_Gry" onclick="Mx_SaNo_MeKz( -1 );" >Send All</button>
+        <button style="display: none;" id="MeKeDru_0" onclick="Mx_SaNo_MeKz( 0 );" >Send 0</button>
+        <button style="display: none;" id="MeKeDru_1" onclick="Mx_SaNo_MeKz( 1 );" >Send 1</button>
+        <button style="display: none;" id="MeKeDru_2" onclick="Mx_SaNo_MeKz( 2 );" >Send 2</button>
+        <button style="display: none;" id="MeKeDru_3" onclick="Mx_SaNo_MeKz( 3 );" >Send 3</button>
+        <br>
+        <h3>Message History:</h3>
+        <div id="TaKeDru_Ku" class="BUF"></div>
+    </div>
+    <br>
+    <br>
+
+    <!-- <div class="BOX" style="display: none;" > -->
+    <div class="BOX" >
+        <h2>#5 MAP_MAKER</h2>
+
+        <div id="content">
+            <div id="rc-demo">
+                <div id="outer-container">
+                    <div style="display: flex; align-items: center; gap: 4px">
+                        <label for="enable-srgb">Brighten</label>
+                        <input type="checkbox" id="enable-srgb" checked>
+                    </div>
+                </div>
+
+                <details style="cursor: pointer; display: none;">
+                    <summary>GFX_Tweaks</summary>
+
+                    <div style="display: none; align-items: center; gap: 4px;">
+                        <input type="checkbox" id="bilinear-fix">
+                        <label for="bilinear-fix">Bilinear Fix</label>
+                    </div>
+
+                    <div style="display: flex; align-items: center; gap: 4px;">
+                        <input type="checkbox" id="disable-mips">
+                        <label for="disable-mips">Disable Mips</label>
+                    </div>
+
+                    <div style="display: flex; align-items: center; gap: 4px;">
+                        <input type="checkbox" id="nonlinear-accumulation">
+                        <label for="nonlinear-accumulation">Non-Linear Accumulation</label>
+                    </div>
+
+                    <div style="display: flex; align-items: center; gap: 4px">
+                        <input type="checkbox" id="add-noise">
+                        <label for="add-noise">Naive GI Noise</label>
+                    </div>
+
+                    <div style="display: none; align-items: center; gap: 4px">
+                        <input type="checkbox" id="ringing-fix">
+                        <label for="ringing-fix">Ringing Fix</label>
+                    </div>
+
+                    <div id="additional-controls-container">
+                    </div>
+
+                    <div style="display: flex; align-items: center; gap: 8px">BLOOM<input id="rc-sun-angle-slider" class="slider" type="range" min="0" max="6.2" step="0.1" value="2.0" />
+                    </div>
+
+                    <div style="display: flex; align-items: center; gap: 4px">
+                        <input type="checkbox" id="reduce-demand">
+                        <label for="reduce-demand">Reduce Demand (Calculate over 2 frames)</label>
+                    </div>
+                </details>
+                <br />
+                <div id="rc-canvas" ></div>
+			</div>
+		</div>
+		<br>
+		<br>
+		<button id="ChyGe__GaZe">^<br>||</button>
+		<br>
+		<button id="ChyGe__GxZe"><==</button>
+		<span> -|- </span>
+		<button id="ChyGe__GxZo">==></button>
+		<br>
+		<button id="ChyGe__GaZo">||<br>v</button>
+	</div>
+
+    <script id="radiance-cascades-logic" src="Mx07__SuSmi_WEBPG/SuSmi01__JS/JS00_Kru/Kru03__Hro2_Wy00__Dro_PHY.js" type="application/javascript"></script>
 
 </body>
 
