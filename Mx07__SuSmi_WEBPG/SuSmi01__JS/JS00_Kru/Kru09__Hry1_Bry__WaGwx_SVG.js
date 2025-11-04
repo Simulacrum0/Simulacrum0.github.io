@@ -1,3 +1,5 @@
+// HTML BELOW ( loads as HTML )
+
 <svg height="720" width="1280">
 	<defs>
 	  <linearGradient id="grad1">

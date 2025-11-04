@@ -46,10 +46,6 @@ client.seed('video.mp4', { announce: ['wss://tracker.openwebtorrent.com'] }, tor
 API:
 
 
-
-
-
-
 WebTorrent.WEBRTC_SUPPORT
 Is WebRTC natively supported in the environment?
 

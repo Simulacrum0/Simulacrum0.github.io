@@ -1,7 +1,9 @@
+// Ki.v.Du
+"use strict";
 //==============================================
 // QUALITIES
 //==============================================
-const SySmz_l = Object.freeze
+const KiTeSySmz_l = Object.freeze
 ({
 	HrxKu: 0
 
@@ -20,7 +22,7 @@ const SySmz_l = Object.freeze
 
 
 //==============================================
-// SERVICE
+// ENGINE
 //==============================================
 window.createRobo = function createRobo(model)
 {
@@ -49,12 +51,6 @@ window.createRobo = function createRobo(model)
     }
   };
 }
-
-
-//==============================================
-// SERVICE
-//==============================================
-export default createRobo;
 
 //==============================================
 // END
