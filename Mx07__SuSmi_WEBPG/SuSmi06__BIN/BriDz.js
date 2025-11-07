@@ -9000,39 +9000,43 @@ function checkIncomingModuleAPI() {
 
 var ASM_CONSTS = {
   8592214: () => {
-    console.log("GPU INIT");
-    mainGL();
-  },
-  8592255: () => {
+    let BriDzYz__Bo_l = document.getElementById("BriDzYz__Bo");
     BriDzYz__Bo_l.focus();
   },
-  8592282: () => {
-    Ta_SySmz[0].Sma();
+  8592301: () => {
+    Ko.Ta_Sy[0].Sma();
   },
-  8592305: () => {
+  8592324: () => {
     FNT_TaFuHa();
   },
-  8592323: () => {
+  8592342: () => {
+    Hrz4_Bu__IDLE_DETECT_Ya();
+  },
+  8592373: () => {
+    Hrz4_Bu__IDLE_DETECT_Yi();
+  },
+  8592404: () => {
+    Hrz4_Bu__IDLE_DETECT_Ya();
+  },
+  8592435: () => {},
+  8592439: () => {
     window.close();
   },
-  8592341: () => {
+  8592457: () => {
     OPFS_SmeStx();
   },
-  8592358: () => {
-    console.log("COSM ACTIVE");
-    KoTa__SySmz[0].Sma();
+  8592474: () => {
+    console.log("MC: HrySmz__BriYa");
   },
-  8592414: () => {
-    KiGL.BriYe();
-  },
-  8592432: () => {
+  8592514: () => {},
+  8592518: () => {
     if (typeof (Module["SDL3"]) === "undefined") {
       Module["SDL3"] = {};
     }
     Module["SDL3"].camera = {};
   },
-  8592533: () => (navigator.mediaDevices === undefined) ? 0 : 1,
-  8592592: ($0, $1, $2, $3, $4, $5, $6) => {
+  8592619: () => (navigator.mediaDevices === undefined) ? 0 : 1,
+  8592678: ($0, $1, $2, $3, $4, $5, $6) => {
     const device = $0;
     const w = $1;
     const h = $2;
@@ -9106,7 +9110,7 @@ var ASM_CONSTS = {
       dynCall("iiiiii", outcome, [ device, 0, 0, 0, 0 ]);
     });
   },
-  8594883: () => {
+  8594969: () => {
     const SDL3 = Module["SDL3"];
     if ((typeof (SDL3) === "undefined") || (typeof (SDL3.camera) === "undefined") || (typeof (SDL3.camera.stream) === "undefined")) {
       return;
@@ -9114,7 +9118,7 @@ var ASM_CONSTS = {
     SDL3.camera.stream.getTracks().forEach(track => track.stop());
     SDL3.camera = {};
   },
-  8595134: ($0, $1, $2) => {
+  8595220: ($0, $1, $2) => {
     const w = $0;
     const h = $1;
     const rgba = $2;
@@ -9127,12 +9131,12 @@ var ASM_CONSTS = {
     (growMemViews(), HEAPU8).set(imgrgba, rgba);
     return 1;
   },
-  8595512: () => {
+  8595598: () => {
     if (typeof (Module["SDL3"]) !== "undefined") {
       Module["SDL3"].camera = undefined;
     }
   },
-  8595599: () => {
+  8595685: () => {
     if (typeof (Module["SDL3"]) === "undefined") {
       Module["SDL3"] = {};
     }
@@ -9141,7 +9145,7 @@ var ASM_CONSTS = {
     Module["SDL3"].dummy_audio.timers[0] = undefined;
     Module["SDL3"].dummy_audio.timers[1] = undefined;
   },
-  8595845: ($0, $1, $2, $3, $4) => {
+  8595931: ($0, $1, $2, $3, $4) => {
     var a = Module["SDL3"].dummy_audio;
     if (a.timers[$0] !== undefined) {
       clearInterval(a.timers[$0]);
@@ -9150,14 +9154,14 @@ var ASM_CONSTS = {
       dynCall("vi", $3, [ $4 ]);
     }, ($1 / $2) * 1e3);
   },
-  8596037: $0 => {
+  8596123: $0 => {
     var a = Module["SDL3"].dummy_audio;
     if (a.timers[$0] !== undefined) {
       clearInterval(a.timers[$0]);
     }
     a.timers[$0] = undefined;
   },
-  8596168: () => {
+  8596254: () => {
     if (typeof (AudioContext) !== "undefined") {
       return true;
     } else if (typeof (webkitAudioContext) !== "undefined") {
@@ -9165,7 +9169,7 @@ var ASM_CONSTS = {
     }
     return false;
   },
-  8596315: () => {
+  8596401: () => {
     if ((typeof (navigator.mediaDevices) !== "undefined") && (typeof (navigator.mediaDevices.getUserMedia) !== "undefined")) {
       return true;
     } else if (typeof (navigator.webkitGetUserMedia) !== "undefined") {
@@ -9173,7 +9177,7 @@ var ASM_CONSTS = {
     }
     return false;
   },
-  8596549: $0 => {
+  8596635: $0 => {
     if (typeof (Module["SDL3"]) === "undefined") {
       Module["SDL3"] = {};
     }
@@ -9197,8 +9201,8 @@ var ASM_CONSTS = {
     }
     return (SDL3.audioContext !== undefined);
   },
-  8597112: () => Module["SDL3"].audioContext.sampleRate,
-  8597163: ($0, $1, $2, $3) => {
+  8597198: () => Module["SDL3"].audioContext.sampleRate,
+  8597249: ($0, $1, $2, $3) => {
     var SDL3 = Module["SDL3"];
     var have_microphone = function(stream) {
       if (SDL3.audio_recording.silenceTimer !== undefined) {
@@ -9240,7 +9244,7 @@ var ASM_CONSTS = {
       }, have_microphone, no_microphone);
     }
   },
-  8599004: ($0, $1, $2, $3) => {
+  8599090: ($0, $1, $2, $3) => {
     var SDL3 = Module["SDL3"];
     SDL3.audio_playback.scriptProcessorNode = SDL3.audioContext["createScriptProcessor"]($1, 0, $0);
     SDL3.audio_playback.scriptProcessorNode["onaudioprocess"] = function(e) {
@@ -9272,7 +9276,7 @@ var ASM_CONSTS = {
       SDL3.audio_playback.silenceTimer = setInterval(silence_callback, ($1 / SDL3.audioContext.sampleRate) * 1e3);
     }
   },
-  8600320: $0 => {
+  8600406: $0 => {
     var SDL3 = Module["SDL3"];
     if ($0) {
       if (SDL3.audio_recording.silenceTimer !== undefined) {
@@ -9306,7 +9310,7 @@ var ASM_CONSTS = {
       SDL3.audioContext = undefined;
     }
   },
-  8601476: ($0, $1) => {
+  8601562: ($0, $1) => {
     var buf = $0 / 4;
     var SDL3 = Module["SDL3"];
     var numChannels = SDL3.audio_playback.currentPlaybackBuffer["numberOfChannels"];
@@ -9320,7 +9324,7 @@ var ASM_CONSTS = {
       }
     }
   },
-  8601987: ($0, $1) => {
+  8602073: ($0, $1) => {
     var SDL3 = Module["SDL3"];
     var numChannels = SDL3.audio_recording.currentRecordingBuffer.numberOfChannels;
     for (var c = 0; c < numChannels; ++c) {
@@ -9339,7 +9343,7 @@ var ASM_CONSTS = {
       }
     }
   },
-  8602614: $0 => {
+  8602700: $0 => {
     var parms = new URLSearchParams(window.location.search);
     for (const [key, value] of parms) {
       if (key.startsWith("SDL_")) {
@@ -9353,7 +9357,7 @@ var ASM_CONSTS = {
       }
     }
   },
-  8602921: () => {
+  8603007: () => {
     if (!window.matchMedia) {
       return -1;
     }
@@ -9365,7 +9369,7 @@ var ASM_CONSTS = {
     }
     return -1;
   },
-  8603130: () => {
+  8603216: () => {
     if (typeof (Module["SDL3"]) !== "undefined") {
       var SDL3 = Module["SDL3"];
       SDL3.themeChangedMatchMedia.removeEventListener("change", SDL3.eventHandlerThemeChanged);
@@ -9373,17 +9377,17 @@ var ASM_CONSTS = {
       SDL3.eventHandlerThemeChanged = undefined;
     }
   },
-  8603383: () => window.innerWidth,
-  8603413: () => window.innerHeight,
-  8603444: $0 => {
+  8603469: () => window.innerWidth,
+  8603499: () => window.innerHeight,
+  8603530: $0 => {
     Module["requestFullscreen"] = function(lockPointer, resizeCanvas) {
       _requestFullscreenThroughSDL($0);
     };
   },
-  8603553: () => {
+  8603639: () => {
     Module["requestFullscreen"] = function(lockPointer, resizeCanvas) {};
   },
-  8603627: () => {
+  8603713: () => {
     if (window.matchMedia) {
       if (typeof (Module["SDL3"]) === "undefined") {
         Module["SDL3"] = {};
@@ -9396,7 +9400,7 @@ var ASM_CONSTS = {
       SDL3.themeChangedMatchMedia.addEventListener("change", SDL3.eventHandlerThemeChanged);
     }
   },
-  8604018: ($0, $1, $2, $3) => {
+  8604104: ($0, $1, $2, $3) => {
     var w = $0;
     var h = $1;
     var pixels = $2;
@@ -9456,7 +9460,7 @@ var ASM_CONSTS = {
     }
     SDL3.ctx.putImageData(SDL3.image, 0, 0);
   },
-  8605247: ($0, $1, $2, $3, $4) => {
+  8605333: ($0, $1, $2, $3, $4) => {
     var w = $0;
     var h = $1;
     var hot_x = $2;
@@ -9477,17 +9481,17 @@ var ASM_CONSTS = {
     stringToUTF8(url, urlBuf, url.length + 1);
     return urlBuf;
   },
-  8605905: $0 => {
+  8605991: $0 => {
     if (Module["canvas"]) {
       Module["canvas"].style["cursor"] = UTF8ToString($0);
     }
   },
-  8605988: () => {
+  8606074: () => {
     if (Module["canvas"]) {
       Module["canvas"].style["cursor"] = "none";
     }
   },
-  8606057: ($0, $1, $2) => {
+  8606143: ($0, $1, $2) => {
     var target = document.querySelector(UTF8ToString($1));
     if (target) {
       var data = $0;
@@ -9547,7 +9551,7 @@ var ASM_CONSTS = {
       target.addEventListener("pointermove", SDL3.eventHandlerPointerGeneric);
     }
   },
-  8607850: ($0, $1, $2) => {
+  8607936: ($0, $1, $2) => {
     var target = document.querySelector(UTF8ToString($1));
     if (target) {
       var data = $0;
@@ -9615,7 +9619,7 @@ var ASM_CONSTS = {
       target.addEventListener("dragleave", SDL3.eventHandlerDropDragend);
     }
   },
-  8610003: $0 => {
+  8610089: $0 => {
     var target = document.querySelector(UTF8ToString($0));
     if (target) {
       var SDL3 = Module["SDL3"];
@@ -9643,7 +9647,7 @@ var ASM_CONSTS = {
       SDL3.eventHandlerDropDragend = undefined;
     }
   },
-  8610833: $0 => {
+  8610919: $0 => {
     var target = document.querySelector(UTF8ToString($0));
     if (target) {
       var SDL3 = Module["SDL3"];

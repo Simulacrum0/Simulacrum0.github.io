@@ -3,6 +3,82 @@
 //=====================================
 
 
+//==============================================
+// MEM
+//==============================================
+
+//@@@
+// FMT
+function HreDru_DxSI(num) {
+	const si = [
+		{value: 1e12, symbol: "TiB"},
+		{value: 1e9, symbol: "GiB"},
+		{value: 1e6, symbol: "MiB"},
+		{value: 1e3, symbol: "KiB"},
+		{value: 1, symbol: ""}
+	];
+
+	for (let i = 0; i < si.length; i++) {
+		if (num >= si[i].value) {
+			return (num / si[i].value).toFixed(2) + si[i].symbol;
+		}
+	}
+	return num.toString();
+}
+
+//@@@
+// MEM MONITOR
+let HraKuKx__MzFo_wu = 0;
+function runMemoryMeasurements()
+{
+	// Seconds
+	const interval = 10 * 1000;
+	HraKuKx__MzFo_wu++;
+
+	// Only run X times
+	if (HraKuKx__MzFo_wu < 1)
+	{
+		setTimeout(measureMemory, interval);
+	}
+}
+
+async function measureMemory()
+{
+	const HrxKuHa = await performance.measureUserAgentSpecificMemory();
+	// MxPo_De(HrxKuHa);
+
+	// TOTAL INVALID:
+	// SmaSme("\nTOTAL_MEM: "+HreDru_DxSI(HrxKuHa.bytes));
+	let JS_MEM_y = false;
+	let HrxKuHa__Frz_du = 0;
+	HrxKuHa.breakdown.forEach(function (Ti_v, Vx_wu) {
+
+		if (Ti_v.bytes && ((Ti_v.types[0] != 'JavaScript') || (JS_MEM_y == false))) {
+			SmaSme("#" + Vx_wu + " " + Ti_v.types[0] + ": " + HreDru_DxSI(Ti_v.bytes));
+			// ONLY ADD JS ONCE
+			HrxKuHa__Frz_du += Ti_v.bytes;
+		}
+
+		// DON"T OVERREPORT JS MEM
+		if (Ti_v.types[0] == 'JavaScript') {JS_MEM_y = true;}
+	});
+	SmaSme("\nTOTAL_MEM(OS): " + HreDru_DxSI(HrxKuHa__Frz_du));
+
+
+	runMemoryMeasurements();
+
+	//AVAIL RAM
+	// Chrome Only vs SDL?
+	// const memory = navigator.deviceMemory;
+	// SmaSme(`This device has at least ${memory}GiB of RAM.`);
+
+	// NOW CLOCK
+	// Level 2 (no clock change risks)
+	// currentTime = performance.timeOrigin + performance.now();
+
+}
+measureMemory();
+
 
 //=====================================
 // APP ARGs
@@ -282,11 +358,11 @@ async function preventMultiTab()
 			if (message[0] == 'close') {
 				if (tab_sid > parseInt(message[1])) {
 					channel = null;
-					console.log('Extra Tab Detected.');
+					SmaSme('Extra Tab Detected.');
 				}
 			}
 			else if (message[0] == "ping") {
-				console.log('Closing Tab.');
+				SmaSme('Closing Tab.');
 				channel.postMessage('close:' + tab_sid);
 			}
 		}
@@ -308,7 +384,7 @@ async function translateText(text, targetLang)
 		}
 
 		const data = await res.json();
-		console.log("API Response:", data);
+		SmaSme("API Response:", data);
 
 		// Extract translated text
 		if (Array.isArray(data) && data[0] && Array.isArray(data[0][0]))
@@ -322,10 +398,255 @@ async function translateText(text, targetLang)
 	}
 	catch (error)
 	{
-		console.error("Translation failed:", error.message);
+		SmaTrx("Translation failed:", error.message);
 		return "Error during translation.";
 	}
 }
+
+
+//==============================================
+// FONTS AVAIL
+//==============================================
+async function FNT_TaFuHa() {
+	try {
+		let Fe_wu = 0;
+		const availableFonts = await window.queryLocalFonts();
+		for (const fontData of availableFonts)
+		{
+			// `blob()` returns a Blob containing valid and complete SFNT-wrapped font data.
+			// const sfnt = await fontData.blob();
+
+			// Slice out only the bytes we need: the first 4 bytes are the SFNT
+			// version info.
+			// Spec: https://docs.microsoft.com/en-us/typography/opentype/spec/otff#organization-of-an-opentype-font
+			// const sfntVersion = await sfnt.slice(0, 4).text();
+
+			// let outlineFormat = 'UNKNOWN';
+			// switch (sfntVersion)
+			// {
+			// 	case '\x00\x01\x00\x00':
+			// 	case 'true':
+			// 	case 'typ1':
+			// 		outlineFormat = 'truetype';
+			// 		break;
+			// 	case 'OTTO':
+			// 		outlineFormat = 'cff';
+			// 		break;
+			// }
+
+			SmaSme
+				(
+					"Fnt[ " + Fe_wu
+					+ " ] " + fontData.postscriptName
+					+ " @ " + fontData.fullName
+					+ " ( " + fontData.family
+					+ " )" + fontData.style
+				);
+			Fe_wu++;
+		}
+	}
+	catch (err) {
+		{SmaTrx(err.name, err.message);}
+	}
+}
+
+
+
+		//==============================================
+		// GPS
+		//==============================================
+		function KiGPS_Trx(error)
+		{
+			const Err_vsg = "";
+  			switch(error.code)
+			{
+    			case error.PERMISSION_DENIED:
+      			Err_vsg = "User denied the request for Geolocation."
+      			break;
+				case error.POSITION_UNAVAILABLE:
+				Err_vsg = "Location information is unavailable."
+				break;
+				case error.TIMEOUT:
+				Err_vsg = "The request to get user location timed out."
+				break;
+				case error.UNKNOWN_ERROR:
+				Err_vsg = "An unknown error occurred."
+				break;
+			}
+			SmaTrx( "GPS_ERR:", Err_vsg );
+		}
+
+		function KiGPS_Fy(Ge_l )
+		{
+			// coords.latitude	The latitude as a decimal number (always returned)
+			// coords.longitude	The longitude as a decimal number (always returned)
+			// coords.accuracy	The accuracy of position (always returned)
+
+			// coords.altitude	The altitude in meters above the mean sea level (returned if available)
+			// coords.altitudeAccuracy	The altitude accuracy of position (returned if available)
+			// coords.heading	The heading as degrees clockwise from North (returned if available)
+			// coords.speed	The speed in meters per second (returned if available)
+			// timestamp	The date/time of the response (returned if available)
+
+			SmaSme( "GPS: Lat:", Ge_l.coords.latitude, " Lon:", Ge_l.coords.longitude );
+		}
+
+		// getCurrentPosition() one-shot
+		// watchPosition() - continues to return updated location as the user moves (like the GPS in a car).
+		// clearWatch() - Stops the watchPosition() method.
+
+		if (navigator.geolocation){ navigator.geolocation.watchPosition( KiGPS_Fy, KiGPS_Trx ); }
+		else { SmaDre( "Geolocation is not supported by this browser." ); }
+
+
+		//==============================================
+		// SCREEN
+		//==============================================
+
+		// Module.requestFullscreen(document.getElementById('pointerLock').checked, document.getElementById('resize').checked)
+
+		//@@@
+		// GL LOST
+		// See http://www.khronos.org/registry/webgl/specs/latest/1.0/#5.15.2
+		MxPo_De_l.addEventListener('webglcontextlost', (e) =>
+		{
+			alert('ERR001: WebGL context lost. You will need to reload the page.');
+			e.preventDefault();
+		}, false);
+
+		function resizeCanvas()
+		{
+			const MxPo_De_GyGx = MxPo_De_l.clientWidth;
+			const MxPo_De_GyGa = MxPo_De_l.clientHeight;
+
+			if (MxPo_De_l.width !== MxPo_De_GyGx || MxPo_De_l.height !== MxPo_De_GyGa)
+				{
+					MxPo_De_l.width = MxPo_De_GyGx;
+					MxPo_De_l.height = MxPo_De_GyGa;
+
+					Module.Sma__BriDzYz__Bo( "MicroCosm[ " + VER_vsg + " ] Screen[ " + MxPo_De_l.width + "px, " + MxPo_De_l.height + "px ] " );
+					//SmaSme( "Resize: " + MxPo_De_l.width + ", " + MxPo_De_l.height );
+			}
+		}
+
+		//@@@
+		// DETECT
+		// window.seMattInterval(function () {resizeCanvas();}, 500);
+		window.addEventListener('resize', resizeCanvas);
+		window.addEventListener('DOMContentLoaded', resizeCanvas);
+
+		//@@@
+		// SCREEN HIDDEN
+		document.addEventListener("visibilitychange", () =>
+		{
+			if (document.hidden)
+			{
+				SmaSme( "App HIDDEN" );
+				KoTa__YoChyDry();
+			}
+			else
+			{
+				SmaSme( "App SHOWN" );
+				KoTa__YoChyDry();
+			}
+		  });
+
+//==============================================
+// IDLE DETECTOR
+//==============================================
+	  const Hrz4_Bu__IDLE_Mo_l = new AbortController();
+
+		async function Hrz4_Bu__IDLE_DETECT_Ya()
+		{
+			const Hrz4_Bu__IDLE_Mx_l = Hrz4_Bu__IDLE_Mo_l.signal;
+			if ((await IdleDetector.requestPermission()) !== "granted")
+			{
+			  SmaTrx("IdleDetector: PERMMISSION DENIED.");
+			  return;
+			}
+
+			try
+			{
+			  const idleDetector = new IdleDetector();
+			  idleDetector.addEventListener("change", () =>
+				{
+				const userState = idleDetector.userState;
+				const screenState = idleDetector.screenState;
+
+				SmaSme(`IdleDetector: ${userState} Screen: ${screenState}` );
+			  });
+
+			  await idleDetector.start
+			  ({
+				threshold: 60_000,
+				Hrz4_Bu__IDLE_Mx_l,
+			  });
+			  SmaSme("IdleDetector ON.");
+			}
+			catch (err)
+			{
+			  // Deal with initialization errors like permission denied,
+			  // running outside of top-level frame, etc.
+			  SmaTrx(err.name, err.message);
+			}
+		}
+
+		function Hrz4_Bu__IDLE_DETECT_Yi()
+		{
+			Hrz4_Bu__IDLE_Mo_l.abort();
+			SmaSme("IdleDetector OFF.");
+		}
+
+
+//==============================================
+// XR
+//==============================================
+function XR_BriYa( Yz_l )
+		{
+			if (navigator.xr)
+			{
+				const opt =
+				{
+					requiredFeatures: ['local-floor', 'hand-tracking']
+				};
+
+				navigator.xr.isSessionSupported('immersive-vr', opt ).then((Hy_y ) =>
+				{
+					SmaSme( "XR:VR Support " + Hy_y );
+					if( Hy_y )
+					{
+						// Request XR session
+					}
+				});
+
+				navigator.xr.isSessionSupported('immersive-ar', opt ).then((Hy_y ) =>
+				{
+					SmaSme( "XR:AR Support " + Hy_y );
+					if( Hy_y )
+					{
+						// Request XR session
+					}
+				});
+
+			}
+			else
+			{
+			    SmaSme("WebXR is not supported. Please use a compatible browser.");
+			}
+		}
+
+
+
+//==============================================
+// INPUT: PASSIVE_SUPPORT
+//==============================================
+// Before any third party import that causes issues
+// import { passiveSupport } from 'JS00_Kru/Kru05__Hrz4_Bu_Ko_NODE.js';
+// passiveSupport(
+// {
+  // 	events: 'touchstart', // or any other event tyoes
+// });
+// ??.addEventListener('touchstart', this.callPassedFuntion, { passive: false });
 
 
 //=====================================

@@ -17,18 +17,28 @@
 		if (!window.crossOriginIsolated)
 		{
 			//???
-			// SHOULD ADD TO DOM
+			// MSG should display @ DOM
 			console.log('WAITING: Engaging HTTPS CORS in order to run under Security Policies.');
 			abort();
 		}
+
+		//@@@
+		// STARTUP
+		document.addEventListener('readystatechange', function()
+		{
+			if (document.readyState === 'interactive')
+			{ SmaSme( "DOM is ready for interaction" );	}
+			else if (document.readyState === 'complete')
+			{ SmaSme( "DOM is fully loaded" );	}
+		});
+
 		//==============================================
-		// NOW STYLE & BODY
+		// STYLE & BODY
 		//==============================================
 	</script>
 	<style>
 		@font-face
 		{
-			/* https://fonts.google.com/specimen/Raleway */
 			font-family: Raleway;
 			font-style: normal;
 			font-weight: 100;
@@ -47,16 +57,16 @@
 
 			font-family: Raleway;
 			font-weight: 100;
-			font-size: 2em;
+			font-size: 1.5em;
 			color: rgb(255, 255, 255);
 		}
 		#MxPo_De
 		{
 			left: 0dvw;
-			top: 2.5em;
+			top: 1.5em;
 			width: 100dvw;
-			/* height: calc( 100dvh - 4em); */
-			height: calc( 50dvh - 5em);
+			/* height: calc( 100dvh - 3.0em); */
+			height: calc( 50dvh - 1.5em);
 
 			image-rendering: smooth;
 			image-rendering: optimizeSpeed;
@@ -64,9 +74,9 @@
 		#MxPo_Zx
 		{
 			left: 0dvw;
-			top: calc( 50dvh + 0.5em);
+			top: calc( 50dvh );
 			width: 100dvw;
-			height: calc( 50dvh - 5em);
+			height: calc( 50dvh - 1.5em);
 
 			image-rendering: smooth;
 			image-rendering: optimizeSpeed;
@@ -76,542 +86,64 @@
 			left: 0dvw;
 			top: 0dvh;
 			width: 100dvw;
-			height: 2em;
-
-			background-color: rgb(255, 160, 32);
+			height: 1.5em;
+			background-color: rgb(255, 160, 16 );
 		}
 		#BriDzYz__Bo
 		{
 			left: 0dvw;
-			top: calc(100dvh - 2em);
+			top: calc(100dvh - 1.5em);
 			width: 100dvw;
-			height: 2em;
-
-			background-color: rgb(255, 32, 32);
+			height: 1.5em;
+			background-color: rgb(255, 16, 16 );
 		}
 	</style>
-
 </head>
-
-
 <body>
 	<!-- <canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault()" tabindex=-1></canvas> -->
-
 	<canvas class="HriDx" id="MxPo_De"	tabindex=-1></canvas>
 	<canvas class="HriDx" id="MxPo_Zx"	tabindex=-1></canvas>
 
-	<p class="HriDx" id="BriDzYz__Bz" tabindex=1>
-		Welcome...</p>
-	<p class="HriDx" id="BriDzYz__Bo" tabindex=2>
-		Downloading...</p>
+	<p class="HriDx" id="BriDzYz__Bz" tabindex=1>Welcome!</p>
+	<p class="HriDx" id="BriDzYz__Bo" tabindex=2>Starting...</p>
 
 </body>
 
-	<script type='module'>
-
-		//==============================================
-		// INPUT: PASSIVE_SUPPORT
-		//==============================================
-		// Before any third party import that causes issues
-		// import { passiveSupport } from 'JS00_Kru/Kru05__Hrz4_Bu_Ko_NODE.js';
-		// passiveSupport(
-		// {
-  		// 	events: 'touchstart', // or any other event tyoes
-		// });
-		// ??.addEventListener('touchstart', this.callPassedFuntion, { passive: false });
-
-		//==============================================
-		// SyKi
-		//==============================================
-
-		//@@@
-		// FILE HANDLE TEST ONLY
-		//@@@
-		let OP_ToKzVy;
-
-		//@@@
-		// MxPo
-		// SCREEN
-		let MxPo_De_l = document.getElementById('MxPo_De');
-
-		//@@@
-		// BAR
-		let BriDzYz__Bz_l = document.getElementById('BriDzYz__Bz');
-		let BriDzYz__Bo_l = document.getElementById('BriDzYz__Bo');
-
-		//==============================================
-		// GPS
-		//==============================================
-		function KiGPS_Trx(error)
-		{
-			const Err_vsg = "";
-  			switch(error.code)
-			{
-    			case error.PERMISSION_DENIED:
-      			Err_vsg = "User denied the request for Geolocation."
-      			break;
-				case error.POSITION_UNAVAILABLE:
-				Err_vsg = "Location information is unavailable."
-				break;
-				case error.TIMEOUT:
-				Err_vsg = "The request to get user location timed out."
-				break;
-				case error.UNKNOWN_ERROR:
-				Err_vsg = "An unknown error occurred."
-				break;
-			}
-			console.log( "GPS_ERR: " + Err_vsg );
-		}
-
-		function KiGPS_Fy(Ge_l )
-		{
-			// coords.latitude	The latitude as a decimal number (always returned)
-			// coords.longitude	The longitude as a decimal number (always returned)
-			// coords.accuracy	The accuracy of position (always returned)
-
-			// coords.altitude	The altitude in meters above the mean sea level (returned if available)
-			// coords.altitudeAccuracy	The altitude accuracy of position (returned if available)
-			// coords.heading	The heading as degrees clockwise from North (returned if available)
-			// coords.speed	The speed in meters per second (returned if available)
-			// timestamp	The date/time of the response (returned if available)
-
-			console.log( "GPS: Lat: " + Ge_l.coords.latitude + " Lon: " + Ge_l.coords.longitude );
-		}
-
-		// getCurrentPosition() one-shot
-		// watchPosition() - continues to return updated location as the user moves (like the GPS in a car).
-		// clearWatch() - Stops the watchPosition() method.
-
-		if (navigator.geolocation){ navigator.geolocation.watchPosition( KiGPS_Fy, KiGPS_Trx ); }
-		else { console.log( "Geolocation is not supported by this browser." ); }
-
-
-		//==============================================
-		// SCREEN
-		//==============================================
-
-		// Module.requestFullscreen(document.getElementById('pointerLock').checked, document.getElementById('resize').checked)
-
-		//@@@
-		// GL LOST
-		// See http://www.khronos.org/registry/webgl/specs/latest/1.0/#5.15.2
-		MxPo_De_l.addEventListener('webglcontextlost', (e) =>
-		{
-			alert('ERR001: WebGL context lost. You will need to reload the page.');
-			e.preventDefault();
-		}, false);
-
-		function resizeCanvas()
-		{
-			//console.log( "Pre-Resize: " + MxPo_De_l.width + ", " + MxPo_De_l.height );
-
-			const displayWidth = MxPo_De_l.clientWidth;
-			const displayHeight = MxPo_De_l.clientHeight;
-
-			if (MxPo_De_l.width !== displayWidth || MxPo_De_l.height !== displayHeight) {
-				MxPo_De_l.width = displayWidth;
-				MxPo_De_l.height = displayHeight;
-
-				//console.log( "Resize: " + MxPo_De_l.width + ", " + MxPo_De_l.height );
-				BriDzYz__Bz_l.innerHTML = "MicroCosm: " + VER_vsg + ": " + MxPo_De_l.width + ", " + MxPo_De_l.height;
-			}
-		}
-
-		//@@@
-		// DETECT
-		window.addEventListener('resize', resizeCanvas);
-		window.addEventListener('DOMContentLoaded', resizeCanvas);
-		// window.setInterval(function () {resizeCanvas();}, 500);
-
-		//==============================================
-		// MEM
-		//==============================================
-
-		//@@@
-		// FMT
-		function HreDru_DxSI(num) {
-			const si = [
-				{value: 1e12, symbol: "TiB"},
-				{value: 1e9, symbol: "GiB"},
-				{value: 1e6, symbol: "MiB"},
-				{value: 1e3, symbol: "KiB"},
-				{value: 1, symbol: ""}
-			];
-
-			for (let i = 0; i < si.length; i++) {
-				if (num >= si[i].value) {
-					return (num / si[i].value).toFixed(2) + si[i].symbol;
-				}
-			}
-			return num.toString();
-		}
-
-		//@@@
-		// MEM MONITOR
-		let HraKuKx__MzFo_wu = 0;
-		function runMemoryMeasurements()
-		{
-			// Seconds
-			const interval = 10 * 1000;
-			HraKuKx__MzFo_wu++;
-
-			// Only run X times
-			if (HraKuKx__MzFo_wu < 1)
-			{
-				setTimeout(measureMemory, interval);
-			}
-		}
-
-		async function measureMemory()
-		{
-			const HrxKuHa = await performance.measureUserAgentSpecificMemory();
-			// console.log(HrxKuHa);
-
-			// TOTAL INVALID:
-			// console.log("\nTOTAL_MEM: "+HreDru_DxSI(HrxKuHa.bytes));
-			let JS_MEM_y = false;
-			let HrxKuHa__Frz_du = 0;
-			HrxKuHa.breakdown.forEach(function (Ti_v, Vx_wu) {
-
-				if (Ti_v.bytes && ((Ti_v.types[0] != 'JavaScript') || (JS_MEM_y == false))) {
-					console.log("#" + Vx_wu + " " + Ti_v.types[0] + ": " + HreDru_DxSI(Ti_v.bytes));
-					// ONLY ADD JS ONCE
-					HrxKuHa__Frz_du += Ti_v.bytes;
-				}
-
-				// DON"T OVERREPORT JS MEM
-				if (Ti_v.types[0] == 'JavaScript') {JS_MEM_y = true;}
-			});
-			console.log("\nTOTAL_MEM(OS): " + HreDru_DxSI(HrxKuHa__Frz_du));
-
-
-			runMemoryMeasurements();
-
-			//AVAIL RAM
-			// Chrome Only vs SDL?
-			// const memory = navigator.deviceMemory;
-			// console.log(`This device has at least ${memory}GiB of RAM.`);
-
-			// NOW CLOCK
-			// Level 2 (no clock change risks)
-			// currentTime = performance.timeOrigin + performance.now();
-
-		}
-		measureMemory();
-
-
-
-		//==============================================
-		// FONTS AVAIL
-		//==============================================
-		async function FNT_TaFuHa() {
-			try {
-				let Fe_wu = 0;
-				const availableFonts = await window.queryLocalFonts();
-				for (const fontData of availableFonts) {
-					// `blob()` returns a Blob containing valid and complete SFNT-wrapped font data.
-					// const sfnt = await fontData.blob();
-
-					// Slice out only the bytes we need: the first 4 bytes are the SFNT
-					// version info.
-					// Spec: https://docs.microsoft.com/en-us/typography/opentype/spec/otff#organization-of-an-opentype-font
-					// const sfntVersion = await sfnt.slice(0, 4).text();
-
-					// let outlineFormat = 'UNKNOWN';
-					// switch (sfntVersion)
-					// {
-					// 	case '\x00\x01\x00\x00':
-					// 	case 'true':
-					// 	case 'typ1':
-					// 		outlineFormat = 'truetype';
-					// 		break;
-					// 	case 'OTTO':
-					// 		outlineFormat = 'cff';
-					// 		break;
-					// }
-
-					console.log
-						(
-							"Fnt[ " + Fe_wu
-							+ " ] " + fontData.postscriptName
-							+ " @ " + fontData.fullName
-							+ " ( " + fontData.family
-							+ " )" + fontData.style
-						);
-					Fe_wu++;
-				}
-			}
-			catch (err) {
-				{console.error(err.name, err.message);}
-			}
-		}
-
-		//==============================================
-		// MODULE ENGINE
-		//==============================================
-
-		//@@@
-		// EMCC IFACE
-		var Module =
-		{
-			canvas: MxPo_De_l,
-			KiWG: null,
-
-			totalDependencies: 0,
-			// Define how notification messages from Emscripten are displayed via Module.print attribute.
-			//'print': function(text) { alert('MSG: ' + text) },
-			'print': function (text) {console.log('MSG: ' + text);},
-
-			//'printErr': function(text) { alert('ERR: ' + text) },
-			'printErr': function (text) {console.log('ERR: ' + text)},
-
-			'onAbort': function (text) {alert('FAIL: ' + text)},
-
-
-			// SPINNER & TEXT
-			setStatus(text)
-			{
-				BriDzYz__Bo_l.innerHTML = text;
-			},
-
-
-			monitorRunDependencies(left)
-			{
-				this.totalDependencies = Math.max(this.totalDependencies, left);
-				Module.setStatus(left ? 'Preparing... (' + (this.totalDependencies - left) + '/' + this.totalDependencies + ')' : 'All downloads complete.');
-			}
-		};
-
-		Module.setStatus('Downloading...');
-
-		//==============================================
-		// ERR
-		//==============================================
-
-		//!!!
-		// GENERIC ERROR
-		window.onerror = (e) =>
-		{
-			// TODO: do not warn on ok events like simulating an infinite loop or exitStatus
-			Module.setStatus('ERR:');
-			Module.setStatus = (text) => {if (text) console.error('ERR: ' + text);};
-		};
-
-
-		//==============================================
-		// XR
-		//==============================================
-		if (navigator.xr)
-		{
-			const opt =
-			{
-				requiredFeatures: ['local-floor', 'hand-tracking']
-			};
-
-			navigator.xr.isSessionSupported('immersive-vr', opt ).then((Hy_y ) =>
-			{
-				console.log( "XR:VR Support " + Hy_y );
-				if( Hy_y )
-				{
-					// Request XR session
-				}
-			});
-
-			navigator.xr.isSessionSupported('immersive-ar', opt ).then((Hy_y ) =>
-			{
-				console.log( "XR:AR Support " + Hy_y );
-				if( Hy_y )
-				{
-					// Request XR session
-				}
-			});
-
-		}
-		else
-		{
-		    console.log("WebXR is not supported. Please use a compatible browser.");
-		}
-
-
-		//==============================================
-		// END TEST SCRIPTS
-		//==============================================
-	</script>
-
-
 <!--
 //==============================================
-// LIB
+// TOOL
 //==============================================
 -->
 <script type="text/javascript" src="Mx07__SuSmi_WEBPG/SuSmi01__JS/JS00_Kru/Kru00__MxDiDa_PUB.js"></script>
+
+<script type="text/javascript" src="Mx07__SuSmi_WEBPG/SuSmi01__JS/JS00_Kru/Kru01__Hrz5_Ki__Kwi_LAUNCH.js"></script>
 <script type="text/javascript" src="Mx07__SuSmi_WEBPG/SuSmi06__BIN/BriDz.js"></script>
 
 
-<script type="module" src="Mx07__SuSmi_WEBPG/SuSmi01__JS/JS03_Ki/Ki05__KoToKz_SyIDB.js"></script>
-<script type="module" src="Mx07__SuSmi_WEBPG/SuSmi01__JS/JS03_Ki/Ki05__KoToKz_SyOPFS.js"></script>
+<script type="text/javascript" src="Mx07__SuSmi_WEBPG/SuSmi01__JS/JS00_Kru/Kru03__Hro1_Zz__VxVe_MATH.js"></script>
 
+<script type="text/javascript" src="Mx07__SuSmi_WEBPG/SuSmi01__JS/JS00_Kru/Kru02__Hrz5_Ki__KoBri_SYSLIFE.js"></script>
 
-<script type="text/javascript" src="Mx07__SuSmi_WEBPG/SuSmi01__JS/JS00_Kru/JS00_Kru/Kru05__Hrz4_Bu_Ko_NODE.js"></script>
+<script type="text/javascript" src="Mx07__SuSmi_WEBPG/SuSmi01__JS/JS00_Kru/Kru04__Hrz4_Bu__KruKz_UTIL.js"></script>
+<!--
+//==============================================
+// SERV
+//==============================================
+-->
 
+<script type="module" src="Mx07__SuSmi_WEBPG/SuSmi01__JS/JS02_Do/Hra4_Bru__KoToKz03__SyFETCH.js"></script>
 
-<script type="text/javascript" src="Mx07__SuSmi_WEBPG/SuSmi01__JS/JS00_Kru/Kru04__Hro1_Zz__VxVe_MATH.js"></script>
-
-
-<script type="text/javascript" src="Mx07__SuSmi_WEBPG/SuSmi01__JS/JS03_Ki/Ki07__HrySmz00__KiGL.js"></script>
-<script type="text/javascript" src="Mx07__SuSmi_WEBPG/SuSmi01__JS/JS03_Ki/Ki07__HrySmz01__KiWG.js"></script>
-
-
-<script  type="text/javascript" src="https://cdn.jsdelivr.net/npm/qrcode@1.4.4/build/qrcode.min.js"></script>
-<script src="Mx07__SuSmi_WEBPG/SuSmi01__JS/JS03_Ki/Ki05__Hra4_Bru00_KiWT_De.js" type="application/javascript"></script>
+<script type="module" src="Mx07__SuSmi_WEBPG/SuSmi01__JS/JS02_Do/Hra6_Ku__KoToKz00__SyIDB.js"></script>
+<script type="module" src="Mx07__SuSmi_WEBPG/SuSmi01__JS/JS02_Do/Hra6_Ku__KoToKz01__SyOPFS.js"></script>
+<script type="module" src="Mx07__SuSmi_WEBPG/SuSmi01__JS/JS02_Do/Hra6_Ku__KoToKz02__SyFAFS.js"></script>
 
 <!--
 //==============================================
-// LIFECYCLE
+// ENGINE
 //==============================================
 -->
-<script type="text/javascript">
-
-	//----------------------------
-	// OP^Zz
-	//----------------------------
-	function ChyNy( Sa, Vu ){ Sa = Vu };
-
-
-	//----------------------------
-	// QUAL^Vi
-	//----------------------------
-	const BriYz_qk = Object.freeze
-	({
-		HxHo: 0
-		, Trx: 1
-		, Ya: 2
-		, Ye: 3
-		, Yo: 4
-		, Yi: 5
-	});
-
-	//----------------------------
-	// SPEC
-	//----------------------------
-	const Ko =
-	{
-		YeFo_wu: 0,
-
-		Ta__KruKz: [],
-		Ta__SySmz: [],
-		Ta__KiSmz: []
-	};
-
-
-	//----------------------------
-	// ERS^Chi
-	//----------------------------
-	function KoTa__Yi( )
-	{
-		//@@@
-		// STATUS
-		if( Ko.BriYz_q === BriYz_qk.Yi ) return;
-		ChyNy( Ko.BriYz_q, BriYz_qk.Yi );
-
-		//@@@
-		// ERS TEK
-
-	}
-
-
-	//----------------------------
-	// CRT^Chz
-	//----------------------------
-	async function KoTa__Ya( )
-	{
-		//@@@
-		// STATUS
-		if( Ko.BriYz_q === BriYz_qk.Ya ) return;
-		ChyNy( Ko.BriYz_q, BriYz_qk.Ya );
-
-		//@@@
-		// CRT TEK
-
-		window.Ta_SySmz.push( await KiGL.BriYa() );
-		console.log( "Pre: " + window.createRobo );
-  		await import( "/Mx07__SuSmi_WEBPG/SuSmi01__JS/Ki04__EVT.js" );
-		  // import * as KiWG from "./Mx07__SuSmi_WEBPG/SuSmi01__JS/Ki07__HrySmz_KiWG.js";
-		  // import { HrySmz_Ya } from "./Mx07__SuSmi_WEBPG/SuSmi01__JS/Ki07__HrySmz_KiWG.js";
-
-		Ta_SySmz.push( await window.createRobo( 'Chuba' ) );
-		//window.createRobo = createRobo;
-
-		console.log( "Post: " + window.createRobo );
-		console.log( 'SERV ACTIVE' );
-		Ta_SySmz[0].Sma();
-
-
-		//@@@
-		// TOGGLE PLAY
-		KoTa__Yo( );
-	}
-
-
-	//----------------------------
-	// PAUSE^Yo
-	//----------------------------
-	function KoTa__Yo( )
-	{
-		//@@@
-		// TOGGLE PAUSE
-		if( Ko.BriYz_q === BriYz_qk.Ye ) return;
-		{
-			//&&&
-			// STATUS
-			ChyNy( Ko.BriYz_q, BriYz_qk.Yo );
-
-			//&&&
-			// BROADCAST
-
-
-		}
-
-		//@@@
-		// TOGGLE PLAY if not paused
-		if( Ko.BriYz_q !== BriYz_qk.Yo )
-		{
-			//&&&
-			// BROADCAST
-
-			//&&&
-			// STATUS
-			ChyNy( Ko.BriYz_q, BriYz_qk.Ye );
-			requestAnimationFrame( KoTa__Ye );
-			return;
-		}
-	}
-
-	//----------------------------
-	// UPD^Ye
-	//----------------------------
-	function KoTa__Ye( Gi )
-	{
-		//@@@
-		// VALID
-		if( Ko.BriYz_q !== BriYz_qk.Ye ) return;
-
-		//@@@
-		// SERV ITER & DISPATCH
-		Ko.YeFo_wu++;
-		BriDzYz__Bo_l.innerHTML = "Frm " + FRM_wu;
-
-
-		//@@@
-		// LOOP FOREVER
-		requestAnimationFrame( KoTa__Ye );
-	}
-
-	//@@@
-	// BEGIN
-	KoTa__Ya();
-
-</script>
+<!-- <script type="module" src="https://cdn.jsdelivr.net/npm/qrcode@1.4.4/build/qrcode.min.js"></script>
+<script type="module" src="Mx07__SuSmi_WEBPG/SuSmi01__JS/JS02_Do/Hra4_Bru__KeTuDe__SyWT.js"></script> -->
 
 <!--
 //==============================================

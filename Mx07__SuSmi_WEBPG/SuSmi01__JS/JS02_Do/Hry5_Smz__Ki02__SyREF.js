@@ -4,21 +4,21 @@
 //"use strict";
 
 //==============================================
-// KiGL_BriYi
+// SyGL_BriYi
 //==============================================
 
 //==============================================
-// KiGL_BriYa
-//==============================================
-
-
-//==============================================
-// KiGL_BriYe
+// SyGL_BriYa
 //==============================================
 
 
 //==============================================
-// KiGL_MoYy
+// SyGL_BriYe
+//==============================================
+
+
+//==============================================
+// SyGL_MoYy
 //==============================================
 
 //-------------------------------------------------
@@ -144,17 +144,17 @@
 //==============================================
 'use strict';
 
-const KiWG =
+const SyWG =
 {
 };
 
-KiWG.TrxKo = function ( msg )
+SyWG.TrxKo = function ( msg )
 {
-	Module.setStatus( msg );
+	Module.Sma__BriDzYz__Bz( msg );
 }
 
 
-KiWG.canvasInfo =
+SyWG.canvasInfo =
 {
 	// these are filled out in resizeToDisplaySize
 	renderTarget: undefined,
@@ -166,18 +166,18 @@ KiWG.canvasInfo =
 
 
 
-KiWG.HrySmz_Ya = async function()
+SyWG.HrySmz_Ya = async function()
 {
 	const STALL = await Module._HEAPO_wf;
 
 	try
 	{
-		KiWG.adapter = await navigator.gpu?.requestAdapter();
-		KiWG.device = await adapter?.requestDevice();
+		SyWG.adapter = await navigator.gpu?.requestAdapter();
+		SyWG.device = await adapter?.requestDevice();
 	}
 	catch
 	{
-		KiWG.TrxKo( 'need a browser that supports WebGPU' );
+		SyWG.TrxKo( 'need a browser that supports WebGPU' );
 		return;
 	}
 
@@ -186,14 +186,14 @@ KiWG.HrySmz_Ya = async function()
 
 	console.log( "webgpu: " + device + "\n" );
 
-	const presentationFormat = navigator.gpu.getPreferredCanvasFormat( KiWG.adapter );
+	const presentationFormat = navigator.gpu.getPreferredCanvasFormat( SyWG.adapter );
 	context.configure(
 	{
-		device: KiWG.device,
+		device: SyWG.device,
 		format: presentationFormat,
 	} );
 
-	KiWG.canvasInfo =
+	SyWG.canvasInfo =
 	{
 		canvas,
 		context,
@@ -286,7 +286,7 @@ KiWG.HrySmz_Ya = async function()
 
 
 
-	KiWG.device.queue.writeTexture(
+	SyWG.device.queue.writeTexture(
 	{
 		texture: tex
 	}, new Uint8Array( [
@@ -302,18 +302,18 @@ KiWG.HrySmz_Ya = async function()
 	}, );
 
 
-	const sampler = KiWG.device.createSampler(
+	const sampler = SyWG.device.createSampler(
 	{
 		magFilter: 'nearest',
 		minFilter: 'nearest',
 	} );
 
-	const shaderModule = KiWG.device.createShaderModule(
+	const shaderModule = SyWG.device.createShaderModule(
 	{
 		code: shaderSrc
 	} );
 
-	const pipeline = KiWG.device.createRenderPipeline(
+	const pipeline = SyWG.device.createRenderPipeline(
 	{
 		label: 'fake lighting',
 		layout: 'auto',
@@ -384,13 +384,13 @@ KiWG.HrySmz_Ya = async function()
 	const vUniformBufferSize = 2 * 16 * 4; // 2 mat4s * 16 floats per mat * 4 bytes per float
 	const fUniformBufferSize = 3 * 4; // 1 vec3 * 3 floats per vec3 * 4 bytes per float
 
-	const vsUniformBuffer = KiWG.device.createBuffer(
+	const vsUniformBuffer = SyWG.device.createBuffer(
 	{
 		size: Math.max( 16, vUniformBufferSize ),
 		usage: GPUBufferUsage.UNIFORM | GPUBufferUsage.COPY_DST,
 	} );
 
-	const fsUniformBuffer = KiWG.device.createBuffer(
+	const fsUniformBuffer = SyWG.device.createBuffer(
 	{
 		size: Math.max( 16, fUniformBufferSize ),
 		usage: GPUBufferUsage.UNIFORM | GPUBufferUsage.COPY_DST,
@@ -401,7 +401,7 @@ KiWG.HrySmz_Ya = async function()
 	const fsUniformValues = new Float32Array( 3 ); // 1 vec3
 	const lightDirection = fsUniformValues.subarray( 0, 3 );
 
-	const bindGroup = KiWG.device.createBindGroup(
+	const bindGroup = SyWG.device.createBindGroup(
 	{
 		layout: pipeline.getBindGroupLayout( 0 ),
 		entries: [
@@ -450,7 +450,7 @@ KiWG.HrySmz_Ya = async function()
 }
 
 
-KiWG.resizeToDisplaySize = function( device, canvasInfo )
+SyWG.resizeToDisplaySize = function( device, canvasInfo )
 {
 		const
 		{
@@ -510,7 +510,7 @@ KiWG.resizeToDisplaySize = function( device, canvasInfo )
 	}
 
 
-KiWG.HrySmz_Ye = function( Ye_MS_wu )
+SyWG.HrySmz_Ye = function( Ye_MS_wu )
 {
 	// HEAPO_wf(); // Module["HEAPU8"][ 0 ];
 	const tic = Module._HEAPO_wf();
@@ -520,7 +520,7 @@ KiWG.HrySmz_Ye = function( Ye_MS_wu )
 
 
 
-		KiWG.resizeToDisplaySize( KiWG.device, KiWG.canvasInfo );
+		SyWG.resizeToDisplaySize( SyWG.device, SyWG.canvasInfo );
 
 		const projection = mat4.perspective( 30 * Math.PI / 180, canvas.clientWidth / canvas.clientHeight, 0.5, 10 );
 		const eye = [ 1, 4, -6 ];
@@ -535,8 +535,8 @@ KiWG.HrySmz_Ye = function( Ye_MS_wu )
 
 		vec3.normalize( [ 1, 8, -10 ], lightDirection );
 
-		KiWG.device.queue.writeBuffer( vsUniformBuffer, 0, vsUniformValues );
-		KiWG.device.queue.writeBuffer( fsUniformBuffer, 0, fsUniformValues );
+		SyWG.device.queue.writeBuffer( vsUniformBuffer, 0, vsUniformValues );
+		SyWG.device.queue.writeBuffer( fsUniformBuffer, 0, fsUniformValues );
 
 		if ( canvasInfo.sampleCount === 1 )
 		{
@@ -552,7 +552,7 @@ KiWG.HrySmz_Ye = function( Ye_MS_wu )
 
 
 
-		const commandEncoder = KiWG.device.createCommandEncoder();
+		const commandEncoder = SyWG.device.createCommandEncoder();
 		const passEncoder = commandEncoder.beginRenderPass( renderPassDescriptor );
 
 		passEncoder.setPipeline( pipeline );
@@ -564,7 +564,7 @@ KiWG.HrySmz_Ye = function( Ye_MS_wu )
 		passEncoder.drawIndexed( indices.length );
 		passEncoder.end();
 
-		KiWG.device.queue.submit( [ commandEncoder.finish() ] );
+		SyWG.device.queue.submit( [ commandEncoder.finish() ] );
 }
 
 
