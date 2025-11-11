@@ -553,7 +553,7 @@ async function FNT_TaFuHa() {
 					Sx_l.font = "2em Raleway";
 					Sx_l.textAlign = "center";
 					Sx_l.direction = "inherit";
-					Sx_l.fillStyle = "#FFFFFFDD";
+					Sx_l.fillStyle = "#FFFFFFFF";
 
 					const CTR_Ga_wu = MxPo_Trx_l.height / 2;
 					const WaHa_l = Sx_l.measureText( TrxBz_vsg );
@@ -580,7 +580,7 @@ async function FNT_TaFuHa() {
 		//@@@
 		// DETECT
 		// setInterval(function () {BriDzGyHa();}, 1500);
-		window.addEventListener( 'DOMContentLoaded', BriDzGyHa );
+		// window.addEventListener( 'DOMContentLoaded', BriDzGyHa );
 		window.addEventListener( 'resize', BriDzGyHa );
 
 		//@@@

@@ -129,8 +129,12 @@
 
 <script src="https://unpkg.com/tone"></script>
 <script>
-	function playNote()
+
+
+	async function playNote()
 	{
+		await Tone.start();
+
 		// create a synth
 		// const synth = new Tone.Synth().toDestination();
 
@@ -153,7 +157,13 @@
 
 	}
 
-	function PolySynth()
+	async function ClikClam()
+	{
+		const synth = new Tone.Synth().toDestination();
+		synth.triggerAttackRelease("C4", "8n");
+	}
+
+	async function PolySynth()
 	{
 		const synth = new Tone.PolySynth(Tone.Synth).toDestination();
 		const now = Tone.now();
