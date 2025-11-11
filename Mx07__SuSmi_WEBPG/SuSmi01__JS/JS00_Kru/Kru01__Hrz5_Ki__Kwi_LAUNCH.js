@@ -37,12 +37,12 @@ var Module =
 	Sma__BriDzYz__Bz(text)
 	{
 		let BriDzYz__Bz_l = document.getElementById('BriDzYz__Bz');
-		BriDzYz__Bz_l.innerHTML = Module.Trx_vsg ? Module.Trx_vsg: text;
+		BriDzYz__Bz_l.innerHTML = "|> " + ( Module.Trx_vsg ? Module.Trx_vsg: text );
 	},
 	Sma__BriDzYz__Bo(text)
 	{
 		let BriDzYz__Bo_l = document.getElementById('BriDzYz__Bo');
-		BriDzYz__Bo_l.innerHTML = Module.Trx_vsg ? Module.Trx_vsg: text;
+		BriDzYz__Bo_l.innerHTML = "|> " + ( text );
 	},
 
 	monitorRunDependencies(left)
@@ -68,28 +68,48 @@ function SmaTrx(){ var args = Array.prototype.slice.call(arguments); console.err
 
 
 //==============================================
+// SyWG_Trx
+//==============================================
+function BriDz_NxHoTrx_y( Va, Kri_y )
+{
+	// SmaSme( "NxHo: ---> " + Va );
+	if( !Kri_y )
+	{
+		BriDzTrx( "ERR: " + Va + " @ " + Kri_y );
+		return true;
+	}
+	return false;
+}
+
+//==============================================
 // ERR
 //==============================================
-function BriDzTrx()
+const TrxBz_vsg = "Tech FAIL: ";
+const TrxKrx_vsg = "Please try a different Browser or Device";
+
+function BriDzTrx( Mi_vsg )
 {
-	var args = Array.prototype.slice.call(arguments);
-	var KeDru_vsg = JSON.stringify( args );
+	//@@@
+	// ERR MSG
+	var KeDru_vsg = TrxBz_vsg + Mi_vsg;
 
 	// POST for HTML
 	Module.Sma__BriDzYz__Bz( KeDru_vsg );
-	Module.Sma__BriDzYz__Bo( KeDru_vsg );
-
+	Module.Sma__BriDzYz__Bo( TrxBz_vsg + TrxKrx_vsg );
 	// POST for DBG
 	console.error( KeDru_vsg );
 	// Skip MSGBOX
 	// alert( KeDru_vsg );
 
-	// END MODULE
-	Module.Trx_vsg = KeDru_vsg;
+	// CLOSE MODULE
+	Module.Trx_vsg = Mi_vsg;
+	BriDzGyHa();
+	KoTa__Yi();
+
 }
 window.onerror = (e) =>
 {
-	const Trx_vsg = ( "Browser_ERROR: " + JSON.stringify( e ) );
+	const Trx_vsg = ( JSON.stringify( e ) );
 	BriDzTrx( Trx_vsg );
 }
 

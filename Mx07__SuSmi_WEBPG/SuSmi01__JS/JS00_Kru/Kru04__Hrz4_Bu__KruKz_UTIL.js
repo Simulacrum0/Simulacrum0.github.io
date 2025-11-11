@@ -505,7 +505,7 @@ async function FNT_TaFuHa() {
 
 		// Module.requestFullscreen(document.getElementById('pointerLock').checked, document.getElementById('resize').checked)
 
-		function resizeCanvas()
+		function BriDzGyHa()
 		{
 			//@@@
 			// MxPo
@@ -515,23 +515,73 @@ async function FNT_TaFuHa() {
 			const MxPo_De_GyGx = MxPo_De_l.clientWidth;
 			const MxPo_De_GyGa = MxPo_De_l.clientHeight;
 
-			if (MxPo_De_l.width !== MxPo_De_GyGx || MxPo_De_l.height !== MxPo_De_GyGa)
+			if( MxPo_De_l.width !== MxPo_De_GyGx || MxPo_De_l.height !== MxPo_De_GyGa )
 			{
 					MxPo_De_l.width = MxPo_De_GyGx;
 					MxPo_De_l.height = MxPo_De_GyGa;
 
-					//SmaSme( "Resize: " + MxPo_De_l.width + ", " + MxPo_De_l.height );
+					SmaSme( "Resize: " + MxPo_De_l.width + ", " + MxPo_De_l.height );
 			}
 
-			// ALWAYS UPDATE STATUS
-			Module.Sma__BriDzYz__Bo( "MicroCosm[ " + VER_vsg + " ] Screen[ " + MxPo_De_l.width + "px, " + MxPo_De_l.height + "px ] DPR: " + window.devicePixelRatio  );
+			// UPDATE STATUS
+			// ONLY if not ERROR
+			if( Module.Trx_vsg )
+			{
+				const MxPo_Trx_l = document.getElementById('MxPo_Trx');
+
+				MxPo_Trx_l.clientWidth = MxPo_De_GyGx;
+				MxPo_Trx_l.clientHeight = MxPo_De_GyGa;
+
+				MxPo_Trx_l.width = MxPo_De_GyGx;
+				MxPo_Trx_l.height = MxPo_De_GyGa;
+
+				MxPo_Trx_l.className = 'HriDx MxPo';
+				MxPo_Trx_l.id = 'MxPo_Trx';
+
+				MxPo_Trx_l.style.display = 'block';
+				MxPo_De_l.style.display = 'none';
+
+				const Sx_l = MxPo_Trx_l.getContext("2d");
+				if( Sx_l )
+				{
+					Sx_l.scale( 1.0, 1.0 );
+
+					Sx_l.beginPath();
+					Sx_l.fillStyle = "#FF0909FF";
+					Sx_l.fillRect( 0, 0, MxPo_Trx_l.width, MxPo_Trx_l.height);
+
+					Sx_l.font = "2em Raleway";
+					Sx_l.textAlign = "center";
+					Sx_l.direction = "inherit";
+					Sx_l.fillStyle = "#FFFFFFDD";
+
+					const CTR_Ga_wu = MxPo_Trx_l.height / 2;
+					const WaHa_l = Sx_l.measureText( TrxBz_vsg );
+					const OFS_Ga_wu = Math.ceil( WaHa_l.fontBoundingBoxAscent + WaHa_l.fontBoundingBoxDescent + 2 ) / 2;
+
+					Sx_l.fillText( TrxBz_vsg, MxPo_Trx_l.width / 2, CTR_Ga_wu - OFS_Ga_wu );
+					Sx_l.fillText( Module.Trx_vsg, MxPo_Trx_l.width / 2, CTR_Ga_wu + OFS_Ga_wu );
+
+
+					// ANTIALIAS ATTEMPT
+					// Sx_l.lineWidth = 1;
+					// Sx_l.strokeStyle = "#FF09097F";
+					// Sx_l.strokeText( Module.Trx_vsg, MxPo_Trx_l.width / 2, MxPo_Trx_l.height / 2 );
+
+				}
+			}
+			else
+			{
+				// MxPo_Trx_l.style.display = 'none';
+				Module.Sma__BriDzYz__Bo( "MicroCosm[ " + VER_vsg + " ] Screen[ " + MxPo_De_l.width + "px, " + MxPo_De_l.height + "px ] DPR: " + window.devicePixelRatio  );
+			}
 		}
 
 		//@@@
 		// DETECT
-		// setInterval(function () {resizeCanvas();}, 1500);
-		window.addEventListener('resize', resizeCanvas);
-		window.addEventListener('DOMContentLoaded', resizeCanvas);
+		// setInterval(function () {BriDzGyHa();}, 1500);
+		window.addEventListener( 'DOMContentLoaded', BriDzGyHa );
+		window.addEventListener( 'resize', BriDzGyHa );
 
 		//@@@
 		// SCREEN HIDDEN

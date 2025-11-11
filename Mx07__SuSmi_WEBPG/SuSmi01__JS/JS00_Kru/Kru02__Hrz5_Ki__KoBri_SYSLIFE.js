@@ -59,16 +59,23 @@ async function KoTa__ChaSy( Si_vsg, SyJy_vsg, ToKz_vsg, VaSy_vsg, Yz_l )
 	{
 		await import( "/Mx07__SuSmi_WEBPG/SuSmi01__JS/" + Si_vsg + "/" + SyJy_vsg + '__' + ToKz_vsg + "__" + VaSy_vsg + ".js" );
 	}
-	const SyVx_wuk = Ko.Ta_Sy.push( await window[ VaSy_vsg ].BriYa( Yz_l ) ) - 1;
+	const Sy_l = await window[ VaSy_vsg ].BriYa( Yz_l );
+	if( Sy_l )
+	{
+		const SyVx_wuk = Ko.Ta_Sy.push( Sy_l ) - 1;
 
-	//$$$
-	// LOG
-	const Sy_l = Ko.Ta_Sy[ SyVx_wuk ];
-	SmaSme( "+++ SERV_ADD[", SyVx_wuk, "]: ", Sy_l.Ji.VaSy, " = ", Sy_l );
+		//$$$
+		// LOG
+		SmaSme( "+++ SERV_ADD[", SyVx_wuk, "]: ", Sy_l.Ji.VaSy, " = ", Sy_l );
+		Sy_l.Ji.SmaYz( Sy_l );
 
-	Sy_l.Ji.SmaYz( Sy_l );
-
-	return SyVx_wuk;
+		return SyVx_wuk;
+	}
+	else
+	{
+		SmaSme( "!!! SERV_ERR: ", VaSy_vsg );
+		return -1;
+	}
 }
 
 
@@ -78,7 +85,7 @@ async function KoTa__ChaSy( Si_vsg, SyJy_vsg, ToKz_vsg, VaSy_vsg, Yz_l )
 function KoTa__ChiSy( SyVx_wuk )
 {
 	const Sy_l = Ko.Ta_Sy[ SyVx_wuk ];
-	SmaSme( "+++ SERV_REMOVE[", SyVx_wuk, "]: ", Sy_l.Ji.VaSy, " = ", Sy_l );
+	SmaSme( "--- SERV_REMOVE[", SyVx_wuk, "]: ", Sy_l.Ji.VaSy, " = ", Sy_l );
 
 	Ko.Ta_Sy[ SyVx_wuk ] = null;
 }
@@ -153,7 +160,7 @@ function KoTa__YoChyDry()
 function KoTa__Ye( Gi )
 {
 	if( Module.Trx_vsg ) return;
-	
+
 	//@@@
 	// VALID
 	if( Ko.BriYz_q !== BriYz_qk.Ye ) return;

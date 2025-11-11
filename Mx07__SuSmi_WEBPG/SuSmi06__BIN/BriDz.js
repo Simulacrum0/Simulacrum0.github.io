@@ -8993,27 +8993,27 @@ var ASM_CONSTS = {
     KoTa__YoChyDry();
   },
   8472715: () => {
-    KoTa__Yi();
+    BriDz_NxHoTrx_y("TEST FAKE ERROR", null);
   },
-  8472731: () => {},
-  8472735: () => {
+  8472763: () => {},
+  8472767: () => {
     window.close();
   },
-  8472753: () => {
+  8472785: () => {
     OPFS_SmeStx();
   },
-  8472770: () => {
+  8472802: () => {
     console.log("MC: HrySmz__BriYa");
   },
-  8472810: () => {},
-  8472814: () => {
+  8472842: () => {},
+  8472846: () => {
     if (typeof (Module["SDL3"]) === "undefined") {
       Module["SDL3"] = {};
     }
     Module["SDL3"].camera = {};
   },
-  8472915: () => (navigator.mediaDevices === undefined) ? 0 : 1,
-  8472974: ($0, $1, $2, $3, $4, $5, $6) => {
+  8472947: () => (navigator.mediaDevices === undefined) ? 0 : 1,
+  8473006: ($0, $1, $2, $3, $4, $5, $6) => {
     const device = $0;
     const w = $1;
     const h = $2;
@@ -9087,7 +9087,7 @@ var ASM_CONSTS = {
       dynCall("iiiiii", outcome, [ device, 0, 0, 0, 0 ]);
     });
   },
-  8475265: () => {
+  8475297: () => {
     const SDL3 = Module["SDL3"];
     if ((typeof (SDL3) === "undefined") || (typeof (SDL3.camera) === "undefined") || (typeof (SDL3.camera.stream) === "undefined")) {
       return;
@@ -9095,7 +9095,7 @@ var ASM_CONSTS = {
     SDL3.camera.stream.getTracks().forEach(track => track.stop());
     SDL3.camera = {};
   },
-  8475516: ($0, $1, $2) => {
+  8475548: ($0, $1, $2) => {
     const w = $0;
     const h = $1;
     const rgba = $2;
@@ -9108,12 +9108,12 @@ var ASM_CONSTS = {
     (growMemViews(), HEAPU8).set(imgrgba, rgba);
     return 1;
   },
-  8475894: () => {
+  8475926: () => {
     if (typeof (Module["SDL3"]) !== "undefined") {
       Module["SDL3"].camera = undefined;
     }
   },
-  8475981: () => {
+  8476013: () => {
     if (typeof (Module["SDL3"]) === "undefined") {
       Module["SDL3"] = {};
     }
@@ -9122,7 +9122,7 @@ var ASM_CONSTS = {
     Module["SDL3"].dummy_audio.timers[0] = undefined;
     Module["SDL3"].dummy_audio.timers[1] = undefined;
   },
-  8476227: ($0, $1, $2, $3, $4) => {
+  8476259: ($0, $1, $2, $3, $4) => {
     var a = Module["SDL3"].dummy_audio;
     if (a.timers[$0] !== undefined) {
       clearInterval(a.timers[$0]);
@@ -9131,14 +9131,14 @@ var ASM_CONSTS = {
       dynCall("vi", $3, [ $4 ]);
     }, ($1 / $2) * 1e3);
   },
-  8476419: $0 => {
+  8476451: $0 => {
     var a = Module["SDL3"].dummy_audio;
     if (a.timers[$0] !== undefined) {
       clearInterval(a.timers[$0]);
     }
     a.timers[$0] = undefined;
   },
-  8476550: () => {
+  8476582: () => {
     if (typeof (AudioContext) !== "undefined") {
       return true;
     } else if (typeof (webkitAudioContext) !== "undefined") {
@@ -9146,7 +9146,7 @@ var ASM_CONSTS = {
     }
     return false;
   },
-  8476697: () => {
+  8476729: () => {
     if ((typeof (navigator.mediaDevices) !== "undefined") && (typeof (navigator.mediaDevices.getUserMedia) !== "undefined")) {
       return true;
     } else if (typeof (navigator.webkitGetUserMedia) !== "undefined") {
@@ -9154,7 +9154,7 @@ var ASM_CONSTS = {
     }
     return false;
   },
-  8476931: $0 => {
+  8476963: $0 => {
     if (typeof (Module["SDL3"]) === "undefined") {
       Module["SDL3"] = {};
     }
@@ -9178,8 +9178,8 @@ var ASM_CONSTS = {
     }
     return (SDL3.audioContext !== undefined);
   },
-  8477494: () => Module["SDL3"].audioContext.sampleRate,
-  8477545: ($0, $1, $2, $3) => {
+  8477526: () => Module["SDL3"].audioContext.sampleRate,
+  8477577: ($0, $1, $2, $3) => {
     var SDL3 = Module["SDL3"];
     var have_microphone = function(stream) {
       if (SDL3.audio_recording.silenceTimer !== undefined) {
@@ -9221,7 +9221,7 @@ var ASM_CONSTS = {
       }, have_microphone, no_microphone);
     }
   },
-  8479386: ($0, $1, $2, $3) => {
+  8479418: ($0, $1, $2, $3) => {
     var SDL3 = Module["SDL3"];
     SDL3.audio_playback.scriptProcessorNode = SDL3.audioContext["createScriptProcessor"]($1, 0, $0);
     SDL3.audio_playback.scriptProcessorNode["onaudioprocess"] = function(e) {
@@ -9253,7 +9253,7 @@ var ASM_CONSTS = {
       SDL3.audio_playback.silenceTimer = setInterval(silence_callback, ($1 / SDL3.audioContext.sampleRate) * 1e3);
     }
   },
-  8480702: $0 => {
+  8480734: $0 => {
     var SDL3 = Module["SDL3"];
     if ($0) {
       if (SDL3.audio_recording.silenceTimer !== undefined) {
@@ -9287,7 +9287,7 @@ var ASM_CONSTS = {
       SDL3.audioContext = undefined;
     }
   },
-  8481858: ($0, $1) => {
+  8481890: ($0, $1) => {
     var buf = $0 / 4;
     var SDL3 = Module["SDL3"];
     var numChannels = SDL3.audio_playback.currentPlaybackBuffer["numberOfChannels"];
@@ -9301,7 +9301,7 @@ var ASM_CONSTS = {
       }
     }
   },
-  8482369: ($0, $1) => {
+  8482401: ($0, $1) => {
     var SDL3 = Module["SDL3"];
     var numChannels = SDL3.audio_recording.currentRecordingBuffer.numberOfChannels;
     for (var c = 0; c < numChannels; ++c) {
@@ -9320,7 +9320,7 @@ var ASM_CONSTS = {
       }
     }
   },
-  8482996: $0 => {
+  8483028: $0 => {
     var parms = new URLSearchParams(window.location.search);
     for (const [key, value] of parms) {
       if (key.startsWith("SDL_")) {
@@ -9334,7 +9334,7 @@ var ASM_CONSTS = {
       }
     }
   },
-  8483303: () => {
+  8483335: () => {
     if (!window.matchMedia) {
       return -1;
     }
@@ -9346,7 +9346,7 @@ var ASM_CONSTS = {
     }
     return -1;
   },
-  8483512: () => {
+  8483544: () => {
     if (typeof (Module["SDL3"]) !== "undefined") {
       var SDL3 = Module["SDL3"];
       SDL3.themeChangedMatchMedia.removeEventListener("change", SDL3.eventHandlerThemeChanged);
@@ -9354,17 +9354,17 @@ var ASM_CONSTS = {
       SDL3.eventHandlerThemeChanged = undefined;
     }
   },
-  8483765: () => window.innerWidth,
-  8483795: () => window.innerHeight,
-  8483826: $0 => {
+  8483797: () => window.innerWidth,
+  8483827: () => window.innerHeight,
+  8483858: $0 => {
     Module["requestFullscreen"] = function(lockPointer, resizeCanvas) {
       _requestFullscreenThroughSDL($0);
     };
   },
-  8483935: () => {
+  8483967: () => {
     Module["requestFullscreen"] = function(lockPointer, resizeCanvas) {};
   },
-  8484009: () => {
+  8484041: () => {
     if (window.matchMedia) {
       if (typeof (Module["SDL3"]) === "undefined") {
         Module["SDL3"] = {};
@@ -9377,7 +9377,7 @@ var ASM_CONSTS = {
       SDL3.themeChangedMatchMedia.addEventListener("change", SDL3.eventHandlerThemeChanged);
     }
   },
-  8484400: ($0, $1, $2, $3) => {
+  8484432: ($0, $1, $2, $3) => {
     var w = $0;
     var h = $1;
     var pixels = $2;
@@ -9437,7 +9437,7 @@ var ASM_CONSTS = {
     }
     SDL3.ctx.putImageData(SDL3.image, 0, 0);
   },
-  8485629: ($0, $1, $2, $3, $4) => {
+  8485661: ($0, $1, $2, $3, $4) => {
     var w = $0;
     var h = $1;
     var hot_x = $2;
@@ -9458,17 +9458,17 @@ var ASM_CONSTS = {
     stringToUTF8(url, urlBuf, url.length + 1);
     return urlBuf;
   },
-  8486287: $0 => {
+  8486319: $0 => {
     if (Module["canvas"]) {
       Module["canvas"].style["cursor"] = UTF8ToString($0);
     }
   },
-  8486370: () => {
+  8486402: () => {
     if (Module["canvas"]) {
       Module["canvas"].style["cursor"] = "none";
     }
   },
-  8486439: ($0, $1, $2) => {
+  8486471: ($0, $1, $2) => {
     var target = document.querySelector(UTF8ToString($1));
     if (target) {
       var data = $0;
@@ -9528,7 +9528,7 @@ var ASM_CONSTS = {
       target.addEventListener("pointermove", SDL3.eventHandlerPointerGeneric);
     }
   },
-  8488232: ($0, $1, $2) => {
+  8488264: ($0, $1, $2) => {
     var target = document.querySelector(UTF8ToString($1));
     if (target) {
       var data = $0;
@@ -9596,7 +9596,7 @@ var ASM_CONSTS = {
       target.addEventListener("dragleave", SDL3.eventHandlerDropDragend);
     }
   },
-  8490385: $0 => {
+  8490417: $0 => {
     var target = document.querySelector(UTF8ToString($0));
     if (target) {
       var SDL3 = Module["SDL3"];
@@ -9624,7 +9624,7 @@ var ASM_CONSTS = {
       SDL3.eventHandlerDropDragend = undefined;
     }
   },
-  8491215: $0 => {
+  8491247: $0 => {
     var target = document.querySelector(UTF8ToString($0));
     if (target) {
       var SDL3 = Module["SDL3"];

@@ -192,6 +192,8 @@ function Hre7_Me__KeDru_Ha( Sa_l, SiKeDru_vsg, GeGx_wu, GeGa_wu )
 	// DRAW
 	// Clear = TRANSPARENT BLACK
 	// Sx_l.clearRect( GeGx_wu, GeGa_wu, WaHa_l.GyGx_wu, WaHa_l.GyGa_wu );
+	Sx_l.scale( 1.0, 1.0 );
+
 	Sx_l.beginPath();
     //Sx_l.lineJoin = "round";
 

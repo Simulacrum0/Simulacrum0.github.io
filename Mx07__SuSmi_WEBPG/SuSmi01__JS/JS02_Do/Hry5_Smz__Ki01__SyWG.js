@@ -83,23 +83,6 @@ const JiGwe_qk = Object.freeze
 });
 
 
-
-
-//==============================================
-// SyWG_Trx
-//==============================================
-function SyWG_NxHoTrx_y( Va, Kri_y )
-{
-	SmaSme( "SyWG NxHo: ---> " + Va );
-	if( !Kri_y )
-	{
-		Module.Trx_vsg = "SyWG_Trx: " + Va + " @ " + Kri_y;
-		BriDzTrx( Module.Trx_vsg );
-		return true;
-	}
-	return false;
-}
-
 //==============================================
 // SyWG_BriYe
 //==============================================
@@ -176,7 +159,7 @@ SyWG.BriYa = async function( Yz_l )
 	};
 
 	const KaKy_l = await navigator.gpu?.requestAdapter( pref );
-	if( SyWG_NxHoTrx_y( "Adapter", KaKy_l )){ return; }
+	if( BriDz_NxHoTrx_y( "Adapter", KaKy_l )){ return; }
 	Sa_l.KaKy_l = KaKy_l;
 
 	const canTimestamp = KaKy_l.features.has('timestamp-query');
@@ -184,7 +167,7 @@ SyWG.BriYa = async function( Yz_l )
 	// const feat = { requiredFeatures: [ ...(canTimestamp ? ['timestamp-query'] : []), ]}
 
 	const KaSmz_l = await KaKy_l.requestDevice();
-	if( SyWG_NxHoTrx_y( "Device", KaSmz_l )){ return; }
+	if( BriDz_NxHoTrx_y( "Device", KaSmz_l )){ return; }
 	Sa_l.KaSmz_l = KaSmz_l;
 
 	//-------------------------------------------------
@@ -194,8 +177,9 @@ SyWG.BriYa = async function( Yz_l )
 	Sa_l.MxPo_l = MxPo_l;
 	Sa_l.MxPo__FMT_l = navigator.gpu.getPreferredCanvasFormat( KaKy_l );
 
+
 	const Sx_l = Sa_l.MxPo_l.getContext( 'webgpu' );
-	if( SyWG_NxHoTrx_y( "Context", Sx_l )){ return; }
+	if( BriDz_NxHoTrx_y( "Context", Sx_l )){ return; }
 	Sa_l.Sx_l = Sx_l;
 
 	Sx_l.configure
@@ -204,11 +188,14 @@ SyWG.BriYa = async function( Yz_l )
 		format: Sa_l.MxPo__FMT_l
 	});
 
-	const devicePixelRatio = window.devicePixelRatio;
-	MxPo_l.width = MxPo_l.clientWidth * devicePixelRatio;
-	MxPo_l.height = MxPo_l.clientHeight * devicePixelRatio;
+	// ratio of the resolution in physical pixels to the resolution in CSS pixels
+	// const devicePixelRatio = window.devicePixelRatio;
+
+	MxPo_l.width = MxPo_l.clientWidth;
+	MxPo_l.height = MxPo_l.clientHeight;
 
 	// BIND: @group(0) @binding(0) var textures: texture_2d_array<f32>;
+
 
 	//-------------------------------------------------
 	// BUF: LOC
@@ -251,6 +238,10 @@ SyWG.BriYa = async function( Yz_l )
 	//-------------------------------------------------
 	// SAMPLER^JaMi
 	// 'filtering', 'non-filtering', 'comparison'
+	// lodMinClamp: float= 0
+	// lodMaxClamp: float= 32
+	// compare: GPUCompareFunction
+	// maxAnisotropy: unsigned short= 1
 	//-------------------------------------------------
 	Sa_l.JaMi__DISCRETE_l = Sa_l.KaSmz_l.createSampler(
 	{
@@ -272,6 +263,7 @@ SyWG.BriYa = async function( Yz_l )
 		minFilter: "linear",
 		mipmapFilter: "linear",
 	});
+
 
 	//-------------------------------------------------
 	// BIND
@@ -392,7 +384,6 @@ SyWG.BriYa = async function( Yz_l )
 
 		  let i = cellIndex(cell.xy);
 
-		  c
 
 		  // Conway's game of life rules:
 		  switch activeNeighbors
@@ -411,9 +402,7 @@ SyWG.BriYa = async function( Yz_l )
 	  `
 	});
 
-	if( SyWG_NxHoTrx_y( "Prog^JiSpo", JiSpo02__CONWAY_SIM )){ return; }
-
-	if( SyWG_NxHoTrx_y( "FAKE ERROR", null )){ return; }
+	if( BriDz_NxHoTrx_y( "Prog^JiSpo", JiSpo02__CONWAY_SIM )){ return; }
 
 	// Create a compute pipeline that updates the game state.
 	const JiGwe02__CONWAY_SIM = KaSmz_l.createComputePipeline
@@ -440,7 +429,7 @@ SyWG.BriYa = async function( Yz_l )
 		size: SuTy__BraHiFrz_k,
 		usage: GPUBufferUsage.UNIFORM | GPUBufferUsage.COPY_DST,
 	});
-	if( SyWG_NxHoTrx_y( "Crafts^SuTy", Jx00__SuTy )){ return; }
+	if( BriDz_NxHoTrx_y( "Crafts^SuTy", Jx00__SuTy )){ return; }
 	Sa_l.Jx00__SuTy = Jx00__SuTy;
 
 	const uniformArray = new Float32Array( [ CS_Gy_k, CS_Gy_k ] );
@@ -579,7 +568,7 @@ SyWG.BriYa = async function( Yz_l )
 				| GPUTextureUsage.STORAGE_BINDING
 				| GPUTextureUsage.RENDER_ATTACHMENT,
 	});
-	if( SyWG_NxHoTrx_y( "Surf Deck", TaGwa__JaPo_l )){ return; }
+	if( BriDz_NxHoTrx_y( "Surf Deck", TaGwa__JaPo_l )){ return; }
 
 	Sa_l.TaGwa__JaPo_l = TaGwa__JaPo_l;
 
