@@ -44,7 +44,10 @@ function KoTa__Yi( )
 
 	//@@@
 	// ERS TEK
-
+	Ko.Ta_Sy.forEach( function ( Ti_v )
+	{
+		if( Ti_v.Ji.BriYe ){ Ti_v.Ji.BriYi( Ti_v ); }
+	});
 }
 
 //----------------------------
@@ -91,10 +94,11 @@ async function KoTa__Ya( )
 	Ko.BriYz_q = BriYz_qk.Ya;
 	Ko.BriYa_GiDri_df = performance.now();
 
+
 	//@@@
 	// CRT TEK
 	KoTa__ChaSy( 'JS02_Do', 'Hre1_Dru', 'KeDruPy', 'SyVCB', { Si_KeDru: 'en' } );
-	KoTa__ChaSy( 'JS02_Do', 'Hry5_Smz', 'Ki00', 'SyGL', { KaVy: '0' } );
+	//KoTa__ChaSy( 'JS02_Do', 'Hry5_Smz', 'Ki00', 'SyGL', { KaVy: '0' } );
 	KoTa__ChaSy( 'JS02_Do', 'Hry5_Smz', 'Ki01', 'SyWG', { KaVy: '0' } );
 
 
@@ -110,6 +114,8 @@ async function KoTa__Ya( )
 //----------------------------
 function KoTa__YoChyDry()
 {
+	if( Module.Trx_vsg ) return;
+
 	//@@@
 	// TOGGLE PAUSE
 	if( Ko.BriYz_q === BriYz_qk.Ye )
@@ -146,6 +152,8 @@ function KoTa__YoChyDry()
 //----------------------------
 function KoTa__Ye( Gi )
 {
+	if( Module.Trx_vsg ) return;
+	
 	//@@@
 	// VALID
 	if( Ko.BriYz_q !== BriYz_qk.Ye ) return;

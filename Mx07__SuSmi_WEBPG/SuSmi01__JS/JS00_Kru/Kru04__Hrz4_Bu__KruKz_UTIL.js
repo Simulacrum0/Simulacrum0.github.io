@@ -505,33 +505,31 @@ async function FNT_TaFuHa() {
 
 		// Module.requestFullscreen(document.getElementById('pointerLock').checked, document.getElementById('resize').checked)
 
-		//@@@
-		// GL LOST
-		// See http://www.khronos.org/registry/webgl/specs/latest/1.0/#5.15.2
-		MxPo_De_l.addEventListener('webglcontextlost', (e) =>
-		{
-			alert('ERR001: WebGL context lost. You will need to reload the page.');
-			e.preventDefault();
-		}, false);
-
 		function resizeCanvas()
 		{
+			//@@@
+			// MxPo
+			// SCREEN
+			const MxPo_De_l = document.getElementById('MxPo_De');
+
 			const MxPo_De_GyGx = MxPo_De_l.clientWidth;
 			const MxPo_De_GyGa = MxPo_De_l.clientHeight;
 
 			if (MxPo_De_l.width !== MxPo_De_GyGx || MxPo_De_l.height !== MxPo_De_GyGa)
-				{
+			{
 					MxPo_De_l.width = MxPo_De_GyGx;
 					MxPo_De_l.height = MxPo_De_GyGa;
 
-					Module.Sma__BriDzYz__Bo( "MicroCosm[ " + VER_vsg + " ] Screen[ " + MxPo_De_l.width + "px, " + MxPo_De_l.height + "px ] " );
 					//SmaSme( "Resize: " + MxPo_De_l.width + ", " + MxPo_De_l.height );
 			}
+
+			// ALWAYS UPDATE STATUS
+			Module.Sma__BriDzYz__Bo( "MicroCosm[ " + VER_vsg + " ] Screen[ " + MxPo_De_l.width + "px, " + MxPo_De_l.height + "px ] DPR: " + window.devicePixelRatio  );
 		}
 
 		//@@@
 		// DETECT
-		// window.seMattInterval(function () {resizeCanvas();}, 500);
+		// setInterval(function () {resizeCanvas();}, 1500);
 		window.addEventListener('resize', resizeCanvas);
 		window.addEventListener('DOMContentLoaded', resizeCanvas);
 
@@ -601,6 +599,17 @@ async function FNT_TaFuHa() {
 //==============================================
 // XR
 //==============================================
+
+		//@@@
+		// WebXR
+		// GL LOST
+		// See http://www.khronos.org/registry/webgl/specs/latest/1.0/#5.15.2
+		// HriKe_De_l.addEventListener('webglcontextlost', (e) =>
+		// {
+		// 	alert('ERR001: WebGL context lost. You will need to reload the page.');
+		// 	e.preventDefault();
+		// }, false);
+
 function XR_BriYa( Yz_l )
 		{
 			if (navigator.xr)
@@ -635,6 +644,19 @@ function XR_BriYa( Yz_l )
 			}
 		}
 
+
+//==============================================
+// IO MEDIA DEV
+//==============================================
+SmaSme( "===================\n MEDIA DEV\n----------" );
+navigator.mediaDevices.enumerateDevices().then
+( function(devices){
+			devices.forEach
+			( function(device)
+			{
+				SmaSme( " -[ " + device.kind + " ]: " + device.label +" id = " + device.deviceId );
+			});
+});
 
 
 //==============================================

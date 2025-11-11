@@ -144,40 +144,40 @@
 //==============================================
 'use strict';
 
-const SyWG =
+const Sa_l =
 {
 };
 
-SyWG.TrxKo = function ( msg )
+Sa_l.TrxKo = function ( msg )
 {
 	Module.Sma__BriDzYz__Bz( msg );
 }
 
 
-SyWG.canvasInfo =
+Sa_l.canvasInfo =
 {
 	// these are filled out in resizeToDisplaySize
 	renderTarget: undefined,
 	renderTargetView: undefined,
 	depthTexture: undefined,
 	depthTextureView: undefined,
-	sampleCount: 4, // can be 1 or 4
+	sampleCount: 1, // can be 1 or 4
 }
 
 
 
-SyWG.HrySmz_Ya = async function()
+Sa_l.HrySmz_Ya = async function()
 {
 	const STALL = await Module._HEAPO_wf;
 
 	try
 	{
-		SyWG.adapter = await navigator.gpu?.requestAdapter();
-		SyWG.device = await adapter?.requestDevice();
+		Sa_l.adapter = await navigator.gpu?.requestAdapter();
+		Sa_l.device = await adapter?.requestDevice();
 	}
 	catch
 	{
-		SyWG.TrxKo( 'need a browser that supports WebGPU' );
+		Sa_l.TrxKo( 'need a browser that supports WebGPU' );
 		return;
 	}
 
@@ -186,14 +186,14 @@ SyWG.HrySmz_Ya = async function()
 
 	console.log( "webgpu: " + device + "\n" );
 
-	const presentationFormat = navigator.gpu.getPreferredCanvasFormat( SyWG.adapter );
+	const presentationFormat = navigator.gpu.getPreferredCanvasFormat( Sa_l.adapter );
 	context.configure(
 	{
-		device: SyWG.device,
+		device: Sa_l.device,
 		format: presentationFormat,
 	} );
 
-	SyWG.canvasInfo =
+	Sa_l.canvasInfo =
 	{
 		canvas,
 		context,
@@ -286,7 +286,7 @@ SyWG.HrySmz_Ya = async function()
 
 
 
-	SyWG.device.queue.writeTexture(
+	Sa_l.device.queue.writeTexture(
 	{
 		texture: tex
 	}, new Uint8Array( [
@@ -302,18 +302,18 @@ SyWG.HrySmz_Ya = async function()
 	}, );
 
 
-	const sampler = SyWG.device.createSampler(
+	const sampler = Sa_l.device.createSampler(
 	{
 		magFilter: 'nearest',
 		minFilter: 'nearest',
 	} );
 
-	const shaderModule = SyWG.device.createShaderModule(
+	const shaderModule = Sa_l.device.createShaderModule(
 	{
 		code: shaderSrc
 	} );
 
-	const pipeline = SyWG.device.createRenderPipeline(
+	const pipeline = Sa_l.device.createRenderPipeline(
 	{
 		label: 'fake lighting',
 		layout: 'auto',
@@ -384,13 +384,13 @@ SyWG.HrySmz_Ya = async function()
 	const vUniformBufferSize = 2 * 16 * 4; // 2 mat4s * 16 floats per mat * 4 bytes per float
 	const fUniformBufferSize = 3 * 4; // 1 vec3 * 3 floats per vec3 * 4 bytes per float
 
-	const vsUniformBuffer = SyWG.device.createBuffer(
+	const vsUniformBuffer = Sa_l.device.createBuffer(
 	{
 		size: Math.max( 16, vUniformBufferSize ),
 		usage: GPUBufferUsage.UNIFORM | GPUBufferUsage.COPY_DST,
 	} );
 
-	const fsUniformBuffer = SyWG.device.createBuffer(
+	const fsUniformBuffer = Sa_l.device.createBuffer(
 	{
 		size: Math.max( 16, fUniformBufferSize ),
 		usage: GPUBufferUsage.UNIFORM | GPUBufferUsage.COPY_DST,
@@ -401,7 +401,7 @@ SyWG.HrySmz_Ya = async function()
 	const fsUniformValues = new Float32Array( 3 ); // 1 vec3
 	const lightDirection = fsUniformValues.subarray( 0, 3 );
 
-	const bindGroup = SyWG.device.createBindGroup(
+	const bindGroup = Sa_l.device.createBindGroup(
 	{
 		layout: pipeline.getBindGroupLayout( 0 ),
 		entries: [
@@ -450,7 +450,7 @@ SyWG.HrySmz_Ya = async function()
 }
 
 
-SyWG.resizeToDisplaySize = function( device, canvasInfo )
+Sa_l.resizeToDisplaySize = function( device, canvasInfo )
 {
 		const
 		{
@@ -510,7 +510,7 @@ SyWG.resizeToDisplaySize = function( device, canvasInfo )
 	}
 
 
-SyWG.HrySmz_Ye = function( Ye_MS_wu )
+Sa_l.HrySmz_Ye = function( Ye_MS_wu )
 {
 	// HEAPO_wf(); // Module["HEAPU8"][ 0 ];
 	const tic = Module._HEAPO_wf();
@@ -520,7 +520,7 @@ SyWG.HrySmz_Ye = function( Ye_MS_wu )
 
 
 
-		SyWG.resizeToDisplaySize( SyWG.device, SyWG.canvasInfo );
+		Sa_l.resizeToDisplaySize( Sa_l.device, Sa_l.canvasInfo );
 
 		const projection = mat4.perspective( 30 * Math.PI / 180, canvas.clientWidth / canvas.clientHeight, 0.5, 10 );
 		const eye = [ 1, 4, -6 ];
@@ -535,8 +535,8 @@ SyWG.HrySmz_Ye = function( Ye_MS_wu )
 
 		vec3.normalize( [ 1, 8, -10 ], lightDirection );
 
-		SyWG.device.queue.writeBuffer( vsUniformBuffer, 0, vsUniformValues );
-		SyWG.device.queue.writeBuffer( fsUniformBuffer, 0, fsUniformValues );
+		Sa_l.device.queue.writeBuffer( vsUniformBuffer, 0, vsUniformValues );
+		Sa_l.device.queue.writeBuffer( fsUniformBuffer, 0, fsUniformValues );
 
 		if ( canvasInfo.sampleCount === 1 )
 		{
@@ -552,7 +552,7 @@ SyWG.HrySmz_Ye = function( Ye_MS_wu )
 
 
 
-		const commandEncoder = SyWG.device.createCommandEncoder();
+		const commandEncoder = Sa_l.device.createCommandEncoder();
 		const passEncoder = commandEncoder.beginRenderPass( renderPassDescriptor );
 
 		passEncoder.setPipeline( pipeline );
@@ -564,7 +564,7 @@ SyWG.HrySmz_Ye = function( Ye_MS_wu )
 		passEncoder.drawIndexed( indices.length );
 		passEncoder.end();
 
-		SyWG.device.queue.submit( [ commandEncoder.finish() ] );
+		Sa_l.device.queue.submit( [ commandEncoder.finish() ] );
 }
 
 

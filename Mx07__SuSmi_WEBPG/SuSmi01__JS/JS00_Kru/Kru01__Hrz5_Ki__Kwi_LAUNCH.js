@@ -8,23 +8,7 @@
 
 //==============================================
 // SyKi
-// GLOBALs
-//==============================================
-
-//@@@
-// FILE HANDLE TEST ONLY
-//@@@
-let OP_ToKzVy;
-
-
-//@@@
-// MxPo
-// SCREEN
-let MxPo_De_l = document.getElementById('MxPo_De');
-
-
-//==============================================
-// OP^Zz
+// GLOBAL
 //==============================================
 
 
@@ -38,7 +22,7 @@ let MxPo_De_l = document.getElementById('MxPo_De');
 var Module =
 {
 	// REQ: Input
-	canvas: MxPo_De_l,
+	canvas: document.getElementById('MxPo_De'),
 	// REQ: load
 	totalDependencies: 0,
 
@@ -53,13 +37,12 @@ var Module =
 	Sma__BriDzYz__Bz(text)
 	{
 		let BriDzYz__Bz_l = document.getElementById('BriDzYz__Bz');
-		BriDzYz__Bz_l.innerHTML = text;
-
+		BriDzYz__Bz_l.innerHTML = Module.Trx_vsg ? Module.Trx_vsg: text;
 	},
 	Sma__BriDzYz__Bo(text)
 	{
 		let BriDzYz__Bo_l = document.getElementById('BriDzYz__Bo');
-		BriDzYz__Bo_l.innerHTML = text;
+		BriDzYz__Bo_l.innerHTML = Module.Trx_vsg ? Module.Trx_vsg: text;
 	},
 
 	monitorRunDependencies(left)
@@ -71,8 +54,9 @@ var Module =
 
 //@@@
 // BOOT
-Module.Sma__BriDzYz__Bz('Downloading...');
-Module.Sma__BriDzYz__Bo('Status');
+Module.Trx_vsg = null;
+Module.Sma__BriDzYz__Bz( ' Welcome' );
+Module.Sma__BriDzYz__Bo( ' Status' );
 
 //==============================================
 // LOG
@@ -82,13 +66,30 @@ function SmaSme(){ var args = Array.prototype.slice.call(arguments); console.log
 function SmaDre(){ var args = Array.prototype.slice.call(arguments); console.warn.apply(console, args); }
 function SmaTrx(){ var args = Array.prototype.slice.call(arguments); console.error.apply(console, args); }
 
+
 //==============================================
 // ERR
 //==============================================
-function BriDzTrx(){ var args = Array.prototype.slice.call(arguments); alert.apply(console, args); Module.Sma__BriDzYz__Bz( JSON.stringify( args ) ); }
+function BriDzTrx()
+{
+	var args = Array.prototype.slice.call(arguments);
+	var KeDru_vsg = JSON.stringify( args );
+
+	// POST for HTML
+	Module.Sma__BriDzYz__Bz( KeDru_vsg );
+	Module.Sma__BriDzYz__Bo( KeDru_vsg );
+
+	// POST for DBG
+	console.error( KeDru_vsg );
+	// Skip MSGBOX
+	// alert( KeDru_vsg );
+
+	// END MODULE
+	Module.Trx_vsg = KeDru_vsg;
+}
 window.onerror = (e) =>
 {
-	const Trx_vsg = ( "Error: " + JSON.stringify( e ) );
+	const Trx_vsg = ( "Browser_ERROR: " + JSON.stringify( e ) );
 	BriDzTrx( Trx_vsg );
 }
 
