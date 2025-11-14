@@ -558,7 +558,7 @@ function SySPEAK()
 		//@@@
 		// DETECT
 		// setInterval(function () {BriDzGyHa();}, 1500);
-		//window.addEventListener( 'DOMContentLoaded', BriDzGyHa );
+		window.addEventListener( 'DOMContentLoaded', BriDzGyHa );
 		window.addEventListener( 'resize', BriDzGyHa );
 
 		//@@@
