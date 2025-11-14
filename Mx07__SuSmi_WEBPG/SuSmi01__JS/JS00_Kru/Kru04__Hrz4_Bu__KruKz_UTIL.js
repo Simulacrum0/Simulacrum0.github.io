@@ -451,52 +451,32 @@ async function FNT_TaFuHa() {
 }
 
 
+//==============================================
+// SPEAK
+//==============================================
 
-		//==============================================
-		// GPS
-		//==============================================
-		function KiGPS_Trx(error)
+function SySPEAK()
+{
+	if (!window.speechSynthesis)
 		{
-			const Err_vsg = "";
-  			switch(error.code)
-			{
-    			case error.PERMISSION_DENIED:
-      			Err_vsg = "User denied the request for Geolocation."
-      			break;
-				case error.POSITION_UNAVAILABLE:
-				Err_vsg = "Location information is unavailable."
-				break;
-				case error.TIMEOUT:
-				Err_vsg = "The request to get user location timed out."
-				break;
-				case error.UNKNOWN_ERROR:
-				Err_vsg = "An unknown error occurred."
-				break;
-			}
-			SmaTrx( "GPS_ERR:", Err_vsg );
-		}
+	  alert("Your device does not support the SpeechSynthesis API");
+	}
+	else
+	{
+	  let availableVoices = speechSynthesis.getVoices();
+	  let utterance = new SpeechSynthesisUtterance();
+	  utterance.text = "Text into Voice Test";
 
-		function KiGPS_Fy(Ge_l )
-		{
-			// coords.latitude	The latitude as a decimal number (always returned)
-			// coords.longitude	The longitude as a decimal number (always returned)
-			// coords.accuracy	The accuracy of position (always returned)
+	  utterance.voice = availableVoices[ 0 ];
 
-			// coords.altitude	The altitude in meters above the mean sea level (returned if available)
-			// coords.altitudeAccuracy	The altitude accuracy of position (returned if available)
-			// coords.heading	The heading as degrees clockwise from North (returned if available)
-			// coords.speed	The speed in meters per second (returned if available)
-			// timestamp	The date/time of the response (returned if available)
+	  //utterance.voice = availableVoices.find(o => o.voiceURI === document.getElementById('voice-choice').value) || availableVoices[0];
+	  // utterance.pitch = document.getElementById('pitch').value;
+	 // utterance.rate = document.getElementById('rate').value;
 
-			SmaSme( "GPS: Lat:", Ge_l.coords.latitude, " Lon:", Ge_l.coords.longitude );
-		}
-
-		// getCurrentPosition() one-shot
-		// watchPosition() - continues to return updated location as the user moves (like the GPS in a car).
-		// clearWatch() - Stops the watchPosition() method.
-
-		if (navigator.geolocation){ navigator.geolocation.watchPosition( KiGPS_Fy, KiGPS_Trx ); }
-		else { SmaDre( "Geolocation is not supported by this browser." ); }
+	  speechSynthesis.speak(utterance);
+	}
+  }
+  SySPEAK();
 
 
 		//==============================================
@@ -528,59 +508,57 @@ async function FNT_TaFuHa() {
 			if( Module.Trx_vsg )
 			{
 				const MxPo_Trx_l = document.getElementById('MxPo_Trx');
+				// MxPo_Trx_l.className = 'HriDx MxPo';
+				// MxPo_Trx_l.id = 'MxPo_Trx';
 
 				MxPo_Trx_l.clientWidth = MxPo_De_GyGx;
 				MxPo_Trx_l.clientHeight = MxPo_De_GyGa;
-
 				MxPo_Trx_l.width = MxPo_De_GyGx;
 				MxPo_Trx_l.height = MxPo_De_GyGa;
 
-				MxPo_Trx_l.className = 'HriDx MxPo';
-				MxPo_Trx_l.id = 'MxPo_Trx';
 
-				MxPo_Trx_l.style.display = 'block';
-				MxPo_De_l.style.display = 'none';
 
 				const Sx_l = MxPo_Trx_l.getContext("2d");
 				if( Sx_l )
-				{
-					Sx_l.scale( 1.0, 1.0 );
+					{
+						Sx_l.scale( 1.0, 1.0 );
 
-					Sx_l.beginPath();
-					Sx_l.fillStyle = "#FF0909FF";
-					Sx_l.fillRect( 0, 0, MxPo_Trx_l.width, MxPo_Trx_l.height);
+						Sx_l.beginPath();
+						Sx_l.fillStyle = "#FF0909FF";
+						Sx_l.fillRect( 0, 0, MxPo_Trx_l.width, MxPo_Trx_l.height);
 
-					Sx_l.font = "2em Raleway";
-					Sx_l.textAlign = "center";
-					Sx_l.direction = "inherit";
-					Sx_l.fillStyle = "#FFFFFFFF";
+						Sx_l.font = "2em Raleway";
+						Sx_l.textAlign = "center";
+						Sx_l.direction = "inherit";
+						Sx_l.fillStyle = "#FFFFFFFF";
 
-					const CTR_Ga_wu = MxPo_Trx_l.height / 2;
-					const WaHa_l = Sx_l.measureText( TrxBz_vsg );
-					const OFS_Ga_wu = Math.ceil( WaHa_l.fontBoundingBoxAscent + WaHa_l.fontBoundingBoxDescent + 2 ) / 2;
+						const CTR_Ga_wu = MxPo_Trx_l.height / 2;
+						const WaHa_l = Sx_l.measureText( TrxBz_vsg );
+						const OFS_Ga_wu = Math.ceil( WaHa_l.fontBoundingBoxAscent + WaHa_l.fontBoundingBoxDescent + 2 ) / 2;
 
-					Sx_l.fillText( TrxBz_vsg, MxPo_Trx_l.width / 2, CTR_Ga_wu - OFS_Ga_wu );
-					Sx_l.fillText( Module.Trx_vsg, MxPo_Trx_l.width / 2, CTR_Ga_wu + OFS_Ga_wu );
+						Sx_l.fillText( TrxBz_vsg, MxPo_Trx_l.width / 2, CTR_Ga_wu - OFS_Ga_wu );
+						Sx_l.fillText( Module.Trx_vsg, MxPo_Trx_l.width / 2, CTR_Ga_wu + OFS_Ga_wu );
 
+						// ANTIALIAS ATTEMPT
+						// Sx_l.lineWidth = 1;
+						// Sx_l.strokeStyle = "#FF09097F";
+						// Sx_l.strokeText( Module.Trx_vsg, MxPo_Trx_l.width / 2, MxPo_Trx_l.height / 2 );
 
-					// ANTIALIAS ATTEMPT
-					// Sx_l.lineWidth = 1;
-					// Sx_l.strokeStyle = "#FF09097F";
-					// Sx_l.strokeText( Module.Trx_vsg, MxPo_Trx_l.width / 2, MxPo_Trx_l.height / 2 );
-
+						MxPo_Trx_l.style.display = 'block';
+						MxPo_De_l.style.display = 'none';
 				}
 			}
 			else
 			{
 				// MxPo_Trx_l.style.display = 'none';
-				Module.Sma__BriDzYz__Bo( "MicroCosm[ " + VER_vsg + " ] Screen[ " + MxPo_De_l.width + "px, " + MxPo_De_l.height + "px ] DPR: " + window.devicePixelRatio  );
+				Module.Sma__BriDzYz__Bo( "MicroCosm[ " + BriDzSa__Da_vsg + " ] Screen[ " + MxPo_De_l.width + "px, " + MxPo_De_l.height + "px ] DPR: " + window.devicePixelRatio  );
 			}
 		}
 
 		//@@@
 		// DETECT
 		// setInterval(function () {BriDzGyHa();}, 1500);
-		// window.addEventListener( 'DOMContentLoaded', BriDzGyHa );
+		//window.addEventListener( 'DOMContentLoaded', BriDzGyHa );
 		window.addEventListener( 'resize', BriDzGyHa );
 
 		//@@@
@@ -718,7 +696,7 @@ navigator.mediaDevices.enumerateDevices().then
 // {
   // 	events: 'touchstart', // or any other event tyoes
 // });
-// ??.addEventListener('touchstart', this.callPassedFuntion, { passive: false });
+// ??.addEventListener('touchstart', this.callPassedFunFDtion, { passive: false });
 
 
 //=====================================

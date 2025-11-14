@@ -101,6 +101,9 @@ async function KoTa__Ya( )
 	Ko.BriYz_q = BriYz_qk.Ya;
 	Ko.BriYa_GiDri_df = performance.now();
 
+	//@@@
+	// ENGINE
+	await Module[ "_Hra1_Mz__JeKz__BriYe" ];
 
 	//@@@
 	// CRT TEK
@@ -159,18 +162,17 @@ function KoTa__YoChyDry()
 //----------------------------
 function KoTa__Ye( Gi )
 {
-	if( Module.Trx_vsg ) return;
-
 	//@@@
 	// VALID
-	if( Ko.BriYz_q !== BriYz_qk.Ye ) return;
+	// No Err or Not-Update State Allowed
+	if( ( Module.Trx_vsg ) || ( Ko.BriYz_q !== BriYz_qk.Ye )) return;
+
 
 	//@@@
-	// SERV ITER & DISPATCH
+	// TIMER UPDATE
 	Ko.YeFo_wu++;
 //	const Gry__GiPa_wf = ( performance.now() - performance.timeOrigin ) / 1000.0;
 	const Gry__GiPa_wf = ( performance.now() - Ko.BriYa_GiDri_df ) / 1000.0;
-
 	// Date().toLocaleString()  = full date/time/tz
 	if( Ko.YeFo_wu % 60 == 0 )
 	{
@@ -179,11 +181,17 @@ function KoTa__Ye( Gi )
 	}
 
 	//@@@
+	// EVENTS
+	_Hra1_Mz__JeKz__BriYe();
+
+
+	//@@@
 	// ENGINE UPDATE ALL
 	Ko.Ta_Sy.forEach( function ( Ti_v )
 	{
 		if( Ti_v.Ji.BriYe ){ Ti_v.Ji.BriYe( Ti_v, Gi ); }
 	});
+
 
 	//@@@
 	// LOOP FOREVER
