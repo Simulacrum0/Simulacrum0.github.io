@@ -566,7 +566,7 @@ function createExportWrapper(name, nargs) {
 var wasmBinaryFile;
 
 function findWasmBinary() {
-  return locateFile("BriDz.wasm");
+  return locateFile("Kwi__BriDz.wasm");
 }
 
 function getBinarySync(file) {
@@ -1139,7 +1139,7 @@ function __emscripten_create_wasm_worker(stackLowestAddress, stackSize) {
     return 0;
   }
   let worker;
-  worker = _wasmWorkers[_wasmWorkersID] = new Worker(locateFile("BriDz.js"), {
+  worker = _wasmWorkers[_wasmWorkersID] = new Worker(locateFile("Kwi__BriDz.js"), {
     // This is the way that we signal to the Web Worker that it is hosting
     // a pthread.
     "name": "em-ww"

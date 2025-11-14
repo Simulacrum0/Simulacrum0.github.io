@@ -103,10 +103,10 @@ async function KoTa__Ya( )
 
 	//@@@
 	// ENGINE
-	await Module[ "_Hra1_Mz__JeKz__BriYe" ];
+	
 
 	//@@@
-	// CRT TEK
+	// SERVICES
 	KoTa__ChaSy( 'JS02_Do', 'Hre1_Dru', 'KeDruPy', 'SyVCB', { Si_KeDru: 'en' } );
 	//KoTa__ChaSy( 'JS02_Do', 'Hry5_Smz', 'Ki00', 'SyGL', { KaVy: '0' } );
 	KoTa__ChaSy( 'JS02_Do', 'Hry5_Smz', 'Ki01', 'SyWG', { KaVy: '0' } );
@@ -181,12 +181,14 @@ function KoTa__Ye( Gi )
 	}
 
 	//@@@
-	// EVENTS
+	// SYNC_UPDATES
 	_Hra1_Mz__JeKz__BriYe();
+	// 	_Hra1_Mz__JeKz__BriYe();
+	// 	_Hra1_Mz__JeKz__BriYe();
 
 
 	//@@@
-	// ENGINE UPDATE ALL
+	// TEK-SERVS UPDATE ALL
 	Ko.Ta_Sy.forEach( function ( Ti_v )
 	{
 		if( Ti_v.Ji.BriYe ){ Ti_v.Ji.BriYe( Ti_v, Gi ); }
