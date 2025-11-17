@@ -11,15 +11,16 @@
 	<script type="text/javascript" src="Hrx4_Che__MeGrx_CORS.js"></script>
 	<script type="text/javascript">
 		//==============================================
-		// CORS must RUN FIRST
+		// STARTUP
 		//==============================================
+		// CORS must RUN FIRST
 		console.log("CORS: " + (window.crossOriginIsolated ? "✅" : "❌"));
 		if (!window.crossOriginIsolated)
 		{
 			//???
 			// MSG should display @ DOM
 			console.log('WAITING: Engaging HTTPS CORS in order to run under Security Policies.');
-			abort();
+
 		}
 
 		//@@@
@@ -27,10 +28,16 @@
 		document.addEventListener('readystatechange', function()
 		{
 			if (document.readyState === 'interactive')
-			{ SmaSme( "DOM is ready for interaction" );	KoTa__Ya(); }
+			{
+				SmaSme( "- WebPage_DOM Interactive" );
+				KoTa__Ya();
+			}
 
 			else if (document.readyState === 'complete')
-			{ SmaSme( "DOM is fully loaded" );	}
+			{
+				SmaSme( "- WebPage_DOM Fully_Loaded" );
+
+			}
 		});
 
 		//==============================================
@@ -118,16 +125,14 @@
 // TOOL
 //==============================================
 -->
-<script type="text/javascript" src="Mx07__SuSmi_WEBPG/SuSmi06__BIN/Kwi__BriDz.js"></script>
 
 <script type="text/javascript" src="Mx07__SuSmi_WEBPG/SuSmi01__JS/JS00_Kru/Kru00__MxDiDa_PUB.js"></script>
 <script type="text/javascript" src="Mx07__SuSmi_WEBPG/SuSmi01__JS/JS00_Kru/Kru01__Hre1_Dru__Gra_LANG_AVAIL.js"></script>
-
-
 <script type="text/javascript" src="Mx07__SuSmi_WEBPG/SuSmi01__JS/JS00_Kru/Kru02__Hrz5_Ki__Kwi_LAUNCH.js"></script>
 <script type="text/javascript" src="Mx07__SuSmi_WEBPG/SuSmi01__JS/JS00_Kru/Kru03__Hrz5_Ki__KoBri_SYSLIFE.js"></script>
 <script type="text/javascript" src="Mx07__SuSmi_WEBPG/SuSmi01__JS/JS00_Kru/Kru04__Hrz4_Bu__KruKz_UTIL.js"></script>
 
+<script type="text/javascript" src="Mx07__SuSmi_WEBPG/SuSmi06__BIN/Kwi__BriDz.js"></script>
 
 
 <!--

@@ -1,4 +1,4 @@
-const BriDzSa__Da_vsg = "Mx = 0.30"; 
+const BriDzSa__Da_vsg = "Mx = 0.31"; 
  //const WEBPG__SuGwy_vsg = "Mx07__SuSmi_WEBPG/"; 
  const WEBPG__SuGwy_vsg = "https://powerourpeople.com/Mx07__SuSmi_WEBPG/"; 
 
