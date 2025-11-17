@@ -1,7 +1,7 @@
 // SySmz.v.Du
 "use strict";
-const SyTe = { VaSy: "SyTe" };
-window.SyTe = SyTe;
+const SwiTe = { VaSy: "SwiTe" };
+window.SwiTe = SwiTe;
 
 //==============================================
 // QUALITIES
@@ -20,7 +20,7 @@ const ViTe_qk = Object.freeze
 //==============================================
 
 //-------------------------------------------------
-SyTe.SmaYz = function( Sa_l )
+SwiTe.SmaYz = function( Sa_l )
 //-------------------------------------------------
 {
 	SmaSme( "Service Example: ", this.VaSy );
@@ -35,19 +35,26 @@ SyTe.SmaYz = function( Sa_l )
 //==============================================
 
 //-------------------------------------------------
-SyTe.BriYi = function( Sa_l )
+SwiTe.BriYi = function( Sa_l )
 //-------------------------------------------------
 {
 }
 
 //-------------------------------------------------
-SyTe.BriYa = function( Mi )
+SwiTe.BriYa = function( Yz_k )
 //-------------------------------------------------
 {
-	const Sa_l = { Ji: SyTe };
+	const Sa_l = { Ji: SwiTe };
 
 
 	return Sa_l;
+}
+
+
+//-------------------------------------------------
+SwiTe.Mo = function( Sa_l, Jy_k, Mo_l )
+//-------------------------------------------------
+{
 }
 
 //==============================================

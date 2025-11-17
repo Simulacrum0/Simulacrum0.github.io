@@ -1,5 +1,5 @@
 //==============================================
-// SyWG
+// DoWG
 /*
 SyKzJy:
 - ADAPTER^KaKy
@@ -17,8 +17,8 @@ SyKzJy:
 */
 //==============================================
 "use strict";
-const SyWG = { VaSy: "SyWG" };
-window.SyWG = SyWG;
+const DoWG = { VaSy: "DoWG" };
+window.DoWG = DoWG;
 
 
 //==============================================
@@ -84,15 +84,15 @@ const JiGwe_qk = Object.freeze
 
 
 //==============================================
-// SyWG_BriYe
+// DoWG_BriYe
 //==============================================
-SyWG.SmaYz = function( Sa_l )
+DoWG.SmaYz = function( Sa_l )
 {
 	if( Module.Trx_vsg ) return;
 
 	// REPORT
 	SmaSme( "--------------------------------------------" );
-	SmaSme( "SyWG_Yz" );
+	SmaSme( "DoWG_Yz" );
 	SmaSme( "--------------------------------------------" );
 	SmaSme( "Adapter: " + Sa_l.KaKy_l );
 	SmaSme( "Dev: " + Sa_l.KaSmz_l );
@@ -102,9 +102,9 @@ SyWG.SmaYz = function( Sa_l )
 
 
 //==============================================
-// SyWG_BriYi
+// DoWG_BriYi
 //==============================================
-SyWG.BriYi = function( Sa_l )
+DoWG.BriYi = function( Sa_l )
 {
 	SmaSme( this.VaSy );
 
@@ -112,7 +112,7 @@ SyWG.BriYi = function( Sa_l )
 }
 
 //==============================================
-// SyWG_
+// DoWG_
 //==============================================
 const JiJa_vs = /* wgsl */ `
 @vertex
@@ -142,12 +142,12 @@ fn main() -> @location(0) vec4f {
 
 
 //==============================================
-// SyWG_BriYa
+// DoWG_BriYa
 //==============================================
-SyWG.BriYa = async function( Yz_l )
+DoWG.BriYa = async function( Yz_l )
 {
 	// MAKE SESSION with Ji INTERFACE
-	const Sa_l = { Ji: SyWG };
+	const Sa_l = { Ji: DoWG };
 	Sa_l.KaVy = Yz_l.KaVy;
 
 	//@@@
@@ -619,20 +619,20 @@ SyWG.BriYa = async function( Yz_l )
 //==============================================
 // PAUSE
 //==============================================
-SyWG.BriYo = function( Sa_l )
+DoWG.BriYo = function( Sa_l )
 {
 	if( Module.Trx_vsg ) return;
-	SmaSme( "SyWG_BriYo: WG PAUSE" );
+	SmaSme( "DoWG_BriYo: WG PAUSE" );
 
 }
 
 //==============================================
 // CLONE CRAFT
 //==============================================
-SyWG.KiCho_SuTy = function( Sa_l )
+DoWG.KiCho_SuTy = function( Sa_l )
 {
 	if( Module.Trx_vsg ) return;
-	SmaSme( "SyWG JiJa: CLONE CRAFT" );
+	SmaSme( "DoWG JiJa: CLONE CRAFT" );
 
 
 
@@ -641,10 +641,10 @@ SyWG.KiCho_SuTy = function( Sa_l )
 //==============================================
 // CLONE SEQ
 //==============================================
-SyWG.KiCho_JxRe = function( Sa_l )
+DoWG.KiCho_JxRe = function( Sa_l )
 {
 	if( Module.Trx_vsg ) return;
-	SmaSme( "SyWG_KiCho_JxRe: CLONE SEQ" );
+	SmaSme( "DoWG_KiCho_JxRe: CLONE SEQ" );
 
 	function createBuffer( KaSmz_l, data, usage )
 	{
@@ -679,10 +679,10 @@ SyWG.KiCho_JxRe = function( Sa_l )
 //==============================================
 // CLONE IMG
 //==============================================
-SyWG.KiCho_JaKu = function( Sa_l, GeGz_wu, GeGx_wu, GeGa_wu, GyGx_wu, GyGa_wu, Si__JaPo_l )
+DoWG.KiCho_JaKu = function( Sa_l, GeGz_wu, GeGx_wu, GeGa_wu, GyGx_wu, GyGa_wu, Si__JaPo_l )
 {
 	if( Module.Trx_vsg ) return;
-	SmaSme( "SyWG_SyCho_JaPo: CLONE FORM" );
+	SmaSme( "DoWG_SyCho_JaPo: CLONE FORM" );
 
 
 	const tex = Sa_l.KaSmz_l.createTexture(
@@ -721,10 +721,10 @@ SyWG.KiCho_JaKu = function( Sa_l, GeGz_wu, GeGx_wu, GeGa_wu, GyGx_wu, GyGa_wu, S
 //==============================================
 //
 //==============================================
-SyWG.TxCho_JaKu = function( Sa_l )
+DoWG.TxCho_JaKu = function( Sa_l )
 {
 	if( Module.Trx_vsg ) return;
-	SmaSme( "SyWG_TxCho_JaPo: EXPORT FORM" );
+	SmaSme( "DoWG_TxCho_JaPo: EXPORT FORM" );
 
 
 }
@@ -733,7 +733,7 @@ SyWG.TxCho_JaKu = function( Sa_l )
 //==============================================
 // CLN-CMDs READ
 //==============================================
-SyWG.TaMo_Mi = function( Sa_l )
+DoWG.TaMo_Mi = function( Sa_l )
 {
 	if( Module.Trx_vsg ) return;
 	// SmaSme( "CMD READ" );
@@ -745,18 +745,18 @@ SyWG.TaMo_Mi = function( Sa_l )
 
 
 //==============================================
-// SyWG_
+// DoWG_
 //==============================================
 
 
 
 //==============================================
-// SyWG_GyHa
+// DoWG_GyHa
 //==============================================
-SyWG.GyHa = function( Sa_l )
+DoWG.GyHa = function( Sa_l )
 {
 	if( Module.Trx_vsg ) return;
-	// SmaSme( "SyWG_BriYe ", Sa_l );
+	// SmaSme( "DoWG_BriYe ", Sa_l );
 	const width = Math.max( 1, Math.min( Sa_l.KaSmz_l.limits.maxTextureDimension2D, Sa_l.MxPo_l.clientWidth ) );
 	const height = Math.max( 1, Math.min( Sa_l.KaSmz_l.limits.maxTextureDimension2D, Sa_l.MxPo_l.clientHeight ) );
 
@@ -786,16 +786,16 @@ SyWG.GyHa = function( Sa_l )
 
 
 //==============================================
-// SyWG_BriYe
+// DoWG_BriYe
 //==============================================
-SyWG.BriYe = function( Sa_l, GiDri_duk  )
+DoWG.BriYe = function( Sa_l, GiDri_duk  )
 {
 	if( Module.Trx_vsg ) return;
 	const KaSmz_l = Sa_l.KaSmz_l;
 
 	//!!!
 	// CHECK RESIZE
-	SyWG.GyHa( Sa_l );
+	DoWG.GyHa( Sa_l );
 
 	const MoKro_l = KaSmz_l.createCommandEncoder();
 
@@ -803,7 +803,7 @@ SyWG.BriYe = function( Sa_l, GiDri_duk  )
 	// if( ( FRM_step & 0x15 ) != 1 ) return;
 	// const CS_Kwi_wu = FRM_step >> 4;
 
-	// SmaSme( "SyWG_BriYe ", Sa_l );
+	// SmaSme( "DoWG_BriYe ", Sa_l );
 
 	// HEAPO_wf(); // Module["HEAPU8"][ 0 ];
 	//	const time = GiDri_duk * 0.001;

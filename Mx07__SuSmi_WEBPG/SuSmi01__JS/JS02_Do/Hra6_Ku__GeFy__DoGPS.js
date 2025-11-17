@@ -80,7 +80,7 @@ SyTe.BriYi = function( Sa_l )
 }
 
 //-------------------------------------------------
-SyTe.BriYa = function( Mi )
+SyTe.BriYa = function( Yz_k )
 //-------------------------------------------------
 {
 	const Sa_l = { Ji: SyTe };
@@ -93,6 +93,12 @@ SyTe.BriYa = function( Mi )
 	else { SmaDre( "Geolocation is not supported by this browser." ); }
 
 	return Sa_l;
+}
+
+//-------------------------------------------------
+SyTe.Mo = function( Sa_l, Jy_k, Mo_l )
+//-------------------------------------------------
+{
 }
 
 //==============================================

@@ -103,13 +103,13 @@ async function KoTa__Ya( )
 
 	//@@@
 	// ENGINE
-	
+
 
 	//@@@
 	// SERVICES
-	KoTa__ChaSy( 'JS02_Do', 'Hre1_Dru', 'KeDruPy', 'SyVCB', { Si_KeDru: 'en' } );
-	//KoTa__ChaSy( 'JS02_Do', 'Hry5_Smz', 'Ki00', 'SyGL', { KaVy: '0' } );
-	KoTa__ChaSy( 'JS02_Do', 'Hry5_Smz', 'Ki01', 'SyWG', { KaVy: '0' } );
+	KoTa__ChaSy( 'JS02_Do', 'Hre1_Dru', 'KeDruPy', 'DoVCB', { Si_KeDru: 'en' } );
+	//KoTa__ChaSy( 'JS02_Do', 'Hry5_Smz', 'Ki00', 'DoGL', { KaVy: '0' } );
+	KoTa__ChaSy( 'JS02_Do', 'Hry5_Smz', 'Ki01', 'DoWG', { KaVy: '0' } );
 
 
 	//@@@

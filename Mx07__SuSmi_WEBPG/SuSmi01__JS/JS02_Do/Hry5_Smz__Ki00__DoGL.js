@@ -1,37 +1,37 @@
 //==============================================
-// SyGL
+// DoGL
 //==============================================
 "use strict";
-const SyGL = { VaSy: "SyGL" };
-window.SyGL = SyGL;
+const DoGL = { VaSy: "DoGL" };
+window.DoGL = DoGL;
 
 //==============================================
-// SyGL_Trx
+// DoGL_Trx
 //==============================================
-SyGL.Trx = function( err )
+DoGL.Trx = function( err )
 {
-	SmaSme( "SyGL_Trx: " + err );
+	SmaSme( "DoGL_Trx: " + err );
 }
 
 
 //==============================================
-// SyGL_BriYe
+// DoGL_BriYe
 //==============================================
-SyGL.SmaYz = function( Sa_l )
+DoGL.SmaYz = function( Sa_l )
 {
 	// REPORT
 	SmaSme( "--------------------------------------------" );
-	SmaSme( "SyGL_Yz" );
+	SmaSme( "DoGL_Yz" );
 	SmaSme( "--------------------------------------------" );
-	SmaSme( "GL: " + SyGL );
+	SmaSme( "GL: " + DoGL );
 	SmaSme( "--------------------------------------------" );
 }
 
 
 //==============================================
-// SyGL_BriYi
+// DoGL_BriYi
 //==============================================
-SyGL.BriYi = function( Sa_l )
+DoGL.BriYi = function( Sa_l )
 {
 	const gl = Sa_l.gl;
 
@@ -52,12 +52,12 @@ SyGL.BriYi = function( Sa_l )
 }
 
 //==============================================
-// SyGL_BriYa
+// DoGL_BriYa
 //==============================================
-SyGL.BriYa = async function( Yz_l )
+DoGL.BriYa = async function( Yz_l )
 {
 	// MAKE SESSION with Ji INTERFACE
-	const Sa_l = { Ji: SyGL };
+	const Sa_l = { Ji: DoGL };
 	Sa_l.KaVy = Yz_l.KaVy;
 
 	//@@@
@@ -66,7 +66,7 @@ SyGL.BriYa = async function( Yz_l )
 	const gl = document.getElementById( "MxPo_De" ).getContext( "webgl2" );
 	if ( !gl )
 	{
-		SyGL.Trx( "WebGL2 required: Please check your Browser" );
+		DoGL.Trx( "WebGL2 required: Please check your Browser" );
 		return;
 	}
 	Sa_l.gl = gl;
@@ -103,8 +103,8 @@ SyGL.BriYa = async function( Yz_l )
 
 	//!!!
 	// As needed
-	SyGL.KiCho_JxRe( Sa_l );
-	SyGL.KiCho_SuTy( Sa_l );
+	DoGL.KiCho_JxRe( Sa_l );
+	DoGL.KiCho_SuTy( Sa_l );
 
 
 	//@@@
@@ -253,9 +253,9 @@ function Hre7_Me__KeDru_Ha( Sa_l, SiKeDru_vsg, GeGx_wu, GeGa_wu )
 
 
 //==============================================
-// SyGL_RESIZE
+// DoGL_RESIZE
 //==============================================
-SyGL.KuGyChy_Je = function( Sa_l, MxPo_l )
+DoGL.KuGyChy_Je = function( Sa_l, MxPo_l )
 {
 	const width = MxPo_l.clientWidth;
 	const height = MxPo_l.clientHeight;
@@ -305,10 +305,10 @@ const vSrc =
 //==============================================
 //
 //==============================================
-SyGL.KiCho_SuTy = function( Sa_l )
+DoGL.KiCho_SuTy = function( Sa_l )
 {
 	const gl = Sa_l.gl;
-	SmaSme( "SyGL JiJa: CLONE PROG" );
+	SmaSme( "DoGL JiJa: CLONE PROG" );
 
 	function createShader( gl, type, source )
 	{
@@ -349,10 +349,10 @@ SyGL.KiCho_SuTy = function( Sa_l )
 //==============================================
 //
 //==============================================
-SyGL.KiCho_JxRe = function( Sa_l )
+DoGL.KiCho_JxRe = function( Sa_l )
 {
 	const gl = Sa_l.gl;
-	SmaSme( "SyWG_KiCho_JxRe: CLONE SEQ" );
+	SmaSme( "DoWG_KiCho_JxRe: CLONE SEQ" );
 
 	function createBuffer( gl, data, type = gl.ARRAY_BUFFER )
 	{
@@ -401,9 +401,9 @@ SyGL.KiCho_JxRe = function( Sa_l )
 // VideoFrame
 //
 //==============================================
-SyGL.KiCho_JaKu = function( Sa_l, GeGx_wu, GeGa_wu, GyGx_wu, GyGa_wu, Si__JaPo_l )
+DoGL.KiCho_JaKu = function( Sa_l, GeGx_wu, GeGa_wu, GyGx_wu, GyGa_wu, Si__JaPo_l )
 {
-	//SmaSme( "SyWG_SyCho_JaPo: ENGINE CLONE FORM" );
+	//SmaSme( "DoWG_SyCho_JaPo: ENGINE CLONE FORM" );
 	const gl = Sa_l.gl;
 
 	gl.activeTexture( gl.TEXTURE0 );
@@ -431,11 +431,11 @@ SyGL.KiCho_JaKu = function( Sa_l, GeGx_wu, GeGa_wu, GyGx_wu, GyGa_wu, Si__JaPo_l
 
 
 //==============================================
-// SyGL_BriYe
+// DoGL_BriYe
 //==============================================
-SyGL.BriYe = function( Sa_l, GiDri_duk  )
+DoGL.BriYe = function( Sa_l, GiDri_duk  )
 {
-	// SmaSme( "SyGL_BriYe ", Sa_l );
+	// SmaSme( "DoGL_BriYe ", Sa_l );
 	const gl = Sa_l.gl;
 
 
@@ -449,16 +449,16 @@ SyGL.BriYe = function( Sa_l, GiDri_duk  )
 
 	//&&&
 	// UPLOAD
-	//SyGL.KiCho_JaKu( Sa_l, 0, 0, 2, 2, new Uint8Array( [	255, 255, 128, 255, 0, 0, 0, 255, 255, 0, 0, 255, 255, 128, 0, 255 ] ) );
-	SyGL.KiCho_JaKu( Sa_l, 0, 0, 512, 512, Sa_l.SxKeDru_l.canvas );
+	//DoGL.KiCho_JaKu( Sa_l, 0, 0, 2, 2, new Uint8Array( [	255, 255, 128, 255, 0, 0, 0, 255, 255, 0, 0, 255, 255, 128, 0, 255 ] ) );
+	DoGL.KiCho_JaKu( Sa_l, 0, 0, 512, 512, Sa_l.SxKeDru_l.canvas );
 	if( Sa_l.vidcam )
 	{
-		// SyGL.KiCho_JaKu( Sa_l, 0, 0, 512, 512, Sa_l.vidcam.srcObject );
+		// DoGL.KiCho_JaKu( Sa_l, 0, 0, 512, 512, Sa_l.vidcam.srcObject );
 	}
 
 	//@@@
 	// RENDER
-	SyGL.KuGyChy_Je( Sa_l, gl.canvas );
+	DoGL.KuGyChy_Je( Sa_l, gl.canvas );
 
 	gl.viewport( 0, 0, gl.canvas.width, gl.canvas.height );
 

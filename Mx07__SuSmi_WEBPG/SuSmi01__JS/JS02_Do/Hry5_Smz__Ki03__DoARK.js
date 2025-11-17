@@ -1,27 +1,27 @@
 //==============================================
-// SyWG
+// DoWG
 //==============================================
 "use strict";
-const SyWG = { VaSy: "SyWG" };
-window.SyWG = SyWG;
+const DoWG = { VaSy: "DoWG" };
+window.DoWG = DoWG;
 
 //==============================================
-// SyWG_Trx
+// DoWG_Trx
 //==============================================
-SyWG.Trx = function( err )
+DoWG.Trx = function( err )
 {
-	SmaSme( "SyWG_Trx: " + err );
+	SmaSme( "DoWG_Trx: " + err );
 
 }
 
 //==============================================
-// SyWG_BriYe
+// DoWG_BriYe
 //==============================================
-SyWG.SmaYz = function( Sa_l )
+DoWG.SmaYz = function( Sa_l )
 {
 	// REPORT
 	SmaSme( "--------------------------------------------" );
-	SmaSme( "SyWG_Yz" );
+	SmaSme( "DoWG_Yz" );
 	SmaSme( "--------------------------------------------" );
 	SmaSme( "Adapter: " + Sa_l.adapter );
 	SmaSme( "Dev: " + Sa_l.Ka_l );
@@ -31,9 +31,9 @@ SyWG.SmaYz = function( Sa_l )
 
 
 //==============================================
-// SyWG_BriYi
+// DoWG_BriYi
 //==============================================
-SyWG.BriYi = function( Sa_l )
+DoWG.BriYi = function( Sa_l )
 {
 	SmaSme( this.VaSy );
 
@@ -41,12 +41,12 @@ SyWG.BriYi = function( Sa_l )
 }
 
 //==============================================
-// SyWG_BriYa
+// DoWG_BriYa
 //==============================================
-SyWG.BriYa = async function( Yz_l )
+DoWG.BriYa = async function( Yz_l )
 {
 	// MAKE SESSION with Ji INTERFACE
-	const Sa_l = { Ji: SyWG };
+	const Sa_l = { Ji: DoWG };
 	Sa_l.KaVy = Yz_l.KaVy;
 
 	//const pref ={ powerPreference: 'high-performance' };
@@ -54,7 +54,7 @@ SyWG.BriYa = async function( Yz_l )
 	const pref ={};
 
 	Sa_l.adapter = await navigator.gpu?.requestAdapter( pref );
-	if( !Sa_l.adapter ){ return SyWG.Trx( "Adapter" ); }
+	if( !Sa_l.adapter ){ return DoWG.Trx( "Adapter" ); }
 
 	const canTimestamp = Sa_l.adapter.features.has('timestamp-query');
 	const isWebGPU2 = Sa_l.adapter.features.has('extended-pipeline-cache');
@@ -104,27 +104,27 @@ SyWG.BriYa = async function( Yz_l )
 				| GPUTextureUsage.RENDER_ATTACHMENT,
 	});
 
-	if( !Sa_l.texture ){ return SyWG.Trx( "TexArray" ); }
+	if( !Sa_l.texture ){ return DoWG.Trx( "TexArray" ); }
 
 	return Sa_l;
 }
 
 
 //==============================================
-// SyWG_MoYy
+// DoWG_MoYy
 //==============================================
-SyWG.BriYo = function( Sa_l )
+DoWG.BriYo = function( Sa_l )
 {
-	SmaSme( "SyWG_BriYo: WG PAUSE" );
+	SmaSme( "DoWG_BriYo: WG PAUSE" );
 
 }
 
 //==============================================
 //
 //==============================================
-SyWG.KiCho_SuTy = function( Sa_l )
+DoWG.KiCho_SuTy = function( Sa_l )
 {
-	SmaSme( "SyWG JiJa: CLONE PROG" );
+	SmaSme( "DoWG JiJa: CLONE PROG" );
 
 	const shaderSrc = /* wgsl */ `
   struct VSUniforms
@@ -191,9 +191,9 @@ SyWG.KiCho_SuTy = function( Sa_l )
 //==============================================
 //
 //==============================================
-SyWG.KiCho_JxRe = function( Sa_l )
+DoWG.KiCho_JxRe = function( Sa_l )
 {
-	SmaSme( "SyWG_KiCho_JxRe: CLONE SEQ" );
+	SmaSme( "DoWG_KiCho_JxRe: CLONE SEQ" );
 
 	function createBuffer( device, data, usage )
 	{
@@ -229,9 +229,9 @@ SyWG.KiCho_JxRe = function( Sa_l )
 //==============================================
 //
 //==============================================
-SyWG.KiCho_JaKu = function( Sa_l, GeGz_wu, GeGx_wu, GeGa_wu, GyGx_wu, GyGa_wu, Si__JaPo_l )
+DoWG.KiCho_JaKu = function( Sa_l, GeGz_wu, GeGx_wu, GeGa_wu, GyGx_wu, GyGa_wu, Si__JaPo_l )
 {
-	SmaSme( "SyWG_SyCho_JaPo: CLONE FORM" );
+	SmaSme( "DoWG_SyCho_JaPo: CLONE FORM" );
 
 
 	const tex = Sa_l.Ka_l.createTexture(
@@ -272,9 +272,9 @@ SyWG.KiCho_JaKu = function( Sa_l, GeGz_wu, GeGx_wu, GeGa_wu, GyGx_wu, GyGa_wu, S
 //==============================================
 //
 //==============================================
-SyWG.TxCho_JaKu = function( Sa_l )
+DoWG.TxCho_JaKu = function( Sa_l )
 {
-	SmaSme( "SyWG_TxCho_JaPo: PSB FORM" );
+	SmaSme( "DoWG_TxCho_JaPo: PSB FORM" );
 
 
 }
@@ -283,7 +283,7 @@ SyWG.TxCho_JaKu = function( Sa_l )
 //==============================================
 // CLN-CMDs READ
 //==============================================
-SyWG.TaMo_Mi = function( Sa_l )
+DoWG.TaMo_Mi = function( Sa_l )
 {
 	// SmaSme( "CMD READ" );
 
@@ -431,11 +431,11 @@ SyWG.TaMo_Mi = function( Sa_l )
 }
 
 //==============================================
-// SyWG_GyHa
+// DoWG_GyHa
 //==============================================
-SyWG.GyHa = function( Sa_l )
+DoWG.GyHa = function( Sa_l )
 {
-	// SmaSme( "SyWG_BriYe ", Sa_l );
+	// SmaSme( "DoWG_BriYe ", Sa_l );
 
 	const width = Math.max( 1, Math.min( Sa_l.Ka_l.limits.maxTextureDimension2D, Sa_l.MxPo_l.clientWidth ) );
 	const height = Math.max( 1, Math.min( Sa_l.Ka_l.limits.maxTextureDimension2D, Sa_l.MxPo_l.clientHeight ) );
@@ -489,11 +489,11 @@ SyWG.GyHa = function( Sa_l )
 
 
 //==============================================
-// SyWG_BriYe
+// DoWG_BriYe
 //==============================================
-SyWG.BriYe = function( Sa_l, GiDri_duk  )
+DoWG.BriYe = function( Sa_l, GiDri_duk  )
 {
-	// SmaSme( "SyWG_BriYe ", Sa_l );
+	// SmaSme( "DoWG_BriYe ", Sa_l );
 
 	// HEAPO_wf(); // Module["HEAPU8"][ 0 ];
 	// const tic = Module._HEAPO_wf();
@@ -501,7 +501,7 @@ SyWG.BriYe = function( Sa_l, GiDri_duk  )
 
 	const time = GiDri_duk * 0.001;
 
-	SyWG.GyHa( Sa_l );
+	DoWG.GyHa( Sa_l );
 
 	const projection = mat4.perspective( 30 * Math.PI / 180, Sa_l.MxPo_l.clientWidth / Sa_l.MxPo_l.clientHeight, 0.5, 10 );
 	const eye = [ 1, 4, -6 ];

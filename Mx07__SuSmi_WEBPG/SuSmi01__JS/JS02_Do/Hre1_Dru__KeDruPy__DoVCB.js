@@ -1,18 +1,16 @@
 // SySmz.v.Du
 "use strict";
-const SyTe = { VaSy: "SyTe" };
-window.SyTe = SyTe;
+const DoVCB = { VaSy: "DoVCB" };
+window.DoVCB = DoVCB;
 
 //==============================================
 // QUALITIES
-//==============================================
-const ViTe_qk = Object.freeze
-({
-	ViTe0: 0
-	, ViTe1: 1
-	, ViTe2: 2
+/*
 
-});
+
+*/
+//==============================================
+
 
 
 //==============================================
@@ -20,15 +18,11 @@ const ViTe_qk = Object.freeze
 //==============================================
 
 //-------------------------------------------------
-SyTe.SmaYz = function( Sa_l )
+DoVCB.SmaYz = function( Sa_l )
 //-------------------------------------------------
 {
-	SmaSme( "Service Example: ", this.VaSy );
-
-	Object.keys( ViTe_qk ).forEach( _Va => {	SmaSme( _Va ); });
-	Object.values( ViTe_qk ).forEach( _Vi => { SmaSme( _Vi );	});
-
-	// if( BriDz_NxHoTrx_y( "TEST FAKE ERROR", null )){ return; }
+	SmaSme( "--------------------------------------------" );
+	SmaSme( this.VaSy, Sa_l.Si_KeDru );
 
 }
 
@@ -38,16 +32,17 @@ SyTe.SmaYz = function( Sa_l )
 //==============================================
 
 //-------------------------------------------------
-SyTe.BriYi = function( Sa_l )
+DoVCB.BriYi = function( Sa_l )
 //-------------------------------------------------
 {
 }
 
 //-------------------------------------------------
-SyTe.BriYa = function( Mi )
+DoVCB.BriYa = function( Yz_l )
 //-------------------------------------------------
 {
-	const Sa_l = { Ji: SyTe };
+	const Sa_l = { Ji: DoVCB };
+	Sa_l.Si_KeDru = Yz_l.Si_KeDru;
 
 
 	return Sa_l;

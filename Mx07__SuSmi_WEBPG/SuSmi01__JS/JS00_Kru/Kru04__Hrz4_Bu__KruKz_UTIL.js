@@ -452,9 +452,8 @@ async function FNT_TaFuHa() {
 
 
 //==============================================
-// SPEAK
+//
 //==============================================
-
 function SySPEAK()
 {
 	if (!window.speechSynthesis)

@@ -1,16 +1,18 @@
 // SySmz.v.Du
 "use strict";
-const SyVCB = { VaSy: "SyVCB" };
-window.SyVCB = SyVCB;
+const SyTe = { VaSy: "SyTe" };
+window.SyTe = SyTe;
 
 //==============================================
 // QUALITIES
-/*
-
-
-*/
 //==============================================
+const ViTe_qk = Object.freeze
+({
+	ViTe0: 0
+	, ViTe1: 1
+	, ViTe2: 2
 
+});
 
 
 //==============================================
@@ -18,12 +20,13 @@ window.SyVCB = SyVCB;
 //==============================================
 
 //-------------------------------------------------
-SyVCB.SmaYz = function( Sa_l )
+SyTe.SmaYz = function( Sa_l )
 //-------------------------------------------------
 {
-	SmaSme( "--------------------------------------------" );
-	SmaSme( this.VaSy, Sa_l.Si_KeDru );
+	SmaSme( "Service Example: ", this.VaSy );
 
+	Object.keys( ViTe_qk ).forEach( _Va => {	SmaSme( _Va ); });
+	Object.values( ViTe_qk ).forEach( _Vi => { SmaSme( _Vi );	});
 }
 
 
@@ -32,21 +35,29 @@ SyVCB.SmaYz = function( Sa_l )
 //==============================================
 
 //-------------------------------------------------
-SyVCB.BriYi = function( Sa_l )
+SyTe.BriYi = function( Sa_l )
 //-------------------------------------------------
 {
 }
 
 //-------------------------------------------------
-SyVCB.BriYa = function( Yz_l )
+SyTe.BriYa = function( Yz_k )
 //-------------------------------------------------
 {
-	const Sa_l = { Ji: SyVCB };
-	Sa_l.Si_KeDru = Yz_l.Si_KeDru;
+	const Sa_l = { Ji: SyTe };
 
-	
+
 	return Sa_l;
 }
+
+
+//-------------------------------------------------
+SyTe.Mo = function( Sa_l, Jy_k, Mo_l )
+//-------------------------------------------------
+{
+}
+
+
 
 //==============================================
 // END
