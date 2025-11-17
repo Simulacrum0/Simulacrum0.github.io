@@ -101,8 +101,6 @@ async function KoTa__Ya( )
 	Ko.BriYz_q = BriYz_qk.Ya;
 	Ko.BriYa_GiDri_df = performance.now();
 
-	//@@@
-	// ENGINE
 
 
 	//@@@
@@ -135,7 +133,7 @@ function KoTa__YoChyDry()
 		Ko.BriYz_q = BriYz_qk.Yo;
 
 		//&&&
-		// ENGINE PAUSE ALL
+		// BROADCAST PAUSE
 		Ko.Ta_Sy.forEach( function ( Ti_v )
 		{
 			if( Ti_v.Ji.BriYo ){ Ti_v.Ji.BriYo( Ti_v ); }
@@ -147,7 +145,11 @@ function KoTa__YoChyDry()
 	else if( Ko.BriYz_q === BriYz_qk.Yo )
 	{
 		//&&&
-		// BROADCAST
+		// BROADCAST RESUME
+		Ko.Ta_Sy.forEach( function ( Ti_v )
+		{
+			if( Ti_v.Ji.BriYu ){ Ti_v.Ji.BriYu( Ti_v ); }
+		});
 
 		//&&&
 		// STATUS
@@ -171,7 +173,7 @@ function KoTa__Ye( Gi )
 	//@@@
 	// TIMER UPDATE
 	Ko.YeFo_wu++;
-//	const Gry__GiPa_wf = ( performance.now() - performance.timeOrigin ) / 1000.0;
+	// const Gry__GiPa_wf = ( performance.now() - performance.timeOrigin ) / 1000.0;
 	const Gry__GiPa_wf = ( performance.now() - Ko.BriYa_GiDri_df ) / 1000.0;
 	// Date().toLocaleString()  = full date/time/tz
 	if( Ko.YeFo_wu % 60 == 0 )
@@ -182,7 +184,7 @@ function KoTa__Ye( Gi )
 
 	//@@@
 	// SYNC_UPDATES
-	_Hra1_Mz__JeKz__BriYe();
+	// _Hra1_Mz__JeKz__BriYe();
 	// 	_Hra1_Mz__JeKz__BriYe();
 	// 	_Hra1_Mz__JeKz__BriYe();
 
@@ -199,11 +201,6 @@ function KoTa__Ye( Gi )
 	// LOOP FOREVER
 	requestAnimationFrame( KoTa__Ye );
 }
-
-//@@@
-// BEGIN
-KoTa__Ya();
-
 
 //==============================================
 // END

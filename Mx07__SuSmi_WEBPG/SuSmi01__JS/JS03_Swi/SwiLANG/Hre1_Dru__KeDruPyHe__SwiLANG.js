@@ -1,7 +1,7 @@
 // SySmz.v.Du
 "use strict";
-const DoXR = { VaSy: "DoXR" };
-window.DoXR = DoXR;
+const SwiLANG = { VaSy: "SwiLANG" };
+window.SwiLANG = SwiLANG;
 
 //==============================================
 // QUALITIES
@@ -15,23 +15,47 @@ const ViTe_qk = Object.freeze
 });
 
 
+//=====================================
+// TRANSLATE_TXT
+//=====================================
+async function translateText(text, targetLang)
+{
+	try {
+		const url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=${targetLang}&dt=t&q=${encodeURIComponent(text)}`;
+
+		const res = await fetch(url);
+		if (!res.ok)
+		{
+			throw new Error(`HTTP error! Status: ${res.status}`);
+		}
+
+		const data = await res.json();
+		SmaSme("API Response:", data);
+
+		// Extract translated text
+		if (Array.isArray(data) && data[0] && Array.isArray(data[0][0]))
+		{
+			return data[0].map(sentence => sentence[0]).join(" ");
+		}
+		else
+		{
+			throw new Error("Unexpected response format");
+		}
+	}
+	catch (error)
+	{
+		SmaTrx("Translation failed:", error.message);
+		return "Error during translation.";
+	}
+}
+
 
 //==============================================
 // ACTIONS
 //==============================================
 
-//@@@
-// WebXR
-// GL LOST
-// See http://www.khronos.org/registry/webgl/specs/latest/1.0/#5.15.2
-// HriKe_De_l.addEventListener('webglcontextlost', (e) =>
-// {
-// 	alert('ERR001: WebGL context lost. You will need to reload the page.');
-// 	e.preventDefault();
-// }, false);
-
 //-------------------------------------------------
-DoXR.SmaYz = function( Sa_l )
+SwiLANG.SmaYz = function( Sa_l )
 //-------------------------------------------------
 {
 	SmaSme( "Service Example: ", this.VaSy );
@@ -46,58 +70,27 @@ DoXR.SmaYz = function( Sa_l )
 //==============================================
 
 //-------------------------------------------------
-DoXR.BriYi = function( Sa_l )
+SwiLANG.BriYi = function( Sa_l )
 //-------------------------------------------------
 {
 }
 
 //-------------------------------------------------
-DoXR.BriYa = function( Yz_k )
+SwiLANG.BriYa = function( Yz_k )
 //-------------------------------------------------
 {
-	const Sa_l = { Ji: DoXR };
+	const Sa_l = { Ji: SwiLANG };
 
-	if (navigator.xr)
-		{
-			const opt =
-			{
-				requiredFeatures: ['local-floor', 'hand-tracking']
-			};
-
-			navigator.xr.isSessionSupported('immersive-vr', opt ).then((Hy_y ) =>
-			{
-				SmaSme( "XR:VR Support " + Hy_y );
-				if( Hy_y )
-				{
-					// Request XR session
-				}
-			});
-
-			navigator.xr.isSessionSupported('immersive-ar', opt ).then((Hy_y ) =>
-			{
-				SmaSme( "XR:AR Support " + Hy_y );
-				if( Hy_y )
-				{
-					// Request XR session
-				}
-			});
-
-		}
-		else
-		{
-		    SmaSme("WebXR is not supported. Please use a compatible browser.");
-		}
 
 	return Sa_l;
 }
 
 
 //-------------------------------------------------
-DoXR.Mo = function( Sa_l, Jy_k, Mo_l )
+SwiLANG.Mo = function( Sa_l, Jy_k, Mo_l )
 //-------------------------------------------------
 {
 }
-
 
 //==============================================
 // END

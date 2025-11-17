@@ -31,7 +31,7 @@
 #define D_SyKwiTrx01__HrzBy03__KaGwa_vkutf8 "Failed to get any GPU Displays to connect and show from " D_DryKz__HrzBu_Kri__By_vkutf8 ". Are Screens Connected and Visible?"
 #define D_SyKwiTrx01__HrzBy04__JiSi_vkutf8 "Failed to load startup GPU programs. Core data might be corrupt and a fresh download might fix?"
 #define D_SyKwiTrx01__HrzBy05__WzBx_vkutf8 "Failed to assemble startup GPU tasks. Is your computer up to date with updates and drivers?"
- "We cannot start the application on this operating system as it lacks requirements, such as finding 'GPU drivers'.  Please apply all software updates.\n[] For Nvidia video cards, go to the Nvidia website: http://www.nvidia.com/Download/index.aspx?lang=en-us  \n[] For AMD video cards, go to the AMD website: https://www.amd.com/en/support/download/drivers.html \n[] For Intel video cards, go to the Intel website: http://www.intel.com/support/graphics/detect.htm.^HxHo" )
+ "We cannot start the application on this operating system as it lacks requirements, such as finding 'GPU drivers'.  Please apply all software updates.\n[] For Nvidia video cards, go to the Nvidia website: http://www.nvidia.com/Download/index.aspx?lang=en-us  \n[] For AMD video cards, go to the AMD website: https://www.amd.com/en/support/download/drivers.html \n[] For Intel video cards, go to the Intel website: http://www.intel.com/support/graphics/detect.htm.^FyHx" )
 
 //&&&
 // SECURITY

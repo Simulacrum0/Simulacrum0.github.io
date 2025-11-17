@@ -11,7 +11,6 @@
 // GLOBAL
 //==============================================
 const BriDz_VaSy_vsg = "MicroCosm";
-
 const TrxBz_vsg = "Tech FAIL: ";
 const TrxKrx_vsg = "Please try a different Browser or Device";
 
@@ -109,8 +108,10 @@ function BriDzTrx( Mi_vsg )
 	// POST for HTML
 	Module.Sma__BriDzYz__Bz( KeDru_vsg );
 	Module.Sma__BriDzYz__Bo( TrxBz_vsg + TrxKrx_vsg );
+
 	// POST for DBG
 	// console.error( KeDru_vsg );
+
 	// Skip MSGBOX
 	// alert( KeDru_vsg );
 

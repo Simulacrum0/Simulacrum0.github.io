@@ -1,7 +1,7 @@
 // SySmz.v.Du
 "use strict";
-const SyTe = { VaSy: "SyTe" };
-window.SyTe = SyTe;
+const DoSCRN = { VaSy: "DoSCRN" };
+window.DoSCRN = DoSCRN;
 
 //==============================================
 // QUALITIES
@@ -20,13 +20,16 @@ const ViTe_qk = Object.freeze
 //==============================================
 
 //-------------------------------------------------
-SyTe.SmaYz = function( Sa_l )
+DoSCRN.SmaYz = function( Sa_l )
 //-------------------------------------------------
 {
 	SmaSme( "Service Example: ", this.VaSy );
 
-	Object.keys( ViTe_qk ).forEach( _Va => {	SmaSme( _Va ); });
+	Object.keys( ViTe_qk ).forEach( _Va => { SmaSme( _Va ); });
 	Object.values( ViTe_qk ).forEach( _Vi => { SmaSme( _Vi );	});
+
+	// if( BriDz_NxHoTrx_y( "TEST FAKE ERROR", null )){ return; }
+
 }
 
 
@@ -35,16 +38,16 @@ SyTe.SmaYz = function( Sa_l )
 //==============================================
 
 //-------------------------------------------------
-SyTe.BriYi = function( Sa_l )
+DoSCRN.BriYi = function( Sa_l )
 //-------------------------------------------------
 {
 }
 
 //-------------------------------------------------
-SyTe.BriYa = function( Yz_k )
+DoSCRN.BriYa = function( Yz_k )
 //-------------------------------------------------
 {
-	const Sa_l = { Ji: SyTe };
+	const Sa_l = { Ji: DoSCRN };
 
 
 	return Sa_l;
@@ -52,11 +55,10 @@ SyTe.BriYa = function( Yz_k )
 
 
 //-------------------------------------------------
-SyTe.Mo = function( Sa_l, Jy_k, Mo_l )
+DoSCRN.Mo = function( Sa_l, Jy_k, Mo_l )
 //-------------------------------------------------
 {
 }
-
 
 
 //==============================================

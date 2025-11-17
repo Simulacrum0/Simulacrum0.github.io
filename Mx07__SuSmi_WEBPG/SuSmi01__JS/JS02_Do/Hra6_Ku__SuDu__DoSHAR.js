@@ -1,7 +1,7 @@
 // SySmz.v.Du
 "use strict";
-const DoXR = { VaSy: "DoXR" };
-window.DoXR = DoXR;
+const DoSHAR = { VaSy: "DoSHAR" };
+window.DoSHAR = DoSHAR;
 
 //==============================================
 // QUALITIES
@@ -15,29 +15,46 @@ const ViTe_qk = Object.freeze
 });
 
 
+//=====================================
+// SMS on MOBILE
+//=====================================
+function sendSMS(phoneNumber, message)
+{
+	// Encode the message to handle special characters
+	const encodedMessage = encodeURIComponent(message);
+
+	// Construct the smsto URI
+	const smsURI = `smsto:${phoneNumber}?body=${encodedMessage}`;
+
+	// Open the URI, which will prompt the user's device to open their messaging app
+	window.location.href = smsURI;
+	}
+
+/*
+  // Example usage:
+  const recipientNumber = "1234567890"; // Replace with the actual phone number
+  const smsText = "Hello from my web application!";
+
+  // Call the function to initiate the SMS
+  sendSMS(recipientNumber, smsText);
+
+*/
 
 //==============================================
 // ACTIONS
 //==============================================
 
-//@@@
-// WebXR
-// GL LOST
-// See http://www.khronos.org/registry/webgl/specs/latest/1.0/#5.15.2
-// HriKe_De_l.addEventListener('webglcontextlost', (e) =>
-// {
-// 	alert('ERR001: WebGL context lost. You will need to reload the page.');
-// 	e.preventDefault();
-// }, false);
-
 //-------------------------------------------------
-DoXR.SmaYz = function( Sa_l )
+DoSHAR.SmaYz = function( Sa_l )
 //-------------------------------------------------
 {
 	SmaSme( "Service Example: ", this.VaSy );
 
 	Object.keys( ViTe_qk ).forEach( _Va => {	SmaSme( _Va ); });
 	Object.values( ViTe_qk ).forEach( _Vi => { SmaSme( _Vi );	});
+
+	// if( BriDz_NxHoTrx_y( "TEST FAKE ERROR", null )){ return; }
+
 }
 
 
@@ -46,54 +63,24 @@ DoXR.SmaYz = function( Sa_l )
 //==============================================
 
 //-------------------------------------------------
-DoXR.BriYi = function( Sa_l )
+DoSHAR.BriYi = function( Sa_l )
 //-------------------------------------------------
 {
 }
 
 //-------------------------------------------------
-DoXR.BriYa = function( Yz_k )
+DoSHAR.BriYa = function( Yz_k )
 //-------------------------------------------------
 {
-	const Sa_l = { Ji: DoXR };
+	const Sa_l = { Ji: DoSHAR };
 
-	if (navigator.xr)
-		{
-			const opt =
-			{
-				requiredFeatures: ['local-floor', 'hand-tracking']
-			};
-
-			navigator.xr.isSessionSupported('immersive-vr', opt ).then((Hy_y ) =>
-			{
-				SmaSme( "XR:VR Support " + Hy_y );
-				if( Hy_y )
-				{
-					// Request XR session
-				}
-			});
-
-			navigator.xr.isSessionSupported('immersive-ar', opt ).then((Hy_y ) =>
-			{
-				SmaSme( "XR:AR Support " + Hy_y );
-				if( Hy_y )
-				{
-					// Request XR session
-				}
-			});
-
-		}
-		else
-		{
-		    SmaSme("WebXR is not supported. Please use a compatible browser.");
-		}
 
 	return Sa_l;
 }
 
 
 //-------------------------------------------------
-DoXR.Mo = function( Sa_l, Jy_k, Mo_l )
+DoSHAR.Mo = function( Sa_l, Jy_k, Mo_l )
 //-------------------------------------------------
 {
 }

@@ -1,7 +1,7 @@
 // SySmz.v.Du
 "use strict";
-const DoXR = { VaSy: "DoXR" };
-window.DoXR = DoXR;
+const SyTe = { VaSy: "SyTe" };
+window.SyTe = SyTe;
 
 //==============================================
 // QUALITIES
@@ -15,23 +15,12 @@ const ViTe_qk = Object.freeze
 });
 
 
-
 //==============================================
 // ACTIONS
 //==============================================
 
-//@@@
-// WebXR
-// GL LOST
-// See http://www.khronos.org/registry/webgl/specs/latest/1.0/#5.15.2
-// HriKe_De_l.addEventListener('webglcontextlost', (e) =>
-// {
-// 	alert('ERR001: WebGL context lost. You will need to reload the page.');
-// 	e.preventDefault();
-// }, false);
-
 //-------------------------------------------------
-DoXR.SmaYz = function( Sa_l )
+SyTe.SmaYz = function( Sa_l )
 //-------------------------------------------------
 {
 	SmaSme( "Service Example: ", this.VaSy );
@@ -45,59 +34,42 @@ DoXR.SmaYz = function( Sa_l )
 // LIFE
 //==============================================
 
+//==============================================
+// WRTC
+//==============================================
+function SyWRTC_Trx(error)
+{
+	const Err_vsg = "";
+
+	SmaTrx( "WRTC_ERR:", Err_vsg );
+}
+
+
+
 //-------------------------------------------------
-DoXR.BriYi = function( Sa_l )
+SyTe.BriYi = function( Sa_l )
 //-------------------------------------------------
 {
 }
 
 //-------------------------------------------------
-DoXR.BriYa = function( Yz_k )
+SyTe.BriYa = function( Yz_k )
 //-------------------------------------------------
 {
-	const Sa_l = { Ji: DoXR };
+	const Sa_l = { Ji: SyTe };
 
-	if (navigator.xr)
-		{
-			const opt =
-			{
-				requiredFeatures: ['local-floor', 'hand-tracking']
-			};
+<!-- <script type="module" src="https://cdn.jsdelivr.net/npm/qrcode@1.4.4/build/qrcode.min.js"></script>
+<script type="module" src="Mx07__SuSmi_WEBPG/SuSmi01__JS/JS03_Swi/SwiWT/Hra4_Bru__KeTuDe__SwiWT.js"></script> -->
 
-			navigator.xr.isSessionSupported('immersive-vr', opt ).then((Hy_y ) =>
-			{
-				SmaSme( "XR:VR Support " + Hy_y );
-				if( Hy_y )
-				{
-					// Request XR session
-				}
-			});
-
-			navigator.xr.isSessionSupported('immersive-ar', opt ).then((Hy_y ) =>
-			{
-				SmaSme( "XR:AR Support " + Hy_y );
-				if( Hy_y )
-				{
-					// Request XR session
-				}
-			});
-
-		}
-		else
-		{
-		    SmaSme("WebXR is not supported. Please use a compatible browser.");
-		}
 
 	return Sa_l;
 }
 
-
 //-------------------------------------------------
-DoXR.Mo = function( Sa_l, Jy_k, Mo_l )
+SyTe.Mo = function( Sa_l, Jy_k, Mo_l )
 //-------------------------------------------------
 {
 }
-
 
 //==============================================
 // END

@@ -1,7 +1,7 @@
 // SySmz.v.Du
 "use strict";
-const DoXR = { VaSy: "DoXR" };
-window.DoXR = DoXR;
+const DoSNS = { VaSy: "DoSNS" };
+window.DoSNS = DoSNS;
 
 //==============================================
 // QUALITIES
@@ -15,29 +15,21 @@ const ViTe_qk = Object.freeze
 });
 
 
-
 //==============================================
 // ACTIONS
 //==============================================
 
-//@@@
-// WebXR
-// GL LOST
-// See http://www.khronos.org/registry/webgl/specs/latest/1.0/#5.15.2
-// HriKe_De_l.addEventListener('webglcontextlost', (e) =>
-// {
-// 	alert('ERR001: WebGL context lost. You will need to reload the page.');
-// 	e.preventDefault();
-// }, false);
-
 //-------------------------------------------------
-DoXR.SmaYz = function( Sa_l )
+DoSNS.SmaYz = function( Sa_l )
 //-------------------------------------------------
 {
 	SmaSme( "Service Example: ", this.VaSy );
 
 	Object.keys( ViTe_qk ).forEach( _Va => {	SmaSme( _Va ); });
 	Object.values( ViTe_qk ).forEach( _Vi => { SmaSme( _Vi );	});
+
+	// if( BriDz_NxHoTrx_y( "TEST FAKE ERROR", null )){ return; }
+
 }
 
 
@@ -46,54 +38,33 @@ DoXR.SmaYz = function( Sa_l )
 //==============================================
 
 //-------------------------------------------------
-DoXR.BriYi = function( Sa_l )
+DoSNS.BriYi = function( Sa_l )
 //-------------------------------------------------
 {
 }
 
 //-------------------------------------------------
-DoXR.BriYa = function( Yz_k )
+DoSNS.BriYa = function( Yz_k )
 //-------------------------------------------------
 {
-	const Sa_l = { Ji: DoXR };
+	const Sa_l = { Ji: DoSNS };
 
-	if (navigator.xr)
-		{
-			const opt =
-			{
-				requiredFeatures: ['local-floor', 'hand-tracking']
-			};
-
-			navigator.xr.isSessionSupported('immersive-vr', opt ).then((Hy_y ) =>
-			{
-				SmaSme( "XR:VR Support " + Hy_y );
-				if( Hy_y )
+	SmaSme( "===================\nSENSORS\n----------" );
+	navigator.mediaDevices.enumerateDevices().then
+	( function(devices){
+				devices.forEach
+				( function(device)
 				{
-					// Request XR session
-				}
-			});
-
-			navigator.xr.isSessionSupported('immersive-ar', opt ).then((Hy_y ) =>
-			{
-				SmaSme( "XR:AR Support " + Hy_y );
-				if( Hy_y )
-				{
-					// Request XR session
-				}
-			});
-
-		}
-		else
-		{
-		    SmaSme("WebXR is not supported. Please use a compatible browser.");
-		}
+					SmaSme( " -[ " + device.kind + " ]: " + device.label +" id = " + device.deviceId );
+				});
+	});
 
 	return Sa_l;
 }
 
 
 //-------------------------------------------------
-DoXR.Mo = function( Sa_l, Jy_k, Mo_l )
+DoSNS.Mo = function( Sa_l, Jy_k, Mo_l )
 //-------------------------------------------------
 {
 }

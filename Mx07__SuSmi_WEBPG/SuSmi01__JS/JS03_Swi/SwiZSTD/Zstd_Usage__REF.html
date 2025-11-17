@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+	<head>
+		<title>ZStd test</title>
+	</head>
+	<script async src="../../build/emscripten/zstd.js"></script>
+	<script>
+		var tick = function() {
+			if (window.ZStd) {
+				window.ZStd().then(function(ZS){ testZStd(ZS) });
+			} else {
+				setTimeout(tick, 10);
+			}
+		};
+		tick();
+
+function buf2hex(arr) { // buffer is an ArrayBuffer
+  return arr
+      .map(x => x.toString(16).padStart(2, '0'))
+      .join('');
+}
+
+		function testZStd(ZStd) {
+			console.log('ZStd loaded OK');
+
+			var rawSize = 500000;
+
+			var compressionLevel = 1;
+
+			var rawPtr = ZStd._malloc(rawSize);
+			var rawU8 = new Uint8Array(ZStd.HEAPU8.buffer, rawPtr, rawSize);
+			for (var i=0; i<rawU8.length; i++) {
+				//rawU8[i] = (Date.now() & 0xff) + (Math.random()*2);
+				rawU8[i] = i % 200;
+			}
+
+			console.time("Compression");
+			var compressedPtr = ZStd._malloc(rawSize);
+			var compressedSize = ZStd._ZStdCompress(compressedPtr, rawSize, rawPtr, rawSize, compressionLevel);
+			var compressedU8 = new Uint8Array(ZStd.HEAPU8.buffer, compressedPtr, compressedSize);
+			console.timeEnd("Compression");
+
+			console.log("Compressed " + rawSize + " bytes to " + compressedSize + " bytes. ");
+			console.log(compressedPtr);
+			console.log(compressedSize);
+			console.log(compressedU8);
+
+			console.time("Decompression");
+			var decompressedPtr = ZStd._malloc(rawSize);
+			var decompressedSize = ZStd._ZStdDecompress(decompressedPtr, rawSize, compressedPtr, compressedSize);
+			console.timeEnd("Decompression");
+
+			console.log("Decompressed " + compressedSize + " bytes to " + decompressedSize + " bytes.");
+
+			if (decompressedSize !== rawSize) {
+				throw("ERROR: Decompressed size is different from raw size.");
+			}
+
+			var decompressedU8 = new Uint8Array(ZStd.HEAPU8.buffer, decompressedPtr, decompressedSize);
+			console.log(decompressedU8);
+
+			for (var i=0; i<decompressedU8.length; i++) {
+				if (decompressedU8[i] !== rawU8[i]) {
+					throw("ERROR: Decompressed value differs from raw at " + i + ", " + decompressedU8[i] + " !== " + rawU8[i]);
+				}
+			}
+
+			console.log("Compression roundtrip completed successfully.")
+
+		}
+	</script>
+
+</html>

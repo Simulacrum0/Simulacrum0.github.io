@@ -20,6 +20,10 @@
 // END
 //==============================================
 
+<!-- <script type="module" src="Mx07__SuSmi_WEBPG/SuSmi01__JS/JS02_Do/Hra4_Bru__KoToKz03__DoFETCH.js"></script>
+<script type="module" src="Mx07__SuSmi_WEBPG/SuSmi01__JS/JS02_Do/Hra6_Ku__KoToKz00__DoIDB.js"></script>
+<script type="module" src="Mx07__SuSmi_WEBPG/SuSmi01__JS/JS02_Do/Hra6_Ku__KoToKz01__DoOPFS.js"></script>
+<script type="module" src="Mx07__SuSmi_WEBPG/SuSmi01__JS/JS02_Do/Hra6_Ku__KoToKz02__DoFAFS.js"></script> -->
 
 //==============================================
 // IDB STOR

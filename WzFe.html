@@ -27,7 +27,8 @@
 		document.addEventListener('readystatechange', function()
 		{
 			if (document.readyState === 'interactive')
-			{ SmaSme( "DOM is ready for interaction" );	}
+			{ SmaSme( "DOM is ready for interaction" );	KoTa__Ya(); }
+
 			else if (document.readyState === 'complete')
 			{ SmaSme( "DOM is fully loaded" );	}
 		});
@@ -37,13 +38,23 @@
 		//==============================================
 	</script>
 	<style>
-		@font-face
+		@import url('https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+		.WaDru_Bz
 		{
-			font-family: Raleway;
+			font-family: "Bruno Ace SC", sans-serif;
+			font-weight: 400;
 			font-style: normal;
-			font-weight: 100;
-			src: url(https://fonts.gstatic.com/s/raleway/v36/1Ptxg8zYS_SKggPN4iEgvnHyvveLxVvaorCIPrQ.ttf) format('truetype')
 		}
+		.WaDru_Ka
+		{
+			font-family: "Raleway", sans-serif;
+			font-optical-sizing: auto;
+			font-weight: 400;
+			/* font-style: italic; */
+			font-style: normal;
+		}
+
 		body
 		{
 			background-color: rgb(0, 0, 0);
@@ -55,8 +66,6 @@
 			margin: 0;
 			padding: none;
 
-			font-family: Raleway;
-			font-weight: 100;
 			font-size: 1.5em;
 			color: rgb(255, 255, 255);
 		}
@@ -80,7 +89,7 @@
 			top: 0dvh;
 			width: 100dvw;
 			height: 1.5em;
-			background-color: rgb( 16, 16, 192 );
+			background-color: rgb( 192, 160, 16 );
 		}
 		#BriDzYz__Bo
 		{
@@ -88,19 +97,19 @@
 			top: calc(100dvh - 1.5em);
 			width: 100dvw;
 			height: 1.5em;
-			background-color: rgb( 16, 16, 192 );
+			background-color: rgb( 192, 160, 16 );
 		}
 	</style>
 </head>
 <body>
 	<!-- <canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault()" tabindex=-1></canvas> -->
-	<canvas class="HriDx MxPo" id="MxPo_Trx" ></canvas>
+	<canvas class="HriDx MxPo WaDru_Bz" id="MxPo_Kwa" ></canvas>
 	<canvas class="HriDx MxPo" id="MxPo_De"	tabindex=-1></canvas>
 
 	<!-- <audio class="HriDx" id="audio-player" controls="true" src="https://raw.githubusercontent.com/kbstt/pwa-demos/main/track2.mp3"></audio> -->
 
-	<p class="HriDx" id="BriDzYz__Bz" tabindex=1>Welcome!</p>
-	<p class="HriDx" id="BriDzYz__Bo" tabindex=2>Starting...</p>
+	<p class="HriDx WaDru_Bz" id="BriDzYz__Bz" tabindex=1>Welcome!</p>
+	<p class="HriDx WaDru_Ka" id="BriDzYz__Bo" tabindex=2>Starting...</p>
 
 </body>
 
@@ -109,83 +118,17 @@
 // TOOL
 //==============================================
 -->
-<script type="text/javascript" src="Mx07__SuSmi_WEBPG/SuSmi01__JS/JS00_Kru/Kru00__MxDiDa_PUB.js"></script>
-<script type="text/javascript" src="Mx07__SuSmi_WEBPG/SuSmi01__JS/JS00_Kru/Kru01__Hrz5_Ki__Kwi_LAUNCH.js"></script>
 <script type="text/javascript" src="Mx07__SuSmi_WEBPG/SuSmi06__BIN/Kwi__BriDz.js"></script>
 
-<script defer type="text/javascript" src="Mx07__SuSmi_WEBPG/SuSmi01__JS/JS00_Kru/Kru02__Hrz5_Ki__KoBri_SYSLIFE.js"></script>
+<script type="text/javascript" src="Mx07__SuSmi_WEBPG/SuSmi01__JS/JS00_Kru/Kru00__MxDiDa_PUB.js"></script>
+<script type="text/javascript" src="Mx07__SuSmi_WEBPG/SuSmi01__JS/JS00_Kru/Kru01__Hre1_Dru__Gra_LANG_AVAIL.js"></script>
+
+
+<script type="text/javascript" src="Mx07__SuSmi_WEBPG/SuSmi01__JS/JS00_Kru/Kru02__Hrz5_Ki__Kwi_LAUNCH.js"></script>
+<script type="text/javascript" src="Mx07__SuSmi_WEBPG/SuSmi01__JS/JS00_Kru/Kru03__Hrz5_Ki__KoBri_SYSLIFE.js"></script>
 <script type="text/javascript" src="Mx07__SuSmi_WEBPG/SuSmi01__JS/JS00_Kru/Kru04__Hrz4_Bu__KruKz_UTIL.js"></script>
-<!--
-//==============================================
-// SERV
-//==============================================
--->
-
-<script type="module" src="Mx07__SuSmi_WEBPG/SuSmi01__JS/JS02_Do/Hra4_Bru__KoToKz03__DoFETCH.js"></script>
-<script type="module" src="Mx07__SuSmi_WEBPG/SuSmi01__JS/JS02_Do/Hra6_Ku__KoToKz00__DoIDB.js"></script>
-<script type="module" src="Mx07__SuSmi_WEBPG/SuSmi01__JS/JS02_Do/Hra6_Ku__KoToKz01__DoOPFS.js"></script>
-<script type="module" src="Mx07__SuSmi_WEBPG/SuSmi01__JS/JS02_Do/Hra6_Ku__KoToKz02__DoFAFS.js"></script>
-
-<!-- <script type="module" src="https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision/vision_bundle.js" crossorigin="anonymous"></script> -->
-<!-- <script  type="module" src="https://cdn.jsdelivr.net/npm/@mediapipe/tasks-audio/audio_bundle.js" crossorigin="anonymous"></script> -->
-
-<script src="https://unpkg.com/tone"></script>
-<script>
 
 
-	async function playNote()
-	{
-		await Tone.start();
-
-		// create a synth
-		// const synth = new Tone.Synth().toDestination();
-
-		// //play a middle 'C' for the duration of an 8th note
-		// synth.triggerAttackRelease("C4", "8n");
-
-		// const now = Tone.now();
-		// // trigger the attack immediately
-		// synth.triggerAttack("C4", now);
-		// // wait one second before triggering the release
-		// synth.triggerRelease(now + 1);
-
-		const osc = new Tone.Oscillator().toDestination();
-		// start at "C4"
-		osc.frequency.value = "C5";
-		// ramp to "C2" over 2 seconds
-		osc.frequency.rampTo("C1", 0.5 );
-		// start the oscillator for 2 seconds
-		osc.start().stop("+0.5");
-
-	}
-
-	async function ClikClam()
-	{
-		const synth = new Tone.Synth().toDestination();
-		synth.triggerAttackRelease("C4", "8n");
-	}
-
-	async function PolySynth()
-	{
-		const synth = new Tone.PolySynth(Tone.Synth).toDestination();
-		const now = Tone.now();
-		synth.triggerAttack("D4", now);
-		synth.triggerAttack("F4", now + 0.5);
-		synth.triggerAttack("A4", now + 1);
-		synth.triggerAttack("C5", now + 1.5);
-		synth.triggerAttack("E5", now + 2);
-		synth.triggerRelease(["D4", "F4", "A4", "C5", "E5"], now + 4);
-	}
-
-</script>
-
-<!--
-//==============================================
-// ENGINE
-//==============================================
--->
-<!-- <script type="module" src="https://cdn.jsdelivr.net/npm/qrcode@1.4.4/build/qrcode.min.js"></script>
-<script type="module" src="Mx07__SuSmi_WEBPG/SuSmi01__JS/JS02_Do/Hra4_Bru__KeTuDe__DoWT.js"></script> -->
 
 <!--
 //==============================================
