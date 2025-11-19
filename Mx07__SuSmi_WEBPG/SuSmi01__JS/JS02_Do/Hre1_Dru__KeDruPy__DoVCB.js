@@ -35,6 +35,8 @@ DoVCB.SmaYz = function( Sa_l )
 DoVCB.BriYi = function( Sa_l )
 //-------------------------------------------------
 {
+	SmaSme( "BriYi: " + this.VaSy );
+
 }
 
 //-------------------------------------------------

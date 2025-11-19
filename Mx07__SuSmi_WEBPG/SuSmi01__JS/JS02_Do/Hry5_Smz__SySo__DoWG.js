@@ -142,64 +142,7 @@
 //==============================================
 //
 //==============================================
-'use strict';
 
-const Sa_l =
-{
-};
-
-Sa_l.TrxKo = function ( msg )
-{
-	Module.Sma__BriDzYz__Bz( msg );
-}
-
-
-Sa_l.canvasInfo =
-{
-	// these are filled out in resizeToDisplaySize
-	renderTarget: undefined,
-	renderTargetView: undefined,
-	depthTexture: undefined,
-	depthTextureView: undefined,
-	sampleCount: 1, // can be 1 or 4
-}
-
-
-
-Sa_l.HrySmz_Ya = async function()
-{
-	const STALL = await Module._HEAPO_wf;
-
-	try
-	{
-		Sa_l.adapter = await navigator.gpu?.requestAdapter();
-		Sa_l.device = await adapter?.requestDevice();
-	}
-	catch
-	{
-		Sa_l.TrxKo( 'need a browser that supports WebGPU' );
-		return;
-	}
-
-	const canvas = document.getElementById( 'MxPo_Zx' );
-	const context = canvas.getContext( 'webgpu' );
-
-	console.log( "webgpu: " + device + "\n" );
-
-	const presentationFormat = navigator.gpu.getPreferredCanvasFormat( Sa_l.adapter );
-	context.configure(
-	{
-		device: Sa_l.device,
-		format: presentationFormat,
-	} );
-
-	Sa_l.canvasInfo =
-	{
-		canvas,
-		context,
-		presentationFormat,
-
-	};
 
 
 	const shaderSrc = /* wgsl */ `
@@ -264,42 +207,6 @@ Sa_l.HrySmz_Ya = async function()
 		return buffer;
 	}
 
-
-
-	const positions = new Float32Array( [ 1, 1, -1, 1, 1, 1, 1, -1, 1, 1, -1, -1, -1, 1, 1, -1, 1, -1, -1, -1, -1, -1, -1, 1, -1, 1, 1, 1, 1, 1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, -1, 1, -1, -1, 1, 1, 1, 1, -1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, -1, 1, 1, -1, 1, -1, -1, -1, -1, -1 ] );
-	const normals = new Float32Array( [ 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, -1, 0, 0, -1, 0, 0, -1, 0, 0, -1, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, -1, 0, 0, -1, 0, 0, -1, 0, 0, -1, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, -1, 0, 0, -1, 0, 0, -1, 0, 0, -1 ] );
-	const texcoords = new Float32Array( [ 1, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1 ] );
-	const indices = new Uint16Array( [ 0, 1, 2, 0, 2, 3, 4, 5, 6, 4, 6, 7, 8, 9, 10, 8, 10, 11, 12, 13, 14, 12, 14, 15, 16, 17, 18, 16, 18, 19, 20, 21, 22, 20, 22, 23 ] );
-
-	const positionBuffer = createBuffer( device, positions, GPUBufferUsage.VERTEX );
-	const normalBuffer = createBuffer( device, normals, GPUBufferUsage.VERTEX );
-	const texcoordBuffer = createBuffer( device, texcoords, GPUBufferUsage.VERTEX );
-	const indicesBuffer = createBuffer( device, indices, GPUBufferUsage.INDEX );
-
-	const tex = device.createTexture(
-	{
-		size: [ 2, 2 ],
-		format: 'rgba8unorm',
-		usage: GPUTextureUsage.TEXTURE_BINDING |
-			GPUTextureUsage.COPY_DST,
-	} );
-
-
-
-	Sa_l.device.queue.writeTexture(
-	{
-		texture: tex
-	}, new Uint8Array( [
-		255, 255, 128, 255, 128, 255, 255, 255, 255, 128, 255, 255, 255, 128, 128, 255,
-	] ),
-	{
-		bytesPerRow: 8,
-		rowsPerImage: 2
-	},
-	{
-		width: 2,
-		height: 2
-	}, );
 
 
 	const sampler = Sa_l.device.createSampler(

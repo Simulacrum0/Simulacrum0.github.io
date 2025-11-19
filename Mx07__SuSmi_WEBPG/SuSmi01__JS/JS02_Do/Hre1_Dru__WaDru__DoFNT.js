@@ -62,6 +62,31 @@ async function FNT_TaFuHa()
 }
 
 //==============================================
+// RMV/ADD
+//==============================================
+function FNT_Chi( Va_l )
+{
+	if( document.fonts.Va_l ) { document.fonts.Va_l = null; }
+}
+
+
+async function Hrz7_Kru__ChaWaDru( Va_l, KuTu_l )
+{
+	var Fe__WaDru_l = new FontFace('Junction Regular', 'url(fonts/junction-regular.woff)');
+	Fe__WaDru_l.load()
+
+	.then(function(loaded_face)
+	{
+		document.fonts.add(loaded_face);
+		// TEST-ONLY: document.body.style.fontFamily = '"Junction Regular", Arial';
+	})
+	.catch(function(error)
+	{
+		// error occurred
+	});
+}
+
+//==============================================
 // ACTIONS
 //==============================================
 
@@ -74,7 +99,7 @@ DoFNT.SmaYz = function( Sa_l )
 	Object.keys( ViTe_qk ).forEach( _Va => {	SmaSme( _Va ); });
 	Object.values( ViTe_qk ).forEach( _Vi => { SmaSme( _Vi );	});
 
-	// if( BriDz_NxHoTrx_y( "TEST FAKE ERROR", null )){ return; }
+	// if( MoDzTrx__NxHo_y( "TEST FAKE ERROR", null )){ return; }
 
 }
 

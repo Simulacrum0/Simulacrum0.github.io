@@ -150,6 +150,102 @@ measureMemory();
 
 
 //=====================================
+// TXT_EDIT
+//=====================================
+
+//@@@
+// TYPING
+
+// Create a hidden input element
+var input = document.createElement("input");
+input.type = "text";
+input.style.position = "absolute";
+input.style.opacity = "0";
+document.body.appendChild(input);
+
+// Function to start text input
+function startTextInput() {
+    input.focus();
+}
+
+// Event listener for input
+input.addEventListener("input", function() {
+    var text = input.value;
+    // Send text to SDL3
+});
+
+//!!!
+// Call startTextInput() when you need to capture text input
+
+
+//@@@
+// IME
+<div class="control">
+  <input type="text" id="example" name="example" />
+</div>
+
+const inputElement = document.querySelector('input[type="text"]');
+const log = document.querySelector(".event-log-contents");
+const clearLog = document.querySelector(".clear-log");
+
+clearLog.addEventListener("click", () => {
+  log.textContent = "";
+});
+
+function handleEvent(event) {
+  log.textContent += `${event.type}: ${event.data}\n`;
+}
+
+inputElement.addEventListener("compositionstart", handleEvent);
+inputElement.addEventListener("compositionupdate", handleEvent);
+inputElement.addEventListener("compositionend", handleEvent);
+
+//@@@
+// TRANSLATE KEYCODE to KEYBOARD LAYOUT( Dvorak, QwerZ, Colemak, etc. )
+// Not Safari
+const keyboard = navigator.keyboard;
+if( keyboard.getLayoutMap() )
+{
+	keyboard.getLayoutMap().then((keyboardLayoutMap) => {
+	const upKey = keyboardLayoutMap.get("KeyW");
+	window.alert(`Press ${upKey} to move up.`);
+	});
+}
+
+
+//@@@
+// TOGGLE VIRTUAL KEYBOARD
+if ("virtualKeyboard" in navigator)
+{
+	const editor = document.getElementById("editor");
+	const editButton = document.getElementById("edit-button");
+	let isEditing = false;
+
+	editButton.addEventListener("click", () => {
+	  if (isEditing) {
+		navigator.virtualKeyboard.hide();
+		editButton.textContent = "Edit";
+	  } else {
+		editor.focus();
+		navigator.virtualKeyboard.show();
+		editButton.textContent = "Save changes";
+	  }
+
+	  isEditing = !isEditing;
+	});
+  }
+
+  // GET BBOX
+  if ("virtualKeyboard" in navigator) {
+	navigator.virtualKeyboard.overlaysContent = true;
+
+	navigator.virtualKeyboard.addEventListener("geometrychange", (event) => {
+	  const { x, y, width, height } = event.target.boundingRect;
+	});
+  }
+
+
+//=====================================
 // APP ARGs
 //=====================================
 function findGetParameter( parameterName )
@@ -179,7 +275,7 @@ DoCFG.SmaYz = function( Sa_l )
 	Object.keys( ViTe_qk ).forEach( _Va => {	SmaSme( _Va ); });
 	Object.values( ViTe_qk ).forEach( _Vi => { SmaSme( _Vi );	});
 
-//	if( BriDz_NxHoTrx_y( "TEST FAKE ERROR", null )){ return; }
+//	if( MoDzTrx__NxHo_y( "TEST FAKE ERROR", null )){ return; }
 
 }
 
@@ -207,12 +303,12 @@ DoCFG.BriYa = function( Yz_k )
 		if (document.hidden)
 		{
 			SmaSme( "App HIDDEN" );
-			KoTa__YoChyDry();
+			KoDz__YoChyDry();
 		}
 		else
 		{
 			SmaSme( "App SHOWN" );
-			KoTa__YoChyDry();
+			KoDz__YoChyDry();
 		}
 	  });
 

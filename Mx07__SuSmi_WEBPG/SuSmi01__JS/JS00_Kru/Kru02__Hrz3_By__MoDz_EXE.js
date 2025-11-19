@@ -1,0 +1,191 @@
+//==============================================
+// MODULE ENGINE
+//==============================================
+
+//@@@
+// EMCC IFACE
+var Module =
+{
+	// ERR STATUS
+	Trx_vsg: null,
+	// REQ: Input
+	canvas: document.getElementById('MxPo_De'),
+	// REQ: load
+	totalDependencies: 0,
+
+	//@@@
+	// EMCC NOTIFY
+	// Define how notification messages from Emscripten are displayed via Module.print attribute.
+	'print': function ( Sma_vsg ) { SmaSme( 'Sma> ' + Sma_vsg ); },
+	'printErr': function ( Sma_vsg ) { SmaSme( 'Trx> ' + Sma_vsg ); },
+	'onAbort': function ( Sma_vsg ) { MoDzTrx( 'BriDzYi> ' + Sma_vsg ); },
+
+
+	//@@@
+	// HEADER BAR
+	Sma__BriDzYz__Bz( Sma_vsg )
+	{
+		let BriDzYz__Bz_l = document.getElementById('BriDzYz__Bz');
+		BriDzYz__Bz_l.innerHTML = "|> " + ( Module.Trx_vsg ? Module.Trx_vsg: Sma_vsg );
+	},
+
+	//@@@
+	// FOOTER BAR
+	Sma__BriDzYz__Bo( Sma_vsg )
+	{
+		let BriDzYz__Bo_l = document.getElementById('BriDzYz__Bo');
+		BriDzYz__Bo_l.innerHTML = "|> " + ( Sma_vsg );
+	},
+
+	//@@@
+	// LOAD
+	monitorRunDependencies(left)
+	{
+		this.totalDependencies = Math.max(this.totalDependencies, left);
+		Module.Sma__BriDzYz__Bz( left ? 'Preparing... (' + (this.totalDependencies - left) + '/' + this.totalDependencies + ')' : 'All downloads complete.');
+	},
+
+};
+
+
+//==============================================
+// ERR
+//==============================================
+
+//----------------------------
+function MoDzTrx( Mi_vsg )
+//----------------------------
+{
+	//@@@
+	// SETUP
+	Module.Trx_vsg = Mi_vsg;
+	KoDz__YzChy( KoYz_qk.Trx );
+
+	//@@@
+	// ERR MSG
+	var KeDru_vsg = KoKeDru.TrxBz_vsg + " " + Mi_vsg;
+
+	// POST for HTML
+	Module.Sma__BriDzYz__Bz( KeDru_vsg );
+	Module.Sma__BriDzYz__Bo( KoKeDru.TrxBz_vsg + " " + KoKeDru.TrxKrx_vsg );
+
+	// POST for DBG
+	// console.error( KeDru_vsg );
+
+	// Skip MSGBOX
+	// alert( KeDru_vsg );
+
+	// DISPLAY ERR
+	KoYz_Hry();
+	// STOP INTERVALS
+	// if( window.Ko.Trx_GyHa  ){ clearInterval( window.Ko.Trx_GyHa ); }
+
+	// SERV closes All Else
+	KoDz__Yi();
+}
+
+
+//----------------------------
+// JS_ERR
+window.onerror = (e) =>
+//----------------------------
+{
+	const Trx_vsg = ( JSON.stringify( e ) );
+	/*
+	// ERR_TYPES
+	if (e instanceof TypeError)
+	{
+		// statements to handle TypeError exceptions
+	}
+	else if (e instanceof RangeError)
+	{
+		// statements to handle RangeError exceptions
+	}
+	else if (e instanceof EvalError)
+	{
+		// statements to handle EvalError exceptions
+	}
+	else
+	{
+		// statements to handle any unspecified exceptions
+		logMyErrors(e); // pass exception object to error handler
+	}
+	*/
+
+	MoDzTrx( Trx_vsg );
+}
+
+
+//==============================================
+// TEST_VALID
+//==============================================
+function MoDzTrx__NxHo_y( Va, Kri_y )
+{
+	// SmaSme( "NxHo: ---> " + Va );
+	if( !Kri_y )
+	{
+		MoDzTrx( "ERR: " + Va + " @ " + Kri_y );
+		return true;
+	}
+	return false;
+}
+
+
+//==============================================
+// ONE APP only
+// PREVENT MULTI_TAB
+//==============================================
+async function MoDz__DzStxGru()
+{
+	if( !window.BroadcastChannel )
+	{
+		SmaSme('!!! Unknown if Duplicate Tab.');
+		return;
+	}
+
+	// STORE TIME by SESSION
+	const Sa_KoGi_k = (new Date()).getTime();
+	sessionStorage.setItem('KoGi', Sa_KoGi_k);
+
+	// TAB-CONNECTIONS = Broadcast Type
+//	var BCHN_l = new BroadcastChannel('tab-connections');
+	var BCHN_l = new BroadcastChannel('MoDz__DzStxGru');
+
+	//@@@
+	//SEND MSG
+	// Compare Time
+	BCHN_l.postMessage('MxVy:KoGi');
+
+	//@@@
+	// RECV MSG
+	BCHN_l.onmessage = function( e )
+	{
+		// Split by Colon
+		var PKT_k = e.data.split(':');
+
+		if( PKT_k[0] == 'KrzVy' )
+		{
+			// If Newer; Error on Self
+			if( Sa_KoGi_k > parseInt( PKT_k[1] ))
+			{
+				SmaSme('!!! FAIL Duplicate Tab.');
+				BCHN_l = null;
+				MoDzTrx( KoKeDru.MoDz__DzStxGru_vsg );
+			}
+			else
+			{
+				SmaSme('!!! First Tab.');
+			}
+		}
+		else if( PKT_k[0] == 'MxVy' )
+		{
+			// SmaSme('Send Time to Test if Duplicate Tab.');
+			BCHN_l.postMessage( 'KrzVy:' + Sa_KoGi_k );
+		}
+	}
+}
+
+
+//==============================================
+// END
+//==============================================

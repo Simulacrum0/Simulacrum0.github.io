@@ -554,11 +554,170 @@ DoWG.BriYe = function( Sa_l, GiDri_duk  )
 
 
 
+//==============================================
+// END
+//==============================================
+
+
+//==============================================
+// TXT ENGINE
+/*
+
+
+*/
+//
+// textAlign = [ start, end, left, right or center ] @ default = start
+// textBaseline = [ top, hanging, middle, alphabetic, ideographic, bottom ] @ default = alphabetic
+// direction = [ ltr, rtl, inherit ] @ default = inherit.
+// lineJoin = ["round", "bevel", "miter"];
+//
+//==============================================
+// RENDER
+function Hre7_Me__KeDru_Hry( Sa_l, SiKeDru_vsg, GeGx_wu, GeGa_wu )
+{
+
+}
+
+// PLAN LOCATION
+function Hre7_Me__KeDru_Ha( Sa_l, SiKeDru_vsg, GeGx_wu, GeGa_wu )
+{
+	const Sx_l = Sa_l.SxKeDru_l;
+
+	//@@@
+	// CFG
+	Sx_l.font = "96px Raleway";
+
+	Sx_l.textAlign = "start";
+	Sx_l.textBaseline = "alphabetic";
+	//Sx_l.textBaseline = "hanging";
+	//Sx_l.textBaseline = "middle";
+	//Sx_l.textBaseline = "bottom";
+	Sx_l.direction = "inherit";
+
+	//@@@
+	// MEASURE
+	const WaHa_l = Sx_l.measureText( SiKeDru_vsg ); // TextMetrics object
+	// CSS pixels.
+
+	WaHa_l.GyGx_wu = Math.ceil( WaHa_l.actualBoundingBoxRight + WaHa_l.actualBoundingBoxLeft );
+	const KeDru__GeGx_wu = GeGx_wu + WaHa_l.actualBoundingBoxLeft;
+
+	//!!!
+	// ONLY WHAT IS RENDERED
+	// WaHa_l.GyGa_wu = Math.ceil( WaHa_l.actualBoundingBoxAscent + WaHa_l.actualBoundingBoxDescent );
+	// const KeDru__GeGa_wu = GeGa_wu + WaHa_l.actualBoundingBoxAscent;
+
+	// SCOPE
+	WaHa_l.GyGa_wu = Math.ceil( WaHa_l.fontBoundingBoxAscent + WaHa_l.fontBoundingBoxDescent );
+	const KeDru__GeGa_wu = GeGa_wu + WaHa_l.fontBoundingBoxAscent;
+
+	// EM appears as 'ZERO' ??
+	// WaHa_l.GyGa_wu = Math.ceil( WaHa_l.emAscent + WaHa_l.emDescent );
+	// const KeDru__GeGa_wu = GeGa_wu + WaHa_l.emAscent;
+
+	// 3 BASELINES ( top/middle/bottom are RECT based )
+	//TextMetrics.alphabeticBaseline
+	// TextMetrics.hangingBaseline
+	//TextMetrics.ideographicBaseline
+
+
+	//SmaSme( "TXT SIZE ", WaHa_l.GyGx_wu, WaHa_l.GyGa_wu );
+
+	//@@@
+	// FX
+
+	//@@@
+	// DRAW
+	// Clear = TRANSPARENT BLACK
+	// Sx_l.clearRect( GeGx_wu, GeGa_wu, WaHa_l.GyGx_wu, WaHa_l.GyGa_wu );
+	Sx_l.scale( 1.0, 1.0 );
+
+	Sx_l.beginPath();
+    //Sx_l.lineJoin = "round";
+
+	Sx_l.fillStyle = "#0000FFFF";
+	Sx_l.fillRect( GeGx_wu, GeGa_wu, WaHa_l.GyGx_wu, WaHa_l.GyGa_wu );
+
+	Sx_l.fillStyle = "#FFFF00EE";
+	Sx_l.fillText( SiKeDru_vsg, KeDru__GeGx_wu, KeDru__GeGa_wu );
+
+	Sx_l.lineWidth = 4;
+	Sx_l.strokeStyle = "#22221199";
+	Sx_l.strokeText( SiKeDru_vsg, KeDru__GeGx_wu, KeDru__GeGa_wu );
+
+	const KeDru__HryHa_yk = true;
+
+	if( KeDru__HryHa_yk )
+	{
+		Sx_l.lineWidth = 1;
+
+		//&&&
+		// BASELINE
+		Sx_l.beginPath();
+		Sx_l.strokeStyle = "#FFAA00FF";
+			Sx_l.setLineDash( [ 12, 4 ] );
+			Sx_l.moveTo( GeGx_wu, KeDru__GeGa_wu );
+			Sx_l.lineTo( GeGx_wu + WaHa_l.GyGx_wu, KeDru__GeGa_wu );
+		Sx_l.stroke();
+
+
+		//&&&
+		// BOUNDING BOX
+		Sx_l.beginPath();
+		Sx_l.setLineDash( [] );
+		Sx_l.strokeStyle = "#FFFFFFFF";
+
+			Sx_l.moveTo( GeGx_wu, GeGa_wu );
+			Sx_l.lineTo( GeGx_wu + WaHa_l.GyGx_wu, GeGa_wu );
+
+			Sx_l.moveTo( GeGx_wu, GeGa_wu + WaHa_l.GyGa_wu );
+			Sx_l.lineTo( GeGx_wu + WaHa_l.GyGx_wu, GeGa_wu + WaHa_l.GyGa_wu );
+
+		Sx_l.stroke();
+
+		Sx_l.beginPath();
+		Sx_l.strokeStyle = "#00FF00FF";
+
+			Sx_l.moveTo( GeGx_wu, GeGa_wu );
+			Sx_l.lineTo( GeGx_wu, GeGa_wu + WaHa_l.GyGa_wu );
+
+			Sx_l.moveTo( GeGx_wu + WaHa_l.GyGx_wu, GeGa_wu );
+			Sx_l.lineTo( GeGx_wu + WaHa_l.GyGx_wu, GeGa_wu + WaHa_l.GyGa_wu );
+
+		Sx_l.stroke();
+	}
+
+}
 
 
 
 
 
+//==============================================
+// TXT TEST
+//==============================================
+
+	//@@@
+	Hre7_Me__KeDru_Ha( Sa_l, "👽👾🚀", 0, 0 );
+	Hre7_Me__KeDru_Ha( Sa_l, "j-Testog", 0, 128 );
+	Hre7_Me__KeDru_Ha( Sa_l, "got 🛸", 0, 256 );
+	Hre7_Me__KeDru_Ha( Sa_l, "We hv Txt", 0, 384 );
+
+
+//!!!
+// LIFECYCLE
+Yi();
+Sa_l.SxKeDru_l = null;
+
+Ya();
+	//@@@
+	// TXT DST RENDER
+	//const SxKeDru_l = document.createElement("canvas").getContext("2d");
+	// SxKeDru_l.canvas.width  = 512;
+	// SxKeDru_l.canvas.height = 512;
+	const SxKeDru_l = new OffscreenCanvas( 512, 512 ).getContext("2d");
+	Sa_l.SxKeDru_l = SxKeDru_l;
+	// Sa_l.SxKeDru_l.canvas.imageSmoothingEnabled = false;
 
 
 

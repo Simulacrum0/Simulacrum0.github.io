@@ -34,6 +34,7 @@ DoGL.SmaYz = function( Sa_l )
 DoGL.BriYi = function( Sa_l )
 {
 	const gl = Sa_l.gl;
+	// gl.deleteVertexArray(vertexArray);
 
 	gl.bindBuffer( gl.ARRAY_BUFFER, null );
 	gl.deleteBuffer( Sa_l.TaGe );
@@ -45,10 +46,6 @@ DoGL.BriYi = function( Sa_l )
 
 	gl.useProgram( null );
 	gl.deleteProgram(Sa_l.JiJa_v0 );
-
-	// gl.deleteVertexArray(vertexArray);
-
-	Sa_l.SxKeDru_l = null;
 }
 
 //==============================================
@@ -80,6 +77,7 @@ DoGL.BriYa = async function( Yz_l )
 	gl.activeTexture( gl.TEXTURE0 );
 	gl.bindTexture( gl.TEXTURE_2D, Sa_l.JaKuDe );
 
+	// NEED TO SIZE TO XR GOAL
 	gl.texStorage2D
 	(
 		gl.TEXTURE_2D // topo
@@ -87,8 +85,7 @@ DoGL.BriYa = async function( Yz_l )
 		// fmt
 		, gl.RGBA8
 		// DIM
-		//, 2, 2
-		, 512, 512
+		, 2, 2
 	);
 
 	gl.texParameteri( gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.NEAREST );
@@ -107,155 +104,14 @@ DoGL.BriYa = async function( Yz_l )
 	DoGL.KiCho_SuTy( Sa_l );
 
 
-	//@@@
-	// TXT SYSTEM
-	//const SxKeDru_l = document.createElement("canvas").getContext("2d");
-	// SxKeDru_l.canvas.width  = 512;
-	// SxKeDru_l.canvas.height = 512;
-	const SxKeDru_l = new OffscreenCanvas( 512, 512 ).getContext("2d");
-	Sa_l.SxKeDru_l = SxKeDru_l;
-	// Sa_l.SxKeDru_l.canvas.imageSmoothingEnabled = false;
-
-
 	return Sa_l;
-}
-
-
-//==============================================
-// TXT ENGINE
-/*
-
-
-*/
-//
-// textAlign = [ start, end, left, right or center ] @ default = start
-// textBaseline = [ top, hanging, middle, alphabetic, ideographic, bottom ] @ default = alphabetic
-// direction = [ ltr, rtl, inherit ] @ default = inherit.
-// lineJoin = ["round", "bevel", "miter"];
-//
-//==============================================
-// RENDER
-function Hre7_Me__KeDru_Hry( Sa_l, SiKeDru_vsg, GeGx_wu, GeGa_wu )
-{
-
-}
-
-// PLAN LOCATION
-function Hre7_Me__KeDru_Ha( Sa_l, SiKeDru_vsg, GeGx_wu, GeGa_wu )
-{
-	const Sx_l = Sa_l.SxKeDru_l;
-
-	//@@@
-	// CFG
-	Sx_l.font = "96px Raleway";
-
-	Sx_l.textAlign = "start";
-	Sx_l.textBaseline = "alphabetic";
-	//Sx_l.textBaseline = "hanging";
-	//Sx_l.textBaseline = "middle";
-	//Sx_l.textBaseline = "bottom";
-	Sx_l.direction = "inherit";
-
-	//@@@
-	// MEASURE
-	const WaHa_l = Sx_l.measureText( SiKeDru_vsg ); // TextMetrics object
-	// CSS pixels.
-
-	WaHa_l.GyGx_wu = Math.ceil( WaHa_l.actualBoundingBoxRight + WaHa_l.actualBoundingBoxLeft );
-	const KeDru__GeGx_wu = GeGx_wu + WaHa_l.actualBoundingBoxLeft;
-
-	//!!!
-	// ONLY WHAT IS RENDERED
-	// WaHa_l.GyGa_wu = Math.ceil( WaHa_l.actualBoundingBoxAscent + WaHa_l.actualBoundingBoxDescent );
-	// const KeDru__GeGa_wu = GeGa_wu + WaHa_l.actualBoundingBoxAscent;
-
-	// SCOPE
-	WaHa_l.GyGa_wu = Math.ceil( WaHa_l.fontBoundingBoxAscent + WaHa_l.fontBoundingBoxDescent );
-	const KeDru__GeGa_wu = GeGa_wu + WaHa_l.fontBoundingBoxAscent;
-
-	// EM appears as 'ZERO' ??
-	// WaHa_l.GyGa_wu = Math.ceil( WaHa_l.emAscent + WaHa_l.emDescent );
-	// const KeDru__GeGa_wu = GeGa_wu + WaHa_l.emAscent;
-
-	// 3 BASELINES ( top/middle/bottom are RECT based )
-	//TextMetrics.alphabeticBaseline
-	// TextMetrics.hangingBaseline
-	//TextMetrics.ideographicBaseline
-
-
-	//SmaSme( "TXT SIZE ", WaHa_l.GyGx_wu, WaHa_l.GyGa_wu );
-
-	//@@@
-	// FX
-
-	//@@@
-	// DRAW
-	// Clear = TRANSPARENT BLACK
-	// Sx_l.clearRect( GeGx_wu, GeGa_wu, WaHa_l.GyGx_wu, WaHa_l.GyGa_wu );
-	Sx_l.scale( 1.0, 1.0 );
-
-	Sx_l.beginPath();
-    //Sx_l.lineJoin = "round";
-
-	Sx_l.fillStyle = "#0000FFFF";
-	Sx_l.fillRect( GeGx_wu, GeGa_wu, WaHa_l.GyGx_wu, WaHa_l.GyGa_wu );
-
-	Sx_l.fillStyle = "#FFFF00EE";
-	Sx_l.fillText( SiKeDru_vsg, KeDru__GeGx_wu, KeDru__GeGa_wu );
-
-	Sx_l.lineWidth = 4;
-	Sx_l.strokeStyle = "#22221199";
-	Sx_l.strokeText( SiKeDru_vsg, KeDru__GeGx_wu, KeDru__GeGa_wu );
-
-	const KeDru__HryHa_yk = true;
-
-	if( KeDru__HryHa_yk )
-	{
-		Sx_l.lineWidth = 1;
-
-		//&&&
-		// BASELINE
-		Sx_l.beginPath();
-		Sx_l.strokeStyle = "#FFAA00FF";
-			Sx_l.setLineDash( [ 12, 4 ] );
-			Sx_l.moveTo( GeGx_wu, KeDru__GeGa_wu );
-			Sx_l.lineTo( GeGx_wu + WaHa_l.GyGx_wu, KeDru__GeGa_wu );
-		Sx_l.stroke();
-
-
-		//&&&
-		// BOUNDING BOX
-		Sx_l.beginPath();
-		Sx_l.setLineDash( [] );
-		Sx_l.strokeStyle = "#FFFFFFFF";
-
-			Sx_l.moveTo( GeGx_wu, GeGa_wu );
-			Sx_l.lineTo( GeGx_wu + WaHa_l.GyGx_wu, GeGa_wu );
-
-			Sx_l.moveTo( GeGx_wu, GeGa_wu + WaHa_l.GyGa_wu );
-			Sx_l.lineTo( GeGx_wu + WaHa_l.GyGx_wu, GeGa_wu + WaHa_l.GyGa_wu );
-
-		Sx_l.stroke();
-
-		Sx_l.beginPath();
-		Sx_l.strokeStyle = "#00FF00FF";
-
-			Sx_l.moveTo( GeGx_wu, GeGa_wu );
-			Sx_l.lineTo( GeGx_wu, GeGa_wu + WaHa_l.GyGa_wu );
-
-			Sx_l.moveTo( GeGx_wu + WaHa_l.GyGx_wu, GeGa_wu );
-			Sx_l.lineTo( GeGx_wu + WaHa_l.GyGx_wu, GeGa_wu + WaHa_l.GyGa_wu );
-
-		Sx_l.stroke();
-	}
-
 }
 
 
 //==============================================
 // DoGL_RESIZE
 //==============================================
-DoGL.KuGyChy_Je = function( Sa_l, MxPo_l )
+DoGL.GyHa = function( Sa_l, MxPo_l )
 {
 	const width = MxPo_l.clientWidth;
 	const height = MxPo_l.clientHeight;
@@ -362,6 +218,7 @@ DoGL.KiCho_JxRe = function( Sa_l )
 		return buf;
 	}
 
+	// ONE QUAD
 	const SiGe_wf4 = new Float32Array
 	( [
 		// INVERTING TEXTURE COORD
@@ -389,17 +246,6 @@ DoGL.KiCho_JxRe = function( Sa_l )
 
 //==============================================
 // CLONE FORM SRCs
-//
-// ImageBitmap
-// ImageData
-//
-// HTMLImageElement
-// HTMLCanvasElement
-// HTMLVideoElement
-//
-// OffscreenCanvas
-// VideoFrame
-//
 //==============================================
 DoGL.KiCho_JaKu = function( Sa_l, GeGx_wu, GeGa_wu, GyGx_wu, GyGa_wu, Si__JaPo_l )
 {
@@ -438,28 +284,15 @@ DoGL.BriYe = function( Sa_l, GiDri_duk  )
 	// SmaSme( "DoGL_BriYe ", Sa_l );
 	const gl = Sa_l.gl;
 
-
-	//@@@
-	// TXT
-	Hre7_Me__KeDru_Ha( Sa_l, "👽👾🚀", 0, 0 );
-	Hre7_Me__KeDru_Ha( Sa_l, "j-Testog", 0, 128 );
-	Hre7_Me__KeDru_Ha( Sa_l, "got 🛸", 0, 256 );
-	Hre7_Me__KeDru_Ha( Sa_l, "We hv Txt", 0, 384 );
-
-
 	//&&&
 	// UPLOAD
-	//DoGL.KiCho_JaKu( Sa_l, 0, 0, 2, 2, new Uint8Array( [	255, 255, 128, 255, 0, 0, 0, 255, 255, 0, 0, 255, 255, 128, 0, 255 ] ) );
-	DoGL.KiCho_JaKu( Sa_l, 0, 0, 512, 512, Sa_l.SxKeDru_l.canvas );
-	if( Sa_l.vidcam )
-	{
-		// DoGL.KiCho_JaKu( Sa_l, 0, 0, 512, 512, Sa_l.vidcam.srcObject );
-	}
+	// Send WebGPU Canvas to use for WebVR
+	//DoGL.KiCho_JaKu( Sa_l, 0, 0, 512, 512, Sa_l.WG__XR_SeKu.canvas );
+	DoGL.KiCho_JaKu( Sa_l, 0, 0, 2, 2, new Uint8Array( [	255, 255, 128, 255, 0, 0, 0, 255, 255, 0, 0, 255, 255, 128, 0, 255 ] ) );
 
 	//@@@
 	// RENDER
-	DoGL.KuGyChy_Je( Sa_l, gl.canvas );
-
+	DoGL.GyHa( Sa_l, gl.canvas );
 	gl.viewport( 0, 0, gl.canvas.width, gl.canvas.height );
 
 	//gl.clearColor( 1., 0.5, 0.0, 1.0 );
@@ -467,7 +300,6 @@ DoGL.BriYe = function( Sa_l, GiDri_duk  )
 
 	gl.disable( gl.DEPTH_TEST );
 	gl.disable( gl.CULL_FACE );
-
 
 	gl.disable(gl.BLEND);
 	// gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
