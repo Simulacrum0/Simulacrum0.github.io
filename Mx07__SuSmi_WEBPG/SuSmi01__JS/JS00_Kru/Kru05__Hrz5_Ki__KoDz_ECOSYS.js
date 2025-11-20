@@ -167,7 +167,7 @@ async function KoDz__Ya( )
 
 	//@@@
 	// ENGINE_REQ
-	await _Hrz5_Ki__BriSmz__Ya();
+	_Hrz5_Ki__BriSmz__Ya();
 
 
 	//@@@
