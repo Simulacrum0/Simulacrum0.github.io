@@ -535,7 +535,7 @@ DoWG.BriYa = async function( Yz_l )
 
 
 	//-------------------------------------------------
-	// BUF CALC
+	// BUF RECORD
 	// Instructions/Scene Data
 	//-------------------------------------------------
 	// Create an array representing the active state of each cell.
