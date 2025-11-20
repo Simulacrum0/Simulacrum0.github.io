@@ -88,7 +88,9 @@ function MoDzTrx( Mi_vsg )
 //----------------------------
 {
 	//@@@
-	// SETUP
+	// CFG
+	// If already 'Err' exit
+	if( Module.Trx_vsg ) return;
 	Module.Trx_vsg = Mi_vsg;
 
 	KoDz__YzChy( KoYz_qk.Trx );
