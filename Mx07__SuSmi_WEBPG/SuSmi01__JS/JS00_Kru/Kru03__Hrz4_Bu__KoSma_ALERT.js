@@ -110,9 +110,9 @@ function KoYz_Hry()
 	Sx_l.beginPath();
 
 	// USES System Fonts, not local
-	// Sx_l.font = "2em Impact";
+	Sx_l.font = "2em Impact";
 	//Sx_l.font = "3em Raleway";
-	Sx_l.font = "3em FoundationTitlesHand";
+	// Sx_l.font = "3em FoundationTitlesHand";
 	// Sx_l.font = "4em Final Frontier Old Style";
 
 

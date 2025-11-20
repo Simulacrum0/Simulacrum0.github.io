@@ -22,8 +22,6 @@ document.addEventListener('readystatechange', function()
 	if (document.readyState === 'complete')
 	{
 		SmaSme( "- WebPage_DOM Fully_Loaded" );
-		KoDz__Ya();
-		MoDz__DzStxGru();
 	}
 });
 
@@ -51,6 +49,17 @@ var Module =
 	'printErr': function ( Sma_vsg ) { SmaSme( 'Trx> ' + Sma_vsg ); },
 	'onAbort': function ( Sma_vsg ) { MoDzTrx( 'BriDzYi> ' + Sma_vsg ); },
 
+	//@@@
+	// RUN when WASM_LOADED
+	onRuntimeInitialized: function()
+	{
+        // Your code here, e.g., calling a function from the WASM module
+        console.log("WASM module is ready!");
+        // Module.yourFunction(); // Call a function from the WASM module
+		KoDz__Ya();
+		MoDz__DzStxGru();
+
+    },
 
 	//@@@
 	// HEADER BAR
