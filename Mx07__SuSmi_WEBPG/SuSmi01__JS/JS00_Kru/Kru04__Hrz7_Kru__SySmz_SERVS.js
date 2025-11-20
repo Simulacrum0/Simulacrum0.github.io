@@ -1,29 +1,73 @@
 //==============================================
 // JSON_ADD^Cha
 //==============================================
-async function Hrz7_Kru__ToKz_v( ChaKuTu_vbg, ToKzVa_vbg )
+async function Hrz7_Kru__ToKz_vJSON( ChaKuTu_vsg, ToKzVa_vsg )
 {
+	let KuTu_vbg = BriDz__Mx_KuTu_vsg + ChaKuTu_vsg + ToKzVa_vsg;
+	SmaSme( "FILE seeking JSON: " + KuTu_vbg );
 	try
 	{
-		let KuTu_vbg = `${BriDz__SuSmi_KuTu_vsg}${ChaKuTu_vbg}${ToKzVa_vbg}`;
-		// console.log( `FILE seeking: ${KuTu_vbg}`);
-
-		const res = await fetch( KuTu_vbg, { headers: { Accept: 'application/json' } } );
-		const json = await res.json();
-
-		// response.json() --> Promise --> JSON object
-		// response.text() --> Promise --> raw text UTF16
-		// response.blob() --> Promise --> Blob (a file-like object of raw data)
-		// response.arrayBuffer() --> Promise --> ArrayBuffer (raw generic binary data)
-
-		return json;
+		const Smx_k = await fetch( KuTu_vbg, { headers: { Accept: 'application/json' } } );
+		const ToKz_v = await Smx_k.json();
+		//SmaSme( ToKz_v );
+		return ToKz_v;
 	}
-	catch ( err )
-	{
-		SmaTrx( `FileRead_Error: ${err}` );
-	}
+	catch ( e ) { MoDzTrx( KoKeDru.TrxJy__SuKz_GriHo_vsg + " @ " + ToKzVa_vsg + " --> " + e ); }
+	return null;
 };
 
+//==============================================
+// TXT_ADD^Cha
+//==============================================
+async function Hrz7_Kru__ToKz_vsg( ChaKuTu_vsg, ToKzVa_vsg )
+{
+	let KuTu_vbg = BriDz__Mx_KuTu_vsg + ChaKuTu_vsg + ToKzVa_vsg;
+	SmaSme( "FILE seeking TEXT: " + KuTu_vbg );
+	try
+	{
+		const Smx_k = await fetch( KuTu_vbg );
+		const ToKz_v = await Smx_k.text();
+		// SmaSme( ToKz_v );
+		return ToKz_v;
+	}
+	catch ( e ) { MoDzTrx( KoKeDru.TrxJy__SuKz_GriHo_vsg + " @ " + ToKzVa_vsg + " --> " + e ); }
+	return null;
+};
+
+//==============================================
+// BLOB_ADD^Cha
+//==============================================
+async function Hrz7_Kru__ToKz_vBLOB( ChaKuTu_vsg, ToKzVa_vsg )
+{
+	let KuTu_vbg = BriDz__Mx_KuTu_vsg + ChaKuTu_vsg + ToKzVa_vsg;
+	SmaSme( "FILE seeking BLOB: " + KuTu_vbg );
+	try
+	{
+		const Smx_k = await fetch( KuTu_vbg );
+		const ToKz_v = await Smx_k.blob();
+		// response.arrayBuffer() --> Promise --> ArrayBuffer (raw generic binary data)
+		return ToKz_v;
+	}
+	catch ( e ) { MoDzTrx( KoKeDru.TrxJy__SuKz_GriHo_vsg + " @ " + ToKzVa_vsg + " --> " + e ); }
+	return null;
+};
+
+//==============================================
+// AB_ADD^Cha
+//==============================================
+async function Hrz7_Kru__ToKz_vAB( ChaKuTu_vsg, ToKzVa_vsg )
+{
+	let KuTu_vbg = BriDz__Mx_KuTu_vsg + ChaKuTu_vsg + ToKzVa_vsg;
+	SmaSme( "FILE seeking BLOB: " + KuTu_vbg );
+	try
+	{
+		const Smx_k = await fetch( KuTu_vbg );
+		const ToKz_v = await Smx_k.arrayBuffer();
+		return ToKz_v;
+	}
+	catch ( e ) { MoDzTrx( KoKeDru.TrxJy__SuKz_GriHo_vsg + " @ " + ToKzVa_vsg + " --> " + e ); }
+	return null;
+};
 
 //==============================================
 // MEDIA_ADD^Cha
@@ -43,9 +87,9 @@ async function Hrz7_Kru__ChaWaDru( Va_l, KuTu_l )
 	var Fe__WaDru_l = new FontFace( Va_l, KuTu_l );
 	Fe__WaDru_l.load()
 
-	.then(function(loaded_face)
+	.then(function( loaded_face )
 	{
-		document.fonts.add(loaded_face);
+		document.fonts.add( loaded_face );
 		// TEST-ONLY: document.body.style.fontFamily = '"Junction Regular", Arial';
 	})
 	.catch(function(error)
@@ -68,9 +112,9 @@ async function Hrz7_Kru__ChaSySmz( Si_vsg, SyJy_vsg, ToKz_vsg, VaSy_vsg, SySmz__
 
 	//@@@
 	// IF NOT ALREADY LOADED!
-	if( ! window[ VaSy_vsg ] )
+	if( !window[ VaSy_vsg ] )
 	{
-		await import( "/Mx07__SuSmi_WEBPG/SuSmi01__JS/" + Si_vsg + "/" + SyJy_vsg + '__' + ToKz_vsg + "__" + VaSy_vsg + ".js" );
+		await import( BriDz__Mx_KuTu_vsg + "Mx07__SuSmi_WEBPG/SuSmi01__JS/" + Si_vsg + "/" + SyJy_vsg + "__" + ToKz_vsg + "__" + VaSy_vsg + ".js" );
 	}
 
 	//@@@
@@ -80,10 +124,9 @@ async function Hrz7_Kru__ChaSySmz( Si_vsg, SyJy_vsg, ToKz_vsg, VaSy_vsg, SySmz__
 	{
 		const SyVx_wuk = Ko.Ta_SySmz.push( Sy_l ) - 1;
 
-
 		//$$$
 		// LOG
-		SmaSme( "+++ SERV_ADD[", SyVx_wuk, "]: ", Sy_l.Ji.VaSy, " = ", Sy_l, "KoYz ", Ko.Yz_q );
+		SmaSme( "+++ SERV_Cha[", SyVx_wuk, "]: ", Sy_l.Ji.VaSy, " = ", Sy_l, "KoYz ", Ko.Yz_q );
 		Sy_l.Ji.SmaYz( Sy_l );
 
 		//!!!
@@ -117,7 +160,7 @@ function Hrz7_Kru__ChiSySmz( SyVx_wuk )
 	const Sy_l = Ko.Ta_SySmz[ SyVx_wuk ];
 	if( !Sy_l ) return;
 
-	SmaSme( "--- SERV_REMOVE[", SyVx_wuk, "]: ", Sy_l.Ji.VaSy, " = ", Sy_l );
+	SmaSme( "--- SERV_Chi[", SyVx_wuk, "]: ", Sy_l.Ji.VaSy, " = ", Sy_l );
 
 	if( Sy_l.Ji.BriYi ){ Sy_l.Ji.BriYi( Sy_l ); }
 

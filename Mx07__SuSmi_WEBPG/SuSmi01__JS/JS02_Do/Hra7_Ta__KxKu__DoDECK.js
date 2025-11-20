@@ -1378,7 +1378,7 @@ async function ToKz__JSON_v( ChaKuTu_vbg, ToKzVa_vbg )
 {
 	try
 	{
-		let KuTu_vbg = `${BriDz__SuSmi_KuTu_vsg}${ChaKuTu_vbg}${ToKzVa_vbg}.json`;
+		let KuTu_vbg = `${BriDz__Mx_KuTu_vsg}Mx07__SuSmi_WEBPG/${ChaKuTu_vbg}${ToKzVa_vbg}.json`;
 		// console.log( `FILE seeking: ${KuTu_vbg}`);
 
 		const res = await fetch( KuTu_vbg,

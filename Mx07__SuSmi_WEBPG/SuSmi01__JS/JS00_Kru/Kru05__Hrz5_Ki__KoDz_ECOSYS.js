@@ -158,7 +158,11 @@ async function KoDz__Ya( )
 	//Hrz7_Kru__ChaSySmz( 'JS02_Do', 'Hri2_Ke', 'BzMe', 'DoXR', false, { KaVy: '0' } );
 	//Hrz7_Kru__ChaSySmz( 'JS02_Do', 'Hry5_Smz', 'BzMe', 'DoGL', false, { KaVy: '0' } );
 
-	const FNT_l = await Hrz7_Kru__ChaWaDru( 'Final Frontier Old Style', 'url(Mx01__SuKz_MEDIA/SuKz04_WaDru__FONT/WaDru02__FinalFrontier.ttf)' );
+
+	//&&&
+	// RES
+	// const FNT_l = await Hrz7_Kru__ChaWaDru( 'Final Frontier Old Style', 'url(' + BriDz__Mx_KuTu_vsg + 'Mx01__SuKz_MEDIA/SuKz04_WaDru__FONT/WaDru02__FinalFrontier.ttf )' );
+
 
 
 	//@@@

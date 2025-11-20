@@ -3,11 +3,13 @@
 //==============================================
 // CORS must RUN FIRST
 console.log( "Web_Security[ CORS ]: " + (window.crossOriginIsolated ? "✅" : "❌"));
-if (!window.crossOriginIsolated)
+if( !window.crossOriginIsolated )
 {
 	// MSG should display @ DOM
-	console.log('WAITING: Engaging HTTPS CORS in order to run under Security Policies.');
+	MoDzTrx('WAITING: Engaging HTTPS CORS in order to run under Security Policies.');
 }
+// KoYz_Hry();
+
 
 //@@@
 // STARTUP
@@ -55,7 +57,7 @@ var Module =
 	Sma__BriDzYz__Bz( Sma_vsg )
 	{
 		let BriDzYz__Bz_l = document.getElementById('BriDzYz__Bz');
-		BriDzYz__Bz_l.innerHTML = "|> " + ( Module.Trx_vsg ? Module.Trx_vsg: Sma_vsg );
+		BriDzYz__Bz_l.innerHTML = "|> "+ ( Sma_vsg );
 	},
 
 	//@@@
@@ -96,8 +98,8 @@ function MoDzTrx( Mi_vsg )
 	var KeDru_vsg = KoKeDru.TrxBz_vsg + " [" + BriDzSa__Da_vsg + "] " + Mi_vsg;
 
 	// POST for HTML
-	Module.Sma__BriDzYz__Bz( KeDru_vsg );
-	Module.Sma__BriDzYz__Bo( KoKeDru.TrxBz_vsg + " " + KoKeDru.TrxKrx_vsg );
+	Module.Sma__BriDzYz__Bz( KoKeDru.TrxBz_vsg + KoKeDru.TrxKrx_vsg );
+	Module.Sma__BriDzYz__Bo( KeDru_vsg );
 
 	// POST for DBG
 	// console.error( KeDru_vsg );

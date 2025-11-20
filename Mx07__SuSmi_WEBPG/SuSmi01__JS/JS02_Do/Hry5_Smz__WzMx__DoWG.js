@@ -83,6 +83,22 @@ const JiGwe_qk = Object.freeze
 });
 
 
+
+
+//==============================================
+// DoWG_BriYi
+//==============================================
+DoWG.BriYi = function( Sa_l )
+{
+	SmaSme( "BriYi: " + this.VaSy );
+
+	//@@@
+	// DELETE CALLS?
+	Sa_l.TaGwa__JaPo_l = null;
+	Sa_l.KaSmz_l = null;
+	Sa_l.KaKy_l = null;
+}
+
 //==============================================
 // REPORT CFG
 //==============================================
@@ -100,62 +116,10 @@ DoWG.SmaYz = function( Sa_l )
 	SmaSme( "Dev: " + Sa_l.KaSmz_l.adapterInfo.architecture );
 	//SmaSme( Sa_l.KaSmz_l );
 
-
-	// - maxBindGroups: 4
-	// - maxBindGroupsPlusVertexBuffers: 24
-	// - maxBindingsPerBindGroup: 1000
-
-	// - maxBufferSize: 268435456 (256 MB)
-
-	// - maxColorAttachmentBytesPerSample: 32
-	// - maxColorAttachments: 8
-
-	// - maxComputeInvocationsPerWorkgroup: 256
-	// - maxComputeWorkgroupSizeX: 256
-	// - maxComputeWorkgroupSizeY: 256
-	// - maxComputeWorkgroupSizeZ: 64
-	// - maxComputeWorkgroupStorageSize: 16384
-	// - maxComputeWorkgroupsPerDimension: 65535
-
-	// - maxDynamicStorageBuffersPerPipelineLayout: 4
-	// - maxDynamicUniformBuffersPerPipelineLayout: 8
-
-	// - maxInterStageShaderVariables: 16
-	// - maxSampledTexturesPerShaderStage: 16
-	// - maxSamplersPerShaderStage: 16
-	// - maxStorageBufferBindingSize: 134217728 (128 MB)
-	// - maxStorageBuffersPerShaderStage: 8
-	// - maxStorageTexturesPerShaderStage: 4
-
-	// - maxTextureArrayLayers: 256
-	// - maxTextureDimension1D: 8192
-	// - maxTextureDimension2D: 8192
-	// - maxTextureDimension3D: 2048
-
-	// - maxUniformBufferBindingSize: 65536
-	// - maxUniformBuffersPerShaderStage: 12
-
-	// - maxVertexAttributes: 16
-	// - maxVertexBufferArrayStride: 2048
-	// - maxVertexBuffers: 8
-
-	// - minStorageBufferOffsetAlignment: 256
-	// - minUniformBufferOffsetAlignment: 256
-
 	SmaSme( "Surf_Deck: " + Sa_l.TaGwa__JaPo_l.width + ", " + Sa_l.TaGwa__JaPo_l.height + ", " + Sa_l.TaGwa__JaPo_l.depthOrArrayLayers );
 	// SmaSme( Sa_l.TaGwa__JaPo_l );
 
 	SmaSme( "--------------------------------------------" );
-}
-
-
-//==============================================
-// DoWG_BriYi
-//==============================================
-DoWG.BriYi = function( Sa_l )
-{
-	SmaSme( "BriYi: " + this.VaSy );
-
 }
 
 //==============================================
@@ -248,6 +212,11 @@ DoWG.ChaJiJa = async function( Va, KuTu )
 //==============================================
 DoWG.BriYa = async function( Yz_l )
 {
+	//@@@
+	// PROG SRC
+	const JiJa08__GOLIFE_h = Hrz7_Kru__ToKz_vsg( "Mx07__SuSmi_WEBPG/SuSmi01__JS/JS01_JiJa/", "JiJa08__GOLIFE.v.Hro" );
+
+
 	// MAKE SESSION with Ji INTERFACE
 	const Sa_l = { Ji: DoWG };
 	Sa_l.KaVy = Yz_l.KaVy;
@@ -264,42 +233,57 @@ DoWG.BriYa = async function( Yz_l )
 	};
 
 	const KaKy_l = await navigator.gpu?.requestAdapter( pref );
-	if( MoDzTrx__NxHo_y( "Adapter", KaKy_l )){ return; }
+	if( MoDzTrx__NxHo_y( "Adapter", KaKy_l )){ return null; }
 	Sa_l.KaKy_l = KaKy_l;
 
 	//!!!
 	// 2025/11 NO FEATURES
 	// on Chrome/Win11/Nvidia
 	//
-	// GOALS
-	// texture-compression-bc
-	// texture-compression-astc
+	//&&&
+	// AVAIL
 	// const canTimestamp = KaKy_l.features.has('timestamp-query');
 	// const isWebGPU2 = KaKy_l.features.has('extended-pipeline-cache');
 	//
-	//
+	//&&&
+	// REQ
 	const KaKri_k ={ requiredFeatures:[ ], requiredLimits: { } };
 	//
 	//     requiredFeatures: [
-//       'texture-compression-bc',
-// (canTimestamp ? 'timestamp-query' : undefined,
-//       'pipeline-statistics-query',
-//       'depth-clip-control',
-//       isWebGPU2 ? 'extended-pipeline-cache' : undefined,
-//       isWebGPU2 ? 'memory-mapping-control' : undefined
-//     ].filter(Boolean)
-//
-// Request maximum resource limits
-//     requiredLimits: {
-//       maxStorageBufferBindingSize: adapter.limits.maxStorageBufferBindingSize,
-//       maxBufferSize: adapter.limits.maxBufferSize,
-//       maxComputeWorkgroupSizeX: 1024,
-//       maxComputeInvocationsPerWorkgroup: 1024
-//     }
+	// 'texture-compression-bc',
+	// 'texture-compression-astc',
+	// (canTimestamp ? 'timestamp-query' : undefined,
+	//       'pipeline-statistics-query',
+	//       'depth-clip-control',
+	//       isWebGPU2 ? 'extended-pipeline-cache' : undefined,
+	//       isWebGPU2 ? 'memory-mapping-control' : undefined
+	//     ].filter(Boolean)
+	//
+	//&&&
+	// LIMITS
+	// Request maximum resource limits
+	//     requiredLimits: {
+	//       maxStorageBufferBindingSize: adapter.limits.maxStorageBufferBindingSize,
+	//       maxBufferSize: adapter.limits.maxBufferSize,
+	//       maxComputeWorkgroupSizeX: 1024,
+	//       maxComputeInvocationsPerWorkgroup: 1024
+	//     }
 
 	const KaSmz_l = await KaKy_l.requestDevice( KaKri_k );
-	if( MoDzTrx__NxHo_y( "Device", KaSmz_l )){ return; }
+	if( MoDzTrx__NxHo_y( "Device", KaSmz_l )){ return null; }
 	Sa_l.KaSmz_l = KaSmz_l;
+
+	//@@@
+	// DEV LOST
+  	KaSmz_l.lost.then((info) =>
+	{
+		if (info.reason !== "destroyed")
+		{
+			// RESTART
+			SmaSme( "GPU needs REFRESH/RESTART PAGE" );
+		}
+		MoDzTrx( "WebGPU device was lost:" + info.message );
+  	});
 
 
 	//-------------------------------------------------
@@ -311,7 +295,7 @@ DoWG.BriYa = async function( Yz_l )
 
 
 	const Sx_l = Sa_l.MxPo_l.getContext( 'webgpu' );
-	if( MoDzTrx__NxHo_y( "Context", Sx_l )){ return; }
+	if( MoDzTrx__NxHo_y( "Context", Sx_l )){ return null; }
 	Sa_l.Sx_l = Sx_l;
 
 	Sx_l.configure
@@ -328,25 +312,10 @@ DoWG.BriYa = async function( Yz_l )
 
 	// BIND: @group(0) @binding(0) var textures: texture_2d_array<f32>;
 
-	//@@@
-	// STORE DEV & DIM
-	// stringToUTF8
-	//lengthBytesUTF8()
-
-	// getValue
-	// setValue
-
-	//Atomics.load()
-	// Atomics.store()
-	// Atomics.add()
-
-	// JS->CC
-	// writeArrayToMemory
 
 	//-------------------------------------------------
 	// BUF: LOC
 	//-------------------------------------------------
-
 	// Create a buffer with the vertices for a single cell.
 	const vertices = new Float32Array
 	([
@@ -412,7 +381,7 @@ DoWG.BriYa = async function( Yz_l )
 
 
 	//-------------------------------------------------
-	// BIND
+	// GROUP_LAYOUT
 	//-------------------------------------------------
 	// Create the bind group layout and pipeline layout.
 	const bindGroupLayout = KaSmz_l.createBindGroupLayout
@@ -433,6 +402,9 @@ DoWG.BriYa = async function( Yz_l )
 	  }]
 	});
 
+	//-------------------------------------------------
+	// PIPELINE
+	//-------------------------------------------------
 	const pipelineLayout = KaSmz_l.createPipelineLayout({
 	  label: "Cell Pipeline Layout",
 	  bindGroupLayouts: [ bindGroupLayout ],
@@ -500,32 +472,34 @@ DoWG.BriYa = async function( Yz_l )
 	//-------------------------------------------------
 	// PROG: SIM
 	//-------------------------------------------------
-	// Create the compute shader that will process the game of life simulation.
-	SmaSme( "--------------------------\nLOADING SHADER" );
-	let JiJa08__GOLIFE_vsg = null;
 
-await fetch( `${BriDz__SuSmi_KuTu_vsg}/SuSmi01__JS/JS01_JiJa/JiJa08__GOLIFE.v.Hro` )
-  .then(response =>
-	{
-		 if (!response.ok) { throw new Error('Network response was not ok');  }
-    	return response.text();
-  })
-  .then(data => { JiJa08__GOLIFE_vsg = data;  })
-  .catch(error => { console.error('Error fetching the text file:', error);  });
-  //SmaSme(JiJa08__GOLIFE_vsg );
+	// RESOLVE TEXT
+	const JiJa08__GOLIFE_vsg = await JiJa08__GOLIFE_h;
+	if( MoDzTrx__NxHo_y( "JiJa08__GOLIFE_vsg", JiJa08__GOLIFE_vsg )){ return null; }
 
-
-	SmaSme( "--------------------------\nTESTING SHADER" );
-
-	if( MoDzTrx__NxHo_y( "JiJa08__GOLIFE_vsg", JiJa08__GOLIFE_vsg )){ return; }
-
+	// CNV MODULE
 	const JiSpo02__CONWAY_SIM = KaSmz_l.createShaderModule({
 	  label: "Life simulation shader",
 	  code: JiJa08__GOLIFE_vsg	});
+	if( MoDzTrx__NxHo_y( "ProgObj^JiSpo", JiSpo02__CONWAY_SIM )){ return null; }
 
-	if( MoDzTrx__NxHo_y( "Prog^JiSpo", JiSpo02__CONWAY_SIM )){ return; }
+	const shaderInfo = await JiSpo02__CONWAY_SIM.getCompilationInfo();
+	const firstMessage = shaderInfo.messages[0];
+	if( shaderInfo.messages.length )
+	{
+		SmaSme( shaderInfo );
+		// console.log(firstMessage.lineNum); // 9
+		// console.log(firstMessage.message); // "expected ')' for function declaration"
+		// console.log(firstMessage.type); // "error"
+
+		// ALWAYS QUIT
+		return null;
+	}
+	// if( MoDzTrx__NxHo_y( "ProgObj^JiSpo", shaderInfo.messages.length )){ return null; }
 
 
+	// PIPELINE_IT
+	  SmaSme( "Conway", JiSpo02__CONWAY_SIM );
 	// Create a compute pipeline that updates the game state.
 	const JiGwe02__CONWAY_SIM = KaSmz_l.createComputePipeline
 	({
@@ -538,7 +512,9 @@ await fetch( `${BriDz__SuSmi_KuTu_vsg}/SuSmi01__JS/JS01_JiJa/JiJa08__GOLIFE.v.Hr
 	  }
 	});
 
+	if( MoDzTrx__NxHo_y( "ProgPipe^JiGwe", JiGwe02__CONWAY_SIM )){ return null; }
 	Sa_l.JiGwe02__CONWAY_SIM =JiGwe02__CONWAY_SIM;
+
 
 	//-------------------------------------------------
 	// BUF CRAFT
@@ -551,7 +527,7 @@ await fetch( `${BriDz__SuSmi_KuTu_vsg}/SuSmi01__JS/JS01_JiJa/JiJa08__GOLIFE.v.Hr
 		size: SuTy__BraHiFrz_k,
 		usage: GPUBufferUsage.UNIFORM | GPUBufferUsage.COPY_DST,
 	});
-	if( MoDzTrx__NxHo_y( "Crafts^SuTy", Jx00__SuTy )){ return; }
+	if( MoDzTrx__NxHo_y( "Crafts^SuTy", Jx00__SuTy )){ return null; }
 	Sa_l.Jx00__SuTy = Jx00__SuTy;
 
 	const uniformArray = new Float32Array( [ CS_Gy_k, CS_Gy_k ] );
@@ -619,7 +595,7 @@ await fetch( `${BriDz__SuSmi_KuTu_vsg}/SuSmi01__JS/JS01_JiJa/JiJa08__GOLIFE.v.Hr
 			// MUST REQUEST!
 			// size: [ 16384, 16384, 32 ],	mipLevelCount: 10,
 			// size: [ 8192, 8192, 4 ],	mipLevelCount: 1,
-			size: [ 1024, 1024, 4 ],	mipLevelCount: 1,
+			size: [ 2048, 2048, 4 ], mipLevelCount: 1,
 
 			format: 'rgba8unorm',
 			sampleCount: 1,
@@ -630,7 +606,7 @@ await fetch( `${BriDz__SuSmi_KuTu_vsg}/SuSmi01__JS/JS01_JiJa/JiJa08__GOLIFE.v.Hr
 				| GPUTextureUsage.STORAGE_BINDING
 				| GPUTextureUsage.RENDER_ATTACHMENT,
 	});
-	if( MoDzTrx__NxHo_y( "Surf Deck", TaGwa__JaPo_l )){ return; }
+	if( MoDzTrx__NxHo_y( "Surf Deck", TaGwa__JaPo_l )){ return null; }
 	Sa_l.TaGwa__JaPo_l = TaGwa__JaPo_l;
 
 
@@ -835,6 +811,7 @@ DoWG.TaMo_Mi = function( Sa_l )
 //==============================================
 // DoWG_
 //==============================================
+
 
 
 

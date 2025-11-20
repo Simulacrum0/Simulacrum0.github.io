@@ -108,7 +108,14 @@ function KoYz_Hry()
 	//---------------------------------
 
 	Sx_l.beginPath();
-	Sx_l.font = "4em Final Frontier Old Style";
+
+	// USES System Fonts, not local
+	// Sx_l.font = "2em Impact";
+	//Sx_l.font = "3em Raleway";
+	Sx_l.font = "3em FoundationTitlesHand";
+	// Sx_l.font = "4em Final Frontier Old Style";
+
+
 	Sx_l.textAlign = "center";
 	Sx_l.direction = "inherit";
 	Sx_l.fillStyle = "#FFFFFFFF";

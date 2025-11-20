@@ -23,6 +23,7 @@ const KoKeDru =
 	, TrxJy__CheFyHo_CORS_vsg: "Security Fail: No CORS Found"
 	, TrxJy__MoDzStxGru_vsg: "Only *1* Webpage Allowed"
 	, TrxJy__SySmz_GriHo_vsg: "Required Service Fail:"
+	, TrxJy__SuKz_GriHo_vsg: "Required Content Fail:"
 
 };
 
