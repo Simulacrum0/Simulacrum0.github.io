@@ -1,4 +1,33 @@
 //==============================================
+// STARTUP
+//==============================================
+// CORS must RUN FIRST
+console.log( "Web_Security[ CORS ]: " + (window.crossOriginIsolated ? "✅" : "❌"));
+if (!window.crossOriginIsolated)
+{
+	// MSG should display @ DOM
+	console.log('WAITING: Engaging HTTPS CORS in order to run under Security Policies.');
+}
+
+//@@@
+// STARTUP
+document.addEventListener('readystatechange', function()
+{
+	// if (document.readyState === 'interactive')
+	// {
+	// 	SmaSme( "- WebPage_DOM Interactive" );
+	// }
+	if (document.readyState === 'complete')
+	{
+		SmaSme( "- WebPage_DOM Fully_Loaded" );
+		KoDz__Ya();
+		MoDz__DzStxGru();
+	}
+});
+
+
+
+//==============================================
 // MODULE ENGINE
 //==============================================
 
@@ -42,7 +71,7 @@ var Module =
 	monitorRunDependencies(left)
 	{
 		this.totalDependencies = Math.max(this.totalDependencies, left);
-		Module.Sma__BriDzYz__Bz( left ? 'Preparing... (' + (this.totalDependencies - left) + '/' + this.totalDependencies + ')' : 'All downloads complete.');
+		Module.Sma__BriDzYz__Bz( left ? ( KoKeDru.BriDz_KiMiFe_vsg + ' (' + (this.totalDependencies - left) + '/' + this.totalDependencies + ')') : KoKeDru.BriDz_KiMiFi_vsg );
 	},
 
 };
@@ -64,7 +93,7 @@ function MoDzTrx( Mi_vsg )
 
 	//@@@
 	// ERR MSG
-	var KeDru_vsg = KoKeDru.TrxBz_vsg + " " + Mi_vsg;
+	var KeDru_vsg = KoKeDru.TrxBz_vsg + " [" + BriDzSa__Da_vsg + "] " + Mi_vsg;
 
 	// POST for HTML
 	Module.Sma__BriDzYz__Bz( KeDru_vsg );

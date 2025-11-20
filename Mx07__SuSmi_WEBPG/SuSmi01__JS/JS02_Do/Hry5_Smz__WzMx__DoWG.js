@@ -504,7 +504,7 @@ DoWG.BriYa = async function( Yz_l )
 	SmaSme( "--------------------------\nLOADING SHADER" );
 	let JiJa08__GOLIFE_vsg = null;
 
-await fetch( 'Mx07__SuSmi_WEBPG/SuSmi01__JS/JS01_JiJa/JiJa08__GOLIFE.js' )
+await fetch( `${BriDz__SuSmi_KuTu_vsg}/SuSmi01__JS/JS01_JiJa/JiJa08__GOLIFE.v.Hro` )
   .then(response =>
 	{
 		 if (!response.ok) { throw new Error('Network response was not ok');  }

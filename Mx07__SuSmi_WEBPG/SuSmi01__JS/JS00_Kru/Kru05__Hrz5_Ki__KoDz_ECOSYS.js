@@ -130,11 +130,6 @@ async function KoDz__Ya( )
 	// BOOT
 
 	//&&&
-	// MSG_BARS
-	Module.Sma__BriDzYz__Bz( KoKeDru.BriDz_Ya_vsg );
-	Module.Sma__BriDzYz__Bo( BriDzSa__Da_vsg );
-
-	//&&&
 	// RESIZE
 	window.addEventListener( 'resize', KoDz_GyHa );
 	// window.Ko.Trx_GyHa = setInterval( KoDz_GyHa, 1000 );
@@ -247,27 +242,32 @@ function KoDz__Ye( Gi )
 
 	//@@@
 	// TIMER UPDATE
-	Ko.YeFo_wu++;
 	// const Gry__GiPa_wf = ( performance.now() - performance.timeOrigin ) / 1000.0;
 	const Gry__GiPa_wf = ( performance.now() - Ko.BriYa_GiDri_df ) / 1000.0;
 	// Date().toLocaleString()  = full date/time/tz
 	if( Ko.YeFo_wu % 60 == 0 )
 	{
-		//&&&
-		// HEADER
-		Module.Sma__BriDzYz__Bz( Math.floor( Gry__GiPa_wf / 60.0 ).toString().padStart( 3,"0") + "m " + Math.floor( Gry__GiPa_wf % 60 ).toString().padStart(2,"0") + "s" );
+		const MxPo_De_l = document.getElementById('MxPo_De');
 
 		//&&&
-		// FOOTER
-		const MxPo_De_l = document.getElementById('MxPo_De');
-		Module.Sma__BriDzYz__Bo
+		// HEADER (Fixed)
+		Module.Sma__BriDzYz__Bz
 		(
 			KoKeDru.BriDz_VaSy_vsg + " [ " + BriDzSa__Da_vsg + " ]"
-			+ " Screen[ " + MxPo_De_l.width + "px, " + MxPo_De_l.height + "px ] DPR: " + window.devicePixelRatio
-			+ "Mode: " + ( window.Ko.Hx_SyDx_vsg ? window.Ko.Hx_SyDx_vsg : "???" )
+			+ " Mode: " + ( window.Ko.Hx_SyDx_vsg ? window.Ko.Hx_SyDx_vsg : "???" )
+		);
+
+		//&&&
+		// FOOTER (Dynamic)
+		Module.Sma__BriDzYz__Bo
+		(
+			KoKeDru.BriDz_VaSy_vsg
+			+ " " + Math.floor( Gry__GiPa_wf / 60.0 ).toString().padStart( 3,"0") + "m " + Math.floor( Gry__GiPa_wf % 60 ).toString().padStart(2,"0") + "s"
 			+ " YeFo: " + Ko.YeFo_wu
+			+ " Screen[ " + MxPo_De_l.width + "px, " + MxPo_De_l.height + "px ] DPR: " + window.devicePixelRatio
 		);
 	}
+	Ko.YeFo_wu++;
 
 
 	//@@@

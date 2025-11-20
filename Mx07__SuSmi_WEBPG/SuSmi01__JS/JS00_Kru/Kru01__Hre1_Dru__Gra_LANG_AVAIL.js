@@ -3,19 +3,26 @@
 //==============================================
 const KoKeDru =
 {
+	//@@@
+	// MSG
 	BriDz_VaSy_vsg: "MicroCosm"
-	, BriDz_Ya_vsg: "Welcome"
 
-	, SySmz__GriHo_vsg: "Extended Service Fail: "
+	, BriDz_KiMiFe_vsg: "Engine Downloading"
+	, BriDz_KiMiFi_vsg: "Engine Complete"
 
 
+	//@@@@
+	// WARN
+	, Dre__SySmz_GriHo_vsg: "Extended Service Fail: "
+
+	//@@@
+	// ERROR
 	, TrxBz_vsg: "Tech FAIL: "
 	, TrxKrx_vsg: "Please try a different Browser or Device"
 
-
-	, TrxJy__CORS_vsg: "Security Fail: No CORS Found"
+	, TrxJy__CheFyHo_CORS_vsg: "Security Fail: No CORS Found"
 	, TrxJy__MoDzStxGru_vsg: "Only *1* Webpage Allowed"
-	, TrxJy__SySmz_vsg: "Required Service Fail:"
+	, TrxJy__SySmz_GriHo_vsg: "Required Service Fail:"
 
 };
 

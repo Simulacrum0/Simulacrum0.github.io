@@ -21,8 +21,8 @@ let KeDru_v;
 // CALC'D
 //-------------------------------------------------
 // BUILD TIME & DIFF
-let TrzFi__Gi_vutf8;
-let TrzZe__Gi_vutf8;
+let TrzFi__Gi_vbg;
+let TrzZe__Gi_vbg;
 
 //==============================================
 // 1.0
@@ -42,7 +42,7 @@ let TrzZe__Gi_vutf8;
 let TzKa_v = undefined;
 let TzKa__Fo_wu = 0;
 let TzKa__Fe_wu = 0;
-let TzVa__Fe_vutf8 = undefined;
+let TzVa__Fe_vbg = undefined;
 
 // TOPIC
 let NzKa_v = undefined;
@@ -90,14 +90,14 @@ async function TzKa__Chy( Tz_wu )
 	//&&&
 	// SUBJECT FILE
 	if ( !KeDru_v ) return;
-	TzVa__Fe_vutf8 = KeDru_v.SUBJECTS[ TzKa__Fe_wu ].ID;
-	if ( !TzVa__Fe_vutf8 )
+	TzVa__Fe_vbg = KeDru_v.SUBJECTS[ TzKa__Fe_wu ].ID;
+	if ( !TzVa__Fe_vbg )
 	{
 		SmaTrx( `NO SUBJECT #${TzKa__Fe_wu} ID!` );
 		return;
 	}
 
-	TzKa_v = await ToKz__JSON_v( `SuSmi04__SUBJECTS/${TzVa__Fe_vutf8}/_TOPICS/`, `${TzVa__Fe_vutf8}.${KeKu__ToKz_vutf8}` );
+	TzKa_v = await ToKz__JSON_v( `SuSmi04__SUBJECTS/${TzVa__Fe_vbg}/_TOPICS/`, `${TzVa__Fe_vbg}.${KeKu__ToKz_vbg}` );
 	if ( !TzKa_v )
 	{
 		SmaTrx( "NO SUBJECT FILE!" );
@@ -124,9 +124,9 @@ async function TzKa__Chy( Tz_wu )
 			// ADD THOT BTNS
 			const Kz_v = document.createElement( 'button' );
 			Kz_v.innerHTML = `${Ti_v.NAME}`;
-			let JiTra_vutf8 = `NzKa__Chy( ${Vx_wu} );`;
-			// console.log( JiTra_vutf8 );
-			Kz_v.setAttribute( "onclick", JiTra_vutf8 );
+			let JiTra_vbg = `NzKa__Chy( ${Vx_wu} );`;
+			// console.log( JiTra_vbg );
+			Kz_v.setAttribute( "onclick", JiTra_vbg );
 			Kz_v.className = 'Dx__BTN';
 			TaNzKa_v.appendChild( Kz_v );
 		}
@@ -167,14 +167,14 @@ async function NzKa__Chy( Nz_wu )
 	//&&&
 	// TOPIC FILE
 	if ( !TzKa_v ) return;
-	const NzVa__Fe_vutf8 = TzKa_v.TOPICS[ NzKa__Fe_wu ].ID;
-	if ( !NzVa__Fe_vutf8 )
+	const NzVa__Fe_vbg = TzKa_v.TOPICS[ NzKa__Fe_wu ].ID;
+	if ( !NzVa__Fe_vbg )
 	{
 		SmaTrx( `NO TOPIC #${NzKa__Fe_wu} ID!` );
 		return;
 	}
 
-	NzKa_v = await ToKz__JSON_v( `SuSmi04__SUBJECTS/${TzVa__Fe_vutf8}/${NzVa__Fe_vutf8}/`, `${NzVa__Fe_vutf8}.${KeKu__ToKz_vutf8}` );
+	NzKa_v = await ToKz__JSON_v( `SuSmi04__SUBJECTS/${TzVa__Fe_vbg}/${NzVa__Fe_vbg}/`, `${NzVa__Fe_vbg}.${KeKu__ToKz_vbg}` );
 	if ( !NzKa_v )
 	{
 		SmaTrx( "NO TOPIC FILE!" );
@@ -201,9 +201,9 @@ async function NzKa__Chy( Nz_wu )
 			// ADD THOT BTNS
 			const Kz_v = document.createElement( 'button' );
 			Kz_v.innerHTML = `${Ti_v.TITLE}`;
-			let JiTra_vutf8 = `JzKa__Chy( ${Vx_wu} );`;
-			// console.log( JiTra_vutf8 );
-			Kz_v.setAttribute( "onclick", JiTra_vutf8 );
+			let JiTra_vbg = `JzKa__Chy( ${Vx_wu} );`;
+			// console.log( JiTra_vbg );
+			Kz_v.setAttribute( "onclick", JiTra_vbg );
 			Kz_v.className = 'Dx__BTN';
 			TaJzKa_v.appendChild( Kz_v );
 		}
@@ -442,9 +442,9 @@ async function JzKa__Chy( Jz_wu )
 //-------------------------------------------------
 // LANG/LOCALE
 //-------------------------------------------------
-let Fe__KeDru_vutf8 = 'en';
-let Fe__KuVa_vutf8 = "";
-let KeKu__ToKz_vutf8 = 'en';
+let Fe__KeDru_vbg = 'en';
+let Fe__KuVa_vbg = "";
+let KeKu__ToKz_vbg = 'en';
 
 //-------------------------------------------------
 // INIT CULTURE DEFAULTS
@@ -465,9 +465,9 @@ async function Hre1_Dru__BriYa()
 			// ADD BTN
 			const Kz_v = document.createElement( 'button' );
 			Kz_v.innerHTML = `${Ti_v.KuGwz} ${Ti_v.Va}`;
-			let JiTra_vutf8 = `Hre1_Dru__ChyKeDru( '${Ti_v.Vy}' );`;
+			let JiTra_vbg = `Hre1_Dru__ChyKeDru( '${Ti_v.Vy}' );`;
 
-			Kz_v.setAttribute( "onclick", JiTra_vutf8 );
+			Kz_v.setAttribute( "onclick", JiTra_vbg );
 			Kz_v.className = 'Dx__BTN';
 			// elemm.id = "gogo";
 			// elemm.src = 'blah.png';
@@ -498,14 +498,14 @@ function Hre7_Me__TrzGiYe()
 	console.log( "Time_Now: " + GiVuKe );
 
 	const UTC__GiFe_l = Date.now();
-	const GiFe_vutf8 = new Intl.DateTimeFormat( navigator.languages ).format( UTC__GiFe_l );
-	console.log( "Date_Now: " + GiFe_vutf8 );
+	const GiFe_vbg = new Intl.DateTimeFormat( navigator.languages ).format( UTC__GiFe_l );
+	console.log( "Date_Now: " + GiFe_vbg );
 
 	//@@@
 	// BUILD DATE
 	const TrzFi__Gi_l = new Date( BriDzYz_v.MoDzGi );
-	TrzFi__Gi_vutf8 = new Intl.DateTimeFormat( navigator.languages ).format( TrzFi__Gi_l );
-	console.log( "Build_Date: " + TrzFi__Gi_vutf8 );
+	TrzFi__Gi_vbg = new Intl.DateTimeFormat( navigator.languages ).format( TrzFi__Gi_l );
+	console.log( "Build_Date: " + TrzFi__Gi_vbg );
 
 	// ELAPSED
 	// Calculate the time difference in milliseconds
@@ -537,40 +537,40 @@ function Hre7_Me__TrzGiYe()
 	const Ze__GiKe_wf = Math.floor( Ze__GiDri_du / GiKe__GiDri_duk );
 	Ze__GiDri_du %= GiKe__GiDri_duk;
 
-	TrzZe__Gi_vutf8 = `${Ze__GiKwu_wf}_Years ${ Ze__GiKi_wf }_Months ${Ze__GiPo_wf}_Days ${Ze__GiBa_wf}_Hours ${Ze__GiKe_wf}_Min`;
-	console.log( "Build_Elapsed: " + TrzZe__Gi_vutf8 );
+	TrzZe__Gi_vbg = `${Ze__GiKwu_wf}_Years ${ Ze__GiKi_wf }_Months ${Ze__GiPo_wf}_Days ${Ze__GiBa_wf}_Hours ${Ze__GiKe_wf}_Min`;
+	console.log( "Build_Elapsed: " + TrzZe__Gi_vbg );
 }
 
 //-------------------------------------------------
 // CULTURE LOAD LANG
 //-------------------------------------------------
-async function Hre1_Dru__ChyKeDru( KeKuMi_vutf8 )
+async function Hre1_Dru__ChyKeDru( KeKuMi_vbg )
 {
 	//@@@
 	// LANG BASICS
-	Fe__KeKu_vutf8 = KeKuMi_vutf8;
-	Fe__KeDru_vutf8 = KeKuMi_vutf8.split( "-" )[ 0 ]
-	Fe__KuVa_vutf8 = KeKuMi_vutf8.split( "-" )[ 1 ]
+	Fe__KeKu_vbg = KeKuMi_vbg;
+	Fe__KeDru_vbg = KeKuMi_vbg.split( "-" )[ 0 ]
+	Fe__KuVa_vbg = KeKuMi_vbg.split( "-" )[ 1 ]
 
 	//&&&
 	// CHECK LOCALE
-	let KeKu_l = Hre1_Dru__Gra_v.find( ( Ti_l ) => ( Ti_l.Vy === Fe__KeKu_vutf8 ) );
+	let KeKu_l = Hre1_Dru__Gra_v.find( ( Ti_l ) => ( Ti_l.Vy === Fe__KeKu_vbg ) );
 	// IF NOT, CHECK just LANG
 	if ( !KeKu_l )
 	{
-		KeKu_l = Hre1_Dru__Gra_v.find( ( Ti_l ) => ( Ti_l.Vy === Fe__KeDru_vutf8 ) );
+		KeKu_l = Hre1_Dru__Gra_v.find( ( Ti_l ) => ( Ti_l.Vy === Fe__KeDru_vbg ) );
 	}
 	if ( KeKu_l )
 	{
-		KeKu__ToKz_vutf8 = KeKu_l.ToKz;
+		KeKu__ToKz_vbg = KeKu_l.ToKz;
 	}
-	console.log( "CultureFile: " + KeKu__ToKz_vutf8 + " Locale: " + Fe__KeKu_vutf8 + " Lang: " + Fe__KeDru_vutf8 + " Country: " + ( Fe__KuVa_vutf8 ? Fe__KuVa_vutf8 : "Global" ) );
+	console.log( "CultureFile: " + KeKu__ToKz_vbg + " Locale: " + Fe__KeKu_vbg + " Lang: " + Fe__KeDru_vbg + " Country: " + ( Fe__KuVa_vbg ? Fe__KuVa_vbg : "Global" ) );
 
 	//&&&
 	// TEXT_DIR
 	// Set text direction
 	const rtlLanguages = [ 'ar', 'he', 'fa' ];
-	if ( rtlLanguages.includes( Fe__KeDru_vutf8 ) )
+	if ( rtlLanguages.includes( Fe__KeDru_vbg ) )
 	{
 		document.body.dir = 'rtl';
 	}
@@ -581,7 +581,7 @@ async function Hre1_Dru__ChyKeDru( KeKuMi_vutf8 )
 
 	//@@@
 	// LANG_FILE
-	KeDru_v = await ToKz__JSON_v( 'SuSmi03__CONTENTS/', `CONTENTS.${KeKu__ToKz_vutf8}` );
+	KeDru_v = await ToKz__JSON_v( 'SuSmi03__CONTENTS/', `CONTENTS.${KeKu__ToKz_vbg}` );
 	if ( !KeDru_v )
 	{
 		SmaTrx( "Cannot Find CONTENTS for User Lang" );
@@ -591,10 +591,10 @@ async function Hre1_Dru__ChyKeDru( KeKuMi_vutf8 )
 	//&&&
 	// TERMS
 	// FORMULATE
-	document.getElementById( 'VyDa' ).innerHTML = `${KeDru_v.TERMS.DaVa}${BriDzYz_v.MoDzDa} ${TrzFi__Gi_vutf8}`;
-	document.getElementById( 'VyGiZe' ).innerHTML = `${KeDru_v.TERMS.TrzZeVa} ${TrzZe__Gi_vutf8}`;
+	document.getElementById( 'VyDa' ).innerHTML = `${KeDru_v.TERMS.DaVa}${BriDzYz_v.MoDzDa} ${TrzFi__Gi_vbg}`;
+	document.getElementById( 'VyGiZe' ).innerHTML = `${KeDru_v.TERMS.TrzZeVa} ${TrzZe__Gi_vbg}`;
 	document.getElementById( 'KeDruVa' ).innerHTML = `${KeKu_l.KuGwz} ${KeKu_l.Va}`;
-	document.getElementById( 'VyKo__HrzBy_Kri' ).innerHTML = `<span class="GwzDo GwzDo_${Ko__HrzByVy_vutf8}"></span><br>${Ko__HrzByVy_vutf8}_${Ko__KaBz_vutf8}`;
+	document.getElementById( 'VyKo__HrzBy_Kri' ).innerHTML = `<span class="GwzDo GwzDo_${Ko__HrzByVy_vbg}"></span><br>${Ko__HrzByVy_vbg}_${Ko__KaBz_vbg}`;
 
 	//!!!
 	// Am Setting here redundantly as out-of-order not resolved w/ async/await;
@@ -605,16 +605,16 @@ async function Hre1_Dru__ChyKeDru( KeKuMi_vutf8 )
 	// AUTOMATE
 	// SmaDx__Kz_JSON( KeDru_v.LABELS );
 	Object.entries( KeDru_v.LABELS ).forEach(
-		function ( [ Vy_vutf8, Va_vutf8 ] )
+		function ( [ Vy_vbg, Va_vbg ] )
 		{
-			let Elm_l = document.getElementById( Vy_vutf8 );
+			let Elm_l = document.getElementById( Vy_vbg );
 			if ( Elm_l )
 			{
-				Elm_l.innerHTML = Va_vutf8;
+				Elm_l.innerHTML = Va_vbg;
 			}
 			else
 			{
-				console.log( `--------*LABEL UNUSED*: ${Vy_vutf8}-----------` );
+				console.log( `--------*LABEL UNUSED*: ${Vy_vbg}-----------` );
 			}
 		}
 	);
@@ -635,9 +635,9 @@ async function Hre1_Dru__ChyKeDru( KeKuMi_vutf8 )
 			// ADD BTN
 			const Kz_v = document.createElement( 'button' );
 			Kz_v.innerHTML = `${Ti_v.NAME}`;
-			let JiTra_vutf8 = `TzKa__Chy( ${Vx_wu} );`;
-			// console.log( JiTra_vutf8 );
-			Kz_v.setAttribute( "onclick", JiTra_vutf8 );
+			let JiTra_vbg = `TzKa__Chy( ${Vx_wu} );`;
+			// console.log( JiTra_vbg );
+			Kz_v.setAttribute( "onclick", JiTra_vbg );
 			Kz_v.className = 'Dx__BTN';
 			TaTzKa_v.appendChild( Kz_v );
 		}
@@ -656,12 +656,12 @@ async function Hre1_Dru__ChyKeDru( KeKuMi_vutf8 )
 // NODE
 //-------------------------------------------------
 // USER FACING
-let Ko__HrzByVa_vutf8 = "Unknown";
-let Ko__KaBz_vutf8 = "Unknown";
+let Ko__HrzByVa_vbg = "Unknown";
+let Ko__KaBz_vbg = "Unknown";
 
 // INTERNAL
-let Ko__HrzByVy_vutf8 = "???";
-let Ko__ToKzJy_vutf8 = "???";
+let Ko__HrzByVy_vbg = "???";
+let Ko__ToKzJy_vbg = "???";
 
 function BriDz__Ha()
 {
@@ -672,74 +672,74 @@ function BriDz__Ha()
 
 	if ( navigator.userAgentData )
 	{
-		Ko__HrzByVa_vutf8 = navigator.userAgentData.platform;
+		Ko__HrzByVa_vbg = navigator.userAgentData.platform;
 		//MOBILE = navigator.userAgentData.mobile;
 		//
-		// FAIL on Ko__KaBz_vutf8 as it doesn't match below
+		// FAIL on Ko__KaBz_vbg as it doesn't match below
 		// navigator.userAgentData.getHighEntropyValues( ["architecture", "platformVersion"])
 		// .then( ua =>
 		// {
-		// 	// Ko__KaBz_vutf8 = ua.architecture;
+		// 	// Ko__KaBz_vbg = ua.architecture;
 		// 	// VER = ua.platformVersion;
 		// } );
 	}
 
 	{
 		//@@@
-		// Ko__HrzByVa_vutf8
+		// Ko__HrzByVa_vbg
 		// MOST ANDROID shows LINUX
 		if ( NAV_NODE.includes( "ANDROID" ) )
 		{
-			Ko__HrzByVa_vutf8 = "Android";
-			Ko__HrzByVy_vutf8 = "DRD";
-			Ko__ToKzJy_vutf8 = "apk";
+			Ko__HrzByVa_vbg = "Android";
+			Ko__HrzByVy_vbg = "DRD";
+			Ko__ToKzJy_vbg = "apk";
 		}
 		else if ( NAV_NODE.includes( "LINUX" ) || NAV_NODE.includes( "X11" ) || NAV_NODE.includes( "WAYLAND" ) )
 		{
-			Ko__HrzByVa_vutf8 = "Linux";
-			Ko__HrzByVy_vutf8 = "LNX";
-			Ko__ToKzJy_vutf8 = "elf";
+			Ko__HrzByVa_vbg = "Linux";
+			Ko__HrzByVy_vbg = "LNX";
+			Ko__ToKzJy_vbg = "elf";
 		}
 		else if ( NAV_NODE.includes( "IPHONE" ) || NAV_NODE.includes( "IPAD" ) )
 		{
-			Ko__HrzByVa_vutf8 = "iOS";
-			Ko__HrzByVy_vutf8 = "IOS";
-			Ko__ToKzJy_vutf8 = "ipa";
-			Ko__KaBz_vutf8 = "ARM64";
+			Ko__HrzByVa_vbg = "iOS";
+			Ko__HrzByVy_vbg = "IOS";
+			Ko__ToKzJy_vbg = "ipa";
+			Ko__KaBz_vbg = "ARM64";
 		}
 		else if ( NAV_NODE.includes( "MAC" ) )
 		{
-			Ko__HrzByVa_vutf8 = "Mac";
-			Ko__HrzByVy_vutf8 = "MAC";
-			Ko__ToKzJy_vutf8 = "app";
-			Ko__KaBz_vutf8 = "ARM64";
+			Ko__HrzByVa_vbg = "Mac";
+			Ko__HrzByVy_vbg = "MAC";
+			Ko__ToKzJy_vbg = "app";
+			Ko__KaBz_vbg = "ARM64";
 		}
 		else if ( NAV_NODE.includes( "WINDOWS" ) )
 		{
-			Ko__HrzByVa_vutf8 = "Windows";
-			Ko__HrzByVy_vutf8 = "WIN";
-			Ko__ToKzJy_vutf8 = "exe";
+			Ko__HrzByVa_vbg = "Windows";
+			Ko__HrzByVy_vbg = "WIN";
+			Ko__ToKzJy_vbg = "exe";
 		}
 
 		//@@@
-		// Ko__KaBz_vutf8
+		// Ko__KaBz_vbg
 		if ( NAV_NODE.includes( "X86_64" ) || NAV_NODE.includes( "X64" ) )
 		{
-			Ko__KaBz_vutf8 = "X64";
+			Ko__KaBz_vbg = "X64";
 		}
 		else if ( NAV_NODE.includes( "ARM" ) || NAV_NODE.includes( "AARCH" ) )
 		{
-			Ko__KaBz_vutf8 = "ARM64";
+			Ko__KaBz_vbg = "ARM64";
 		}
 		else if ( NAV_NODE.includes( "RISCV" ) || NAV_NODE.includes( "RISC-V" ) )
 		{
-			Ko__KaBz_vutf8 = "RISC-V";
+			Ko__KaBz_vbg = "RISC-V";
 		}
 	}
 
 	//@@@
 	// LOG
-	console.log( `Node: ${Ko__HrzByVa_vutf8}_${Ko__KaBz_vutf8}` );
+	console.log( `Node: ${Ko__HrzByVa_vbg}_${Ko__KaBz_vbg}` );
 }
 
 //==============================================
@@ -1112,7 +1112,7 @@ function DOWNLOAD_Dy( EXE )
 
 	// ONLY OFFER AVAILABLE EXE
 	if (
-		( ( Ko__KaBz_vutf8 === "X64" ) && ( Ko__HrzByVy_vutf8 === "LNX" ) )
+		( ( Ko__KaBz_vbg === "X64" ) && ( Ko__HrzByVy_vbg === "LNX" ) )
 	)
 	{
 		window.location.assign( EXE_URL );
@@ -1124,7 +1124,7 @@ function DOWNLOAD_Dy( EXE )
 
 function DOWNLOAD_Fe()
 {
-	const EXE = Ko__HrzByVy_vutf8 + "_" + Ko__KaBz_vutf8 + ".v." + Ko__ToKzJy_vutf8;
+	const EXE = Ko__HrzByVy_vbg + "_" + Ko__KaBz_vbg + ".v." + Ko__ToKzJy_vbg;
 	// console.log( EXE );
 	DOWNLOAD_Dy( EXE )
 }
@@ -1354,10 +1354,10 @@ function SmaDx__Ta_JSON( Ta_v )
 //-------------------------------------------------
 // ERR
 //-------------------------------------------------
-function SmaTrx( Trx_vutf8 )
+function SmaTrx( Trx_vbg )
 {
-	console.error( Trx_vutf8 );
-	alert( Trx_vutf8 );
+	console.error( Trx_vbg );
+	alert( Trx_vbg );
 }
 
 //-------------------------------------------------
@@ -1373,27 +1373,15 @@ function Hri3_Ne__Ta_ChyStz( Ta_v )
 
 //-------------------------------------------------
 // LOAD JSON
-// NOTE: Attempts to use 'async import' for JSON failed via CORS
-// FAIL: Firefox turn off CORS via type "about:config" @ address bar & toggle "content.cors.disable."
-// WIN: google-chrome has 2 file-access flags to run
-//
-// LAB ( Edit locally using FILES only )
-// $google-chrome --allow-file-access-from-files --allow-file-access file:///mnt/Ku5_KoKri/Nz07_Mx/index.html
-// const WEBPG__SuGwy_vsg = "Mx07__SuSmi_WEBPG/";
-//
-// PUB ( Publish using REAL Site )
-// $google-chrome powerourpeople.com
-//const WEBPG__SuGwy_vsg = "https://powerourpeople.com/Mx07__SuSmi_WEBPG/";
-//
 //-------------------------------------------------
-async function ToKz__JSON_v( ChaKuTu_vutf8, ToKzVa_vutf8 )
+async function ToKz__JSON_v( ChaKuTu_vbg, ToKzVa_vbg )
 {
 	try
 	{
-		let KuTu_vutf8 = `${WEBPG__SuGwy_vsg}${ChaKuTu_vutf8}${ToKzVa_vutf8}.json`;
-		// console.log( `FILE seeking: ${KuTu_vutf8}`);
+		let KuTu_vbg = `${BriDz__SuSmi_KuTu_vsg}${ChaKuTu_vbg}${ToKzVa_vbg}.json`;
+		// console.log( `FILE seeking: ${KuTu_vbg}`);
 
-		const res = await fetch( KuTu_vutf8,
+		const res = await fetch( KuTu_vbg,
 		{
 			headers:
 			{

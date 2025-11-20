@@ -1,7 +1,33 @@
 //==============================================
+// JSON_ADD^Cha
+//==============================================
+async function Hrz7_Kru__ToKz_v( ChaKuTu_vbg, ToKzVa_vbg )
+{
+	try
+	{
+		let KuTu_vbg = `${BriDz__SuSmi_KuTu_vsg}${ChaKuTu_vbg}${ToKzVa_vbg}`;
+		// console.log( `FILE seeking: ${KuTu_vbg}`);
+
+		const res = await fetch( KuTu_vbg, { headers: { Accept: 'application/json' } } );
+		const json = await res.json();
+
+		// response.json() --> Promise --> JSON object
+		// response.text() --> Promise --> raw text UTF16
+		// response.blob() --> Promise --> Blob (a file-like object of raw data)
+		// response.arrayBuffer() --> Promise --> ArrayBuffer (raw generic binary data)
+
+		return json;
+	}
+	catch ( err )
+	{
+		SmaTrx( `FileRead_Error: ${err}` );
+	}
+};
+
+
+//==============================================
 // MEDIA_ADD^Cha
 //==============================================
-
 
 
 
@@ -70,14 +96,14 @@ async function Hrz7_Kru__ChaSySmz( Si_vsg, SyJy_vsg, ToKz_vsg, VaSy_vsg, SySmz__
 	// REQ --> FAIL means ERR
 	else if( SySmz__Kri_yk )
 	{
-		MoDzTrx( KoKeDru.SySmz__GriHo_vsg + VaSy_vsg );
+		MoDzTrx( KoKeDru.TrxJy__SySmz_GriHo_vsg + VaSy_vsg );
 		return -1;
 	}
 	//&&&
 	// XTNDED --> FAIL means ALERT
 	else
 	{
-		SmaDre( KoKeDru.SySmz__GriHo_vsg, VaSy_vsg );
+		SmaDre( KoKeDru.Dre__SySmz_GriHo_vsg, VaSy_vsg );
 		return -1;
 	}
 }
