@@ -1,3 +1,25 @@
+//==============================================
+// CORE MSGS
+//==============================================
+const KoKeDru =
+{
+	BriDz_VaSy_vsg: "MicroCosm"
+	, BriDz_Ya_vsg: "Welcome"
+
+	, SySmz__GriHo_vsg: "Extended Service Fail: "
+
+
+	, TrxBz_vsg: "Tech FAIL: "
+	, TrxKrx_vsg: "Please try a different Browser or Device"
+
+
+	, TrxJy__CORS_vsg: "Security Fail: No CORS Found"
+	, TrxJy__MoDzStxGru_vsg: "Only *1* Webpage Allowed"
+	, TrxJy__SySmz_vsg: "Required Service Fail:"
+
+};
+
+
 //-------------------------------------------------
 // LANG/COUNTRY BEGIN
 //-------------------------------------------------

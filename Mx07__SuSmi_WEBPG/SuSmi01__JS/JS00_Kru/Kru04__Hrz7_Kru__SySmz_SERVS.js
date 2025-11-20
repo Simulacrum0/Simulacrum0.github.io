@@ -34,7 +34,7 @@ async function Hrz7_Kru__ChaWaDru( Va_l, KuTu_l )
 //==============================================
 // SERV_ADD^ChaSy
 //==============================================
-async function Hrz7_Kru__ChaSySmz( Si_vsg, SyJy_vsg, ToKz_vsg, VaSy_vsg, Yz_l )
+async function Hrz7_Kru__ChaSySmz( Si_vsg, SyJy_vsg, ToKz_vsg, VaSy_vsg, SySmz__Kri_yk, Yz_l )
 {
 	//@@@
 	// ECOSYS_GOOD
@@ -66,9 +66,18 @@ async function Hrz7_Kru__ChaSySmz( Si_vsg, SyJy_vsg, ToKz_vsg, VaSy_vsg, Yz_l )
 
 		return SyVx_wuk;
 	}
+	// &&&
+	// REQ --> FAIL means ERR
+	else if( SySmz__Kri_yk )
+	{
+		MoDzTrx( KoKeDru.SySmz__GriHo_vsg + VaSy_vsg );
+		return -1;
+	}
+	//&&&
+	// XTNDED --> FAIL means ALERT
 	else
 	{
-		SmaSme( "!!! SERV_ERR: ", VaSy_vsg );
+		SmaDre( KoKeDru.SySmz__GriHo_vsg, VaSy_vsg );
 		return -1;
 	}
 }

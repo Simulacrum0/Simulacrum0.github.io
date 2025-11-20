@@ -605,6 +605,35 @@ await fetch( 'Mx07__SuSmi_WEBPG/SuSmi01__JS/JS01_JiJa/JiJa08__GOLIFE.v.Hro' )
 	KaSmz_l.queue.writeBuffer(cellStateStorage[0], 0, cs_v);
 
 
+
+	//-------------------------------------------------
+	// IMG_DBS
+	//-------------------------------------------------
+	DoWG.KiCho_JaKu( Sa_l, 0, 0, 512, 512, new Uint8Array( [	255, 255, 128, 255, 0, 0, 0, 255, 255, 0, 0, 255, 255, 128, 0, 255 ] ) );
+
+	const TaGwa__JaPo_l = Sa_l.KaSmz_l.createTexture
+	({
+			// Not 2d-array!
+			dimension: '2d',
+
+			// MUST REQUEST!
+			// size: [ 16384, 16384, 32 ],	mipLevelCount: 10,
+			// size: [ 8192, 8192, 4 ],	mipLevelCount: 1,
+			size: [ 1024, 1024, 4 ],	mipLevelCount: 1,
+
+			format: 'rgba8unorm',
+			sampleCount: 1,
+			usage:
+				  GPUTextureUsage.COPY_SRC
+				| GPUTextureUsage.COPY_DST
+				| GPUTextureUsage.TEXTURE_BINDING
+				| GPUTextureUsage.STORAGE_BINDING
+				| GPUTextureUsage.RENDER_ATTACHMENT,
+	});
+	if( MoDzTrx__NxHo_y( "Surf Deck", TaGwa__JaPo_l )){ return; }
+	Sa_l.TaGwa__JaPo_l = TaGwa__JaPo_l;
+
+
 	//-------------------------------------------------
 	// BIND GROUPS
 	//-------------------------------------------------
@@ -645,70 +674,7 @@ await fetch( 'Mx07__SuSmi_WEBPG/SuSmi01__JS/JS01_JiJa/JiJa08__GOLIFE.v.Hro' )
 	Sa_l.bindGroups = bindGroups;
 
 	//-------------------------------------------------
-	//
-	//-------------------------------------------------
-
-
-	//-------------------------------------------------
-	//
-	//-------------------------------------------------
-
-
-	//-------------------------------------------------
-	//
-	//-------------------------------------------------
-
-
-	//-------------------------------------------------
-	//
-	//-------------------------------------------------
-
-
-	//-------------------------------------------------
-	//
-	//-------------------------------------------------
-
-
-	//-------------------------------------------------
-	// IMG_DBS
-	//-------------------------------------------------
-	DoWG.KiCho_JaKu( Sa_l, 0, 0, 512, 512, new Uint8Array( [	255, 255, 128, 255, 0, 0, 0, 255, 255, 0, 0, 255, 255, 128, 0, 255 ] ) );
-
-	const TaGwa__JaPo_l = Sa_l.KaSmz_l.createTexture
-	({
-			// Not 2d-array!
-			dimension: '2d',
-
-			// MUST REQUEST!
-			// size: [ 16384, 16384, 32 ],	mipLevelCount: 10,
-			size: [ 8192, 8192, 4 ],	mipLevelCount: 1,
-
-			format: 'rgba8unorm',
-			sampleCount: 1,
-			usage:
-				  GPUTextureUsage.COPY_SRC
-				| GPUTextureUsage.COPY_DST
-				| GPUTextureUsage.TEXTURE_BINDING
-				| GPUTextureUsage.STORAGE_BINDING
-				| GPUTextureUsage.RENDER_ATTACHMENT,
-	});
-	if( MoDzTrx__NxHo_y( "Surf Deck", TaGwa__JaPo_l )){ return; }
-
-	Sa_l.TaGwa__JaPo_l = TaGwa__JaPo_l;
-
-
-	//-------------------------------------------------
-	// PROG
-	//-------------------------------------------------
-
-
-
-
-
-
-
-	//-------------------------------------------------
-	// PIPE
+	// PROG as PIPE
 	//-------------------------------------------------
 	Sa_l.JiSpo01_QUAD_COMP = KaSmz_l.createRenderPipeline
 	({
@@ -730,7 +696,6 @@ await fetch( 'Mx07__SuSmi_WEBPG/SuSmi01__JS/JS01_JiJa/JiJa08__GOLIFE.v.Hro' )
 
 		primitive: { topology: 'triangle-list' }
 	});
-
 
 
 	//-------------------------------------------------

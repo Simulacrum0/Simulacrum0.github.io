@@ -59,6 +59,7 @@ function MoDzTrx( Mi_vsg )
 	//@@@
 	// SETUP
 	Module.Trx_vsg = Mi_vsg;
+
 	KoDz__YzChy( KoYz_qk.Trx );
 
 	//@@@
@@ -170,7 +171,7 @@ async function MoDz__DzStxGru()
 			{
 				SmaSme('!!! FAIL Duplicate Tab.');
 				BCHN_l = null;
-				MoDzTrx( KoKeDru.MoDz__DzStxGru_vsg );
+				MoDzTrx( KoKeDru.TrxJy__MoDzStxGru_vsg );
 			}
 			else
 			{

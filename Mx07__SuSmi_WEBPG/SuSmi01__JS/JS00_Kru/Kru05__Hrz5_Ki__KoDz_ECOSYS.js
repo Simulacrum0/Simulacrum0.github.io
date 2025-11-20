@@ -1,20 +1,4 @@
 //==============================================
-// CORE MSGS
-//==============================================
-const KoKeDru =
-{
-	BriDz_VaSy_vsg: "MicroCosm"
-
-	, BriDz_Ya_vsg: "Welcome"
-
-	, TrxBz_vsg: "Tech FAIL: "
-	, TrxKrx_vsg: "Please try a different Browser or Device"
-
-	, MoDz__DzStxGru_vsg: "Only *1* Webpage Allowed"
-};
-
-
-//==============================================
 // SYSLIFE
 //==============================================
 
@@ -161,22 +145,22 @@ async function KoDz__Ya( )
 
 	//@@@
 	// SERV_REQ
-	Hrz7_Kru__ChaSySmz( 'JS02_Do', 'Hre1_Dru', 'KeDruPy', 'DoVCB', { Si_KeDru: 'en' } );
+	Hrz7_Kru__ChaSySmz( 'JS02_Do', 'Hre1_Dru', 'KeDruPy', 'DoVCB', true, { Si_KeDru: 'en' } );
 
-	//Hrz7_Kru__ChaSySmz( 'JS02_Do', 'Hr_', '?', 'DoFNT', { KaVy: '0' } );
+	//Hrz7_Kru__ChaSySmz( 'JS02_Do', 'Hr_', '?', 'DoFNT', true, { KaVy: '0' } );
 
-	//Hrz7_Kru__ChaSySmz( 'JS02_Do', 'Hr_', '?', 'Do?', { KaVy: '0' } );
-	//Hrz7_Kru__ChaSySmz( 'JS02_Do', 'Hr_', '?', 'Do?', { KaVy: '0' } );
-	//Hrz7_Kru__ChaSySmz( 'JS02_Do', 'Hr_', '?', 'Do?', { KaVy: '0' } );
+	//Hrz7_Kru__ChaSySmz( 'JS02_Do', 'Hr_', '?', 'Do?', true, { KaVy: '0' } );
+	//Hrz7_Kru__ChaSySmz( 'JS02_Do', 'Hr_', '?', 'Do?', true, { KaVy: '0' } );
+	//Hrz7_Kru__ChaSySmz( 'JS02_Do', 'Hr_', '?', 'Do?', true, { KaVy: '0' } );
 
-	//Hrz7_Kru__ChaSySmz( 'JS02_Do', 'Hry1_Brz', 'KeDru', 'DoPRNT', { KaVy: '0' } );
-	Hrz7_Kru__ChaSySmz( 'JS02_Do', 'Hry5_Smz', 'WzMx', 'DoWG', { KaVy: '0' } );
+	//Hrz7_Kru__ChaSySmz( 'JS02_Do', 'Hry1_Brz', 'KeDru', 'DoPRNT', true, { KaVy: '0' } );
+	Hrz7_Kru__ChaSySmz( 'JS02_Do', 'Hry5_Smz', 'WzMx', 'DoWG', true, { KaVy: '0' } );
 
 
 	//&&&
 	// XR BTN
-	//Hrz7_Kru__ChaSySmz( 'JS02_Do', 'Hri2_Ke', 'BzMe', 'DoXR', { KaVy: '0' } );
-	//Hrz7_Kru__ChaSySmz( 'JS02_Do', 'Hry5_Smz', 'BzMe', 'DoGL', { KaVy: '0' } );
+	//Hrz7_Kru__ChaSySmz( 'JS02_Do', 'Hri2_Ke', 'BzMe', 'DoXR', false, { KaVy: '0' } );
+	//Hrz7_Kru__ChaSySmz( 'JS02_Do', 'Hry5_Smz', 'BzMe', 'DoGL', false, { KaVy: '0' } );
 
 	const FNT_l = await Hrz7_Kru__ChaWaDru( 'Final Frontier Old Style', 'url(Mx01__SuKz_MEDIA/SuKz04_WaDru__FONT/WaDru02__FinalFrontier.ttf)' );
 
