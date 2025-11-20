@@ -6,7 +6,6 @@ const KoKeDru =
 	BriDz_VaSy_vsg: "MicroCosm"
 
 	, BriDz_Ya_vsg: "Welcome"
-	, BriDz_Yz_vsg: "Status"
 
 	, TrxBz_vsg: "Tech FAIL: "
 	, TrxKrx_vsg: "Please try a different Browser or Device"
@@ -148,7 +147,7 @@ async function KoDz__Ya( )
 	//&&&
 	// MSG_BARS
 	Module.Sma__BriDzYz__Bz( KoKeDru.BriDz_Ya_vsg );
-	Module.Sma__BriDzYz__Bo( KoKeDru.BriDz_Yz_vsg );
+	Module.Sma__BriDzYz__Bo( BriDzSa__Da_vsg );
 
 	//&&&
 	// RESIZE
