@@ -26,7 +26,7 @@ var Ko =
 	YeFo_wu: 0,
 	BriYa_GiDri_df: 0,
 
-	// 
+	//
 
 	// SERV
 	Ta_SySmz: [],
@@ -168,7 +168,7 @@ async function KoDz__Ya( )
 
 	//@@@
 	// ENGINE_REQ
-	_Hrz5_Ki__BriSmz__Ya();
+	await _Hrz5_Ki__BriSmz__Ya();
 
 
 	//@@@
