@@ -202,6 +202,15 @@ function KoDz__YoChyDry()
 	// ECOSYS_GOOD
 	if( KoDz__YzTrx_y() ) return;
 
+	//@@@
+	// SHOW GPU CANVAS
+	const MxPo_De_l = document.getElementById('MxPo_De');
+	if( !MxPo_De_l )return;
+	const MxPo_Kwa_l = document.getElementById('MxPo_Kwa');
+	if( !MxPo_Kwa_l )return;
+	MxPo_Kwa_l.style.display = 'none';
+	MxPo_De_l.style.display = 'block';
+
 
 	//@@@
 	// PAUSE if updating

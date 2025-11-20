@@ -108,7 +108,7 @@ window.onerror = (e) =>
 	else
 	{
 		// statements to handle any unspecified exceptions
-		logMyErrors(e); // pass exception object to error handler
+		//logMyErrors(e); // pass exception object to error handler
 	}
 	*/
 
