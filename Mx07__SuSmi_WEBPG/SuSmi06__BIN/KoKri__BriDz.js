@@ -189,10 +189,10 @@ function writeStackCookie() {
   // The stack grow downwards towards _emscripten_stack_get_end.
   // We write cookies to the final two words in the stack and detect if they are
   // ever overwritten.
-  (growMemViews(), HEAPU32)[((max) >> 2)] = 34821223;
-  (growMemViews(), HEAPU32)[(((max) + (4)) >> 2)] = 2310721022;
+  (growMemViews(), HEAPU32)[((max) >>> 2) >>> 0] = 34821223;
+  (growMemViews(), HEAPU32)[(((max) + (4)) >>> 2) >>> 0] = 2310721022;
   // Also test the global address 0 for integrity.
-  (growMemViews(), HEAPU32)[((0) >> 2)] = 1668509029;
+  (growMemViews(), HEAPU32)[((0) >>> 2) >>> 0] = 1668509029;
 }
 
 function checkStackCookie() {
@@ -202,13 +202,13 @@ function checkStackCookie() {
   if (max == 0) {
     max += 4;
   }
-  var cookie1 = (growMemViews(), HEAPU32)[((max) >> 2)];
-  var cookie2 = (growMemViews(), HEAPU32)[(((max) + (4)) >> 2)];
+  var cookie1 = (growMemViews(), HEAPU32)[((max) >>> 2) >>> 0];
+  var cookie2 = (growMemViews(), HEAPU32)[(((max) + (4)) >>> 2) >>> 0];
   if (cookie1 != 34821223 || cookie2 != 2310721022) {
     abort(`Stack overflow! Stack cookie has been overwritten at ${ptrToString(max)}, expected hex dwords 0x89BACDFE and 0x2135467, but received ${ptrToString(cookie2)} ${ptrToString(cookie1)}`);
   }
   // Also test the global address 0 for integrity.
-  if ((growMemViews(), HEAPU32)[((0) >> 2)] != 1668509029) {
+  if ((growMemViews(), HEAPU32)[((0) >>> 2) >>> 0] != 1668509029) {
     abort("Runtime error: The application has corrupted its heap memory area (address zero)!");
   }
 }
@@ -433,7 +433,7 @@ function initMemory() {
       // https://github.com/emscripten-core/emscripten/issues/14130
       // And in the pthreads case we definitely need to emit a maximum. So
       // always emit one.
-      "maximum": 32768,
+      "maximum": 65536,
       "shared": true
     });
   }
@@ -648,6 +648,7 @@ async function createWasm() {
   /** @param {WebAssembly.Module=} module*/ function receiveInstance(instance, module) {
     wasmExports = instance.exports;
     wasmExports = Asyncify.instrumentWasmExports(wasmExports);
+    wasmExports = applySignatureConversions(wasmExports);
     wasmTable = wasmExports["__indirect_function_table"];
     assert(wasmTable, "table not found in wasm exports");
     // We now have the Wasm module loaded up, keep a reference to the compiled module so we can post it to the workers.
@@ -921,7 +922,7 @@ var dynCall = (sig, ptr, args = [], promising = false) => {
   assert(!promising, "async dynCall is not supported in this mode");
   var rtn = dynCallLegacy(sig, ptr, args);
   function convert(rtn) {
-    return rtn;
+    return sig[0] == "p" ? rtn >>> 0 : rtn;
   }
   return convert(rtn);
 };
@@ -933,28 +934,28 @@ var dynCall = (sig, ptr, args = [], promising = false) => {
   if (type.endsWith("*")) type = "*";
   switch (type) {
    case "i1":
-    return (growMemViews(), HEAP8)[ptr];
+    return (growMemViews(), HEAP8)[ptr >>> 0];
 
    case "i8":
-    return (growMemViews(), HEAP8)[ptr];
+    return (growMemViews(), HEAP8)[ptr >>> 0];
 
    case "i16":
-    return (growMemViews(), HEAP16)[((ptr) >> 1)];
+    return (growMemViews(), HEAP16)[((ptr) >>> 1) >>> 0];
 
    case "i32":
-    return (growMemViews(), HEAP32)[((ptr) >> 2)];
+    return (growMemViews(), HEAP32)[((ptr) >>> 2) >>> 0];
 
    case "i64":
-    return (growMemViews(), HEAP64)[((ptr) >> 3)];
+    return (growMemViews(), HEAP64)[((ptr) >>> 3) >>> 0];
 
    case "float":
-    return (growMemViews(), HEAPF32)[((ptr) >> 2)];
+    return (growMemViews(), HEAPF32)[((ptr) >>> 2) >>> 0];
 
    case "double":
-    return (growMemViews(), HEAPF64)[((ptr) >> 3)];
+    return (growMemViews(), HEAPF64)[((ptr) >>> 3) >>> 0];
 
    case "*":
-    return (growMemViews(), HEAPU32)[((ptr) >> 2)];
+    return (growMemViews(), HEAPU32)[((ptr) >>> 2) >>> 0];
 
    default:
     abort(`invalid type for getValue: ${type}`);
@@ -980,35 +981,35 @@ var ptrToString = ptr => {
   if (type.endsWith("*")) type = "*";
   switch (type) {
    case "i1":
-    (growMemViews(), HEAP8)[ptr] = value;
+    (growMemViews(), HEAP8)[ptr >>> 0] = value;
     break;
 
    case "i8":
-    (growMemViews(), HEAP8)[ptr] = value;
+    (growMemViews(), HEAP8)[ptr >>> 0] = value;
     break;
 
    case "i16":
-    (growMemViews(), HEAP16)[((ptr) >> 1)] = value;
+    (growMemViews(), HEAP16)[((ptr) >>> 1) >>> 0] = value;
     break;
 
    case "i32":
-    (growMemViews(), HEAP32)[((ptr) >> 2)] = value;
+    (growMemViews(), HEAP32)[((ptr) >>> 2) >>> 0] = value;
     break;
 
    case "i64":
-    (growMemViews(), HEAP64)[((ptr) >> 3)] = BigInt(value);
+    (growMemViews(), HEAP64)[((ptr) >>> 3) >>> 0] = BigInt(value);
     break;
 
    case "float":
-    (growMemViews(), HEAPF32)[((ptr) >> 2)] = value;
+    (growMemViews(), HEAPF32)[((ptr) >>> 2) >>> 0] = value;
     break;
 
    case "double":
-    (growMemViews(), HEAPF64)[((ptr) >> 3)] = value;
+    (growMemViews(), HEAPF64)[((ptr) >>> 3) >>> 0] = value;
     break;
 
    case "*":
-    (growMemViews(), HEAPU32)[((ptr) >> 2)] = value;
+    (growMemViews(), HEAPU32)[((ptr) >>> 2) >>> 0] = value;
     break;
 
    default:
@@ -1023,6 +1024,12 @@ var warnOnce = text => {
     err(text);
   }
 };
+
+var INT53_MAX = 9007199254740992;
+
+var INT53_MIN = -9007199254740992;
+
+var bigintToI53Checked = num => (num < INT53_MIN || num > INT53_MAX) ? NaN : Number(num);
 
 var UTF8Decoder = typeof TextDecoder != "undefined" ? new TextDecoder : undefined;
 
@@ -1047,6 +1054,7 @@ var findStringEnd = (heapOrArray, idx, maxBytesToRead, ignoreNul) => {
      * @param {boolean=} ignoreNul - If true, the function will not stop on a NUL character.
      * @return {string}
      */ var UTF8ArrayToString = (heapOrArray, idx = 0, maxBytesToRead, ignoreNul) => {
+  idx >>>= 0;
   var endPtr = findStringEnd(heapOrArray, idx, maxBytesToRead, ignoreNul);
   // When using conditional TextDecoder, skip it for short strings as the overhead of the native call is not worth it.
   if (endPtr - idx > 16 && heapOrArray.buffer && UTF8Decoder) {
@@ -1099,10 +1107,16 @@ var findStringEnd = (heapOrArray, idx, maxBytesToRead, ignoreNul) => {
      * @return {string}
      */ var UTF8ToString = (ptr, maxBytesToRead, ignoreNul) => {
   assert(typeof ptr == "number", `UTF8ToString expects a number (got ${typeof ptr})`);
+  ptr >>>= 0;
   return ptr ? UTF8ArrayToString((growMemViews(), HEAPU8), ptr, maxBytesToRead, ignoreNul) : "";
 };
 
-var ___assert_fail = (condition, filename, line, func) => abort(`Assertion failed: ${UTF8ToString(condition)}, at: ` + [ filename ? UTF8ToString(filename) : "unknown filename", line, func ? UTF8ToString(func) : "unknown function" ]);
+function ___assert_fail(condition, filename, line, func) {
+  condition >>>= 0;
+  filename >>>= 0;
+  func >>>= 0;
+  return abort(`Assertion failed: ${UTF8ToString(condition)}, at: ` + [ filename ? UTF8ToString(filename) : "unknown filename", line, func ? UTF8ToString(func) : "unknown function" ]);
+}
 
 var _wasmWorkers = {};
 
@@ -1110,7 +1124,8 @@ var _wasmWorkersID = 1;
 
 var _emscripten_has_threading_support = () => typeof SharedArrayBuffer != "undefined";
 
-var __emscripten_create_wasm_worker = (stackLowestAddress, stackSize) => {
+function __emscripten_create_wasm_worker(stackLowestAddress, stackSize) {
+  stackLowestAddress >>>= 0;
   if (!_emscripten_has_threading_support()) {
     err("create_wasm_worker: environment does not support SharedArrayBuffer, wasm workers are not available");
     return 0;
@@ -1134,7 +1149,7 @@ var __emscripten_create_wasm_worker = (stackLowestAddress, stackSize) => {
   });
   worker.onmessage = _wasmWorkerRunPostMessage;
   return _wasmWorkersID++;
-};
+}
 
 var readEmAsmArgsArray = [];
 
@@ -1147,7 +1162,7 @@ var readEmAsmArgs = (sigPtr, buf) => {
   var ch;
   // Most arguments are i32s, so shift the buffer pointer so it is a plain
   // index into HEAP32.
-  while (ch = (growMemViews(), HEAPU8)[sigPtr++]) {
+  while (ch = (growMemViews(), HEAPU8)[sigPtr++ >>> 0]) {
     var chr = String.fromCharCode(ch);
     var validChars = [ "d", "f", "i", "p" ];
     // In WASM_BIGINT mode we support passing i64 values as bigint.
@@ -1159,9 +1174,9 @@ var readEmAsmArgs = (sigPtr, buf) => {
     wide &= (ch != 112);
     buf += wide && (buf % 8) ? 4 : 0;
     readEmAsmArgsArray.push(// Special case for pointers under wasm64 or CAN_ADDRESS_2GB mode.
-    ch == 112 ? (growMemViews(), HEAPU32)[((buf) >> 2)] : ch == 106 ? (growMemViews(), 
-    HEAP64)[((buf) >> 3)] : ch == 105 ? (growMemViews(), HEAP32)[((buf) >> 2)] : (growMemViews(), 
-    HEAPF64)[((buf) >> 3)]);
+    ch == 112 ? (growMemViews(), HEAPU32)[((buf) >>> 2) >>> 0] : ch == 106 ? (growMemViews(), 
+    HEAP64)[((buf) >>> 3) >>> 0] : ch == 105 ? (growMemViews(), HEAP32)[((buf) >>> 2) >>> 0] : (growMemViews(), 
+    HEAPF64)[((buf) >>> 3) >>> 0]);
     buf += wide ? 8 : 4;
   }
   return readEmAsmArgsArray;
@@ -1173,7 +1188,12 @@ var runMainThreadEmAsm = (emAsmAddr, sigPtr, argbuf, sync) => {
   return ASM_CONSTS[emAsmAddr](...args);
 };
 
-var _emscripten_asm_const_async_on_main_thread = (emAsmAddr, sigPtr, argbuf) => runMainThreadEmAsm(emAsmAddr, sigPtr, argbuf, 0);
+function _emscripten_asm_const_async_on_main_thread(emAsmAddr, sigPtr, argbuf) {
+  emAsmAddr >>>= 0;
+  sigPtr >>>= 0;
+  argbuf >>>= 0;
+  return runMainThreadEmAsm(emAsmAddr, sigPtr, argbuf, 0);
+}
 
 var runEmAsmFunction = (code, sigPtr, argbuf) => {
   var args = readEmAsmArgs(sigPtr, argbuf);
@@ -1181,7 +1201,12 @@ var runEmAsmFunction = (code, sigPtr, argbuf) => {
   return ASM_CONSTS[code](...args);
 };
 
-var _emscripten_asm_const_int = (code, sigPtr, argbuf) => runEmAsmFunction(code, sigPtr, argbuf);
+function _emscripten_asm_const_int(code, sigPtr, argbuf) {
+  code >>>= 0;
+  sigPtr >>>= 0;
+  argbuf >>>= 0;
+  return runEmAsmFunction(code, sigPtr, argbuf);
+}
 
 var _emscripten_set_main_loop_timing = (mode, value) => {
   MainLoop.timingMode = mode;
@@ -1413,10 +1438,11 @@ var _emscripten_cancel_main_loop = () => {
   MainLoop.func = null;
 };
 
-var _emscripten_console_log = str => {
+function _emscripten_console_log(str) {
+  str >>>= 0;
   assert(typeof str == "number");
   console.log(UTF8ToString(str));
-};
+}
 
 var _emscripten_date_now = () => Date.now();
 
@@ -1432,12 +1458,15 @@ var maybeCStringToJsString = cString => cString > 2 ? UTF8ToString(cString) : cS
 
 var findCanvasEventTarget = findEventTarget;
 
-var _emscripten_get_canvas_element_size = (target, width, height) => {
+function _emscripten_get_canvas_element_size(target, width, height) {
+  target >>>= 0;
+  width >>>= 0;
+  height >>>= 0;
   var canvas = findCanvasEventTarget(target);
   if (!canvas) return -4;
-  (growMemViews(), HEAP32)[((width) >> 2)] = canvas.width;
-  (growMemViews(), HEAP32)[((height) >> 2)] = canvas.height;
-};
+  (growMemViews(), HEAP32)[((width) >>> 2) >>> 0] = canvas.width;
+  (growMemViews(), HEAP32)[((height) >>> 2) >>> 0] = canvas.height;
+}
 
 var onExits = [];
 
@@ -1445,7 +1474,7 @@ var addOnExit = cb => onExits.push(cb);
 
 var JSEvents = {
   memcpy(target, src, size) {
-    (growMemViews(), HEAP8).set((growMemViews(), HEAP8).subarray(src, src + size), target);
+    (growMemViews(), HEAP8).set((growMemViews(), HEAP8).subarray(src >>> 0, src + size >>> 0), target >>> 0);
   },
   removeAllEventListeners() {
     while (JSEvents.eventHandlers.length) {
@@ -1556,6 +1585,7 @@ var JSEvents = {
 };
 
 var stringToUTF8Array = (str, heap, outIdx, maxBytesToWrite) => {
+  outIdx >>>= 0;
   assert(typeof str === "string", `stringToUTF8Array expects a string (got ${typeof str})`);
   // Parameter maxBytesToWrite is not optional. Negative values, 0, null,
   // undefined and false each don't write out any bytes.
@@ -1570,30 +1600,30 @@ var stringToUTF8Array = (str, heap, outIdx, maxBytesToWrite) => {
     var u = str.codePointAt(i);
     if (u <= 127) {
       if (outIdx >= endIdx) break;
-      heap[outIdx++] = u;
+      heap[outIdx++ >>> 0] = u;
     } else if (u <= 2047) {
       if (outIdx + 1 >= endIdx) break;
-      heap[outIdx++] = 192 | (u >> 6);
-      heap[outIdx++] = 128 | (u & 63);
+      heap[outIdx++ >>> 0] = 192 | (u >> 6);
+      heap[outIdx++ >>> 0] = 128 | (u & 63);
     } else if (u <= 65535) {
       if (outIdx + 2 >= endIdx) break;
-      heap[outIdx++] = 224 | (u >> 12);
-      heap[outIdx++] = 128 | ((u >> 6) & 63);
-      heap[outIdx++] = 128 | (u & 63);
+      heap[outIdx++ >>> 0] = 224 | (u >> 12);
+      heap[outIdx++ >>> 0] = 128 | ((u >> 6) & 63);
+      heap[outIdx++ >>> 0] = 128 | (u & 63);
     } else {
       if (outIdx + 3 >= endIdx) break;
       if (u > 1114111) warnOnce("Invalid Unicode code point " + ptrToString(u) + " encountered when serializing a JS string to a UTF-8 string in wasm memory! (Valid unicode code points should be in range 0-0x10FFFF).");
-      heap[outIdx++] = 240 | (u >> 18);
-      heap[outIdx++] = 128 | ((u >> 12) & 63);
-      heap[outIdx++] = 128 | ((u >> 6) & 63);
-      heap[outIdx++] = 128 | (u & 63);
+      heap[outIdx++ >>> 0] = 240 | (u >> 18);
+      heap[outIdx++ >>> 0] = 128 | ((u >> 12) & 63);
+      heap[outIdx++ >>> 0] = 128 | ((u >> 6) & 63);
+      heap[outIdx++ >>> 0] = 128 | (u & 63);
       // Gotcha: if codePoint is over 0xFFFF, it is represented as a surrogate pair in UTF-16.
       // We need to manually skip over the second code unit for correct iteration.
       i++;
     }
   }
   // Null-terminate the pointer to the buffer.
-  heap[outIdx] = 0;
+  heap[outIdx >>> 0] = 0;
   return outIdx - startIdx;
 };
 
@@ -1603,35 +1633,36 @@ var stringToUTF8 = (str, outPtr, maxBytesToWrite) => {
 };
 
 var fillGamepadEventData = (eventStruct, e) => {
-  (growMemViews(), HEAPF64)[((eventStruct) >> 3)] = e.timestamp;
+  (growMemViews(), HEAPF64)[((eventStruct) >>> 3) >>> 0] = e.timestamp;
   for (var i = 0; i < e.axes.length; ++i) {
-    (growMemViews(), HEAPF64)[(((eventStruct + i * 8) + (16)) >> 3)] = e.axes[i];
+    (growMemViews(), HEAPF64)[(((eventStruct + i * 8) + (16)) >>> 3) >>> 0] = e.axes[i];
   }
   for (var i = 0; i < e.buttons.length; ++i) {
     if (typeof e.buttons[i] == "object") {
-      (growMemViews(), HEAPF64)[(((eventStruct + i * 8) + (528)) >> 3)] = e.buttons[i].value;
+      (growMemViews(), HEAPF64)[(((eventStruct + i * 8) + (528)) >>> 3) >>> 0] = e.buttons[i].value;
     } else {
-      (growMemViews(), HEAPF64)[(((eventStruct + i * 8) + (528)) >> 3)] = e.buttons[i];
+      (growMemViews(), HEAPF64)[(((eventStruct + i * 8) + (528)) >>> 3) >>> 0] = e.buttons[i];
     }
   }
   for (var i = 0; i < e.buttons.length; ++i) {
     if (typeof e.buttons[i] == "object") {
-      (growMemViews(), HEAP8)[(eventStruct + i) + (1040)] = e.buttons[i].pressed;
+      (growMemViews(), HEAP8)[(eventStruct + i) + (1040) >>> 0] = e.buttons[i].pressed;
     } else {
       // Assigning a boolean to HEAP32, that's ok, but Closure would like to warn about it:
-      /** @suppress {checkTypes} */ (growMemViews(), HEAP8)[(eventStruct + i) + (1040)] = e.buttons[i] == 1;
+      /** @suppress {checkTypes} */ (growMemViews(), HEAP8)[(eventStruct + i) + (1040) >>> 0] = e.buttons[i] == 1;
     }
   }
-  (growMemViews(), HEAP8)[(eventStruct) + (1104)] = e.connected;
-  (growMemViews(), HEAP32)[(((eventStruct) + (1108)) >> 2)] = e.index;
-  (growMemViews(), HEAP32)[(((eventStruct) + (8)) >> 2)] = e.axes.length;
-  (growMemViews(), HEAP32)[(((eventStruct) + (12)) >> 2)] = e.buttons.length;
+  (growMemViews(), HEAP8)[(eventStruct) + (1104) >>> 0] = e.connected;
+  (growMemViews(), HEAP32)[(((eventStruct) + (1108)) >>> 2) >>> 0] = e.index;
+  (growMemViews(), HEAP32)[(((eventStruct) + (8)) >>> 2) >>> 0] = e.axes.length;
+  (growMemViews(), HEAP32)[(((eventStruct) + (12)) >>> 2) >>> 0] = e.buttons.length;
   stringToUTF8(e.id, eventStruct + 1112, 64);
   stringToUTF8(e.mapping, eventStruct + 1176, 64);
 };
 
 function _emscripten_get_gamepad_status(index, gamepadState) {
   assert(!ENVIRONMENT_IS_WASM_WORKER, "Attempted to call proxied function '_emscripten_get_gamepad_status' in a Wasm Worker, but in Wasm Worker enabled builds, proxied function architecture is not available!");
+  gamepadState >>>= 0;
   assert(JSEvents.lastGamepadState, "emscripten_get_gamepad_status() can only be called after having first called emscripten_sample_gamepad_data() and that function has returned EMSCRIPTEN_RESULT_SUCCESS!");
   // INVALID_PARAM is returned on a Gamepad index that never was there.
   if (index < 0 || index >= JSEvents.lastGamepadState.length) return -5;
@@ -1648,9 +1679,11 @@ var getHeapMax = () => // Stay one Wasm page short of 4GB: while e.g. Chrome is 
 // full 4GB Wasm memories, the size will wrap back to 0 bytes in Wasm side
 // for any code that deals with heap sizes, which would require special
 // casing all heap size related code to treat 0 specially.
-2147483648;
+4294901760;
 
-var _emscripten_get_heap_max = () => getHeapMax();
+function _emscripten_get_heap_max() {
+  return getHeapMax();
+}
 
 function _emscripten_get_num_gamepads() {
   assert(!ENVIRONMENT_IS_WASM_WORKER, "Attempted to call proxied function '_emscripten_get_num_gamepads' in a Wasm Worker, but in Wasm Worker enabled builds, proxied function architecture is not available!");
@@ -2068,10 +2101,10 @@ var Browser = {
   setFullscreenCanvasSize() {
     // check if SDL is available
     if (typeof SDL != "undefined") {
-      var flags = (growMemViews(), HEAPU32)[((SDL.screen) >> 2)];
+      var flags = (growMemViews(), HEAPU32)[((SDL.screen) >>> 2) >>> 0];
       flags = flags | 8388608;
       // set SDL_FULLSCREEN flag
-      (growMemViews(), HEAP32)[((SDL.screen) >> 2)] = flags;
+      (growMemViews(), HEAP32)[((SDL.screen) >>> 2) >>> 0] = flags;
     }
     Browser.updateCanvasDimensions(Browser.getCanvas());
     Browser.updateResizeListeners();
@@ -2079,10 +2112,10 @@ var Browser = {
   setWindowedCanvasSize() {
     // check if SDL is available
     if (typeof SDL != "undefined") {
-      var flags = (growMemViews(), HEAPU32)[((SDL.screen) >> 2)];
+      var flags = (growMemViews(), HEAPU32)[((SDL.screen) >>> 2) >>> 0];
       flags = flags & ~8388608;
       // clear SDL_FULLSCREEN flag
-      (growMemViews(), HEAP32)[((SDL.screen) >> 2)] = flags;
+      (growMemViews(), HEAP32)[((SDL.screen) >>> 2) >>> 0] = flags;
     }
     Browser.updateCanvasDimensions(Browser.getCanvas());
     Browser.updateResizeListeners();
@@ -2134,8 +2167,10 @@ var Browser = {
 
 function _emscripten_get_screen_size(width, height) {
   assert(!ENVIRONMENT_IS_WASM_WORKER, "Attempted to call proxied function '_emscripten_get_screen_size' in a Wasm Worker, but in Wasm Worker enabled builds, proxied function architecture is not available!");
-  (growMemViews(), HEAP32)[((width) >> 2)] = screen.width;
-  (growMemViews(), HEAP32)[((height) >> 2)] = screen.height;
+  width >>>= 0;
+  height >>>= 0;
+  (growMemViews(), HEAP32)[((width) >>> 2) >>> 0] = screen.width;
+  (growMemViews(), HEAP32)[((height) >>> 2) >>> 0] = screen.height;
 }
 
 var _emscripten_html5_remove_all_event_listeners = () => JSEvents.removeAllEventListeners();
@@ -2161,10 +2196,9 @@ var growMemory = size => {
   }
 };
 
-var _emscripten_resize_heap = requestedSize => {
-  var oldSize = (growMemViews(), HEAPU8).length;
-  // With CAN_ADDRESS_2GB or MEMORY64, pointers are already unsigned.
+function _emscripten_resize_heap(requestedSize) {
   requestedSize >>>= 0;
+  var oldSize = (growMemViews(), HEAPU8).length;
   // With multithreaded builds, races can happen (another thread might increase the size
   // in between), so return a failure, and let the caller retry.
   if (requestedSize <= oldSize) {
@@ -2209,11 +2243,12 @@ var _emscripten_resize_heap = requestedSize => {
   }
   err(`Failed to grow the heap from ${oldSize} bytes to ${newSize} bytes, not enough memory!`);
   return false;
-};
+}
 
-var _emscripten_run_script = ptr => {
+function _emscripten_run_script(ptr) {
+  ptr >>>= 0;
   eval(UTF8ToString(ptr));
-};
+}
 
 /** @suppress {checkTypes} */ function _emscripten_sample_gamepad_data() {
   assert(!ENVIRONMENT_IS_WASM_WORKER, "Attempted to call proxied function '_emscripten_sample_gamepad_data' in a Wasm Worker, but in Wasm Worker enabled builds, proxied function architecture is not available!");
@@ -2227,10 +2262,10 @@ var _emscripten_run_script = ptr => {
 }
 
 var fillBatteryEventData = (eventStruct, battery) => {
-  (growMemViews(), HEAPF64)[((eventStruct) >> 3)] = battery.chargingTime;
-  (growMemViews(), HEAPF64)[(((eventStruct) + (8)) >> 3)] = battery.dischargingTime;
-  (growMemViews(), HEAPF64)[(((eventStruct) + (16)) >> 3)] = battery.level;
-  (growMemViews(), HEAP8)[(eventStruct) + (24)] = battery.charging;
+  (growMemViews(), HEAPF64)[((eventStruct) >>> 3) >>> 0] = battery.chargingTime;
+  (growMemViews(), HEAPF64)[(((eventStruct) + (8)) >>> 3) >>> 0] = battery.dischargingTime;
+  (growMemViews(), HEAPF64)[(((eventStruct) + (16)) >>> 3) >>> 0] = battery.level;
+  (growMemViews(), HEAP8)[(eventStruct) + (24) >>> 0] = battery.charging;
 };
 
 var registerBatteryEventCallback = (battery, userData, useCapture, callbackfunc, eventTypeId, eventTypeString, targetThread) => {
@@ -2254,6 +2289,9 @@ var hasBatteryAPI = () => typeof navigator != "undefined" && navigator.getBatter
 
 var _emscripten_set_batterychargingchange_callback_on_thread = function(userData, callbackfunc, targetThread) {
   assert(!ENVIRONMENT_IS_WASM_WORKER, "Attempted to call proxied function '_emscripten_set_batterychargingchange_callback_on_thread' in a Wasm Worker, but in Wasm Worker enabled builds, proxied function architecture is not available!");
+  userData >>>= 0;
+  callbackfunc >>>= 0;
+  targetThread >>>= 0;
   if (!hasBatteryAPI()) return -1;
   navigator.getBattery().then(b => {
     registerBatteryEventCallback(b, userData, true, callbackfunc, 29, "chargingchange", targetThread);
@@ -2262,6 +2300,9 @@ var _emscripten_set_batterychargingchange_callback_on_thread = function(userData
 
 var _emscripten_set_batterylevelchange_callback_on_thread = function(userData, callbackfunc, targetThread) {
   assert(!ENVIRONMENT_IS_WASM_WORKER, "Attempted to call proxied function '_emscripten_set_batterylevelchange_callback_on_thread' in a Wasm Worker, but in Wasm Worker enabled builds, proxied function architecture is not available!");
+  userData >>>= 0;
+  callbackfunc >>>= 0;
+  targetThread >>>= 0;
   if (!hasBatteryAPI()) return -1;
   navigator.getBattery().then(b => {
     registerBatteryEventCallback(b, userData, true, callbackfunc, 30, "levelchange", targetThread);
@@ -2290,7 +2331,11 @@ var registerFocusEventCallback = (target, userData, useCapture, callbackfunc, ev
 
 function _emscripten_set_blur_callback_on_thread(target, userData, useCapture, callbackfunc, targetThread) {
   assert(!ENVIRONMENT_IS_WASM_WORKER, "Attempted to call proxied function '_emscripten_set_blur_callback_on_thread' in a Wasm Worker, but in Wasm Worker enabled builds, proxied function architecture is not available!");
-  registerFocusEventCallback(target, userData, useCapture, callbackfunc, 12, "blur", targetThread);
+  target >>>= 0;
+  userData >>>= 0;
+  callbackfunc >>>= 0;
+  targetThread >>>= 0;
+  return registerFocusEventCallback(target, userData, useCapture, callbackfunc, 12, "blur", targetThread);
 }
 
 var getBoundingClientRect = e => specialHTMLTargets.indexOf(e) < 0 ? e.getBoundingClientRect() : {
@@ -2300,24 +2345,24 @@ var getBoundingClientRect = e => specialHTMLTargets.indexOf(e) < 0 ? e.getBoundi
 
 var fillMouseEventData = (eventStruct, e, target) => {
   assert(eventStruct % 4 == 0);
-  (growMemViews(), HEAPF64)[((eventStruct) >> 3)] = e.timeStamp;
-  var idx = ((eventStruct) >> 2);
-  (growMemViews(), HEAP32)[idx + 2] = e.screenX;
-  (growMemViews(), HEAP32)[idx + 3] = e.screenY;
-  (growMemViews(), HEAP32)[idx + 4] = e.clientX;
-  (growMemViews(), HEAP32)[idx + 5] = e.clientY;
-  (growMemViews(), HEAP8)[eventStruct + 24] = e.ctrlKey;
-  (growMemViews(), HEAP8)[eventStruct + 25] = e.shiftKey;
-  (growMemViews(), HEAP8)[eventStruct + 26] = e.altKey;
-  (growMemViews(), HEAP8)[eventStruct + 27] = e.metaKey;
-  (growMemViews(), HEAP16)[idx * 2 + 14] = e.button;
-  (growMemViews(), HEAP16)[idx * 2 + 15] = e.buttons;
-  (growMemViews(), HEAP32)[idx + 8] = e["movementX"];
-  (growMemViews(), HEAP32)[idx + 9] = e["movementY"];
+  (growMemViews(), HEAPF64)[((eventStruct) >>> 3) >>> 0] = e.timeStamp;
+  var idx = ((eventStruct) >>> 2);
+  (growMemViews(), HEAP32)[idx + 2 >>> 0] = e.screenX;
+  (growMemViews(), HEAP32)[idx + 3 >>> 0] = e.screenY;
+  (growMemViews(), HEAP32)[idx + 4 >>> 0] = e.clientX;
+  (growMemViews(), HEAP32)[idx + 5 >>> 0] = e.clientY;
+  (growMemViews(), HEAP8)[eventStruct + 24 >>> 0] = e.ctrlKey;
+  (growMemViews(), HEAP8)[eventStruct + 25 >>> 0] = e.shiftKey;
+  (growMemViews(), HEAP8)[eventStruct + 26 >>> 0] = e.altKey;
+  (growMemViews(), HEAP8)[eventStruct + 27 >>> 0] = e.metaKey;
+  (growMemViews(), HEAP16)[idx * 2 + 14 >>> 0] = e.button;
+  (growMemViews(), HEAP16)[idx * 2 + 15 >>> 0] = e.buttons;
+  (growMemViews(), HEAP32)[idx + 8 >>> 0] = e["movementX"];
+  (growMemViews(), HEAP32)[idx + 9 >>> 0] = e["movementY"];
   // Note: rect contains doubles (truncated to placate SAFE_HEAP, which is the same behaviour when writing to HEAP32 anyway)
   var rect = getBoundingClientRect(target);
-  (growMemViews(), HEAP32)[idx + 10] = e.clientX - (rect.left | 0);
-  (growMemViews(), HEAP32)[idx + 11] = e.clientY - (rect.top | 0);
+  (growMemViews(), HEAP32)[idx + 10 >>> 0] = e.clientX - (rect.left | 0);
+  (growMemViews(), HEAP32)[idx + 11 >>> 0] = e.clientY - (rect.top | 0);
 };
 
 var registerMouseEventCallback = (target, userData, useCapture, callbackfunc, eventTypeId, eventTypeString, targetThread) => {
@@ -2342,12 +2387,20 @@ var registerMouseEventCallback = (target, userData, useCapture, callbackfunc, ev
 
 function _emscripten_set_click_callback_on_thread(target, userData, useCapture, callbackfunc, targetThread) {
   assert(!ENVIRONMENT_IS_WASM_WORKER, "Attempted to call proxied function '_emscripten_set_click_callback_on_thread' in a Wasm Worker, but in Wasm Worker enabled builds, proxied function architecture is not available!");
-  registerMouseEventCallback(target, userData, useCapture, callbackfunc, 4, "click", targetThread);
+  target >>>= 0;
+  userData >>>= 0;
+  callbackfunc >>>= 0;
+  targetThread >>>= 0;
+  return registerMouseEventCallback(target, userData, useCapture, callbackfunc, 4, "click", targetThread);
 }
 
 function _emscripten_set_dblclick_callback_on_thread(target, userData, useCapture, callbackfunc, targetThread) {
   assert(!ENVIRONMENT_IS_WASM_WORKER, "Attempted to call proxied function '_emscripten_set_dblclick_callback_on_thread' in a Wasm Worker, but in Wasm Worker enabled builds, proxied function architecture is not available!");
-  registerMouseEventCallback(target, userData, useCapture, callbackfunc, 7, "dblclick", targetThread);
+  target >>>= 0;
+  userData >>>= 0;
+  callbackfunc >>>= 0;
+  targetThread >>>= 0;
+  return registerMouseEventCallback(target, userData, useCapture, callbackfunc, 7, "dblclick", targetThread);
 }
 
 var fillDeviceMotionEventData = (eventStruct, e, target) => {
@@ -2361,15 +2414,15 @@ var fillDeviceMotionEventData = (eventStruct, e, target) => {
   a = a || {};
   ag = ag || {};
   rr = rr || {};
-  (growMemViews(), HEAPF64)[((eventStruct) >> 3)] = a["x"];
-  (growMemViews(), HEAPF64)[(((eventStruct) + (8)) >> 3)] = a["y"];
-  (growMemViews(), HEAPF64)[(((eventStruct) + (16)) >> 3)] = a["z"];
-  (growMemViews(), HEAPF64)[(((eventStruct) + (24)) >> 3)] = ag["x"];
-  (growMemViews(), HEAPF64)[(((eventStruct) + (32)) >> 3)] = ag["y"];
-  (growMemViews(), HEAPF64)[(((eventStruct) + (40)) >> 3)] = ag["z"];
-  (growMemViews(), HEAPF64)[(((eventStruct) + (48)) >> 3)] = rr["alpha"];
-  (growMemViews(), HEAPF64)[(((eventStruct) + (56)) >> 3)] = rr["beta"];
-  (growMemViews(), HEAPF64)[(((eventStruct) + (64)) >> 3)] = rr["gamma"];
+  (growMemViews(), HEAPF64)[((eventStruct) >>> 3) >>> 0] = a["x"];
+  (growMemViews(), HEAPF64)[(((eventStruct) + (8)) >>> 3) >>> 0] = a["y"];
+  (growMemViews(), HEAPF64)[(((eventStruct) + (16)) >>> 3) >>> 0] = a["z"];
+  (growMemViews(), HEAPF64)[(((eventStruct) + (24)) >>> 3) >>> 0] = ag["x"];
+  (growMemViews(), HEAPF64)[(((eventStruct) + (32)) >>> 3) >>> 0] = ag["y"];
+  (growMemViews(), HEAPF64)[(((eventStruct) + (40)) >>> 3) >>> 0] = ag["z"];
+  (growMemViews(), HEAPF64)[(((eventStruct) + (48)) >>> 3) >>> 0] = rr["alpha"];
+  (growMemViews(), HEAPF64)[(((eventStruct) + (56)) >>> 3) >>> 0] = rr["beta"];
+  (growMemViews(), HEAPF64)[(((eventStruct) + (64)) >>> 3) >>> 0] = rr["gamma"];
 };
 
 var registerDeviceMotionEventCallback = (target, userData, useCapture, callbackfunc, eventTypeId, eventTypeString, targetThread) => {
@@ -2391,14 +2444,17 @@ var registerDeviceMotionEventCallback = (target, userData, useCapture, callbackf
 
 function _emscripten_set_devicemotion_callback_on_thread(userData, useCapture, callbackfunc, targetThread) {
   assert(!ENVIRONMENT_IS_WASM_WORKER, "Attempted to call proxied function '_emscripten_set_devicemotion_callback_on_thread' in a Wasm Worker, but in Wasm Worker enabled builds, proxied function architecture is not available!");
-  registerDeviceMotionEventCallback(2, userData, useCapture, callbackfunc, 17, "devicemotion", targetThread);
+  userData >>>= 0;
+  callbackfunc >>>= 0;
+  targetThread >>>= 0;
+  return registerDeviceMotionEventCallback(2, userData, useCapture, callbackfunc, 17, "devicemotion", targetThread);
 }
 
 var fillDeviceOrientationEventData = (eventStruct, e, target) => {
-  (growMemViews(), HEAPF64)[((eventStruct) >> 3)] = e.alpha;
-  (growMemViews(), HEAPF64)[(((eventStruct) + (8)) >> 3)] = e.beta;
-  (growMemViews(), HEAPF64)[(((eventStruct) + (16)) >> 3)] = e.gamma;
-  (growMemViews(), HEAP8)[(eventStruct) + (24)] = e.absolute;
+  (growMemViews(), HEAPF64)[((eventStruct) >>> 3) >>> 0] = e.alpha;
+  (growMemViews(), HEAPF64)[(((eventStruct) + (8)) >>> 3) >>> 0] = e.beta;
+  (growMemViews(), HEAPF64)[(((eventStruct) + (16)) >>> 3) >>> 0] = e.gamma;
+  (growMemViews(), HEAP8)[(eventStruct) + (24) >>> 0] = e.absolute;
 };
 
 var registerDeviceOrientationEventCallback = (target, userData, useCapture, callbackfunc, eventTypeId, eventTypeString, targetThread) => {
@@ -2420,30 +2476,45 @@ var registerDeviceOrientationEventCallback = (target, userData, useCapture, call
 
 function _emscripten_set_deviceorientation_callback_on_thread(userData, useCapture, callbackfunc, targetThread) {
   assert(!ENVIRONMENT_IS_WASM_WORKER, "Attempted to call proxied function '_emscripten_set_deviceorientation_callback_on_thread' in a Wasm Worker, but in Wasm Worker enabled builds, proxied function architecture is not available!");
+  userData >>>= 0;
+  callbackfunc >>>= 0;
+  targetThread >>>= 0;
   return registerDeviceOrientationEventCallback(2, userData, useCapture, callbackfunc, 16, "deviceorientation", targetThread);
 }
 
 function _emscripten_set_focus_callback_on_thread(target, userData, useCapture, callbackfunc, targetThread) {
   assert(!ENVIRONMENT_IS_WASM_WORKER, "Attempted to call proxied function '_emscripten_set_focus_callback_on_thread' in a Wasm Worker, but in Wasm Worker enabled builds, proxied function architecture is not available!");
-  registerFocusEventCallback(target, userData, useCapture, callbackfunc, 13, "focus", targetThread);
+  target >>>= 0;
+  userData >>>= 0;
+  callbackfunc >>>= 0;
+  targetThread >>>= 0;
+  return registerFocusEventCallback(target, userData, useCapture, callbackfunc, 13, "focus", targetThread);
 }
 
 function _emscripten_set_focusin_callback_on_thread(target, userData, useCapture, callbackfunc, targetThread) {
   assert(!ENVIRONMENT_IS_WASM_WORKER, "Attempted to call proxied function '_emscripten_set_focusin_callback_on_thread' in a Wasm Worker, but in Wasm Worker enabled builds, proxied function architecture is not available!");
-  registerFocusEventCallback(target, userData, useCapture, callbackfunc, 14, "focusin", targetThread);
+  target >>>= 0;
+  userData >>>= 0;
+  callbackfunc >>>= 0;
+  targetThread >>>= 0;
+  return registerFocusEventCallback(target, userData, useCapture, callbackfunc, 14, "focusin", targetThread);
 }
 
 function _emscripten_set_focusout_callback_on_thread(target, userData, useCapture, callbackfunc, targetThread) {
   assert(!ENVIRONMENT_IS_WASM_WORKER, "Attempted to call proxied function '_emscripten_set_focusout_callback_on_thread' in a Wasm Worker, but in Wasm Worker enabled builds, proxied function architecture is not available!");
-  registerFocusEventCallback(target, userData, useCapture, callbackfunc, 15, "focusout", targetThread);
+  target >>>= 0;
+  userData >>>= 0;
+  callbackfunc >>>= 0;
+  targetThread >>>= 0;
+  return registerFocusEventCallback(target, userData, useCapture, callbackfunc, 15, "focusout", targetThread);
 }
 
 var fillFullscreenChangeEventData = eventStruct => {
   var fullscreenElement = getFullscreenElement();
   var isFullscreen = !!fullscreenElement;
   // Assigning a boolean to HEAP32 with expected type coercion.
-  /** @suppress{checkTypes} */ (growMemViews(), HEAP8)[eventStruct] = isFullscreen;
-  (growMemViews(), HEAP8)[(eventStruct) + (1)] = JSEvents.fullscreenEnabled();
+  /** @suppress{checkTypes} */ (growMemViews(), HEAP8)[eventStruct >>> 0] = isFullscreen;
+  (growMemViews(), HEAP8)[(eventStruct) + (1) >>> 0] = JSEvents.fullscreenEnabled();
   // If transitioning to fullscreen, report info about the element that is now fullscreen.
   // If transitioning to windowed mode, report info about the element that just was fullscreen.
   var reportedElement = isFullscreen ? fullscreenElement : JSEvents.previousFullscreenElement;
@@ -2451,10 +2522,10 @@ var fillFullscreenChangeEventData = eventStruct => {
   var id = reportedElement?.id || "";
   stringToUTF8(nodeName, eventStruct + 2, 128);
   stringToUTF8(id, eventStruct + 130, 128);
-  (growMemViews(), HEAP32)[(((eventStruct) + (260)) >> 2)] = reportedElement ? reportedElement.clientWidth : 0;
-  (growMemViews(), HEAP32)[(((eventStruct) + (264)) >> 2)] = reportedElement ? reportedElement.clientHeight : 0;
-  (growMemViews(), HEAP32)[(((eventStruct) + (268)) >> 2)] = screen.width;
-  (growMemViews(), HEAP32)[(((eventStruct) + (272)) >> 2)] = screen.height;
+  (growMemViews(), HEAP32)[(((eventStruct) + (260)) >>> 2) >>> 0] = reportedElement ? reportedElement.clientWidth : 0;
+  (growMemViews(), HEAP32)[(((eventStruct) + (264)) >>> 2) >>> 0] = reportedElement ? reportedElement.clientHeight : 0;
+  (growMemViews(), HEAP32)[(((eventStruct) + (268)) >>> 2) >>> 0] = screen.width;
+  (growMemViews(), HEAP32)[(((eventStruct) + (272)) >>> 2) >>> 0] = screen.height;
   if (isFullscreen) {
     JSEvents.previousFullscreenElement = fullscreenElement;
   }
@@ -2479,6 +2550,10 @@ var registerFullscreenChangeEventCallback = (target, userData, useCapture, callb
 
 function _emscripten_set_fullscreenchange_callback_on_thread(target, userData, useCapture, callbackfunc, targetThread) {
   assert(!ENVIRONMENT_IS_WASM_WORKER, "Attempted to call proxied function '_emscripten_set_fullscreenchange_callback_on_thread' in a Wasm Worker, but in Wasm Worker enabled builds, proxied function architecture is not available!");
+  target >>>= 0;
+  userData >>>= 0;
+  callbackfunc >>>= 0;
+  targetThread >>>= 0;
   if (!JSEvents.fullscreenEnabled()) return -1;
   target = findEventTarget(target);
   if (!target) return -4;
@@ -2508,12 +2583,18 @@ var registerGamepadEventCallback = (target, userData, useCapture, callbackfunc, 
 
 function _emscripten_set_gamepadconnected_callback_on_thread(userData, useCapture, callbackfunc, targetThread) {
   assert(!ENVIRONMENT_IS_WASM_WORKER, "Attempted to call proxied function '_emscripten_set_gamepadconnected_callback_on_thread' in a Wasm Worker, but in Wasm Worker enabled builds, proxied function architecture is not available!");
+  userData >>>= 0;
+  callbackfunc >>>= 0;
+  targetThread >>>= 0;
   if (_emscripten_sample_gamepad_data()) return -1;
   return registerGamepadEventCallback(2, userData, useCapture, callbackfunc, 26, "gamepadconnected", targetThread);
 }
 
 function _emscripten_set_gamepaddisconnected_callback_on_thread(userData, useCapture, callbackfunc, targetThread) {
   assert(!ENVIRONMENT_IS_WASM_WORKER, "Attempted to call proxied function '_emscripten_set_gamepaddisconnected_callback_on_thread' in a Wasm Worker, but in Wasm Worker enabled builds, proxied function architecture is not available!");
+  userData >>>= 0;
+  callbackfunc >>>= 0;
+  targetThread >>>= 0;
   if (_emscripten_sample_gamepad_data()) return -1;
   return registerGamepadEventCallback(2, userData, useCapture, callbackfunc, 27, "gamepaddisconnected", targetThread);
 }
@@ -2523,17 +2604,17 @@ var registerKeyEventCallback = (target, userData, useCapture, callbackfunc, even
   var keyEventHandlerFunc = e => {
     assert(e);
     var keyEventData = JSEvents.keyEvent;
-    (growMemViews(), HEAPF64)[((keyEventData) >> 3)] = e.timeStamp;
-    var idx = ((keyEventData) >> 2);
-    (growMemViews(), HEAP32)[idx + 2] = e.location;
-    (growMemViews(), HEAP8)[keyEventData + 12] = e.ctrlKey;
-    (growMemViews(), HEAP8)[keyEventData + 13] = e.shiftKey;
-    (growMemViews(), HEAP8)[keyEventData + 14] = e.altKey;
-    (growMemViews(), HEAP8)[keyEventData + 15] = e.metaKey;
-    (growMemViews(), HEAP8)[keyEventData + 16] = e.repeat;
-    (growMemViews(), HEAP32)[idx + 5] = e.charCode;
-    (growMemViews(), HEAP32)[idx + 6] = e.keyCode;
-    (growMemViews(), HEAP32)[idx + 7] = e.which;
+    (growMemViews(), HEAPF64)[((keyEventData) >>> 3) >>> 0] = e.timeStamp;
+    var idx = ((keyEventData) >>> 2);
+    (growMemViews(), HEAP32)[idx + 2 >>> 0] = e.location;
+    (growMemViews(), HEAP8)[keyEventData + 12 >>> 0] = e.ctrlKey;
+    (growMemViews(), HEAP8)[keyEventData + 13 >>> 0] = e.shiftKey;
+    (growMemViews(), HEAP8)[keyEventData + 14 >>> 0] = e.altKey;
+    (growMemViews(), HEAP8)[keyEventData + 15 >>> 0] = e.metaKey;
+    (growMemViews(), HEAP8)[keyEventData + 16 >>> 0] = e.repeat;
+    (growMemViews(), HEAP32)[idx + 5 >>> 0] = e.charCode;
+    (growMemViews(), HEAP32)[idx + 6 >>> 0] = e.keyCode;
+    (growMemViews(), HEAP32)[idx + 7 >>> 0] = e.which;
     stringToUTF8(e.key || "", keyEventData + 32, 32);
     stringToUTF8(e.code || "", keyEventData + 64, 32);
     stringToUTF8(e.char || "", keyEventData + 96, 32);
@@ -2552,47 +2633,83 @@ var registerKeyEventCallback = (target, userData, useCapture, callbackfunc, even
 
 function _emscripten_set_keydown_callback_on_thread(target, userData, useCapture, callbackfunc, targetThread) {
   assert(!ENVIRONMENT_IS_WASM_WORKER, "Attempted to call proxied function '_emscripten_set_keydown_callback_on_thread' in a Wasm Worker, but in Wasm Worker enabled builds, proxied function architecture is not available!");
-  registerKeyEventCallback(target, userData, useCapture, callbackfunc, 2, "keydown", targetThread);
+  target >>>= 0;
+  userData >>>= 0;
+  callbackfunc >>>= 0;
+  targetThread >>>= 0;
+  return registerKeyEventCallback(target, userData, useCapture, callbackfunc, 2, "keydown", targetThread);
 }
 
 function _emscripten_set_keyup_callback_on_thread(target, userData, useCapture, callbackfunc, targetThread) {
   assert(!ENVIRONMENT_IS_WASM_WORKER, "Attempted to call proxied function '_emscripten_set_keyup_callback_on_thread' in a Wasm Worker, but in Wasm Worker enabled builds, proxied function architecture is not available!");
-  registerKeyEventCallback(target, userData, useCapture, callbackfunc, 3, "keyup", targetThread);
+  target >>>= 0;
+  userData >>>= 0;
+  callbackfunc >>>= 0;
+  targetThread >>>= 0;
+  return registerKeyEventCallback(target, userData, useCapture, callbackfunc, 3, "keyup", targetThread);
 }
 
 function _emscripten_set_mousedown_callback_on_thread(target, userData, useCapture, callbackfunc, targetThread) {
   assert(!ENVIRONMENT_IS_WASM_WORKER, "Attempted to call proxied function '_emscripten_set_mousedown_callback_on_thread' in a Wasm Worker, but in Wasm Worker enabled builds, proxied function architecture is not available!");
-  registerMouseEventCallback(target, userData, useCapture, callbackfunc, 5, "mousedown", targetThread);
+  target >>>= 0;
+  userData >>>= 0;
+  callbackfunc >>>= 0;
+  targetThread >>>= 0;
+  return registerMouseEventCallback(target, userData, useCapture, callbackfunc, 5, "mousedown", targetThread);
 }
 
 function _emscripten_set_mouseenter_callback_on_thread(target, userData, useCapture, callbackfunc, targetThread) {
   assert(!ENVIRONMENT_IS_WASM_WORKER, "Attempted to call proxied function '_emscripten_set_mouseenter_callback_on_thread' in a Wasm Worker, but in Wasm Worker enabled builds, proxied function architecture is not available!");
-  registerMouseEventCallback(target, userData, useCapture, callbackfunc, 33, "mouseenter", targetThread);
+  target >>>= 0;
+  userData >>>= 0;
+  callbackfunc >>>= 0;
+  targetThread >>>= 0;
+  return registerMouseEventCallback(target, userData, useCapture, callbackfunc, 33, "mouseenter", targetThread);
 }
 
 function _emscripten_set_mouseleave_callback_on_thread(target, userData, useCapture, callbackfunc, targetThread) {
   assert(!ENVIRONMENT_IS_WASM_WORKER, "Attempted to call proxied function '_emscripten_set_mouseleave_callback_on_thread' in a Wasm Worker, but in Wasm Worker enabled builds, proxied function architecture is not available!");
-  registerMouseEventCallback(target, userData, useCapture, callbackfunc, 34, "mouseleave", targetThread);
+  target >>>= 0;
+  userData >>>= 0;
+  callbackfunc >>>= 0;
+  targetThread >>>= 0;
+  return registerMouseEventCallback(target, userData, useCapture, callbackfunc, 34, "mouseleave", targetThread);
 }
 
 function _emscripten_set_mousemove_callback_on_thread(target, userData, useCapture, callbackfunc, targetThread) {
   assert(!ENVIRONMENT_IS_WASM_WORKER, "Attempted to call proxied function '_emscripten_set_mousemove_callback_on_thread' in a Wasm Worker, but in Wasm Worker enabled builds, proxied function architecture is not available!");
-  registerMouseEventCallback(target, userData, useCapture, callbackfunc, 8, "mousemove", targetThread);
+  target >>>= 0;
+  userData >>>= 0;
+  callbackfunc >>>= 0;
+  targetThread >>>= 0;
+  return registerMouseEventCallback(target, userData, useCapture, callbackfunc, 8, "mousemove", targetThread);
 }
 
 function _emscripten_set_mouseout_callback_on_thread(target, userData, useCapture, callbackfunc, targetThread) {
   assert(!ENVIRONMENT_IS_WASM_WORKER, "Attempted to call proxied function '_emscripten_set_mouseout_callback_on_thread' in a Wasm Worker, but in Wasm Worker enabled builds, proxied function architecture is not available!");
-  registerMouseEventCallback(target, userData, useCapture, callbackfunc, 36, "mouseout", targetThread);
+  target >>>= 0;
+  userData >>>= 0;
+  callbackfunc >>>= 0;
+  targetThread >>>= 0;
+  return registerMouseEventCallback(target, userData, useCapture, callbackfunc, 36, "mouseout", targetThread);
 }
 
 function _emscripten_set_mouseover_callback_on_thread(target, userData, useCapture, callbackfunc, targetThread) {
   assert(!ENVIRONMENT_IS_WASM_WORKER, "Attempted to call proxied function '_emscripten_set_mouseover_callback_on_thread' in a Wasm Worker, but in Wasm Worker enabled builds, proxied function architecture is not available!");
-  registerMouseEventCallback(target, userData, useCapture, callbackfunc, 35, "mouseover", targetThread);
+  target >>>= 0;
+  userData >>>= 0;
+  callbackfunc >>>= 0;
+  targetThread >>>= 0;
+  return registerMouseEventCallback(target, userData, useCapture, callbackfunc, 35, "mouseover", targetThread);
 }
 
 function _emscripten_set_mouseup_callback_on_thread(target, userData, useCapture, callbackfunc, targetThread) {
   assert(!ENVIRONMENT_IS_WASM_WORKER, "Attempted to call proxied function '_emscripten_set_mouseup_callback_on_thread' in a Wasm Worker, but in Wasm Worker enabled builds, proxied function architecture is not available!");
-  registerMouseEventCallback(target, userData, useCapture, callbackfunc, 6, "mouseup", targetThread);
+  target >>>= 0;
+  userData >>>= 0;
+  callbackfunc >>>= 0;
+  targetThread >>>= 0;
+  return registerMouseEventCallback(target, userData, useCapture, callbackfunc, 6, "mouseup", targetThread);
 }
 
 var screenOrientation = () => {
@@ -2621,8 +2738,8 @@ var fillOrientationChangeEventData = eventStruct => {
     // fallback for Safari earlier than 16.4 (March 2023)
     orientationAngle = window.orientation;
   }
-  (growMemViews(), HEAP32)[((eventStruct) >> 2)] = orientationIndex;
-  (growMemViews(), HEAP32)[(((eventStruct) + (4)) >> 2)] = orientationAngle;
+  (growMemViews(), HEAP32)[((eventStruct) >>> 2) >>> 0] = orientationIndex;
+  (growMemViews(), HEAP32)[(((eventStruct) + (4)) >>> 2) >>> 0] = orientationAngle;
 };
 
 var registerOrientationChangeEventCallback = (target, userData, useCapture, callbackfunc, eventTypeId, eventTypeString, targetThread) => {
@@ -2644,6 +2761,9 @@ var registerOrientationChangeEventCallback = (target, userData, useCapture, call
 
 function _emscripten_set_orientationchange_callback_on_thread(userData, useCapture, callbackfunc, targetThread) {
   assert(!ENVIRONMENT_IS_WASM_WORKER, "Attempted to call proxied function '_emscripten_set_orientationchange_callback_on_thread' in a Wasm Worker, but in Wasm Worker enabled builds, proxied function architecture is not available!");
+  userData >>>= 0;
+  callbackfunc >>>= 0;
+  targetThread >>>= 0;
   if (!window.screen || !screen.orientation) return -1;
   return registerOrientationChangeEventCallback(screen.orientation, userData, useCapture, callbackfunc, 18, "change", targetThread);
 }
@@ -2652,7 +2772,7 @@ var fillPointerlockChangeEventData = eventStruct => {
   var pointerLockElement = document.pointerLockElement;
   var isPointerlocked = !!pointerLockElement;
   // Assigning a boolean to HEAP32 with expected type coercion.
-  /** @suppress{checkTypes} */ (growMemViews(), HEAP8)[eventStruct] = isPointerlocked;
+  /** @suppress{checkTypes} */ (growMemViews(), HEAP8)[eventStruct >>> 0] = isPointerlocked;
   var nodeName = JSEvents.getNodeNameForTarget(pointerLockElement);
   var id = pointerLockElement?.id || "";
   stringToUTF8(nodeName, eventStruct + 1, 128);
@@ -2678,6 +2798,10 @@ var registerPointerlockChangeEventCallback = (target, userData, useCapture, call
 
 function _emscripten_set_pointerlockchange_callback_on_thread(target, userData, useCapture, callbackfunc, targetThread) {
   assert(!ENVIRONMENT_IS_WASM_WORKER, "Attempted to call proxied function '_emscripten_set_pointerlockchange_callback_on_thread' in a Wasm Worker, but in Wasm Worker enabled builds, proxied function architecture is not available!");
+  target >>>= 0;
+  userData >>>= 0;
+  callbackfunc >>>= 0;
+  targetThread >>>= 0;
   if (!document.body?.requestPointerLock) {
     return -1;
   }
@@ -2704,17 +2828,17 @@ var registerUiEventCallback = (target, userData, useCapture, callbackfunc, event
       return;
     }
     var uiEvent = JSEvents.uiEvent;
-    (growMemViews(), HEAP32)[((uiEvent) >> 2)] = 0;
+    (growMemViews(), HEAP32)[((uiEvent) >>> 2) >>> 0] = 0;
     // always zero for resize and scroll
-    (growMemViews(), HEAP32)[(((uiEvent) + (4)) >> 2)] = b.clientWidth;
-    (growMemViews(), HEAP32)[(((uiEvent) + (8)) >> 2)] = b.clientHeight;
-    (growMemViews(), HEAP32)[(((uiEvent) + (12)) >> 2)] = innerWidth;
-    (growMemViews(), HEAP32)[(((uiEvent) + (16)) >> 2)] = innerHeight;
-    (growMemViews(), HEAP32)[(((uiEvent) + (20)) >> 2)] = outerWidth;
-    (growMemViews(), HEAP32)[(((uiEvent) + (24)) >> 2)] = outerHeight;
-    (growMemViews(), HEAP32)[(((uiEvent) + (28)) >> 2)] = pageXOffset | 0;
+    (growMemViews(), HEAP32)[(((uiEvent) + (4)) >>> 2) >>> 0] = b.clientWidth;
+    (growMemViews(), HEAP32)[(((uiEvent) + (8)) >>> 2) >>> 0] = b.clientHeight;
+    (growMemViews(), HEAP32)[(((uiEvent) + (12)) >>> 2) >>> 0] = innerWidth;
+    (growMemViews(), HEAP32)[(((uiEvent) + (16)) >>> 2) >>> 0] = innerHeight;
+    (growMemViews(), HEAP32)[(((uiEvent) + (20)) >>> 2) >>> 0] = outerWidth;
+    (growMemViews(), HEAP32)[(((uiEvent) + (24)) >>> 2) >>> 0] = outerHeight;
+    (growMemViews(), HEAP32)[(((uiEvent) + (28)) >>> 2) >>> 0] = pageXOffset | 0;
     // scroll offsets are float
-    (growMemViews(), HEAP32)[(((uiEvent) + (32)) >> 2)] = pageYOffset | 0;
+    (growMemViews(), HEAP32)[(((uiEvent) + (32)) >>> 2) >>> 0] = pageYOffset | 0;
     if (((a1, a2, a3) => dynCall_iiii(callbackfunc, a1, a2, a3))(eventTypeId, uiEvent, userData)) e.preventDefault();
   };
   var eventHandler = {
@@ -2729,12 +2853,20 @@ var registerUiEventCallback = (target, userData, useCapture, callbackfunc, event
 
 function _emscripten_set_resize_callback_on_thread(target, userData, useCapture, callbackfunc, targetThread) {
   assert(!ENVIRONMENT_IS_WASM_WORKER, "Attempted to call proxied function '_emscripten_set_resize_callback_on_thread' in a Wasm Worker, but in Wasm Worker enabled builds, proxied function architecture is not available!");
-  registerUiEventCallback(target, userData, useCapture, callbackfunc, 10, "resize", targetThread);
+  target >>>= 0;
+  userData >>>= 0;
+  callbackfunc >>>= 0;
+  targetThread >>>= 0;
+  return registerUiEventCallback(target, userData, useCapture, callbackfunc, 10, "resize", targetThread);
 }
 
 function _emscripten_set_scroll_callback_on_thread(target, userData, useCapture, callbackfunc, targetThread) {
   assert(!ENVIRONMENT_IS_WASM_WORKER, "Attempted to call proxied function '_emscripten_set_scroll_callback_on_thread' in a Wasm Worker, but in Wasm Worker enabled builds, proxied function architecture is not available!");
-  registerUiEventCallback(target, userData, useCapture, callbackfunc, 11, "scroll", targetThread);
+  target >>>= 0;
+  userData >>>= 0;
+  callbackfunc >>>= 0;
+  targetThread >>>= 0;
+  return registerUiEventCallback(target, userData, useCapture, callbackfunc, 11, "scroll", targetThread);
 }
 
 var registerTouchEventCallback = (target, userData, useCapture, callbackfunc, eventTypeId, eventTypeString, targetThread) => {
@@ -2762,34 +2894,34 @@ var registerTouchEventCallback = (target, userData, useCapture, callbackfunc, ev
       touches[t.identifier].onTarget = 1;
     }
     var touchEvent = JSEvents.touchEvent;
-    (growMemViews(), HEAPF64)[((touchEvent) >> 3)] = e.timeStamp;
-    (growMemViews(), HEAP8)[touchEvent + 12] = e.ctrlKey;
-    (growMemViews(), HEAP8)[touchEvent + 13] = e.shiftKey;
-    (growMemViews(), HEAP8)[touchEvent + 14] = e.altKey;
-    (growMemViews(), HEAP8)[touchEvent + 15] = e.metaKey;
+    (growMemViews(), HEAPF64)[((touchEvent) >>> 3) >>> 0] = e.timeStamp;
+    (growMemViews(), HEAP8)[touchEvent + 12 >>> 0] = e.ctrlKey;
+    (growMemViews(), HEAP8)[touchEvent + 13 >>> 0] = e.shiftKey;
+    (growMemViews(), HEAP8)[touchEvent + 14 >>> 0] = e.altKey;
+    (growMemViews(), HEAP8)[touchEvent + 15 >>> 0] = e.metaKey;
     var idx = touchEvent + 16;
     var targetRect = getBoundingClientRect(target);
     var numTouches = 0;
     for (let t of Object.values(touches)) {
-      var idx32 = ((idx) >> 2);
+      var idx32 = ((idx) >>> 2);
       // Pre-shift the ptr to index to HEAP32 to save code size
-      (growMemViews(), HEAP32)[idx32 + 0] = t.identifier;
-      (growMemViews(), HEAP32)[idx32 + 1] = t.screenX;
-      (growMemViews(), HEAP32)[idx32 + 2] = t.screenY;
-      (growMemViews(), HEAP32)[idx32 + 3] = t.clientX;
-      (growMemViews(), HEAP32)[idx32 + 4] = t.clientY;
-      (growMemViews(), HEAP32)[idx32 + 5] = t.pageX;
-      (growMemViews(), HEAP32)[idx32 + 6] = t.pageY;
-      (growMemViews(), HEAP8)[idx + 28] = t.isChanged;
-      (growMemViews(), HEAP8)[idx + 29] = t.onTarget;
-      (growMemViews(), HEAP32)[idx32 + 8] = t.clientX - (targetRect.left | 0);
-      (growMemViews(), HEAP32)[idx32 + 9] = t.clientY - (targetRect.top | 0);
+      (growMemViews(), HEAP32)[idx32 + 0 >>> 0] = t.identifier;
+      (growMemViews(), HEAP32)[idx32 + 1 >>> 0] = t.screenX;
+      (growMemViews(), HEAP32)[idx32 + 2 >>> 0] = t.screenY;
+      (growMemViews(), HEAP32)[idx32 + 3 >>> 0] = t.clientX;
+      (growMemViews(), HEAP32)[idx32 + 4 >>> 0] = t.clientY;
+      (growMemViews(), HEAP32)[idx32 + 5 >>> 0] = t.pageX;
+      (growMemViews(), HEAP32)[idx32 + 6 >>> 0] = t.pageY;
+      (growMemViews(), HEAP8)[idx + 28 >>> 0] = t.isChanged;
+      (growMemViews(), HEAP8)[idx + 29 >>> 0] = t.onTarget;
+      (growMemViews(), HEAP32)[idx32 + 8 >>> 0] = t.clientX - (targetRect.left | 0);
+      (growMemViews(), HEAP32)[idx32 + 9 >>> 0] = t.clientY - (targetRect.top | 0);
       idx += 48;
       if (++numTouches > 31) {
         break;
       }
     }
-    (growMemViews(), HEAP32)[(((touchEvent) + (8)) >> 2)] = numTouches;
+    (growMemViews(), HEAP32)[(((touchEvent) + (8)) >>> 2) >>> 0] = numTouches;
     if (((a1, a2, a3) => dynCall_iiii(callbackfunc, a1, a2, a3))(eventTypeId, touchEvent, userData)) e.preventDefault();
   };
   var eventHandler = {
@@ -2805,30 +2937,46 @@ var registerTouchEventCallback = (target, userData, useCapture, callbackfunc, ev
 
 function _emscripten_set_touchcancel_callback_on_thread(target, userData, useCapture, callbackfunc, targetThread) {
   assert(!ENVIRONMENT_IS_WASM_WORKER, "Attempted to call proxied function '_emscripten_set_touchcancel_callback_on_thread' in a Wasm Worker, but in Wasm Worker enabled builds, proxied function architecture is not available!");
-  registerTouchEventCallback(target, userData, useCapture, callbackfunc, 25, "touchcancel", targetThread);
+  target >>>= 0;
+  userData >>>= 0;
+  callbackfunc >>>= 0;
+  targetThread >>>= 0;
+  return registerTouchEventCallback(target, userData, useCapture, callbackfunc, 25, "touchcancel", targetThread);
 }
 
 function _emscripten_set_touchend_callback_on_thread(target, userData, useCapture, callbackfunc, targetThread) {
   assert(!ENVIRONMENT_IS_WASM_WORKER, "Attempted to call proxied function '_emscripten_set_touchend_callback_on_thread' in a Wasm Worker, but in Wasm Worker enabled builds, proxied function architecture is not available!");
-  registerTouchEventCallback(target, userData, useCapture, callbackfunc, 23, "touchend", targetThread);
+  target >>>= 0;
+  userData >>>= 0;
+  callbackfunc >>>= 0;
+  targetThread >>>= 0;
+  return registerTouchEventCallback(target, userData, useCapture, callbackfunc, 23, "touchend", targetThread);
 }
 
 function _emscripten_set_touchmove_callback_on_thread(target, userData, useCapture, callbackfunc, targetThread) {
   assert(!ENVIRONMENT_IS_WASM_WORKER, "Attempted to call proxied function '_emscripten_set_touchmove_callback_on_thread' in a Wasm Worker, but in Wasm Worker enabled builds, proxied function architecture is not available!");
-  registerTouchEventCallback(target, userData, useCapture, callbackfunc, 24, "touchmove", targetThread);
+  target >>>= 0;
+  userData >>>= 0;
+  callbackfunc >>>= 0;
+  targetThread >>>= 0;
+  return registerTouchEventCallback(target, userData, useCapture, callbackfunc, 24, "touchmove", targetThread);
 }
 
 function _emscripten_set_touchstart_callback_on_thread(target, userData, useCapture, callbackfunc, targetThread) {
   assert(!ENVIRONMENT_IS_WASM_WORKER, "Attempted to call proxied function '_emscripten_set_touchstart_callback_on_thread' in a Wasm Worker, but in Wasm Worker enabled builds, proxied function architecture is not available!");
-  registerTouchEventCallback(target, userData, useCapture, callbackfunc, 22, "touchstart", targetThread);
+  target >>>= 0;
+  userData >>>= 0;
+  callbackfunc >>>= 0;
+  targetThread >>>= 0;
+  return registerTouchEventCallback(target, userData, useCapture, callbackfunc, 22, "touchstart", targetThread);
 }
 
 var fillVisibilityChangeEventData = eventStruct => {
   var visibilityStates = [ "hidden", "visible", "prerender", "unloaded" ];
   var visibilityState = visibilityStates.indexOf(document.visibilityState);
   // Assigning a boolean to HEAP32 with expected type coercion.
-  /** @suppress{checkTypes} */ (growMemViews(), HEAP8)[eventStruct] = document.hidden;
-  (growMemViews(), HEAP32)[(((eventStruct) + (4)) >> 2)] = visibilityState;
+  /** @suppress{checkTypes} */ (growMemViews(), HEAP8)[eventStruct >>> 0] = document.hidden;
+  (growMemViews(), HEAP32)[(((eventStruct) + (4)) >>> 2) >>> 0] = visibilityState;
 };
 
 var registerVisibilityChangeEventCallback = (target, userData, useCapture, callbackfunc, eventTypeId, eventTypeString, targetThread) => {
@@ -2850,6 +2998,9 @@ var registerVisibilityChangeEventCallback = (target, userData, useCapture, callb
 
 function _emscripten_set_visibilitychange_callback_on_thread(userData, useCapture, callbackfunc, targetThread) {
   assert(!ENVIRONMENT_IS_WASM_WORKER, "Attempted to call proxied function '_emscripten_set_visibilitychange_callback_on_thread' in a Wasm Worker, but in Wasm Worker enabled builds, proxied function architecture is not available!");
+  userData >>>= 0;
+  callbackfunc >>>= 0;
+  targetThread >>>= 0;
   if (!specialHTMLTargets[1]) {
     return -4;
   }
@@ -2862,10 +3013,10 @@ var registerWheelEventCallback = (target, userData, useCapture, callbackfunc, ev
   var wheelHandlerFunc = (e = event) => {
     var wheelEvent = JSEvents.wheelEvent;
     fillMouseEventData(wheelEvent, e, target);
-    (growMemViews(), HEAPF64)[(((wheelEvent) + (64)) >> 3)] = e["deltaX"];
-    (growMemViews(), HEAPF64)[(((wheelEvent) + (72)) >> 3)] = e["deltaY"];
-    (growMemViews(), HEAPF64)[(((wheelEvent) + (80)) >> 3)] = e["deltaZ"];
-    (growMemViews(), HEAP32)[(((wheelEvent) + (88)) >> 2)] = e["deltaMode"];
+    (growMemViews(), HEAPF64)[(((wheelEvent) + (64)) >>> 3) >>> 0] = e["deltaX"];
+    (growMemViews(), HEAPF64)[(((wheelEvent) + (72)) >>> 3) >>> 0] = e["deltaY"];
+    (growMemViews(), HEAPF64)[(((wheelEvent) + (80)) >>> 3) >>> 0] = e["deltaZ"];
+    (growMemViews(), HEAP32)[(((wheelEvent) + (88)) >>> 2) >>> 0] = e["deltaMode"];
     if (((a1, a2, a3) => dynCall_iiii(callbackfunc, a1, a2, a3))(eventTypeId, wheelEvent, userData)) e.preventDefault();
   };
   var eventHandler = {
@@ -2881,6 +3032,10 @@ var registerWheelEventCallback = (target, userData, useCapture, callbackfunc, ev
 
 function _emscripten_set_wheel_callback_on_thread(target, userData, useCapture, callbackfunc, targetThread) {
   assert(!ENVIRONMENT_IS_WASM_WORKER, "Attempted to call proxied function '_emscripten_set_wheel_callback_on_thread' in a Wasm Worker, but in Wasm Worker enabled builds, proxied function architecture is not available!");
+  target >>>= 0;
+  userData >>>= 0;
+  callbackfunc >>>= 0;
+  targetThread >>>= 0;
   target = findEventTarget(target);
   if (!target) return -4;
   if (typeof target.onwheel != "undefined") {
@@ -2892,7 +3047,8 @@ function _emscripten_set_wheel_callback_on_thread(target, userData, useCapture, 
 
 function _emscripten_set_window_title(title) {
   assert(!ENVIRONMENT_IS_WASM_WORKER, "Attempted to call proxied function '_emscripten_set_window_title' in a Wasm Worker, but in Wasm Worker enabled builds, proxied function architecture is not available!");
-  document.title = UTF8ToString(title);
+  title >>>= 0;
+  return document.title = UTF8ToString(title);
 }
 
 var _emscripten_terminate_all_wasm_workers = () => {
@@ -2901,12 +3057,13 @@ var _emscripten_terminate_all_wasm_workers = () => {
   _wasmWorkers = {};
 };
 
-var _emscripten_wasm_worker_post_function_v = (id, funcPtr) => {
+function _emscripten_wasm_worker_post_function_v(id, funcPtr) {
+  funcPtr >>>= 0;
   _wasmWorkers[id].postMessage({
     "_wsc": funcPtr,
     "x": []
   });
-};
+}
 
 var _emscripten_wasm_worker_self_id = () => wwParams?.wwID;
 
@@ -2938,21 +3095,24 @@ var SYSCALLS = {
   }
 };
 
-var _fd_write = (fd, iov, iovcnt, pnum) => {
+function _fd_write(fd, iov, iovcnt, pnum) {
+  iov >>>= 0;
+  iovcnt >>>= 0;
+  pnum >>>= 0;
   // hack to support printf in SYSCALLS_REQUIRE_FILESYSTEM=0
   var num = 0;
   for (var i = 0; i < iovcnt; i++) {
-    var ptr = (growMemViews(), HEAPU32)[((iov) >> 2)];
-    var len = (growMemViews(), HEAPU32)[(((iov) + (4)) >> 2)];
+    var ptr = (growMemViews(), HEAPU32)[((iov) >>> 2) >>> 0];
+    var len = (growMemViews(), HEAPU32)[(((iov) + (4)) >>> 2) >>> 0];
     iov += 8;
     for (var j = 0; j < len; j++) {
-      printChar(fd, (growMemViews(), HEAPU8)[ptr + j]);
+      printChar(fd, (growMemViews(), HEAPU8)[ptr + j >>> 0]);
     }
     num += len;
   }
-  (growMemViews(), HEAPU32)[((pnum) >> 2)] = num;
+  (growMemViews(), HEAPU32)[((pnum) >>> 2) >>> 0] = num;
   return 0;
-};
+}
 
 var lengthBytesUTF8 = str => {
   var len = 0;
@@ -3124,17 +3284,17 @@ var Asyncify = {
     return ptr;
   },
   setDataHeader(ptr, stack, stackSize) {
-    (growMemViews(), HEAPU32)[((ptr) >> 2)] = stack;
-    (growMemViews(), HEAPU32)[(((ptr) + (4)) >> 2)] = stack + stackSize;
+    (growMemViews(), HEAPU32)[((ptr) >>> 2) >>> 0] = stack;
+    (growMemViews(), HEAPU32)[(((ptr) + (4)) >>> 2) >>> 0] = stack + stackSize;
   },
   setDataRewindFunc(ptr) {
     var bottomOfCallStack = Asyncify.exportCallStack[0];
     assert(bottomOfCallStack, "exportCallStack is empty");
     var rewindId = Asyncify.getCallStackId(bottomOfCallStack);
-    (growMemViews(), HEAP32)[(((ptr) + (8)) >> 2)] = rewindId;
+    (growMemViews(), HEAP32)[(((ptr) + (8)) >>> 2) >>> 0] = rewindId;
   },
   getDataRewindFunc(ptr) {
-    var id = (growMemViews(), HEAP32)[(((ptr) + (8)) >> 2)];
+    var id = (growMemViews(), HEAP32)[(((ptr) + (8)) >>> 2) >>> 0];
     var func = Asyncify.callStackIdToFunc.get(id);
     assert(func, `id ${id} not found in callStackIdToFunc`);
     return func;
@@ -3253,7 +3413,7 @@ var getCFunc = ident => {
 
 var writeArrayToMemory = (array, buffer) => {
   assert(array.length >= 0, "writeArrayToMemory array must have a length (should be an array or typed array)");
-  (growMemViews(), HEAP8).set(array, buffer);
+  (growMemViews(), HEAP8).set(array, buffer >>> 0);
 };
 
 var stackSave = () => _emscripten_stack_get_current();
@@ -3406,11 +3566,11 @@ Module["lengthBytesUTF8"] = lengthBytesUTF8;
 
 Module["writeArrayToMemory"] = writeArrayToMemory;
 
-var missingLibrarySymbols = [ "writeI53ToI64", "writeI53ToI64Clamped", "writeI53ToI64Signaling", "writeI53ToU64Clamped", "writeI53ToU64Signaling", "readI53FromI64", "readI53FromU64", "convertI32PairToI53", "convertI32PairToI53Checked", "convertU32PairToI53", "bigintToI53Checked", "getTempRet0", "setTempRet0", "zeroMemory", "withStackSave", "strError", "inetPton4", "inetNtop4", "inetPton6", "inetNtop6", "readSockaddr", "writeSockaddr", "jstoi_q", "getExecutableName", "autoResumeAudioContext", "getDynCaller", "asyncLoad", "asmjsMangle", "mmapAlloc", "HandleAllocator", "getNativeTypeSize", "getUniqueRunDependency", "addOnInit", "addOnPostCtor", "addOnPreMain", "STACK_SIZE", "STACK_ALIGN", "POINTER_SIZE", "ASSERTIONS", "cwrap", "convertJsFunctionToWasm", "getEmptyTableSlot", "updateTableMap", "getFunctionAddress", "addFunction", "removeFunction", "intArrayFromString", "intArrayToString", "AsciiToString", "stringToAscii", "UTF16ToString", "stringToUTF16", "lengthBytesUTF16", "UTF32ToString", "stringToUTF32", "lengthBytesUTF32", "stringToNewUTF8", "JSEvents_requestFullscreen", "JSEvents_resizeCanvasForFullscreen", "registerRestoreOldStyle", "hideEverythingExceptGivenElement", "restoreHiddenElements", "setLetterbox", "softFullscreenResizeWebGLRenderTarget", "doRequestFullscreen", "registerPointerlockErrorEventCallback", "requestPointerLock", "registerBeforeUnloadEventCallback", "setCanvasElementSize", "getCanvasElementSize", "getCallstack", "convertPCtoSourceLocation", "getEnvStrings", "checkWasiClock", "wasiRightsToMuslOFlags", "wasiOFlagsToMuslOFlags", "initRandomFill", "randomFill", "setImmediateWrapped", "safeRequestAnimationFrame", "clearImmediateWrapped", "registerPostMainLoop", "registerPreMainLoop", "getPromise", "makePromise", "idsToPromises", "makePromiseCallback", "Browser_asyncPrepareDataCounter", "isLeapYear", "ydayFromDate", "arraySum", "addDays", "getSocketFromFD", "getSocketAddress", "FS_createPreloadedFile", "FS_preloadFile", "FS_modeStringToFlags", "FS_getMode", "FS_stdin_getChar", "FS_mkdirTree", "_setNetworkCallback", "heapObjectForWebGLType", "toTypedArrayIndex", "webgl_enable_ANGLE_instanced_arrays", "webgl_enable_OES_vertex_array_object", "webgl_enable_WEBGL_draw_buffers", "webgl_enable_WEBGL_multi_draw", "webgl_enable_EXT_polygon_offset_clamp", "webgl_enable_EXT_clip_control", "webgl_enable_WEBGL_polygon_mode", "emscriptenWebGLGet", "computeUnpackAlignedImageSize", "colorChannelsInGlTextureFormat", "emscriptenWebGLGetTexPixelData", "emscriptenWebGLGetUniform", "webglGetUniformLocation", "webglPrepareUniformLocationsBeforeFirstUse", "webglGetLeftBracePos", "emscriptenWebGLGetVertexAttrib", "__glGetActiveAttribOrUniform", "writeGLArray", "registerWebGlEventCallback", "ALLOC_NORMAL", "ALLOC_STACK", "allocate", "writeStringToMemory", "writeAsciiToMemory", "demangle", "stackTrace", "_wasmWorkerPostFunction1", "_wasmWorkerPostFunction2", "_wasmWorkerPostFunction3", "fetchDeleteCachedData", "fetchLoadCachedData", "fetchCacheData", "fetchXHR" ];
+var missingLibrarySymbols = [ "writeI53ToI64", "writeI53ToI64Clamped", "writeI53ToI64Signaling", "writeI53ToU64Clamped", "writeI53ToU64Signaling", "readI53FromI64", "readI53FromU64", "convertI32PairToI53", "convertI32PairToI53Checked", "convertU32PairToI53", "getTempRet0", "setTempRet0", "zeroMemory", "withStackSave", "strError", "inetPton4", "inetNtop4", "inetPton6", "inetNtop6", "readSockaddr", "writeSockaddr", "jstoi_q", "getExecutableName", "autoResumeAudioContext", "getDynCaller", "asyncLoad", "asmjsMangle", "mmapAlloc", "HandleAllocator", "getNativeTypeSize", "getUniqueRunDependency", "addOnInit", "addOnPostCtor", "addOnPreMain", "STACK_SIZE", "STACK_ALIGN", "POINTER_SIZE", "ASSERTIONS", "cwrap", "convertJsFunctionToWasm", "getEmptyTableSlot", "updateTableMap", "getFunctionAddress", "addFunction", "removeFunction", "intArrayFromString", "intArrayToString", "AsciiToString", "stringToAscii", "UTF16ToString", "stringToUTF16", "lengthBytesUTF16", "UTF32ToString", "stringToUTF32", "lengthBytesUTF32", "stringToNewUTF8", "JSEvents_requestFullscreen", "JSEvents_resizeCanvasForFullscreen", "registerRestoreOldStyle", "hideEverythingExceptGivenElement", "restoreHiddenElements", "setLetterbox", "softFullscreenResizeWebGLRenderTarget", "doRequestFullscreen", "registerPointerlockErrorEventCallback", "requestPointerLock", "registerBeforeUnloadEventCallback", "setCanvasElementSize", "getCanvasElementSize", "getCallstack", "convertPCtoSourceLocation", "getEnvStrings", "checkWasiClock", "wasiRightsToMuslOFlags", "wasiOFlagsToMuslOFlags", "initRandomFill", "randomFill", "setImmediateWrapped", "safeRequestAnimationFrame", "clearImmediateWrapped", "registerPostMainLoop", "registerPreMainLoop", "getPromise", "makePromise", "idsToPromises", "makePromiseCallback", "Browser_asyncPrepareDataCounter", "isLeapYear", "ydayFromDate", "arraySum", "addDays", "getSocketFromFD", "getSocketAddress", "FS_createPreloadedFile", "FS_preloadFile", "FS_modeStringToFlags", "FS_getMode", "FS_stdin_getChar", "FS_mkdirTree", "_setNetworkCallback", "heapObjectForWebGLType", "toTypedArrayIndex", "webgl_enable_ANGLE_instanced_arrays", "webgl_enable_OES_vertex_array_object", "webgl_enable_WEBGL_draw_buffers", "webgl_enable_WEBGL_multi_draw", "webgl_enable_EXT_polygon_offset_clamp", "webgl_enable_EXT_clip_control", "webgl_enable_WEBGL_polygon_mode", "emscriptenWebGLGet", "computeUnpackAlignedImageSize", "colorChannelsInGlTextureFormat", "emscriptenWebGLGetTexPixelData", "emscriptenWebGLGetUniform", "webglGetUniformLocation", "webglPrepareUniformLocationsBeforeFirstUse", "webglGetLeftBracePos", "emscriptenWebGLGetVertexAttrib", "__glGetActiveAttribOrUniform", "writeGLArray", "registerWebGlEventCallback", "ALLOC_NORMAL", "ALLOC_STACK", "allocate", "writeStringToMemory", "writeAsciiToMemory", "demangle", "stackTrace", "_wasmWorkerPostFunction1", "_wasmWorkerPostFunction2", "_wasmWorkerPostFunction3", "fetchDeleteCachedData", "fetchLoadCachedData", "fetchCacheData", "fetchXHR" ];
 
 missingLibrarySymbols.forEach(missingLibrarySymbol);
 
-var unexportedSymbols = [ "run", "out", "err", "callMain", "abort", "wasmMemory", "wasmExports", "HEAP8", "HEAP16", "HEAP32", "HEAP64", "writeStackCookie", "checkStackCookie", "INT53_MAX", "INT53_MIN", "stackSave", "stackRestore", "stackAlloc", "ptrToString", "exitJS", "getHeapMax", "growMemory", "ENV", "ERRNO_CODES", "DNS", "Protocols", "Sockets", "timers", "warnOnce", "readEmAsmArgsArray", "readEmAsmArgs", "runEmAsmFunction", "runMainThreadEmAsm", "dynCallLegacy", "dynCall", "handleException", "keepRuntimeAlive", "runtimeKeepalivePush", "runtimeKeepalivePop", "callUserCallback", "maybeExit", "alignMemory", "wasmTable", "noExitRuntime", "addRunDependency", "removeRunDependency", "addOnPreRun", "addOnExit", "addOnPostRun", "freeTableIndexes", "functionsInTableMap", "PATH", "PATH_FS", "UTF8Decoder", "UTF8ArrayToString", "stringToUTF8Array", "UTF16Decoder", "stringToUTF8OnStack", "JSEvents", "registerKeyEventCallback", "specialHTMLTargets", "maybeCStringToJsString", "findEventTarget", "findCanvasEventTarget", "getBoundingClientRect", "fillMouseEventData", "registerMouseEventCallback", "registerWheelEventCallback", "registerUiEventCallback", "registerFocusEventCallback", "fillDeviceOrientationEventData", "registerDeviceOrientationEventCallback", "fillDeviceMotionEventData", "registerDeviceMotionEventCallback", "screenOrientation", "fillOrientationChangeEventData", "registerOrientationChangeEventCallback", "fillFullscreenChangeEventData", "registerFullscreenChangeEventCallback", "currentFullscreenStrategy", "restoreOldWindowedStyle", "fillPointerlockChangeEventData", "registerPointerlockChangeEventCallback", "fillVisibilityChangeEventData", "registerVisibilityChangeEventCallback", "registerTouchEventCallback", "fillGamepadEventData", "registerGamepadEventCallback", "fillBatteryEventData", "registerBatteryEventCallback", "jsStackTrace", "UNWIND_CACHE", "ExitStatus", "flush_NO_FILESYSTEM", "safeSetTimeout", "emSetImmediate", "emClearImmediate_deps", "emClearImmediate", "promiseMap", "Browser", "requestFullscreen", "requestFullScreen", "setCanvasSize", "getUserMedia", "createContext", "getPreloadedImageData__data", "wget", "MONTH_DAYS_REGULAR", "MONTH_DAYS_LEAP", "MONTH_DAYS_REGULAR_CUMULATIVE", "MONTH_DAYS_LEAP_CUMULATIVE", "SYSCALLS", "preloadPlugins", "FS_stdin_getChar_buffer", "FS_unlink", "FS_createPath", "FS_createDevice", "FS_readFile", "FS", "FS_root", "FS_mounts", "FS_devices", "FS_streams", "FS_nextInode", "FS_nameTable", "FS_currentPath", "FS_initialized", "FS_ignorePermissions", "FS_filesystems", "FS_syncFSRequests", "FS_readFiles", "FS_lookupPath", "FS_getPath", "FS_hashName", "FS_hashAddNode", "FS_hashRemoveNode", "FS_lookupNode", "FS_createNode", "FS_destroyNode", "FS_isRoot", "FS_isMountpoint", "FS_isFile", "FS_isDir", "FS_isLink", "FS_isChrdev", "FS_isBlkdev", "FS_isFIFO", "FS_isSocket", "FS_flagsToPermissionString", "FS_nodePermissions", "FS_mayLookup", "FS_mayCreate", "FS_mayDelete", "FS_mayOpen", "FS_checkOpExists", "FS_nextfd", "FS_getStreamChecked", "FS_getStream", "FS_createStream", "FS_closeStream", "FS_dupStream", "FS_doSetAttr", "FS_chrdev_stream_ops", "FS_major", "FS_minor", "FS_makedev", "FS_registerDevice", "FS_getDevice", "FS_getMounts", "FS_syncfs", "FS_mount", "FS_unmount", "FS_lookup", "FS_mknod", "FS_statfs", "FS_statfsStream", "FS_statfsNode", "FS_create", "FS_mkdir", "FS_mkdev", "FS_symlink", "FS_rename", "FS_rmdir", "FS_readdir", "FS_readlink", "FS_stat", "FS_fstat", "FS_lstat", "FS_doChmod", "FS_chmod", "FS_lchmod", "FS_fchmod", "FS_doChown", "FS_chown", "FS_lchown", "FS_fchown", "FS_doTruncate", "FS_truncate", "FS_ftruncate", "FS_utime", "FS_open", "FS_close", "FS_isClosed", "FS_llseek", "FS_read", "FS_write", "FS_mmap", "FS_msync", "FS_ioctl", "FS_writeFile", "FS_cwd", "FS_chdir", "FS_createDefaultDirectories", "FS_createDefaultDevices", "FS_createSpecialDirectories", "FS_createStandardStreams", "FS_staticInit", "FS_init", "FS_quit", "FS_findObject", "FS_analyzePath", "FS_createFile", "FS_createDataFile", "FS_forceLoadFile", "FS_createLazyFile", "FS_absolutePath", "FS_createFolder", "FS_createLink", "FS_joinPath", "FS_mmapAlloc", "FS_standardizePath", "MEMFS", "TTY", "PIPEFS", "SOCKFS", "tempFixedLengthArray", "miniTempWebGLFloatBuffers", "miniTempWebGLIntBuffers", "GL", "AL", "GLUT", "EGL", "GLEW", "IDBStore", "runAndAbortIfError", "Asyncify", "Fibers", "SDL", "SDL_gfx", "allocateUTF8", "allocateUTF8OnStack", "print", "printErr", "jstoi_s", "_wasmWorkers", "_wasmWorkersID", "_wasmWorkerDelayedMessageQueue", "_wasmWorkerAppendToQueue", "_wasmWorkerRunPostMessage", "_wasmWorkerInitializeRuntime", "Fetch" ];
+var unexportedSymbols = [ "run", "out", "err", "callMain", "abort", "wasmMemory", "wasmExports", "HEAP8", "HEAP16", "HEAP32", "HEAP64", "writeStackCookie", "checkStackCookie", "INT53_MAX", "INT53_MIN", "bigintToI53Checked", "stackSave", "stackRestore", "stackAlloc", "ptrToString", "exitJS", "getHeapMax", "growMemory", "ENV", "ERRNO_CODES", "DNS", "Protocols", "Sockets", "timers", "warnOnce", "readEmAsmArgsArray", "readEmAsmArgs", "runEmAsmFunction", "runMainThreadEmAsm", "dynCallLegacy", "dynCall", "handleException", "keepRuntimeAlive", "runtimeKeepalivePush", "runtimeKeepalivePop", "callUserCallback", "maybeExit", "alignMemory", "wasmTable", "noExitRuntime", "addRunDependency", "removeRunDependency", "addOnPreRun", "addOnExit", "addOnPostRun", "freeTableIndexes", "functionsInTableMap", "PATH", "PATH_FS", "UTF8Decoder", "UTF8ArrayToString", "stringToUTF8Array", "UTF16Decoder", "stringToUTF8OnStack", "JSEvents", "registerKeyEventCallback", "specialHTMLTargets", "maybeCStringToJsString", "findEventTarget", "findCanvasEventTarget", "getBoundingClientRect", "fillMouseEventData", "registerMouseEventCallback", "registerWheelEventCallback", "registerUiEventCallback", "registerFocusEventCallback", "fillDeviceOrientationEventData", "registerDeviceOrientationEventCallback", "fillDeviceMotionEventData", "registerDeviceMotionEventCallback", "screenOrientation", "fillOrientationChangeEventData", "registerOrientationChangeEventCallback", "fillFullscreenChangeEventData", "registerFullscreenChangeEventCallback", "currentFullscreenStrategy", "restoreOldWindowedStyle", "fillPointerlockChangeEventData", "registerPointerlockChangeEventCallback", "fillVisibilityChangeEventData", "registerVisibilityChangeEventCallback", "registerTouchEventCallback", "fillGamepadEventData", "registerGamepadEventCallback", "fillBatteryEventData", "registerBatteryEventCallback", "jsStackTrace", "UNWIND_CACHE", "ExitStatus", "flush_NO_FILESYSTEM", "safeSetTimeout", "emSetImmediate", "emClearImmediate_deps", "emClearImmediate", "promiseMap", "Browser", "requestFullscreen", "requestFullScreen", "setCanvasSize", "getUserMedia", "createContext", "getPreloadedImageData__data", "wget", "MONTH_DAYS_REGULAR", "MONTH_DAYS_LEAP", "MONTH_DAYS_REGULAR_CUMULATIVE", "MONTH_DAYS_LEAP_CUMULATIVE", "SYSCALLS", "preloadPlugins", "FS_stdin_getChar_buffer", "FS_unlink", "FS_createPath", "FS_createDevice", "FS_readFile", "FS", "FS_root", "FS_mounts", "FS_devices", "FS_streams", "FS_nextInode", "FS_nameTable", "FS_currentPath", "FS_initialized", "FS_ignorePermissions", "FS_filesystems", "FS_syncFSRequests", "FS_readFiles", "FS_lookupPath", "FS_getPath", "FS_hashName", "FS_hashAddNode", "FS_hashRemoveNode", "FS_lookupNode", "FS_createNode", "FS_destroyNode", "FS_isRoot", "FS_isMountpoint", "FS_isFile", "FS_isDir", "FS_isLink", "FS_isChrdev", "FS_isBlkdev", "FS_isFIFO", "FS_isSocket", "FS_flagsToPermissionString", "FS_nodePermissions", "FS_mayLookup", "FS_mayCreate", "FS_mayDelete", "FS_mayOpen", "FS_checkOpExists", "FS_nextfd", "FS_getStreamChecked", "FS_getStream", "FS_createStream", "FS_closeStream", "FS_dupStream", "FS_doSetAttr", "FS_chrdev_stream_ops", "FS_major", "FS_minor", "FS_makedev", "FS_registerDevice", "FS_getDevice", "FS_getMounts", "FS_syncfs", "FS_mount", "FS_unmount", "FS_lookup", "FS_mknod", "FS_statfs", "FS_statfsStream", "FS_statfsNode", "FS_create", "FS_mkdir", "FS_mkdev", "FS_symlink", "FS_rename", "FS_rmdir", "FS_readdir", "FS_readlink", "FS_stat", "FS_fstat", "FS_lstat", "FS_doChmod", "FS_chmod", "FS_lchmod", "FS_fchmod", "FS_doChown", "FS_chown", "FS_lchown", "FS_fchown", "FS_doTruncate", "FS_truncate", "FS_ftruncate", "FS_utime", "FS_open", "FS_close", "FS_isClosed", "FS_llseek", "FS_read", "FS_write", "FS_mmap", "FS_msync", "FS_ioctl", "FS_writeFile", "FS_cwd", "FS_chdir", "FS_createDefaultDirectories", "FS_createDefaultDevices", "FS_createSpecialDirectories", "FS_createStandardStreams", "FS_staticInit", "FS_init", "FS_quit", "FS_findObject", "FS_analyzePath", "FS_createFile", "FS_createDataFile", "FS_forceLoadFile", "FS_createLazyFile", "FS_absolutePath", "FS_createFolder", "FS_createLink", "FS_joinPath", "FS_mmapAlloc", "FS_standardizePath", "MEMFS", "TTY", "PIPEFS", "SOCKFS", "tempFixedLengthArray", "miniTempWebGLFloatBuffers", "miniTempWebGLIntBuffers", "GL", "AL", "GLUT", "EGL", "GLEW", "IDBStore", "runAndAbortIfError", "Asyncify", "Fibers", "SDL", "SDL_gfx", "allocateUTF8", "allocateUTF8OnStack", "print", "printErr", "jstoi_s", "_wasmWorkers", "_wasmWorkersID", "_wasmWorkerDelayedMessageQueue", "_wasmWorkerAppendToQueue", "_wasmWorkerRunPostMessage", "_wasmWorkerInitializeRuntime", "Fetch" ];
 
 unexportedSymbols.forEach(unexportedRuntimeSymbol);
 
@@ -3819,6 +3979,24 @@ function assignWasmImports() {
   };
 }
 
+// Argument name here must shadow the `wasmExports` global so
+// that it is recognised by metadce and minify-import-export-names
+// passes.
+function applySignatureConversions(wasmExports) {
+  // First, make a copy of the incoming exports object
+  wasmExports = Object.assign({}, wasmExports);
+  var makeWrapper_pp = f => a0 => f(a0) >>> 0;
+  var makeWrapper_p = f => () => f() >>> 0;
+  var makeWrapper_p_ = f => a0 => f(a0) >>> 0;
+  wasmExports["malloc"] = makeWrapper_pp(wasmExports["malloc"]);
+  wasmExports["emscripten_stack_get_end"] = makeWrapper_p(wasmExports["emscripten_stack_get_end"]);
+  wasmExports["emscripten_stack_get_base"] = makeWrapper_p(wasmExports["emscripten_stack_get_base"]);
+  wasmExports["strerror"] = makeWrapper_p_(wasmExports["strerror"]);
+  wasmExports["_emscripten_stack_alloc"] = makeWrapper_pp(wasmExports["_emscripten_stack_alloc"]);
+  wasmExports["emscripten_stack_get_current"] = makeWrapper_p(wasmExports["emscripten_stack_get_current"]);
+  return wasmExports;
+}
+
 // include: postamble.js
 // === Auto-generated postamble setup entry stuff ===
 var calledRun;
@@ -3832,10 +4010,10 @@ function callMain(args = []) {
   var argv = stackAlloc((argc + 1) * 4);
   var argv_ptr = argv;
   args.forEach(arg => {
-    (growMemViews(), HEAPU32)[((argv_ptr) >> 2)] = stringToUTF8OnStack(arg);
+    (growMemViews(), HEAPU32)[((argv_ptr) >>> 2) >>> 0] = stringToUTF8OnStack(arg);
     argv_ptr += 4;
   });
-  (growMemViews(), HEAPU32)[((argv_ptr) >> 2)] = 0;
+  (growMemViews(), HEAPU32)[((argv_ptr) >>> 2) >>> 0] = 0;
   try {
     var ret = entryFunction(argc, argv);
     // if we're not running an evented main loop, it's time to exit
