@@ -2309,41 +2309,6 @@ var _emscripten_set_batterylevelchange_callback_on_thread = function(userData, c
   });
 };
 
-var registerBeforeUnloadEventCallback = (target, userData, useCapture, callbackfunc, eventTypeId, eventTypeString) => {
-  var beforeUnloadEventHandlerFunc = (e = event) => {
-    // Note: This is always called on the main browser thread, since it needs synchronously return a value!
-    var confirmationMessage = ((a1, a2, a3) => dynCall_jijj(callbackfunc, a1, BigInt(a2), BigInt(a3)))(eventTypeId, 0, userData);
-    if (confirmationMessage) {
-      confirmationMessage = UTF8ToString(confirmationMessage);
-    }
-    if (confirmationMessage) {
-      e.preventDefault();
-      e.returnValue = confirmationMessage;
-      return confirmationMessage;
-    }
-  };
-  var eventHandler = {
-    target: findEventTarget(target),
-    eventTypeString,
-    callbackfunc,
-    handlerFunc: beforeUnloadEventHandlerFunc,
-    useCapture
-  };
-  return JSEvents.registerOrRemoveHandler(eventHandler);
-};
-
-function _emscripten_set_beforeunload_callback_on_thread(userData, callbackfunc, targetThread) {
-  assert(!ENVIRONMENT_IS_WASM_WORKER, "Attempted to call proxied function '_emscripten_set_beforeunload_callback_on_thread' in a Wasm Worker, but in Wasm Worker enabled builds, proxied function architecture is not available!");
-  userData = bigintToI53Checked(userData);
-  callbackfunc = bigintToI53Checked(callbackfunc);
-  targetThread = bigintToI53Checked(targetThread);
-  if (typeof onbeforeunload == "undefined") return -1;
-  // beforeunload callback can only be registered on the main browser thread, because the page will go away immediately after returning from the handler,
-  // and there is no time to start proxying it anywhere.
-  if (targetThread !== 1) return -5;
-  return registerBeforeUnloadEventCallback(2, userData, true, callbackfunc, 28, "beforeunload");
-}
-
 var registerFocusEventCallback = (target, userData, useCapture, callbackfunc, eventTypeId, eventTypeString, targetThread) => {
   JSEvents.focusEvent ||= _malloc(256);
   var focusEventHandlerFunc = (e = event) => {
@@ -3610,11 +3575,11 @@ Module["lengthBytesUTF8"] = lengthBytesUTF8;
 
 Module["writeArrayToMemory"] = writeArrayToMemory;
 
-var missingLibrarySymbols = [ "writeI53ToI64", "writeI53ToI64Clamped", "writeI53ToI64Signaling", "writeI53ToU64Clamped", "writeI53ToU64Signaling", "readI53FromI64", "readI53FromU64", "convertI32PairToI53", "convertI32PairToI53Checked", "convertU32PairToI53", "getTempRet0", "setTempRet0", "zeroMemory", "withStackSave", "strError", "inetPton4", "inetNtop4", "inetPton6", "inetNtop6", "readSockaddr", "writeSockaddr", "jstoi_q", "getExecutableName", "autoResumeAudioContext", "getDynCaller", "asyncLoad", "asmjsMangle", "mmapAlloc", "HandleAllocator", "getNativeTypeSize", "getUniqueRunDependency", "addOnInit", "addOnPostCtor", "addOnPreMain", "STACK_SIZE", "STACK_ALIGN", "POINTER_SIZE", "ASSERTIONS", "cwrap", "convertJsFunctionToWasm", "getEmptyTableSlot", "updateTableMap", "getFunctionAddress", "addFunction", "removeFunction", "intArrayFromString", "intArrayToString", "AsciiToString", "stringToAscii", "UTF16ToString", "stringToUTF16", "lengthBytesUTF16", "UTF32ToString", "stringToUTF32", "lengthBytesUTF32", "stringToNewUTF8", "JSEvents_requestFullscreen", "JSEvents_resizeCanvasForFullscreen", "registerRestoreOldStyle", "hideEverythingExceptGivenElement", "restoreHiddenElements", "setLetterbox", "softFullscreenResizeWebGLRenderTarget", "doRequestFullscreen", "registerPointerlockErrorEventCallback", "requestPointerLock", "setCanvasElementSize", "getCanvasElementSize", "jsStackTrace", "getCallstack", "convertPCtoSourceLocation", "getEnvStrings", "checkWasiClock", "wasiRightsToMuslOFlags", "wasiOFlagsToMuslOFlags", "initRandomFill", "randomFill", "setImmediateWrapped", "safeRequestAnimationFrame", "clearImmediateWrapped", "registerPostMainLoop", "registerPreMainLoop", "getPromise", "makePromise", "idsToPromises", "makePromiseCallback", "Browser_asyncPrepareDataCounter", "isLeapYear", "ydayFromDate", "arraySum", "addDays", "getSocketFromFD", "getSocketAddress", "FS_createPreloadedFile", "FS_preloadFile", "FS_modeStringToFlags", "FS_getMode", "FS_stdin_getChar", "FS_mkdirTree", "_setNetworkCallback", "heapObjectForWebGLType", "toTypedArrayIndex", "webgl_enable_ANGLE_instanced_arrays", "webgl_enable_OES_vertex_array_object", "webgl_enable_WEBGL_draw_buffers", "webgl_enable_WEBGL_multi_draw", "webgl_enable_EXT_polygon_offset_clamp", "webgl_enable_EXT_clip_control", "webgl_enable_WEBGL_polygon_mode", "emscriptenWebGLGet", "computeUnpackAlignedImageSize", "colorChannelsInGlTextureFormat", "emscriptenWebGLGetTexPixelData", "emscriptenWebGLGetUniform", "webglGetUniformLocation", "webglPrepareUniformLocationsBeforeFirstUse", "webglGetLeftBracePos", "emscriptenWebGLGetVertexAttrib", "__glGetActiveAttribOrUniform", "writeGLArray", "registerWebGlEventCallback", "ALLOC_NORMAL", "ALLOC_STACK", "allocate", "writeStringToMemory", "writeAsciiToMemory", "demangle", "stackTrace", "_wasmWorkerPostFunction1", "_wasmWorkerPostFunction2", "_wasmWorkerPostFunction3", "fetchDeleteCachedData", "fetchLoadCachedData", "fetchCacheData", "fetchXHR" ];
+var missingLibrarySymbols = [ "writeI53ToI64", "writeI53ToI64Clamped", "writeI53ToI64Signaling", "writeI53ToU64Clamped", "writeI53ToU64Signaling", "readI53FromI64", "readI53FromU64", "convertI32PairToI53", "convertI32PairToI53Checked", "convertU32PairToI53", "getTempRet0", "setTempRet0", "zeroMemory", "withStackSave", "strError", "inetPton4", "inetNtop4", "inetPton6", "inetNtop6", "readSockaddr", "writeSockaddr", "jstoi_q", "getExecutableName", "autoResumeAudioContext", "getDynCaller", "asyncLoad", "asmjsMangle", "mmapAlloc", "HandleAllocator", "getNativeTypeSize", "getUniqueRunDependency", "addOnInit", "addOnPostCtor", "addOnPreMain", "STACK_SIZE", "STACK_ALIGN", "POINTER_SIZE", "ASSERTIONS", "cwrap", "convertJsFunctionToWasm", "getEmptyTableSlot", "updateTableMap", "getFunctionAddress", "addFunction", "removeFunction", "intArrayFromString", "intArrayToString", "AsciiToString", "stringToAscii", "UTF16ToString", "stringToUTF16", "lengthBytesUTF16", "UTF32ToString", "stringToUTF32", "lengthBytesUTF32", "stringToNewUTF8", "JSEvents_requestFullscreen", "JSEvents_resizeCanvasForFullscreen", "registerRestoreOldStyle", "hideEverythingExceptGivenElement", "restoreHiddenElements", "setLetterbox", "softFullscreenResizeWebGLRenderTarget", "doRequestFullscreen", "registerPointerlockErrorEventCallback", "requestPointerLock", "registerBeforeUnloadEventCallback", "setCanvasElementSize", "getCanvasElementSize", "jsStackTrace", "getCallstack", "convertPCtoSourceLocation", "getEnvStrings", "checkWasiClock", "wasiRightsToMuslOFlags", "wasiOFlagsToMuslOFlags", "initRandomFill", "randomFill", "setImmediateWrapped", "safeRequestAnimationFrame", "clearImmediateWrapped", "registerPostMainLoop", "registerPreMainLoop", "getPromise", "makePromise", "idsToPromises", "makePromiseCallback", "Browser_asyncPrepareDataCounter", "isLeapYear", "ydayFromDate", "arraySum", "addDays", "getSocketFromFD", "getSocketAddress", "FS_createPreloadedFile", "FS_preloadFile", "FS_modeStringToFlags", "FS_getMode", "FS_stdin_getChar", "FS_mkdirTree", "_setNetworkCallback", "heapObjectForWebGLType", "toTypedArrayIndex", "webgl_enable_ANGLE_instanced_arrays", "webgl_enable_OES_vertex_array_object", "webgl_enable_WEBGL_draw_buffers", "webgl_enable_WEBGL_multi_draw", "webgl_enable_EXT_polygon_offset_clamp", "webgl_enable_EXT_clip_control", "webgl_enable_WEBGL_polygon_mode", "emscriptenWebGLGet", "computeUnpackAlignedImageSize", "colorChannelsInGlTextureFormat", "emscriptenWebGLGetTexPixelData", "emscriptenWebGLGetUniform", "webglGetUniformLocation", "webglPrepareUniformLocationsBeforeFirstUse", "webglGetLeftBracePos", "emscriptenWebGLGetVertexAttrib", "__glGetActiveAttribOrUniform", "writeGLArray", "registerWebGlEventCallback", "ALLOC_NORMAL", "ALLOC_STACK", "allocate", "writeStringToMemory", "writeAsciiToMemory", "demangle", "stackTrace", "_wasmWorkerPostFunction1", "_wasmWorkerPostFunction2", "_wasmWorkerPostFunction3", "fetchDeleteCachedData", "fetchLoadCachedData", "fetchCacheData", "fetchXHR" ];
 
 missingLibrarySymbols.forEach(missingLibrarySymbol);
 
-var unexportedSymbols = [ "run", "out", "err", "callMain", "abort", "wasmMemory", "wasmExports", "HEAP8", "HEAP16", "HEAP32", "HEAP64", "writeStackCookie", "checkStackCookie", "INT53_MAX", "INT53_MIN", "bigintToI53Checked", "stackSave", "stackRestore", "stackAlloc", "ptrToString", "exitJS", "getHeapMax", "growMemory", "ENV", "ERRNO_CODES", "DNS", "Protocols", "Sockets", "timers", "warnOnce", "readEmAsmArgsArray", "readEmAsmArgs", "runEmAsmFunction", "runMainThreadEmAsm", "dynCallLegacy", "dynCall", "handleException", "keepRuntimeAlive", "runtimeKeepalivePush", "runtimeKeepalivePop", "callUserCallback", "maybeExit", "alignMemory", "wasmTable", "noExitRuntime", "addRunDependency", "removeRunDependency", "addOnPreRun", "addOnExit", "addOnPostRun", "freeTableIndexes", "functionsInTableMap", "PATH", "PATH_FS", "UTF8Decoder", "UTF8ArrayToString", "stringToUTF8Array", "UTF16Decoder", "stringToUTF8OnStack", "JSEvents", "registerKeyEventCallback", "specialHTMLTargets", "maybeCStringToJsString", "findEventTarget", "findCanvasEventTarget", "getBoundingClientRect", "fillMouseEventData", "registerMouseEventCallback", "registerWheelEventCallback", "registerUiEventCallback", "registerFocusEventCallback", "fillDeviceOrientationEventData", "registerDeviceOrientationEventCallback", "fillDeviceMotionEventData", "registerDeviceMotionEventCallback", "screenOrientation", "fillOrientationChangeEventData", "registerOrientationChangeEventCallback", "fillFullscreenChangeEventData", "registerFullscreenChangeEventCallback", "currentFullscreenStrategy", "restoreOldWindowedStyle", "fillPointerlockChangeEventData", "registerPointerlockChangeEventCallback", "fillVisibilityChangeEventData", "registerVisibilityChangeEventCallback", "registerTouchEventCallback", "fillGamepadEventData", "registerGamepadEventCallback", "registerBeforeUnloadEventCallback", "fillBatteryEventData", "registerBatteryEventCallback", "UNWIND_CACHE", "ExitStatus", "flush_NO_FILESYSTEM", "safeSetTimeout", "emSetImmediate", "emClearImmediate_deps", "emClearImmediate", "promiseMap", "Browser", "requestFullscreen", "requestFullScreen", "setCanvasSize", "getUserMedia", "createContext", "getPreloadedImageData__data", "wget", "MONTH_DAYS_REGULAR", "MONTH_DAYS_LEAP", "MONTH_DAYS_REGULAR_CUMULATIVE", "MONTH_DAYS_LEAP_CUMULATIVE", "SYSCALLS", "preloadPlugins", "FS_stdin_getChar_buffer", "FS_unlink", "FS_createPath", "FS_createDevice", "FS_readFile", "FS", "FS_root", "FS_mounts", "FS_devices", "FS_streams", "FS_nextInode", "FS_nameTable", "FS_currentPath", "FS_initialized", "FS_ignorePermissions", "FS_filesystems", "FS_syncFSRequests", "FS_readFiles", "FS_lookupPath", "FS_getPath", "FS_hashName", "FS_hashAddNode", "FS_hashRemoveNode", "FS_lookupNode", "FS_createNode", "FS_destroyNode", "FS_isRoot", "FS_isMountpoint", "FS_isFile", "FS_isDir", "FS_isLink", "FS_isChrdev", "FS_isBlkdev", "FS_isFIFO", "FS_isSocket", "FS_flagsToPermissionString", "FS_nodePermissions", "FS_mayLookup", "FS_mayCreate", "FS_mayDelete", "FS_mayOpen", "FS_checkOpExists", "FS_nextfd", "FS_getStreamChecked", "FS_getStream", "FS_createStream", "FS_closeStream", "FS_dupStream", "FS_doSetAttr", "FS_chrdev_stream_ops", "FS_major", "FS_minor", "FS_makedev", "FS_registerDevice", "FS_getDevice", "FS_getMounts", "FS_syncfs", "FS_mount", "FS_unmount", "FS_lookup", "FS_mknod", "FS_statfs", "FS_statfsStream", "FS_statfsNode", "FS_create", "FS_mkdir", "FS_mkdev", "FS_symlink", "FS_rename", "FS_rmdir", "FS_readdir", "FS_readlink", "FS_stat", "FS_fstat", "FS_lstat", "FS_doChmod", "FS_chmod", "FS_lchmod", "FS_fchmod", "FS_doChown", "FS_chown", "FS_lchown", "FS_fchown", "FS_doTruncate", "FS_truncate", "FS_ftruncate", "FS_utime", "FS_open", "FS_close", "FS_isClosed", "FS_llseek", "FS_read", "FS_write", "FS_mmap", "FS_msync", "FS_ioctl", "FS_writeFile", "FS_cwd", "FS_chdir", "FS_createDefaultDirectories", "FS_createDefaultDevices", "FS_createSpecialDirectories", "FS_createStandardStreams", "FS_staticInit", "FS_init", "FS_quit", "FS_findObject", "FS_analyzePath", "FS_createFile", "FS_createDataFile", "FS_forceLoadFile", "FS_createLazyFile", "FS_absolutePath", "FS_createFolder", "FS_createLink", "FS_joinPath", "FS_mmapAlloc", "FS_standardizePath", "MEMFS", "TTY", "PIPEFS", "SOCKFS", "tempFixedLengthArray", "miniTempWebGLFloatBuffers", "miniTempWebGLIntBuffers", "GL", "AL", "GLUT", "EGL", "GLEW", "IDBStore", "runAndAbortIfError", "Asyncify", "Fibers", "SDL", "SDL_gfx", "allocateUTF8", "allocateUTF8OnStack", "print", "printErr", "jstoi_s", "_wasmWorkers", "_wasmWorkersID", "_wasmWorkerDelayedMessageQueue", "_wasmWorkerAppendToQueue", "_wasmWorkerRunPostMessage", "_wasmWorkerInitializeRuntime", "Fetch" ];
+var unexportedSymbols = [ "run", "out", "err", "callMain", "abort", "wasmMemory", "wasmExports", "HEAP8", "HEAP16", "HEAP32", "HEAP64", "writeStackCookie", "checkStackCookie", "INT53_MAX", "INT53_MIN", "bigintToI53Checked", "stackSave", "stackRestore", "stackAlloc", "ptrToString", "exitJS", "getHeapMax", "growMemory", "ENV", "ERRNO_CODES", "DNS", "Protocols", "Sockets", "timers", "warnOnce", "readEmAsmArgsArray", "readEmAsmArgs", "runEmAsmFunction", "runMainThreadEmAsm", "dynCallLegacy", "dynCall", "handleException", "keepRuntimeAlive", "runtimeKeepalivePush", "runtimeKeepalivePop", "callUserCallback", "maybeExit", "alignMemory", "wasmTable", "noExitRuntime", "addRunDependency", "removeRunDependency", "addOnPreRun", "addOnExit", "addOnPostRun", "freeTableIndexes", "functionsInTableMap", "PATH", "PATH_FS", "UTF8Decoder", "UTF8ArrayToString", "stringToUTF8Array", "UTF16Decoder", "stringToUTF8OnStack", "JSEvents", "registerKeyEventCallback", "specialHTMLTargets", "maybeCStringToJsString", "findEventTarget", "findCanvasEventTarget", "getBoundingClientRect", "fillMouseEventData", "registerMouseEventCallback", "registerWheelEventCallback", "registerUiEventCallback", "registerFocusEventCallback", "fillDeviceOrientationEventData", "registerDeviceOrientationEventCallback", "fillDeviceMotionEventData", "registerDeviceMotionEventCallback", "screenOrientation", "fillOrientationChangeEventData", "registerOrientationChangeEventCallback", "fillFullscreenChangeEventData", "registerFullscreenChangeEventCallback", "currentFullscreenStrategy", "restoreOldWindowedStyle", "fillPointerlockChangeEventData", "registerPointerlockChangeEventCallback", "fillVisibilityChangeEventData", "registerVisibilityChangeEventCallback", "registerTouchEventCallback", "fillGamepadEventData", "registerGamepadEventCallback", "fillBatteryEventData", "registerBatteryEventCallback", "UNWIND_CACHE", "ExitStatus", "flush_NO_FILESYSTEM", "safeSetTimeout", "emSetImmediate", "emClearImmediate_deps", "emClearImmediate", "promiseMap", "Browser", "requestFullscreen", "requestFullScreen", "setCanvasSize", "getUserMedia", "createContext", "getPreloadedImageData__data", "wget", "MONTH_DAYS_REGULAR", "MONTH_DAYS_LEAP", "MONTH_DAYS_REGULAR_CUMULATIVE", "MONTH_DAYS_LEAP_CUMULATIVE", "SYSCALLS", "preloadPlugins", "FS_stdin_getChar_buffer", "FS_unlink", "FS_createPath", "FS_createDevice", "FS_readFile", "FS", "FS_root", "FS_mounts", "FS_devices", "FS_streams", "FS_nextInode", "FS_nameTable", "FS_currentPath", "FS_initialized", "FS_ignorePermissions", "FS_filesystems", "FS_syncFSRequests", "FS_readFiles", "FS_lookupPath", "FS_getPath", "FS_hashName", "FS_hashAddNode", "FS_hashRemoveNode", "FS_lookupNode", "FS_createNode", "FS_destroyNode", "FS_isRoot", "FS_isMountpoint", "FS_isFile", "FS_isDir", "FS_isLink", "FS_isChrdev", "FS_isBlkdev", "FS_isFIFO", "FS_isSocket", "FS_flagsToPermissionString", "FS_nodePermissions", "FS_mayLookup", "FS_mayCreate", "FS_mayDelete", "FS_mayOpen", "FS_checkOpExists", "FS_nextfd", "FS_getStreamChecked", "FS_getStream", "FS_createStream", "FS_closeStream", "FS_dupStream", "FS_doSetAttr", "FS_chrdev_stream_ops", "FS_major", "FS_minor", "FS_makedev", "FS_registerDevice", "FS_getDevice", "FS_getMounts", "FS_syncfs", "FS_mount", "FS_unmount", "FS_lookup", "FS_mknod", "FS_statfs", "FS_statfsStream", "FS_statfsNode", "FS_create", "FS_mkdir", "FS_mkdev", "FS_symlink", "FS_rename", "FS_rmdir", "FS_readdir", "FS_readlink", "FS_stat", "FS_fstat", "FS_lstat", "FS_doChmod", "FS_chmod", "FS_lchmod", "FS_fchmod", "FS_doChown", "FS_chown", "FS_lchown", "FS_fchown", "FS_doTruncate", "FS_truncate", "FS_ftruncate", "FS_utime", "FS_open", "FS_close", "FS_isClosed", "FS_llseek", "FS_read", "FS_write", "FS_mmap", "FS_msync", "FS_ioctl", "FS_writeFile", "FS_cwd", "FS_chdir", "FS_createDefaultDirectories", "FS_createDefaultDevices", "FS_createSpecialDirectories", "FS_createStandardStreams", "FS_staticInit", "FS_init", "FS_quit", "FS_findObject", "FS_analyzePath", "FS_createFile", "FS_createDataFile", "FS_forceLoadFile", "FS_createLazyFile", "FS_absolutePath", "FS_createFolder", "FS_createLink", "FS_joinPath", "FS_mmapAlloc", "FS_standardizePath", "MEMFS", "TTY", "PIPEFS", "SOCKFS", "tempFixedLengthArray", "miniTempWebGLFloatBuffers", "miniTempWebGLIntBuffers", "GL", "AL", "GLUT", "EGL", "GLEW", "IDBStore", "runAndAbortIfError", "Asyncify", "Fibers", "SDL", "SDL_gfx", "allocateUTF8", "allocateUTF8OnStack", "print", "printErr", "jstoi_s", "_wasmWorkers", "_wasmWorkersID", "_wasmWorkerDelayedMessageQueue", "_wasmWorkerAppendToQueue", "_wasmWorkerRunPostMessage", "_wasmWorkerInitializeRuntime", "Fetch" ];
 
 unexportedSymbols.forEach(unexportedRuntimeSymbol);
 
@@ -3627,20 +3592,20 @@ function checkIncomingModuleAPI() {
 }
 
 var ASM_CONSTS = {
-  8397432: $0 => {
+  8397336: $0 => {
     if (!window.Ko.Hx_SyDx_vsg) {
       window.Ko.Hx_SyDx_vsg = UTF8ToString($0);
     }
   },
-  8397513: () => {
+  8397417: () => {
     OPFS_SmeStx();
   },
-  8397530: () => {},
-  8397534: () => {
+  8397434: () => {},
+  8397438: () => {
     console.log("MC: HrySmz__BriYa");
   },
-  8397574: () => {},
-  8397578: () => {
+  8397478: () => {},
+  8397482: () => {
     emscripten_throw_string("TEST THROW ERR");
   }
 };
@@ -3903,8 +3868,6 @@ var __emscripten_wasm_worker_initialize = makeInvalidEarlyAccess("__emscripten_w
 
 var dynCall_v = makeInvalidEarlyAccess("dynCall_v");
 
-var dynCall_jijj = makeInvalidEarlyAccess("dynCall_jijj");
-
 var dynCall_iijj = makeInvalidEarlyAccess("dynCall_iijj");
 
 var dynCall_ijdiiii = makeInvalidEarlyAccess("dynCall_ijdiiii");
@@ -3951,7 +3914,6 @@ function assignWasmExports(wasmExports) {
   _emscripten_stack_get_current = wasmExports["emscripten_stack_get_current"];
   __emscripten_wasm_worker_initialize = createExportWrapper("_emscripten_wasm_worker_initialize", 2);
   dynCalls["v"] = dynCall_v = createExportWrapper("dynCall_v", 1);
-  dynCalls["jijj"] = dynCall_jijj = createExportWrapper("dynCall_jijj", 4);
   dynCalls["iijj"] = dynCall_iijj = createExportWrapper("dynCall_iijj", 4);
   dynCalls["ijdiiii"] = dynCall_ijdiiii = createExportWrapper("dynCall_ijdiiii", 7);
   dynCalls["vjj"] = dynCall_vjj = createExportWrapper("dynCall_vjj", 3);
@@ -3987,7 +3949,6 @@ function assignWasmImports() {
     /** @export */ emscripten_sample_gamepad_data: _emscripten_sample_gamepad_data,
     /** @export */ emscripten_set_batterychargingchange_callback_on_thread: _emscripten_set_batterychargingchange_callback_on_thread,
     /** @export */ emscripten_set_batterylevelchange_callback_on_thread: _emscripten_set_batterylevelchange_callback_on_thread,
-    /** @export */ emscripten_set_beforeunload_callback_on_thread: _emscripten_set_beforeunload_callback_on_thread,
     /** @export */ emscripten_set_blur_callback_on_thread: _emscripten_set_blur_callback_on_thread,
     /** @export */ emscripten_set_click_callback_on_thread: _emscripten_set_click_callback_on_thread,
     /** @export */ emscripten_set_dblclick_callback_on_thread: _emscripten_set_dblclick_callback_on_thread,
@@ -4054,7 +4015,6 @@ function applySignatureConversions(wasmExports) {
   wasmExports["emscripten_stack_get_current"] = makeWrapper_p(wasmExports["emscripten_stack_get_current"]);
   wasmExports["_emscripten_wasm_worker_initialize"] = makeWrapper__p_(wasmExports["_emscripten_wasm_worker_initialize"]);
   wasmExports["dynCall_v"] = makeWrapper__p(wasmExports["dynCall_v"]);
-  wasmExports["dynCall_jijj"] = makeWrapper__p___(wasmExports["dynCall_jijj"]);
   wasmExports["dynCall_iijj"] = makeWrapper__p___(wasmExports["dynCall_iijj"]);
   wasmExports["dynCall_ijdiiii"] = makeWrapper__p______(wasmExports["dynCall_ijdiiii"]);
   wasmExports["dynCall_vjj"] = makeWrapper__p__(wasmExports["dynCall_vjj"]);
