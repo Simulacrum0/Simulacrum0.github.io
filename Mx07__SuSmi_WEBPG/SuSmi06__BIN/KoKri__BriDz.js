@@ -3592,20 +3592,20 @@ function checkIncomingModuleAPI() {
 }
 
 var ASM_CONSTS = {
-  8397352: $0 => {
+  8397368: $0 => {
     if (!window.Ko.Hx_SyDx_vsg) {
       window.Ko.Hx_SyDx_vsg = UTF8ToString($0);
     }
   },
-  8397433: () => {
+  8397449: () => {
     OPFS_SmeStx();
   },
-  8397450: () => {},
-  8397454: () => {
+  8397466: () => {},
+  8397470: () => {
     console.log("MC: HrySmz__BriYa");
   },
-  8397494: () => {},
-  8397498: () => {
+  8397510: () => {},
+  8397514: () => {
     emscripten_throw_string("TEST THROW ERR");
   }
 };
