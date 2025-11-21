@@ -1,6 +1,16 @@
 //==============================================
+// LOGS
+// Skipped usual 8 layers for minimal JS
+//==============================================
+function SmaSme(){ var args = Array.prototype.slice.call(arguments); console.log.apply(console, args); }
+function SmaDre(){ var args = Array.prototype.slice.call(arguments); console.warn.apply(console, args); }
+function SmaTrx(){ var args = Array.prototype.slice.call(arguments); console.error.apply(console, args); }
+
+//==============================================
 // STARTUP
 //==============================================
+
+//@@@
 // CORS must RUN FIRST
 console.log( "Web_Security[ CORS ]: " + (window.crossOriginIsolated ? "✅" : "❌"));
 if( !window.crossOriginIsolated )
@@ -25,6 +35,17 @@ document.addEventListener('readystatechange', function()
 	}
 });
 
+
+//@@@
+// REQUIRED FEATURES
+if( MEM64_yk )
+{
+	SmaDre( "MEM64: NO Support!" );
+}
+else
+{
+	SmaSme( "MEM64: Supported!" );
+}
 
 
 //==============================================

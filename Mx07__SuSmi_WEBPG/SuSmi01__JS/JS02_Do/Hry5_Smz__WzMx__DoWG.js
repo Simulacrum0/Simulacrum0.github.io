@@ -110,13 +110,13 @@ DoWG.SmaYz = function( Sa_l )
 	SmaSme( "--------------------------------------------" );
 	SmaSme( "DoWG_Yz" );
 	SmaSme( "--------------------------------------------" );
-	SmaSme( "Adapter: " + Sa_l.KaKy_l.info.vendor );
+	SmaSme( "Chip: " + Sa_l.KaKy_l.info.vendor );
 	//SmaSme( Sa_l.KaKy_l );
 
-	SmaSme( "Dev: " + Sa_l.KaSmz_l.adapterInfo.architecture );
+	SmaSme( "Class: " + Sa_l.KaKy_l.info.architecture );
 	//SmaSme( Sa_l.KaSmz_l );
 
-	SmaSme( "Surf_Deck: " + Sa_l.TaGwa__JaPo_l.width + ", " + Sa_l.TaGwa__JaPo_l.height + ", " + Sa_l.TaGwa__JaPo_l.depthOrArrayLayers );
+	SmaSme( "Surface_Deck: " + Sa_l.TaGwa__JaPo_l.width + ", " + Sa_l.TaGwa__JaPo_l.height + ", " + Sa_l.TaGwa__JaPo_l.depthOrArrayLayers );
 	// SmaSme( Sa_l.TaGwa__JaPo_l );
 
 	SmaSme( "--------------------------------------------" );

@@ -1,12 +1,4 @@
 //==============================================
-// LOGS
-// Skipped usual 8 layers for minimal JS
-//==============================================
-function SmaSme(){ var args = Array.prototype.slice.call(arguments); console.log.apply(console, args); }
-function SmaDre(){ var args = Array.prototype.slice.call(arguments); console.warn.apply(console, args); }
-function SmaTrx(){ var args = Array.prototype.slice.call(arguments); console.error.apply(console, args); }
-
-//==============================================
 // DISPLAY MSG
 //==============================================
 function KoYz_Hry()
