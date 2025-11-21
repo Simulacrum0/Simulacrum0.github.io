@@ -164,7 +164,6 @@ async function KoDz__Ya( )
 	// const FNT_l = await Hrz7_Kru__ChaWaDru( 'Final Frontier Old Style', 'url(' + BriDz__Mx_KuTu_vsg + 'Mx01__SuKz_MEDIA/SuKz04_WaDru__FONT/WaDru02__FinalFrontier.ttf )' );
 
 
-
 	//@@@
 	// ENGINE_REQ
 	_Hrz5_Ki__BriSmz__Ya();

@@ -53,9 +53,7 @@ var Module =
 	// RUN when WASM_LOADED
 	onRuntimeInitialized: function()
 	{
-        // Your code here, e.g., calling a function from the WASM module
-        console.log("WASM module is ready!");
-        // Module.yourFunction(); // Call a function from the WASM module
+        // SmaSme( "WASM module is ready" );
 		KoDz__Ya();
 		MoDz__DzStxGru();
 
@@ -93,53 +91,44 @@ var Module =
 //==============================================
 
 //----------------------------
-function MoDzTrx( Mi_vsg )
+function MoDzTrx( Trx_vsg )
 //----------------------------
 {
 	//@@@
 	// CFG
 	// If already 'Err' exit
 	if( Module.Trx_vsg ) return;
-	Module.Trx_vsg = Mi_vsg;
+	Module.Trx_vsg = Trx_vsg;
 
 	KoDz__YzChy( KoYz_qk.Trx );
 
 	//@@@
-	// ERR MSG
-	var KeDru_vsg = KoKeDru.TrxBz_vsg + " [" + ( window.Ko.Hx_SyDx_vsg ? window.Ko.Hx_SyDx_vsg : "???" ) + " " + BriDzSa__Da_vsg + "] " + Mi_vsg;
+	// ERR MSGBARS
 
 	//&&&
 	// HEADER (Fixed)
-	Module.Sma__BriDzYz__Bz( KoKeDru.TrxBz_vsg + KoKeDru.TrxKrx_vsg );
+	var Bz_vsg = KoKeDru.TrxBz_vsg + " [" + ( window.Ko.Hx_SyDx_vsg ? window.Ko.Hx_SyDx_vsg : "???" ) + " " + BriDzSa__Da_vsg + "] " + KoKeDru.TrxKrx_vsg;
+	Module.Sma__BriDzYz__Bz( Bz_vsg );
 
 	//&&&
 	// FOOTER (Dynamic)
-	Module.Sma__BriDzYz__Bo( KeDru_vsg );
+	var Bo_vsg = KoKeDru.TrxBz_vsg + Trx_vsg;
+	Module.Sma__BriDzYz__Bo( Bo_vsg );
 
 
-		Module.Sma__BriDzYz__Bz
-		(
-			KoKeDru.BriDz_VaSy_vsg + " [ " + BriDzSa__Da_vsg + " ]"
-			+ " Mode: " + ( window.Ko.Hx_SyDx_vsg ? window.Ko.Hx_SyDx_vsg : "???" )
-			+ " @ " + "Date_Time"
-		);
-
-		Module.Sma__BriDzYz__Bo
-		(
-			KoKeDru.BriDz_VaSy_vsg
-			+ " " + Math.floor( Gry__GiPa_wf / 60.0 ).toString().padStart( 3,"0") + "m " + Math.floor( Gry__GiPa_wf % 60 ).toString().padStart(2,"0") + "s"
-			+ " YeFo: " + Ko.YeFo_wu
-			+ " Screen[ " + MxPo_De_l.width + "px, " + MxPo_De_l.height + "px ] DPR: " + window.devicePixelRatio
-		);
+	//&&&
+	// DBG
+	SmaSme( "*STK_TRACE:%s", jsStackTrace() );
 
 	// POST for DBG
-	// console.error( KeDru_vsg );
+	// console.error( Bo_vsg );
 
 	// Skip MSGBOX
-	// alert( KeDru_vsg );
+	// alert( Bo_vsg );
 
 	// DISPLAY ERR
 	KoYz_Hry();
+
 	// STOP INTERVALS
 	// if( window.Ko.Trx_GyHa  ){ clearInterval( window.Ko.Trx_GyHa ); }
 
