@@ -425,7 +425,7 @@ function initMemory() {
     wasmMemory = Module["wasmMemory"];
   } else {
     var INITIAL_MEMORY = Module["INITIAL_MEMORY"] || 16777216;
-    assert(INITIAL_MEMORY >= 8388608, "INITIAL_MEMORY should be larger than STACK_SIZE, was " + INITIAL_MEMORY + "! (STACK_SIZE=" + 8388608 + ")");
+    assert(INITIAL_MEMORY >= 65536, "INITIAL_MEMORY should be larger than STACK_SIZE, was " + INITIAL_MEMORY + "! (STACK_SIZE=" + 65536 + ")");
     /** @suppress {checkTypes} */ wasmMemory = new WebAssembly.Memory({
       "initial": BigInt(INITIAL_MEMORY / 65536),
       // In theory we should not need to emit the maximum if we want "unlimited"
@@ -727,7 +727,7 @@ var handleException = e => {
   checkStackCookie();
   if (e instanceof WebAssembly.RuntimeError) {
     if (_emscripten_stack_get_current() <= 0) {
-      err("Stack overflow detected.  You can try increasing -sSTACK_SIZE (currently set to 8388608)");
+      err("Stack overflow detected.  You can try increasing -sSTACK_SIZE (currently set to 65536)");
     }
   }
   quit_(1, e);
@@ -3594,20 +3594,23 @@ function checkIncomingModuleAPI() {
 }
 
 var ASM_CONSTS = {
-  8397368: $0 => {
+  74280: $0 => {
     if (!window.Ko.Hx_SyDx_vsg) {
       window.Ko.Hx_SyDx_vsg = UTF8ToString($0);
     }
   },
-  8397449: () => {
+  74361: () => {
     OPFS_SmeStx();
   },
-  8397466: () => {},
-  8397470: () => {
+  74378: () => {
+    MoDzTrx("TEST BAD BUILD as ERROR");
+  },
+  74420: () => {},
+  74424: () => {
     console.log("MC: HrySmz__BriYa");
   },
-  8397510: () => {},
-  8397514: () => {
+  74464: () => {},
+  74468: () => {
     emscripten_throw_string("TEST THROW ERR");
   }
 };
