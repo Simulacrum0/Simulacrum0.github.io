@@ -15,16 +15,14 @@
 
 	<script type="text/javascript" src="Hrx4_Che__MeGrx_CORS.js"></script>
 	<script type="module">
-		//import { memory64 } from "https://unpkg.com/wasm-feature-detect?module";
-		const MEM64_yk = WebAssembly.validate(new Uint8Array([0,97,115,109,1,0,0,0,5,3,1,4,1]));
-		//if( ! ( await memory64()) )
-		if( MEM64_yk )
+		//	<script type="text/javascript">
+		if(  WebAssembly.validate(new Uint8Array([0,97,115,109,1,0,0,0,5,3,1,4,1])) )
 		{
-			console.error( "** MEM64: NO Support!" );
+			console.error( "MEM64: NO Support!" );
 		}
 		else
 		{
-			console.warn( "** MEM64: Supported!" );
+			console.warn( "MEM64: Supported!" );
 		}
 	</script>
 
