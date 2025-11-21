@@ -106,11 +106,31 @@ function MoDzTrx( Mi_vsg )
 
 	//@@@
 	// ERR MSG
-	var KeDru_vsg = KoKeDru.TrxBz_vsg + " [" + BriDzSa__Da_vsg + "] " + Mi_vsg;
+	var KeDru_vsg = KoKeDru.TrxBz_vsg + " [" + ( window.Ko.Hx_SyDx_vsg ? window.Ko.Hx_SyDx_vsg : "???" ) + " " + BriDzSa__Da_vsg + "] " + Mi_vsg;
 
-	// POST for HTML
+	//&&&
+	// HEADER (Fixed)
 	Module.Sma__BriDzYz__Bz( KoKeDru.TrxBz_vsg + KoKeDru.TrxKrx_vsg );
+
+	//&&&
+	// FOOTER (Dynamic)
 	Module.Sma__BriDzYz__Bo( KeDru_vsg );
+
+
+		Module.Sma__BriDzYz__Bz
+		(
+			KoKeDru.BriDz_VaSy_vsg + " [ " + BriDzSa__Da_vsg + " ]"
+			+ " Mode: " + ( window.Ko.Hx_SyDx_vsg ? window.Ko.Hx_SyDx_vsg : "???" )
+			+ " @ " + "Date_Time"
+		);
+
+		Module.Sma__BriDzYz__Bo
+		(
+			KoKeDru.BriDz_VaSy_vsg
+			+ " " + Math.floor( Gry__GiPa_wf / 60.0 ).toString().padStart( 3,"0") + "m " + Math.floor( Gry__GiPa_wf % 60 ).toString().padStart(2,"0") + "s"
+			+ " YeFo: " + Ko.YeFo_wu
+			+ " Screen[ " + MxPo_De_l.width + "px, " + MxPo_De_l.height + "px ] DPR: " + window.devicePixelRatio
+		);
 
 	// POST for DBG
 	// console.error( KeDru_vsg );
