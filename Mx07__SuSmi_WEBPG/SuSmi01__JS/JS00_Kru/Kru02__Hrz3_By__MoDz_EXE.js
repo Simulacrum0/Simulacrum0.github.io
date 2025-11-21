@@ -6,7 +6,7 @@ console.log( "Web_Security[ CORS ]: " + (window.crossOriginIsolated ? "âœ…" : "â
 if( !window.crossOriginIsolated )
 {
 	// MSG should display @ DOM
-	MoDzTrx('WAITING: Engaging HTTPS CORS in order to run under Security Policies.');
+	MoDzTrx( 'WAITING: Engaging HTTPS CORS in order to run under Security Policies.' );
 }
 // KoYz_Hry();
 

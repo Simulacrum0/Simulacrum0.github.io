@@ -102,7 +102,7 @@ function KoDz__Yi( )
 
 	//@@@
 	// END ENGINE
-	_Hrz5_Ki__BriSmz__Yi();
+	if( _Hrz5_Ki__BriSmz__Yi ){	_Hrz5_Ki__BriSmz__Yi(); }
 
 	//@@@
 	// END SERV
@@ -259,6 +259,7 @@ function KoDz__Ye( Gi )
 		(
 			KoKeDru.BriDz_VaSy_vsg + " [ " + BriDzSa__Da_vsg + " ]"
 			+ " Mode: " + ( window.Ko.Hx_SyDx_vsg ? window.Ko.Hx_SyDx_vsg : "???" )
+			+ " @ " + "Date_Time"
 		);
 
 		//&&&
