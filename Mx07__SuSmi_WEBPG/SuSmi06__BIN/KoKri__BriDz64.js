@@ -3594,23 +3594,23 @@ function checkIncomingModuleAPI() {
 }
 
 var ASM_CONSTS = {
-  8397352: $0 => {
+  8397272: $0 => {
     if (!window.Ko.Hx_SyDx_vsg) {
       window.Ko.Hx_SyDx_vsg = UTF8ToString($0);
     }
   },
-  8397433: () => {
+  8397353: () => {
     OPFS_SmeStx();
   },
-  8397450: () => {
+  8397370: () => {
     MoDzTrx("TEST BAD BUILD as ERROR");
   },
-  8397492: () => {},
-  8397496: () => {
+  8397412: () => {},
+  8397416: () => {
     console.log("MC: HrySmz__BriYa");
   },
-  8397536: () => {},
-  8397540: () => {
+  8397456: () => {},
+  8397460: () => {
     emscripten_throw_string("TEST THROW ERR");
   }
 };
