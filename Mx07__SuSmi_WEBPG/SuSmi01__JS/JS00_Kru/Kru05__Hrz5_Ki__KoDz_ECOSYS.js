@@ -293,5 +293,13 @@ function KoDz__Ye( Gi )
 
 
 //=====================================
+// LOAD APP ENGINE
+//=====================================
+var BriDz_Fz_js = document.createElement("script");
+BriDz_Fz_js.src = "Mx07__SuSmi_WEBPG/SuSmi06__BIN/KoKri__BriDz" + ( WASM64_yk ? 64:32 ) + ".js";
+document.head.appendChild(BriDz_Fz_js);
+
+
+//=====================================
 // END
 //=====================================
