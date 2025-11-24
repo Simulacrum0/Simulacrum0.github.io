@@ -1,4 +1,8 @@
 //==============================================
+// STARTUP
+//==============================================
+
+//==============================================
 // LOGS
 // Skipped usual 8 layers for minimal JS
 //==============================================
@@ -7,16 +11,16 @@ function SmaDre(){ var args = Array.prototype.slice.call(arguments); console.war
 function SmaTrx(){ var args = Array.prototype.slice.call(arguments); console.error.apply(console, args); }
 
 //==============================================
-// STARTUP
+// SECURITY
 //==============================================
 
 //@@@
 // CORS must RUN FIRST
-SmaDre( "Web_Security[ CORS ]: " + (window.crossOriginIsolated ? "✅" : "❌"));
+SmaSme( "Web_Security[ CORS: " + (window.crossOriginIsolated ?  "✅😀" : "❌😞" ) + " ]" );
 if( !window.crossOriginIsolated )
 {
 	// MSG should display @ DOM
-	SmaSme( 'WAITING: Engaging HTTPS CORS in order to run under Security Policies.' );
+	MoDzTrx( Ko.KeDru.TrxJy00__HrxCheHo__CORS_vsg );
 }
 // KoYz_Hry();
 
@@ -24,19 +28,24 @@ if( !window.crossOriginIsolated )
 //==============================================
 // WASM64
 //==============================================
+
+//@@@
+// WASM64 preferred
 let WASM64_yk = false;
 try
 {
+	// WASM64_yk = false;
 	WASM64_yk = WebAssembly.validate(new Uint8Array([0,97,115,109,1,0,0,0,5,3,1,4,1]));
 }
 catch(e)
 {
 	// WebAssembly is not supported at all
 	SmaTrx( 'No Web Assembly: ' + e);
-	MoDzTrx( Ko.KeDru.TrxJy__HrzMoHo__WASM_vsg );
+	MoDzTrx( Ko.KeDru.TrxJy01__HrzMoHo__WASM_vsg );
 }
 
-SmaSme( "Web_MEM[ 64bit ]: " + ( WASM64_yk ? "✅" : "❌"));
+SmaSme( "Web_Assembly[ " + ( WASM64_yk ? "64" : "32" ) + "bit:" + ( WASM64_yk ? "✅😀" : "❌😞") + " ]" );
+
 
 //==============================================
 // DOM
@@ -248,7 +257,7 @@ async function MoDz__DzStxGru()
 			{
 				SmaSme('!!! FAIL Duplicate Tab.');
 				BCHN_l = null;
-				MoDzTrx( KoKeDru.TrxJy__MoDzStxGru_vsg );
+				MoDzTrx( KoKeDru.TrxJy02__MoDzStxGru_vsg );
 			}
 			else
 			{

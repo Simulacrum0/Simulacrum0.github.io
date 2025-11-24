@@ -21,8 +21,10 @@ const KoKeDru =
 	, TrxKrx_vsg: "Please try a different Browser or Device"
 
 	, TrxJy__CheFyHo_CORS_vsg: "Security Fail: No CORS Found"
-	, TrxJy__HrzMoHo__WASM_vsg: "NO Web Assembly Support!"
-	, TrxJy__MoDzStxGru_vsg: "Only *1* Webpage Allowed"
+	, TrxJy00__HrxCheHo__CORS_vsg: "WAITING: Engaging HTTPS CORS in order to run under Security Policies."
+	, TrxJy01__HrzMoHo__WASM_vsg: "NO Web Assembly Support!"
+	, TrxJy02__MoDzStxGru_vsg: "Only *1* Webpage Allowed"
+
 	, TrxJy__SySmz_GriHo_vsg: "Required Service Fail:"
 	, TrxJy__SuKz_GriHo_vsg: "Required Content Fail:"
 
