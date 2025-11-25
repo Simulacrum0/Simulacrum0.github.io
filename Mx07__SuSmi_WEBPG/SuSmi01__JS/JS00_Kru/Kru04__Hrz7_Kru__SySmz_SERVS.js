@@ -22,7 +22,7 @@ async function Hrz7_Kru__ToKz_vJSON( ChaKuTu_vsg, ToKzVa_vsg )
 async function Hrz7_Kru__ToKz_vsg( ChaKuTu_vsg, ToKzVa_vsg )
 {
 	let KuTu_vbg = BriDz__Mx_KuTu_vsg + ChaKuTu_vsg + ToKzVa_vsg;
-	SmaSme( "FILE seeking TEXT: " + KuTu_vbg );
+	//SmaSme( "FILE seeking TEXT: " + KuTu_vbg );
 	try
 	{
 		const Smx_k = await fetch( KuTu_vbg );
@@ -45,7 +45,6 @@ async function Hrz7_Kru__ToKz_vBLOB( ChaKuTu_vsg, ToKzVa_vsg )
 	{
 		const Smx_k = await fetch( KuTu_vbg );
 		const ToKz_v = await Smx_k.blob();
-		// response.arrayBuffer() --> Promise --> ArrayBuffer (raw generic binary data)
 		return ToKz_v;
 	}
 	catch ( e ) { MoDzTrx( KoKeDru.TrxJy__SuKz_GriHo_vsg + " @ " + ToKzVa_vsg + " --> " + e ); }
@@ -53,12 +52,12 @@ async function Hrz7_Kru__ToKz_vBLOB( ChaKuTu_vsg, ToKzVa_vsg )
 };
 
 //==============================================
-// AB_ADD^Cha
+// BUF_ADD^Cha
 //==============================================
-async function Hrz7_Kru__ToKz_vAB( ChaKuTu_vsg, ToKzVa_vsg )
+async function Hrz7_Kru__ToKz_vBUF( ChaKuTu_vsg, ToKzVa_vsg )
 {
 	let KuTu_vbg = BriDz__Mx_KuTu_vsg + ChaKuTu_vsg + ToKzVa_vsg;
-	SmaSme( "FILE seeking BLOB: " + KuTu_vbg );
+	SmaSme( "FILE seeking BUFFER: " + KuTu_vbg );
 	try
 	{
 		const Smx_k = await fetch( KuTu_vbg );

@@ -18,7 +18,22 @@ const KoYz_qk = Object.freeze
 
 
 //----------------------------
-// SYSTEM SERVICES
+// REQ SERV
+//----------------------------
+const Do_qk = Object.freeze
+({
+	VCB: 0
+	, GLF: 1
+	, WG: 2
+
+
+	, XR: 3
+	, GL: 4
+});
+
+
+//----------------------------
+// SYSTEM SERVICE_GOVERNOR
 //----------------------------
 var Ko =
 {
@@ -141,22 +156,27 @@ async function KoDz__Ya( )
 
 	//@@@
 	// SERV_REQ
-	Hrz7_Kru__ChaSySmz( 'JS02_Do', 'Hre1_Dru', 'KeDruPy', 'DoVCB', true, { Si_KeDru: 'en' } );
+	const SySmz__Kri_yk = true;
+	// Do_qk.VCB
+	Hrz7_Kru__ChaSySmz( 'JS02_Do', 'Hre1_Dru', 'KeDruPy', 'DoVCB', SySmz__Kri_yk, { Si_KeDru: 'en' } );
+	// Do_qk.GLF
+	Hrz7_Kru__ChaSySmz( 'JS02_Do', 'Hry1_Brz', 'KeDru', 'DoGLF', SySmz__Kri_yk, { Gy_wu: 512 } );
+	// Do_qk.WG
+	Hrz7_Kru__ChaSySmz( 'JS02_Do', 'Hry5_Smz', 'WzMx', 'DoWG', SySmz__Kri_yk, { KaVy: '0' } );
 
-	//Hrz7_Kru__ChaSySmz( 'JS02_Do', 'Hr_', '?', 'DoFNT', true, { KaVy: '0' } );
 
-	//Hrz7_Kru__ChaSySmz( 'JS02_Do', 'Hr_', '?', 'Do?', true, { KaVy: '0' } );
-	//Hrz7_Kru__ChaSySmz( 'JS02_Do', 'Hr_', '?', 'Do?', true, { KaVy: '0' } );
-	//Hrz7_Kru__ChaSySmz( 'JS02_Do', 'Hr_', '?', 'Do?', true, { KaVy: '0' } );
+	//Hrz7_Kru__ChaSySmz( 'JS02_Do', 'Hr_', '?', 'DoFNT', SySmz__Kri_yk, { KaVy: '0' } );
+	//Hrz7_Kru__ChaSySmz( 'JS02_Do', 'Hr_', '?', 'Do?', SySmz__Kri_yk, { KaVy: '0' } );
+	//Hrz7_Kru__ChaSySmz( 'JS02_Do', 'Hr_', '?', 'Do?', SySmz__Kri_yk, { KaVy: '0' } );
+	//Hrz7_Kru__ChaSySmz( 'JS02_Do', 'Hr_', '?', 'Do?', SySmz__Kri_yk, { KaVy: '0' } );
 
-	//Hrz7_Kru__ChaSySmz( 'JS02_Do', 'Hry1_Brz', 'KeDru', 'DoPRNT', true, { KaVy: '0' } );
-	Hrz7_Kru__ChaSySmz( 'JS02_Do', 'Hry5_Smz', 'WzMx', 'DoWG', true, { KaVy: '0' } );
 
 
 	//&&&
 	// XR BTN
-	//Hrz7_Kru__ChaSySmz( 'JS02_Do', 'Hri2_Ke', 'BzMe', 'DoXR', false, { KaVy: '0' } );
-	//Hrz7_Kru__ChaSySmz( 'JS02_Do', 'Hry5_Smz', 'BzMe', 'DoGL', false, { KaVy: '0' } );
+	const SySmz__HoKri_yk = false;
+	//Hrz7_Kru__ChaSySmz( 'JS02_Do', 'Hri2_Ke', 'BzMe', 'DoXR', SySmz__HoKri_yk, { KaVy: '0' } );
+	//Hrz7_Kru__ChaSySmz( 'JS02_Do', 'Hry5_Smz', 'BzMe', 'DoGL', SySmz__HoKri_yk, { KaVy: '0' } );
 
 
 	//&&&
@@ -274,9 +294,33 @@ function KoDz__Ye( Gi )
 	Ko.YeFo_wu++;
 
 
+	if( Ko.YeFo_wu % 60 == 24 )
+	{
+		const SaGLF_l = Ko.Ta_SySmz[ Do_qk.GLF ];
+		const SaWG_l = Ko.Ta_SySmz[ Do_qk.WG ];
+		if( SaWG_l && SaGLF_l )
+		{
+			// SmaSme( "DG: ", SaWG_l );
+
+			//@@@
+			SaGLF_l.Ji.Hre7_Me__KeDru_Ha( SaGLF_l, "👽👾🚀", 0, 0 );
+			SaGLF_l.Ji.Hre7_Me__KeDru_Ha( SaGLF_l, "j-Testog", 0, 128 );
+			SaGLF_l.Ji.Hre7_Me__KeDru_Ha( SaGLF_l, "got 🛸", 0, 256 );
+			SaGLF_l.Ji.Hre7_Me__KeDru_Ha( SaGLF_l, "We hv Txt", 0, 384 );
+
+
+			// Sa, Ge( x, y, z ), Gy( x, y ), Ti_v
+			// SaWG_l.Ji.KiCho_JaTi( SaWG_l, 0, 0, 0, 2, 2, new Uint8Array( [ 255, 255, 128, 255,     0, 0, 0, 255,     255, 0, 0, 255    , 255, 128, 0, 255 ] ) );
+			SaWG_l.Ji.KiCho_JaKz( SaWG_l, 0, 0, 0, 512, 512, SaGLF_l.WzPo_l );
+		}
+	}
+
+
 	//@@@
 	// ENGINE_SYNC
 	_Hrz5_Ki__BriSmz__Ye();
+
+
 
 	//@@@
 	// TEK-SERVS UPDATE ALL

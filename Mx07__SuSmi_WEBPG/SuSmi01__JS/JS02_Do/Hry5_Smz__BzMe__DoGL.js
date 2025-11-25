@@ -208,7 +208,7 @@ DoGL.KiCho_SuTy = function( Sa_l )
 DoGL.KiCho_JxRe = function( Sa_l )
 {
 	const gl = Sa_l.gl;
-	SmaSme( "DoWG_KiCho_JxRe: CLONE SEQ" );
+	SmaSme( "DoGL_KiCho_JxRe: CLONE SEQ" );
 
 	function createBuffer( gl, data, type = gl.ARRAY_BUFFER )
 	{
@@ -247,9 +247,9 @@ DoGL.KiCho_JxRe = function( Sa_l )
 //==============================================
 // CLONE FORM SRCs
 //==============================================
-DoGL.KiCho_JaKu = function( Sa_l, GeGx_wu, GeGa_wu, GyGx_wu, GyGa_wu, Si__JaPo_l )
+DoGL.KiCho_JaTi = function( Sa_l, GeGx_wu, GeGa_wu, GyGx_wu, GyGa_wu, Si__JaPo_l )
 {
-	//SmaSme( "DoWG_SyCho_JaPo: ENGINE CLONE FORM" );
+	//SmaSme( "DoGL_SyCho_JaPo: ENGINE CLONE FORM" );
 	const gl = Sa_l.gl;
 
 	gl.activeTexture( gl.TEXTURE0 );
@@ -287,8 +287,8 @@ DoGL.BriYe = function( Sa_l, GiDri_duk  )
 	//&&&
 	// UPLOAD
 	// Send WebGPU Canvas to use for WebVR
-	//DoGL.KiCho_JaKu( Sa_l, 0, 0, 512, 512, Sa_l.WG__XR_SeKu.canvas );
-	DoGL.KiCho_JaKu( Sa_l, 0, 0, 2, 2, new Uint8Array( [	255, 255, 128, 255, 0, 0, 0, 255, 255, 0, 0, 255, 255, 128, 0, 255 ] ) );
+	//DoGL.KiCho_JaTi( Sa_l, 0, 0, 512, 512, Sa_l.WG__XR_SeKu.canvas );
+	DoGL.KiCho_JaTi( Sa_l, 0, 0, 2, 2, new Uint8Array( [	255, 255, 128, 255, 0, 0, 0, 255, 255, 0, 0, 255, 255, 128, 0, 255 ] ) );
 
 	//@@@
 	// RENDER

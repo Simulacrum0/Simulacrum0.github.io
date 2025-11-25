@@ -152,13 +152,13 @@ const JiJa_vs = /* wgsl */ `
 
   var pos = array<vec2f, 6>
   (
-    vec2(-0.67, -0.67),
-    vec2(-0.67, 0.67 ),
-    vec2( 0.67, -0.67 ),
+    vec2(-1.0, -1.0),
+    vec2(-1.0, 1.0 ),
+    vec2( 1.0, -1.0 ),
 
-    vec2( 0.67, -0.67 ),
-    vec2( 0.67, 0.67 ),
-    vec2(-0.67, 0.67 )
+    vec2( 1.0, -1.0 ),
+    vec2( 1.0, 1.0 ),
+    vec2(-1.0, 1.0 )
   );
 
   o.Ge_wf4 = vec4f( pos[ Vx_wu ], 0.0, 1.0 );
@@ -204,7 +204,13 @@ struct FQuad_t
 @fragment fn main( o: FQuad_t ) -> @location(0) vec4f
 {
 	// return vec4( o.JaMy_wf2.x, 1.0, o.JaMy_wf2.y, 1.0 );
-	return textureSample( JaPo_k, JaKro_k, o.JaMy_wf2 / 1024.f, 0 );
+
+	//return textureSample( JaPo_k, JaKro_k, o.JaMy_wf2 / 1024.f, 0 );
+	// JaMy_wu2, JaMyGz_wu, JaBrz_wu
+	//return textureLoad( JaPo_k, vec2u( o.JaMy_wf2 * 2.0 ), 0, 0 );
+
+	//return textureSample( JaPo_k, JaKro_k, o.JaMy_wf2, 0 );
+	return textureLoad( JaPo_k, vec2u( o.JaMy_wf2 * 512.0 ), 0, 0 );
 }
 `;
 
@@ -219,6 +225,7 @@ DoWG.TaJiJa_vvsg =
 	"JiJa08__GOLIFE.v.Hro"
 	, "JiJa09__QUAD.v.Hrz"
 	, "JiJa10__Cho.v.Hry"
+
 ];
 
 //==============================================
@@ -251,12 +258,10 @@ DoWG.BriYa = async function( Yz_l )
 		Fe_TaJiJa_vh[ Vx_wu ] = Hrz7_Kru__ToKz_vsg( "Mx07__SuSmi_WEBPG/SuSmi01__JS/JS01_JiJa/", Ti_v );
 	});
 
-//	const JiJa08__GOLIFE_h = Hrz7_Kru__ToKz_vsg( "Mx07__SuSmi_WEBPG/SuSmi01__JS/JS01_JiJa/", "JiJa08__GOLIFE.v.Hro" );
 
-
-
-	//@@@
-	// DEV PREF
+	//-------------------------------------------------
+	// CHIP ADAPTER
+	//-------------------------------------------------
 	const pref =
 	{
 		// IGNORED 2025/11
@@ -270,44 +275,63 @@ DoWG.BriYa = async function( Yz_l )
 	if( MoDzTrx__NxHo_y( "Adapter", KaKy_l )){ return null; }
 	Sa_l.KaKy_l = KaKy_l;
 
-	//!!!
-	// 2025/11 NO FEATURES
-	// on Chrome/Win11/Nvidia
-	//
-	//&&&
-	// AVAIL
-	// const canTimestamp = KaKy_l.features.has('timestamp-query');
-	// const isWebGPU2 = KaKy_l.features.has('extended-pipeline-cache');
-	//
-	//&&&
-	// REQ
-	const KaKri_k ={ requiredFeatures:[ ], requiredLimits: { } };
-	//
-	//     requiredFeatures: [
-	// 'texture-compression-bc',
-	// 'texture-compression-astc',
-	// (canTimestamp ? 'timestamp-query' : undefined,
-	//       'pipeline-statistics-query',
-	//       'depth-clip-control',
-	//       isWebGPU2 ? 'extended-pipeline-cache' : undefined,
-	//       isWebGPU2 ? 'memory-mapping-control' : undefined
-	//     ].filter(Boolean)
-	//
-	//&&&
-	// LIMITS
-	// Request maximum resource limits
-	//     requiredLimits: {
-	//       maxStorageBufferBindingSize: adapter.limits.maxStorageBufferBindingSize,
-	//       maxBufferSize: adapter.limits.maxBufferSize,
-	//       maxComputeWorkgroupSizeX: 1024,
-	//       maxComputeInvocationsPerWorkgroup: 1024
-	//     }
 
+	//-------------------------------------------------
+	// SCREEN
+	//-------------------------------------------------
+	const MxPo_l = document.getElementById( 'MxPo_De' );
+	Sa_l.MxPo_l = MxPo_l;
+	Sa_l.MxPo__FMT_l = KaKy_l.features.has('bgra8unorm-storage')
+		? navigator.gpu.getPreferredCanvasFormat()
+		: 'rgba8unorm';
+
+	//-------------------------------------------------
+	// CHIP DRIVER
+	//-------------------------------------------------
+	//@@@
+	// AVAIL
+	//const KaTy__WG2 = KaKy_l.features.has('extended-pipeline-cache');
+	const KaTy__TIMER_yk = KaKy_l.features.has('timestamp-query');
+
+	//@@@
+	// DRV_REQ
+	const KaKri_k =
+	{
+		//&&&
+		// FEATS
+		requiredFeatures:
+		[
+			// if bgra8unorm exists, MUST USE!
+			Sa_l.MxPo__FMT_l === 'bgra8unorm' ? ['bgra8unorm-storage'] : undefined
+
+			, KaTy__TIMER_yk ? 'timestamp-query' : undefined
+			//, KaTy__BC_yk ? 'pipeline-statistics-query' : undefined
+			//, KaTy__WG2 ? 'extended-pipeline-cache' : undefined
+			//, KaTy__WG2 ? 'memory-mapping-control' : undefined
+			//, KaTy__BC_yk ? 'texture-compression-bc' : undefined
+			//, KaTy__ASTC_yk ? 'texture-compression-astc' : undefined
+
+		].filter(Boolean)
+
+		//&&&
+		// LIMITS
+		// Request maximum resource limits
+		, requiredLimits:
+		{
+			// , maxStorageBufferBindingSize: adapter.limits.maxStorageBufferBindingSize
+			// , maxBufferSize: adapter.limits.maxBufferSize
+			// , maxComputeWorkgroupSizeX: 1024
+			// , maxComputeInvocationsPerWorkgroup: 1024
+		}
+	};
+
+	//@@@
+	// DEV
 	const KaSmz_l = await KaKy_l.requestDevice( KaKri_k );
 	if( MoDzTrx__NxHo_y( "Device", KaSmz_l )){ return null; }
 	Sa_l.KaSmz_l = KaSmz_l;
 
-	//@@@
+	//&&&
 	// DEV LOST
   	KaSmz_l.lost.then((info) =>
 	{
@@ -321,26 +345,23 @@ DoWG.BriYa = async function( Yz_l )
 
 
 	//-------------------------------------------------
-	// SCREEN & CTX
+	// CTX
 	//-------------------------------------------------
-	const MxPo_l = document.getElementById( 'MxPo_De' );
-	Sa_l.MxPo_l = MxPo_l;
-	Sa_l.MxPo__FMT_l = navigator.gpu.getPreferredCanvasFormat( KaKy_l );
-
-
 	const Sx_l = Sa_l.MxPo_l.getContext( 'webgpu' );
 	if( MoDzTrx__NxHo_y( "Context", Sx_l )){ return null; }
 	Sa_l.Sx_l = Sx_l;
 
 	Sx_l.configure
 	({
-		device: KaSmz_l,
-		format: Sa_l.MxPo__FMT_l
+		device: KaSmz_l
+		, format: Sa_l.MxPo__FMT_l
+		// REQ for RW MxPo via ComputeShader
+		, usage: GPUTextureUsage.RENDER_ATTACHMENT | GPUTextureUsage.STORAGE_BINDING
 	});
+
 
 	// ratio of the resolution in physical pixels to the resolution in CSS pixels
 	// const devicePixelRatio = window.devicePixelRatio;
-
 	MxPo_l.width = MxPo_l.clientWidth;
 	MxPo_l.height = MxPo_l.clientHeight;
 
@@ -364,6 +385,8 @@ DoWG.BriYa = async function( Yz_l )
 	  label: "CELL vertices",
 	  size: vertices.byteLength,
 	  usage: GPUBufferUsage.VERTEX | GPUBufferUsage.COPY_DST,
+	  // OPT
+	  minBindingSize: 64
 	});
 	KaSmz_l.queue.writeBuffer( vertexBuffer, 0, vertices );
 
@@ -406,7 +429,8 @@ DoWG.BriYa = async function( Yz_l )
 
 		magFilter: "linear",
 		minFilter: "linear",
-		mipmapFilter: "linear",
+		mipmapFilter: "nearest",
+//		mipmapFilter: "linear",
 	});
 
 
@@ -624,6 +648,7 @@ DoWG.BriYa = async function( Yz_l )
 		label: "CRAFTS^SuTy",
 		size: SuTy__BraHiFrz_k,
 		usage: GPUBufferUsage.UNIFORM | GPUBufferUsage.COPY_DST,
+		minBindingSize: 64
 	});
 	if( MoDzTrx__NxHo_y( "Crafts^SuTy", Jx00__SuTy )){ return null; }
 	Sa_l.Jx00__SuTy = Jx00__SuTy;
@@ -695,20 +720,19 @@ DoWG.BriYa = async function( Yz_l )
 		size: [ 2048, 2048, 4 ], mipLevelCount: 1,
 
 		format: 'rgba8unorm',
+		// format: Sa_l.MxPo__FMT_l,
+
 		sampleCount: 1,
 		usage:
 		GPUTextureUsage.COPY_SRC
 		| GPUTextureUsage.COPY_DST
 		| GPUTextureUsage.TEXTURE_BINDING
 		| GPUTextureUsage.STORAGE_BINDING
+
 		| GPUTextureUsage.RENDER_ATTACHMENT,
 	});
 	if( MoDzTrx__NxHo_y( "Surf Deck", TaGwa__JaPo_l )){ return null; }
-
 	Sa_l.TaGwa__JaPo_l = TaGwa__JaPo_l;
-
-	DoWG.KiCho_JaKu( Sa_l, 0, 0, 2, 2, new Uint8Array( [ 255, 255, 128, 255,     0, 0, 0, 255,     255, 0, 0, 255    , 255, 128, 0, 255 ] ) );
-
 
 	//-------------------------------------------------
 	// BIND GROUPS
@@ -753,7 +777,8 @@ DoWG.BriYa = async function( Yz_l )
 		[
 		{
 		  binding: 0,
-		  resource: Sa_l.JaMi__DISCRETE_l
+		  resource: Sa_l.JaMi__SMOOTH_l
+		  // resource: Sa_l.JaMi__DISCRETE_l
 		}
 		,
 		{
@@ -787,6 +812,15 @@ DoWG.BriYa = async function( Yz_l )
 
 		, primitive: { topology: 'triangle-list' }
 	});
+
+
+	//-------------------------------------------------
+	// TEST
+	//-------------------------------------------------
+
+	// LOAD 2x2 TEST PTRN
+	DoWG.KiCho_JaTi( Sa_l, 0, 0, 0, 2, 2, new Uint8Array( [ 255, 255, 0, 255,     0, 0, 255, 255,     255, 0, 0, 255    , 0, 255, 0, 255 ] ) );
+
 
 
 	//-------------------------------------------------
@@ -856,15 +890,14 @@ DoWG.KiCho_JxRe = function( Sa_l )
 }
 
 //==============================================
-// CLONE IMG
+// CLONE SAMPLES
 //
 // Row = Block Row!
 // raw textures: block width/height = 1
 // compressed textures, ex: bc1-rgba-unorm, block width/height = 4 //==============================================
-DoWG.KiCho_JaKu = function( Sa_l, GeGz_wu, GeGx_wu, GeGa_wu, GyGx_wu, GyGa_wu, Si__JaPo_l )
+DoWG.KiCho_JaTi = function( Sa_l, GeGx_wuk, GeGa_wuk, GeGz_wuk, GyGx_wuk, GyGa_wuk, JaTi_vk )
 {
 	if( KoDz__YzTrx_y() ) return;
-	SmaSme( "DoWG_SyCho_JaPo: CLONE FORM" );
 
 	//@@@
 	// UPLOAD TEXTURE?
@@ -873,20 +906,19 @@ DoWG.KiCho_JaKu = function( Sa_l, GeGz_wu, GeGx_wu, GeGa_wu, GyGx_wu, GyGa_wu, S
 		{
 			texture: Sa_l.TaGwa__JaPo_l
 			, mipLevel: 0
-			, origin: [0, 0, 0]
+			, origin: [ GeGx_wuk, GeGa_wuk, GeGz_wuk ]
 		}
-
-		, new Uint8Array( [ 255, 255, 128, 255, 128, 255, 255, 255, 255, 128, 255, 255, 255, 128, 128, 255	] )
-
+		, JaTi_vk
 		,
 		{
-			bytesPerRow: 8,
-			rowsPerImage: 2
+			// ALWAYS USING 4bu/smp
+			bytesPerRow: GyGx_wuk * 4,
+			rowsPerImage: GyGa_wuk
 		}
 		,
 		{
-			width: 2,
-			height: 2,
+			width: GyGx_wuk,
+			height: GyGa_wuk,
 			depthOrArrayLayers: 1,
 		}
 	);
@@ -894,8 +926,49 @@ DoWG.KiCho_JaKu = function( Sa_l, GeGz_wu, GeGx_wu, GeGa_wu, GyGx_wu, GyGa_wu, S
 
 
 //==============================================
-// RELOCATE TEXTURE
+// CLONE OBJECT
+//  HTMLCanvasElement, HTMLImageElement, HTMLVideoElement, ImageBitmap, ImageData, OffscreenCanvas, or VideoFrame
 //==============================================
+DoWG.KiCho_JaKz = function( Sa_l, GeGx_wuk, GeGa_wuk, GeGz_wuk, GyGx_wuk, GyGa_wuk, JaKz_vk )
+{
+	if( KoDz__YzTrx_y() ) return;
+
+	//@@@
+	// UPLOAD TEXTURE?
+	Sa_l.KaSmz_l.queue.copyExternalImageToTexture
+	(
+		// source
+		{
+			source: JaKz_vk
+			, origin: [ 0, 0 ]
+			, flipY: true
+		}
+		, // destination
+		{
+			texture: Sa_l.TaGwa__JaPo_l
+			, mipLevel: 0
+			, origin: [ GeGx_wuk, GeGa_wuk, GeGz_wuk ]
+			, premultipliedAlpha: false
+			// "srgb" and "display-p3"
+			, colorSpace: "srgb"
+		}
+		, //copySize
+		{
+			width: GyGx_wuk,
+			height: GyGa_wuk,
+			depthOrArrayLayers: 1,
+		}
+	);
+}
+
+
+//==============================================
+// CLONE SELF
+// MOVE RECT
+// RELOCATE
+//==============================================
+DoWG.KiCho_ChyGe = function( Sa_l, SiGeGx_wuk, SiGeGa_wuk, SiGeGz_wuk, DuGyGx_wuk, DuGyGa_wuk, SeGeGx_wuk, SeGeGa_wuk, SeGeGz_wuk )
+{
 /*
 src.texture must have a usage of GPUTextureUsage.COPY_SRC
 dst.texture must have a usage of GPUTextureUsage.COPY_DST
@@ -918,6 +991,8 @@ Sa_l.KaSmz_l.queue.copyTextureToTexture(
   );
   )
 */
+}
+
 //==============================================
 //
 //==============================================
@@ -1007,9 +1082,9 @@ DoWG.BriYe = function( Sa_l, GiDri_duk  )
 
 
 	// HEAPO_wf(); // Module["HEAPU8"][ 0 ];
-	//	const time = GiDri_duk * 0.001;
+	// const time = GiDri_duk * 0.001;
 	// const tic = Module._HEAPO_wf();
-	//console.log( "Tic" + tic );
+	// console.log( "Tic" + tic );
 
 
 	//@@@
@@ -1018,7 +1093,6 @@ DoWG.BriYe = function( Sa_l, GiDri_duk  )
 
 	//@@@
 	// COMPUTE
-
 	{
 		// Start a compute pass
 		const cPass = MoKro_l.beginComputePass();
@@ -1026,12 +1100,17 @@ DoWG.BriYe = function( Sa_l, GiDri_duk  )
 		cPass.setPipeline( Sa_l.JiGwe02__CONWAY_SIM);
 		cPass.setBindGroup(0, Sa_l.bindGroups[  CS_Kwi_wu % 2]);
 
-		const workgroupCount = Math.ceil(CS_Gy_k / CS_WzVu_k);
-		cPass.dispatchWorkgroups(workgroupCount, workgroupCount);
+		const TaWz__Fo_wuk = Math.ceil(CS_Gy_k / CS_WzVu_k);
+		cPass.dispatchWorkgroups( TaWz__Fo_wuk, TaWz__Fo_wuk );
+
+
+
 		cPass.end();
 
 		CS_Kwi_wu++;
 	}
+
+
 
 	//@@@
 	// FLT
@@ -1074,8 +1153,10 @@ DoWG.BriYe = function( Sa_l, GiDri_duk  )
 	// END COMPOSITE
 	rPass.end();
 
-	//&&&
-	// WzMe^WORK SEND
+
+
+	//@@@
+	// WzMe^WORK RUN
 	KaSmz_l.queue.submit([MoKro_l.finish()]);
 
 	//@@@
