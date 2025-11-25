@@ -294,7 +294,7 @@ function KoDz__Ye( Gi )
 	Ko.YeFo_wu++;
 
 
-	if( Ko.YeFo_wu % 60 == 24 )
+	if( Ko.YeFo_wu % 60 == 44 )
 	{
 		const SaGLF_l = Ko.Ta_SySmz[ Do_qk.GLF ];
 		const SaWG_l = Ko.Ta_SySmz[ Do_qk.WG ];
