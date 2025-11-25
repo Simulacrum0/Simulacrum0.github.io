@@ -8,9 +8,12 @@ SyKzJy:
 - BUF^JxTi( rect, SuTy )
 - IMG^TaGwa__JaPo( Surface Deck as array of BGRA 2D Slices )
 - SMP^JaMy( Samplers )
-- BIND^WzTro( buf/img map to Index )
+- PROG^JiSpo [ JiHro, JiGwa, JiGe ( Compute, Surface-Sampled, Rasterized-Vertices )]
+-
+- BIND_GROUP^TruSu( buf/img map to Index )
+- BIND_GROUP_LAYOUT^TruKy
+- PIPELINE_LAYOUT^TruTa ( Groupof TruKy )
 
-- PROG^JiSpo [ JiHro, JiJa, JiGe ( Compute, Sampled, Rasterized-Vertices )]
 - PIPE^JiGwe( Connect Bind & Prog )
 
 - CMD^MoKro( Encode Pass^WzTra as Pipe, Bind, & Raster-Bufs or Compute-Workgroups )
@@ -24,7 +27,6 @@ window.DoWG = DoWG;
 //==============================================
 // QUALITIES
 //==============================================
-
 const CS_Gy_k = 32;
 const CS_WzVu_k = 8;
 let CS_Kwi_wu = 0;
@@ -60,7 +62,8 @@ const JaMy_qk = Object.freeze
 
 
 //-------------------------------------------------
-// PROG_OBJ
+// PROG
+// Combos of Shaders
 const JiSpo_qk = Object.freeze
 //-------------------------------------------------
 ({
@@ -73,6 +76,7 @@ const JiSpo_qk = Object.freeze
 
 //-------------------------------------------------
 // PIPE
+// Program for Use
 const JiGwe_qk = Object.freeze
 //-------------------------------------------------
 ({
@@ -81,7 +85,6 @@ const JiGwe_qk = Object.freeze
 	, JiGwe02: 2
 
 });
-
 
 
 
@@ -170,32 +173,53 @@ const JiJa_vs = /* wgsl */ `
 `;
 
 
+//@@@
+// PASSES
+// Grp0: Frame
+// Grp1: Dst
+// Grp2: Task
+//
+// @group(1) @binding(0) var<uniform> SuTy_l: SuTyDe_t;
+// @group(2) @binding(0) var<uniform> SuTy_l: SuTyDe_t;
+
 const JiJa_fs = /* wgsl */ `
 
-struct FSUniforms {
+@group(0) @binding(0) var JaKro_k: sampler;
+@group(0) @binding(1) var JaPo_k: texture_2d_array<f32>;
+
+struct SuTyDe_t
+{
     lightDirection: vec3f,
-  };
+};
 
 struct FQuad_t
 {
     @builtin(position) Ge_wf4: vec4f,
 	@location(0) JaMy_wf2: vec2f,
 	@location(1) JaChy_wf2: vec2f,
-	};
+};
 
 
-	// @group(0) @binding(1) var<uniform> fsUniforms: FSUniforms;
-	// @group(0) @binding(2) var diffuseSampler: sampler;
-	// @group(0) @binding(3) var diffuseTexture: texture_2d<f32>;
 
 @fragment fn main( o: FQuad_t ) -> @location(0) vec4f
 {
-
-	// FRAG 0
-	return vec4( o.JaMy_wf2.x, o.JaMy_wf2.y, 1.0, 1.0 );
+	// return vec4( o.JaMy_wf2.x, 1.0, o.JaMy_wf2.y, 1.0 );
+	return textureSample( JaPo_k, JaKro_k, o.JaMy_wf2 / 1024.f, 0 );
 }
 `;
 
+
+
+
+//==============================================
+// DoWG_TaJiJa
+//==============================================
+DoWG.TaJiJa_vvsg =
+[
+	"JiJa08__GOLIFE.v.Hro"
+	, "JiJa09__QUAD.v.Hrz"
+	, "JiJa10__Cho.v.Hry"
+];
 
 //==============================================
 // DoWG_ChaJiJa
@@ -213,13 +237,23 @@ DoWG.ChaJiJa = async function( Va, KuTu )
 DoWG.BriYa = async function( Yz_l )
 {
 	//@@@
-	// PROG SRC
-	const JiJa08__GOLIFE_h = Hrz7_Kru__ToKz_vsg( "Mx07__SuSmi_WEBPG/SuSmi01__JS/JS01_JiJa/", "JiJa08__GOLIFE.v.Hro" );
-
-
 	// MAKE SESSION with Ji INTERFACE
 	const Sa_l = { Ji: DoWG };
 	Sa_l.KaVy = Yz_l.KaVy;
+	Sa_l.TaJiJa_vh = [];
+
+	//@@@
+	// PROG SRC ASYNC LOAD
+	const Fe_TaJiJa_vh = [];
+	DoWG.TaJiJa_vvsg.forEach
+	( function( Ti_v, Vx_wu )
+	{
+		Fe_TaJiJa_vh[ Vx_wu ] = Hrz7_Kru__ToKz_vsg( "Mx07__SuSmi_WEBPG/SuSmi01__JS/JS01_JiJa/", Ti_v );
+	});
+
+//	const JiJa08__GOLIFE_h = Hrz7_Kru__ToKz_vsg( "Mx07__SuSmi_WEBPG/SuSmi01__JS/JS01_JiJa/", "JiJa08__GOLIFE.v.Hro" );
+
+
 
 	//@@@
 	// DEV PREF
@@ -310,8 +344,6 @@ DoWG.BriYa = async function( Yz_l )
 	MxPo_l.width = MxPo_l.clientWidth;
 	MxPo_l.height = MxPo_l.clientHeight;
 
-	// BIND: @group(0) @binding(0) var textures: texture_2d_array<f32>;
-
 
 	//-------------------------------------------------
 	// BUF: LOC
@@ -329,7 +361,7 @@ DoWG.BriYa = async function( Yz_l )
 	]);
 
 	const vertexBuffer = KaSmz_l.createBuffer({
-	  label: "Cell vertices",
+	  label: "CELL vertices",
 	  size: vertices.byteLength,
 	  usage: GPUBufferUsage.VERTEX | GPUBufferUsage.COPY_DST,
 	});
@@ -344,8 +376,6 @@ DoWG.BriYa = async function( Yz_l )
 		shaderLocation: 0, // Position. Matches @location(0) in the @vertex shader.
 	  }],
 	};
-
-
 	Sa_l.vertexBuffer = vertexBuffer;
 	Sa_l.vertices = vertices;
 
@@ -382,11 +412,37 @@ DoWG.BriYa = async function( Yz_l )
 
 	//-------------------------------------------------
 	// GROUP_LAYOUT
+	// format { ? }
+	//
+	//  buffer:
+	// - "uniform": A buffer created with a usage of GPUBufferUsage.UNIFORM
+	// - "storage": A writable buffer created with a usage of GPUBufferUsage.STORAGE.
+	// - "read-only-storage": A read-only buffer created with a usage of GPUBufferUsage.STORAGE.
+	//
+	// externalTexture
+	//
+	// sampler:
+	// - type:{ comparison, non-filtering, filtering }
+	//
+	// storageTexture:
+	// - access:{ read-only, read-write, write-only}
+	// - !!--> ONLY IF
+	// - "readonly_and_readwrite_storage_textures"
+	// - WGSL language extension is present in WGSLLanguageFeatures.
+	//
+	//  texture
+	// 	- viewDimension{ "1d", "2d-array", "2d", "3d", "cube" }
+	//  - sampleType{
+	// "depth"
+	// "float"
+	// "sint"
+	// "uint"
+	// "unfilterable-float"
 	//-------------------------------------------------
 	// Create the bind group layout and pipeline layout.
-	const bindGroupLayout = KaSmz_l.createBindGroupLayout
+	const CELL_SuNiSz = KaSmz_l.createBindGroupLayout
 	({
-	  label: "Cell Bind Group Layout",
+	  label: "CELL Bind Group Layout",
 	  entries: [{
 		binding: 0,
 		visibility: GPUShaderStage.VERTEX | GPUShaderStage.COMPUTE,
@@ -402,12 +458,40 @@ DoWG.BriYa = async function( Yz_l )
 	  }]
 	});
 
+
+	const QUAD_SuNiSz = KaSmz_l.createBindGroupLayout
+	({
+		label: "QUAD Bind Group Layout",
+		entries:
+		[
+			{
+				binding: 0,
+				visibility: GPUShaderStage.VERTEX | GPUShaderStage.FRAGMENT,
+				sampler: { type: "filtering" }
+			}
+			,
+			{
+				binding: 1,
+				visibility: GPUShaderStage.VERTEX | GPUShaderStage.FRAGMENT,
+				texture: { viewDimension: "2d-array" }
+			}
+		]
+	});
+
+
 	//-------------------------------------------------
-	// PIPELINE
+	// LAYOUT_PIPELINE
 	//-------------------------------------------------
-	const pipelineLayout = KaSmz_l.createPipelineLayout({
-	  label: "Cell Pipeline Layout",
-	  bindGroupLayouts: [ bindGroupLayout ],
+	const CELL_SuNiKy = KaSmz_l.createPipelineLayout
+	({
+	  label: "CELL Pipeline Layout",
+	  bindGroupLayouts: [ CELL_SuNiSz ],
+	});
+
+	const QUAD_SuNiKy = KaSmz_l.createPipelineLayout
+	({
+		label: "QUAD Pipeline Layout",
+		bindGroupLayouts: [ QUAD_SuNiSz ],
 	});
 
 	//-------------------------------------------------
@@ -415,7 +499,7 @@ DoWG.BriYa = async function( Yz_l )
 	//-------------------------------------------------
 	// Create the shader that will render the cells.
 	const cellShaderModule = KaSmz_l.createShaderModule({
-	  label: "Cell shader",
+	  label: "CELL shader",
 	  code: `
 	  struct VertexOutput {
 		  @builtin(position) position: vec4f,
@@ -449,22 +533,25 @@ DoWG.BriYa = async function( Yz_l )
 	  `
 	});
 
-	// Create a pipeline that renders the cell.
-	const JiGwe03__CONWAY_VIS = KaSmz_l.createRenderPipeline({
-	  label: "Cell pipeline",
-	  layout: pipelineLayout,
-	  vertex: {
+	// createRenderPipelineAsync
+	const JiGwe03__CONWAY_VIS = KaSmz_l.createRenderPipeline
+	({
+	  label: "CELL pipeline"
+	  , layout: CELL_SuNiKy
+
+	  , vertex:
+	  {
 		module: cellShaderModule,
-		entryPoint: "vertexMain",
 		buffers: [vertexBufferLayout]
-	  },
-	  fragment: {
-		module: cellShaderModule,
-		entryPoint: "fragmentMain",
-		targets: [{
-		  format: Sa_l.MxPo__FMT_l
-		}]
 	  }
+
+	  , fragment: {
+		module: cellShaderModule,
+		targets: [{ format: Sa_l.MxPo__FMT_l }]
+	  }
+
+	  , primitive: { topology: 'triangle-list' }
+
 	});
 	Sa_l.JiGwe03__CONWAY_VIS =JiGwe03__CONWAY_VIS;
 
@@ -473,14 +560,21 @@ DoWG.BriYa = async function( Yz_l )
 	// PROG: SIM
 	//-------------------------------------------------
 
+	// RESOLVE ALL AT ONCE?
+	// Or TOLERATE some fails to iterate w/ placeholders?
+	// Promise.allSettled( Fe_TaJiJa_vh ).then((values) => console.log(values));
+
 	// RESOLVE TEXT
-	const JiJa08__GOLIFE_vsg = await JiJa08__GOLIFE_h;
+	const JiJa08__GOLIFE_vsg = await Fe_TaJiJa_vh[ 0 ];
+
 	if( MoDzTrx__NxHo_y( "JiJa08__GOLIFE_vsg", JiJa08__GOLIFE_vsg )){ return null; }
+
 
 	// CNV MODULE
 	const JiSpo02__CONWAY_SIM = KaSmz_l.createShaderModule({
 	  label: "Life simulation shader",
 	  code: JiJa08__GOLIFE_vsg	});
+
 	if( MoDzTrx__NxHo_y( "ProgObj^JiSpo", JiSpo02__CONWAY_SIM )){ return null; }
 
 	const shaderInfo = await JiSpo02__CONWAY_SIM.getCompilationInfo();
@@ -492,23 +586,27 @@ DoWG.BriYa = async function( Yz_l )
 		// console.log(firstMessage.message); // "expected ')' for function declaration"
 		// console.log(firstMessage.type); // "error"
 
-		// ALWAYS QUIT
+		// ALWAYS QUIT as FAIL?
 		return null;
 	}
 	// if( MoDzTrx__NxHo_y( "ProgObj^JiSpo", shaderInfo.messages.length )){ return null; }
 
+	// DBG: SmaSme( "Conway", JiSpo02__CONWAY_SIM );
 
 	// PIPELINE_IT
-	  SmaSme( "Conway", JiSpo02__CONWAY_SIM );
+
+	const WzGy_wuk = 8;
+
 	// Create a compute pipeline that updates the game state.
 	const JiGwe02__CONWAY_SIM = KaSmz_l.createComputePipeline
 	({
 	  label: "Simulation pipeline",
-	  layout: pipelineLayout,
+	  layout: CELL_SuNiKy,
 	  compute:
 	  {
-		module: JiSpo02__CONWAY_SIM,
-		entryPoint: "computeMain",
+		module: JiSpo02__CONWAY_SIM
+		// WORKGROUP OVERRIDE
+		, constants: { 0: WzGy_wuk }
 	  }
 	});
 
@@ -546,14 +644,14 @@ DoWG.BriYa = async function( Yz_l )
 	[
 	  KaSmz_l.createBuffer
 	  ({
-		label: "Cell State A",
+		label: "CELL State A",
 		size: cs_v.byteLength,
 		usage: GPUBufferUsage.STORAGE | GPUBufferUsage.COPY_DST,
 	  }),
 
 	  KaSmz_l.createBuffer
 	  ({
-		label: "Cell State B",
+		label: "CELL State B",
 		size: cs_v.byteLength,
 		usage: GPUBufferUsage.STORAGE | GPUBufferUsage.COPY_DST,
 	  })
@@ -585,29 +683,31 @@ DoWG.BriYa = async function( Yz_l )
 	//-------------------------------------------------
 	// IMG_DBS
 	//-------------------------------------------------
-	DoWG.KiCho_JaKu( Sa_l, 0, 0, 512, 512, new Uint8Array( [	255, 255, 128, 255, 0, 0, 0, 255, 255, 0, 0, 255, 255, 128, 0, 255 ] ) );
 
 	const TaGwa__JaPo_l = Sa_l.KaSmz_l.createTexture
 	({
-			// Not 2d-array!
-			dimension: '2d',
+		// Not 2d-array!
+		dimension: '2d',
 
-			// MUST REQUEST!
-			// size: [ 16384, 16384, 32 ],	mipLevelCount: 10,
-			// size: [ 8192, 8192, 4 ],	mipLevelCount: 1,
-			size: [ 2048, 2048, 4 ], mipLevelCount: 1,
+		// MUST REQUEST!
+		// size: [ 16384, 16384, 32 ],	mipLevelCount: 10,
+		// size: [ 8192, 8192, 4 ],	mipLevelCount: 1,
+		size: [ 2048, 2048, 4 ], mipLevelCount: 1,
 
-			format: 'rgba8unorm',
-			sampleCount: 1,
-			usage:
-				  GPUTextureUsage.COPY_SRC
-				| GPUTextureUsage.COPY_DST
-				| GPUTextureUsage.TEXTURE_BINDING
-				| GPUTextureUsage.STORAGE_BINDING
-				| GPUTextureUsage.RENDER_ATTACHMENT,
+		format: 'rgba8unorm',
+		sampleCount: 1,
+		usage:
+		GPUTextureUsage.COPY_SRC
+		| GPUTextureUsage.COPY_DST
+		| GPUTextureUsage.TEXTURE_BINDING
+		| GPUTextureUsage.STORAGE_BINDING
+		| GPUTextureUsage.RENDER_ATTACHMENT,
 	});
 	if( MoDzTrx__NxHo_y( "Surf Deck", TaGwa__JaPo_l )){ return null; }
+
 	Sa_l.TaGwa__JaPo_l = TaGwa__JaPo_l;
+
+	DoWG.KiCho_JaKu( Sa_l, 0, 0, 2, 2, new Uint8Array( [ 255, 255, 128, 255,     0, 0, 0, 255,     255, 0, 0, 255    , 255, 128, 0, 255 ] ) );
 
 
 	//-------------------------------------------------
@@ -616,8 +716,8 @@ DoWG.BriYa = async function( Yz_l )
 	const bindGroups =
 	[
 	  KaSmz_l.createBindGroup({
-		label: "Cell renderer bind group A",
-		layout: bindGroupLayout,
+		label: "CELL renderer bind group A",
+		layout: CELL_SuNiSz,
 		entries: [{
 		  binding: 0,
 		  resource: { buffer: Sa_l.Jx00__SuTy }
@@ -631,8 +731,8 @@ DoWG.BriYa = async function( Yz_l )
 	  }),
 
 	  KaSmz_l.createBindGroup({
-		label: "Cell renderer bind group B",
-		layout: bindGroupLayout,
+		label: "CELL renderer bind group B",
+		layout: CELL_SuNiSz,
 		entries:
 		[{
 		  binding: 0,
@@ -645,6 +745,24 @@ DoWG.BriYa = async function( Yz_l )
 		  resource: { buffer: cellStateStorage[0] }
 		}],
 	  }),
+
+	  KaSmz_l.createBindGroup({
+		label: "QUAD bind group",
+		layout: QUAD_SuNiSz,
+		entries:
+		[
+		{
+		  binding: 0,
+		  resource: Sa_l.JaMi__DISCRETE_l
+		}
+		,
+		{
+		  binding: 1,
+		  resource: Sa_l.TaGwa__JaPo_l.createView()
+		}
+		],
+	  }),
+
 	];
 
 	Sa_l.bindGroups = bindGroups;
@@ -652,25 +770,22 @@ DoWG.BriYa = async function( Yz_l )
 	//-------------------------------------------------
 	// PROG as PIPE
 	//-------------------------------------------------
-	Sa_l.JiSpo01_QUAD_COMP = KaSmz_l.createRenderPipeline
+	Sa_l.JiGwe01_QUAD_COMP = KaSmz_l.createRenderPipeline
 	({
-		layout: 'auto',
-
-		vertex:
+		label: "QUAD_SuNiKy"
+		, layout: QUAD_SuNiKy
+		, vertex:
 		{
 			module: KaSmz_l.createShaderModule({ code: JiJa_vs }),
-		},
+		}
 
-		fragment:
+		, fragment:
 		{
 			module: KaSmz_l.createShaderModule({ code: JiJa_fs }),
-			targets:
-			[{
-				format: Sa_l.MxPo__FMT_l,
-			}]
-		},
+			targets: [{ format: Sa_l.MxPo__FMT_l }]
+		}
 
-		primitive: { topology: 'triangle-list' }
+		, primitive: { topology: 'triangle-list' }
 	});
 
 
@@ -742,46 +857,67 @@ DoWG.KiCho_JxRe = function( Sa_l )
 
 //==============================================
 // CLONE IMG
-//==============================================
+//
+// Row = Block Row!
+// raw textures: block width/height = 1
+// compressed textures, ex: bc1-rgba-unorm, block width/height = 4 //==============================================
 DoWG.KiCho_JaKu = function( Sa_l, GeGz_wu, GeGx_wu, GeGa_wu, GyGx_wu, GyGa_wu, Si__JaPo_l )
 {
 	if( KoDz__YzTrx_y() ) return;
 	SmaSme( "DoWG_SyCho_JaPo: CLONE FORM" );
 
-
-	const tex = Sa_l.KaSmz_l.createTexture(
+	//@@@
+	// UPLOAD TEXTURE?
+	Sa_l.KaSmz_l.queue.writeTexture
+	(
 		{
-			size: [ 2, 2 ],
-			format: 'rgba8unorm',
-			usage:
-			GPUTextureUsage.TEXTURE_BINDING |
-			GPUTextureUsage.COPY_DST,
-		} );
-		Sa_l.TEST_tex = tex;
+			texture: Sa_l.TaGwa__JaPo_l
+			, mipLevel: 0
+			, origin: [0, 0, 0]
+		}
 
+		, new Uint8Array( [ 255, 255, 128, 255, 128, 255, 255, 255, 255, 128, 255, 255, 255, 128, 128, 255	] )
 
-		//@@@
-		// UPLOAD TEXTURE?
-		Sa_l.KaSmz_l.queue.writeTexture(
-		{
-			texture: tex
-		}, new Uint8Array( [
-			255, 255, 128, 255, 128, 255, 255, 255, 255, 128, 255, 255, 255, 128, 128, 255,
-		] ),
+		,
 		{
 			bytesPerRow: 8,
 			rowsPerImage: 2
-		},
+		}
+		,
 		{
 			width: 2,
-			height: 2
-		}, );
-
-
-
+			height: 2,
+			depthOrArrayLayers: 1,
+		}
+	);
 }
 
 
+//==============================================
+// RELOCATE TEXTURE
+//==============================================
+/*
+src.texture must have a usage of GPUTextureUsage.COPY_SRC
+dst.texture must have a usage of GPUTextureUsage.COPY_DST
+width must be a multiple of block width
+height must be a multiple of block height
+src.origin[0] or .x must be a multiple of block width
+src.origin[1] or .y must be a multiple of block height
+dst.origin[0] or .x must be a multiple of block width
+dst.origin[1] or .y must be a multiple of block height
+
+Sa_l.KaSmz_l.queue.copyTextureToTexture(
+	// details of the source texture
+	src: { texture, mipLevel: 0, origin: [0, 0, 0], aspect: "all" },
+
+	// details of the destination texture
+	dst: { texture, mipLevel: 0, origin: [0, 0, 0], aspect: "all" },
+
+	// size:
+	[ width, height, depthOrArrayLayers ] or { width, height, depthOrArrayLayers }
+  );
+  )
+*/
 //==============================================
 //
 //==============================================
@@ -910,6 +1046,8 @@ DoWG.BriYe = function( Sa_l, GiDri_duk  )
 
 	//&&&
 	//GPURenderPassDescriptor
+
+	// BEGIN COMPOSITE
 	const rPass = MoKro_l.beginRenderPass
 	({
 		colorAttachments:
@@ -922,8 +1060,8 @@ DoWG.BriYe = function( Sa_l, GiDri_duk  )
 	});
 
 	// TEXT QUADS
-	rPass.setPipeline(Sa_l.JiSpo01_QUAD_COMP);
-//		Sa_l.TEST_tex
+	rPass.setPipeline(Sa_l.JiGwe01_QUAD_COMP );
+	rPass.setBindGroup( 0, Sa_l.bindGroups[ 2 ] );
 	rPass.draw( 6 );
 
 
@@ -932,8 +1070,9 @@ DoWG.BriYe = function( Sa_l, GiDri_duk  )
 	rPass.setBindGroup( 0, Sa_l.bindGroups[CS_Kwi_wu % 2] );
 	rPass.setVertexBuffer( 0, Sa_l.vertexBuffer );
 	rPass.draw( Sa_l.vertices.length / 2, CS_Gy_k * CS_Gy_k );
-	rPass.end();
 
+	// END COMPOSITE
+	rPass.end();
 
 	//&&&
 	// WzMe^WORK SEND
