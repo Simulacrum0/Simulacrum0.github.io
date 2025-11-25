@@ -58,7 +58,7 @@ DoGLF.BriYa = async function( Yz_l )
 
 	Sa_l.WzPo_l = WzPo_l;
 	Sa_l.SxHry_l = SxHry_l;
-	SxHry_l.canvas.imageSmoothingEnabled = false;
+	SxHry_l.canvas.imageSmoothingEnabled = true;
 
 
 	return Sa_l;
