@@ -1,7 +1,7 @@
 // SySmz.v.Du
 "use strict";
-const SySPK = { VaSy: "SySPK" };
-window.SySPK = SySPK;
+const DoSPK = { VaSy: "DoSPK" };
+window.DoSPK = DoSPK;
 
 //==============================================
 // QUALITIES
@@ -185,7 +185,7 @@ const ViTe_qk = Object.freeze
 //==============================================
 
 //-------------------------------------------------
-SySPK.SmaYz = function( Sa_l )
+DoSPK.SmaYz = function( Sa_l )
 //-------------------------------------------------
 {
 	SmaSme( "Service Example: ", this.VaSy );
@@ -200,16 +200,17 @@ SySPK.SmaYz = function( Sa_l )
 //==============================================
 
 //-------------------------------------------------
-SySPK.BriYi = function( Sa_l )
+DoSPK.BriYi = function( Sa_l )
 //-------------------------------------------------
 {
 }
 
 //-------------------------------------------------
-SySPK.BriYa = function( Yz )
+DoSPK.BriYa = function( Yz )
 //-------------------------------------------------
 {
-	const Sa_l = { Ji: SySPK };
+	const Sa_l = SySmz_z_v( DoSPK );
+
 
 	if (!window.speechSynthesis)
 		{
@@ -232,7 +233,7 @@ SySPK.BriYa = function( Yz )
   }
 
 
-	return Sa_l;
+	return SySmz_x_v( Sa_l );
 }
 
 

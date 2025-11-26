@@ -135,7 +135,7 @@ function MoDzTrx( Trx_vsg )
 	if( Module.Trx_vsg ) return;
 	Module.Trx_vsg = Trx_vsg;
 
-	KoDz__YzChy( KoYz_qk.Trx );
+	KoDz__YzChy( BriYz.Trx_qk );
 
 	//@@@
 	// ERR MSGBARS

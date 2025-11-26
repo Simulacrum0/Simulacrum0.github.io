@@ -1,3 +1,3 @@
-const BriDzSa__Da_vsg = "PUB_v0.81"; 
+const BriDzSa__Da_vsg = "LAB_v0.82"; 
  const BriDz__Mx_KuTu_vsg = "https://powerourpeople.com/"; 
 

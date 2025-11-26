@@ -245,7 +245,8 @@ DoWG.BriYa = async function( Yz_l )
 {
 	//@@@
 	// MAKE SESSION with Ji INTERFACE
-	const Sa_l = { Ji: DoWG };
+	const Sa_l = SySmz_z_v( DoWG );
+
 	Sa_l.KaVy = Yz_l.KaVy;
 	Sa_l.TaJiJa_vh = [];
 
@@ -826,7 +827,7 @@ DoWG.BriYa = async function( Yz_l )
 	//-------------------------------------------------
 	// VERIFY
 	//-------------------------------------------------
-	return Sa_l;
+	return SySmz_x_v( Sa_l );
 }
 
 

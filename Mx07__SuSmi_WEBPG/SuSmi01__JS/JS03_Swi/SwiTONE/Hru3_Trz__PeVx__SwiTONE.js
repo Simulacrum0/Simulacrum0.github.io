@@ -1,7 +1,7 @@
 // SySmz.v.Du
 "use strict";
-const SyTe = { VaSy: "SyTe" };
-window.SyTe = SyTe;
+const SwiTONE = { VaSy: "SwiTONE" };
+window.SwiTONE = SwiTONE;
 
 //==============================================
 // QUALITIES
@@ -20,7 +20,7 @@ const ViTe_qk = Object.freeze
 //==============================================
 
 //-------------------------------------------------
-SyTe.SmaYz = function( Sa_l )
+SwiTONE.SmaYz = function( Sa_l )
 //-------------------------------------------------
 {
 	SmaSme( "Service Example: ", this.VaSy );
@@ -35,24 +35,24 @@ SyTe.SmaYz = function( Sa_l )
 //==============================================
 
 //-------------------------------------------------
-SyTe.BriYi = function( Sa_l )
+SwiTONE.BriYi = function( Sa_l )
 //-------------------------------------------------
 {
 }
 
 //-------------------------------------------------
-SyTe.BriYa = function( Yz_k )
+SwiTONE.BriYa = function( Yz_k )
 //-------------------------------------------------
 {
-	const Sa_l = { Ji: SyTe };
+	const Sa_l = SySmz_z_v( SwiTONE );
 
 
-	return Sa_l;
+	return SySmz_x_v( Sa_l );
 }
 
 
 //-------------------------------------------------
-SyTe.Mo = function( Sa_l, Jy_k, Mo_l )
+SwiTONE.Mo = function( Sa_l, Jy_k, Mo_l )
 //-------------------------------------------------
 {
 }

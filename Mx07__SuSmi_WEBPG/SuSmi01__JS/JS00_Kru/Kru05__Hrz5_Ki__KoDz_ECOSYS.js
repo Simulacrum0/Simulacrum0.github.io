@@ -5,30 +5,35 @@
 //----------------------------
 // SYS_CFG^KoYz
 //----------------------------
-const KoYz_qk = Object.freeze
+const BriYz = Object.freeze
 ({
-	HxHo: 0
-	, Trx: 1
-	, Yz: 2
-	, Ya: 3
-	, Ye: 4
-	, Yo: 5
-	, Yi: 6
+	HxHo_qk: 0
+	, Trx_qk: 1
+	, Yz_qk: 2
+	, Ya_qk: 3
+	, Ye_qk: 4
+	, Yo_qk: 5
+	, Yi_qk: 6
 });
+
+function SySmz_z_v( Do ){ return{ Ji: Do, BriYz_q: BriYz.Ya_qk }; }
+function SySmz_x_v( Sa_l ){ Sa_l.BriYz_q = BriYz.Ye_qk; return Sa_l; }
+
+function SySmz_Ye_y( Sa_l ){ return ( Sa_l.BriYz_q === BriYz.Ye_qk ); }
 
 
 //----------------------------
 // REQ SERV
 //----------------------------
-const Do_qk = Object.freeze
+const Do = Object.freeze
 ({
-	VCB: 0
-	, GLF: 1
-	, WG: 2
+	VCB_qk: 0
+	, GLF_qk: 1
+	, WG_qk: 2
 
 
-	, XR: 3
-	, GL: 4
+	, XR_qk: 3
+	, GL_qk: 4
 });
 
 
@@ -57,7 +62,7 @@ window.Ko = Ko;
 // SAFE CHANGE (never overwrite ERR)
 function KoDz__YzChy( Yz_k )
 {
-	if( Ko.Yz_q === KoYz_qk.Trx ) return;
+	if( Ko.Yz_q === BriYz.Trx_qk ) return;
 	Ko.Yz_q = Yz_k;
 }
 
@@ -65,7 +70,7 @@ function KoDz__YzChy( Yz_k )
 // IF_ERR
 function KoDz__YzTrx_y()
 {
-	return ( Ko.Yz_q === KoYz_qk.Trx );
+	return ( Ko.Yz_q === BriYz.Trx_qk );
 }
 
 
@@ -112,8 +117,8 @@ function KoDz__Yi( )
 {
 	//@@@
 	// STATUS
-	if( Ko.Yz_q === KoYz_qk.Yi ) return;
-	KoDz__YzChy( KoYz_qk.Yi );
+	if( Ko.Yz_q === BriYz.Yi_qk ) return;
+	KoDz__YzChy( BriYz.Yi_qk );
 
 	//@@@
 	// END ENGINE
@@ -134,8 +139,8 @@ async function KoDz__Ya( )
 {
 	//@@@
 	// CONDITION
-	if( Ko.Yz_q === KoYz_qk.Ya ) return;
-	KoDz__YzChy( KoYz_qk.Ya );
+	if( Ko.Yz_q === BriYz.Ya_qk ) return;
+	KoDz__YzChy( BriYz.Ya_qk );
 
 	//@@@
 	// TIME_BEGAN
@@ -157,11 +162,11 @@ async function KoDz__Ya( )
 	//@@@
 	// SERV_REQ
 	const SySmz__Kri_yk = true;
-	// Do_qk.VCB
+	// Do.VCB_qk
 	Hrz7_Kru__ChaSySmz( 'JS02_Do', 'Hre1_Dru', 'KeDruPy', 'DoVCB', SySmz__Kri_yk, { Si_KeDru: 'en' } );
-	// Do_qk.GLF
+	// Do.GLF_qk
 	Hrz7_Kru__ChaSySmz( 'JS02_Do', 'Hry1_Brz', 'KeDru', 'DoGLF', SySmz__Kri_yk, { Gy_wu: 512 } );
-	// Do_qk.WG
+	// Do.WG_qk
 	Hrz7_Kru__ChaSySmz( 'JS02_Do', 'Hry5_Smz', 'WzMx', 'DoWG', SySmz__Kri_yk, { KaVy: '0' } );
 
 
@@ -191,7 +196,7 @@ async function KoDz__Ya( )
 
 	//@@@
 	// SET PAUSED & TOGGLE PLAY
-	KoDz__YzChy( KoYz_qk.Yo );
+	KoDz__YzChy( BriYz.Yo_qk );
 	KoDz__YoChyDry();
 }
 
@@ -217,11 +222,11 @@ function KoDz__YoChyDry()
 
 	//@@@
 	// PAUSE if updating
-	if( Ko.Yz_q === KoYz_qk.Ye )
+	if( Ko.Yz_q === BriYz.Ye_qk )
 	{
 		//&&&
 		// STATUS
-		KoDz__YzChy( KoYz_qk.Yo );
+		KoDz__YzChy( BriYz.Yo_qk );
 
 		//&&&
 		// BROADCAST PAUSE
@@ -234,7 +239,7 @@ function KoDz__YoChyDry()
 
 	//@@@
 	// RESUME if paused
-	else if( Ko.Yz_q === KoYz_qk.Yo )
+	else if( Ko.Yz_q === BriYz.Yo_qk )
 	{
 		//&&&
 		// BROADCAST RESUME
@@ -246,7 +251,7 @@ function KoDz__YoChyDry()
 
 		//&&&
 		// STATUS
-		KoDz__YzChy( KoYz_qk.Ye );
+		KoDz__YzChy( BriYz.Ye_qk );
 		requestAnimationFrame( KoDz__Ye );
 	}
 }
@@ -260,7 +265,7 @@ function KoDz__Ye( Gi )
 	//@@@
 	// ECOSYS_GOOD
 	// No Err or Not-Update State Allowed
-	if( ( KoDz__YzTrx_y() ) || ( Ko.Yz_q !== KoYz_qk.Ye )) return;
+	if( ( KoDz__YzTrx_y() ) || ( Ko.Yz_q !== BriYz.Ye_qk )) return;
 
 
 	//@@@
@@ -296,9 +301,9 @@ function KoDz__Ye( Gi )
 
 	if( Ko.YeFo_wu % 60 == 44 )
 	{
-		const SaGLF_l = Ko.Ta_SySmz[ Do_qk.GLF ];
-		const SaWG_l = Ko.Ta_SySmz[ Do_qk.WG ];
-		if( SaWG_l && SaGLF_l )
+		const SaGLF_l = Ko.Ta_SySmz[ Do.GLF_qk ];
+		const SaWG_l = Ko.Ta_SySmz[ Do.WG_qk ];
+		if( SySmz_Ye_y( SaWG_l ) && SySmz_Ye_y( SaGLF_l ) )
 		{
 			// SmaSme( "DG: ", SaWG_l );
 
@@ -312,6 +317,10 @@ function KoDz__Ye( Gi )
 			// Sa, Ge( x, y, z ), Gy( x, y ), Ti_v
 			// SaWG_l.Ji.KiCho_JaTi( SaWG_l, 0, 0, 0, 2, 2, new Uint8Array( [ 255, 255, 128, 255,     0, 0, 0, 255,     255, 0, 0, 255    , 255, 128, 0, 255 ] ) );
 			SaWG_l.Ji.KiCho_JaKz( SaWG_l, 0, 0, 0, 512, 512, SaGLF_l.WzPo_l );
+		}
+		else
+		{
+			SmaSme( "WAITZ: ", SaWG_l.BriYz_q, SaGLF_l.BriYz_q );
 		}
 	}
 

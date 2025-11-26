@@ -79,10 +79,10 @@ SwiLANG.BriYi = function( Sa_l )
 SwiLANG.BriYa = function( Yz_k )
 //-------------------------------------------------
 {
-	const Sa_l = { Ji: SwiLANG };
+	const Sa_l = SySmz_z_v( SwiLANG );
 
 
-	return Sa_l;
+	return SySmz_x_v( Sa_l );
 }
 
 

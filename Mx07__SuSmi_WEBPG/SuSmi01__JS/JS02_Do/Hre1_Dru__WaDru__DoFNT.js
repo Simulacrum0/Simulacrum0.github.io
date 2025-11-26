@@ -118,11 +118,11 @@ DoFNT.BriYi = function( Sa_l )
 DoFNT.BriYa = function( Yz_k )
 //-------------------------------------------------
 {
-	const Sa_l = { Ji: DoFNT };
+	const Sa_l = SySmz_z_v( DoFNT );
 
 	FNT_TaFuHa();
 
-	return Sa_l;
+	return SySmz_x_v( Sa_l );
 }
 
 

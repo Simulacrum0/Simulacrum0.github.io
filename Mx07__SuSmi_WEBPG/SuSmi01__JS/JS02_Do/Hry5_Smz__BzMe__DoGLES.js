@@ -1,37 +1,37 @@
 //==============================================
-// DoGL
+// DoGLES
 //==============================================
 "use strict";
-const DoGL = { VaSy: "DoGL" };
-window.DoGL = DoGL;
+const DoGLES = { VaSy: "DoGLES" };
+window.DoGLES = DoGLES;
 
 //==============================================
-// DoGL_Trx
+// DoGLES_Trx
 //==============================================
-DoGL.Trx = function( err )
+DoGLES.Trx = function( err )
 {
-	SmaSme( "DoGL_Trx: " + err );
+	SmaSme( "DoGLES_Trx: " + err );
 }
 
 
 //==============================================
-// DoGL_BriYe
+// DoGLES_BriYe
 //==============================================
-DoGL.SmaYz = function( Sa_l )
+DoGLES.SmaYz = function( Sa_l )
 {
 	// REPORT
 	SmaSme( "--------------------------------------------" );
-	SmaSme( "DoGL_Yz" );
+	SmaSme( "DoGLES_Yz" );
 	SmaSme( "--------------------------------------------" );
-	SmaSme( "GL: " + DoGL );
+	SmaSme( "GL: " + DoGLES );
 	SmaSme( "--------------------------------------------" );
 }
 
 
 //==============================================
-// DoGL_BriYi
+// DoGLES_BriYi
 //==============================================
-DoGL.BriYi = function( Sa_l )
+DoGLES.BriYi = function( Sa_l )
 {
 	const gl = Sa_l.gl;
 	// gl.deleteVertexArray(vertexArray);
@@ -49,12 +49,13 @@ DoGL.BriYi = function( Sa_l )
 }
 
 //==============================================
-// DoGL_BriYa
+// DoGLES_BriYa
 //==============================================
-DoGL.BriYa = async function( Yz_l )
+DoGLES.BriYa = async function( Yz_l )
 {
 	// MAKE SESSION with Ji INTERFACE
-	const Sa_l = { Ji: DoGL };
+	const Sa_l = SySmz_z_v( DoGLES );
+
 	Sa_l.KaVy = Yz_l.KaVy;
 
 	//@@@
@@ -63,7 +64,7 @@ DoGL.BriYa = async function( Yz_l )
 	const gl = document.getElementById( "MxPo_De" ).getContext( "webgl2" );
 	if ( !gl )
 	{
-		DoGL.Trx( "WebGL2 required: Please check your Browser" );
+		DoGLES.Trx( "WebGL2 required: Please check your Browser" );
 		return;
 	}
 	Sa_l.gl = gl;
@@ -100,18 +101,18 @@ DoGL.BriYa = async function( Yz_l )
 
 	//!!!
 	// As needed
-	DoGL.KiCho_JxRe( Sa_l );
-	DoGL.KiCho_SuTy( Sa_l );
+	DoGLES.KiCho_JxRe( Sa_l );
+	DoGLES.KiCho_SuTy( Sa_l );
 
 
-	return Sa_l;
+	return SySmz_x_v( Sa_l );
 }
 
 
 //==============================================
-// DoGL_RESIZE
+// DoGLES_RESIZE
 //==============================================
-DoGL.GyHa = function( Sa_l, MxPo_l )
+DoGLES.GyHa = function( Sa_l, MxPo_l )
 {
 	const width = MxPo_l.clientWidth;
 	const height = MxPo_l.clientHeight;
@@ -161,10 +162,10 @@ const vSrc =
 //==============================================
 //
 //==============================================
-DoGL.KiCho_SuTy = function( Sa_l )
+DoGLES.KiCho_SuTy = function( Sa_l )
 {
 	const gl = Sa_l.gl;
-	SmaSme( "DoGL JiJa: CLONE PROG" );
+	SmaSme( "DoGLES JiJa: CLONE PROG" );
 
 	function createShader( gl, type, source )
 	{
@@ -205,10 +206,10 @@ DoGL.KiCho_SuTy = function( Sa_l )
 //==============================================
 //
 //==============================================
-DoGL.KiCho_JxRe = function( Sa_l )
+DoGLES.KiCho_JxRe = function( Sa_l )
 {
 	const gl = Sa_l.gl;
-	SmaSme( "DoGL_KiCho_JxRe: CLONE SEQ" );
+	SmaSme( "DoGLES_KiCho_JxRe: CLONE SEQ" );
 
 	function createBuffer( gl, data, type = gl.ARRAY_BUFFER )
 	{
@@ -247,9 +248,9 @@ DoGL.KiCho_JxRe = function( Sa_l )
 //==============================================
 // CLONE FORM SRCs
 //==============================================
-DoGL.KiCho_JaTi = function( Sa_l, GeGx_wu, GeGa_wu, GyGx_wu, GyGa_wu, Si__JaPo_l )
+DoGLES.KiCho_JaTi = function( Sa_l, GeGx_wu, GeGa_wu, GyGx_wu, GyGa_wu, Si__JaPo_l )
 {
-	//SmaSme( "DoGL_SyCho_JaPo: ENGINE CLONE FORM" );
+	//SmaSme( "DoGLES_SyCho_JaPo: ENGINE CLONE FORM" );
 	const gl = Sa_l.gl;
 
 	gl.activeTexture( gl.TEXTURE0 );
@@ -277,22 +278,22 @@ DoGL.KiCho_JaTi = function( Sa_l, GeGx_wu, GeGa_wu, GyGx_wu, GyGa_wu, Si__JaPo_l
 
 
 //==============================================
-// DoGL_BriYe
+// DoGLES_BriYe
 //==============================================
-DoGL.BriYe = function( Sa_l, GiDri_duk  )
+DoGLES.BriYe = function( Sa_l, GiDri_duk  )
 {
-	// SmaSme( "DoGL_BriYe ", Sa_l );
+	// SmaSme( "DoGLES_BriYe ", Sa_l );
 	const gl = Sa_l.gl;
 
 	//&&&
 	// UPLOAD
 	// Send WebGPU Canvas to use for WebVR
-	//DoGL.KiCho_JaTi( Sa_l, 0, 0, 512, 512, Sa_l.WG__XR_SeKu.canvas );
-	DoGL.KiCho_JaTi( Sa_l, 0, 0, 2, 2, new Uint8Array( [	255, 255, 128, 255, 0, 0, 0, 255, 255, 0, 0, 255, 255, 128, 0, 255 ] ) );
+	//DoGLES.KiCho_JaTi( Sa_l, 0, 0, 512, 512, Sa_l.WG__XR_SeKu.canvas );
+	DoGLES.KiCho_JaTi( Sa_l, 0, 0, 2, 2, new Uint8Array( [	255, 255, 128, 255, 0, 0, 0, 255, 255, 0, 0, 255, 255, 128, 0, 255 ] ) );
 
 	//@@@
 	// RENDER
-	DoGL.GyHa( Sa_l, gl.canvas );
+	DoGLES.GyHa( Sa_l, gl.canvas );
 	gl.viewport( 0, 0, gl.canvas.width, gl.canvas.height );
 
 	//gl.clearColor( 1., 0.5, 0.0, 1.0 );
