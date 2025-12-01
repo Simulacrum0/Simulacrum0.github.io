@@ -6,11 +6,11 @@ window.DoENRG = DoENRG;
 //==============================================
 // QUALITIES
 //==============================================
-const ViTe_qk = Object.freeze
+const ENRG_qk = Object.freeze
 ({
-	ViTe0: 0
-	, ViTe1: 1
-	, ViTe2: 2
+	ENRG0: 0
+	, ENRG1: 1
+	, ENRG2: 2
 
 });
 
@@ -23,10 +23,10 @@ const ViTe_qk = Object.freeze
 DoENRG.SmaYz = function( Sa_l )
 //-------------------------------------------------
 {
-	SmaSme( "Service Example: ", this.VaSy );
+	SmaSme( "Service: ", this.VaSy );
 
-	Object.keys( ViTe_qk ).forEach( _Va => {	SmaSme( _Va ); });
-	Object.values( ViTe_qk ).forEach( _Vi => { SmaSme( _Vi );	});
+	Object.keys( ENRG_qk ).forEach( _Va => {	SmaSme( _Va ); });
+	Object.values( ENRG_qk ).forEach( _Vi => { SmaSme( _Vi );	});
 
 	// if( MoDzTrx__NxHo_y( "TEST FAKE ERROR", null )){ return; }
 

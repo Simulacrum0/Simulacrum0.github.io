@@ -14,7 +14,7 @@ var Ko =
 	//
 
 	// SERV
-	Ta_SySmz: [],
+	Ta_SySmz: [ SyVx.Fo_wuk ]
 };
 window.Ko = Ko;
 
@@ -44,7 +44,7 @@ function KoDz__YzTrx_y()
 //==============================================
 function KoDz__SuKz_Mi(e)
 {
-	SmaSme( '+++ DOM Content Loaded' );
+	SmaSme( "+++ DOM Content Loaded" );
 	SmaSme( e );
 
 }
@@ -57,7 +57,7 @@ function KoDz_GyHa()
 	//@@@
 	// MxPo
 	// SCREEN
-	const MxPo_De_l = document.getElementById('MxPo_De');
+	const MxPo_De_l = document.getElementById("MxPo_De");
 
 	const MxPo_De_GyGx = MxPo_De_l.clientWidth;
 	const MxPo_De_GyGa = MxPo_De_l.clientHeight;
@@ -70,7 +70,7 @@ function KoDz_GyHa()
 	}
 
 	// UPDATE STATUS if not ERR
-	// MxPo_Kwa_l.style.display = 'none';
+	// MxPo_Kwa_l.style.display = "none";
 
 }
 
@@ -116,43 +116,47 @@ async function KoDz__Ya( )
 
 	//&&&
 	// RESIZE
-	window.addEventListener( 'resize', KoDz_GyHa );
+	window.addEventListener( "resize", KoDz_GyHa );
 	// window.Ko.Trx_GyHa = setInterval( KoDz_GyHa, 1000 );
 
 	//&&&
 	// LOADS
-	window.addEventListener( 'DOMContentLoaded', KoDz__SuKz_Mi );
+	window.addEventListener( "DOMContentLoaded", KoDz__SuKz_Mi );
 
 
 	//@@@
 	// SERV_REQ
 	const SySmz__Kri_yk = true;
-	// Do.VCB_qk
-	Hrz7_Kru__ChaSySmz( 'JS02_Do', 'Hre1_Dru', 'KeDruPy', 'DoVCB', SySmz__Kri_yk, { Si_KeDru: 'en' } );
-	// Do.GLF_qk
-	Hrz7_Kru__ChaSySmz( 'JS02_Do', 'Hry1_Brz', 'KeDru', 'DoGLF', SySmz__Kri_yk, { Gy_wu: 512 } );
-	// Do.WG_qk
-	Hrz7_Kru__ChaSySmz( 'JS02_Do', 'Hry5_Smz', 'WzMx', 'DoWG', SySmz__Kri_yk, { KaVy: '0' } );
-	// Do.FNT_qk
-	// Hrz7_Kru__ChaSySmz( 'JS02_Do', 'Hr_', '?', 'DoFNT', SySmz__Kri_yk, { KaVy: '0' } );
+	Ko.Ta_SySmz
 
-	//Hrz7_Kru__ChaSySmz( 'JS02_Do', 'Hr_', '?', 'Do?', SySmz__Kri_yk, { KaVy: '0' } );
-	//Hrz7_Kru__ChaSySmz( 'JS02_Do', 'Hr_', '?', 'Do?', SySmz__Kri_yk, { KaVy: '0' } );
-	//Hrz7_Kru__ChaSySmz( 'JS02_Do', 'Hr_', '?', 'Do?', SySmz__Kri_yk, { KaVy: '0' } );
+	Hrz7_Kru__ChaSySmz( "Do", "CFG", "Hrz4_Bu", "BriDzYz", SySmz__Kri_yk, { SmzYz: "0" } );
+	Hrz7_Kru__ChaSySmz( "Do", "TAK", "Hre1_Dru", "KeDruPy", SySmz__Kri_yk, { Si_KeDru: "en" } );
+	Hrz7_Kru__ChaSySmz( "Do", "FS", "Hra6_Ku", "KoToKz", SySmz__Kri_yk, { VaDyFy: "true" } );
+	Hrz7_Kru__ChaSySmz( "Do", "GLF", "Hry1_Brz", "KeDru", SySmz__Kri_yk, { Gy_wu: 512 } );
+
+	Hrz7_Kru__ChaSySmz( "Do", "WG", "Hry5_Smz", "WzMx", SySmz__Kri_yk, { KaVy: "0" } );
+	Hrz7_Kru__ChaSySmz( "Do", "TRU", "Hrx4_Che", "MoDxGri", SySmz__Kri_yk, { KaVy: "0" } );
+
+
+	// Hrz7_Kru__ChaSySmz( "Do", "FNT", "Hr_", "?", , SySmz__Kri_yk, { SmzYz: "0" } );
+
+	//Hrz7_Kru__ChaSySmz( "Do", "", "Hr_", "?", "Do?", SySmz__Kri_yk, { SmzYz: "0" } );
+	//Hrz7_Kru__ChaSySmz( "Do", "", "Hr_", "?", "Do?", SySmz__Kri_yk, { SmzYz: "0" } );
+	//Hrz7_Kru__ChaSySmz( "Do", "", "Hr_", "?", "Do?", SySmz__Kri_yk, { SmzYz: "0" } );
 
 
 	//@@@
 	// SERV_OPT
 	const SySmz__HoKri_yk = false;
 	// DoXR
-	//Hrz7_Kru__ChaSySmz( 'JS02_Do', 'Hri2_Ke', 'BzMe', 'DoXR', SySmz__HoKri_yk, { KaVy: '0' } );
+	//Hrz7_Kru__ChaSySmz( "Do", "", "Hri2_Ke", "BzMe", "DoXR", SySmz__HoKri_yk, { SmzYz: "0" } );
 	// DoGLES
-	//Hrz7_Kru__ChaSySmz( 'JS02_Do', 'Hry5_Smz', 'BzMe', 'DoGLES', SySmz__HoKri_yk, { KaVy: '0' } );
+	//Hrz7_Kru__ChaSySmz( "Do", "", "Hry5_Smz", "BzMe", "DoGLES", SySmz__HoKri_yk, { SmzYz: "0" } );
 
 
 	//@@@
 	// FNT
-	// const FNT_l = await Hrz7_Kru__ChaWaDru( 'Final Frontier Old Style', 'url(' + BriDz__Mx_KuTu_vsg + 'Mx01__SuKz_MEDIA/SuKz04_WaDru__FONT/WaDru02__FinalFrontier.ttf )' );
+	// const FNT_l = await Hrz7_Kru__ChaWaDru( "Final Frontier Old Style", "url(" + BriDz__Mx_KuTu_vsg + "Mx01__SuKz_MEDIA/SuKz04_WaDru__FONT/WaDru02__FinalFrontier.ttf )" );
 
 
 	//@@@
@@ -178,12 +182,12 @@ function KoDz__YoChyDry()
 
 	//@@@
 	// SHOW GPU CANVAS
-	const MxPo_De_l = document.getElementById('MxPo_De');
+	const MxPo_De_l = document.getElementById( "MxPo_De" );
 	if( !MxPo_De_l )return;
-	const MxPo_Kwa_l = document.getElementById('MxPo_Kwa');
+	const MxPo_Kwa_l = document.getElementById( "MxPo_Kwa" );
 	if( !MxPo_Kwa_l )return;
-	MxPo_Kwa_l.style.display = 'none';
-	MxPo_De_l.style.display = 'block';
+	MxPo_Kwa_l.style.display = "none";
+	MxPo_De_l.style.display = "block";
 
 
 	//@@@
@@ -199,7 +203,7 @@ function KoDz__YoChyDry()
 		_Hrz5_Ki__BriSmz__Yo();
 		Ko.Ta_SySmz.forEach( function ( Ti_v )
 		{
-			if( Ti_v.Ji.BriYo ){ Ti_v.Ji.BriYo( Ti_v ); }
+			if( SySmz__KrzYe_y( Ti_v ) && Ti_v.Ji.BriYo ){ Ti_v.Ji.BriYo( Ti_v, Gi ); }
 		});
 	}
 
@@ -209,9 +213,9 @@ function KoDz__YoChyDry()
 	{
 		//&&&
 		// BROADCAST RESUME
-		Ko.Ta_SySmz.forEach( function ( Ti_v )
+		Ko.Ta_SySmz.forEach( function( Ti_v )
 		{
-			if( Ti_v.Ji.BriYu ){ Ti_v.Ji.BriYu( Ti_v ); }
+			if( SySmz__KrzYe_y( Ti_v ) && Ti_v.Ji.BriYu ){ Ti_v.Ji.BriYu( Ti_v); }
 		});
 		_Hrz5_Ki__BriSmz__Yu();
 
@@ -241,7 +245,7 @@ function KoDz__Ye( Gi )
 	// Date().toLocaleString()  = full date/time/tz
 	if( Ko.YeFo_wu % 60 == 0 )
 	{
-		const MxPo_De_l = document.getElementById('MxPo_De');
+		const MxPo_De_l = document.getElementById("MxPo_De");
 
 		//&&&
 		// HEADER (Fixed)
@@ -267,8 +271,8 @@ function KoDz__Ye( Gi )
 
 	if( Ko.YeFo_wu % 60 == 44 )
 	{
-		const SaGLF_l = Ko.Ta_SySmz[ Do.GLF_qk ];
-		const SaWG_l = Ko.Ta_SySmz[ Do.WG_qk ];
+		const SaGLF_l = Ko.Ta_SySmz[ SyVx.GLF_qk ];
+		const SaWG_l = Ko.Ta_SySmz[ SyVx.WG_qk ];
 
 		//SmaSme( "CHECK: ", SaWG_l.BriYz_q, SaGLF_l.BriYz_q );
 
@@ -282,8 +286,7 @@ function KoDz__Ye( Gi )
 			SaGLF_l.Ji.Hre7_Me__KeDru_Ha( SaGLF_l, "Log: ", 0, 384 );
 
 
-			// Sa, Ge( x, y, z ), Gy( x, y ), Ti_v
-			// SaWG_l.Ji.KiCho_JaTi( SaWG_l, 0, 0, 0, 2, 2, new Uint8Array( [ 255, 255, 128, 255,     0, 0, 0, 255,     255, 0, 0, 255    , 255, 128, 0, 255 ] ) );
+			// Canvas ( SVG or TXT )
 			SaWG_l.Ji.KiCho_JaKz( SaWG_l, 0, 0, 0, 512, 512, SaGLF_l.WzPo_l );
 
 			// Camera
@@ -309,7 +312,7 @@ function KoDz__Ye( Gi )
 	// TEK-SERVS UPDATE ALL
 	Ko.Ta_SySmz.forEach( function ( Ti_v )
 	{
-		if( Ti_v.Ji.BriYe ){ Ti_v.Ji.BriYe( Ti_v, Gi ); }
+		if( SySmz__KrzYe_y( Ti_v ) && Ti_v.Ji.BriYe ){ Ti_v.Ji.BriYe( Ti_v, Gi ); }
 	});
 
 

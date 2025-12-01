@@ -24,44 +24,9 @@ DoGLF.SmaYz = function( Sa_l )
 	SmaSme( "DoGLF_Yz" );
 	SmaSme( "--------------------------------------------" );
 	SmaSme( "Canvas: " + Sa_l.WzPo_l );
-	SmaSme( "Fonts: " + Sa_l.WaDru_wu );
-	SmaSme( "Words: " + Sa_l.VaFo_wu );
+	//SmaSme( "Fonts: " + Sa_l.WaDru_wu );
+	//SmaSme( "Words: " + Sa_l.VaFo_wu );
 	SmaSme( "--------------------------------------------" );
-}
-
-
-//==============================================
-// DoGLF_BriYi
-//==============================================
-DoGLF.BriYi = function( Sa_l )
-{
-	SmaSme( this.VaSy );
-
-}
-
-//==============================================
-// DoGLF_BriYa
-//==============================================
-DoGLF.BriYa = async function( Yz_l )
-{
-	//@@@
-	// MAKE SESSION with Ji INTERFACE
-	const Sa_l = SySmz__YaFz_v( DoGLF );
-
-	//@@@
-	// CANVAS
-	const WzPo_l = new OffscreenCanvas( Yz_l.Gy_wu, Yz_l.Gy_wu )
-	if( MoDzTrx__NxHo_y( "GLF Canvas", WzPo_l )){ return null; }
-
-	const SxHry_l = WzPo_l.getContext("2d");
-	if( MoDzTrx__NxHo_y( "GLF Context", SxHry_l )){ return null; }
-
-	Sa_l.WzPo_l = WzPo_l;
-	Sa_l.SxHry_l = SxHry_l;
-	SxHry_l.canvas.imageSmoothingEnabled = true;
-
-
-	return SySmz__YaFx_v( Sa_l );
 }
 
 
@@ -234,6 +199,41 @@ DoGLF.Mo = function( Sa_l, Jy_k, Mo_l )
 //-------------------------------------------------
 {
 
+}
+
+
+//==============================================
+// DoGLF_BriYi
+//==============================================
+DoGLF.BriYi = function( Sa_l )
+{
+	SmaSme( this.VaSy );
+
+}
+
+//==============================================
+// DoGLF_BriYa
+//==============================================
+DoGLF.BriYa = async function( Yz_l )
+{
+	//@@@
+	// MAKE SESSION with Ji INTERFACE
+	const Sa_l = SySmz__YaFz_v( DoGLF );
+
+	//@@@
+	// CANVAS
+	const WzPo_l = new OffscreenCanvas( Yz_l.Gy_wu, Yz_l.Gy_wu )
+	if( MoDzTrx__NxHo_y( "GLF Canvas", WzPo_l )){ return null; }
+
+	const SxHry_l = WzPo_l.getContext("2d");
+	if( MoDzTrx__NxHo_y( "GLF Context", SxHry_l )){ return null; }
+
+	Sa_l.WzPo_l = WzPo_l;
+	Sa_l.SxHry_l = SxHry_l;
+	SxHry_l.canvas.imageSmoothingEnabled = true;
+
+
+	return SySmz__YaFx_v( Sa_l );
 }
 
 

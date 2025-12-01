@@ -23,7 +23,7 @@ const ViTe_qk = Object.freeze
 DoTe.SmaYz = function( Sa_l )
 //-------------------------------------------------
 {
-	SmaSme( "Service Example: ", this.VaSy );
+	SmaSme( "Service: ", this.VaSy );
 
 	Object.keys( ViTe_qk ).forEach( _Va => {	SmaSme( _Va ); });
 	Object.values( ViTe_qk ).forEach( _Vi => { SmaSme( _Vi );	});

@@ -70,21 +70,80 @@ function FNT_Chi( Va_l )
 }
 
 
+//==============================================
+// FNT_ADD^Cha
+//==============================================
 async function Hrz7_Kru__ChaWaDru( Va_l, KuTu_l )
 {
-	var Fe__WaDru_l = new FontFace('Junction Regular', 'url(fonts/junction-regular.woff)');
+	//@@@
+	// ECOSYS_GOOD
+	if( KoDz__YzTrx_y() ) return;
+
+	var Fe__WaDru_l = new FontFace( Va_l, KuTu_l );
 	Fe__WaDru_l.load()
 
-	.then(function(loaded_face)
+	.then(function( loaded_face )
 	{
-		document.fonts.add(loaded_face);
+		document.fonts.add( loaded_face );
 		// TEST-ONLY: document.body.style.fontFamily = '"Junction Regular", Arial';
 	})
 	.catch(function(error)
 	{
 		// error occurred
+
 	});
+
+	return Fe__WaDru_l;
 }
+
+// LOAD via LOCAL BLOB
+/*
+
+// Add to FONT_FAM, URL.createObjectURL for bin, etc.
+
+
+var junction_font = new FontFace('Junction Regular', 'url(fonts/junction-regular.woff)');
+
+junction_font.load().then(function(loaded_face)
+{
+	document.fonts.add(loaded_face);
+  	document.body.style.fontFamily = '"Junction Regular", Arial';
+}).catch(function(error) {} );
+
+document.fonts.ready.then(function(font_face_set) {
+	// all fonts have been loaded
+});
+
+
+
+
+	return fetch(`${fontUrl}.woff2`)
+	.then(function (response)
+	{
+		// 404, 500 etc errors comes here to, so, we need to check for result
+		if (response.status > 100 && response.status < 400) {
+			return response.blob();
+		} else {
+			throw response.statusText;
+		}
+	})
+	.then(function (fontBlob)
+	{
+		// We will add it to document with another shinning new CSS3 Font-Loading API
+		// https://developer.mozilla.org/en-US/docs/Web/API/CSS_Font_Loading_API
+		var fnt = new FontFace(fontName, `url(${URL.createObjectURL(fontBlob)}) format('woff2')`, { style: fStyle, weight: fWeight });
+		document.fonts.add(fnt);
+		fnt.loaded.then( function ()
+		{
+			console.log('Font loaded via Font Loading API');
+			document.documentElement.classList.add(activeClass);
+		});
+		fnt.load();
+	})
+	.catch(function (e) {
+		console.error(`Failed to load font from ${fontUrl}.woff2 with error: ${e}`);
+	});
+*/
 
 //==============================================
 // ACTIONS
@@ -94,7 +153,7 @@ async function Hrz7_Kru__ChaWaDru( Va_l, KuTu_l )
 DoFNT.SmaYz = function( Sa_l )
 //-------------------------------------------------
 {
-	SmaSme( "Service Example: ", this.VaSy );
+	SmaSme( "Service: ", this.VaSy );
 
 	Object.keys( ViTe_qk ).forEach( _Va => {	SmaSme( _Va ); });
 	Object.values( ViTe_qk ).forEach( _Vi => { SmaSme( _Vi );	});

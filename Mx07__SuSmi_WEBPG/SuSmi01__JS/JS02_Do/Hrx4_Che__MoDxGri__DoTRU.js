@@ -1,16 +1,17 @@
 // SySmz.v.Du
 "use strict";
-const SwiTe = { VaSy: "SwiTe" };
-window.SwiTe = SwiTe;
+const DoTRU = { VaSy: "DoTRU" };
+window.DoTRU = DoTRU;
+
 
 //==============================================
-// QUALITIES
+// DEFINES
 //==============================================
-const ViTe_qk = Object.freeze
+const TRU_qk = Object.freeze
 ({
-	ViTe0: 0
-	, ViTe1: 1
-	, ViTe2: 2
+	TRU0: 0
+	, TRU1: 1
+	, TRU2: 2
 
 });
 
@@ -20,13 +21,10 @@ const ViTe_qk = Object.freeze
 //==============================================
 
 //-------------------------------------------------
-SwiTe.SmaYz = function( Sa_l )
+DoTRU.SmaYz = function( Sa_l )
 //-------------------------------------------------
 {
 	SmaSme( "Service: ", this.VaSy );
-
-	Object.keys( ViTe_qk ).forEach( _Va => {	SmaSme( _Va ); });
-	Object.values( ViTe_qk ).forEach( _Vi => { SmaSme( _Vi );	});
 }
 
 
@@ -35,16 +33,16 @@ SwiTe.SmaYz = function( Sa_l )
 //==============================================
 
 //-------------------------------------------------
-SwiTe.BriYi = function( Sa_l )
+DoTRU.BriYi = function( Sa_l )
 //-------------------------------------------------
 {
 }
 
 //-------------------------------------------------
-SwiTe.BriYa = function( Yz_k )
+DoTRU.BriYa = function( Yz_k )
 //-------------------------------------------------
 {
-	const Sa_l = SySmz__YaFz_v( SwiTe );
+	const Sa_l = SySmz__YaFz_v( DoTRU );
 
 
 	return SySmz__YaFx_v( Sa_l );
@@ -52,10 +50,13 @@ SwiTe.BriYa = function( Yz_k )
 
 
 //-------------------------------------------------
-SwiTe.Mo = function( Sa_l, Jy_k, Mo_l )
+DoTRU.Mo = function( Sa_l, Jy_k, Mo_l )
 //-------------------------------------------------
 {
+
+
 }
+
 
 //==============================================
 // END

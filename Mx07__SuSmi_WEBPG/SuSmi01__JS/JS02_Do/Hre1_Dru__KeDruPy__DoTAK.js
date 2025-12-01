@@ -1,18 +1,16 @@
 // SySmz.v.Du
 "use strict";
-const SwiTe = { VaSy: "SwiTe" };
-window.SwiTe = SwiTe;
+const DoTAK = { VaSy: "DoTAK" };
+window.DoTAK = DoTAK;
 
 //==============================================
 // QUALITIES
-//==============================================
-const ViTe_qk = Object.freeze
-({
-	ViTe0: 0
-	, ViTe1: 1
-	, ViTe2: 2
+/*
 
-});
+
+*/
+//==============================================
+
 
 
 //==============================================
@@ -20,13 +18,12 @@ const ViTe_qk = Object.freeze
 //==============================================
 
 //-------------------------------------------------
-SwiTe.SmaYz = function( Sa_l )
+DoTAK.SmaYz = function( Sa_l )
 //-------------------------------------------------
 {
-	SmaSme( "Service: ", this.VaSy );
+	SmaSme( "--------------------------------------------" );
+	SmaSme( this.VaSy, Sa_l.Si_KeDru );
 
-	Object.keys( ViTe_qk ).forEach( _Va => {	SmaSme( _Va ); });
-	Object.values( ViTe_qk ).forEach( _Vi => { SmaSme( _Vi );	});
 }
 
 
@@ -35,26 +32,24 @@ SwiTe.SmaYz = function( Sa_l )
 //==============================================
 
 //-------------------------------------------------
-SwiTe.BriYi = function( Sa_l )
+DoTAK.BriYi = function( Sa_l )
 //-------------------------------------------------
 {
+	SmaSme( "BriYi: " + this.VaSy );
+
 }
 
 //-------------------------------------------------
-SwiTe.BriYa = function( Yz_k )
+DoTAK.BriYa = function( Yz_l )
 //-------------------------------------------------
 {
-	const Sa_l = SySmz__YaFz_v( SwiTe );
+	const Sa_l = SySmz__YaFz_v( DoTAK );
+
+	Sa_l.Si_KeDru = Yz_l.Si_KeDru;
+
 
 
 	return SySmz__YaFx_v( Sa_l );
-}
-
-
-//-------------------------------------------------
-SwiTe.Mo = function( Sa_l, Jy_k, Mo_l )
-//-------------------------------------------------
-{
 }
 
 //==============================================

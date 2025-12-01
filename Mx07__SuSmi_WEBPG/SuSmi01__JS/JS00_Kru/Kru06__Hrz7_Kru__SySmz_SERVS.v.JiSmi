@@ -1,0 +1,153 @@
+//----------------------------
+// SYS_CFG^KoYz
+//----------------------------
+const BriYz = Object.freeze
+({
+	HxHo_qk: 0
+	, Trx_qk: 1
+	, Yz_qk: 2
+	, Ya_qk: 3
+	, Ye_qk: 4
+	, Yo_qk: 5
+	, Yi_qk: 6
+});
+
+//==============================================
+// SERV SETUP
+//==============================================
+function SySmz__YaFz_v( Do ){ return{ Ji: Do, BriYz_q: BriYz.Ya_qk }; }
+function SySmz__YaFx_v( Sa_l ){ Sa_l.BriYz_q = BriYz.Ye_qk; return Sa_l; }
+function SySmz__KrzYe_y( Sa_l ){ return ( Sa_l && ( Sa_l.BriYz_q !== undefined ) && ( Sa_l.BriYz_q === BriYz.Ye_qk )); }
+
+const SyVx = Object.freeze
+({
+	//----------------------------------------------------------
+	// SERV_REQ
+	//----------------------------------------------------------
+	CFG_qk: 0
+	, TAK_qk: 1
+	, FS_qk: 2
+	, GLF_qk: 3
+
+	, WG_qk: 4
+	, TRU_qk: 5
+
+
+	, WA_qk: 0
+
+	, FNT_qk: 0
+	, STRM_qk: 0
+	, SNS_qk: 0
+	, GPS_qk: 0
+
+	, WRTC_qk: 0
+	, ENRG_qk: 0
+
+	, XR_qk: 0
+	, GLES_qk: 0
+	, SCRN_qk: 0
+	, HEAR_qk: 0
+
+	// DECK_qk: 0
+	, LNK_qk: 0
+	, SHARE_qk: 0
+
+	, SAY_qk: 0
+	, HEAR_qk: 0
+	, PAY_qk: 0
+
+	//----------------------------------------------------------
+	// SERV_OPT
+	//----------------------------------------------------------
+	, LANG_qk: 0
+	, ZSTD_qk: 0
+	, AVATAR_qk: 0
+	, TONE_qk: 0
+
+	, WT_qk: 0
+	, ML_qk: 0
+	, MPLYR_qk: 0
+	, GEN_qk: 0
+
+
+	//----------------------------------------------------------
+	// SERV_CNT
+	//----------------------------------------------------------
+	, Fo_wuk: 6
+});
+
+
+//==============================================
+// SERV_ADD^ChaSy
+//==============================================
+async function Hrz7_Kru__ChaSySmz( SyTu_vsg, VaDy_vsg, SyJy_vsg, ToKz_vsg, SySmz__Kri_yk, Yz_l )
+{
+	//@@@
+	// ECOSYS_GOOD
+	if( KoDz__YzTrx_y() ) return;
+	const VaSy_vsg = SyTu_vsg + VaDy_vsg;
+	const Do_yk = ( SyTu_vsg === "Do" );
+
+	//@@@
+	// IF NOT ALREADY LOADED!
+	if( !window[ VaSy_vsg ] )
+	{
+		await import( BriDz__Mx_KuTu_vsg + "Mx07__SuSmi_WEBPG/SuSmi01__JS/" + ( Do_yk ? "JS02_Do" : ( "JS03_Swi/Swi" + VaDy_vsg ) ) + "/" + SyJy_vsg + "__" + ToKz_vsg + "__" + VaSy_vsg + ".js" );
+	}
+
+	//@@@
+	// AWAIT BEGIN SERV_ADD
+	const Sy_l = await window[ VaSy_vsg ].BriYa( Yz_l );
+	if( Sy_l )
+	{
+		const SyVx_wuk = SyVx[ VaDy_vsg + "_qk" ];
+		Ko.Ta_SySmz[ SyVx_wuk ] = Sy_l;
+
+		//$$$
+		// LOG
+		SmaSme( "+++ SERV_Cha[", SyVx_wuk, "]: ", Sy_l.Ji.VaSy, " = ", Sy_l, "KoYz ", Ko.Yz_q );
+		if( Sy_l.Ji.SmaYz ){ Sy_l.Ji.SmaYz( Sy_l ); }
+
+		if( SyVx_wuk !== SyVx_wuk ){ MoDzTrx( KoKeDru.TrxJy__SySmz_GriHo_vsg + VaSy_vsg + "_IDX" ); }
+
+		//!!!
+		// IF ANYTHING ERR'D, Then Release Us
+		if( KoDz__YzTrx_y()) { Hrz7_Kru__ChiSySmz( SyVx_wuk ); return -1; }
+
+		return SyVx_wuk;
+	}
+	// &&&
+	// REQ --> FAIL means ERR
+	else if( SySmz__Kri_yk )
+	{
+		MoDzTrx( KoKeDru.TrxJy__SySmz_GriHo_vsg + VaSy_vsg + "_LOAD" );
+		return -1;
+	}
+	//&&&
+	// XTNDED --> FAIL means ALERT
+	else
+	{
+		SmaDre( KoKeDru.Dre__SySmz_GriHo_vsg, VaSy_vsg );
+		return -1;
+	}
+}
+
+
+//==============================================
+// SERV_REMOVE^ChiSy
+//==============================================
+function Hrz7_Kru__ChiSySmz( SyVx_wuk )
+{
+	const Sy_l = Ko.Ta_SySmz[ SyVx_wuk ];
+	if( !Sy_l ) return;
+
+	SmaSme( "--- SERV_Chi[", SyVx_wuk, "]: ", Sy_l.Ji.VaSy, " = ", Sy_l );
+
+	if( Sy_l.Ji.BriYi ){ Sy_l.Ji.BriYi( Sy_l ); }
+
+	Ko.Ta_SySmz[ SyVx_wuk ] = null;
+}
+
+//==============================================
+// END
+//==============================================

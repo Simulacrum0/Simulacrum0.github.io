@@ -1,29 +1,77 @@
-// SySmz.v.Du
-"use strict";
 //==============================================
-// QUALITIES
+// SYSLIFE
 //==============================================
 
+//==============================================
+// JSON_ADD^Cha
+//==============================================
+async function Hrz7_Kru__ToKz_vJSON( ChaKuTu_vsg, ToKzVa_vsg )
+{
+	let KuTu_vbg = BriDz__Mx_KuTu_vsg + ChaKuTu_vsg + ToKzVa_vsg;
+	SmaSme( "FILE seeking JSON: " + KuTu_vbg );
+	try
+	{
+		const Smx_k = await fetch( KuTu_vbg, { headers: { Accept: 'application/json' } } );
+		const ToKz_v = await Smx_k.json();
+		//SmaSme( ToKz_v );
+		return ToKz_v;
+	}
+	catch ( e ) { MoDzTrx( KoKeDru.TrxJy__SuKz_GriHo_vsg + " @ " + ToKzVa_vsg + " --> " + e ); }
+	return null;
+};
 
 //==============================================
-// ACTIONS
+// TXT_ADD^Cha
 //==============================================
-
+async function Hrz7_Kru__ToKz_vsg( ChaKuTu_vsg, ToKzVa_vsg )
+{
+	let KuTu_vbg = BriDz__Mx_KuTu_vsg + ChaKuTu_vsg + ToKzVa_vsg;
+	//SmaSme( "FILE seeking TEXT: " + KuTu_vbg );
+	try
+	{
+		const Smx_k = await fetch( KuTu_vbg );
+		const ToKz_v = await Smx_k.text();
+		// SmaSme( ToKz_v );
+		return ToKz_v;
+	}
+	catch ( e ) { MoDzTrx( KoKeDru.TrxJy__SuKz_GriHo_vsg + " @ " + ToKzVa_vsg + " --> " + e ); }
+	return null;
+};
 
 //==============================================
-// SERVICE
+// BLOB_ADD^Cha
 //==============================================
-
-
+async function Hrz7_Kru__ToKz_vBLOB( ChaKuTu_vsg, ToKzVa_vsg )
+{
+	let KuTu_vbg = BriDz__Mx_KuTu_vsg + ChaKuTu_vsg + ToKzVa_vsg;
+	SmaSme( "FILE seeking BLOB: " + KuTu_vbg );
+	try
+	{
+		const Smx_k = await fetch( KuTu_vbg );
+		const ToKz_v = await Smx_k.blob();
+		return ToKz_v;
+	}
+	catch ( e ) { MoDzTrx( KoKeDru.TrxJy__SuKz_GriHo_vsg + " @ " + ToKzVa_vsg + " --> " + e ); }
+	return null;
+};
 
 //==============================================
-// END
+// BUF_ADD^Cha
 //==============================================
+async function Hrz7_Kru__ToKz_vBUF( ChaKuTu_vsg, ToKzVa_vsg )
+{
+	let KuTu_vbg = BriDz__Mx_KuTu_vsg + ChaKuTu_vsg + ToKzVa_vsg;
+	SmaSme( "FILE seeking BUFFER: " + KuTu_vbg );
+	try
+	{
+		const Smx_k = await fetch( KuTu_vbg );
+		const ToKz_v = await Smx_k.arrayBuffer();
+		return ToKz_v;
+	}
+	catch ( e ) { MoDzTrx( KoKeDru.TrxJy__SuKz_GriHo_vsg + " @ " + ToKzVa_vsg + " --> " + e ); }
+	return null;
+};
 
-<!-- <script type="module" src="Mx07__SuSmi_WEBPG/SuSmi01__JS/JS02_Do/Hra4_Bru__KoToKz03__DoFETCH.js"></script>
-<script type="module" src="Mx07__SuSmi_WEBPG/SuSmi01__JS/JS02_Do/Hra6_Ku__KoToKz00__DoIDB.js"></script>
-<script type="module" src="Mx07__SuSmi_WEBPG/SuSmi01__JS/JS02_Do/Hra6_Ku__KoToKz01__DoOPFS.js"></script>
-<script type="module" src="Mx07__SuSmi_WEBPG/SuSmi01__JS/JS02_Do/Hra6_Ku__KoToKz02__DoFAFS.js"></script> -->
 
 //==============================================
 // IDB STOR
@@ -32,16 +80,19 @@
 //---------------------------------------------------
 // IDB
 //---------------------------------------------------
-const IDB_Ko_l = new Promise((resolve, reject) => {
+const IDB_Ko_l = new Promise((resolve, reject) =>
+{
 	// IDB NAME
 	const request = indexedDB.open('handle', 1);
 
-	request.onupgradeneeded = (event) => {
+	request.onupgradeneeded = (event) =>
+	{
 		const db = event.target.result;
 		db.createObjectStore('handles', {keyPath: 'id'});
 	};
 
-	request.onsuccess = (event) => {
+	request.onsuccess = (event) =>
+		{
 		console.log("IDB_Good\n");
 		resolve(event.target.result);
 	};
@@ -61,7 +112,8 @@ const IDB_Ko_l = new Promise((resolve, reject) => {
  * @returns {Promise<void>} A promise that resolves when the handle is saved.
  */
 //async function
-const IDB_ToKzVy__Chy = (Va, ToKzVy) => {
+const IDB_ToKzVy__Chy = (Va, ToKzVy) =>
+{
 	return new Promise((resolve, reject) => {
 		IDB_Ko_l.then((db) => {
 			const transaction = db.transaction(['handles'], 'readwrite');
@@ -112,15 +164,6 @@ const IDB_ToKzVy__My = (Va) =>
 	});
 };
 
-
-//==============================================
-// EXPORT
-//==============================================
-export
-{
-	IDB_ToKzVy__Chy
-	, IDB_ToKzVy__My
-}
 
 //==============================================
 // END

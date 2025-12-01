@@ -1,16 +1,21 @@
 // SySmz.v.Du
 "use strict";
-const DoVCB = { VaSy: "DoVCB" };
-window.DoVCB = DoVCB;
+const DoFS = { VaSy: "DoFS" };
+window.DoFS = DoFS;
 
 //==============================================
 // QUALITIES
-/*
-
-
-*/
 //==============================================
+const FS_qk = Object.freeze
+({
+	OPFS: 0
+	, FAFS: 1
 
+	, MEGA: 2
+	, GOOG: 3
+	, MSFT: 4
+
+});
 
 
 //==============================================
@@ -18,12 +23,10 @@ window.DoVCB = DoVCB;
 //==============================================
 
 //-------------------------------------------------
-DoVCB.SmaYz = function( Sa_l )
+DoFS.SmaYz = function( Sa_l )
 //-------------------------------------------------
 {
-	SmaSme( "--------------------------------------------" );
-	SmaSme( this.VaSy, Sa_l.Si_KeDru );
-
+	SmaSme( "Service: ", this.VaSy );
 }
 
 
@@ -32,25 +35,29 @@ DoVCB.SmaYz = function( Sa_l )
 //==============================================
 
 //-------------------------------------------------
-DoVCB.BriYi = function( Sa_l )
+DoFS.BriYi = function( Sa_l )
 //-------------------------------------------------
 {
-	SmaSme( "BriYi: " + this.VaSy );
-
 }
 
 //-------------------------------------------------
-DoVCB.BriYa = function( Yz_l )
+DoFS.BriYa = function( Yz_k )
 //-------------------------------------------------
 {
-	const Sa_l = SySmz__YaFz_v( DoVCB );
-
-	Sa_l.Si_KeDru = Yz_l.Si_KeDru;
+	const Sa_l = SySmz__YaFz_v( DoFS );
 
 
 
 	return SySmz__YaFx_v( Sa_l );
 }
+
+
+//-------------------------------------------------
+DoFS.Mo = function( Sa_l, Jy_k, Mo_l )
+//-------------------------------------------------
+{
+}
+
 
 //==============================================
 // END

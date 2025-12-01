@@ -3,27 +3,11 @@
 const DoCFG = { VaSy: "DoCFG" };
 window.DoCFG = DoCFG;
 
-//==============================================
-// QUALITIES
-//==============================================
-const ViTe_qk = Object.freeze
-({
-	ViTe0: 0
-	, ViTe1: 1
-	, ViTe2: 2
-
-});
-
-
-//==============================================
-// COMMANDS
-//==============================================
-
 //=====================================
-//
+// COPY CLIPBOARD
 //=====================================
 // ref : https://stackoverflow.com/questions/400212/how-do-i-copy-to-the-clipboard-in-javascript
-function copyToClipboard( text )
+DoCFG.copyToClipboard = function( text )
 {
 	if ( window.clipboardData && window.clipboardData.setData )
 	{
@@ -60,7 +44,7 @@ function copyToClipboard( text )
 //=====================================
 // IS_MOBILE
 //=====================================
-function mobileCheck()
+DoCFG.mobileCheck = function()
 {
 	var check = false;
 	( function ( a )
@@ -78,7 +62,8 @@ function mobileCheck()
 
 //@@@
 // FMT
-function HreDru_DxSI(num) {
+DoCFG.HreDru_DxSI = function(num)
+{
 	const si = [
 		{value: 1e12, symbol: "TiB"},
 		{value: 1e9, symbol: "GiB"},
@@ -98,7 +83,8 @@ function HreDru_DxSI(num) {
 //@@@
 // MEM MONITOR
 let HraKuKx__MzFo_wu = 0;
-function runMemoryMeasurements()
+
+DoCFG.runMemoryMeasurements = function()
 {
 	// Seconds
 	const interval = 10 * 1000;
@@ -107,23 +93,23 @@ function runMemoryMeasurements()
 	// Only run X times
 	if (HraKuKx__MzFo_wu < 1)
 	{
-		setTimeout(measureMemory, interval);
+		setTimeout( DoCFG.measureMemory, interval);
 	}
 }
 
-async function measureMemory()
+DoCFG.measureMemory = async function()
 {
 	const HrxKuHa = await performance.measureUserAgentSpecificMemory();
 	// MxPo_De(HrxKuHa);
 
 	// TOTAL INVALID:
-	// SmaSme("\nTOTAL_MEM: "+HreDru_DxSI(HrxKuHa.bytes));
+	// SmaSme("\nTOTAL_MEM: "+ DoCFG.HreDru_DxSI(HrxKuHa.bytes));
 	let JS_MEM_y = false;
 	let HrxKuHa__Frz_du = 0;
 	HrxKuHa.breakdown.forEach(function (Ti_v, Vx_wu) {
 
 		if (Ti_v.bytes && ((Ti_v.types[0] != 'JavaScript') || (JS_MEM_y == false))) {
-			SmaSme("#" + Vx_wu + " " + Ti_v.types[0] + ": " + HreDru_DxSI(Ti_v.bytes));
+			SmaSme("#" + Vx_wu + " " + Ti_v.types[0] + ": " + DoCFG.HreDru_DxSI(Ti_v.bytes));
 			// ONLY ADD JS ONCE
 			HrxKuHa__Frz_du += Ti_v.bytes;
 		}
@@ -131,10 +117,10 @@ async function measureMemory()
 		// DON"T OVERREPORT JS MEM
 		if (Ti_v.types[0] == 'JavaScript') {JS_MEM_y = true;}
 	});
-	SmaSme("\nTOTAL_MEM(OS): " + HreDru_DxSI(HrxKuHa__Frz_du));
+	SmaSme("\nTOTAL_MEM(OS): " + DoCFG.HreDru_DxSI(HrxKuHa__Frz_du));
 
 
-	runMemoryMeasurements();
+	DoCFG.runMemoryMeasurements();
 
 	//AVAIL RAM
 	// Chrome Only vs SDL?
@@ -146,7 +132,8 @@ async function measureMemory()
 	// currentTime = performance.timeOrigin + performance.now();
 
 }
-measureMemory();
+
+DoCFG.measureMemory();
 
 
 //=====================================
@@ -155,7 +142,11 @@ measureMemory();
 
 //@@@
 // TYPING
+DoCFG.TYPING = function( Yz_k )
+{
 
+}
+/*
 // Create a hidden input element
 var input = document.createElement("input");
 input.type = "text";
@@ -243,12 +234,12 @@ if ("virtualKeyboard" in navigator)
 	  const { x, y, width, height } = event.target.boundingRect;
 	});
   }
-
+*/
 
 //=====================================
 // APP ARGs
 //=====================================
-function findGetParameter( parameterName )
+DoCFG.findGetParameter = function( parameterName )
 {
 	var tmp = [];
 	var result = null;
@@ -270,12 +261,7 @@ function findGetParameter( parameterName )
 DoCFG.SmaYz = function( Sa_l )
 //-------------------------------------------------
 {
-	SmaSme( "Service Example: ", this.VaSy );
-
-	Object.keys( ViTe_qk ).forEach( _Va => {	SmaSme( _Va ); });
-	Object.values( ViTe_qk ).forEach( _Vi => { SmaSme( _Vi );	});
-
-//	if( MoDzTrx__NxHo_y( "TEST FAKE ERROR", null )){ return; }
+	SmaSme( "Computer Capabilities: ", this.VaSy );
 
 }
 

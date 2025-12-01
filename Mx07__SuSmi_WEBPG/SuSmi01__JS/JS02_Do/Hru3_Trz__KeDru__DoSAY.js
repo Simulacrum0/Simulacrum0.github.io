@@ -1,7 +1,7 @@
 // SySmz.v.Du
 "use strict";
-const DoSPK = { VaSy: "DoSPK" };
-window.DoSPK = DoSPK;
+const DoSAY = { VaSy: "DoSAY" };
+window.DoSAY = DoSAY;
 
 //==============================================
 // QUALITIES
@@ -171,11 +171,11 @@ firm
 lively
 */
 //==============================================
-const ViTe_qk = Object.freeze
+const SAY_qk = Object.freeze
 ({
-	ViTe0: 0
-	, ViTe1: 1
-	, ViTe2: 2
+	SAY0: 0
+	, SAY1: 1
+	, SAY2: 2
 
 });
 
@@ -185,13 +185,11 @@ const ViTe_qk = Object.freeze
 //==============================================
 
 //-------------------------------------------------
-DoSPK.SmaYz = function( Sa_l )
+DoSAY.SmaYz = function( Sa_l )
 //-------------------------------------------------
 {
-	SmaSme( "Service Example: ", this.VaSy );
+	SmaSme( "Service: ", this.VaSy );
 
-	Object.keys( ViTe_qk ).forEach( _Va => {	SmaSme( _Va ); });
-	Object.values( ViTe_qk ).forEach( _Vi => { SmaSme( _Vi );	});
 }
 
 
@@ -200,16 +198,16 @@ DoSPK.SmaYz = function( Sa_l )
 //==============================================
 
 //-------------------------------------------------
-DoSPK.BriYi = function( Sa_l )
+DoSAY.BriYi = function( Sa_l )
 //-------------------------------------------------
 {
 }
 
 //-------------------------------------------------
-DoSPK.BriYa = function( Yz )
+DoSAY.BriYa = function( Yz )
 //-------------------------------------------------
 {
-	const Sa_l = SySmz__YaFz_v( DoSPK );
+	const Sa_l = SySmz__YaFz_v( DoSAY );
 
 
 	if (!window.speechSynthesis)

@@ -1,7 +1,7 @@
 // SySmz.v.Du
 "use strict";
-const DoSHAR = { VaSy: "DoSHAR" };
-window.DoSHAR = DoSHAR;
+const DoSTRM = { VaSy: "DoSTRM" };
+window.DoSTRM = DoSTRM;
 
 //==============================================
 // QUALITIES
@@ -15,37 +15,12 @@ const ViTe_qk = Object.freeze
 });
 
 
-//=====================================
-// SMS on MOBILE
-//=====================================
-function sendSMS(phoneNumber, message)
-{
-	// Encode the message to handle special characters
-	const encodedMessage = encodeURIComponent(message);
-
-	// Construct the smsto URI
-	const smsURI = `smsto:${phoneNumber}?body=${encodedMessage}`;
-
-	// Open the URI, which will prompt the user's device to open their messaging app
-	window.location.href = smsURI;
-	}
-
-/*
-  // Example usage:
-  const recipientNumber = "1234567890"; // Replace with the actual phone number
-  const smsText = "Hello from my web application!";
-
-  // Call the function to initiate the SMS
-  sendSMS(recipientNumber, smsText);
-
-*/
-
 //==============================================
 // ACTIONS
 //==============================================
 
 //-------------------------------------------------
-DoSHAR.SmaYz = function( Sa_l )
+DoSTRM.SmaYz = function( Sa_l )
 //-------------------------------------------------
 {
 	SmaSme( "Service: ", this.VaSy );
@@ -57,22 +32,43 @@ DoSHAR.SmaYz = function( Sa_l )
 
 }
 
+//-------------------------------------------------
+// SVG^WaGwx
+//-------------------------------------------------
+// HTML BELOW ( loads as HTML )
+/*
+<svg height="720" width="1280">
+	<defs>
+	  <linearGradient id="grad1">
+		<stop offset="0%" stop-color="yellow" />
+		<stop offset="100%" stop-color="red" />
+	  </linearGradient>
+	</defs>
+	<ellipse cx="100" cy="70" rx="85" ry="55" fill="url(#grad1)" />
+	<text fill="#ffffff" font-size="45" font-family="Verdana" x="50" y="86">ESSENCE</text>
+	WARNING: Your browser does not support inline SVG.
+</svg>
+{
+	"EXAMPLE_DRAWING": "<defs><linearGradient id=\"grad1\"><stop offset=\"0%\" stop-color=\"yellow\" /><stop offset=\"100%\" stop-color=\"red\" /></linearGradient></defs><ellipse cx=\"100\" cy=\"70\" rx=\"85\" ry=\"55\" fill=\"url(#grad1)\" /><text fill=\"#ffffff\" font-size=\"45\" ont-family=\"Verdana\" x=\"50\" y=\"86\">Test of Drawing Words in Diagrams</text>"
+},
+*/
 
 //==============================================
 // LIFE
 //==============================================
 
 //-------------------------------------------------
-DoSHAR.BriYi = function( Sa_l )
+DoSTRM.BriYi = function( Sa_l )
 //-------------------------------------------------
 {
 }
 
 //-------------------------------------------------
-DoSHAR.BriYa = function( Yz_k )
+DoSTRM.BriYa = function( Yz_k )
 //-------------------------------------------------
 {
-	const Sa_l = SySmz__YaFz_v( DoSHAR );
+	const Sa_l = SySmz__YaFz_v( Do );
+
 
 
 	return SySmz__YaFx_v( Sa_l );
@@ -80,7 +76,7 @@ DoSHAR.BriYa = function( Yz_k )
 
 
 //-------------------------------------------------
-DoSHAR.Mo = function( Sa_l, Jy_k, Mo_l )
+DoSTRM.Mo = function( Sa_l, Jy_k, Mo_l )
 //-------------------------------------------------
 {
 }
