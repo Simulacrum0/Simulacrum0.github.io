@@ -47,7 +47,7 @@ DoSNS.BriYi = function( Sa_l )
 DoSNS.BriYa = function( Yz_k )
 //-------------------------------------------------
 {
-	const Sa_l = SySmz_z_v( DoSNS );
+	const Sa_l = SySmz__YaFz_v( DoSNS );
 
 	SmaSme( "===================\nSENSORS\n----------" );
 	navigator.mediaDevices.enumerateDevices().then
@@ -59,7 +59,7 @@ DoSNS.BriYa = function( Yz_k )
 				});
 	});
 
-	return SySmz_x_v( Sa_l );
+	return SySmz__YaFx_v( Sa_l );
 }
 
 

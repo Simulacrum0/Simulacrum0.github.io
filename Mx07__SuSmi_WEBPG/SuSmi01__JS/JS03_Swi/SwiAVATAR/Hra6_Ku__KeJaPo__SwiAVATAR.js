@@ -72,10 +72,10 @@ SwiAVATAR.BriYi = function( Sa_l )
 SwiAVATAR.BriYa = function( Yz_k )
 //-------------------------------------------------
 {
-	const Sa_l = SySmz_z_v( SwiAVATAR );
+	const Sa_l = SySmz__YaFz_v( SwiAVATAR );
 
 
-	return SySmz_x_v( Sa_l );
+	return SySmz__YaFx_v( Sa_l );
 }
 
 

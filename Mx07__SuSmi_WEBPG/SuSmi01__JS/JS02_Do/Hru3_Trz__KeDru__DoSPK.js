@@ -209,7 +209,7 @@ DoSPK.BriYi = function( Sa_l )
 DoSPK.BriYa = function( Yz )
 //-------------------------------------------------
 {
-	const Sa_l = SySmz_z_v( DoSPK );
+	const Sa_l = SySmz__YaFz_v( DoSPK );
 
 
 	if (!window.speechSynthesis)
@@ -233,7 +233,7 @@ DoSPK.BriYa = function( Yz )
   }
 
 
-	return SySmz_x_v( Sa_l );
+	return SySmz__YaFx_v( Sa_l );
 }
 
 

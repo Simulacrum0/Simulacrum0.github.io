@@ -47,10 +47,10 @@ DoSCRN.BriYi = function( Sa_l )
 DoSCRN.BriYa = function( Yz_k )
 //-------------------------------------------------
 {
-	const Sa_l = SySmz_z_v( DoSCRN );
+	const Sa_l = SySmz__YaFz_v( DoSCRN );
 
 
-	return SySmz_x_v( Sa_l );
+	return SySmz__YaFx_v( Sa_l );
 }
 
 

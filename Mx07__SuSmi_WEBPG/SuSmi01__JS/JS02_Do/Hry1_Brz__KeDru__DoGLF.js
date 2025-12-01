@@ -46,7 +46,7 @@ DoGLF.BriYa = async function( Yz_l )
 {
 	//@@@
 	// MAKE SESSION with Ji INTERFACE
-	const Sa_l = SySmz_z_v( DoGLF );
+	const Sa_l = SySmz__YaFz_v( DoGLF );
 
 	//@@@
 	// CANVAS
@@ -61,7 +61,7 @@ DoGLF.BriYa = async function( Yz_l )
 	SxHry_l.canvas.imageSmoothingEnabled = true;
 
 
-	return SySmz_x_v( Sa_l );
+	return SySmz__YaFx_v( Sa_l );
 }
 
 

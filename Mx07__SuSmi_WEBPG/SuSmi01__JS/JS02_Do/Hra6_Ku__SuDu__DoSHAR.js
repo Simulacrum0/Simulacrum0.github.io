@@ -72,10 +72,10 @@ DoSHAR.BriYi = function( Sa_l )
 DoSHAR.BriYa = function( Yz_k )
 //-------------------------------------------------
 {
-	const Sa_l = SySmz_z_v( DoSHAR );
+	const Sa_l = SySmz__YaFz_v( DoSHAR );
 
 
-	return SySmz_x_v( Sa_l );
+	return SySmz__YaFx_v( Sa_l );
 }
 
 

@@ -83,7 +83,7 @@ SyTe.BriYi = function( Sa_l )
 SyTe.BriYa = function( Yz_k )
 //-------------------------------------------------
 {
-	const Sa_l = SySmz_z_v( DoGPS );
+	const Sa_l = SySmz__YaFz_v( DoGPS );
 
 
 
@@ -93,7 +93,7 @@ SyTe.BriYa = function( Yz_k )
 	if (navigator.geolocation){ navigator.geolocation.watchPosition( KiGPS_Fy, KiGPS_Trx ); }
 	else { SmaDre( "Geolocation is not supported by this browser." ); }
 
-	return SySmz_x_v( Sa_l );
+	return SySmz__YaFx_v( Sa_l );
 }
 
 //-------------------------------------------------

@@ -47,10 +47,10 @@ DoENRG.BriYi = function( Sa_l )
 DoENRG.BriYa = function( Yz_k )
 //-------------------------------------------------
 {
-	const Sa_l = SySmz_z_v( DoENRG );
+	const Sa_l = SySmz__YaFz_v( DoENRG );
 
 
-	return SySmz_x_v( Sa_l );
+	return SySmz__YaFx_v( Sa_l );
 }
 
 

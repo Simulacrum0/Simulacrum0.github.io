@@ -43,13 +43,13 @@ DoVCB.BriYi = function( Sa_l )
 DoVCB.BriYa = function( Yz_l )
 //-------------------------------------------------
 {
-	const Sa_l = SySmz_z_v( DoVCB );
+	const Sa_l = SySmz__YaFz_v( DoVCB );
 
 	Sa_l.Si_KeDru = Yz_l.Si_KeDru;
 
 
 
-	return SySmz_x_v( Sa_l );
+	return SySmz__YaFx_v( Sa_l );
 }
 
 //==============================================

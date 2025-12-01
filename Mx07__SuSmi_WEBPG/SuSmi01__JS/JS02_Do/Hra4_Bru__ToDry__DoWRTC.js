@@ -56,14 +56,14 @@ SyTe.BriYi = function( Sa_l )
 SyTe.BriYa = function( Yz_k )
 //-------------------------------------------------
 {
-	const Sa_l = SySmz_z_v( DoWRTC );
+	const Sa_l = SySmz__YaFz_v( DoWRTC );
 
 
 <!-- <script type="module" src="https://cdn.jsdelivr.net/npm/qrcode@1.4.4/build/qrcode.min.js"></script>
 <script type="module" src="Mx07__SuSmi_WEBPG/SuSmi01__JS/JS03_Swi/SwiWT/Hra4_Bru__KeTuDe__SwiWT.js"></script> -->
 
 
-	return SySmz_x_v( Sa_l );
+	return SySmz__YaFx_v( Sa_l );
 }
 
 //-------------------------------------------------

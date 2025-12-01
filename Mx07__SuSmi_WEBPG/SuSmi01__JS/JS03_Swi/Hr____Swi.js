@@ -44,10 +44,10 @@ SwiTe.BriYi = function( Sa_l )
 SwiTe.BriYa = function( Yz_k )
 //-------------------------------------------------
 {
-	const Sa_l = SySmz_z_v( SwiTe );
+	const Sa_l = SySmz__YaFz_v( SwiTe );
 
 
-	return SySmz_x_v( Sa_l );
+	return SySmz__YaFx_v( Sa_l );
 }
 
 

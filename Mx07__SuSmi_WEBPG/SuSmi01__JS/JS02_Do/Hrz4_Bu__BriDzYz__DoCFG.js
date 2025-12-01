@@ -294,7 +294,7 @@ DoCFG.BriYi = function( Sa_l )
 DoCFG.BriYa = function( Yz_k )
 //-------------------------------------------------
 {
-	const Sa_l = SySmz_z_v( DoCFG );
+	const Sa_l = SySmz__YaFz_v( DoCFG );
 
 	//@@@
 	// SCREEN HIDDEN
@@ -313,7 +313,7 @@ DoCFG.BriYa = function( Yz_k )
 	  });
 
 
-	return SySmz_x_v( Sa_l );
+	return SySmz__YaFx_v( Sa_l );
 }
 
 

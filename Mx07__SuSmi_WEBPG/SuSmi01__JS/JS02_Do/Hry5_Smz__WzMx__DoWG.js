@@ -209,8 +209,8 @@ struct FQuad_t
 	// JaMy_wu2, JaMyGz_wu, JaBrz_wu
 	//return textureLoad( JaPo_k, vec2u( o.JaMy_wf2 * 2.0 ), 0, 0 );
 
-	//return textureSample( JaPo_k, JaKro_k, o.JaMy_wf2, 0 );
-	return textureLoad( JaPo_k, vec2u( o.JaMy_wf2 * 512.0 ), 0, 0 );
+	return textureSample( JaPo_k, JaKro_k, o.JaMy_wf2 * 0.5, 0 );
+	// return textureLoad( JaPo_k, vec2u( o.JaMy_wf2 * 512.0 ), 0, 0 );
 }
 `;
 
@@ -245,7 +245,7 @@ DoWG.BriYa = async function( Yz_l )
 {
 	//@@@
 	// MAKE SESSION with Ji INTERFACE
-	const Sa_l = SySmz_z_v( DoWG );
+	const Sa_l = SySmz__YaFz_v( DoWG );
 
 	Sa_l.KaVy = Yz_l.KaVy;
 	Sa_l.TaJiJa_vh = [];
@@ -827,7 +827,7 @@ DoWG.BriYa = async function( Yz_l )
 	//-------------------------------------------------
 	// VERIFY
 	//-------------------------------------------------
-	return SySmz_x_v( Sa_l );
+	return SySmz__YaFx_v( Sa_l );
 }
 
 

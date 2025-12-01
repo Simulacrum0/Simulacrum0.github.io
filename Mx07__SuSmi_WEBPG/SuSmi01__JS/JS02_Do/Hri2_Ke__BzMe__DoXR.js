@@ -87,7 +87,7 @@ DoXR.BriYi = function( Sa_l )
 DoXR.BriYa = function( Yz_k )
 //-------------------------------------------------
 {
-	const Sa_l = SySmz_z_v( DoXR );
+	const Sa_l = SySmz__YaFz_v( DoXR );
 
 
 	if (navigator.xr)
@@ -121,7 +121,7 @@ DoXR.BriYa = function( Yz_k )
 		    SmaSme("WebXR is not supported. Please use a compatible browser.");
 		}
 
-	return SySmz_x_v( Sa_l );
+	return SySmz__YaFx_v( Sa_l );
 }
 
 

@@ -1,3 +1,44 @@
+//----------------------------
+// SYS_CFG^KoYz
+//----------------------------
+const BriYz = Object.freeze
+({
+	HxHo_qk: 0
+	, Trx_qk: 1
+	, Yz_qk: 2
+	, Ya_qk: 3
+	, Ye_qk: 4
+	, Yo_qk: 5
+	, Yi_qk: 6
+});
+
+//==============================================
+// SERV SETUP
+//==============================================
+function SySmz__YaFz_v( Do ){ return{ Ji: Do, BriYz_q: BriYz.Ya_qk }; }
+function SySmz__YaFx_v( Sa_l ){ Sa_l.BriYz_q = BriYz.Ye_qk; return Sa_l; }
+
+function SySmz__KrzYe_y( Sa_l ){ return ( Sa_l && ( Sa_l.BriYz_q !== undefined ) && ( Sa_l.BriYz_q === BriYz.Ye_qk )); }
+
+
+//----------------------------
+// REQ SERV
+//----------------------------
+const Do = Object.freeze
+({
+	VCB_qk: 0
+	, GLF_qk: 1
+	, WG_qk: 2
+	, FNT_qk: 3
+
+
+	, XR_qk: 4
+	, GL_qk: 5
+
+	, Fo_wuk: 6
+});
+
+
 //==============================================
 // JSON_ADD^Cha
 //==============================================
