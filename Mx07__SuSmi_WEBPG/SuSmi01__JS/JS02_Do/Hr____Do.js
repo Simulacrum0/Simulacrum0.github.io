@@ -47,7 +47,7 @@ DoTe.BriYi = function( Sa_l )
 DoTe.BriYa = function( Yz_k )
 //-------------------------------------------------
 {
-	const Sa_l = SySmz__YaFz_v( Do );
+	const Sa_l = SySmz__YaFz_v( DoTe );
 
 
 

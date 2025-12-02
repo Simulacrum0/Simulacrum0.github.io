@@ -6,11 +6,11 @@ window.DoSNS = DoSNS;
 //==============================================
 // QUALITIES
 //==============================================
-const ViTe_qk = Object.freeze
+const MzKa = Object.freeze
 ({
-	ViTe0: 0
-	, ViTe1: 1
-	, ViTe2: 2
+	MzPe_qk: 0
+	, MzPo_qk: 1
+	, MzWo_qk: 2
 
 });
 
@@ -23,13 +23,17 @@ const ViTe_qk = Object.freeze
 DoSNS.SmaYz = function( Sa_l )
 //-------------------------------------------------
 {
-	SmaSme( "Service: ", this.VaSy );
+	// SmaSme( "Service: ", this.VaSy );
 
-	Object.keys( ViTe_qk ).forEach( _Va => {	SmaSme( _Va ); });
-	Object.values( ViTe_qk ).forEach( _Vi => { SmaSme( _Vi );	});
-
-	// if( MoDzTrx__NxHo_y( "TEST FAKE ERROR", null )){ return; }
-
+	SmaSme( "===================\nSENSORS\n----------" );
+	navigator.mediaDevices.enumerateDevices().then
+	( function(devices){
+				devices.forEach
+				( function(device)
+				{
+					SmaSme( " -[ " + device.kind + " ]: " + device.label +" id = " + device.deviceId );
+				});
+	});
 }
 
 
@@ -49,15 +53,7 @@ DoSNS.BriYa = function( Yz_k )
 {
 	const Sa_l = SySmz__YaFz_v( DoSNS );
 
-	SmaSme( "===================\nSENSORS\n----------" );
-	navigator.mediaDevices.enumerateDevices().then
-	( function(devices){
-				devices.forEach
-				( function(device)
-				{
-					SmaSme( " -[ " + device.kind + " ]: " + device.label +" id = " + device.deviceId );
-				});
-	});
+
 
 	return SySmz__YaFx_v( Sa_l );
 }

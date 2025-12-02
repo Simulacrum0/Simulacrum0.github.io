@@ -6,11 +6,11 @@ window.DoSTRM = DoSTRM;
 //==============================================
 // QUALITIES
 //==============================================
-const ViTe_qk = Object.freeze
+const STRM_qk = Object.freeze
 ({
-	ViTe0: 0
-	, ViTe1: 1
-	, ViTe2: 2
+	STRM0: 0
+	, STRM1: 1
+	, STRM2: 2
 
 });
 
@@ -25,8 +25,8 @@ DoSTRM.SmaYz = function( Sa_l )
 {
 	SmaSme( "Service: ", this.VaSy );
 
-	Object.keys( ViTe_qk ).forEach( _Va => {	SmaSme( _Va ); });
-	Object.values( ViTe_qk ).forEach( _Vi => { SmaSme( _Vi );	});
+	Object.keys( STRM_qk ).forEach( _Va => {	SmaSme( _Va ); });
+	Object.values( STRM_qk ).forEach( _Vi => { SmaSme( _Vi );	});
 
 	// if( MoDzTrx__NxHo_y( "TEST FAKE ERROR", null )){ return; }
 
@@ -67,8 +67,8 @@ DoSTRM.BriYi = function( Sa_l )
 DoSTRM.BriYa = function( Yz_k )
 //-------------------------------------------------
 {
-	const Sa_l = SySmz__YaFz_v( Do );
-
+	const Sa_l = SySmz__YaFz_v( DoSTRM );
+	// SmaSme( "STRM", Sa_l.Ji );
 
 
 	return SySmz__YaFx_v( Sa_l );
@@ -76,9 +76,19 @@ DoSTRM.BriYa = function( Yz_k )
 
 
 //-------------------------------------------------
-DoSTRM.Mo = function( Sa_l, Jy_k, Mo_l )
+DoSTRM.Mo = async function( Sa_l, Jy_k, Si_l )
 //-------------------------------------------------
 {
+	try
+	{
+		const res = await fetch( Si_l );
+		const blob = await res.blob();
+		Ko.SuKz_v[ 0 ] = await createImageBitmap(blob, { colorSpaceConversion: 'none' });
+	}
+	catch
+	{
+		SmaDre( "MEDIA FAIL", Si_l );
+	}
 }
 
 

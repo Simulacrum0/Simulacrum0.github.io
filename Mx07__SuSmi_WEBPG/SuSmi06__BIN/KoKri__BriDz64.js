@@ -3043,6 +3043,20 @@ var _emscripten_terminate_all_wasm_workers = () => {
   _wasmWorkers = {};
 };
 
+var _emscripten_terminate_wasm_worker = id => {
+  assert(id != 0, "emscripten_terminate_wasm_worker() cannot be called with id=0!");
+  if (_wasmWorkers[id]) {
+    _wasmWorkers[id].terminate();
+    delete _wasmWorkers[id];
+  }
+};
+
+function _emscripten_throw_string(str) {
+  str = bigintToI53Checked(str);
+  assert(typeof str == "number");
+  throw UTF8ToString(str);
+}
+
 function _emscripten_wasm_worker_post_function_v(id, funcPtr) {
   funcPtr = bigintToI53Checked(funcPtr);
   _wasmWorkers[id].postMessage({
@@ -3580,21 +3594,22 @@ function checkIncomingModuleAPI() {
 }
 
 var ASM_CONSTS = {
-  8397240: $0 => {
+  8397256: $0 => {
     if (!window.Ko.Hx_SyDx_vsg) {
       window.Ko.Hx_SyDx_vsg = UTF8ToString($0);
     }
   },
-  8397321: () => {
+  8397337: () => {
     MoDzTrx("TEST BAD BUILD as ERROR");
   },
-  8397363: () => {},
-  8397367: () => {
+  8397379: () => {},
+  8397383: () => {
     console.log("MC: HrySmz__BriYa");
   },
-  8397407: () => {},
-  8397411: () => {
-    emscripten_throw_string("TEST THROW ERR");
+  8397423: () => {},
+  8397427: () => {
+    const SaSTRM_l = Ko.SySmz_v[SyVx.STRM_qk];
+    SaSTRM_l.Ji.Mo(SaSTRM_l, "JaPoCha", "Mx01__SuKz_MEDIA/SuKz02_JaPo__PICT/JaPo00__FyHo.jpg");
   }
 };
 
@@ -3812,11 +3827,19 @@ var _SmaHe = Module["_SmaHe"] = makeInvalidEarlyAccess("_SmaHe");
 
 var _Hrz5_Ki__BriSmz__Yi = Module["_Hrz5_Ki__BriSmz__Yi"] = makeInvalidEarlyAccess("_Hrz5_Ki__BriSmz__Yi");
 
+var _Hri5_Ye__BriYi = Module["_Hri5_Ye__BriYi"] = makeInvalidEarlyAccess("_Hri5_Ye__BriYi");
+
 var _Hrz5_Ki__BriSmz__Ya = Module["_Hrz5_Ki__BriSmz__Ya"] = makeInvalidEarlyAccess("_Hrz5_Ki__BriSmz__Ya");
+
+var _HriKx_Ya = Module["_HriKx_Ya"] = makeInvalidEarlyAccess("_HriKx_Ya");
 
 var _malloc = Module["_malloc"] = makeInvalidEarlyAccess("_malloc");
 
+var _HriKxWz_Ye = Module["_HriKxWz_Ye"] = makeInvalidEarlyAccess("_HriKxWz_Ye");
+
 var _Hra1_Mz__JeKz__BriYa = Module["_Hra1_Mz__JeKz__BriYa"] = makeInvalidEarlyAccess("_Hra1_Mz__JeKz__BriYa");
+
+var _Hri5_Ye__BriYa = Module["_Hri5_Ye__BriYa"] = makeInvalidEarlyAccess("_Hri5_Ye__BriYa");
 
 var _Hrz5_Ki__BriSmz__Yo = Module["_Hrz5_Ki__BriSmz__Yo"] = makeInvalidEarlyAccess("_Hrz5_Ki__BriSmz__Yo");
 
@@ -3825,6 +3848,10 @@ var _Hrz5_Ki__BriSmz__Yu = Module["_Hrz5_Ki__BriSmz__Yu"] = makeInvalidEarlyAcce
 var _Hrz5_Ki__BriSmz__Ye = Module["_Hrz5_Ki__BriSmz__Ye"] = makeInvalidEarlyAccess("_Hrz5_Ki__BriSmz__Ye");
 
 var _Hra1_Mz__JeKz__BriYe = Module["_Hra1_Mz__JeKz__BriYe"] = makeInvalidEarlyAccess("_Hra1_Mz__JeKz__BriYe");
+
+var _Hri5_Ye__BriYe = Module["_Hri5_Ye__BriYe"] = makeInvalidEarlyAccess("_Hri5_Ye__BriYe");
+
+var _HriKxWz_Yi = Module["_HriKxWz_Yi"] = makeInvalidEarlyAccess("_HriKxWz_Yi");
 
 var _Hre7_Me__GiDx__HMS = Module["_Hre7_Me__GiDx__HMS"] = makeInvalidEarlyAccess("_Hre7_Me__GiDx__HMS");
 
@@ -3884,13 +3911,19 @@ function assignWasmExports(wasmExports) {
   Module["_main"] = _main = createExportWrapper("__main_argc_argv", 2);
   Module["_SmaHe"] = _SmaHe = createExportWrapper("SmaHe", 2);
   Module["_Hrz5_Ki__BriSmz__Yi"] = _Hrz5_Ki__BriSmz__Yi = createExportWrapper("Hrz5_Ki__BriSmz__Yi", 0);
+  Module["_Hri5_Ye__BriYi"] = _Hri5_Ye__BriYi = createExportWrapper("Hri5_Ye__BriYi", 0);
   Module["_Hrz5_Ki__BriSmz__Ya"] = _Hrz5_Ki__BriSmz__Ya = createExportWrapper("Hrz5_Ki__BriSmz__Ya", 0);
+  Module["_HriKx_Ya"] = _HriKx_Ya = createExportWrapper("HriKx_Ya", 1);
   Module["_malloc"] = _malloc = createExportWrapper("malloc", 1);
+  Module["_HriKxWz_Ye"] = _HriKxWz_Ye = createExportWrapper("HriKxWz_Ye", 0);
   Module["_Hra1_Mz__JeKz__BriYa"] = _Hra1_Mz__JeKz__BriYa = createExportWrapper("Hra1_Mz__JeKz__BriYa", 0);
+  Module["_Hri5_Ye__BriYa"] = _Hri5_Ye__BriYa = createExportWrapper("Hri5_Ye__BriYa", 0);
   Module["_Hrz5_Ki__BriSmz__Yo"] = _Hrz5_Ki__BriSmz__Yo = createExportWrapper("Hrz5_Ki__BriSmz__Yo", 0);
   Module["_Hrz5_Ki__BriSmz__Yu"] = _Hrz5_Ki__BriSmz__Yu = createExportWrapper("Hrz5_Ki__BriSmz__Yu", 0);
   Module["_Hrz5_Ki__BriSmz__Ye"] = _Hrz5_Ki__BriSmz__Ye = createExportWrapper("Hrz5_Ki__BriSmz__Ye", 0);
   Module["_Hra1_Mz__JeKz__BriYe"] = _Hra1_Mz__JeKz__BriYe = createExportWrapper("Hra1_Mz__JeKz__BriYe", 0);
+  Module["_Hri5_Ye__BriYe"] = _Hri5_Ye__BriYe = createExportWrapper("Hri5_Ye__BriYe", 0);
+  Module["_HriKxWz_Yi"] = _HriKxWz_Yi = createExportWrapper("HriKxWz_Yi", 1);
   Module["_Hre7_Me__GiDx__HMS"] = _Hre7_Me__GiDx__HMS = createExportWrapper("Hre7_Me__GiDx__HMS", 2);
   Module["_HEAPO_wf"] = _HEAPO_wf = createExportWrapper("HEAPO_wf", 0);
   Module["_Hri5_Ye__Sme"] = _Hri5_Ye__Sme = createExportWrapper("Hri5_Ye__Sme", 0);
@@ -3974,6 +4007,8 @@ function assignWasmImports() {
     /** @export */ emscripten_set_wheel_callback_on_thread: _emscripten_set_wheel_callback_on_thread,
     /** @export */ emscripten_set_window_title: _emscripten_set_window_title,
     /** @export */ emscripten_terminate_all_wasm_workers: _emscripten_terminate_all_wasm_workers,
+    /** @export */ emscripten_terminate_wasm_worker: _emscripten_terminate_wasm_worker,
+    /** @export */ emscripten_throw_string: _emscripten_throw_string,
     /** @export */ emscripten_wasm_worker_post_function_v: _emscripten_wasm_worker_post_function_v,
     /** @export */ emscripten_wasm_worker_self_id: _emscripten_wasm_worker_self_id,
     /** @export */ fd_write: _fd_write,

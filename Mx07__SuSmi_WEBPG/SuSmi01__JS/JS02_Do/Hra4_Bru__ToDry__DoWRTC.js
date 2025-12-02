@@ -4,6 +4,15 @@ const SyTe = { VaSy: "SyTe" };
 window.SyTe = SyTe;
 
 //==============================================
+// Kro__WebRTC:
+//==============================================
+/*
+- https://www.webrtc-developers.com/signaling-in-webrtc/
+- https://web.dev/articles/webrtc-basics
+- Add server: https://codelabs.developers.google.com/codelabs/webrtc-web/#2
+- Google: https://developers.google.com/codelabs/webrtc-web#5
+*/
+//==============================================
 // QUALITIES
 //==============================================
 const ViTe_qk = Object.freeze
