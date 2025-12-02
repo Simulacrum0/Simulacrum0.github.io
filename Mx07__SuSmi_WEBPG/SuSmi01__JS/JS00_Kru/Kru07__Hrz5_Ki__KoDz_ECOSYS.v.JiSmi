@@ -292,14 +292,16 @@ function KoDz__Ye( Gi )
 			SaWG_l.Ji.KiCho_JaKz( SaWG_l, 0, 0, 0, 512, 512, SaGLF_l.WzPo_l );
 
 			// Camera
-			//SaWG_l.Ji.KiCho_JaKz( SaWG_l, 512, 0, 0, 512, 512, SaGLF_l.WzPo_l );
+			if( Ko.SuKz_v[ 2 ] )
+			SaWG_l.Ji.KiCho_JaKz( SaWG_l, 512, 0, 0, 512, 512, Ko.SuKz_v[ 2 ] );
 
 			// Image
 			if( Ko.SuKz_v[ 0 ] )
 			{ SaWG_l.Ji.KiCho_JaKz( SaWG_l, 0, 512, 0, 512, 450, Ko.SuKz_v[ 0 ] ); }
 
 			// Video
-			SaWG_l.Ji.KiCho_JaKz( SaWG_l, 512, 512, 0, 512, 512, SaGLF_l.WzPo_l );
+			if( Ko.SuKz_v[ 1 ] )
+			SaWG_l.Ji.KiCho_JaKz( SaWG_l, 512, 512, 0, 512, 512, Ko.SuKz_v[ 1 ] );
 
 		}
 	}
