@@ -3609,9 +3609,9 @@ var ASM_CONSTS = {
   8397423: () => {},
   8397427: () => {
     const SaSTRM_l = Ko.SySmz_v[SyVx.STRM_qk];
-    SaSTRM_l.Ji.Mo(SaSTRM_l, 0, "Mx01__SuKz_MEDIA/SuKz02_JaPo__PICT/JaPo00__FyHo.jpg");
-    SaSTRM_l.Ji.Mo(SaSTRM_l, 1, "Mx01__SuKz_MEDIA/SuKz02_JaPo__PICT/JaPo__SF/SF_C13.png");
-    SaSTRM_l.Ji.Mo(SaSTRM_l, 2, "Mx01__SuKz_MEDIA/SuKz02_JaPo__PICT/JaPo01__SPACE.jpg");
+    SaSTRM_l.Ji.Mo(SaSTRM_l, 0, "Mx01__SuKz_MEDIA/SuKz02_JaPo__PICT/JaPo__SF/SF_C13.png");
+    SaSTRM_l.Ji.Mo(SaSTRM_l, 1, "Mx01__SuKz_MEDIA/SuKz02_JaPo__PICT/JaPo01__SPACE.jpg");
+    SaSTRM_l.Ji.Mo(SaSTRM_l, 2, "Mx01__SuKz_MEDIA/SuKz02_JaPo__PICT/JaPo00__FyHo.jpg");
   }
 };
 

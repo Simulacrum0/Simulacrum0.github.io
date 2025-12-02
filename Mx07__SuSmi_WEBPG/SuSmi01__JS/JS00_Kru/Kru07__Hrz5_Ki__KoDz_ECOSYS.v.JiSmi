@@ -293,25 +293,25 @@ function KoDz__Ye( Gi )
 			// TXT
 			SaGLF_l.Ji.Hre7_Me__KeDru_Ha( SaGLF_l, "👽 Usr: " + "jkv", 0, 0 );
 			SaGLF_l.Ji.Hre7_Me__KeDru_Ha( SaGLF_l, "👾Ye: " + Ko.YeWi_df.toFixed( 2 ) + "ms", 0, 128 );
-			SaGLF_l.Ji.Hre7_Me__KeDru_Ha( SaGLF_l, "🛸 Evt: " + "!?!", 0, 256 );
-			SaGLF_l.Ji.Hre7_Me__KeDru_Ha( SaGLF_l, "🚀Log: " + 6767, 0, 384 );
+			SaGLF_l.Ji.Hre7_Me__KeDru_Ha( SaGLF_l, "🛸 Evt: " + " <List-Here> ", 0, 256 );
+			SaGLF_l.Ji.Hre7_Me__KeDru_Ha( SaGLF_l, "🚀Log: " + "67, 67", 0, 384 );
 			// Canvas ( SVG or TXT )
 			SaWG_l.Ji.KiCho_JaKz( SaWG_l, 0, 0, 0, 512, 512, SaGLF_l.WzPo_l );
 
 			//&&&
 			// MzPo
 			if( Ko.SuKz_v[ 0 ] )
-			{ SaWG_l.Ji.KiCho_JaKz( SaWG_l, 512, 0, 0, 450, 450, Ko.SuKz_v[ 0 ] ); }
+				{ SaWG_l.Ji.KiCho_JaKz( SaWG_l, 0, 512, 0, 200, 200, Ko.SuKz_v[ 0 ] ); }
 
 			//&&&
 			// LNK
 			if( Ko.SuKz_v[ 1 ] )
-			{ SaWG_l.Ji.KiCho_JaKz( SaWG_l, 0, 512, 0, 200, 200, Ko.SuKz_v[ 1 ] ); }
+				{ SaWG_l.Ji.KiCho_JaKz( SaWG_l, 512, 512, 0, 512, 512, Ko.SuKz_v[ 1 ] ); }
 
 			//&&&
 			// PePo
 			if( Ko.SuKz_v[ 2 ] )
-			{ SaWG_l.Ji.KiCho_JaKz( SaWG_l, 512, 512, 0, 512, 512, Ko.SuKz_v[ 2 ] ); }
+				{ SaWG_l.Ji.KiCho_JaKz( SaWG_l, 512, 0, 0, 450, 450, Ko.SuKz_v[ 2 ] ); }
 
 		}
 	}
