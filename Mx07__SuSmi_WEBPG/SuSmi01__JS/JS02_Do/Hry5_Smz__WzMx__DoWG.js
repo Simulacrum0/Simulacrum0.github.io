@@ -259,7 +259,6 @@ DoWG.BriYa = async function( Yz_l )
 		Fe_TaJiJa_vh[ Vx_wu ] = Hrz7_Kru__ToKz_vsg( "Mx07__SuSmi_WEBPG/SuSmi01__JS/JS01_JiJa/", Ti_v );
 	});
 
-
 	//-------------------------------------------------
 	// CHIP ADAPTER
 	//-------------------------------------------------
@@ -813,6 +812,11 @@ DoWG.BriYa = async function( Yz_l )
 
 		, primitive: { topology: 'triangle-list' }
 	});
+
+	//-------------------------------------------------
+	// LOADED DONE
+	//-------------------------------------------------
+	const TaJiJa_Smx_k = await Promise.all( Fe_TaJiJa_vh );
 
 
 	//-------------------------------------------------

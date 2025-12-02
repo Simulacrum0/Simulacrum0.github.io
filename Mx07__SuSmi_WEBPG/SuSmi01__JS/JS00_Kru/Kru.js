@@ -945,7 +945,10 @@ var Ko =
 {
 	// UPD
 	YeFo_wu: 0
-	, BriYa_GiDri_df: 0
+	, YeWi_df: 0.0
+	, BriYa_GiDri_df: 0.0
+	, BriYe_GiDri_df: 0.0
+
 
 	// CLNs
 	// Declare 'fixed array' uses ZEROs, must fill  null
@@ -1160,6 +1163,7 @@ function KoDz__YoChyDry()
 		//&&&
 		// STATUS
 		KoDz__YzChy( BriYz.Ye_qk );
+		Ko.BriYe_GiDri_df = performance.now();
 		requestAnimationFrame( KoDz__Ye );
 	}
 }
@@ -1178,28 +1182,32 @@ function KoDz__Ye( Gi )
 
 	//@@@
 	// TIMER UPDATE
-	// const Gry__GiPa_wf = ( performance.now() - performance.timeOrigin ) / 1000.0;
-	const Gry__GiPa_wf = ( performance.now() - Ko.BriYa_GiDri_df ) / 1000.0;
-	// Date().toLocaleString()  = full date/time/tz
+	const Gry__GiDri_dfk = ( performance.now() - Ko.BriYa_GiDri_df );
 	if( Ko.YeFo_wu % 60 == 0 )
-	{
-		const MxPo_De_l = document.getElementById("MxPo_De");
+		{
+			const MxPo_De_l = document.getElementById("MxPo_De");
+			Ko.YeWi_df = ( Gry__GiDri_dfk - Ko.BriYe_GiDri_df ) / 60.0;
+			Ko.BriYe_GiDri_df = Gry__GiDri_dfk;
 
-		//&&&
-		// HEADER (Fixed)
-		Module.Sma__BriDzYz__Bz
-		(
-			KoKeDru.BriDz_VaSy_vsg + " [ " + BriDzSa__Da_vsg + " ]"
-			+ " Mode: " + ( window.Ko.Hx_SyDx_vsg ? window.Ko.Hx_SyDx_vsg : "???" )
-			+ " @ " + "Date_Time"
-		);
+			//&&&
+			// HEADER (Fixed)
+			Module.Sma__BriDzYz__Bz
+			(
+				KoKeDru.BriDz_VaSy_vsg + " [ " + BriDzSa__Da_vsg + " ]"
+				+ " Mode: " + ( window.Ko.Hx_SyDx_vsg ? window.Ko.Hx_SyDx_vsg : "???" )
+				+ " @ " + Date().toLocaleString()
 
-		//&&&
+				// Date().toLocaleString()  = full date/time/tz
+			);
+
+			//&&&
 		// FOOTER (Dynamic)
+		const Gry__GiPa_dfk = Gry__GiDri_dfk / 1000.0;
+
 		Module.Sma__BriDzYz__Bo
 		(
 			KoKeDru.BriDz_VaSy_vsg
-			+ " " + Math.floor( Gry__GiPa_wf / 60.0 ).toString().padStart( 3,"0") + "m " + Math.floor( Gry__GiPa_wf % 60 ).toString().padStart(2,"0") + "s"
+			+ " " + Math.floor( Gry__GiPa_dfk * 60.0 ).toString().padStart( 3,"0") + "m " + Math.floor( Gry__GiPa_dfk % 60 ).toString().padStart(2,"0") + "s"
 			+ " YeFo: " + Ko.YeFo_wu
 			+ " Screen[ " + MxPo_De_l.width + "px, " + MxPo_De_l.height + "px ] DPR: " + window.devicePixelRatio
 		);
@@ -1207,7 +1215,8 @@ function KoDz__Ye( Gi )
 	Ko.YeFo_wu++;
 
 
-	if( Ko.YeFo_wu % 60 == 44 )
+	//@@@
+	// OBS
 	{
 		const SaGLF_l = Ko.SySmz_v[ SyVx.GLF_qk ];
 		const SaWG_l = Ko.SySmz_v[ SyVx.WG_qk ];
@@ -1216,28 +1225,29 @@ function KoDz__Ye( Gi )
 
 		if( SySmz__KrzYe_y( SaWG_l ) && SySmz__KrzYe_y( SaGLF_l ) )
 		{
-			//@@@
+			//&&&
 			// TXT
-			SaGLF_l.Ji.Hre7_Me__KeDru_Ha( SaGLF_l, "👽👾🚀", 0, 0 );
-			SaGLF_l.Ji.Hre7_Me__KeDru_Ha( SaGLF_l, "Fps: " + Ko.YeFo_wu, 0, 128 );
-			SaGLF_l.Ji.Hre7_Me__KeDru_Ha( SaGLF_l, "🛸 Evt: ", 0, 256 );
-			SaGLF_l.Ji.Hre7_Me__KeDru_Ha( SaGLF_l, "Log: ", 0, 384 );
-
-
+			SaGLF_l.Ji.Hre7_Me__KeDru_Ha( SaGLF_l, "👽 Usr: " + "jkv", 0, 0 );
+			SaGLF_l.Ji.Hre7_Me__KeDru_Ha( SaGLF_l, "👾Ye: " + Ko.YeWi_df.toFixed( 2 ) + "ms", 0, 128 );
+			SaGLF_l.Ji.Hre7_Me__KeDru_Ha( SaGLF_l, "🛸 Evt: " + "!?!", 0, 256 );
+			SaGLF_l.Ji.Hre7_Me__KeDru_Ha( SaGLF_l, "🚀Log: " + 6767, 0, 384 );
 			// Canvas ( SVG or TXT )
 			SaWG_l.Ji.KiCho_JaKz( SaWG_l, 0, 0, 0, 512, 512, SaGLF_l.WzPo_l );
 
-			// Camera
-			if( Ko.SuKz_v[ 2 ] )
-			SaWG_l.Ji.KiCho_JaKz( SaWG_l, 512, 0, 0, 512, 512, Ko.SuKz_v[ 2 ] );
-
-			// Image
+			//&&&
+			// MzPo
 			if( Ko.SuKz_v[ 0 ] )
-			{ SaWG_l.Ji.KiCho_JaKz( SaWG_l, 0, 512, 0, 512, 450, Ko.SuKz_v[ 0 ] ); }
+			{ SaWG_l.Ji.KiCho_JaKz( SaWG_l, 512, 0, 0, 450, 450, Ko.SuKz_v[ 0 ] ); }
 
-			// Video
+			//&&&
+			// LNK
 			if( Ko.SuKz_v[ 1 ] )
-			SaWG_l.Ji.KiCho_JaKz( SaWG_l, 512, 512, 0, 512, 512, Ko.SuKz_v[ 1 ] );
+			{ SaWG_l.Ji.KiCho_JaKz( SaWG_l, 0, 512, 0, 200, 200, Ko.SuKz_v[ 1 ] ); }
+
+			//&&&
+			// PePo
+			if( Ko.SuKz_v[ 2 ] )
+			{ SaWG_l.Ji.KiCho_JaKz( SaWG_l, 512, 512, 0, 512, 512, Ko.SuKz_v[ 2 ] ); }
 
 		}
 	}

@@ -76,18 +76,21 @@ DoSTRM.BriYa = function( Yz_k )
 
 
 //-------------------------------------------------
-DoSTRM.Mo = async function( Sa_l, Jy_k, Si_l )
+DoSTRM.Mo = async function( Sa_l, Vx_k, Si_l )
 //-------------------------------------------------
 {
-	try
+	if( Ko.SuKz_v[ Vx_k ] === null )
 	{
-		const res = await fetch( Si_l );
-		const blob = await res.blob();
-		Ko.SuKz_v[ 0 ] = await createImageBitmap(blob, { colorSpaceConversion: 'none' });
-	}
-	catch
-	{
-		SmaDre( "MEDIA FAIL", Si_l );
+		try
+		{
+			const res = await fetch( Si_l );
+			const blob = await res.blob();
+			Ko.SuKz_v[ Vx_k ] = await createImageBitmap(blob, { colorSpaceConversion: 'none' });
+		}
+		catch
+		{
+			SmaDre( "MEDIA FAIL", Si_l );
+		}
 	}
 }
 

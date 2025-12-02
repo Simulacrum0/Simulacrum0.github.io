@@ -79,7 +79,7 @@ DoGLF.Hre7_Me__KeDru_Ha = function( Sa_l, SiKeDru_vsg, GeGx_wu, GeGa_wu )
 
 	//@@@
 	// CFG
-	Sx_l.font = "96px Raleway";
+	Sx_l.font = "64px Raleway";
 
 	Sx_l.textAlign = "start";
 	Sx_l.textBaseline = "alphabetic";
