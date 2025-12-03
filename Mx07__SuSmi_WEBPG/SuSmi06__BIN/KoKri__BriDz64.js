@@ -3051,12 +3051,6 @@ var _emscripten_terminate_wasm_worker = id => {
   }
 };
 
-function _emscripten_throw_string(str) {
-  str = bigintToI53Checked(str);
-  assert(typeof str == "number");
-  throw UTF8ToString(str);
-}
-
 function _emscripten_wasm_worker_post_function_v(id, funcPtr) {
   funcPtr = bigintToI53Checked(funcPtr);
   _wasmWorkers[id].postMessage({
@@ -3594,38 +3588,45 @@ function checkIncomingModuleAPI() {
 }
 
 var ASM_CONSTS = {
-  8397256: $0 => {
+  8397240: $0 => {
     if (!window.Ko.Hx_SyDx_vsg) {
       window.Ko.Hx_SyDx_vsg = UTF8ToString($0);
     }
   },
-  8397337: () => {
+  8397321: () => {
     MoDzTrx("TEST BAD BUILD as ERROR");
   },
-  8397379: () => {},
-  8397383: () => {
+  8397363: () => {},
+  8397367: () => {
     console.log("MC: HrySmz__BriYa");
   },
-  8397423: () => {},
-  8397427: () => {
+  8397407: () => {},
+  8397411: () => {
     const SaSTRM_l = Ko.SySmz_v[SyVx.STRM_qk];
-    SaSTRM_l.Ji.Mo(SaSTRM_l, 0, "Mx01__SuKz_MEDIA/SuKz02_JaPo__PICT/JaPo__SF/SF_C13.png");
-    SaSTRM_l.Ji.Mo(SaSTRM_l, 1, "Mx01__SuKz_MEDIA/SuKz02_JaPo__PICT/JaPo00__FyHo.jpg");
+    SaSTRM_l.Ji.KiCho__JaPo(SaSTRM_l, 0, "Mx01__SuKz_MEDIA/SuKz02_JaPo__PICT/JaPo__SF/SF_C13.png");
+    SaSTRM_l.Ji.KiCho__JaPo(SaSTRM_l, 1, "Mx01__SuKz_MEDIA/SuKz02_JaPo__PICT/JaPo00__FyHo.jpg");
+    SaSTRM_l.Ji.KiCho__PePo(SaSTRM_l, 2, "Mx01__SuKz_MEDIA/SuKz02_JaPo__PICT/JaPo04__Jirafe.mp4");
   },
-  8397651: () => {
+  8397750: () => {
     const LAYER_Gz_wuk = 0;
     const SaGLF_l = Ko.SySmz_v[SyVx.GLF_qk];
     const SaWG_l = Ko.SySmz_v[SyVx.WG_qk];
-    if (Ko.SuKz_v[0] !== BriYz.Cho_qk) {
+    const SaSTRM_l = Ko.SySmz_v[SyVx.STRM_qk];
+    SaGLF_l.Ji.Hre7_Me__KeDru_Ha(SaGLF_l, "👽 Usr: " + "jkv", 0, 0);
+    SaGLF_l.Ji.Hre7_Me__KeDru_Ha(SaGLF_l, "👾Ye: " + Ko.YeWi_df.toFixed(1) + "ms", 0, 128);
+    SaGLF_l.Ji.Hre7_Me__KeDru_Ha(SaGLF_l, "🛸 Evt: " + " <List-Here> ", 0, 256);
+    SaGLF_l.Ji.Hre7_Me__KeDru_Ha(SaGLF_l, "🚀Log: " + "67, 67", 0, 384);
+    SaWG_l.Ji.KiCho_JaKz(SaWG_l, 0, 0, 0, 512, 512, SaGLF_l.WzPo_l);
+    if (Ko.SuKz_v[0] instanceof ImageBitmap) {
       SaWG_l.Ji.KiCho_JaKz(SaWG_l, 0, 512, LAYER_Gz_wuk, 200, 200, Ko.SuKz_v[0]);
-      Ko.SuKz_v[0].close();
-      Ko.SuKz_v[0] = BriYz.Cho_qk;
+      SaSTRM_l.Ji.SuKz__Yi(SaSTRM_l, 0);
     }
-    if (Ko.SuKz_v[1] !== BriYz.Cho_qk) {
-      SmaSme("IMG[1]", Ko.SuKz_v[1]);
-      SaWG_l.Ji.KiCho_JaKz(SaWG_l, 512, 512, LAYER_Gz_wuk, 200, 200, Ko.SuKz_v[1]);
-      Ko.SuKz_v[1].close();
-      Ko.SuKz_v[1] = BriYz.Cho_qk;
+    if (Ko.SuKz_v[1] instanceof ImageBitmap) {
+      SaWG_l.Ji.KiCho_JaKz(SaWG_l, 512, 512, LAYER_Gz_wuk, 450, 450, Ko.SuKz_v[1]);
+      SaSTRM_l.Ji.SuKz__Yi(SaSTRM_l, 1);
+    }
+    if (Ko.SuKz_v[2] !== BriYz.Cho_qk) {
+      SaWG_l.Ji.KiCho_JaKz(SaWG_l, 512, 0, LAYER_Gz_wuk, 512, 512, Ko.SuKz_v[2]);
     }
   }
 };
@@ -4025,7 +4026,6 @@ function assignWasmImports() {
     /** @export */ emscripten_set_window_title: _emscripten_set_window_title,
     /** @export */ emscripten_terminate_all_wasm_workers: _emscripten_terminate_all_wasm_workers,
     /** @export */ emscripten_terminate_wasm_worker: _emscripten_terminate_wasm_worker,
-    /** @export */ emscripten_throw_string: _emscripten_throw_string,
     /** @export */ emscripten_wasm_worker_post_function_v: _emscripten_wasm_worker_post_function_v,
     /** @export */ emscripten_wasm_worker_self_id: _emscripten_wasm_worker_self_id,
     /** @export */ fd_write: _fd_write,

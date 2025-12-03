@@ -7,11 +7,11 @@ window.DoTRU = DoTRU;
 //==============================================
 // DEFINES
 //==============================================
-const TRU_qk = Object.freeze
+const TRU = Object.freeze
 ({
-	TRU0: 0
-	, TRU1: 1
-	, TRU2: 2
+	TRU0_qk: 0
+	, TRU1_qk: 1
+	, TRU2_qk: 2
 
 });
 

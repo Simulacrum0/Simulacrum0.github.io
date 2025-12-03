@@ -34,12 +34,12 @@ let CS_Kwi_wu = 0;
 
 //-------------------------------------------------
 // BUF
-const TaJx_qk = Object.freeze
+const TaJx = Object.freeze
 //-------------------------------------------------
 ({
-	TaJx00: 0
-	, TaJx01: 1
-	, TaJx02: 2
+	TaJx00_qk: 0
+	, TaJx01_qk: 1
+	, TaJx02_qk: 2
 
 });
 
@@ -50,12 +50,12 @@ const SuTy__BraHiFrz_k = ( 16 * 64 * 64 )
 
 //-------------------------------------------------
 // SAMPLER
-const JaMy_qk = Object.freeze
+const JaMy = Object.freeze
 //-------------------------------------------------
 ({
-	JaMy00: 0
-	, JaMy01: 1
-	, JaMy02: 2
+	JaMy00_qk: 0
+	, JaMy01_qk: 1
+	, JaMy02_qk: 2
 
 });
 
@@ -64,12 +64,12 @@ const JaMy_qk = Object.freeze
 //-------------------------------------------------
 // PROG
 // Combos of Shaders
-const JiSpo_qk = Object.freeze
+const JiSpo = Object.freeze
 //-------------------------------------------------
 ({
-	JiSpo00: 0
-	, JiSpo01: 1
-	, JiSpo02: 2
+	JiSpo00_qk: 0
+	, JiSpo01_qk: 1
+	, JiSpo02_qk: 2
 
 });
 
@@ -77,12 +77,12 @@ const JiSpo_qk = Object.freeze
 //-------------------------------------------------
 // PIPE
 // Program for Use
-const JiGwe_qk = Object.freeze
+const JiGwe = Object.freeze
 //-------------------------------------------------
 ({
-	JiGwe00: 0
-	, JiGwe01: 1
-	, JiGwe02: 2
+	JiGwe00_qk: 0
+	, JiGwe01_qk: 1
+	, JiGwe02_qk: 2
 
 });
 

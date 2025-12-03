@@ -171,11 +171,11 @@ firm
 lively
 */
 //==============================================
-const SAY_qk = Object.freeze
+const SAY = Object.freeze
 ({
-	SAY0: 0
-	, SAY1: 1
-	, SAY2: 2
+	SAY0_qk: 0
+	, SAY1_qk: 1
+	, SAY2_qk: 2
 
 });
 

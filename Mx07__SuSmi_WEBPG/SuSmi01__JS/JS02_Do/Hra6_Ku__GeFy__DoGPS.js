@@ -6,12 +6,11 @@ window.SyTe = SyTe;
 //==============================================
 // QUALITIES
 //==============================================
-const ViTe_qk = Object.freeze
+const ViTe = Object.freeze
 ({
-	ViTe0: 0
-	, ViTe1: 1
-	, ViTe2: 2
-
+	ViTe0_qk: 0
+	, ViTe1_qk: 1
+	, ViTe2_qk: 2
 });
 
 
