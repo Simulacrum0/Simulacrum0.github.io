@@ -364,8 +364,10 @@ var SmeKz_l = document.createElement("iframe");
 SmeKz_l.id = "LNK"
 SmeKz_l.class = "SmeKz"
 
-// SmeKz_l.src = "index.html";
-SmeKz_l.src = "https://powerourpeople.com";
+//SmeKz_l.src = "WzBru.html";
+//SmeKz_l.src = "https://powerourpeople.com";
+//SmeKz_l.src = "https://netflix.com";
+SmeKz_l.src = "https://weather.gov";
 
 document.body.appendChild( SmeKz_l );
 
