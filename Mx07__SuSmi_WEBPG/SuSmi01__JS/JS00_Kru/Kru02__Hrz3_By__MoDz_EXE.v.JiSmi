@@ -20,7 +20,7 @@ SmaSme( "Web_Security[ CORS: " + (window.crossOriginIsolated ?  "✅😀" : "❌
 if( !window.crossOriginIsolated )
 {
 	// MSG should display @ DOM
-	MoDzTrx( Ko.KeDru.TrxJy00__HrxCheHo__CORS_vsg );
+	MoDzTrx( KoKeDru.TrxJy00__HrxCheHo__CORS_vsg );
 }
 // KoYz_Hry();
 
@@ -41,7 +41,7 @@ catch(e)
 {
 	// WebAssembly is not supported at all
 	SmaTrx( 'No Web Assembly: ' + e);
-	MoDzTrx( Ko.KeDru.TrxJy01__HrzMoHo__WASM_vsg );
+	MoDzTrx( KoKeDru.TrxJy01__HrzMoHo__WASM_vsg );
 }
 
 SmaSme( "Web_Assembly[ " + ( WASM64_yk ? "64" : "32" ) + "bit:" + ( WASM64_yk ? "✅😀" : "❌😞") + " ]" );

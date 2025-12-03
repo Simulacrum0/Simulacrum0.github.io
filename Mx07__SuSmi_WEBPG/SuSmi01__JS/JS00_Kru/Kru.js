@@ -1,5 +1,5 @@
-const BriDzSa__Da_vsg = "LAB_v0.1083"; 
- const BriDz__Mx_KuTu_vsg = "/"; 
+const BriDzSa__Da_vsg = "PUB_v0.92"; 
+ const BriDz__Mx_KuTu_vsg = "https://powerourpeople.com/"; 
 
 //==============================================
 // CORE MSGS
@@ -208,7 +208,7 @@ SmaSme( "Web_Security[ CORS: " + (window.crossOriginIsolated ?  "✅😀" : "❌
 if( !window.crossOriginIsolated )
 {
 	// MSG should display @ DOM
-	MoDzTrx( Ko.KeDru.TrxJy00__HrxCheHo__CORS_vsg );
+	MoDzTrx( KoKeDru.TrxJy00__HrxCheHo__CORS_vsg );
 }
 // KoYz_Hry();
 
@@ -229,7 +229,7 @@ catch(e)
 {
 	// WebAssembly is not supported at all
 	SmaTrx( 'No Web Assembly: ' + e);
-	MoDzTrx( Ko.KeDru.TrxJy01__HrzMoHo__WASM_vsg );
+	MoDzTrx( KoKeDru.TrxJy01__HrzMoHo__WASM_vsg );
 }
 
 SmaSme( "Web_Assembly[ " + ( WASM64_yk ? "64" : "32" ) + "bit:" + ( WASM64_yk ? "✅😀" : "❌😞") + " ]" );
@@ -1290,27 +1290,44 @@ function KoDz__Ye( Gi )
 	requestAnimationFrame( KoDz__Ye );
 }
 
+//=====================================
+// IFRAME EXPERIMENTS
+// NotApplicable
+//=====================================
 
+
+var SmeKz_l = document.createElement("iframe");
+SmeKz_l.id = "LNK"
+SmeKz_l.class = "SmeKz"
+
+SmeKz_l.src = "WzSme.html";
+//SmeKz_l.src = "https://www.openstreetmap.org/export/embed.html?bbox=-0.004017949104309083%2C51.47612752641776%2C0.00030577182769775396%2C51.478569861898606&amp;layer=mapnik";
+
+//SmeKz_l.src = "https://weather.gov";
+//SmeKz_l.src = "https://powerourpeople.com";
+
+document.body.appendChild( SmeKz_l );
+
+
+/*
+//	<iframe id="LNK" width="512" height="512" style="position: relative; z-index: 2;" src="index.html" </iframe>
+
+"iframe refused to connect" issue, you can check the X-Frame-Options and Content Security Policy headers
+
+X-Frame-Options
+DENY: The site does not allow any domain to embed it.
+SAMEORIGIN: Only the same origin can embed the site.
+ALLOW-FROM: Only specified origins can embed the site.
+Content Security Policy (CSP)
+The CSP may include directives like frame-ancestors 'none', which blocks all iframe embedding.
+
+*/
 //=====================================
 // LOAD APP ENGINE
 //=====================================
 var BriDz_Fz_js = document.createElement("script");
 BriDz_Fz_js.src = "Mx07__SuSmi_WEBPG/SuSmi06__BIN/KoKri__BriDz" + ( WASM64_yk ? 64:32 ) + ".js";
 document.head.appendChild(BriDz_Fz_js);
-
-var SmeKz_l = document.createElement("iframe");
-SmeKz_l.id = "LNK"
-SmeKz_l.class = "SmeKz"
-
-//SmeKz_l.src = "WzBru.html";
-//SmeKz_l.src = "https://powerourpeople.com";
-//SmeKz_l.src = "https://netflix.com";
-SmeKz_l.src = "https://weather.gov";
-
-document.body.appendChild( SmeKz_l );
-
-//	<iframe id="LNK" width="512" height="512" style="position: relative; z-index: 2;" src="index.html" </iframe>
-
 
 //=====================================
 // END
