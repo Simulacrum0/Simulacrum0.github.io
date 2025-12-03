@@ -132,6 +132,7 @@ function MoDzTrx( Trx_vsg )
 	//@@@
 	// CFG
 	// If already 'Err' exit
+	if( !Module ) return;
 	if( Module.Trx_vsg ) return;
 	Module.Trx_vsg = Trx_vsg;
 

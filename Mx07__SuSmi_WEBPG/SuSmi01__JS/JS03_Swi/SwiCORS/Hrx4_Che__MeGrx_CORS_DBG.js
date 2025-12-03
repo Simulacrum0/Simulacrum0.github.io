@@ -1,6 +1,9 @@
 /*! coi-serviceworker v0.1.7 - Guido Zuidhof and contributors, licensed under MIT */
 let coepCredentialless = false;
-if (typeof window === 'undefined') {
+//let coepCredentialless = true;
+
+if (typeof window === 'undefined')
+{
     self.addEventListener("install", () => self.skipWaiting());
     self.addEventListener("activate", (event) => event.waitUntil(self.clients.claim()));
 
@@ -21,7 +24,8 @@ if (typeof window === 'undefined') {
         }
     });
 
-    self.addEventListener("fetch", function (event) {
+    self.addEventListener("fetch", function (event)
+	{
         const r = event.request;
         if (r.cache === "only-if-cached" && r.mode !== "same-origin") {
             return;
@@ -58,8 +62,11 @@ if (typeof window === 'undefined') {
         );
     });
 
-} else {
-    (() => {
+}
+else
+{
+    (() =>
+	{
         const reloadedBySelf = window.sessionStorage.getItem("coiReloadedBySelf");
         window.sessionStorage.removeItem("coiReloadedBySelf");
         const coepDegrading = (reloadedBySelf == "coepdegrade");

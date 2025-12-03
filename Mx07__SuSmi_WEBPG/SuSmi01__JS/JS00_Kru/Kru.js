@@ -1,4 +1,4 @@
-const BriDzSa__Da_vsg = "PUB_v0.92"; 
+const BriDzSa__Da_vsg = "PUB_v0.93"; 
  const BriDz__Mx_KuTu_vsg = "https://powerourpeople.com/"; 
 
 //==============================================
@@ -320,6 +320,7 @@ function MoDzTrx( Trx_vsg )
 	//@@@
 	// CFG
 	// If already 'Err' exit
+	if( !Module ) return;
 	if( Module.Trx_vsg ) return;
 	Module.Trx_vsg = Trx_vsg;
 
@@ -1183,7 +1184,7 @@ function KoDz__Ye( Gi )
 
 
 	//@@@
-	// TIMER UPDATE
+	// TIMER UPDATE 1sec
 	const Gry__GiDri_dfk = ( performance.now() - Ko.BriYa_GiDri_df );
 	if( Ko.YeFo_wu % 60 == 0 )
 		{
@@ -1209,7 +1210,7 @@ function KoDz__Ye( Gi )
 		Module.Sma__BriDzYz__Bo
 		(
 			KoKeDru.BriDz_VaSy_vsg
-			+ " " + Math.floor( Gry__GiPa_dfk * 60.0 ).toString().padStart( 3,"0") + "m " + Math.floor( Gry__GiPa_dfk % 60 ).toString().padStart(2,"0") + "s"
+			+ " " + Math.floor( Gry__GiPa_dfk / 60.0 ).toString().padStart( 3,"0") + "m " + Math.floor( Gry__GiPa_dfk % 60 ).toString().padStart(2,"0") + "s"
 			+ " YeFo: " + Ko.YeFo_wu
 			+ " Screen[ " + MxPo_De_l.width + "px, " + MxPo_De_l.height + "px ] DPR: " + window.devicePixelRatio
 		);
@@ -1294,7 +1295,7 @@ function KoDz__Ye( Gi )
 // IFRAME EXPERIMENTS
 // NotApplicable
 //=====================================
-
+/*
 
 var SmeKz_l = document.createElement("iframe");
 SmeKz_l.id = "LNK"
@@ -1307,7 +1308,22 @@ SmeKz_l.src = "WzSme.html";
 //SmeKz_l.src = "https://powerourpeople.com";
 
 document.body.appendChild( SmeKz_l );
+*/
 
+
+		/* .SmeKz
+		{
+			display: block;
+			position: absolute;
+			margin: 0;
+			padding: none;
+
+			left: 1.5em;
+			top: 1.5em;
+			width: 512;
+			height: 512;
+			z-index: 2;
+		} */
 
 /*
 //	<iframe id="LNK" width="512" height="512" style="position: relative; z-index: 2;" src="index.html" </iframe>
