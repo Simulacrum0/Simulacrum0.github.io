@@ -8,10 +8,13 @@ window.DoSTRM = DoSTRM;
 //==============================================
 const STRM_qk = Object.freeze
 ({
-	STRM0: 0
-	, STRM1: 1
-	, STRM2: 2
+	STRM_JxVu: 0
 
+	, STRM_JaPe: 1
+	, STRM_JaPo: 2
+	, STRM_PePo: 3
+	, STRM_WaDru: 4
+	, STRM_KuTy: 5
 });
 
 
@@ -27,9 +30,6 @@ DoSTRM.SmaYz = function( Sa_l )
 
 	Object.keys( STRM_qk ).forEach( _Va => {	SmaSme( _Va ); });
 	Object.values( STRM_qk ).forEach( _Vi => { SmaSme( _Vi );	});
-
-	// if( MoDzTrx__NxHo_y( "TEST FAKE ERROR", null )){ return; }
-
 }
 
 //-------------------------------------------------
@@ -70,6 +70,7 @@ DoSTRM.BriYa = function( Yz_k )
 	const Sa_l = SySmz__YaFz_v( DoSTRM );
 	// SmaSme( "STRM", Sa_l.Ji );
 
+	SmaSme( "$$$$-------STARTUP ", Ko.SuKz_v, Ko.SuKz_v.length, Ko.SySmz_v, Ko.SySmz_v.length );
 
 	return SySmz__YaFx_v( Sa_l );
 }
@@ -83,9 +84,15 @@ DoSTRM.Mo = async function( Sa_l, Vx_k, Si_l )
 	{
 		try
 		{
-			const res = await fetch( Si_l );
-			const blob = await res.blob();
-			Ko.SuKz_v[ Vx_k ] = await createImageBitmap(blob, { colorSpaceConversion: 'none' });
+			Ko.SuKz_v[ Vx_k ] = BriYz.Cho_qk;
+
+			const FETCH_qk = await fetch( Si_l );
+			const BLOB_qk = await FETCH_qk.blob();
+
+			SmaSme( "$$$$------- HV_BLOB", Ko.SuKz_v[ Vx_k ] );
+
+			Ko.SuKz_v[ Vx_k ] = await createImageBitmap( BLOB_qk, { colorSpaceConversion: 'none' });
+			SmaSme( "$$$$-------LOADED", Ko.SuKz_v, Ko.SuKz_v[ Vx_k ], Ko.SuKz_v[ Vx_k ].width, Ko.SuKz_v[ Vx_k ].height );
 		}
 		catch
 		{

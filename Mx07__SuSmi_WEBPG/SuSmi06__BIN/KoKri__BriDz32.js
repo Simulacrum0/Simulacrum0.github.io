@@ -3444,8 +3444,23 @@ var ASM_CONSTS = {
   74051: () => {
     const SaSTRM_l = Ko.SySmz_v[SyVx.STRM_qk];
     SaSTRM_l.Ji.Mo(SaSTRM_l, 0, "Mx01__SuKz_MEDIA/SuKz02_JaPo__PICT/JaPo__SF/SF_C13.png");
-    SaSTRM_l.Ji.Mo(SaSTRM_l, 1, "Mx01__SuKz_MEDIA/SuKz02_JaPo__PICT/JaPo01__SPACE.jpg");
-    SaSTRM_l.Ji.Mo(SaSTRM_l, 2, "Mx01__SuKz_MEDIA/SuKz02_JaPo__PICT/JaPo00__FyHo.jpg");
+    SaSTRM_l.Ji.Mo(SaSTRM_l, 1, "Mx01__SuKz_MEDIA/SuKz02_JaPo__PICT/JaPo00__FyHo.jpg");
+  },
+  74275: () => {
+    const LAYER_Gz_wuk = 0;
+    const SaGLF_l = Ko.SySmz_v[SyVx.GLF_qk];
+    const SaWG_l = Ko.SySmz_v[SyVx.WG_qk];
+    if (Ko.SuKz_v[0] !== BriYz.Cho_qk) {
+      SaWG_l.Ji.KiCho_JaKz(SaWG_l, 0, 512, LAYER_Gz_wuk, 200, 200, Ko.SuKz_v[0]);
+      Ko.SuKz_v[0].close();
+      Ko.SuKz_v[0] = BriYz.Cho_qk;
+    }
+    if (Ko.SuKz_v[1] !== BriYz.Cho_qk) {
+      SmaSme("IMG[1]", Ko.SuKz_v[1]);
+      SaWG_l.Ji.KiCho_JaKz(SaWG_l, 512, 512, LAYER_Gz_wuk, 200, 200, Ko.SuKz_v[1]);
+      Ko.SuKz_v[1].close();
+      Ko.SuKz_v[1] = BriYz.Cho_qk;
+    }
   }
 };
 

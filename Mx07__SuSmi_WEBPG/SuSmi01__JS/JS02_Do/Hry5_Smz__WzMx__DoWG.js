@@ -932,7 +932,8 @@ DoWG.KiCho_JaTi = function( Sa_l, GeGx_wuk, GeGa_wuk, GeGz_wuk, GyGx_wuk, GyGa_w
 
 //==============================================
 // CLONE OBJECT
-//  HTMLCanvasElement, HTMLImageElement, HTMLVideoElement, ImageBitmap, ImageData, OffscreenCanvas, or VideoFrame
+//  HTMLCanvasElement, HTMLImageElement, HTMLVideoElement
+// ImageBitmap, ImageData, OffscreenCanvas, or VideoFrame
 //==============================================
 DoWG.KiCho_JaKz = function( Sa_l, GeGx_wuk, GeGa_wuk, GeGz_wuk, GyGx_wuk, GyGa_wuk, JaKz_vk )
 {

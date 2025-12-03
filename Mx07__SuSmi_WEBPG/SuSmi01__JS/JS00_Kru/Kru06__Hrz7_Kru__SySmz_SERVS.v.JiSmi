@@ -5,11 +5,13 @@ const BriYz = Object.freeze
 ({
 	HxHo_qk: 0
 	, Trx_qk: 1
-	, Yz_qk: 2
-	, Ya_qk: 3
-	, Ye_qk: 4
-	, Yo_qk: 5
-	, Yi_qk: 6
+	, Cho_qk: 2
+	
+	, Yz_qk: 3
+	, Ya_qk: 4
+	, Ye_qk: 5
+	, Yo_qk: 6
+	, Yi_qk: 7
 });
 
 //==============================================
@@ -79,7 +81,7 @@ const SyVx = Object.freeze
 });
 
 const SyVx__GryFo_wuk = SyVx.DoFo_wuk + SyVx.SmiFo_wuk;
-const SuKz__GryFo_wuk = 8;
+const SuKz__GryFo_wuk = 10;
 
 //==============================================
 // SERV_ADD^ChaSy

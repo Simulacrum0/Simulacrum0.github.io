@@ -782,11 +782,13 @@ const BriYz = Object.freeze
 ({
 	HxHo_qk: 0
 	, Trx_qk: 1
-	, Yz_qk: 2
-	, Ya_qk: 3
-	, Ye_qk: 4
-	, Yo_qk: 5
-	, Yi_qk: 6
+	, Cho_qk: 2
+	
+	, Yz_qk: 3
+	, Ya_qk: 4
+	, Ye_qk: 5
+	, Yo_qk: 6
+	, Yi_qk: 7
 });
 
 //==============================================
@@ -856,7 +858,7 @@ const SyVx = Object.freeze
 });
 
 const SyVx__GryFo_wuk = SyVx.DoFo_wuk + SyVx.SmiFo_wuk;
-const SuKz__GryFo_wuk = 8;
+const SuKz__GryFo_wuk = 10;
 
 //==============================================
 // SERV_ADD^ChaSy
@@ -952,8 +954,8 @@ var Ko =
 
 	// CLNs
 	// Declare 'fixed array' uses ZEROs, must fill  null
-	, SySmz_v: [ SyVx__GryFo_wuk ].fill( null )
-	, SuKz_v: [SuKz__GryFo_wuk].fill( null )
+	, SuKz_v: new Array( SuKz__GryFo_wuk ).fill( null )
+	, SySmz_v: new Array( SyVx__GryFo_wuk ).fill( null )
 };
 window.Ko = Ko;
 
@@ -1220,34 +1222,50 @@ function KoDz__Ye( Gi )
 	{
 		const SaGLF_l = Ko.SySmz_v[ SyVx.GLF_qk ];
 		const SaWG_l = Ko.SySmz_v[ SyVx.WG_qk ];
+		const SaSTRM_l = Ko.SySmz_v[ SyVx.STRM_qk ];
 
 		//SmaSme( "CHECK: ", SaWG_l.BriYz_q, SaGLF_l.BriYz_q );
 
-		if( SySmz__KrzYe_y( SaWG_l ) && SySmz__KrzYe_y( SaGLF_l ) )
+	//	if( SySmz__KrzYe_y( SaWG_l ) && SySmz__KrzYe_y( SaGLF_l ) )
 		{
 			//&&&
 			// TXT
 			SaGLF_l.Ji.Hre7_Me__KeDru_Ha( SaGLF_l, "👽 Usr: " + "jkv", 0, 0 );
-			SaGLF_l.Ji.Hre7_Me__KeDru_Ha( SaGLF_l, "👾Ye: " + Ko.YeWi_df.toFixed( 2 ) + "ms", 0, 128 );
+			SaGLF_l.Ji.Hre7_Me__KeDru_Ha( SaGLF_l, "👾Ye: " + Ko.YeWi_df.toFixed( 1 ) + "ms", 0, 128 );
 			SaGLF_l.Ji.Hre7_Me__KeDru_Ha( SaGLF_l, "🛸 Evt: " + " <List-Here> ", 0, 256 );
 			SaGLF_l.Ji.Hre7_Me__KeDru_Ha( SaGLF_l, "🚀Log: " + "67, 67", 0, 384 );
 			// Canvas ( SVG or TXT )
 			SaWG_l.Ji.KiCho_JaKz( SaWG_l, 0, 0, 0, 512, 512, SaGLF_l.WzPo_l );
 
+
+
+
+			//			{ SaSTRM_l.Ji.Mo( SaSTRM_l, 1, "Mx01__SuKz_MEDIA/SuKz02_JaPo__PICT/JaPo01__SPACE.jpg" ); }
+
 			//&&&
 			// MzPo
-			if( Ko.SuKz_v[ 0 ] )
-				{ SaWG_l.Ji.KiCho_JaKz( SaWG_l, 0, 512, 0, 200, 200, Ko.SuKz_v[ 0 ] ); }
+
+			// if( Ko.SuKz_v[ 0 ] !== BriYz.Cho_qk )
+			// { SaWG_l.Ji.KiCho_JaKz( SaWG_l, 0, 512, LAYER_Gz_wuk, 200, 200, Ko.SuKz_v[ 0 ] ); }
+
 
 			//&&&
 			// LNK
-			if( Ko.SuKz_v[ 1 ] )
-				{ SaWG_l.Ji.KiCho_JaKz( SaWG_l, 512, 512, 0, 512, 512, Ko.SuKz_v[ 1 ] ); }
+			/*
+			if( Ko.SuKz_v[ 1 ] === null )
+				{  SaSTRM_l.Ji.Mo( SaSTRM_l, 1, "Mx01__SuKz_MEDIA/SuKz02_JaPo__PICT/JaPo__SF/SF_C13.png" ); }
+			else
+				{ SaWG_l.Ji.KiCho_JaKz( SaWG_l, 512, 512, LAYER_Gz_wuk, 200, 200, Ko.SuKz_v[ 1 ] ); }
 
 			//&&&
 			// PePo
-			if( Ko.SuKz_v[ 2 ] )
-				{ SaWG_l.Ji.KiCho_JaKz( SaWG_l, 512, 0, 0, 450, 450, Ko.SuKz_v[ 2 ] ); }
+			if( Ko.SuKz_v[ 2 ] === null )
+			{  SaSTRM_l.Ji.Mo( SaSTRM_l, 1, "Mx01__SuKz_MEDIA/SuKz02_JaPo__PICT/JaPo__SF/SF_C13.png" ); }
+///			{  SaSTRM_l.Ji.Mo( SaSTRM_l, 2, "Mx01__SuKz_MEDIA/SuKz02_JaPo__PICT/JaPo00__FyHo.jpg" );}
+			else if( Ko.SuKz_v[ 1 ] !== "LOAD" )
+//			{ SaWG_l.Ji.KiCho_JaKz( SaWG_l, 512, 0, LAYER_Gz_wuk, 450, 450, Ko.SuKz_v[ 2 ] ); }
+			{ SaWG_l.Ji.KiCho_JaKz( SaWG_l, 512, 0, LAYER_Gz_wuk, 200, 200, Ko.SuKz_v[ 2 ] ); }
+*/
 
 		}
 	}
@@ -1279,6 +1297,17 @@ function KoDz__Ye( Gi )
 var BriDz_Fz_js = document.createElement("script");
 BriDz_Fz_js.src = "Mx07__SuSmi_WEBPG/SuSmi06__BIN/KoKri__BriDz" + ( WASM64_yk ? 64:32 ) + ".js";
 document.head.appendChild(BriDz_Fz_js);
+
+var SmeKz_l = document.createElement("iframe");
+SmeKz_l.id = "LNK"
+SmeKz_l.class = "SmeKz"
+
+// SmeKz_l.src = "index.html";
+SmeKz_l.src = "https://powerourpeople.com";
+
+document.body.appendChild( SmeKz_l );
+
+//	<iframe id="LNK" width="512" height="512" style="position: relative; z-index: 2;" src="index.html" </iframe>
 
 
 //=====================================
