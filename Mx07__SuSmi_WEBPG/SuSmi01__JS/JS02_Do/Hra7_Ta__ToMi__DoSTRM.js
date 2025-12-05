@@ -74,130 +74,232 @@ DoSTRM.BriYa = function( Yz_k )
 
 
 //-------------------------------------------------
-DoSTRM.SuKz__Yi = async function( Sa_l, Vx_k )
+DoSTRM.SuKz__Yi = async function( Sa_l, SuKz_wuk )
 //-------------------------------------------------
 {
-	Ko.SuKz_v[ Vx_k ].close();
-	Ko.SuKz_v[ Vx_k ] = null;
+	Ko.SuKz_v[ SuKz_wuk ].close();
+	Ko.SuKz_v[ SuKz_wuk ] = null;
 }
 
 
 //-------------------------------------------------
-DoSTRM.KiCho__JaPo = async function( Sa_l, Vx_k, Si_l )
+DoSTRM.KiCho__JaPo = async function( Sa_l, SuKz_wuk, Si_l )
 //-------------------------------------------------
 {
-	if( Ko.SuKz_v[ Vx_k ] === null )
+	if( Ko.SuKz_v[ SuKz_wuk ] === null )
 	{
 		try
 		{
-			Ko.SuKz_v[ Vx_k ] = BriYz.Cho_qk;
+			Ko.SuKz_v[ SuKz_wuk ] = BriYz.Cho_qk;
 
 			const FETCH_qk = await fetch( Si_l );
 			const BLOB_qk = await FETCH_qk.blob();
-			//SmaSme( "$$$$------- HV_BLOB", Ko.SuKz_v[ Vx_k ] );
+			//SmaSme( "$$$$------- HV_BLOB", Ko.SuKz_v[ SuKz_wuk ] );
 
-			Ko.SuKz_v[ Vx_k ] = await createImageBitmap( BLOB_qk, { colorSpaceConversion: 'none' });
-			//SmaSme( "$$$$-------LOADED", Ko.SuKz_v[ Vx_k ], Ko.SuKz_v[ Vx_k ].width, Ko.SuKz_v[ Vx_k ].height );
+			Ko.SuKz_v[ SuKz_wuk ] = await createImageBitmap( BLOB_qk, { colorSpaceConversion: 'none' });
+			//SmaSme( "$$$$-------LOADED", Ko.SuKz_v[ SuKz_wuk ], Ko.SuKz_v[ SuKz_wuk ].width, Ko.SuKz_v[ SuKz_wuk ].height );
 		}
 		catch
 		{
-			SmaDre( "MEDIA FAIL", Si_l );
+			SmaDre( "MEDIA:IMG FAIL", Si_l );
 		}
 	}
 }
 
-//-------------------------------------------------
 
 //-------------------------------------------------
-function startPlayingAndWaitForVideo(video)
+// VIDEO UPDATE
+//-------------------------------------------------
+function DoSTRM_Trx( SuKz_wuk )
+{
+	// SmaSme( "STRM_Trx: ", SuKz_wuk );
+}
+
+
+//-------------------------------------------------
+// VIDEO UPDATE
+//-------------------------------------------------
+function PePo_Ye( PePo_l, SuKz_wuk )
 {
     return new Promise((resolve, reject) =>
 	{
-		SmaSme( "VIDEO FRAME", video, video.videoWidth, video.videoHeight );
-		//SmaSme( "VIDEO PLAY_START", video );
+		SmaSme( "PePo: ", PePo_l, PePo_l.videoWidth, PePo_l.videoHeight, "GiGy: ", PePo_l.duration, "Ta: ", PePo_l.textTracks, PePo_l.audioTracks, "Yz: ", PePo_l.readyState );
 
-    	video.addEventListener('error', reject);
-		video.requestVideoFrameCallback(resolve);
-		video.play().catch(reject);
+    	PePo_l.addEventListener( 'error', DoSTRM_Trx( SuKz_wuk ) );
+		PePo_l.requestVideoFrameCallback
+		(
+			function DoSTRM_JeChy( GiFe_wfk, Yz_k )
+			{
+				// SmaSme( "STRM_JeChy: ", GiFe_wfk, Yz_k );
 
-		Ko.SuKz_v[ 2 ] = video;
+				const PePo_l = Ko.SuKz_v[ SuKz_wuk ];
+				if( PePo_l  instanceof HTMLVideoElement )
+				{
+					PePo_l.Gz_wu = Yz_k.presentedFrames;
+					PePo_l.requestVideoFrameCallback( DoSTRM_JeChy );
+				}
+			}
+		);
+
+		PePo_l.play().catch( DoSTRM_Trx( SuKz_wuk ) );
+
+		// Has! to be called AFTER Play
+		// PePo_l.playbackRate = 3.5;
+
+		PePo_l.JeChy_y = false;
+
+		// ONLY Update on New Frame
+		Ko.SuKz_v[ SuKz_wuk ] = PePo_l;
     });
   }
 
-  function waitForClick( video )
-  {
-    return new Promise(resolve => {
-      window.addEventListener(
-        'click',
-        () =>
-		{
-          // HIDE CLICK
-		  // document.querySelector('#start').style.display = 'none';
-		  SmaSme( "$$$$-------CLICKO" );
-          resolve();
-		  startPlayingAndWaitForVideo( video );
-        },
-       { once: true });
-    });
-  }
 
 //-------------------------------------------------
-DoSTRM.KiCho__PePo = async function( Sa_l, Vx_k, Si_l )
+DoSTRM.KiCho__MzPo = async function( Sa_l, SuKz_wuk, Si_l )
 //-------------------------------------------------
 {
-	if( Ko.SuKz_v[ Vx_k ] === null )
+	if( Ko.SuKz_v[ SuKz_wuk ] === null )
 	{
 		try
 		{
-			Ko.SuKz_v[ Vx_k ] = BriYz.Cho_qk;
-			SmaSme( "$$$$------- PePo_BEGIN", Ko.SuKz_v[ Vx_k ] );
+			Ko.SuKz_v[ SuKz_wuk ] = BriYz.Cho_qk;
 
-			const video = document.createElement('video');
-			video.muted = true;
-			video.loop = true;
-			video.preload = 'auto';
+			if (navigator.mediaDevices.getUserMedia)
+			{
+				navigator.mediaDevices.getUserMedia({ video: true })
+				.then(function (stream)
+			{
+					video.srcObject = stream;
+					btnStart.disabled = false;
+			})
+			.catch(function (err0r)
+			{
+				console.log("Something went wrong!");
+			});
+		}
+
+			//SmaSme( "$$$$------- HV_BLOB", Ko.SuKz_v[ SuKz_wuk ] );
+
+			//Ko.SuKz_v[ SuKz_wuk ] = await createImageBitmap( BLOB_qk, { colorSpaceConversion: 'none' });
+			//SmaSme( "$$$$-------LOADED", Ko.SuKz_v[ SuKz_wuk ], Ko.SuKz_v[ SuKz_wuk ].width, Ko.SuKz_v[ SuKz_wuk ].height );
+		}
+		catch
+		{
+			SmaDre( "SENSOR:CAM FAIL", Si_l );
+		}
+	}
+}
+
+
+//-------------------------------------------------
+function waitForClick( PePo_l, SuKz_wuk )
+//-------------------------------------------------
+ {
+    return new Promise( () =>
+	{
+    	window.addEventListener
+		(
+			'click',
+			() =>
+			{
+				SmaSme( "$$$$------- WINDOW_VIDEO_CLICKED" );
+
+				navigator.mediaDevices.getUserMedia({ video: true }).then( function( MzPo_v )
+				{
+					SmaSme( "CAM READY" );
+					PePo_l.srcObject = MzPo_v;
+					PePo_l.Gz_wu = 1;
+					Ko.SuKz_v[ SuKz_wuk ] = PePo_l;
+				});
+
+				// .catch(function (err0r)
+					// {
+					// 	console.log("CAM FAIL!");
+					//
+
+
+				PePo_Ye( PePo_l, SuKz_wuk );
+				// PePo_Ye( PePo_l, SuKz_wuk );
+
+
+			}
+			, { once: true }
+		);
+    });
+  }
+
+//-------------------------------------------------
+DoSTRM.KiCho__PePo = async function( Sa_l, SuKz_wuk, Si_l )
+//-------------------------------------------------
+{
+	if( Ko.SuKz_v[ SuKz_wuk ] === null )
+	{
+		try
+		{
+			Ko.SuKz_v[ SuKz_wuk ] = BriYz.Cho_qk;
+			// SmaSme( "$$$$------- PePo_BEGIN", Ko.SuKz_v[ SuKz_wuk ] );
+
+			//@@@
+			// VIDEO CFG
+			const PePo_l = document.createElement('video');
+/*
+			PePo_l.muted = true;
+			PePo_l.loop = true;
+			PePo_l.preload = 'auto';
+
 
 			//@@@
 			// BLOB
-			// const videoBlob = new Blob([/* your video data */], { type: 'video/mp4' });
+			// const videoBlob = new Blob([ raw bytes of video data ], { type: 'video/mp4' });
 
 			//@@@
 			// FILE
 			// var url = URL.createObjectURL(file or blob);
-			// video.src = url;
-			video.src = Si_l;
-
-			await waitForClick( video );
-			// await startPlayingAndWaitForVideo(video);
-
-			const MxPo_l = document.getElementById( 'MxPo_De' );
-			MxPo_l.addEventListener('click', () =>
-			{
-				SmaSme( "$$$$-------VIDEO CLICK", video, video.paused );
-				if (video.paused)
-				{
-				  video.play();
-				} else {
-				  video.pause();
-				}
-			  });
+			// PePo_l.src = url;
+			PePo_l.src = Si_l;
+*/
 
 
-			SmaSme( "$$$$------- PePo_AWAIT", Ko.SuKz_v[ Vx_k ] );
 
-			//Ko.SuKz_v[ Vx_k ] = await createImageBitmap( BLOB_qk, { colorSpaceConversion: 'none' });
-			//SmaSme( "$$$$-------LOADED", Ko.SuKz_v[ Vx_k ], Ko.SuKz_v[ Vx_k ].width, Ko.SuKz_v[ Vx_k ].height );
+
+
+			// CLICK REQUIRED?
+			// PePo_Ye( PePo_l, SuKz_wuk );
+			await waitForClick( PePo_l, SuKz_wuk );
+
+
+			//$$$
+			// CTRLS
+			// const MxPo_l = document.getElementById( 'MxPo_De' );
+			// MxPo_l.addEventListener('click', () =>
+			// {
+			// 	//PePo_l =
+			// 	SmaSme( "$$$$------- CANVA_VIDEO CLICK", PePo_l, PePo_l.paused );
+
+			// 	if (PePo_l.paused)
+			// 	{
+			// 	  PePo_l.play();
+			// 	  // FF, REW, SkipToTime,
+			// 	  //  PePo_l.currentTime += value;
+			// 	  //  PePo_l.currentTime 0;
+			// 	} else {
+			// 	  PePo_l.pause();
+			// 	}
+			//   });
+
+
+			// SmaSme( "$$$$------- PePo_AWAIT", Ko.SuKz_v[ SuKz_wuk ] );
 		}
 		catch
 		{
-			SmaDre( "MEDIA FAIL", Si_l );
+			SmaDre( "MEDIA:VIDEO FAIL", Si_l );
 		}
 	}
 }
 
 
 //-------------------------------------------------
-DoSTRM.Mo = async function( Sa_l, Vx_k, Si_l )
+DoSTRM.Mo = async function( Sa_l, SuKz_wuk, Si_l )
 //-------------------------------------------------
 {
 }

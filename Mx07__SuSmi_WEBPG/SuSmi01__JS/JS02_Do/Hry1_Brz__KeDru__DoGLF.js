@@ -77,9 +77,39 @@ DoGLF.Hre7_Me__KeDru_Ha = function( Sa_l, SiKeDru_vsg, GeGx_wu, GeGa_wu )
 	GeGx_wu+= KuMu__GyZiSta_wuk;
 	GeGa_wu+= KuMu__GyZiSta_wuk;
 
+
+	//@@@
+	// FNT
+
+	// Arial (sans-serif)
+	// Verdana (sans-serif)
+	// Tahoma (sans-serif)
+	// Trebuchet MS (sans-serif)
+	//
+	// Times New Roman (serif)
+	// Georgia (serif)
+	// Garamond (serif)
+	//
+	// Courier New (monospace)
+	// Brush Script MT (cursive)
+
+	// var myFont = new FontFace('Raleway', 'url(https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap)');
+
+	// myFont.load().then(function(font)
+	// {
+	//   // with canvas, if this is ommited won't work
+	//   document.fonts.add(font);
+	//   console.log('Font loaded');
+	// });
+
+
 	//@@@
 	// CFG
-	Sx_l.font = "48px Raleway";
+	// !!! MUST BE LOADED !!!
+	//Sx_l.font = "32px Brush Script MT";
+	// Sx_l.font = "32px Raleway";
+	// Sx_l.font = "32px Final Frontier Old Style";
+	Sx_l.font = "32px Arial";
 
 	Sx_l.textAlign = "start";
 	Sx_l.textBaseline = "alphabetic";
@@ -231,6 +261,7 @@ DoGLF.BriYa = async function( Yz_l )
 	Sa_l.WzPo_l = WzPo_l;
 	Sa_l.SxHry_l = SxHry_l;
 	SxHry_l.canvas.imageSmoothingEnabled = true;
+
 
 
 	return SySmz__YaFx_v( Sa_l );

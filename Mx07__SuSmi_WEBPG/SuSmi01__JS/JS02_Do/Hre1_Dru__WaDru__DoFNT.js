@@ -71,7 +71,7 @@ function FNT_Chi( Va_l )
 //==============================================
 // FNT_ADD^Cha
 //==============================================
-async function Hrz7_Kru__ChaWaDru( Va_l, KuTu_l )
+DoFNT.Hrz7_Kru__ChaWaDru = async function( Va_l, KuTu_l )
 {
 	//@@@
 	// ECOSYS_GOOD

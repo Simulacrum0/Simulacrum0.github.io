@@ -22,7 +22,7 @@ if( !window.crossOriginIsolated )
 	// MSG should display @ DOM
 	MoDzTrx( KoKeDru.TrxJy00__HrxCheHo__CORS_vsg );
 }
-// KoYz_Hry();
+// KeMeTrx();
 
 
 //==============================================
@@ -91,14 +91,14 @@ var Module =
         // SmaSme( "WASM module is ready" );
 		KoDz__Ya();
 		MoDz__DzStxGru();
-
+		KeMeKwi();
     },
 
 	//@@@
 	// HEADER BAR
 	Sma__BriDzYz__Bz( Sma_vsg )
 	{
-		let BriDzYz__Bz_l = document.getElementById('BriDzYz__Bz');
+		let BriDzYz__Bz_l = document.getElementById('KeMeBri_Bz');
 		BriDzYz__Bz_l.innerHTML = "|> "+ ( Sma_vsg );
 	},
 
@@ -106,7 +106,7 @@ var Module =
 	// FOOTER BAR
 	Sma__BriDzYz__Bo( Sma_vsg )
 	{
-		let BriDzYz__Bo_l = document.getElementById('BriDzYz__Bo');
+		let BriDzYz__Bo_l = document.getElementById('KeMeBri_Ka');
 		BriDzYz__Bo_l.innerHTML = "|> " + ( Sma_vsg );
 	},
 
@@ -163,7 +163,7 @@ function MoDzTrx( Trx_vsg )
 	// alert( Bo_vsg );
 
 	// DISPLAY ERR
-	KoYz_Hry();
+	KeMeTrx();
 
 	// STOP INTERVALS
 	// if( window.Ko.Trx_GyHa  ){ clearInterval( window.Ko.Trx_GyHa ); }

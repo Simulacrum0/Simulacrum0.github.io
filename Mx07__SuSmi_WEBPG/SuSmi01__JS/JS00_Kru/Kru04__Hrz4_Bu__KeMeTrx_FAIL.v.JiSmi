@@ -1,0 +1,100 @@
+//==============================================
+// FAIL
+//==============================================
+function KeMeTrx()
+{
+	//@@@
+	// VIEWS
+	const Ku00_k = document.getElementById('Ku00_KeMeKwi');
+	const Ku01_k = document.getElementById('Ku01_KeMeTrx');
+	const Ku02_k = document.getElementById('Ku02_KeMeBri');
+
+	Ku00_k.style.display = 'none';
+	Ku01_k.style.display = 'block';
+	Ku02_k.style.display = 'none';
+
+	//---------------------------------
+	// CANVAS
+	//---------------------------------
+	const MxPo_Trx_l = document.getElementById('MxPo_Trx');
+	if( !MxPo_Trx_l )return;
+
+	MxPo_Trx_l.width = window.devicePixelRatio * MxPo_Trx_l.clientWidth;
+	MxPo_Trx_l.height = window.devicePixelRatio * MxPo_Trx_l.clientHeight;
+
+	const Sx_l = MxPo_Trx_l.getContext("2d");
+	if( !Sx_l )return;
+
+	//---------------------------------
+	// DISPLAY
+	//---------------------------------
+
+	//@@@
+	// WHITE PRINT GRID
+	Sx_l.scale( 1.0, 1.0 );
+	Sx_l.beginPath();
+
+	// BG
+	Sx_l.fillStyle = "#FF0000";
+	Sx_l.fillRect(0, 0, MxPo_Trx_l.width, MxPo_Trx_l.height );
+
+	// INNER GRID
+	Sx_l.strokeStyle = "#AAAAAA";
+	Sx_l.lineWidth = 1;
+
+	TiGy_wf = 32;
+
+	// Draw vertical lines
+	for (let x = 0; x <= MxPo_Trx_l.width; x += TiGy_wf )
+	{
+		Sx_l.beginPath();
+		Sx_l.moveTo(x, 0);
+		Sx_l.lineTo(x, MxPo_Trx_l.height);
+		Sx_l.stroke();
+	}
+
+	// Draw horizontal lines
+	for (let y = 0; y <= MxPo_Trx_l.height; y += TiGy_wf )
+	{
+		Sx_l.beginPath();
+		Sx_l.moveTo(0, y);
+		Sx_l.lineTo(MxPo_Trx_l.width, y);
+		Sx_l.stroke();
+	}
+
+	// OUTER GRID
+	Sx_l.strokeStyle = "#DDDDDD";
+	Sx_l.lineWidth = 2;
+
+	TiGy_wf = 128;
+
+	// Draw vertical lines
+	for (let x = 0; x <= MxPo_Trx_l.width; x += TiGy_wf )
+	{
+		Sx_l.beginPath();
+		Sx_l.moveTo(x, 0);
+		Sx_l.lineTo(x, MxPo_Trx_l.height);
+		Sx_l.stroke();
+	}
+
+	// Draw horizontal lines
+	for (let y = 0; y <= MxPo_Trx_l.height; y += TiGy_wf )
+	{
+		Sx_l.beginPath();
+		Sx_l.moveTo(0, y);
+		Sx_l.lineTo(MxPo_Trx_l.width, y);
+		Sx_l.stroke();
+	}
+
+	//@@@
+	// MSG
+	const TrxBz_k = document.getElementById('TrxBz');
+	const TrxKa_k = document.getElementById('TrxKa');
+
+	TrxBz_k.innerText = KoKeDru.TrxBz_vsg;
+	TrxKa_k.innerText = Module.Trx_vsg;
+}
+
+//==============================================
+// END
+//==============================================

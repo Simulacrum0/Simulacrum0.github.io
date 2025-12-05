@@ -16,71 +16,8 @@
 	<title>MicroCosm</title>
 	<link rel="manifest" href="manifest.json" />
 
-	<style>
-
-		@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
-
-		.WaDru_Bz
-		{
-			font-family: "Raleway", sans-serif;
-			font-optical-sizing: auto;
-			font-weight: 600;
-			font-style: normal;
-		}
-		.WaDru_Ka
-		{
-			font-family: "Raleway", sans-serif;
-			font-optical-sizing: auto;
-			font-weight: 400;
-			font-style: italic;
-		}
-
-		body
-		{
-			/* background-color: rgb( 80, 80, 80 ); */
-			background-color: rgb( 192, 96, 8 );
-		}
-		.HriDx
-		{
-			display: block;
-			position: absolute;
-			margin: 0;
-			padding: none;
-
-			font-size: 1.5em;
-			color: rgb(255, 255, 255);
-		}
-		.MxPo
-		{
-			left: 0dvw;
-			top: 1.5em;
-			width: 100dvw;
-			height: calc( 100dvh - 3.0em);
-
-			/* PIXEL ART*/
-			/* image-rendering: pixelated; */
-			/* HIGH CONTRAST */
-			/* image-rendering: crisp-edges; */
-			/* SMOOTH */
-			image-rendering: auto;
-		}
-		#BriDzYz__Bz
-		{
-			left: 0dvw;
-			top: 0dvh;
-			width: 100dvw;
-			height: 1.5em;
-			/* background-color: rgb( 192, 96, 8 ); */
-		}
-		#BriDzYz__Bo
-		{
-			left: 0dvw;
-			top: calc(100dvh - 1.5em);
-			width: 100dvw;
-			height: 1.5em;
-			/* background-color: rgb( 192, 96, 8 ); */
-		}
-	</style>
+	<!-- STYLE & MEDIA -->
+	<link rel="stylesheet" href="Mx07__SuSmi_WEBPG/SuSmi02__CSS/JoDx02__KoKri.css">
 </head>
 <!--
 //==============================================
@@ -88,15 +25,74 @@
 //==============================================
 -->
 <body>
-	<!-- <canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault()" tabindex=-1></canvas> -->
-	<canvas class="HriDx MxPo" id="MxPo_De"	tabindex=-1 hidden></canvas>
-	<canvas class="HriDx MxPo " id="MxPo_Kwa" tabindex=-1 hidden></canvas>
 
-	<input type="text" id="KeDruTre" name="?" hidden></input>
-	<!-- <audio class="HriDx" id="audio-player" controls="true" src="https://raw.githubusercontent.com/kbstt/pwa-demos/main/track2.mp3"></audio> -->
+	<!-- Ku00__LAUNCH ------------------------------------------------>
+	<div class="SpoJy KuJy" id="Ku00_KeMeKwi" hidden>
+		<canvas class="SpoJy MxPo " id="MxPo_Kwa"></canvas>
 
-	<p class="HriDx WaDru_Bz" id="BriDzYz__Bz" tabindex=1></p>
-	<p class="HriDx WaDru_Ka" id="BriDzYz__Bo" tabindex=2></p>
+		<div class="HriNeKu" id="Ku00_KeMeKwi">
+			<img style="width: 6em;" src="Mx01__SuKz_MEDIA/SuKz07_DryDz__BIZ/DryDzGwz05__THINKER_192.png"></img>
+			<h2 class="HriNeTi WaDru_Bz">MICROCOSM Test 0.1</h2>
+
+			<!-- 🥸📍🔇🔊🎥🔒🗝️🖥️👤🗣️👂👄🔉🕰️🎟️⚙️✅⚠️🚫 -->
+			<h2 class="HriNeTi WaDru_Bz">👤1) WHO: </h2>
+				<input class="HriNeTi WaDru_Ka" type="text" id="KeDruVa" name="Your ID" placeholder="Your ID"></input>
+
+			<h2 class="HriNeTi WaDru_Bz">📍2) WHERE: </h2>
+				<select class="HriNeTi WaDru_Ka" id="Cosm" name="Cosm Picker">
+					<option value="C00">Cosm: Intro ⭐⭐⭐⭐⭐</option>
+					<option value="C01">Cosm: About ⭐⭐⭐▪️▪️</option>
+					<option value="C02">Cosm: Adventure ⭐⭐⭐⭐▪️</option>
+					<option value="C03">Cosm: Life-Mgr ⭐⭐▪️▪️▪️</option>
+				</select>
+
+			<h2 class="HriNeTi WaDru_Bz">⚙️3) HOW: </h2>
+
+			<h3 class="HriNeTi WaDru_Ka" for="KeDruVa">Audio</h3>
+			<input type="range" min="0" max="100" value="50" id="volume" />
+			<label class="switch">
+				<input type="checkbox" checked>
+				<span class="slider round"></span>
+			</label>
+
+			<!-- <label class="switch">
+				<input type="checkbox" checked>
+				<span class="slider round"></span>
+				MULTISCREEN
+			</label>
+
+			<label class="switch">
+				<input type="checkbox" checked>
+				<span class="slider round"></span>
+			</label>
+
+			<input class="HriNeTi WaDru_Bz" type="text" id="KeDruChe" name="Your " placeholder="Your last name.."> -->
+
+			<input class="HriNeTi WaDru_Bz" type="submit" id="Tra_KeMeBri" value="🗝️4) ENTER ->" onclick="KeMeBri()">
+		</div>
+	</div>
+
+	<!-- Ku01__FAIL ------------------------------------------------>
+	<div class="SpoJy KuJy" id="Ku01_KeMeTrx" hidden>
+		<canvas class="SpoJy MxPo " id="MxPo_Trx"></canvas>
+
+		<div class="HriNeKu" id="Ku00_KeMeKwi">
+			<p class="WaDru_Bz TrxKz" id="TrxBz"></p>
+			<p class="WaDru_Ka TrxKz" id="TrxKa"></p>
+		</div>
+	</div>
+
+
+	<!-- Ku02__LIFE ------------------------------------------------>
+	<div class="SpoJy KuJy" id="Ku02_KeMeBri" hidden>
+		<canvas class="SpoJy MxPo" id="MxPo_De"></canvas>
+
+		<input type="text" id="KeDruTre" name="?" hidden></input>
+		<!-- <audio class="SpoJy" id="audio-player" controls="true" src="https://raw.githubusercontent.com/kbstt/pwa-demos/main/track2.mp3"></audio> -->
+
+		<p class="SpoJy YzKeDru WaDru_Bz" id="KeMeBri_Bz" onclick='MoDzTrx( "TEST Top ERR" )'></p>
+		<p class="SpoJy YzKeDru WaDru_Ka" id="KeMeBri_Ka" onclick='MoDzTrx( "TEST Bottom ERR" )'></p>
+	</div>
 
 </body>
 <!--

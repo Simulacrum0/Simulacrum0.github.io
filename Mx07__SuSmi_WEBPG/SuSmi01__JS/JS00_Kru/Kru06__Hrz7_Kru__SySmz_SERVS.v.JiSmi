@@ -6,7 +6,7 @@ const BriYz = Object.freeze
 	HxHo_qk: 0
 	, Trx_qk: 1
 	, Cho_qk: 2
-	
+
 	, Yz_qk: 3
 	, Ya_qk: 4
 	, Ye_qk: 5
@@ -44,7 +44,7 @@ const SyVx = Object.freeze
 
 	// Hra7_Ta^FMT
 	, STRM_qk: 5
-	, FNT_qk: 777
+	, FNT_qk: 6
 
 	// Hru^AUD
 	, WA_qk: 777
@@ -53,8 +53,8 @@ const SyVx = Object.freeze
 	, HEAR_qk: 777
 
 	// Hry^VIS
-	, WG_qk: 6
-	, GLF_qk: 7
+	, WG_qk: 7
+	, GLF_qk: 8
 	, XR_qk: 777
 	, GLES_qk: 777
 	, SCRN_qk: 777
@@ -76,7 +76,7 @@ const SyVx = Object.freeze
 	//----------------------------------------------------------
 	// SERV_CNT
 	//----------------------------------------------------------
-	, DoFo_wuk: 8
+	, DoFo_wuk: 9
 	, SmiFo_wuk: 0
 });
 
