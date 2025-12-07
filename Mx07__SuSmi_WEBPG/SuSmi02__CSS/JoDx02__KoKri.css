@@ -163,19 +163,20 @@ input[type=submit]:hover
 /*@@@@@@@@@@@@@@@
 TOGGLES
 @@@@@@@@@@@@@@@*/
-.switch
-{
-	position: relative;
-	display: block;
-	width: 3em;
-	height: 1em;
-}
 
 .switch input
 {
 	opacity: 0;
 	width: 0;
 	height: 0;
+}
+
+.switch
+{
+	position: relative;
+	display: block;
+	width: 3.0em;
+	height: 1.5em;
 }
 
 .slider
@@ -187,41 +188,41 @@ TOGGLES
 	right: 0;
 	bottom: 0;
 	background-color: #ccc;
-	-webkit-transition: .4s;
-	transition: .4s;
+	transition: 0.5s;
 }
 
 .slider:before
 {
 	position: absolute;
 	content: "";
-	width: 26px;
-	height: 26px;
-	left: 4px;
-	bottom: 4px;
+	width: 1.5em;
+	height: 1.5em;
+	left: 0.0em;
+	bottom: 0.0em;
 	background-color: white;
-	transition: 0.4s;
+	transition: 0.5s;
 }
 
 input:checked + .slider
 {
-	background-color: #2196F3;
+	background-color: rgb( 192, 32, 32 );
 }
 
 input:focus + .slider
 {
-	box-shadow: 0 0 1px #2196F3;
+	/* GLOW */
+	box-shadow: 0 0 1.0em rgb( 255, 255, 255 );
 }
 
 input:checked + .slider:before
 {
-	transform: translateX(26px);
+	transform: translateX( 1.5em );
 }
 
 /* Rounded sliders */
 .slider.round
 {
-	border-radius: 34px;
+	border-radius: 1.5em;
 }
 
 .slider.round:before
