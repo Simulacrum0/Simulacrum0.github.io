@@ -151,12 +151,7 @@ document.fonts.ready.then(function(font_face_set) {
 DoFNT.SmaYz = function( Sa_l )
 //-------------------------------------------------
 {
-	SmaSme( "Service: ", this.VaSy );
-
-	Object.keys( ViTe_qk ).forEach( _Va => {	SmaSme( _Va ); });
-	Object.values( ViTe_qk ).forEach( _Vi => { SmaSme( _Vi );	});
-
-	// if( MoDzTrx__NxHo_y( "TEST FAKE ERROR", null )){ return; }
+	SmaSme( "FNT Service: ", this.VaSy );
 
 }
 
@@ -177,7 +172,9 @@ DoFNT.BriYa = function( Yz_k )
 {
 	const Sa_l = SySmz__YaFz_v( DoFNT );
 
-	FNT_TaFuHa();
+	//@@@
+	// LST FNTS INSTALLED by USR
+	// FNT_TaFuHa();
 
 	return SySmz__YaFx_v( Sa_l );
 }

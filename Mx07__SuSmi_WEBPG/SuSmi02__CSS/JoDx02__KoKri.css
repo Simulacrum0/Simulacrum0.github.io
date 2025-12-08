@@ -11,9 +11,12 @@ MxPo_Trx
 {
 	display: block;
 	position: absolute;
-	margin: 0;
-	padding: none;
 
+	margin: 0;
+	padding: 0;
+
+	font-size: 1.0em;
+	color: rgb(255, 255, 255);
 	background-color: rgb( 64, 64, 64 );
 }
 
@@ -79,20 +82,21 @@ DBG
 /*@@@@@@@@@@@@@@@
 GUI
 @@@@@@@@@@@@@@@*/
+
+/* LAUNCH_PANEL */
 .HriNeKu
 {
 	display: block;
-	position: absolute;
+	position: relative;
 	z-index: 2;
 
 	left: calc( 50dvw - 16em);
-	top: calc( 50dvh - 24em);
+	top: 4em;
 
 	width: 32em;
-	height: 48em;
 
-	margin: 1.0em;
-	padding: 1.0em;
+	margin: 0.25em;
+	padding: 0.25em;
 
 	box-sizing: border-box;
 	border-radius: 1.5em;
@@ -101,18 +105,74 @@ GUI
 	background-color: rgb( 0, 0, 0, 0.5 );
 }
 
-.HriNeTi
+/* LOGO */
+.HriNeJaPo
 {
 	display: block;
+	position: relative;
+
+	width: 30em;
+	height: 8em;
+
+	margin: 0.25em;
+	padding: 0.25em;
+
+	border-radius: 0.25em;
+	border: 0.125em solid rgb( 255, 255, 255 );
+}
+
+/* TOPIC_PANEL */
+.HriNzKu
+{
+	display: block;
+	position: relative;
+	z-index: 3;
+
+	margin: 0.25em;
+	padding: 0.25em;
+
+	box-sizing: border-box;
+	border-radius: 0.5em;
+	border: 0.125em solid rgb( 255, 255, 255 );
+
+	background-color: rgb( 0.25, 0.25, 0.25, 0.25 );
+}
+
+/* TOPIC_TITLE */
+.HriNzVa
+{
+	display: block;
+	position: relative;
+
+	margin: 0.25em;
+	padding: 0.25em;
+}
+
+/* PACK ELEMENTS */
+.HriNeTi
+{
+	display: inline-flex;
 	text-align:left;
 
-	margin: 0.5em;
-	padding: 0.5em;
+	margin: 0.25em;
+	padding: 0.25em;
 
-	font-size: 1.em;
 	color: rgb(255, 255, 255 );
 }
 
+/* PACK LABELS */
+.HriNeVa
+{
+	display: inline-flex;
+	text-align:left;
+
+	margin: 0.25em;
+	padding: 0.25em;
+
+	color: rgb(255, 255, 255 );
+}
+
+/* DEBUG TXT */
 .TrxKz
 {
 	display: block;
@@ -126,42 +186,48 @@ GUI
 }
 
 
-/* TEXT */
+/* INPUT_TXT */
 input[type=text], select
 {
-	width: calc( 67% - 6em );
+	width: 12em;
 
 	box-sizing: border-box;
-	border: 0.5em;
+	border: 0.25em;
 	border-radius: 0.5em;
 	border: 0.25em solid rgb( 255, 255, 255 );
 
 	background-color: rgb( 0, 32, 96 );
 }
 
-/* BUTTON */
+/* SUBMIT ===> LAUNCH BTN RED */
 input[type=submit]
 {
-	margin: 0.5em;
-	padding: 0.5em;
-	width: calc( 100% - 6em );
+	display: block;
+	position: relative;
 
-	box-sizing: border-box;
-	border: 0.5em;
-	border-radius: 0.5em;
-	border: 0.25em solid rgb( 255, 255, 255 );
+	margin: 0.25em 0.25em;
+	padding: 0.25em 0.25em;
 
+	text-align: center;
+	width: 23.5em;
+	height: 2em;
+
+	font-size: 1.25em;
+
+	/* box-sizing: border-box; */
+	border-radius: 0.25em;
+	border: 0.125em solid rgb( 255, 255, 255 );
 	background-color: rgb( 192, 32, 32 );
 	cursor: pointer;
 }
-/* HOVER BG Po */
+/* HOVER BG Po ==> GREEN */
 input[type=submit]:hover
 {
 	background-color: rgb( 32, 160, 32 );
 }
 
 /*@@@@@@@@@@@@@@@
-TOGGLES
+TOGGLE_SWITCH
 @@@@@@@@@@@@@@@*/
 
 .switch input
@@ -174,7 +240,7 @@ TOGGLES
 .switch
 {
 	position: relative;
-	display: block;
+	display: inline-block;
 	width: 3.0em;
 	height: 1.5em;
 }
@@ -187,8 +253,9 @@ TOGGLES
 	left: 0;
 	right: 0;
 	bottom: 0;
-	background-color: #ccc;
+	background-color: rgb( 192, 192, 192 );
 	transition: 0.5s;
+	border-radius: 1.5em;
 }
 
 .slider:before
@@ -201,6 +268,7 @@ TOGGLES
 	bottom: 0.0em;
 	background-color: white;
 	transition: 0.5s;
+	border-radius: 50%;
 }
 
 input:checked + .slider
@@ -217,17 +285,6 @@ input:focus + .slider
 input:checked + .slider:before
 {
 	transform: translateX( 1.5em );
-}
-
-/* Rounded sliders */
-.slider.round
-{
-	border-radius: 1.5em;
-}
-
-.slider.round:before
-{
-	border-radius: 50%;
 }
 
 

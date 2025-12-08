@@ -1,0 +1,38 @@
+{
+	"LABELS":
+	{
+		"BriDzVaSy": "🌐MICROCOSM Testo 0.1"
+		, "BriDzKro": "🏫About MICROCOSM"
+
+		, "HriNe_Kwi": "🚀1) Launch"
+		, "HriNe_KeDru": "🗣️2) Language"
+		, "HriNe_KeDy": "🥸3) Who"
+		, "HriNe_TaNe": "⚙️4) Options"
+
+		, "HriNe_KwiVu": "BEGIN (GO!)"
+
+		, "HriNe_KeDy__ChaKz": "👤New User"
+		, "HriNe_KeDy__MaKz": "🔒Question-Lock"
+		, "HriNe_KeDy__SmzKz": "🗝️Answer-Key"
+
+		, "HriNe_TaNe__KeDruGyVa": "📄Legible Size"
+		, "HriNe_TaNe__MxPeVa": "🔊Speakers"
+		, "HriNe_TaNe__MxPeHoVa": "🔇Mute"
+		, "HriNe_TaNe__MxPoGry": "🖥️Fullscreen"
+		, "HriNe_TaNe__MzPe": "🎙️Mic"
+		, "HriNe_TaNe__MzPo": "📷Camera"
+
+	}
+
+	, "CREDITS":
+	[
+		{ "ID": "Cosm", "OWN": "john jake kolb v", "URL": "https://PowerOurPeople.com" }
+		, { "ID": "Bugout", "OWN":  "Chris McCormick", "URL": "https://github.com/chr15m/bugout/tree/master" }
+	]
+
+	, "SUBJECTS":
+	[
+		{ "ID": "Everyone", "NAME": "1) Introduction for Everyone" }
+		, { "ID": "Features", "NAME": "2) Features for Solutions" }
+	]
+}

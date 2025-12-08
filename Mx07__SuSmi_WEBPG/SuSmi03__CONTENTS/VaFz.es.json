@@ -1,0 +1,38 @@
+{
+	"LABELS":
+	{
+		"BriDzVaSy": "🌐MICROCOSM Testo 0.1"
+		, "BriDzKro": "🏫Aprender de MICROCOSM"
+
+		, "HriNe_Kwi": "🚀1) Launch"
+		, "HriNe_KeDru": "🗣️2) Lengua"
+		, "HriNe_KeDy": "🥸3) Quíen"
+		, "HriNe_TaNe": "⚙️4) Opciones"
+
+		, "HriNe_KwiVu": "Empezar!"
+
+		, "HriNe_KeDy__ChaKz": "👤Nuevo Persona"
+		, "HriNe_KeDy__MaKz": "🔒Pregunta-Lock-o"
+		, "HriNe_KeDy__SmzKz": "🗝️Contesta-Llave"
+
+		, "HriNe_TaNe__KeDruGyVa": "📄Txt-o Size-o"
+		, "HriNe_TaNe__MxPeVa": "🔊Espeakeroz"
+		, "HriNe_TaNe__MxPeHoVa": "🔇Mute-o"
+		, "HriNe_TaNe__MxPoGry": "🖥️Fullscreen-o"
+		, "HriNe_TaNe__MzPe": "🎙️Mic-o"
+		, "HriNe_TaNe__MzPo": "📷Camera-o"
+
+	}
+
+	, "CREDITS":
+	[
+		{ "ID": "Cosm", "OWN": "john jake kolb v", "URL": "https://PowerOurPeople.com" }
+		, { "ID": "Bugout", "OWN":  "Chris McCormick", "URL": "https://github.com/chr15m/bugout/tree/master" }
+	]
+
+	, "SUBJECTS":
+	[
+		{ "ID": "Everyone", "NAME": "Para Todos" }
+		, { "ID": "Features", "NAME": "Si, Se Puede" }
+	]
+}

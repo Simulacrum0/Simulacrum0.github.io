@@ -3423,25 +3423,25 @@ function checkIncomingModuleAPI() {
 }
 
 var ASM_CONSTS = {
-  73864: $0 => {
+  73880: $0 => {
     if (!window.Ko.Hx_SyDx_vsg) {
       window.Ko.Hx_SyDx_vsg = UTF8ToString($0);
     }
   },
-  73945: () => {
+  73961: () => {
     MoDzTrx("TEST BAD BUILD as ERROR");
   },
-  73987: () => {},
-  73991: () => {
+  74003: () => {},
+  74007: () => {
     console.log("MC: HrySmz__BriYa");
   },
-  74031: () => {},
-  74035: () => {
+  74047: () => {},
+  74051: () => {
     const SaSTRM_l = Ko.SySmz_v[SyVx.STRM_qk];
     SaSTRM_l.Ji.KiCho__JaPo(SaSTRM_l, 0, "Mx01__SuKz_MEDIA/SuKz02_JaPo__PICT/JaPo00__FyHo.jpg");
     SaSTRM_l.Ji.KiCho__JaPo(SaSTRM_l, 1, "Mx01__SuKz_MEDIA/SuKz02_JaPo__PICT/JaPo__SF/SF_C13.png");
   },
-  74277: $0 => {
+  74293: $0 => {
     const LAYER_Gz_wuk = 0;
     const SaGLF_l = Ko.SySmz_v[SyVx.GLF_qk];
     const SaWG_l = Ko.SySmz_v[SyVx.WG_qk];

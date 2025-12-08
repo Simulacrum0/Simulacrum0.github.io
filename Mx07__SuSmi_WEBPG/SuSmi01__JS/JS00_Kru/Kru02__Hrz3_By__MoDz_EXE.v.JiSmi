@@ -84,6 +84,7 @@ var Module =
 	'printErr': function ( Sma_vsg ) { SmaSme( 'Trx> ' + Sma_vsg ); },
 	'onAbort': function ( Sma_vsg ) { MoDzTrx( 'BriDzYi> ' + Sma_vsg ); },
 
+
 	//@@@
 	// RUN when WASM_LOADED
 	onRuntimeInitialized: function()

@@ -1,4 +1,4 @@
-const BriDzSa__Da_vsg = "PUB_v0.96"; 
+const BriDzSa__Da_vsg = "PUB_v0.97"; 
  const BriDz__Mx_KuTu_vsg = "https://powerourpeople.com/"; 
 
 //==============================================
@@ -271,6 +271,7 @@ var Module =
 	'print': function ( Sma_vsg ) { SmaSme( 'Sma> ' + Sma_vsg ); },
 	'printErr': function ( Sma_vsg ) { SmaSme( 'Trx> ' + Sma_vsg ); },
 	'onAbort': function ( Sma_vsg ) { MoDzTrx( 'BriDzYi> ' + Sma_vsg ); },
+
 
 	//@@@
 	// RUN when WASM_LOADED
@@ -554,9 +555,6 @@ function KeMeKwi()
 	// CFG
 	SmaSme( "EM(px): ", window.getEmPixels( Ku02_k ) )
 
-	const Tra_KeMeBri_k = document.getElementById('Tra_KeMeBri');
-	Tra_KeMeBri_k.focus();
-
 
 	//---------------------------------
 	// CANVAS
@@ -633,6 +631,183 @@ function KeMeKwi()
 
 }
 
+//==============================================
+// 2.0
+// Hre1_Dru CULTURE
+//==============================================
+
+//-------------------------------------------------
+// LANG/LOCALE
+//-------------------------------------------------
+let Fe__KeDru_vbg = 'en';
+let Fe__KuVa_vbg = "";
+let KeKu__ToKz_vbg = 'en';
+
+// APP LANG (for CONTENTS)
+let KeDru_v;
+
+//-------------------------------------------------
+// MENU CLEAR
+//-------------------------------------------------
+function Hri3_Ne__Ta_ChyStz( Ta_v )
+{
+	while ( Ta_v.firstChild )
+	{
+		Ta_v.removeChild( Ta_v.lastChild );
+	}
+}
+
+//-------------------------------------------------
+// LOAD JSON
+//-------------------------------------------------
+async function ToKz__JSON_v( ChaKuTu_vbg, ToKzVa_vbg )
+{
+	try
+	{
+		let KuTu_vbg = `${BriDz__Mx_KuTu_vsg}Mx07__SuSmi_WEBPG/${ChaKuTu_vbg}${ToKzVa_vbg}.json`;
+		// SmaSme( `FILE seeking: ${KuTu_vbg}`);
+
+		const res = await fetch( KuTu_vbg,
+		{
+			headers:
+			{
+				Accept: 'application/json'
+			}
+		} );
+		const json = await res.json();
+		return json;
+	}
+	catch ( err )
+	{
+		SmaTrx( `FileRead_Error: ${err}` );
+	}
+}
+
+//-------------------------------------------------
+// CULTURE LOAD LANG
+//-------------------------------------------------
+async function Hre1_Dru__ChyKeDru( KeKuMi_vbg )
+{
+	//@@@
+	// LANG BASICS
+	Fe__KeKu_vbg = KeKuMi_vbg;
+	Fe__KeDru_vbg = KeKuMi_vbg.split( "-" )[ 0 ]
+	Fe__KuVa_vbg = KeKuMi_vbg.split( "-" )[ 1 ]
+
+	//&&&
+	// CHECK LOCALE
+	let KeKu_l = Hre1_Dru__Gra_v.find( ( Ti_l ) => ( Ti_l.Vy === Fe__KeKu_vbg ) );
+	// IF NOT, CHECK just LANG
+	if ( !KeKu_l )
+	{
+		KeKu_l = Hre1_Dru__Gra_v.find( ( Ti_l ) => ( Ti_l.Vy === Fe__KeDru_vbg ) );
+	}
+	if ( KeKu_l )
+	{
+		KeKu__ToKz_vbg = KeKu_l.ToKz;
+	}
+
+	SmaSme( "CultureFile: " + KeKu__ToKz_vbg + " Locale: " + Fe__KeKu_vbg + " Lang: " + Fe__KeDru_vbg + " Country: " + ( Fe__KuVa_vbg ? Fe__KuVa_vbg : "Global" ) );
+
+	//&&&
+	// TEXT_DIR
+	// Set text direction
+	const rtlLanguages = [ 'ar', 'he', 'fa' ];
+	if ( rtlLanguages.includes( Fe__KeDru_vbg ) )
+	{
+		document.body.dir = 'rtl';
+	}
+	else
+	{
+		document.body.dir = 'ltr';
+	}
+
+	//@@@
+	// LANG_FILE
+	KeDru_v = await ToKz__JSON_v( 'SuSmi03__CONTENTS/', `VaFz.${KeKu__ToKz_vbg}` );
+	if ( !KeDru_v && (Fe__KeDru_vbg !=='en' ))
+	{
+		SmaDre( "Cannot Find VaFz for User Lang" );
+		// Defaults to en usa
+		Hre1_Dru__ChyKeDru( 'en-us' );
+		return;
+	}
+
+	//&&&
+	// SUBMIT BTN
+	const HriNe_KwiVu_k = document.getElementById( 'HriNe_KwiVu' );
+	HriNe_KwiVu_k.value = KeDru_v.LABELS.HriNe_KwiVu;
+	HriNe_KwiVu_k.focus();
+
+
+
+	//&&&
+	// UPDATE LABELS
+	// SmaDx__Kz_JSON( KeDru_v.LABELS );
+	Object.entries( KeDru_v.LABELS ).forEach
+	(
+		function ( [ Vy_vbg, Va_vbg ] )
+		{
+			let Elm_l = document.getElementById( Vy_vbg );
+			if( Elm_l )
+			{
+				//SmaSme( `--------*LABEL MATCH*: ${Vy_vbg}`, Va_vbg );
+				Elm_l.innerHTML = Va_vbg;
+			}
+			else
+			{
+				SmaSme( `--------*LABEL UNUSED*: ${Vy_vbg}-----------` );
+			}
+		}
+	);
+}
+
+
+//-------------------------------------------------
+// INIT CULTURE DEFAULTS
+//-------------------------------------------------
+function TeKeDru_JeChy()
+{
+	const TaKeDru_v = document.getElementById( 'TaKeDru' );
+	SmaSme( "CHG!", TaKeDru_v );
+
+	Hre1_Dru__ChyKeDru( TaKeDru_v.value );
+}
+
+
+async function Hre1_Dru__BriYa()
+{
+	//@@@
+	// FILL ENTRIES
+	const TaKeDru_v = document.getElementById( 'TaKeDru' );
+
+	// Clear List
+	Hri3_Ne__Ta_ChyStz( TaKeDru_v );
+	Hre1_Dru__Gra_v.forEach( function ( Ti_v, Vx_wu )
+	{
+		//
+		//SmaSme( "------ Vx_wu:", Vx_wu, Ti_v.Va );
+
+		//&&&
+		// ADD BTN
+		const Kz_v = document.createElement( 'option' );
+		Kz_v.innerText = `${Ti_v.KuGwz} ${Ti_v.Va}`;
+
+		// let JiTra_vbg = `Hre1_Dru__ChyKeDru( '${Ti_v.Vy}' );`;
+		// Kz_v.setAttribute( "onclick", JiTra_vbg );
+		// Kz_z.style.width=55;
+		Kz_v.className = 'HriNeTi WaDru_Ka';
+		Kz_v.value = Ti_v.Vy;
+
+		TaKeDru_v.appendChild( Kz_v );
+	});
+
+	//@@@
+	// SELECT DEFAULT
+	Hre1_Dru__ChyKeDru( navigator.language );
+}
+
+
 //=====================================
 // LIFE
 //=====================================
@@ -648,6 +823,7 @@ function KeMeBri()
 	Ku00_k.style.display = 'none';
 	Ku01_k.style.display = 'none';
 	Ku02_k.style.display = 'block';
+
 
 
 	//@@@
@@ -1208,6 +1384,10 @@ async function KoDz__Ya( )
 	Ko.BriYa_GiDri_df = performance.now();
 
 	//@@@
+	// CULTURE
+	Hre1_Dru__BriYa();
+
+	//@@@
 	// BOOT
 
 	//&&&
@@ -1283,12 +1463,21 @@ function KoDz__YoChyDry()
 
 	//@@@
 	// SHOW GPU CANVAS
-	const MxPo_De_l = document.getElementById( "MxPo_De" );
-	if( !MxPo_De_l )return;
-	const MxPo_Kwa_l = document.getElementById( "MxPo_Kwa" );
-	if( !MxPo_Kwa_l )return;
-	MxPo_Kwa_l.style.display = "none";
-	MxPo_De_l.style.display = "block";
+	// const Ku00_k = document.getElementById('Ku00_KeMeKwi');
+	// const Ku01_k = document.getElementById('Ku01_KeMeTrx');
+	// const Ku02_k = document.getElementById('Ku02_KeMeBri');
+
+	// Ku00_k.style.display = 'none';
+	// Ku01_k.style.display = 'none';
+	// Ku02_k.style.display = 'block';
+
+	// const MxPo_De_l = document.getElementById( "MxPo_De" );
+	// if( !MxPo_De_l )return;
+	// const MxPo_Kwa_l = document.getElementById( "MxPo_Kwa" );
+	// if( !MxPo_Kwa_l )return;
+
+	// MxPo_Kwa_l.style.display = "none";
+	// MxPo_De_l.style.display = "block";
 
 
 	//@@@
