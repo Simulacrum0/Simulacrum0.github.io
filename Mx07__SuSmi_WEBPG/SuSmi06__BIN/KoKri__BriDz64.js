@@ -3622,7 +3622,7 @@ var ASM_CONSTS = {
       SaSTRM_l.Ji.SuKz__Yi(SaSTRM_l, 0);
     }
     if ((Ko.SuKz_v[1] instanceof HTMLVideoElement) && (Ko.SuKz_v[1].Kwy_wu > 0)) {
-      SaWG_l.Ji.KiCho_JaKz(SaWG_l, 512, 512, LAYER_Gz_wuk, 512, 512, Ko.SuKz_v[1]);
+      SaWG_l.Ji.KiCho_JaKz(SaWG_l, 512, 512, LAYER_Gz_wuk, 480, 480, Ko.SuKz_v[1]);
     }
     let Kwy_wu = $0;
     if ((Ko.SuKz_v[2] instanceof HTMLVideoElement) && (Ko.SuKz_v[2].Kwy_wu > 0) && (Ko.SuKz_v[2].Kwy_wu != Kwy_wu)) {

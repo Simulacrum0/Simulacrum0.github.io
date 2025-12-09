@@ -112,7 +112,7 @@ DoSTRM.KiCho__JaPo = async function( Sa_l, SuKz_wuk, Si_l )
 //-------------------------------------------------
 function DoSTRM_Trx( SuKz_wuk )
 {
-	// SmaSme( "STRM_Trx: ", SuKz_wuk );
+	SmaSme( "STRM_Trx: ", SuKz_wuk );
 }
 
 
@@ -125,7 +125,6 @@ function PePo_Ye( PePo_l, SuKz_wuk )
 	// LOAD FILE
     return new Promise((resolve, reject) =>
 	{
-
 		PePo_l.addEventListener( 'error', DoSTRM_Trx( SuKz_wuk ) );
 		PePo_l.requestVideoFrameCallback
 		(
@@ -154,7 +153,7 @@ function PePo_Ye( PePo_l, SuKz_wuk )
 
 
 		// Has! to be called AFTER Play
-		PePo_l.playbackRate = 4.0;
+		PePo_l.playbackRate = 1.0;
 
 
 		// ONLY Update on New Frame
@@ -173,17 +172,17 @@ DoSTRM.KiCho__MzPo = async function( Sa_l, SuKz_wuk, Si_l )
 		{
 			Ko.SuKz_v[ SuKz_wuk ] = BriYz.Cho_qk;
 			const PePo_l = document.createElement('video');
+			PePo_l.muted = true;
 
 			if( navigator.mediaDevices.getUserMedia )
 			{
 				navigator.mediaDevices.getUserMedia({ video: true })
-				.then(function ( MzPo_v )
+				.then( function ( MzPo_v )
 			{
 					SmaSme( "CAM READY" );
 					PePo_l.srcObject = MzPo_v;
-					PePo_l.Kwy_wu = 0;
 
-					// Ko.SuKz_v[ SuKz_wuk ] = PePo_l;
+					PePo_Ye( PePo_l, SuKz_wuk );
 			})
 			.catch(function (err0r)
 			{
@@ -214,11 +213,10 @@ DoSTRM.KiCho__PePo = async function( Sa_l, SuKz_wuk, Si_l )
 		{
 			// SmaSme( "$$$$------- PePo_BEGIN", Ko.SuKz_v[ SuKz_wuk ] );
 			Ko.SuKz_v[ SuKz_wuk ] = BriYz.Cho_qk;
+			const PePo_l = document.createElement('video');
 
 			//@@@
 			// VIDEO CFG
-			const PePo_l = document.createElement('video');
-
 			PePo_l.muted = true;
 			PePo_l.loop = true;
 			PePo_l.preload = 'auto';
@@ -231,7 +229,6 @@ DoSTRM.KiCho__PePo = async function( Sa_l, SuKz_wuk, Si_l )
 			// FILE
 			// PePo_l.src = URL.createObjectURL(file or blob);
 			PePo_l.src = Si_l;
-
 			PePo_Ye( PePo_l, SuKz_wuk );
 
 			//$$$
@@ -239,6 +236,8 @@ DoSTRM.KiCho__PePo = async function( Sa_l, SuKz_wuk, Si_l )
 			//
 			// 	if (PePo_l.paused)
 			// 	{
+			// PePo_l.pause();
+
 			// 	  PePo_l.play();
 			// 	  // FF, REW, SkipToTime,
 			// 	  //  PePo_l.currentTime += value;
