@@ -2,16 +2,17 @@
 	"LABELS":
 	{
 		"BriDzVaSy": "🌐MICROCOSM Testo 0.1"
-		, "BriDzKro": "🏫About MICROCOSM"
 
-		, "HriNe_Kwi": "🚀1) Launch"
-		, "HriNe_KeDru": "🗣️2) Language"
-		, "HriNe_KeDy": "🥸3) Who"
-		, "HriNe_TaNe": "⚙️4) Options"
+		, "HriNe_KwiVu": "🚀 LAUNCH"
+		, "HriNe_KeDru": "🗣️ 1) LANGUAGE"
+		, "HriNe_KeDy": "🥸 2) WHO"
+		, "HriNe_TaNe": "⚙️ 3) ALLOW"
 
-		, "HriNe_KwiVu": "BEGIN (GO!)"
+		, "HriNe_KeDru__KoKriKro": "🏫About MICROCOSM"
 
-		, "HriNe_KeDy__ChaKz": "👤New User"
+		, "HriNe_KeDy__ChaKz": "👤Add New User"
+		, "HriNe_KeDy__ChaKeDyVa": "New user Name"
+		, "HriNe_KeDy__TraChe": "🛟Use security"
 		, "HriNe_KeDy__MaKz": "🔒Question-Lock"
 		, "HriNe_KeDy__SmzKz": "🗝️Answer-Key"
 

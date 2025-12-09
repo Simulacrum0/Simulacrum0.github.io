@@ -1,4 +1,4 @@
-const BriDzSa__Da_vsg = "PUB_v0.97"; 
+const BriDzSa__Da_vsg = "PUB_v0.98"; 
  const BriDz__Mx_KuTu_vsg = "https://powerourpeople.com/"; 
 
 //==============================================
@@ -740,7 +740,6 @@ async function Hre1_Dru__ChyKeDru( KeKuMi_vbg )
 	HriNe_KwiVu_k.focus();
 
 
-
 	//&&&
 	// UPDATE LABELS
 	// SmaDx__Kz_JSON( KeDru_v.LABELS );
@@ -752,7 +751,7 @@ async function Hre1_Dru__ChyKeDru( KeKuMi_vbg )
 			if( Elm_l )
 			{
 				//SmaSme( `--------*LABEL MATCH*: ${Vy_vbg}`, Va_vbg );
-				Elm_l.innerHTML = Va_vbg;
+				Elm_l.innerText = Va_vbg;
 			}
 			else
 			{
@@ -764,21 +763,24 @@ async function Hre1_Dru__ChyKeDru( KeKuMi_vbg )
 
 
 //-------------------------------------------------
-// INIT CULTURE DEFAULTS
+// DETECT CHANGES in CULTURE
 //-------------------------------------------------
-function TeKeDru_JeChy()
+function JeKeDru_JeChy()
 {
 	const TaKeDru_v = document.getElementById( 'TaKeDru' );
-	SmaSme( "CHG!", TaKeDru_v );
+	//SmaSme( "CHG!", TaKeDru_v );
 
 	Hre1_Dru__ChyKeDru( TaKeDru_v.value );
 }
 
 
+//-------------------------------------------------
+// INIT CULTURE DEFAULTS
+//-------------------------------------------------
 async function Hre1_Dru__BriYa()
 {
 	//@@@
-	// FILL ENTRIES
+	// FILL AVAIL LANG ENTRIES
 	const TaKeDru_v = document.getElementById( 'TaKeDru' );
 
 	// Clear List
@@ -805,6 +807,55 @@ async function Hre1_Dru__BriYa()
 	//@@@
 	// SELECT DEFAULT
 	Hre1_Dru__ChyKeDru( navigator.language );
+}
+
+//=====================================
+// USR
+//=====================================
+function JeKeDy_JeChy()
+{
+	const TaKeDy_v = document.getElementById( 'TaKeDy' );
+
+	// SmaSme( "USR:", TaKeDy_v.value );
+
+	// ( TaKeDy_v.value );
+	// Turn SECURITY on/off
+	// Check Answer to
+}
+
+//-------------------------------------------------
+// LOAD USERS
+//-------------------------------------------------
+async function Hre2_Ke__BriYa()
+{
+	//@@@
+	// FILE AVAIL USER ENTRIES
+	const TaKeDy_v = document.getElementById( 'TaKeDy' );
+	Hri3_Ne__Ta_ChyStz( TaKeDy_v );
+
+	SaNo__TaKeDy_v =
+	[
+		  { Va: "Guest", Gwz: "👤", Che: false }
+		, { Va: "Ghost", Gwz: "👻", Che: false }
+		, { Va: "Kiosk", Gwz: "🎰", Che: false }
+		, { Va: "Pro", Gwz: "🧑‍💻", Che: true }
+	];
+
+	SaNo__TaKeDy_v.forEach( function ( Ti_v, Vx_wu )
+	{
+
+		//SmaSme( "------ Vx_wu:", Vx_wu, Ti_v.Va );
+
+		//&&&
+		// ADD BTN
+		const Kz_v = document.createElement( 'option' );
+		Kz_v.innerText = `${Ti_v.Gwz} ${Ti_v.Va}`;
+
+		Kz_v.className = 'HriNeTi WaDru_Ka';
+		Kz_v.value = Ti_v.Va;
+
+		TaKeDy_v.appendChild( Kz_v );
+	});
 }
 
 
@@ -1386,6 +1437,7 @@ async function KoDz__Ya( )
 	//@@@
 	// CULTURE
 	Hre1_Dru__BriYa();
+	Hre2_Ke__BriYa();
 
 	//@@@
 	// BOOT
@@ -1460,25 +1512,6 @@ function KoDz__YoChyDry()
 	//@@@
 	// ECOSYS_GOOD
 	if( KoDz__YzTrx_y() ) return;
-
-	//@@@
-	// SHOW GPU CANVAS
-	// const Ku00_k = document.getElementById('Ku00_KeMeKwi');
-	// const Ku01_k = document.getElementById('Ku01_KeMeTrx');
-	// const Ku02_k = document.getElementById('Ku02_KeMeBri');
-
-	// Ku00_k.style.display = 'none';
-	// Ku01_k.style.display = 'none';
-	// Ku02_k.style.display = 'block';
-
-	// const MxPo_De_l = document.getElementById( "MxPo_De" );
-	// if( !MxPo_De_l )return;
-	// const MxPo_Kwa_l = document.getElementById( "MxPo_Kwa" );
-	// if( !MxPo_Kwa_l )return;
-
-	// MxPo_Kwa_l.style.display = "none";
-	// MxPo_De_l.style.display = "block";
-
 
 	//@@@
 	// PAUSE if updating

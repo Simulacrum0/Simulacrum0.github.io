@@ -2,16 +2,17 @@
 	"LABELS":
 	{
 		"BriDzVaSy": "🌐MICROCOSM Testo 0.1"
-		, "BriDzKro": "🏫Aprender de MICROCOSM"
 
-		, "HriNe_Kwi": "🚀1) Launch"
-		, "HriNe_KeDru": "🗣️2) Lengua"
-		, "HriNe_KeDy": "🥸3) Quíen"
-		, "HriNe_TaNe": "⚙️4) Opciones"
+		, "HriNe_KwiVu": "🚀 EMPEZAR!"
+		, "HriNe_KeDru": "🗣️ 1) LENGUA"
+		, "HriNe_KeDy": "🥸 2) QUÍEN"
+		, "HriNe_TaNe": "⚙️ 3) PERMISOS"
 
-		, "HriNe_KwiVu": "Empezar!"
+		, "HriNe_KeDru__KoKriKro": "🏫Aprender de MICROCOSM"
 
 		, "HriNe_KeDy__ChaKz": "👤Nuevo Persona"
+		, "HriNe_KeDy__ChaKeDyVa": "Nuevo Namae"
+		, "HriNe_KeDy__TraChe": "🛟Usa Seguridad"
 		, "HriNe_KeDy__MaKz": "🔒Pregunta-Lock-o"
 		, "HriNe_KeDy__SmzKz": "🗝️Contesta-Llave"
 

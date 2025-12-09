@@ -33,6 +33,7 @@ FONT
 	font-weight: 600;
 	font-style: normal;
 }
+
 .WaDru_Ka
 {
 	font-family: "Raleway", sans-serif;
@@ -41,7 +42,10 @@ FONT
 	font-style: italic;
 }
 
-
+.TBD
+{
+	color:rgb(96,96,96)
+}
 /*@@@@@@@@@@@@@@@
 AREA
 @@@@@@@@@@@@@@@*/
@@ -58,7 +62,7 @@ AREA
 .MxPo
 {
 	left: 0dvw;
-	top: 1.5em;
+	top: 1.0em;
 	width: 100dvw;
 	height: calc( 100dvh - 3.0em);
 
@@ -77,6 +81,20 @@ DBG
 {
 	font-size: 1.5em;
 	color: rgb(255, 255, 255);
+}
+
+
+/* DEBUG TXT */
+.TrxKz
+{
+	display: block;
+	text-align:center;
+
+	margin: 0.5em;
+	padding: 0.5em;
+
+	font-size: 1.5em;
+	color: rgb(255, 255, 255 );
 }
 
 /*@@@@@@@@@@@@@@@
@@ -100,7 +118,7 @@ GUI
 
 	box-sizing: border-box;
 	border-radius: 1.5em;
-	border: 0.25em solid rgb( 255, 255, 255 );
+	border: 0.125em solid rgb( 255, 255, 255 );
 
 	background-color: rgb( 0, 0, 0, 0.5 );
 }
@@ -110,16 +128,47 @@ GUI
 {
 	display: block;
 	position: relative;
+	margin: 0.5em;
+	padding: 0.0em;
 
-	width: 30em;
+	left: 1.0em;
+	width: calc( 100% - 3.0em );
 	height: 8em;
 
-	margin: 0.25em;
-	padding: 0.25em;
 
-	border-radius: 0.25em;
+	box-sizing: border-box;
+	border-radius: 8.0em;
 	border: 0.125em solid rgb( 255, 255, 255 );
 }
+
+/* SUBMIT ===> LAUNCH BTN RED */
+input[type=submit]
+{
+	display: block;
+	position: relative;
+	margin: 0.5em;
+	padding: 0.0em;
+
+	left: 1.0em;
+	width: calc( 100% - 3.0em );
+	height: 2.5em;
+
+
+	box-sizing: border-box;
+	border-radius: 1.5em;
+	border: 0.1em solid rgb( 255, 255, 255 );
+
+	font-size: 1.25em;
+	text-align: center;
+
+	background-color: rgb( 192, 32, 32 );
+}
+/* HOVER BG Po ==> GREEN */
+input[type=submit]:hover
+{
+	background-color: rgb( 32, 160, 32 );
+}
+
 
 /* TOPIC_PANEL */
 .HriNzKu
@@ -128,24 +177,26 @@ GUI
 	position: relative;
 	z-index: 3;
 
-	margin: 0.25em;
-	padding: 0.25em;
+	margin: 0.5em;
+	padding: 0.5em;
 
 	box-sizing: border-box;
 	border-radius: 0.5em;
 	border: 0.125em solid rgb( 255, 255, 255 );
 
-	background-color: rgb( 0.25, 0.25, 0.25, 0.25 );
+	background-color: rgb( 0, 0, 0, 0.5 );
 }
 
 /* TOPIC_TITLE */
 .HriNzVa
 {
-	display: block;
+	text-align:left;
+	/* display: block;
 	position: relative;
+	*/
 
-	margin: 0.25em;
-	padding: 0.25em;
+	margin: 0.5em;
+	padding: 0.5em;
 }
 
 /* PACK ELEMENTS */
@@ -172,59 +223,19 @@ GUI
 	color: rgb(255, 255, 255 );
 }
 
-/* DEBUG TXT */
-.TrxKz
-{
-	display: block;
-	text-align:center;
-
-	margin: 0.5em;
-	padding: 0.5em;
-
-	font-size: 2.5em;
-	color: rgb(255, 255, 255 );
-}
-
-
 /* INPUT_TXT */
 input[type=text], select
 {
+	display: inline-flex;
 	width: 12em;
 
 	box-sizing: border-box;
-	border: 0.25em;
 	border-radius: 0.5em;
-	border: 0.25em solid rgb( 255, 255, 255 );
-
-	background-color: rgb( 0, 32, 96 );
-}
-
-/* SUBMIT ===> LAUNCH BTN RED */
-input[type=submit]
-{
-	display: block;
-	position: relative;
-
-	margin: 0.25em 0.25em;
-	padding: 0.25em 0.25em;
-
-	text-align: center;
-	width: 23.5em;
-	height: 2em;
-
-	font-size: 1.25em;
-
-	/* box-sizing: border-box; */
-	border-radius: 0.25em;
 	border: 0.125em solid rgb( 255, 255, 255 );
-	background-color: rgb( 192, 32, 32 );
-	cursor: pointer;
+
+	background-color: rgb( 0, 0, 0, 0.5 );
 }
-/* HOVER BG Po ==> GREEN */
-input[type=submit]:hover
-{
-	background-color: rgb( 32, 160, 32 );
-}
+
 
 /*@@@@@@@@@@@@@@@
 TOGGLE_SWITCH

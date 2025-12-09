@@ -117,6 +117,7 @@ async function KoDz__Ya( )
 	//@@@
 	// CULTURE
 	Hre1_Dru__BriYa();
+	Hre2_Ke__BriYa();
 
 	//@@@
 	// BOOT
@@ -191,25 +192,6 @@ function KoDz__YoChyDry()
 	//@@@
 	// ECOSYS_GOOD
 	if( KoDz__YzTrx_y() ) return;
-
-	//@@@
-	// SHOW GPU CANVAS
-	// const Ku00_k = document.getElementById('Ku00_KeMeKwi');
-	// const Ku01_k = document.getElementById('Ku01_KeMeTrx');
-	// const Ku02_k = document.getElementById('Ku02_KeMeBri');
-
-	// Ku00_k.style.display = 'none';
-	// Ku01_k.style.display = 'none';
-	// Ku02_k.style.display = 'block';
-
-	// const MxPo_De_l = document.getElementById( "MxPo_De" );
-	// if( !MxPo_De_l )return;
-	// const MxPo_Kwa_l = document.getElementById( "MxPo_Kwa" );
-	// if( !MxPo_Kwa_l )return;
-
-	// MxPo_Kwa_l.style.display = "none";
-	// MxPo_De_l.style.display = "block";
-
 
 	//@@@
 	// PAUSE if updating
