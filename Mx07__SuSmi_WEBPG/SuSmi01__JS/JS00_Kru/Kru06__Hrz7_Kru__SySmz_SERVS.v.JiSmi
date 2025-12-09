@@ -32,7 +32,6 @@ const SyVx = Object.freeze
 	, TRU_qk: 3
 
 	// Hra5_Ka^COMZ
-	, SNS_qk: 4
 	, GPS_qk: 777
 	, ENRG_qk: 777
 
@@ -43,8 +42,8 @@ const SyVx = Object.freeze
 	, PAY_qk: 777
 
 	// Hra7_Ta^FMT
-	, STRM_qk: 5
-	, FNT_qk: 6
+	, STRM_qk: 4
+	, FNT_qk: 5
 
 	// Hru^AUD
 	, WA_qk: 777
@@ -53,8 +52,8 @@ const SyVx = Object.freeze
 	, HEAR_qk: 777
 
 	// Hry^VIS
-	, WG_qk: 7
-	, GLF_qk: 8
+	, WG_qk: 6
+	, GLF_qk: 7
 	, XR_qk: 777
 	, GLES_qk: 777
 	, SCRN_qk: 777
@@ -112,7 +111,7 @@ async function Hrz7_Kru__ChaSySmz( SyTu_vsg, VaDy_vsg, SyJy_vsg, ToKz_vsg, SySmz
 
 		//$$$
 		// LOG
-		SmaSme( "+++ SERV_Cha[", SyVx_wuk, "]: ", Sy_l.Ji.VaSy, " = ", Sy_l, "KoYz ", Ko.Yz_q );
+		SmaSme( "[SERV] Cha_", SyVx_wuk, ": ", Sy_l.Ji.VaSy, " = ", Sy_l, "KoYz ", Ko.Yz_q );
 
 		//$$$
 		// OBJ_REPORT

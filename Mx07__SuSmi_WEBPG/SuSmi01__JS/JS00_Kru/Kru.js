@@ -1,4 +1,4 @@
-const BriDzSa__Da_vsg = "PUB_v0.100"; 
+const BriDzSa__Da_vsg = "PUB_v0.101"; 
  const BriDz__Mx_KuTu_vsg = "https://powerourpeople.com/"; 
 
 //==============================================
@@ -527,11 +527,14 @@ function KeMeKwi()
 	Sx_l.beginPath();
 
 	// BG
-	Sx_l.fillStyle = "#6666CC";
+//	Sx_l.fillStyle = "#6666CC";
+	Sx_l.fillStyle = "#FFFFFF";
+
 	Sx_l.fillRect(0, 0, MxPo_Kwa_l.width, MxPo_Kwa_l.height );
 
 	// INNER GRID
-	Sx_l.strokeStyle = "#8888CC";
+	//Sx_l.strokeStyle = "#8888CC";
+	Sx_l.strokeStyle = "#AAAAFF";
 	Sx_l.lineWidth = 1;
 
 	TiGy_wf = ( PxEm_wfk * 2 );
@@ -555,10 +558,11 @@ function KeMeKwi()
 	}
 
 	// OUTER GRID
-	Sx_l.strokeStyle = "#9999CC";
+	//Sx_l.strokeStyle = "#9999CC";
+	Sx_l.strokeStyle = "#8888FF";
 	Sx_l.lineWidth = 2;
 
-	TiGy_wf = ( PxEm_wfk * 4 );
+	TiGy_wf = ( PxEm_wfk * 8 );
 
 	// Draw vertical lines
 	for (let x = 0; x <= MxPo_Kwa_l.width; x += TiGy_wf )
@@ -1147,7 +1151,6 @@ const SyVx = Object.freeze
 	, TRU_qk: 3
 
 	// Hra5_Ka^COMZ
-	, SNS_qk: 4
 	, GPS_qk: 777
 	, ENRG_qk: 777
 
@@ -1158,8 +1161,8 @@ const SyVx = Object.freeze
 	, PAY_qk: 777
 
 	// Hra7_Ta^FMT
-	, STRM_qk: 5
-	, FNT_qk: 6
+	, STRM_qk: 4
+	, FNT_qk: 5
 
 	// Hru^AUD
 	, WA_qk: 777
@@ -1168,8 +1171,8 @@ const SyVx = Object.freeze
 	, HEAR_qk: 777
 
 	// Hry^VIS
-	, WG_qk: 7
-	, GLF_qk: 8
+	, WG_qk: 6
+	, GLF_qk: 7
 	, XR_qk: 777
 	, GLES_qk: 777
 	, SCRN_qk: 777
@@ -1227,7 +1230,7 @@ async function Hrz7_Kru__ChaSySmz( SyTu_vsg, VaDy_vsg, SyJy_vsg, ToKz_vsg, SySmz
 
 		//$$$
 		// LOG
-		SmaSme( "+++ SERV_Cha[", SyVx_wuk, "]: ", Sy_l.Ji.VaSy, " = ", Sy_l, "KoYz ", Ko.Yz_q );
+		SmaSme( "[SERV] Cha_", SyVx_wuk, ": ", Sy_l.Ji.VaSy, " = ", Sy_l, "KoYz ", Ko.Yz_q );
 
 		//$$$
 		// OBJ_REPORT
@@ -1423,17 +1426,11 @@ async function KoDz__Ya( )
 		, Hrz7_Kru__ChaSySmz( "Do", "FS", "Hra6_Ku", "KoToKz", SySmz__Kri_yk, { VaDyFy: "true" } )
 		, Hrz7_Kru__ChaSySmz( "Do", "GLF", "Hry1_Brz", "KeDru", SySmz__Kri_yk, { Gy_wu: 512 } )
 
-		, Hrz7_Kru__ChaSySmz( "Do", "SNS", "Hra1_Mz", "JaMi", SySmz__Kri_yk, { SmzYz: "0" } )
 		, Hrz7_Kru__ChaSySmz( "Do", "STRM", "Hra7_Ta", "ToMi", SySmz__Kri_yk, { SmzYz: "0" } )
 		, Hrz7_Kru__ChaSySmz( "Do", "WG", "Hry5_Smz", "WzMx", SySmz__Kri_yk, { KaVy: "0" } )
 		, Hrz7_Kru__ChaSySmz( "Do", "TRU", "Hrx4_Che", "MoDxGri", SySmz__Kri_yk, { KaVy: "0" } )
-
 		, Hrz7_Kru__ChaSySmz( "Do", "FNT", "Hre1_Dru", "WaDru", SySmz__Kri_yk, { SmzYz: "0" } )
-		//, Hrz7_Kru__ChaSySmz( "Do", "", "Hr_", "?", "Do?", SySmz__Kri_yk, { SmzYz: "0" } )
-		//, Hrz7_Kru__ChaSySmz( "Do", "", "Hr_", "?", "Do?", SySmz__Kri_yk, { SmzYz: "0" } )
-		//, Hrz7_Kru__ChaSySmz( "Do", "", "Hr_", "?", "Do?", SySmz__Kri_yk, { SmzYz: "0" } )
 
-		//, Hrz7_Kru__ChaSySmz( "Do", "", "Hr_", "?", "Do?", SySmz__Kri_yk, { SmzYz: "0" } )
 		//, Hrz7_Kru__ChaSySmz( "Do", "", "Hr_", "?", "Do?", SySmz__Kri_yk, { SmzYz: "0" } )
 		//, Hrz7_Kru__ChaSySmz( "Do", "", "Hr_", "?", "Do?", SySmz__Kri_yk, { SmzYz: "0" } )
 		//, Hrz7_Kru__ChaSySmz( "Do", "", "Hr_", "?", "Do?", SySmz__Kri_yk, { SmzYz: "0" } )

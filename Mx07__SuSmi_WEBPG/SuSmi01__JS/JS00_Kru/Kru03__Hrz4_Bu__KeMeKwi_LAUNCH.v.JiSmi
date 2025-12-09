@@ -59,11 +59,14 @@ function KeMeKwi()
 	Sx_l.beginPath();
 
 	// BG
-	Sx_l.fillStyle = "#6666CC";
+//	Sx_l.fillStyle = "#6666CC";
+	Sx_l.fillStyle = "#FFFFFF";
+
 	Sx_l.fillRect(0, 0, MxPo_Kwa_l.width, MxPo_Kwa_l.height );
 
 	// INNER GRID
-	Sx_l.strokeStyle = "#8888CC";
+	//Sx_l.strokeStyle = "#8888CC";
+	Sx_l.strokeStyle = "#AAAAFF";
 	Sx_l.lineWidth = 1;
 
 	TiGy_wf = ( PxEm_wfk * 2 );
@@ -87,10 +90,11 @@ function KeMeKwi()
 	}
 
 	// OUTER GRID
-	Sx_l.strokeStyle = "#9999CC";
+	//Sx_l.strokeStyle = "#9999CC";
+	Sx_l.strokeStyle = "#8888FF";
 	Sx_l.lineWidth = 2;
 
-	TiGy_wf = ( PxEm_wfk * 4 );
+	TiGy_wf = ( PxEm_wfk * 8 );
 
 	// Draw vertical lines
 	for (let x = 0; x <= MxPo_Kwa_l.width; x += TiGy_wf )

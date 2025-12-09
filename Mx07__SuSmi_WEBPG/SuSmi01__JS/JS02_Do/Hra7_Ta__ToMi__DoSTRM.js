@@ -27,10 +27,54 @@ const STRM = Object.freeze
 DoSTRM.SmaYz = function( Sa_l )
 //-------------------------------------------------
 {
-	SmaSme( "Service: ", this.VaSy );
 
-	Object.keys( STRM ).forEach( _Va => {	SmaSme( _Va ); });
-	Object.values( STRM ).forEach( _Vi => { SmaSme( _Vi );	});
+	//@@@
+	// STREAM CAPTURE DEVICES
+	SmaSme( "=================\nSTREAM CAPTURE SENSORS\n----------" );
+
+	navigator.mediaDevices.enumerateDevices().then
+	( function(devices)
+	{
+		devices.forEach( function(device)
+		{
+			SmaSme( " -[ " + device.kind + " ]: " + device.label +" id = " + device.deviceId );
+		});
+	});
+
+	//@@@
+	// TO SELECT:
+	// camera.id = devices[z].deviceId;
+	// Iterate 'Desired Resolution/Refresh' and see what you get back to 'determine what is available
+	/*
+
+    let constraints = {
+        audio: false,
+        video: {
+            deviceId: device.id ? {exact: device.id} : undefined,
+            width: {exact: candidate.width},    //new syntax
+            height: {exact: candidate.height}   //new syntax
+        }
+    };
+
+	function gotStream(mediaStream)
+	{
+
+		//change the video dimensions
+		console.log("Display size for " + candidate.label + ": " + candidate.width + "x" + candidate.height);
+		video.width = candidate.width;
+		video.height = candidate.height;
+
+		window.stream = mediaStream; // make globally available
+		video.srcObject = mediaStream;
+	}
+
+	// PERHAPS USE w/ TIMEOUTS?
+	navigator.mediaDevices.getUserMedia(constraints)
+	.then(gotStream)
+	.catch( (error) =>{ console.log('getUserMedia error!', error);} );
+
+	*/
+
 }
 
 //-------------------------------------------------
@@ -69,6 +113,8 @@ DoSTRM.BriYa = function( Yz_k )
 //-------------------------------------------------
 {
 	const Sa_l = SySmz__YaFz_v( DoSTRM );
+
+
 	return SySmz__YaFx_v( Sa_l );
 }
 
@@ -172,11 +218,15 @@ DoSTRM.KiCho__MzPo = async function( Sa_l, SuKz_wuk, Si_l )
 		{
 			Ko.SuKz_v[ SuKz_wuk ] = BriYz.Cho_qk;
 			const PePo_l = document.createElement('video');
-			PePo_l.muted = true;
+			PePo_l.muted = false;
 
 			if( navigator.mediaDevices.getUserMedia )
 			{
-				navigator.mediaDevices.getUserMedia({ video: true })
+				// facingMode: 'user'
+				// facingMode: 'environment'
+				const Yz_l = { video: true,  audio: true, facingMode: 'user' };
+
+				navigator.mediaDevices.getUserMedia( Yz_l )
 				.then( function ( MzPo_v )
 			{
 					SmaSme( "CAM READY" );
