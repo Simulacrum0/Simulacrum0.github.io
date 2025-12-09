@@ -72,8 +72,8 @@ function KeMeTrx()
 	for (let x = 0; x <= MxPo_Trx_l.width; x += TiGy_wf )
 	{
 		Sx_l.beginPath();
-		Sx_l.moveTo(x, 0);
-		Sx_l.lineTo(x, MxPo_Trx_l.height);
+		Sx_l.moveTo( x, 0 );
+		Sx_l.lineTo( x, MxPo_Trx_l.height );
 		Sx_l.stroke();
 	}
 

@@ -1,4 +1,4 @@
-const BriDzSa__Da_vsg = "PUB_v0.98"; 
+const BriDzSa__Da_vsg = "PUB_v0.99"; 
  const BriDz__Mx_KuTu_vsg = "https://powerourpeople.com/"; 
 
 //==============================================
@@ -204,7 +204,7 @@ function SmaTrx(){ var args = Array.prototype.slice.call(arguments); console.err
 
 //@@@
 // CORS must RUN FIRST
-SmaSme( "Web_Security[ CORS: " + (window.crossOriginIsolated ?  "✅😀" : "❌😞" ) + " ]" );
+SmaSme( "[LAUNCH] Web_Security[ CORS: " + (window.crossOriginIsolated ?  "✅😀" : "❌😞" ) + " ]" );
 if( !window.crossOriginIsolated )
 {
 	// MSG should display @ DOM
@@ -232,7 +232,7 @@ catch(e)
 	MoDzTrx( KoKeDru.TrxJy01__HrzMoHo__WASM_vsg );
 }
 
-SmaSme( "Web_Assembly[ " + ( WASM64_yk ? "64" : "32" ) + "bit:" + ( WASM64_yk ? "✅😀" : "❌😞") + " ]" );
+SmaSme( "[LAUNCH] Web_Assembly[ " + ( WASM64_yk ? "64" : "32" ) + "bit:" + ( WASM64_yk ? "✅😀" : "❌😞") + " ]" );
 
 
 //==============================================
@@ -249,7 +249,7 @@ document.addEventListener('readystatechange', function()
 	// }
 	if (document.readyState === 'complete')
 	{
-		SmaSme( "- WebPage_DOM Fully_Loaded" );
+		SmaSme( "[LAUNCH] Web_DOM Fully_Loaded" );
 	}
 });
 
@@ -484,53 +484,6 @@ LAUNCH_GUI
 	- Answer:
 */
 //==============================================
-(function (document, documentElement)
-{
-    // Enable strict mode
-    "use strict";
-
-	// Form the style on the fly to result in smaller minified file
-    var important = "!important;";
-    var style = "position:absolute" + important + "visibility:hidden" + important + "width:1em" + important + "font-size:1em" + important + "padding:0" + important;
-
-    window.getEmPixels = function (element)
-	{
-        var extraBody;
-
-        if (!element) {
-            // Emulate the documentElement to get rem value (documentElement does not work in IE6-7)
-            element = extraBody = document.createElement("body");
-            extraBody.style.cssText = "font-size:1em" + important;
-            documentElement.insertBefore(extraBody, document.body);
-        }
-
-        // Create and style a test element
-        var testElement = document.createElement("i");
-        testElement.style.cssText = style;
-        element.appendChild(testElement);
-
-        // Get the client width of the test element
-        var value = testElement.clientWidth;
-
-        if (extraBody)
-		{
-            // Remove the extra body element
-            documentElement.removeChild(extraBody);
-        }
-        else {
-            // Remove the test element
-            element.removeChild(testElement);
-        }
-
-        // Return the em value in pixels
-        return value;
-    };
-}(document, document.documentElement));
-
-
-function em2px(em) { return Number(em) * Number(window.getComputedStyle(document.body).getPropertyValue('font-size').match(/\d+/)[0]);  }
-
-
 //=====================================
 // LAUNCH
 //=====================================
@@ -546,19 +499,15 @@ function KeMeKwi()
 	Ku01_k.style.display = 'none';
 	Ku02_k.style.display = 'none';
 
-	//@@@
-	// SESSION
-	SmaSme( "Last Session: ", " User:" )
-	SmaSme( "EmPxZx: ", em2px( 1 ), window.getEmPixels( Ku00_k ) );
-
-	//@@@
-	// CFG
-	SmaSme( "EM(px): ", window.getEmPixels( Ku02_k ) )
 
 
 	//---------------------------------
 	// CANVAS
 	//---------------------------------
+	const PxEm_wfk = em2px( 1 );
+	SmaSme( "[LAUNCH] Legible Px/Em: ", PxEm_wfk );
+
+
 	const MxPo_Kwa_l = document.getElementById('MxPo_Kwa');
 	if( !MxPo_Kwa_l )return;
 
@@ -585,7 +534,7 @@ function KeMeKwi()
 	Sx_l.strokeStyle = "#8888CC";
 	Sx_l.lineWidth = 1;
 
-	TiGy_wf = 32;
+	TiGy_wf = ( PxEm_wfk * 2 );
 
 	// Draw vertical lines
 	for (let x = 0; x <= MxPo_Kwa_l.width; x += TiGy_wf )
@@ -609,7 +558,7 @@ function KeMeKwi()
 	Sx_l.strokeStyle = "#9999CC";
 	Sx_l.lineWidth = 2;
 
-	TiGy_wf = 128;
+	TiGy_wf = ( PxEm_wfk * 4 );
 
 	// Draw vertical lines
 	for (let x = 0; x <= MxPo_Kwa_l.width; x += TiGy_wf )
@@ -698,16 +647,17 @@ async function Hre1_Dru__ChyKeDru( KeKuMi_vbg )
 	// CHECK LOCALE
 	let KeKu_l = Hre1_Dru__Gra_v.find( ( Ti_l ) => ( Ti_l.Vy === Fe__KeKu_vbg ) );
 	// IF NOT, CHECK just LANG
-	if ( !KeKu_l )
+	if( !KeKu_l )
 	{
 		KeKu_l = Hre1_Dru__Gra_v.find( ( Ti_l ) => ( Ti_l.Vy === Fe__KeDru_vbg ) );
 	}
-	if ( KeKu_l )
+	if( KeKu_l )
 	{
 		KeKu__ToKz_vbg = KeKu_l.ToKz;
 	}
 
-	SmaSme( "CultureFile: " + KeKu__ToKz_vbg + " Locale: " + Fe__KeKu_vbg + " Lang: " + Fe__KeDru_vbg + " Country: " + ( Fe__KuVa_vbg ? Fe__KuVa_vbg : "Global" ) );
+	SmaSme( "[LAUNCH] CULTURE: " + KeKu__ToKz_vbg + " Locale: " + Fe__KeKu_vbg + " Lang: " + Fe__KeDru_vbg + " Country: " + ( Fe__KuVa_vbg ? Fe__KuVa_vbg : "Global" ) );
+
 
 	//&&&
 	// TEXT_DIR
@@ -860,11 +810,10 @@ async function Hre2_Ke__BriYa()
 
 
 //=====================================
-// LIFE
+// LAUNCH ECOSYS LIFE
 //=====================================
 function KeMeBri()
 {
-
 	//@@@
 	// VIEWS
 	const Ku00_k = document.getElementById('Ku00_KeMeKwi');
@@ -875,6 +824,13 @@ function KeMeBri()
 	Ku01_k.style.display = 'none';
 	Ku02_k.style.display = 'block';
 
+
+	//@@@
+	// SESSION
+	SmaSme( "[LAUNCH] User:", document.getElementById( 'TaKeDy' ).value );
+
+	SmaSme( "[LAUNCH] Allow: Mute", document.getElementById( 'HriNe_TaNe__MxPeHoVu' ).value );
+	SmaSme( "[LAUNCH] Allow: Spkr", document.getElementById( 'HriNe_TaNe__MxPeVu' ).value );
 
 
 	//@@@
@@ -961,8 +917,8 @@ function KeMeTrx()
 	for (let x = 0; x <= MxPo_Trx_l.width; x += TiGy_wf )
 	{
 		Sx_l.beginPath();
-		Sx_l.moveTo(x, 0);
-		Sx_l.lineTo(x, MxPo_Trx_l.height);
+		Sx_l.moveTo( x, 0 );
+		Sx_l.lineTo( x, MxPo_Trx_l.height );
 		Sx_l.stroke();
 	}
 
@@ -1082,7 +1038,7 @@ const IDB_Ko_l = new Promise((resolve, reject) =>
 
 	request.onsuccess = (event) =>
 		{
-		console.log("IDB_Good\n");
+		SmaSme("IDB_Good\n");
 		resolve(event.target.result);
 	};
 
@@ -1110,11 +1066,11 @@ const IDB_ToKzVy__Chy = (Va, ToKzVy) =>
 			const request = store.put({id: Va, handle: ToKzVy});
 
 			request.onsuccess = () => {
-				console.log("IDB Handle Saved\n");
+				SmaSme("IDB Handle Saved\n");
 				resolve();
 			}
 			request.onerror = () => {
-				console.log("IDB Handle Failed\n");
+				SmaSme("IDB Handle Failed\n");
 				reject(request.error);
 			}
 		});
@@ -1140,13 +1096,13 @@ const IDB_ToKzVy__My = (Va) =>
 
 			request.onsuccess = (event) =>
 			{
-				console.log("IDB Handle Found\n" + event.target.result);
+				SmaSme("IDB Handle Found\n" + event.target.result);
 				resolve(event.target.result?.handle);
 			}
 
 			request.onerror = () =>
 			{
-				console.log("IDB Handle UNK\n");
+				SmaSme("IDB Handle UNK\n");
 				reject(request.error);
 			}
 		});
@@ -1396,6 +1352,11 @@ function KoDz_GyHa()
 	// MxPo_Kwa_l.style.display = "none";
 
 }
+
+//=====================================
+// LEGIBLE DENSITY
+//=====================================
+function em2px(em) { return Number(em) * Number(window.getComputedStyle(document.body).getPropertyValue('font-size').match(/\d+/)[0]);  }
 
 
 //==============================================

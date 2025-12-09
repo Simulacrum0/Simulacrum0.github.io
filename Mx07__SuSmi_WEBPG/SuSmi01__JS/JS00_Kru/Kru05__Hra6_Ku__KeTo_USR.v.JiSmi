@@ -93,7 +93,7 @@ const IDB_Ko_l = new Promise((resolve, reject) =>
 
 	request.onsuccess = (event) =>
 		{
-		console.log("IDB_Good\n");
+		SmaSme("IDB_Good\n");
 		resolve(event.target.result);
 	};
 
@@ -121,11 +121,11 @@ const IDB_ToKzVy__Chy = (Va, ToKzVy) =>
 			const request = store.put({id: Va, handle: ToKzVy});
 
 			request.onsuccess = () => {
-				console.log("IDB Handle Saved\n");
+				SmaSme("IDB Handle Saved\n");
 				resolve();
 			}
 			request.onerror = () => {
-				console.log("IDB Handle Failed\n");
+				SmaSme("IDB Handle Failed\n");
 				reject(request.error);
 			}
 		});
@@ -151,13 +151,13 @@ const IDB_ToKzVy__My = (Va) =>
 
 			request.onsuccess = (event) =>
 			{
-				console.log("IDB Handle Found\n" + event.target.result);
+				SmaSme("IDB Handle Found\n" + event.target.result);
 				resolve(event.target.result?.handle);
 			}
 
 			request.onerror = () =>
 			{
-				console.log("IDB Handle UNK\n");
+				SmaSme("IDB Handle UNK\n");
 				reject(request.error);
 			}
 		});

@@ -16,7 +16,7 @@ function SmaTrx(){ var args = Array.prototype.slice.call(arguments); console.err
 
 //@@@
 // CORS must RUN FIRST
-SmaSme( "Web_Security[ CORS: " + (window.crossOriginIsolated ?  "✅😀" : "❌😞" ) + " ]" );
+SmaSme( "[LAUNCH] Web_Security[ CORS: " + (window.crossOriginIsolated ?  "✅😀" : "❌😞" ) + " ]" );
 if( !window.crossOriginIsolated )
 {
 	// MSG should display @ DOM
@@ -44,7 +44,7 @@ catch(e)
 	MoDzTrx( KoKeDru.TrxJy01__HrzMoHo__WASM_vsg );
 }
 
-SmaSme( "Web_Assembly[ " + ( WASM64_yk ? "64" : "32" ) + "bit:" + ( WASM64_yk ? "✅😀" : "❌😞") + " ]" );
+SmaSme( "[LAUNCH] Web_Assembly[ " + ( WASM64_yk ? "64" : "32" ) + "bit:" + ( WASM64_yk ? "✅😀" : "❌😞") + " ]" );
 
 
 //==============================================
@@ -61,7 +61,7 @@ document.addEventListener('readystatechange', function()
 	// }
 	if (document.readyState === 'complete')
 	{
-		SmaSme( "- WebPage_DOM Fully_Loaded" );
+		SmaSme( "[LAUNCH] Web_DOM Fully_Loaded" );
 	}
 });
 

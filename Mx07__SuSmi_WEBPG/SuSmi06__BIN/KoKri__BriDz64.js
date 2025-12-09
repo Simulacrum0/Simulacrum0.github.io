@@ -3108,38 +3108,6 @@ function _fd_write(fd, iov, iovcnt, pnum) {
   return 0;
 }
 
-var lengthBytesUTF8 = str => {
-  var len = 0;
-  for (var i = 0; i < str.length; ++i) {
-    // Gotcha: charCodeAt returns a 16-bit word that is a UTF-16 encoded code
-    // unit, not a Unicode code point of the character! So decode
-    // UTF16->UTF32->UTF8.
-    // See http://unicode.org/faq/utf_bom.html#utf16-3
-    var c = str.charCodeAt(i);
-    // possibly a lead surrogate
-    if (c <= 127) {
-      len++;
-    } else if (c <= 2047) {
-      len += 2;
-    } else if (c >= 55296 && c <= 57343) {
-      len += 4;
-      ++i;
-    } else {
-      len += 3;
-    }
-  }
-  return len;
-};
-
-var stackAlloc = sz => __emscripten_stack_alloc(sz);
-
-var stringToUTF8OnStack = str => {
-  var size = lengthBytesUTF8(str) + 1;
-  var ret = stackAlloc(size);
-  stringToUTF8(str, ret, size);
-  return ret;
-};
-
 var runAndAbortIfError = func => {
   try {
     return func();
@@ -3423,6 +3391,38 @@ var writeArrayToMemory = (array, buffer) => {
   (growMemViews(), HEAP8).set(array, buffer);
 };
 
+var lengthBytesUTF8 = str => {
+  var len = 0;
+  for (var i = 0; i < str.length; ++i) {
+    // Gotcha: charCodeAt returns a 16-bit word that is a UTF-16 encoded code
+    // unit, not a Unicode code point of the character! So decode
+    // UTF16->UTF32->UTF8.
+    // See http://unicode.org/faq/utf_bom.html#utf16-3
+    var c = str.charCodeAt(i);
+    // possibly a lead surrogate
+    if (c <= 127) {
+      len++;
+    } else if (c <= 2047) {
+      len += 2;
+    } else if (c >= 55296 && c <= 57343) {
+      len += 4;
+      ++i;
+    } else {
+      len += 3;
+    }
+  }
+  return len;
+};
+
+var stackAlloc = sz => __emscripten_stack_alloc(sz);
+
+var stringToUTF8OnStack = str => {
+  var size = lengthBytesUTF8(str) + 1;
+  var ret = stackAlloc(size);
+  stringToUTF8(str, ret, size);
+  return ret;
+};
+
 /**
      * @param {string|null=} returnType
      * @param {Array=} argTypes
@@ -3588,45 +3588,50 @@ function checkIncomingModuleAPI() {
 }
 
 var ASM_CONSTS = {
-  8397256: $0 => {
+  8397224: $0 => {
     if (!window.Ko.Hx_SyDx_vsg) {
       window.Ko.Hx_SyDx_vsg = UTF8ToString($0);
     }
   },
-  8397337: () => {
+  8397305: () => {
     MoDzTrx("TEST BAD BUILD as ERROR");
   },
-  8397379: () => {},
-  8397383: () => {
+  8397347: () => {},
+  8397351: () => {
     console.log("MC: HrySmz__BriYa");
   },
-  8397423: () => {},
-  8397427: () => {
+  8397391: () => {},
+  8397395: () => {
     const SaSTRM_l = Ko.SySmz_v[SyVx.STRM_qk];
     SaSTRM_l.Ji.KiCho__JaPo(SaSTRM_l, 0, "Mx01__SuKz_MEDIA/SuKz02_JaPo__PICT/JaPo00__FyHo.jpg");
-    SaSTRM_l.Ji.KiCho__JaPo(SaSTRM_l, 1, "Mx01__SuKz_MEDIA/SuKz02_JaPo__PICT/JaPo__SF/SF_C13.png");
+    SaSTRM_l.Ji.KiCho__MzPo(SaSTRM_l, 1, "WEBCAM 0");
+    SaSTRM_l.Ji.KiCho__PePo(SaSTRM_l, 2, "Mx01__SuKz_MEDIA/SuKz02_JaPo__PICT/JaPo04__Jirafe.mp4");
   },
-  8397669: $0 => {
+  8397688: $0 => {
     const LAYER_Gz_wuk = 0;
     const SaGLF_l = Ko.SySmz_v[SyVx.GLF_qk];
     const SaWG_l = Ko.SySmz_v[SyVx.WG_qk];
     const SaSTRM_l = Ko.SySmz_v[SyVx.STRM_qk];
-    if (Ko.SuKz_v[0] instanceof ImageBitmap) {
-      SaWG_l.Ji.KiCho_JaKz(SaWG_l, 0, 512, LAYER_Gz_wuk, 450, 450, Ko.SuKz_v[0]);
-      SaSTRM_l.Ji.SuKz__Yi(SaSTRM_l, 0);
-    }
     SaGLF_l.Ji.Hre7_Me__KeDru_Ha(SaGLF_l, "👽| Usr: " + "jkv", 0, 0);
     SaGLF_l.Ji.Hre7_Me__KeDru_Ha(SaGLF_l, "👾| Ye: " + Ko.YeWi_df.toFixed(1) + "ms", 0, 64);
     SaGLF_l.Ji.Hre7_Me__KeDru_Ha(SaGLF_l, "🛸| Evt: " + " <List-Here> ", 0, 128);
     SaGLF_l.Ji.Hre7_Me__KeDru_Ha(SaGLF_l, "🚀| Msg: " + "6-7, 4-1", 0, 192);
     SaWG_l.Ji.KiCho_JaKz(SaWG_l, 0, 0, 0, 512, 512, SaGLF_l.WzPo_l);
-    {}
-    let FRA_wu = $0;
-    if (Ko.SuKz_v[2] instanceof HTMLVideoElement && (Ko.SuKz_v[2].Gz_wu != FRA_wu)) {
-      SaWG_l.Ji.KiCho_JaKz(SaWG_l, 512, 0, LAYER_Gz_wuk, 512, 512, Ko.SuKz_v[2]);
-      FRA_wu = Ko.SuKz_v[2].Gz_wu;
+    if (Ko.SuKz_v[0] instanceof ImageBitmap) {
+      SaWG_l.Ji.KiCho_JaKz(SaWG_l, 0, 512, LAYER_Gz_wuk, 450, 450, Ko.SuKz_v[0]);
+      SaSTRM_l.Ji.SuKz__Yi(SaSTRM_l, 0);
     }
-    return FRA_wu;
+    if ((Ko.SuKz_v[1] instanceof HTMLVideoElement) && (Ko.SuKz_v[1].Kwy_wu > 0)) {
+      SaWG_l.Ji.KiCho_JaKz(SaWG_l, 512, 512, LAYER_Gz_wuk, 512, 512, Ko.SuKz_v[1]);
+    }
+    let Kwy_wu = $0;
+    if ((Ko.SuKz_v[2] instanceof HTMLVideoElement) && (Ko.SuKz_v[2].Kwy_wu > 0) && (Ko.SuKz_v[2].Kwy_wu != Kwy_wu)) {
+      {
+        SaWG_l.Ji.KiCho_JaKz(SaWG_l, 512, 0, LAYER_Gz_wuk, 512, 512, Ko.SuKz_v[2]);
+      }
+      Kwy_wu = Ko.SuKz_v[2].Kwy_wu;
+    }
+    return Kwy_wu;
   }
 };
 
@@ -3838,11 +3843,9 @@ function __asyncjs__OPFS_Chy() {
 }
 
 // Imports from the Wasm binary.
-var _main = Module["_main"] = makeInvalidEarlyAccess("_main");
+var _Hrz5_Ki__BriSmz__Yi = Module["_Hrz5_Ki__BriSmz__Yi"] = makeInvalidEarlyAccess("_Hrz5_Ki__BriSmz__Yi");
 
 var _SmaHe = Module["_SmaHe"] = makeInvalidEarlyAccess("_SmaHe");
-
-var _Hrz5_Ki__BriSmz__Yi = Module["_Hrz5_Ki__BriSmz__Yi"] = makeInvalidEarlyAccess("_Hrz5_Ki__BriSmz__Yi");
 
 var _Hri5_Ye__BriYi = Module["_Hri5_Ye__BriYi"] = makeInvalidEarlyAccess("_Hri5_Ye__BriYi");
 
@@ -3875,6 +3878,8 @@ var _Hre7_Me__GiDx__HMS = Module["_Hre7_Me__GiDx__HMS"] = makeInvalidEarlyAccess
 var _HEAPO_wf = Module["_HEAPO_wf"] = makeInvalidEarlyAccess("_HEAPO_wf");
 
 var _Hri5_Ye__Sme = Module["_Hri5_Ye__Sme"] = makeInvalidEarlyAccess("_Hri5_Ye__Sme");
+
+var _main = Module["_main"] = makeInvalidEarlyAccess("_main");
 
 var _fflush = makeInvalidEarlyAccess("_fflush");
 
@@ -3925,9 +3930,8 @@ var _asyncify_start_rewind = makeInvalidEarlyAccess("_asyncify_start_rewind");
 var _asyncify_stop_rewind = makeInvalidEarlyAccess("_asyncify_stop_rewind");
 
 function assignWasmExports(wasmExports) {
-  Module["_main"] = _main = createExportWrapper("__main_argc_argv", 2);
-  Module["_SmaHe"] = _SmaHe = createExportWrapper("SmaHe", 2);
   Module["_Hrz5_Ki__BriSmz__Yi"] = _Hrz5_Ki__BriSmz__Yi = createExportWrapper("Hrz5_Ki__BriSmz__Yi", 0);
+  Module["_SmaHe"] = _SmaHe = createExportWrapper("SmaHe", 2);
   Module["_Hri5_Ye__BriYi"] = _Hri5_Ye__BriYi = createExportWrapper("Hri5_Ye__BriYi", 0);
   Module["_Hrz5_Ki__BriSmz__Ya"] = _Hrz5_Ki__BriSmz__Ya = createExportWrapper("Hrz5_Ki__BriSmz__Ya", 0);
   Module["_HriKx_Ya"] = _HriKx_Ya = createExportWrapper("HriKx_Ya", 1);
@@ -3944,6 +3948,7 @@ function assignWasmExports(wasmExports) {
   Module["_Hre7_Me__GiDx__HMS"] = _Hre7_Me__GiDx__HMS = createExportWrapper("Hre7_Me__GiDx__HMS", 2);
   Module["_HEAPO_wf"] = _HEAPO_wf = createExportWrapper("HEAPO_wf", 0);
   Module["_Hri5_Ye__Sme"] = _Hri5_Ye__Sme = createExportWrapper("Hri5_Ye__Sme", 0);
+  Module["_main"] = _main = createExportWrapper("main", 2);
   _fflush = createExportWrapper("fflush", 1);
   _emscripten_stack_get_end = wasmExports["emscripten_stack_get_end"];
   _emscripten_stack_get_base = wasmExports["emscripten_stack_get_base"];
@@ -4062,8 +4067,8 @@ function invoke_vjj(index, a1, a2) {
 function applySignatureConversions(wasmExports) {
   // First, make a copy of the incoming exports object
   wasmExports = Object.assign({}, wasmExports);
-  var makeWrapper___PP = f => (a0, a1, a2) => f(a0, BigInt(a1 ? a1 : 0), BigInt(a2 ? a2 : 0));
   var makeWrapper_pp = f => a0 => Number(f(BigInt(a0)));
+  var makeWrapper___PP = f => (a0, a1, a2) => f(a0, BigInt(a1 ? a1 : 0), BigInt(a2 ? a2 : 0));
   var makeWrapper__p = f => a0 => f(BigInt(a0));
   var makeWrapper_p = f => () => Number(f());
   var makeWrapper_p_ = f => a0 => Number(f(a0));
@@ -4071,8 +4076,8 @@ function applySignatureConversions(wasmExports) {
   var makeWrapper__p__ = f => (a0, a1, a2) => f(BigInt(a0), a1, a2);
   var makeWrapper__p___ = f => (a0, a1, a2, a3) => f(BigInt(a0), a1, a2, a3);
   var makeWrapper__p______ = f => (a0, a1, a2, a3, a4, a5, a6) => f(BigInt(a0), a1, a2, a3, a4, a5, a6);
-  wasmExports["__main_argc_argv"] = makeWrapper___PP(wasmExports["__main_argc_argv"]);
   wasmExports["malloc"] = makeWrapper_pp(wasmExports["malloc"]);
+  wasmExports["main"] = makeWrapper___PP(wasmExports["main"]);
   wasmExports["fflush"] = makeWrapper__p(wasmExports["fflush"]);
   wasmExports["emscripten_stack_get_end"] = makeWrapper_p(wasmExports["emscripten_stack_get_end"]);
   wasmExports["emscripten_stack_get_base"] = makeWrapper_p(wasmExports["emscripten_stack_get_base"]);
@@ -4100,19 +4105,12 @@ function applySignatureConversions(wasmExports) {
 // === Auto-generated postamble setup entry stuff ===
 var calledRun;
 
-function callMain(args = []) {
+function callMain() {
   assert(runDependencies == 0, 'cannot call main when async dependencies remain! (listen on Module["onRuntimeInitialized"])');
   assert(typeof onPreRuns === "undefined" || onPreRuns.length == 0, "cannot call main when preRun functions remain to be called");
   var entryFunction = _main;
-  args.unshift(thisProgram);
-  var argc = args.length;
-  var argv = stackAlloc((argc + 1) * 8);
-  var argv_ptr = argv;
-  args.forEach(arg => {
-    (growMemViews(), HEAPU64)[((argv_ptr) / 8)] = BigInt(stringToUTF8OnStack(arg));
-    argv_ptr += 8;
-  });
-  (growMemViews(), HEAPU64)[((argv_ptr) / 8)] = BigInt(0);
+  var argc = 0;
+  var argv = 0;
   try {
     var ret = entryFunction(argc, BigInt(argv));
     // if we're not running an evented main loop, it's time to exit
@@ -4132,7 +4130,7 @@ function stackCheckInit() {
   writeStackCookie();
 }
 
-function run(args = arguments_) {
+function run() {
   if (runDependencies > 0) {
     dependenciesFulfilled = run;
     return;
@@ -4160,7 +4158,7 @@ function run(args = arguments_) {
     Module["onRuntimeInitialized"]?.();
     consumedModuleProp("onRuntimeInitialized");
     var noInitialRun = Module["noInitialRun"] || false;
-    if (!noInitialRun) callMain(args);
+    if (!noInitialRun) callMain();
     postRun();
   }
   if (Module["setStatus"]) {

@@ -121,32 +121,41 @@ function DoSTRM_Trx( SuKz_wuk )
 //-------------------------------------------------
 function PePo_Ye( PePo_l, SuKz_wuk )
 {
+	//@@@
+	// LOAD FILE
     return new Promise((resolve, reject) =>
 	{
-		SmaSme( "PePo: ", PePo_l, PePo_l.videoWidth, PePo_l.videoHeight, "GiGy: ", PePo_l.duration, "Ta: ", PePo_l.textTracks, PePo_l.audioTracks, "Yz: ", PePo_l.readyState );
 
-    	PePo_l.addEventListener( 'error', DoSTRM_Trx( SuKz_wuk ) );
+		PePo_l.addEventListener( 'error', DoSTRM_Trx( SuKz_wuk ) );
 		PePo_l.requestVideoFrameCallback
 		(
+			//@@@
+			// LOOP FRAME UPDATE
 			function DoSTRM_JeChy( GiFe_wfk, Yz_k )
 			{
 				// SmaSme( "STRM_JeChy: ", GiFe_wfk, Yz_k );
 
 				const PePo_l = Ko.SuKz_v[ SuKz_wuk ];
 				if( PePo_l  instanceof HTMLVideoElement )
-				{
-					PePo_l.Gz_wu = Yz_k.presentedFrames;
-					PePo_l.requestVideoFrameCallback( DoSTRM_JeChy );
-				}
-			}
-		);
+					{
+						if( PePo_l.Kwy_wu === 0 )
+						{ 		SmaSme( "PePo: ", PePo_l, PePo_l.videoWidth, PePo_l.videoHeight, "GiGy: ", PePo_l.duration, "Ta: ", PePo_l.textTracks, PePo_l.audioTracks, "Yz: ", PePo_l.readyState ); }
 
+						PePo_l.Kwy_wu = Yz_k.presentedFrames;
+						PePo_l.requestVideoFrameCallback( DoSTRM_JeChy );
+					}
+				}
+			);
+
+		//@@@
+		// AFTER LOAD PROMISE FULFILLED
 		PePo_l.play().catch( DoSTRM_Trx( SuKz_wuk ) );
+		PePo_l.Kwy_wu = 0;
+
 
 		// Has! to be called AFTER Play
-		// PePo_l.playbackRate = 3.5;
+		PePo_l.playbackRate = 4.0;
 
-		PePo_l.JeChy_y = false;
 
 		// ONLY Update on New Frame
 		Ko.SuKz_v[ SuKz_wuk ] = PePo_l;
@@ -163,18 +172,22 @@ DoSTRM.KiCho__MzPo = async function( Sa_l, SuKz_wuk, Si_l )
 		try
 		{
 			Ko.SuKz_v[ SuKz_wuk ] = BriYz.Cho_qk;
+			const PePo_l = document.createElement('video');
 
-			if (navigator.mediaDevices.getUserMedia)
+			if( navigator.mediaDevices.getUserMedia )
 			{
 				navigator.mediaDevices.getUserMedia({ video: true })
-				.then(function (stream)
+				.then(function ( MzPo_v )
 			{
-					video.srcObject = stream;
-					btnStart.disabled = false;
+					SmaSme( "CAM READY" );
+					PePo_l.srcObject = MzPo_v;
+					PePo_l.Kwy_wu = 0;
+
+					// Ko.SuKz_v[ SuKz_wuk ] = PePo_l;
 			})
 			.catch(function (err0r)
 			{
-				console.log("Something went wrong!");
+				SmaSme( "Something went wrong!" );
 			});
 		}
 
@@ -192,43 +205,6 @@ DoSTRM.KiCho__MzPo = async function( Sa_l, SuKz_wuk, Si_l )
 
 
 //-------------------------------------------------
-function waitForClick( PePo_l, SuKz_wuk )
-//-------------------------------------------------
- {
-    return new Promise( () =>
-	{
-    	window.addEventListener
-		(
-			'click',
-			() =>
-			{
-				SmaSme( "$$$$------- WINDOW_VIDEO_CLICKED" );
-
-				navigator.mediaDevices.getUserMedia({ video: true }).then( function( MzPo_v )
-				{
-					SmaSme( "CAM READY" );
-					PePo_l.srcObject = MzPo_v;
-					PePo_l.Gz_wu = 1;
-					Ko.SuKz_v[ SuKz_wuk ] = PePo_l;
-				});
-
-				// .catch(function (err0r)
-					// {
-					// 	console.log("CAM FAIL!");
-					//
-
-
-				PePo_Ye( PePo_l, SuKz_wuk );
-				// PePo_Ye( PePo_l, SuKz_wuk );
-
-
-			}
-			, { once: true }
-		);
-    });
-  }
-
-//-------------------------------------------------
 DoSTRM.KiCho__PePo = async function( Sa_l, SuKz_wuk, Si_l )
 //-------------------------------------------------
 {
@@ -236,17 +212,16 @@ DoSTRM.KiCho__PePo = async function( Sa_l, SuKz_wuk, Si_l )
 	{
 		try
 		{
-			Ko.SuKz_v[ SuKz_wuk ] = BriYz.Cho_qk;
 			// SmaSme( "$$$$------- PePo_BEGIN", Ko.SuKz_v[ SuKz_wuk ] );
+			Ko.SuKz_v[ SuKz_wuk ] = BriYz.Cho_qk;
 
 			//@@@
 			// VIDEO CFG
 			const PePo_l = document.createElement('video');
-/*
+
 			PePo_l.muted = true;
 			PePo_l.loop = true;
 			PePo_l.preload = 'auto';
-
 
 			//@@@
 			// BLOB
@@ -254,28 +229,14 @@ DoSTRM.KiCho__PePo = async function( Sa_l, SuKz_wuk, Si_l )
 
 			//@@@
 			// FILE
-			// var url = URL.createObjectURL(file or blob);
-			// PePo_l.src = url;
+			// PePo_l.src = URL.createObjectURL(file or blob);
 			PePo_l.src = Si_l;
-*/
 
-
-
-
-
-			// CLICK REQUIRED?
-			// PePo_Ye( PePo_l, SuKz_wuk );
-			await waitForClick( PePo_l, SuKz_wuk );
-
+			PePo_Ye( PePo_l, SuKz_wuk );
 
 			//$$$
 			// CTRLS
-			// const MxPo_l = document.getElementById( 'MxPo_De' );
-			// MxPo_l.addEventListener('click', () =>
-			// {
-			// 	//PePo_l =
-			// 	SmaSme( "$$$$------- CANVA_VIDEO CLICK", PePo_l, PePo_l.paused );
-
+			//
 			// 	if (PePo_l.paused)
 			// 	{
 			// 	  PePo_l.play();
@@ -285,10 +246,6 @@ DoSTRM.KiCho__PePo = async function( Sa_l, SuKz_wuk, Si_l )
 			// 	} else {
 			// 	  PePo_l.pause();
 			// 	}
-			//   });
-
-
-			// SmaSme( "$$$$------- PePo_AWAIT", Ko.SuKz_v[ SuKz_wuk ] );
 		}
 		catch
 		{

@@ -77,6 +77,11 @@ function KoDz_GyHa()
 
 }
 
+//=====================================
+// LEGIBLE DENSITY
+//=====================================
+function em2px(em) { return Number(em) * Number(window.getComputedStyle(document.body).getPropertyValue('font-size').match(/\d+/)[0]);  }
+
 
 //==============================================
 // END^Yi

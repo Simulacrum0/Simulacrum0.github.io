@@ -2958,38 +2958,6 @@ var _fd_write = (fd, iov, iovcnt, pnum) => {
   return 0;
 };
 
-var lengthBytesUTF8 = str => {
-  var len = 0;
-  for (var i = 0; i < str.length; ++i) {
-    // Gotcha: charCodeAt returns a 16-bit word that is a UTF-16 encoded code
-    // unit, not a Unicode code point of the character! So decode
-    // UTF16->UTF32->UTF8.
-    // See http://unicode.org/faq/utf_bom.html#utf16-3
-    var c = str.charCodeAt(i);
-    // possibly a lead surrogate
-    if (c <= 127) {
-      len++;
-    } else if (c <= 2047) {
-      len += 2;
-    } else if (c >= 55296 && c <= 57343) {
-      len += 4;
-      ++i;
-    } else {
-      len += 3;
-    }
-  }
-  return len;
-};
-
-var stackAlloc = sz => __emscripten_stack_alloc(sz);
-
-var stringToUTF8OnStack = str => {
-  var size = lengthBytesUTF8(str) + 1;
-  var ret = stackAlloc(size);
-  stringToUTF8(str, ret, size);
-  return ret;
-};
-
 var runAndAbortIfError = func => {
   try {
     return func();
@@ -3260,6 +3228,38 @@ var writeArrayToMemory = (array, buffer) => {
   (growMemViews(), HEAP8).set(array, buffer);
 };
 
+var lengthBytesUTF8 = str => {
+  var len = 0;
+  for (var i = 0; i < str.length; ++i) {
+    // Gotcha: charCodeAt returns a 16-bit word that is a UTF-16 encoded code
+    // unit, not a Unicode code point of the character! So decode
+    // UTF16->UTF32->UTF8.
+    // See http://unicode.org/faq/utf_bom.html#utf16-3
+    var c = str.charCodeAt(i);
+    // possibly a lead surrogate
+    if (c <= 127) {
+      len++;
+    } else if (c <= 2047) {
+      len += 2;
+    } else if (c >= 55296 && c <= 57343) {
+      len += 4;
+      ++i;
+    } else {
+      len += 3;
+    }
+  }
+  return len;
+};
+
+var stackAlloc = sz => __emscripten_stack_alloc(sz);
+
+var stringToUTF8OnStack = str => {
+  var size = lengthBytesUTF8(str) + 1;
+  var ret = stackAlloc(size);
+  stringToUTF8(str, ret, size);
+  return ret;
+};
+
 /**
      * @param {string|null=} returnType
      * @param {Array=} argTypes
@@ -3423,45 +3423,50 @@ function checkIncomingModuleAPI() {
 }
 
 var ASM_CONSTS = {
-  73880: $0 => {
+  73864: $0 => {
     if (!window.Ko.Hx_SyDx_vsg) {
       window.Ko.Hx_SyDx_vsg = UTF8ToString($0);
     }
   },
-  73961: () => {
+  73945: () => {
     MoDzTrx("TEST BAD BUILD as ERROR");
   },
-  74003: () => {},
-  74007: () => {
+  73987: () => {},
+  73991: () => {
     console.log("MC: HrySmz__BriYa");
   },
-  74047: () => {},
-  74051: () => {
+  74031: () => {},
+  74035: () => {
     const SaSTRM_l = Ko.SySmz_v[SyVx.STRM_qk];
     SaSTRM_l.Ji.KiCho__JaPo(SaSTRM_l, 0, "Mx01__SuKz_MEDIA/SuKz02_JaPo__PICT/JaPo00__FyHo.jpg");
-    SaSTRM_l.Ji.KiCho__JaPo(SaSTRM_l, 1, "Mx01__SuKz_MEDIA/SuKz02_JaPo__PICT/JaPo__SF/SF_C13.png");
+    SaSTRM_l.Ji.KiCho__MzPo(SaSTRM_l, 1, "WEBCAM 0");
+    SaSTRM_l.Ji.KiCho__PePo(SaSTRM_l, 2, "Mx01__SuKz_MEDIA/SuKz02_JaPo__PICT/JaPo04__Jirafe.mp4");
   },
-  74293: $0 => {
+  74328: $0 => {
     const LAYER_Gz_wuk = 0;
     const SaGLF_l = Ko.SySmz_v[SyVx.GLF_qk];
     const SaWG_l = Ko.SySmz_v[SyVx.WG_qk];
     const SaSTRM_l = Ko.SySmz_v[SyVx.STRM_qk];
-    if (Ko.SuKz_v[0] instanceof ImageBitmap) {
-      SaWG_l.Ji.KiCho_JaKz(SaWG_l, 0, 512, LAYER_Gz_wuk, 450, 450, Ko.SuKz_v[0]);
-      SaSTRM_l.Ji.SuKz__Yi(SaSTRM_l, 0);
-    }
     SaGLF_l.Ji.Hre7_Me__KeDru_Ha(SaGLF_l, "👽| Usr: " + "jkv", 0, 0);
     SaGLF_l.Ji.Hre7_Me__KeDru_Ha(SaGLF_l, "👾| Ye: " + Ko.YeWi_df.toFixed(1) + "ms", 0, 64);
     SaGLF_l.Ji.Hre7_Me__KeDru_Ha(SaGLF_l, "🛸| Evt: " + " <List-Here> ", 0, 128);
     SaGLF_l.Ji.Hre7_Me__KeDru_Ha(SaGLF_l, "🚀| Msg: " + "6-7, 4-1", 0, 192);
     SaWG_l.Ji.KiCho_JaKz(SaWG_l, 0, 0, 0, 512, 512, SaGLF_l.WzPo_l);
-    {}
-    let FRA_wu = $0;
-    if (Ko.SuKz_v[2] instanceof HTMLVideoElement && (Ko.SuKz_v[2].Gz_wu != FRA_wu)) {
-      SaWG_l.Ji.KiCho_JaKz(SaWG_l, 512, 0, LAYER_Gz_wuk, 512, 512, Ko.SuKz_v[2]);
-      FRA_wu = Ko.SuKz_v[2].Gz_wu;
+    if (Ko.SuKz_v[0] instanceof ImageBitmap) {
+      SaWG_l.Ji.KiCho_JaKz(SaWG_l, 0, 512, LAYER_Gz_wuk, 450, 450, Ko.SuKz_v[0]);
+      SaSTRM_l.Ji.SuKz__Yi(SaSTRM_l, 0);
     }
-    return FRA_wu;
+    if ((Ko.SuKz_v[1] instanceof HTMLVideoElement) && (Ko.SuKz_v[1].Kwy_wu > 0)) {
+      SaWG_l.Ji.KiCho_JaKz(SaWG_l, 512, 512, LAYER_Gz_wuk, 512, 512, Ko.SuKz_v[1]);
+    }
+    let Kwy_wu = $0;
+    if ((Ko.SuKz_v[2] instanceof HTMLVideoElement) && (Ko.SuKz_v[2].Kwy_wu > 0) && (Ko.SuKz_v[2].Kwy_wu != Kwy_wu)) {
+      {
+        SaWG_l.Ji.KiCho_JaKz(SaWG_l, 512, 0, LAYER_Gz_wuk, 512, 512, Ko.SuKz_v[2]);
+      }
+      Kwy_wu = Ko.SuKz_v[2].Kwy_wu;
+    }
+    return Kwy_wu;
   }
 };
 
@@ -3673,11 +3678,9 @@ function __asyncjs__OPFS_Chy() {
 }
 
 // Imports from the Wasm binary.
-var _main = Module["_main"] = makeInvalidEarlyAccess("_main");
+var _Hrz5_Ki__BriSmz__Yi = Module["_Hrz5_Ki__BriSmz__Yi"] = makeInvalidEarlyAccess("_Hrz5_Ki__BriSmz__Yi");
 
 var _SmaHe = Module["_SmaHe"] = makeInvalidEarlyAccess("_SmaHe");
-
-var _Hrz5_Ki__BriSmz__Yi = Module["_Hrz5_Ki__BriSmz__Yi"] = makeInvalidEarlyAccess("_Hrz5_Ki__BriSmz__Yi");
 
 var _Hri5_Ye__BriYi = Module["_Hri5_Ye__BriYi"] = makeInvalidEarlyAccess("_Hri5_Ye__BriYi");
 
@@ -3710,6 +3713,8 @@ var _Hre7_Me__GiDx__HMS = Module["_Hre7_Me__GiDx__HMS"] = makeInvalidEarlyAccess
 var _HEAPO_wf = Module["_HEAPO_wf"] = makeInvalidEarlyAccess("_HEAPO_wf");
 
 var _Hri5_Ye__Sme = Module["_Hri5_Ye__Sme"] = makeInvalidEarlyAccess("_Hri5_Ye__Sme");
+
+var _main = Module["_main"] = makeInvalidEarlyAccess("_main");
 
 var _fflush = makeInvalidEarlyAccess("_fflush");
 
@@ -3758,9 +3763,8 @@ var _asyncify_start_rewind = makeInvalidEarlyAccess("_asyncify_start_rewind");
 var _asyncify_stop_rewind = makeInvalidEarlyAccess("_asyncify_stop_rewind");
 
 function assignWasmExports(wasmExports) {
-  Module["_main"] = _main = createExportWrapper("__main_argc_argv", 2);
-  Module["_SmaHe"] = _SmaHe = createExportWrapper("SmaHe", 2);
   Module["_Hrz5_Ki__BriSmz__Yi"] = _Hrz5_Ki__BriSmz__Yi = createExportWrapper("Hrz5_Ki__BriSmz__Yi", 0);
+  Module["_SmaHe"] = _SmaHe = createExportWrapper("SmaHe", 2);
   Module["_Hri5_Ye__BriYi"] = _Hri5_Ye__BriYi = createExportWrapper("Hri5_Ye__BriYi", 0);
   Module["_Hrz5_Ki__BriSmz__Ya"] = _Hrz5_Ki__BriSmz__Ya = createExportWrapper("Hrz5_Ki__BriSmz__Ya", 0);
   Module["_HriKx_Ya"] = _HriKx_Ya = createExportWrapper("HriKx_Ya", 1);
@@ -3777,6 +3781,7 @@ function assignWasmExports(wasmExports) {
   Module["_Hre7_Me__GiDx__HMS"] = _Hre7_Me__GiDx__HMS = createExportWrapper("Hre7_Me__GiDx__HMS", 2);
   Module["_HEAPO_wf"] = _HEAPO_wf = createExportWrapper("HEAPO_wf", 0);
   Module["_Hri5_Ye__Sme"] = _Hri5_Ye__Sme = createExportWrapper("Hri5_Ye__Sme", 0);
+  Module["_main"] = _main = createExportWrapper("main", 2);
   _fflush = createExportWrapper("fflush", 1);
   _emscripten_stack_get_end = wasmExports["emscripten_stack_get_end"];
   _emscripten_stack_get_base = wasmExports["emscripten_stack_get_base"];
@@ -3892,19 +3897,12 @@ function invoke_vii(index, a1, a2) {
 // === Auto-generated postamble setup entry stuff ===
 var calledRun;
 
-function callMain(args = []) {
+function callMain() {
   assert(runDependencies == 0, 'cannot call main when async dependencies remain! (listen on Module["onRuntimeInitialized"])');
   assert(typeof onPreRuns === "undefined" || onPreRuns.length == 0, "cannot call main when preRun functions remain to be called");
   var entryFunction = _main;
-  args.unshift(thisProgram);
-  var argc = args.length;
-  var argv = stackAlloc((argc + 1) * 4);
-  var argv_ptr = argv;
-  args.forEach(arg => {
-    (growMemViews(), HEAPU32)[((argv_ptr) >> 2)] = stringToUTF8OnStack(arg);
-    argv_ptr += 4;
-  });
-  (growMemViews(), HEAPU32)[((argv_ptr) >> 2)] = 0;
+  var argc = 0;
+  var argv = 0;
   try {
     var ret = entryFunction(argc, argv);
     // if we're not running an evented main loop, it's time to exit
@@ -3924,7 +3922,7 @@ function stackCheckInit() {
   writeStackCookie();
 }
 
-function run(args = arguments_) {
+function run() {
   if (runDependencies > 0) {
     dependenciesFulfilled = run;
     return;
@@ -3952,7 +3950,7 @@ function run(args = arguments_) {
     Module["onRuntimeInitialized"]?.();
     consumedModuleProp("onRuntimeInitialized");
     var noInitialRun = Module["noInitialRun"] || false;
-    if (!noInitialRun) callMain(args);
+    if (!noInitialRun) callMain();
     postRun();
   }
   if (Module["setStatus"]) {

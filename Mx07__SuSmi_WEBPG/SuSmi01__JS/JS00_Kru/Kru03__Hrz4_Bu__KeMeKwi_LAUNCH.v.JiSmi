@@ -16,53 +16,6 @@ LAUNCH_GUI
 	- Answer:
 */
 //==============================================
-(function (document, documentElement)
-{
-    // Enable strict mode
-    "use strict";
-
-	// Form the style on the fly to result in smaller minified file
-    var important = "!important;";
-    var style = "position:absolute" + important + "visibility:hidden" + important + "width:1em" + important + "font-size:1em" + important + "padding:0" + important;
-
-    window.getEmPixels = function (element)
-	{
-        var extraBody;
-
-        if (!element) {
-            // Emulate the documentElement to get rem value (documentElement does not work in IE6-7)
-            element = extraBody = document.createElement("body");
-            extraBody.style.cssText = "font-size:1em" + important;
-            documentElement.insertBefore(extraBody, document.body);
-        }
-
-        // Create and style a test element
-        var testElement = document.createElement("i");
-        testElement.style.cssText = style;
-        element.appendChild(testElement);
-
-        // Get the client width of the test element
-        var value = testElement.clientWidth;
-
-        if (extraBody)
-		{
-            // Remove the extra body element
-            documentElement.removeChild(extraBody);
-        }
-        else {
-            // Remove the test element
-            element.removeChild(testElement);
-        }
-
-        // Return the em value in pixels
-        return value;
-    };
-}(document, document.documentElement));
-
-
-function em2px(em) { return Number(em) * Number(window.getComputedStyle(document.body).getPropertyValue('font-size').match(/\d+/)[0]);  }
-
-
 //=====================================
 // LAUNCH
 //=====================================
@@ -78,19 +31,15 @@ function KeMeKwi()
 	Ku01_k.style.display = 'none';
 	Ku02_k.style.display = 'none';
 
-	//@@@
-	// SESSION
-	SmaSme( "Last Session: ", " User:" )
-	SmaSme( "EmPxZx: ", em2px( 1 ), window.getEmPixels( Ku00_k ) );
-
-	//@@@
-	// CFG
-	SmaSme( "EM(px): ", window.getEmPixels( Ku02_k ) )
 
 
 	//---------------------------------
 	// CANVAS
 	//---------------------------------
+	const PxEm_wfk = em2px( 1 );
+	SmaSme( "[LAUNCH] Legible Px/Em: ", PxEm_wfk );
+
+
 	const MxPo_Kwa_l = document.getElementById('MxPo_Kwa');
 	if( !MxPo_Kwa_l )return;
 
@@ -117,7 +66,7 @@ function KeMeKwi()
 	Sx_l.strokeStyle = "#8888CC";
 	Sx_l.lineWidth = 1;
 
-	TiGy_wf = 32;
+	TiGy_wf = ( PxEm_wfk * 2 );
 
 	// Draw vertical lines
 	for (let x = 0; x <= MxPo_Kwa_l.width; x += TiGy_wf )
@@ -141,7 +90,7 @@ function KeMeKwi()
 	Sx_l.strokeStyle = "#9999CC";
 	Sx_l.lineWidth = 2;
 
-	TiGy_wf = 128;
+	TiGy_wf = ( PxEm_wfk * 4 );
 
 	// Draw vertical lines
 	for (let x = 0; x <= MxPo_Kwa_l.width; x += TiGy_wf )
@@ -230,16 +179,17 @@ async function Hre1_Dru__ChyKeDru( KeKuMi_vbg )
 	// CHECK LOCALE
 	let KeKu_l = Hre1_Dru__Gra_v.find( ( Ti_l ) => ( Ti_l.Vy === Fe__KeKu_vbg ) );
 	// IF NOT, CHECK just LANG
-	if ( !KeKu_l )
+	if( !KeKu_l )
 	{
 		KeKu_l = Hre1_Dru__Gra_v.find( ( Ti_l ) => ( Ti_l.Vy === Fe__KeDru_vbg ) );
 	}
-	if ( KeKu_l )
+	if( KeKu_l )
 	{
 		KeKu__ToKz_vbg = KeKu_l.ToKz;
 	}
 
-	SmaSme( "CultureFile: " + KeKu__ToKz_vbg + " Locale: " + Fe__KeKu_vbg + " Lang: " + Fe__KeDru_vbg + " Country: " + ( Fe__KuVa_vbg ? Fe__KuVa_vbg : "Global" ) );
+	SmaSme( "[LAUNCH] CULTURE: " + KeKu__ToKz_vbg + " Locale: " + Fe__KeKu_vbg + " Lang: " + Fe__KeDru_vbg + " Country: " + ( Fe__KuVa_vbg ? Fe__KuVa_vbg : "Global" ) );
+
 
 	//&&&
 	// TEXT_DIR
@@ -392,11 +342,10 @@ async function Hre2_Ke__BriYa()
 
 
 //=====================================
-// LIFE
+// LAUNCH ECOSYS LIFE
 //=====================================
 function KeMeBri()
 {
-
 	//@@@
 	// VIEWS
 	const Ku00_k = document.getElementById('Ku00_KeMeKwi');
@@ -407,6 +356,13 @@ function KeMeBri()
 	Ku01_k.style.display = 'none';
 	Ku02_k.style.display = 'block';
 
+
+	//@@@
+	// SESSION
+	SmaSme( "[LAUNCH] User:", document.getElementById( 'TaKeDy' ).value );
+
+	SmaSme( "[LAUNCH] Allow: Mute", document.getElementById( 'HriNe_TaNe__MxPeHoVu' ).value );
+	SmaSme( "[LAUNCH] Allow: Spkr", document.getElementById( 'HriNe_TaNe__MxPeVu' ).value );
 
 
 	//@@@
