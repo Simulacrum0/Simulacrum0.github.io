@@ -3439,8 +3439,10 @@ var ASM_CONSTS = {
   74035: () => {
     const SaSTRM_l = Ko.SySmz_v[SyVx.STRM_qk];
     SaSTRM_l.Ji.KiCho__JaPo(SaSTRM_l, 0, "Mx01__SuKz_MEDIA/SuKz02_JaPo__PICT/JaPo00__FyHo.jpg");
+    SaSTRM_l.Ji.KiCho__MzPo(SaSTRM_l, 1, "WEBCAM 0");
+    SaSTRM_l.Ji.KiCho__PePo(SaSTRM_l, 2, "Mx01__SuKz_MEDIA/SuKz02_JaPo__PICT/JaPo04__Jirafe.mp4");
   },
-  74179: $0 => {
+  74328: $0 => {
     const LAYER_Gz_wuk = 0;
     const SaGLF_l = Ko.SySmz_v[SyVx.GLF_qk];
     const SaWG_l = Ko.SySmz_v[SyVx.WG_qk];
@@ -3449,10 +3451,10 @@ var ASM_CONSTS = {
     SaGLF_l.Ji.Hre7_Me__KeDru_Ha(SaGLF_l, "👾| Ye: " + Ko.YeWi_df.toFixed(1) + "ms", 0, 64);
     SaGLF_l.Ji.Hre7_Me__KeDru_Ha(SaGLF_l, "🛸| Evt: " + Ko.YeFo_wu, 0, 128);
     SaGLF_l.Ji.Hre7_Me__KeDru_Ha(SaGLF_l, "🚀| Msg: " + "6-7, 4-1", 0, 192);
-    SaGLF_l.Ji.Hre7_Me__KeDru_Ha(SaGLF_l, "🚀| Msg: " + "6-7, 4-1", 0, 256);
-    SaGLF_l.Ji.Hre7_Me__KeDru_Ha(SaGLF_l, "🚀| Msg: " + "6-7, 4-1", 0, 320);
-    SaGLF_l.Ji.Hre7_Me__KeDru_Ha(SaGLF_l, "🚀| Msg: " + "6-7, 4-1", 0, 384);
-    SaGLF_l.Ji.Hre7_Me__KeDru_Ha(SaGLF_l, "🚀| Msg: " + "6-7, 4-1", 0, 448);
+    SaGLF_l.Ji.Hre7_Me__KeDru_Ha(SaGLF_l, "👹| A: " + "-", 0, 256);
+    SaGLF_l.Ji.Hre7_Me__KeDru_Ha(SaGLF_l, "🤖| B: " + "-", 0, 320);
+    SaGLF_l.Ji.Hre7_Me__KeDru_Ha(SaGLF_l, "💀| C: " + "-", 0, 384);
+    SaGLF_l.Ji.Hre7_Me__KeDru_Ha(SaGLF_l, "🔥| D: " + "-", 0, 448);
     SaWG_l.Ji.KiCho_JaKz(SaWG_l, 0, 0, 0, 512, 512, SaGLF_l.WzPo_l);
     if (Ko.SuKz_v[0] instanceof ImageBitmap) {
       SaWG_l.Ji.KiCho_JaKz(SaWG_l, 0, 512, LAYER_Gz_wuk, 450, 450, Ko.SuKz_v[0]);

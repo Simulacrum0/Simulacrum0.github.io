@@ -1,4 +1,4 @@
-const BriDzSa__Da_vsg = "PUB_v0.103"; 
+const BriDzSa__Da_vsg = "PUB_v0.104"; 
  const BriDz__Mx_KuTu_vsg = "https://powerourpeople.com/"; 
 
 //==============================================
@@ -694,6 +694,7 @@ async function Hre1_Dru__ChyKeDru( KeKuMi_vbg )
 	HriNe_KwiVu_k.focus();
 
 
+
 	//&&&
 	// UPDATE LABELS
 	// SmaDx__Kz_JSON( KeDru_v.LABELS );
@@ -713,8 +714,12 @@ async function Hre1_Dru__ChyKeDru( KeKuMi_vbg )
 			}
 		}
 	);
-}
 
+
+	//&&&
+	// VERSION
+	document.getElementById( 'BriDzSa__Da' ).innerText = BriDzSa__Da_vsg;
+}
 
 //-------------------------------------------------
 // DETECT CHANGES in CULTURE
