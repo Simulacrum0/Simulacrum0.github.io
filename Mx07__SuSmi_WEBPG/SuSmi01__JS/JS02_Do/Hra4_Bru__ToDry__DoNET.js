@@ -85,6 +85,7 @@ function getNetworkInformation()
 
 	  SmaSme
 	  (
+		"NETWORK:" + "\n" +
 		"downlink:"+data.downlink +"\n"+
 		"effectiveType: "+data.effectiveType+"\n"+
 		"rtt: "+data.rtt+"\n"+

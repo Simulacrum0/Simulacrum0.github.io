@@ -99,6 +99,8 @@ DoCFG.runMemoryMeasurements = function()
 
 DoCFG.measureMemory = async function()
 {
+	if( !performance.measureUserAgentSpecificMemory ) return;
+
 	const HrxKuHa = await performance.measureUserAgentSpecificMemory();
 	// MxPo_De(HrxKuHa);
 

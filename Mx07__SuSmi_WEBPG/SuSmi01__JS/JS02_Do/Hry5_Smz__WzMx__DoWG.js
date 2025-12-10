@@ -1303,6 +1303,7 @@ DoWG.BriYe = function( Sa_l, GiDri_duk  )
 		TaMo_l.setBindGroup( 1, MxPo__bindGroup );
 
 		TaMo_l.dispatchWorkgroups( ( MxPo_l.width + 15 ) / 16, ( MxPo_l.height + 15 ) / 16 );
+		// TaMo_l.dispatchWorkgroups( MxPo_l.width, MxPo_l.height );
 	}
 
 
