@@ -218,12 +218,14 @@ DoSTRM.KiCho__MzPo = async function( Sa_l, SuKz_wuk, Si_l )
 		{
 			Ko.SuKz_v[ SuKz_wuk ] = BriYz.Cho_qk;
 			const PePo_l = document.createElement('video');
-			PePo_l.muted = false;
+
+			PePo_l.muted = true;
 
 			if( navigator.mediaDevices.getUserMedia )
 			{
 				// facingMode: 'user'
 				// facingMode: 'environment'
+				// const Yz_l = { video: true,  audio: false, facingMode: 'user' };
 				const Yz_l = { video: true,  audio: false, facingMode: 'user' };
 
 				// const Yz_l =  {
