@@ -224,19 +224,24 @@ DoSTRM.KiCho__MzPo = async function( Sa_l, SuKz_wuk, Si_l )
 			{
 				// facingMode: 'user'
 				// facingMode: 'environment'
-				const Yz_l = { video: true,  audio: true, facingMode: 'user' };
+				const Yz_l = { video: true,  audio: false, facingMode: 'user' };
+
+				// const Yz_l =  {
+				// 	width: { min: 1024, ideal: 1280, max: 1920 },
+				// 	height: { min: 776, ideal: 720, max: 1080 },
+				// 	deviceId: { exact: videoDevices[1]  }
+				// };
 
 				navigator.mediaDevices.getUserMedia( Yz_l )
 				.then( function ( MzPo_v )
-			{
+				{
 					SmaSme( "CAM READY" );
 					PePo_l.srcObject = MzPo_v;
-
 					PePo_Ye( PePo_l, SuKz_wuk );
-			})
+				})
 			.catch(function (err0r)
 			{
-				SmaSme( "Something went wrong!" );
+				SmaSme( "CAM Not Available!" );
 			});
 		}
 

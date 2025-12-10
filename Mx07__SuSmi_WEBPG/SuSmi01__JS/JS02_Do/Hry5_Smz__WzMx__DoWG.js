@@ -114,7 +114,9 @@ DoWG.SmaYz = function( Sa_l )
 	SmaSme( "DoWG_Yz" );
 	SmaSme( "--------------------------------------------" );
 	SmaSme( "- Chip:", Sa_l.KaKy_l.info.vendor );
-	//SmaSme( Sa_l.KaKy_l );
+
+	// REQUIRES feature 'subgroups'
+	//SmaSme( "- Subgroup:", Sa_l.KaKy_l.info.subgroupMinSize, Sa_l.KaKy_l.info.subgroupMaxSize );
 
 	SmaSme( "- Class:", Sa_l.KaKy_l.info.architecture );
 	//SmaSme( Sa_l.KaSmz_l );
@@ -241,8 +243,6 @@ struct FQuad_t
 `;
 
 
-
-
 //==============================================
 // DoWG_TaJiJa
 //==============================================
@@ -251,7 +251,6 @@ DoWG.TaJiJa_vvsg =
 	"JiJa08__GOLIFE.v.Hro"
 	, "JiJa09__QUAD.v.Hrz"
 	, "JiJa10__Cho.v.Hry"
-
 ];
 
 //==============================================
@@ -319,6 +318,15 @@ DoWG.BriYa = async function( Yz_l )
 	//const KaTy__WG2 = KaKy_l.features.has('extended-pipeline-cache');
 	const KaTy__TIMER_yk = KaKy_l.features.has('timestamp-query');
 
+
+	//&&&
+	// SUBGRP
+	 // subgroupsize:  [4, 128]
+	 //https://caniuse.com/?search=subgroup ~70%
+	 // Not Apple!
+	 const KaTy__SUBGRP_yk = KaKy_l.features.has('subgroups');
+
+
 	//@@@
 	// DRV_REQ
 	const KaKri_k =
@@ -331,6 +339,7 @@ DoWG.BriYa = async function( Yz_l )
 			Sa_l.MxPo__FMT_l === 'bgra8unorm' ? ['bgra8unorm-storage'] : undefined
 
 			, KaTy__TIMER_yk ? 'timestamp-query' : undefined
+			, KaTy__SUBGRP_yk ? 'subgroups' : undefined
 
 			//, KaTy__WG2_yk ? 'pipeline-statistics-query' : undefined
 			//, KaTy__WG2_yk ? 'extended-pipeline-cache' : undefined
@@ -368,7 +377,7 @@ DoWG.BriYa = async function( Yz_l )
 			// RESTART
 			SmaSme( "GPU needs REFRESH/RESTART PAGE" );
 		}
-		MoDzTrx( "WebGPU device was lost:" + info.message );
+		MoDzTrx( "WebGPU Device Lost:" + info.message );
   	});
 
 
@@ -384,7 +393,7 @@ DoWG.BriYa = async function( Yz_l )
 		device: KaSmz_l
 		, format: Sa_l.MxPo__FMT_l
 		// REQ for RW MxPo via ComputeShader
-		, usage: GPUTextureUsage.RENDER_ATTACHMENT | GPUTextureUsage.STORAGE_BINDING
+		, usage: GPUTextureUsage.TEXTURE_BINDING | GPUTextureUsage.STORAGE_BINDING
 	});
 
 
@@ -492,7 +501,7 @@ DoWG.BriYa = async function( Yz_l )
 	// "unfilterable-float"
 	//-------------------------------------------------
 	// Create the bind group layout and pipeline layout.
-	const CELL_SuNiSz = KaSmz_l.createBindGroupLayout
+	const CELL_SuTyJy = KaSmz_l.createBindGroupLayout
 	({
 	  label: "CELL Bind Group Layout",
 	  entries: [{
@@ -511,7 +520,7 @@ DoWG.BriYa = async function( Yz_l )
 	});
 
 
-	const QUAD_SuNiSz = KaSmz_l.createBindGroupLayout
+	const QUAD_SuTyJy = KaSmz_l.createBindGroupLayout
 	({
 		label: "QUAD Bind Group Layout",
 		entries:
@@ -531,26 +540,93 @@ DoWG.BriYa = async function( Yz_l )
 	});
 
 
+
+
+
+	const DuPo_SuTyJy = KaSmz_l.createBindGroupLayout
+	({
+		label: "DuPo Bind Group Layout",
+		entries:
+		[
+			{
+				binding: 0,
+				visibility: GPUShaderStage.COMPUTE,
+				sampler: { type: "filtering" }
+			}
+			,
+			{
+				binding: 1,
+				visibility: GPUShaderStage.COMPUTE,
+				texture: { viewDimension: "2d-array" }
+			}
+		]
+	});
+
+
+	// sampler:  GPUSamplerBindingType
+		// "filtering",
+		// "non-filtering",
+		// "comparison",
+
+	// buffer:	GPUBufferBindingType
+	// 		"uniform", RO
+	// 		"storage", RW
+	// 		"read-only-storage", RO
+
+	// texture, GPUTextureBindingLayout
+	// RO
+		// 	"float"
+		// "unfilterable-float"
+		// "depth"
+		// "sint"
+		// "uint"
+
+	// storageTexture: GPUStorageTextureBindingLayout
+	// "write-only"	WO
+	// "read-write" RW
+	// "read-only" RO
+
+	const MxPoChy_SuTyJy = KaSmz_l.createBindGroupLayout
+	({
+		label: "MxPo Bind Group Layout",
+		entries:
+		[
+			{
+				binding: 0,
+				visibility: GPUShaderStage.COMPUTE,
+				storageTexture: { format: Sa_l.MxPo__FMT_l }
+			}
+		]
+	});
+
+
 	//-------------------------------------------------
 	// LAYOUT_PIPELINE
 	//-------------------------------------------------
-	const CELL_SuNiKy = KaSmz_l.createPipelineLayout
+	const CELL_KySuTyJy = KaSmz_l.createPipelineLayout
 	({
 	  label: "CELL Pipeline Layout",
-	  bindGroupLayouts: [ CELL_SuNiSz ],
+	  bindGroupLayouts: [ CELL_SuTyJy ],
 	});
 
-	const QUAD_SuNiKy = KaSmz_l.createPipelineLayout
+	const QUAD_KySuTyJy = KaSmz_l.createPipelineLayout
 	({
 		label: "QUAD Pipeline Layout",
-		bindGroupLayouts: [ QUAD_SuNiSz ],
+		bindGroupLayouts: [ QUAD_SuTyJy ],
+	});
+
+	const MxPo_KySuTyJy = KaSmz_l.createPipelineLayout
+	({
+		label: "DuPo MxPo Pipeline Layout",
+		bindGroupLayouts: [ DuPo_SuTyJy, MxPoChy_SuTyJy ],
 	});
 
 	//-------------------------------------------------
 	// PROG: VIS
 	//-------------------------------------------------
 	// Create the shader that will render the cells.
-	const cellShaderModule = KaSmz_l.createShaderModule({
+	const cellShaderModule = KaSmz_l.createShaderModule
+	({
 	  label: "CELL shader",
 	  code: `
 	  struct VertexOutput {
@@ -589,7 +665,7 @@ DoWG.BriYa = async function( Yz_l )
 	const JiGwe03__CONWAY_VIS = KaSmz_l.createRenderPipeline
 	({
 	  label: "CELL pipeline"
-	  , layout: CELL_SuNiKy
+	  , layout: CELL_KySuTyJy
 
 	  , vertex:
 	  {
@@ -653,7 +729,7 @@ DoWG.BriYa = async function( Yz_l )
 	const JiGwe02__CONWAY_SIM = KaSmz_l.createComputePipeline
 	({
 	  label: "Simulation pipeline",
-	  layout: CELL_SuNiKy,
+	  layout: CELL_KySuTyJy,
 	  compute:
 	  {
 		module: JiSpo02__CONWAY_SIM
@@ -681,6 +757,7 @@ DoWG.BriYa = async function( Yz_l )
 	if( MoDzTrx__NxHo_y( "Crafts^SuTy", Jx00__SuTy )){ return null; }
 	Sa_l.Jx00__SuTy = Jx00__SuTy;
 
+	// 2 VALUES in CRAFT
 	const uniformArray = new Float32Array( [ CS_Gy_k, CS_Gy_k ] );
 	KaSmz_l.queue.writeBuffer( Sa_l.Jx00__SuTy, 0, uniformArray );
 
@@ -748,16 +825,18 @@ DoWG.BriYa = async function( Yz_l )
 		size: [ 2048, 2048, 4 ], mipLevelCount: 1,
 
 		format: 'rgba8unorm',
-		// format: Sa_l.MxPo__FMT_l,
 
 		sampleCount: 1,
 		usage:
 		GPUTextureUsage.COPY_SRC
 		| GPUTextureUsage.COPY_DST
+
 		| GPUTextureUsage.TEXTURE_BINDING
 		| GPUTextureUsage.STORAGE_BINDING
 
-		| GPUTextureUsage.RENDER_ATTACHMENT,
+		//$$$
+		// EXPECTED REQUIREMENT ( Dawn Invalidates Absence )
+		| GPUTextureUsage.RENDER_ATTACHMENT
 	});
 	if( MoDzTrx__NxHo_y( "Surf Deck", TaGwa__JaPo_l )){ return null; }
 	Sa_l.TaGwa__JaPo_l = TaGwa__JaPo_l;
@@ -767,9 +846,10 @@ DoWG.BriYa = async function( Yz_l )
 	//-------------------------------------------------
 	const bindGroups =
 	[
-	  KaSmz_l.createBindGroup({
+	  KaSmz_l.createBindGroup
+	  ({
 		label: "CELL renderer bind group A",
-		layout: CELL_SuNiSz,
+		layout: CELL_SuTyJy,
 		entries: [{
 		  binding: 0,
 		  resource: { buffer: Sa_l.Jx00__SuTy }
@@ -779,12 +859,12 @@ DoWG.BriYa = async function( Yz_l )
 		}, {
 		  binding: 2,
 		  resource: { buffer: cellStateStorage[1] }
-		}],
-	  }),
+		}] })
 
-	  KaSmz_l.createBindGroup({
+	  , KaSmz_l.createBindGroup
+	  ({
 		label: "CELL renderer bind group B",
-		layout: CELL_SuNiSz,
+		layout: CELL_SuTyJy,
 		entries:
 		[{
 		  binding: 0,
@@ -795,26 +875,36 @@ DoWG.BriYa = async function( Yz_l )
 		}, {
 		  binding: 2,
 		  resource: { buffer: cellStateStorage[0] }
-		}],
-	  }),
+		}] })
 
-	  KaSmz_l.createBindGroup({
+	  , KaSmz_l.createBindGroup
+	  ({
 		label: "QUAD bind group",
-		layout: QUAD_SuNiSz,
+		layout: QUAD_SuTyJy,
 		entries:
-		[
-		{
+		[{
 		  binding: 0,
 		  resource: Sa_l.JaMi__SMOOTH_l
 		  // resource: Sa_l.JaMi__DISCRETE_l
-		}
-		,
-		{
+		},{
 		  binding: 1,
 		  resource: Sa_l.TaGwa__JaPo_l.createView()
-		}
-		],
-	  }),
+		}] })
+
+
+		, KaSmz_l.createBindGroup
+		({
+		  label: "DuPo_SuTyJy",
+		  layout: DuPo_SuTyJy,
+		  entries:
+		  [{
+			binding: 0,
+			resource: Sa_l.JaMi__SMOOTH_l
+			// resource: Sa_l.JaMi__DISCRETE_l
+		  },{
+			binding: 1,
+			resource: Sa_l.TaGwa__JaPo_l.createView()
+		  }] })
 
 	];
 
@@ -825,8 +915,8 @@ DoWG.BriYa = async function( Yz_l )
 	//-------------------------------------------------
 	Sa_l.JiGwe01_QUAD_COMP = KaSmz_l.createRenderPipeline
 	({
-		label: "QUAD_SuNiKy"
-		, layout: QUAD_SuNiKy
+		label: "QUAD_KySuTyJy"
+		, layout: QUAD_KySuTyJy
 		, vertex:
 		{
 			module: KaSmz_l.createShaderModule({ code: JiJa_vs }),
@@ -845,6 +935,58 @@ DoWG.BriYa = async function( Yz_l )
 	// LOADED DONE
 	//-------------------------------------------------
 	const TaJiJa_Smx_k = await Promise.all( Fe_TaJiJa_vh );
+
+
+
+	//-------------------------------------------------
+	// CHECKER
+	//-------------------------------------------------
+	const PIPER_cs = KaSmz_l.createShaderModule
+	({
+		code: `
+
+		@group(0) @binding(0) var JaKro_k: sampler;
+		@group(0) @binding(1) var JaPo_k: texture_2d_array<f32>;
+
+		@group(1) @binding(0) var MxPo_k: texture_storage_2d<${Sa_l.MxPo__FMT_l}, write>;
+
+
+		@compute @workgroup_size( 16, 16 ) fn cs( @builtin(global_invocation_id) Wz_wu3: vec3u )
+		{
+		  	let MxPo__Ve_wu2 = textureDimensions( MxPo_k );
+
+
+			if( ( Wz_wu3.x >= MxPo__Ve_wu2.x ) || ( Wz_wu3.y >= MxPo__Ve_wu2.y ) ){ return; }
+
+			let SiMy_wf2 = vec2f( vec2u( Wz_wu3.x, MxPo__Ve_wu2.y - Wz_wu3.y ) );
+
+		  	// RG, B, A
+			// let JaMy_wf2 = vec2f( fract( SiMy_wf2 / 1024.0 ) * 1024.0 );
+			let JaMy_wu2 = vec2u( fract( SiMy_wf2 / 1024.0 ) * 1024.0 );
+
+			let Brz_wu = 0;
+
+			// let MePo_wf4 = textureBias( JaPo_k, JaKro_k, JaMy_wf2, 0 );
+			let MePo_wf4 = textureLoad( JaPo_k, JaMy_wu2, 0, Brz_wu );
+
+			// CANVAS EXPORT
+			textureStore( MxPo_k, Wz_wu3.xy, MePo_wf4 );
+		}
+		`
+	  });
+
+
+	  Sa_l.PIPER_k = KaSmz_l.createComputePipeline
+	  ({
+		label: 'checkboard PIPER_k',
+		layout: MxPo_KySuTyJy,
+		compute:
+		{
+		  module: PIPER_cs,
+		  entryPoint: 'cs',
+		}
+	  });
+
 
 
 	//-------------------------------------------------
@@ -1102,94 +1244,73 @@ DoWG.BriYe = function( Sa_l, GiDri_duk  )
 {
 	if( KoDz__YzTrx_y() ) return;
 
-	const KaSmz_l = Sa_l.KaSmz_l;
 
 	//!!!
 	// CHECK RESIZE
 	DoWG.GyHa( Sa_l );
 
+	//@@@
+	// CMD PASS BEGIN
+	const KaSmz_l = Sa_l.KaSmz_l;
 	const MoKro_l = KaSmz_l.createCommandEncoder();
-
-	// FRM_step++;
-	// if( ( FRM_step & 0x15 ) != 1 ) return;
-	// const CS_Kwi_wu = FRM_step >> 4;
-
-
-	// HEAPO_wf(); // Module["HEAPU8"][ 0 ];
-	// const time = GiDri_duk * 0.001;
-	// const tic = Module._HEAPO_wf();
-	// console.log( "Tic" + tic );
+	const TaMo_l = MoKro_l.beginComputePass();
 
 
 	//@@@
 	// UPLOAD
 
 
-	//@@@
-	// COMPUTE
-	{
-		// Start a compute pass
-		const cPass = MoKro_l.beginComputePass();
 
-		cPass.setPipeline( Sa_l.JiGwe02__CONWAY_SIM);
-		cPass.setBindGroup(0, Sa_l.bindGroups[  CS_Kwi_wu % 2]);
+	//@@@
+	// FORMULA
+	{
+		TaMo_l.setPipeline( Sa_l.JiGwe02__CONWAY_SIM);
+		TaMo_l.setBindGroup(0, Sa_l.bindGroups[  CS_Kwi_wu % 2]);
 
 		const TaWz__Fo_wuk = Math.ceil(CS_Gy_k / CS_WzVu_k);
-		cPass.dispatchWorkgroups( TaWz__Fo_wuk, TaWz__Fo_wuk );
-
-		cPass.end();
+		TaMo_l.dispatchWorkgroups( TaWz__Fo_wuk, TaWz__Fo_wuk );
 
 		CS_Kwi_wu++;
 	}
 
 
+	//@@@
+	// MEASURE
+
 
 	//@@@
-	// FLT
+	// MAKE
 
 
 	//@@@
-	//
+	// ADAPT
+
 
 	//@@@
-	// COMPOSITE
-	const MxPo__VIEW_l = Sa_l.Sx_l.getCurrentTexture().createView();
+	// SCRN_EXPRESS
+	const MxPo_l = Sa_l.Sx_l.getCurrentTexture();
+	const MxPo__VIEW_l = MxPo_l.createView();
 
-	//&&&
-	//GPURenderPassDescriptor
+	{
+		const MxPo__bindGroup = KaSmz_l.createBindGroup
+		({
+		  layout: Sa_l.PIPER_k.getBindGroupLayout(1),
+		  entries: [ { binding: 0, resource: MxPo__VIEW_l } ],
+		});
 
-	// BEGIN COMPOSITE
-	const rPass = MoKro_l.beginRenderPass
-	({
-		colorAttachments:
-		[{
-			view: MxPo__VIEW_l,
-			loadOp: "clear",
-			clearValue: { r: 0.1, g: 0.1, b: 0.2, a: 1.0 },
-			storeOp: "store",
-		}]
-	});
+		TaMo_l.setPipeline(Sa_l.PIPER_k);
+		TaMo_l.setBindGroup( 0, Sa_l.bindGroups[ 3 ] );
+		TaMo_l.setBindGroup( 1, MxPo__bindGroup );
 
-	// TEXT QUADS
-	rPass.setPipeline(Sa_l.JiGwe01_QUAD_COMP );
-	rPass.setBindGroup( 0, Sa_l.bindGroups[ 2 ] );
-	rPass.draw( 6 );
-
-
-	// GAMEOFLIFE
-	rPass.setPipeline( Sa_l.JiGwe03__CONWAY_VIS );
-	rPass.setBindGroup( 0, Sa_l.bindGroups[CS_Kwi_wu % 2] );
-	rPass.setVertexBuffer( 0, Sa_l.vertexBuffer );
-	rPass.draw( Sa_l.vertices.length / 2, CS_Gy_k * CS_Gy_k );
-
-	// END COMPOSITE
-	rPass.end();
-
+		TaMo_l.dispatchWorkgroups( ( MxPo_l.width + 15 ) / 16, ( MxPo_l.height + 15 ) / 16 );
+	}
 
 
 	//@@@
 	// WzMe^WORK RUN
-	KaSmz_l.queue.submit([MoKro_l.finish()]);
+	TaMo_l.end();
+	KaSmz_l.queue.submit([ MoKro_l.finish() ]);
+
 
 	//@@@
 	// TIMER
@@ -1197,6 +1318,8 @@ DoWG.BriYe = function( Sa_l, GiDri_duk  )
 
 	//@@@
 	// DNLOAD
+
+
 }
 
 //==============================================

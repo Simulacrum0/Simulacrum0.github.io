@@ -31,32 +31,37 @@ const SyVx = Object.freeze
 	, FS_qk: 2
 	, TRU_qk: 3
 
-	// Hra5_Ka^COMZ
-	, GPS_qk: 777
-	, ENRG_qk: 777
-
-	// Hra4_Bru^NET
-	, WRTC_qk: 777
-	, LNK_qk: 777
-	, SHARE_qk: 777
-	, PAY_qk: 777
-
 	// Hra7_Ta^FMT
 	, STRM_qk: 4
 	, FNT_qk: 5
+
+	// Hry^VIS
+	, WG_qk: 6
+	, GLF_qk: 7
+
+	// Hra4_Bru^NET
+	, NET_qk: 8
+
+	// Hra6_Ku^GATE
+	, SHAR_qk: 9
+	, PAY_qk: 10
+	, CAL_qk: 11
+
+
+	// Hra5_Ka^CHIP
+	, GPS_qk: 777
+	, ENRG_qk: 777
 
 	// Hru^AUD
 	, WA_qk: 777
 	, HEAR_qk: 777
 	, SAY_qk: 777
-	, HEAR_qk: 777
 
 	// Hry^VIS
-	, WG_qk: 6
-	, GLF_qk: 7
 	, XR_qk: 777
 	, GLES_qk: 777
 	, SCRN_qk: 777
+
 
 	//----------------------------------------------------------
 	// SERV_OPT

@@ -145,16 +145,27 @@ async function KoDz__Ya( )
 		Hrz7_Kru__ChaSySmz( "Do", "CFG", "Hrz4_Bu", "BriDzYz", SySmz__Kri_yk, { SmzYz: "0" } )
 		, Hrz7_Kru__ChaSySmz( "Do", "TAK", "Hre1_Dru", "KeDruPy", SySmz__Kri_yk, { Si_KeDru: "en" } )
 		, Hrz7_Kru__ChaSySmz( "Do", "FS", "Hra6_Ku", "KoToKz", SySmz__Kri_yk, { VaDyFy: "true" } )
-		, Hrz7_Kru__ChaSySmz( "Do", "GLF", "Hry1_Brz", "KeDru", SySmz__Kri_yk, { Gy_wu: 512 } )
+		, Hrz7_Kru__ChaSySmz( "Do", "TRU", "Hrx4_Che", "MoDxGri", SySmz__Kri_yk, { KaVy: "0" } )
 
 		, Hrz7_Kru__ChaSySmz( "Do", "STRM", "Hra7_Ta", "ToMi", SySmz__Kri_yk, { SmzYz: "0" } )
-		, Hrz7_Kru__ChaSySmz( "Do", "WG", "Hry5_Smz", "WzMx", SySmz__Kri_yk, { KaVy: "0" } )
-		, Hrz7_Kru__ChaSySmz( "Do", "TRU", "Hrx4_Che", "MoDxGri", SySmz__Kri_yk, { KaVy: "0" } )
 		, Hrz7_Kru__ChaSySmz( "Do", "FNT", "Hre1_Dru", "WaDru", SySmz__Kri_yk, { SmzYz: "0" } )
+		, Hrz7_Kru__ChaSySmz( "Do", "WG", "Hry5_Smz", "WzMx", SySmz__Kri_yk, { KaVy: "0" } )
+		, Hrz7_Kru__ChaSySmz( "Do", "GLF", "Hry1_Brz", "KeDru", SySmz__Kri_yk, { Gy_wu: 512 } )
 
-		//, Hrz7_Kru__ChaSySmz( "Do", "", "Hr_", "?", "Do?", SySmz__Kri_yk, { SmzYz: "0" } )
-		//, Hrz7_Kru__ChaSySmz( "Do", "", "Hr_", "?", "Do?", SySmz__Kri_yk, { SmzYz: "0" } )
-		//, Hrz7_Kru__ChaSySmz( "Do", "", "Hr_", "?", "Do?", SySmz__Kri_yk, { SmzYz: "0" } )
+		// , Hrz7_Kru__ChaSySmz( "Do", "NET", "Hra4_Bru", "ToDry", SySmz__Kri_yk, { SmzYz: "0" } )
+		// , Hrz7_Kru__ChaSySmz( "Do", "SHAR", "Hra6_Ku", "SuDu", SySmz__Kri_yk, { SmzYz: "0" } )
+		// , Hrz7_Kru__ChaSySmz( "Do", "PAY", "Hra6_Ku", "SpeDry", SySmz__Kri_yk, { SmzYz: "0" } )
+		// , Hrz7_Kru__ChaSySmz( "Do", "CAL", "Hra6_Ku", "SaBri", SySmz__Kri_yk, { SmzYz: "0" } )
+
+		//, Hrz7_Kru__ChaSySmz( "Do", "", "Hr_", "?", SySmz__Kri_yk, { SmzYz: "0" } )
+		//, Hrz7_Kru__ChaSySmz( "Do", "", "Hr_", "?", SySmz__Kri_yk, { SmzYz: "0" } )
+		//, Hrz7_Kru__ChaSySmz( "Do", "", "Hr_", "?", SySmz__Kri_yk, { SmzYz: "0" } )
+		//, Hrz7_Kru__ChaSySmz( "Do", "", "Hr_", "?", SySmz__Kri_yk, { SmzYz: "0" } )
+
+		//, Hrz7_Kru__ChaSySmz( "Do", "", "Hr_", "?", SySmz__Kri_yk, { SmzYz: "0" } )
+		//, Hrz7_Kru__ChaSySmz( "Do", "", "Hr_", "?", SySmz__Kri_yk, { SmzYz: "0" } )
+		//, Hrz7_Kru__ChaSySmz( "Do", "", "Hr_", "?", SySmz__Kri_yk, { SmzYz: "0" } )
+		//, Hrz7_Kru__ChaSySmz( "Do", "", "Hr_", "?", SySmz__Kri_yk, { SmzYz: "0" } )
 
 	];
 

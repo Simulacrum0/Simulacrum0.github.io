@@ -67,10 +67,44 @@ DoSHAR.BriYi = function( Sa_l )
 }
 
 //-------------------------------------------------
+function canBrowserShareData(data)
+//-------------------------------------------------
+{
+	if (!navigator.share || !navigator.canShare) {
+	  return false;
+	}
+
+	return navigator.canShare(data);
+  }
+
+//-------------------------------------------------
 DoSHAR.BriYa = function( Yz_k )
 //-------------------------------------------------
 {
 	const Sa_l = SySmz__YaFz_v( DoSHAR );
+
+	// OPTIONS
+	// title (string): The title of the content you want to share
+	// text (string): The text or description of the content
+	// url (string): The URL of the content you want to share
+	// files (array): The file or files you want to share
+
+	  const sharedDataSample =
+	  {
+		title: "Some text title",
+		text: "More text",
+		url: "A url we want to share",
+	  };
+
+	  if (canBrowserShareData(sharedDataSample))
+		{
+		// Enable the share button in the UI.
+		SmaSme( "SHARING ALLOWED" );
+	  }
+	  else
+	{
+		// We can't share on this browser/operating system.
+	  }
 
 
 	return SySmz__YaFx_v( Sa_l );
@@ -81,6 +115,8 @@ DoSHAR.BriYa = function( Yz_k )
 DoSHAR.Mo = function( Sa_l, Jy_k, Mo_l )
 //-------------------------------------------------
 {
+
+	
 }
 
 
