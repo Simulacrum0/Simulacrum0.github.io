@@ -1,4 +1,4 @@
-const BriDzSa__Da_vsg = "PUB_v0.105"; 
+const BriDzSa__Da_vsg = "PUB_v0.106"; 
  const BriDz__Mx_KuTu_vsg = "https://powerourpeople.com/"; 
 
 //==============================================
@@ -528,7 +528,7 @@ function KeMeKwi()
 
 	// BG
 //	Sx_l.fillStyle = "#6666CC";
-	Sx_l.fillStyle = "#FFFFFF";
+	Sx_l.fillStyle = "#EEEEFF";
 
 	Sx_l.fillRect(0, 0, MxPo_Kwa_l.width, MxPo_Kwa_l.height );
 
@@ -1330,6 +1330,10 @@ function KoDz__YzTrx_y()
 	return ( Ko.Yz_q === BriYz.Trx_qk );
 }
 
+function KoDz__YzYe_y()
+{
+	return ( Ko.Yz_q === BriYz.Ye_qk );
+}
 
 //==============================================
 // CONTENT_LOAD
@@ -1595,10 +1599,9 @@ function KoDz__Ye( Gi )
 
 //=====================================
 // IFRAME EXPERIMENTS
-// NotApplicable
+// NotApplicable via CORS
 //=====================================
 /*
-
 var SmeKz_l = document.createElement("iframe");
 SmeKz_l.id = "LNK"
 SmeKz_l.class = "SmeKz"
@@ -1611,8 +1614,6 @@ SmeKz_l.src = "WzSme.html";
 
 document.body.appendChild( SmeKz_l );
 */
-
-
 		/* .SmeKz
 		{
 			display: block;

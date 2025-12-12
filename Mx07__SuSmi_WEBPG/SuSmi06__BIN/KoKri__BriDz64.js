@@ -3588,30 +3588,49 @@ function checkIncomingModuleAPI() {
 }
 
 var ASM_CONSTS = {
-  8397224: $0 => {
+  8397240: $0 => {
     if (!window.Ko.Hx_SyDx_vsg) {
       window.Ko.Hx_SyDx_vsg = UTF8ToString($0);
     }
   },
-  8397305: () => {
+  8397321: () => {
+    KoDz__YoChyDry();
+  },
+  8397343: () => {
     MoDzTrx("TEST BAD BUILD as ERROR");
   },
-  8397347: () => {},
-  8397351: () => {
+  8397385: () => {
+    const SaPAY_l = Ko.SySmz_v[SyVx.PAY_qk];
+    DoPAY.Mo(SaPAY_l, 0, 0);
+  },
+  8397459: () => {
+    const SaSHAR_l = Ko.SySmz_v[SyVx.SHAR_qk];
+    DoSHAR.Mo(SaSHAR_l, 0, 0);
+  },
+  8397537: () => {
+    const SaPAY_l = Ko.SySmz_v[SyVx.PAY_qk];
+    DoPAY.Mo(SaPAY_l, 0, 0);
+  },
+  8397611: () => {
+    const SaPAY_l = Ko.SySmz_v[SyVx.PAY_qk];
+    DoPAY.Mo(SaPAY_l, 0, 0);
+  },
+  8397685: () => {},
+  8397689: () => {
     console.log("MC: HrySmz__BriYa");
   },
-  8397391: () => {},
-  8397395: () => {
+  8397729: () => {},
+  8397733: () => {
     const SaSTRM_l = Ko.SySmz_v[SyVx.STRM_qk];
     SaSTRM_l.Ji.KiCho__JaPo(SaSTRM_l, 0, "Mx01__SuKz_MEDIA/SuKz02_JaPo__PICT/JaPo00__FyHo.jpg");
     SaSTRM_l.Ji.KiCho__MzPo(SaSTRM_l, 1, "WEBCAM 0");
     SaSTRM_l.Ji.KiCho__PePo(SaSTRM_l, 2, "Mx01__SuKz_MEDIA/SuKz02_JaPo__PICT/JaPo04__Jirafe.mp4");
   },
-  8397688: $0 => {
-    const LAYER_Gz_wuk = 0;
-    const SaGLF_l = Ko.SySmz_v[SyVx.GLF_qk];
+  8398026: $0 => {
     const SaWG_l = Ko.SySmz_v[SyVx.WG_qk];
     const SaSTRM_l = Ko.SySmz_v[SyVx.STRM_qk];
+    const LAYER_Gz_wuk = 0;
+    const SaGLF_l = Ko.SySmz_v[SyVx.GLF_qk];
     SaGLF_l.Ji.Hre7_Me__KeDru_Ha(SaGLF_l, "👽| Usr: " + "jkv", 0, 0);
     SaGLF_l.Ji.Hre7_Me__KeDru_Ha(SaGLF_l, "👾| Ye: " + Ko.YeWi_df.toFixed(1) + "ms", 0, 64);
     SaGLF_l.Ji.Hre7_Me__KeDru_Ha(SaGLF_l, "🛸| Evt: " + Ko.YeFo_wu, 0, 128);
@@ -3625,7 +3644,7 @@ var ASM_CONSTS = {
       SaWG_l.Ji.KiCho_JaKz(SaWG_l, 0, 512, LAYER_Gz_wuk, 450, 450, Ko.SuKz_v[0]);
       SaSTRM_l.Ji.SuKz__Yi(SaSTRM_l, 0);
     }
-    if ((Ko.SuKz_v[1] instanceof HTMLVideoElement) && (Ko.SuKz_v[1].Kwy_wu > 0)) {
+    if ((Ko.SuKz_v[1] instanceof HTMLVideoElement) && (Ko.SuKz_v[1].Kwy_wu)) {
       SaWG_l.Ji.KiCho_JaKz(SaWG_l, 512, 512, LAYER_Gz_wuk, 480, 480, Ko.SuKz_v[1]);
     }
     let Kwy_wu = $0;

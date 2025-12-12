@@ -114,11 +114,11 @@ async function startPayment()
 }
 
 //-------------------------------------------------
-DoPAY.Mo = function( Sa_l, Jy_k, Mo_l )
+DoPAY.Mo = async function( Sa_l, Jy_k, Mo_l )
 //-------------------------------------------------
 {
 
-//	await startPayment();
+	await startPayment();
 
 }
 

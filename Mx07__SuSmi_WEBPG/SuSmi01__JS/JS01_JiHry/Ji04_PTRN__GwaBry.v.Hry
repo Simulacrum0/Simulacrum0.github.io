@@ -1,0 +1,23 @@
+//-------------------------------------------------
+// WGSL_Ya
+//-------------------------------------------------
+
+@compute @workgroup_size( WzGy_wuk, WzGy_wuk )
+fn JiHry( @builtin( global_invocation_id ) Wz_wu3: vec3u )
+{
+	let Se__Gy_wu2 = vec2u( 512, 512 );
+	if( ( Wz_wu3.x >= Se__Gy_wu2.x ) || ( Wz_wu3.y >= Se__Gy_wu2.y ) ){ return; }
+
+	let Se__Ge_wu3 = vec3u( 0, 0, 0 );
+	let SePo_wf4 = vec4f( 1.0, 1.0, 0.0, 1.0 );
+
+//	textureLoad( SePo_k, Se__Ge_wu3.xy + Wz_wu3.xy, Se__Ge_wu3.z, SePo_wf4 );
+
+
+
+	textureStore( SePo_k, Se__Ge_wu3.xy + Wz_wu3.xy, Se__Ge_wu3.z, SePo_wf4 );
+}
+
+//-------------------------------------------------
+// WGSL_Yi
+//-------------------------------------------------

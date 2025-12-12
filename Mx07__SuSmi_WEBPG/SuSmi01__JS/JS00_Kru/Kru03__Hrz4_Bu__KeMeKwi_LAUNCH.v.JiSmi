@@ -60,7 +60,7 @@ function KeMeKwi()
 
 	// BG
 //	Sx_l.fillStyle = "#6666CC";
-	Sx_l.fillStyle = "#FFFFFF";
+	Sx_l.fillStyle = "#EEEEFF";
 
 	Sx_l.fillRect(0, 0, MxPo_Kwa_l.width, MxPo_Kwa_l.height );
 

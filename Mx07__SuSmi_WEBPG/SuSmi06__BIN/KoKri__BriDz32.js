@@ -3429,24 +3429,43 @@ var ASM_CONSTS = {
     }
   },
   73945: () => {
+    KoDz__YoChyDry();
+  },
+  73967: () => {
     MoDzTrx("TEST BAD BUILD as ERROR");
   },
-  73987: () => {},
-  73991: () => {
+  74009: () => {
+    const SaPAY_l = Ko.SySmz_v[SyVx.PAY_qk];
+    DoPAY.Mo(SaPAY_l, 0, 0);
+  },
+  74083: () => {
+    const SaSHAR_l = Ko.SySmz_v[SyVx.SHAR_qk];
+    DoSHAR.Mo(SaSHAR_l, 0, 0);
+  },
+  74161: () => {
+    const SaPAY_l = Ko.SySmz_v[SyVx.PAY_qk];
+    DoPAY.Mo(SaPAY_l, 0, 0);
+  },
+  74235: () => {
+    const SaPAY_l = Ko.SySmz_v[SyVx.PAY_qk];
+    DoPAY.Mo(SaPAY_l, 0, 0);
+  },
+  74309: () => {},
+  74313: () => {
     console.log("MC: HrySmz__BriYa");
   },
-  74031: () => {},
-  74035: () => {
+  74353: () => {},
+  74357: () => {
     const SaSTRM_l = Ko.SySmz_v[SyVx.STRM_qk];
     SaSTRM_l.Ji.KiCho__JaPo(SaSTRM_l, 0, "Mx01__SuKz_MEDIA/SuKz02_JaPo__PICT/JaPo00__FyHo.jpg");
     SaSTRM_l.Ji.KiCho__MzPo(SaSTRM_l, 1, "WEBCAM 0");
     SaSTRM_l.Ji.KiCho__PePo(SaSTRM_l, 2, "Mx01__SuKz_MEDIA/SuKz02_JaPo__PICT/JaPo04__Jirafe.mp4");
   },
-  74328: $0 => {
-    const LAYER_Gz_wuk = 0;
-    const SaGLF_l = Ko.SySmz_v[SyVx.GLF_qk];
+  74650: $0 => {
     const SaWG_l = Ko.SySmz_v[SyVx.WG_qk];
     const SaSTRM_l = Ko.SySmz_v[SyVx.STRM_qk];
+    const LAYER_Gz_wuk = 0;
+    const SaGLF_l = Ko.SySmz_v[SyVx.GLF_qk];
     SaGLF_l.Ji.Hre7_Me__KeDru_Ha(SaGLF_l, "👽| Usr: " + "jkv", 0, 0);
     SaGLF_l.Ji.Hre7_Me__KeDru_Ha(SaGLF_l, "👾| Ye: " + Ko.YeWi_df.toFixed(1) + "ms", 0, 64);
     SaGLF_l.Ji.Hre7_Me__KeDru_Ha(SaGLF_l, "🛸| Evt: " + Ko.YeFo_wu, 0, 128);
@@ -3460,7 +3479,7 @@ var ASM_CONSTS = {
       SaWG_l.Ji.KiCho_JaKz(SaWG_l, 0, 512, LAYER_Gz_wuk, 450, 450, Ko.SuKz_v[0]);
       SaSTRM_l.Ji.SuKz__Yi(SaSTRM_l, 0);
     }
-    if ((Ko.SuKz_v[1] instanceof HTMLVideoElement) && (Ko.SuKz_v[1].Kwy_wu > 0)) {
+    if ((Ko.SuKz_v[1] instanceof HTMLVideoElement) && (Ko.SuKz_v[1].Kwy_wu)) {
       SaWG_l.Ji.KiCho_JaKz(SaWG_l, 512, 512, LAYER_Gz_wuk, 480, 480, Ko.SuKz_v[1]);
     }
     let Kwy_wu = $0;

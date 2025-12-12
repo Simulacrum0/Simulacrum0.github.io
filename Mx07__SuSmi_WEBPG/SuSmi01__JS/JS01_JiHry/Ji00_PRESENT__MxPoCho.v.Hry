@@ -1,0 +1,28 @@
+//-------------------------------------------------
+// WGSL_Ya
+//-------------------------------------------------
+
+@compute @workgroup_size( WzGy_wuk, WzGy_wuk )
+fn JiHry( @builtin(global_invocation_id) Wz_wu3: vec3u )
+{
+	let MxPo__Ve_wu2 = textureDimensions( MxPo_k );
+	if( ( Wz_wu3.x >= MxPo__Ve_wu2.x ) || ( Wz_wu3.y >= MxPo__Ve_wu2.y ) ){ return; }
+
+	let SiMy_wf2 = vec2f( vec2u( Wz_wu3.x, MxPo__Ve_wu2.y - Wz_wu3.y ) );
+
+	// RG, B, A
+	// let JaMy_wf2 = vec2f( fract( SiMy_wf2 / 1024.0 ) * 1024.0 );
+	let JaMy_wu2 = vec2u( fract( SiMy_wf2 / 1024.0 ) * 1024.0 );
+
+	let Brz_wu = 0;
+
+	// let MePo_wf4 = textureBias( JaPo_k, JaKro_k, JaMy_wf2, 0 );
+	let MePo_wf4 = textureLoad( JaPo_k, JaMy_wu2, 0, Brz_wu );
+
+	// CANVAS EXPORT
+	textureStore( MxPo_k, Wz_wu3.xy, MePo_wf4 );
+}
+
+//-------------------------------------------------
+// WGSL_Yi
+//-------------------------------------------------

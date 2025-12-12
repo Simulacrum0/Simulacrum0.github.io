@@ -41,6 +41,10 @@ function KoDz__YzTrx_y()
 	return ( Ko.Yz_q === BriYz.Trx_qk );
 }
 
+function KoDz__YzYe_y()
+{
+	return ( Ko.Yz_q === BriYz.Ye_qk );
+}
 
 //==============================================
 // CONTENT_LOAD
@@ -306,10 +310,9 @@ function KoDz__Ye( Gi )
 
 //=====================================
 // IFRAME EXPERIMENTS
-// NotApplicable
+// NotApplicable via CORS
 //=====================================
 /*
-
 var SmeKz_l = document.createElement("iframe");
 SmeKz_l.id = "LNK"
 SmeKz_l.class = "SmeKz"
@@ -322,8 +325,6 @@ SmeKz_l.src = "WzSme.html";
 
 document.body.appendChild( SmeKz_l );
 */
-
-
 		/* .SmeKz
 		{
 			display: block;

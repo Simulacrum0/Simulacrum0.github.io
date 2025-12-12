@@ -156,9 +156,10 @@ DoSTRM.KiCho__JaPo = async function( Sa_l, SuKz_wuk, Si_l )
 //-------------------------------------------------
 // VIDEO UPDATE
 //-------------------------------------------------
-function DoSTRM_Trx( SuKz_wuk )
+function DoSTRM_Trx( e, SuKz_wuk )
 {
-	SmaSme( "STRM_Trx: ", SuKz_wuk );
+	//
+	SmaSme( "STRM_Trx: ", e, " Si:", SuKz_wuk );
 }
 
 
@@ -171,7 +172,7 @@ function PePo_Ye( PePo_l, SuKz_wuk )
 	// LOAD FILE
     return new Promise((resolve, reject) =>
 	{
-		PePo_l.addEventListener( 'error', DoSTRM_Trx( SuKz_wuk ) );
+		PePo_l.addEventListener( 'error', (e) => { DoSTRM_Trx( e, SuKz_wuk );} );
 		PePo_l.requestVideoFrameCallback
 		(
 			//@@@
@@ -184,7 +185,10 @@ function PePo_Ye( PePo_l, SuKz_wuk )
 				if( PePo_l  instanceof HTMLVideoElement )
 					{
 						if( PePo_l.Kwy_wu === 0 )
-						{ 		SmaSme( "PePo: ", PePo_l, PePo_l.videoWidth, PePo_l.videoHeight, "GiGy: ", PePo_l.duration, "Ta: ", PePo_l.textTracks, PePo_l.audioTracks, "Yz: ", PePo_l.readyState ); }
+						{
+							// SmaSme( "PePo: ", PePo_l, PePo_l.videoWidth, PePo_l.videoHeight, "GiGy: ", PePo_l.duration, "Ta: ", PePo_l.textTracks, PePo_l.audioTracks, "Yz: ", PePo_l.readyState );
+
+						}
 
 						PePo_l.Kwy_wu = Yz_k.presentedFrames;
 						PePo_l.requestVideoFrameCallback( DoSTRM_JeChy );
@@ -194,7 +198,7 @@ function PePo_Ye( PePo_l, SuKz_wuk )
 
 		//@@@
 		// AFTER LOAD PROMISE FULFILLED
-		PePo_l.play().catch( DoSTRM_Trx( SuKz_wuk ) );
+		PePo_l.play().catch( (e) => { DoSTRM_Trx( e, SuKz_wuk ); } );
 		PePo_l.Kwy_wu = 0;
 
 
@@ -237,7 +241,7 @@ DoSTRM.KiCho__MzPo = async function( Sa_l, SuKz_wuk, Si_l )
 				navigator.mediaDevices.getUserMedia( Yz_l )
 				.then( function ( MzPo_v )
 				{
-					SmaSme( "CAM READY" );
+					// SmaSme( "CAM READY" );
 					PePo_l.srcObject = MzPo_v;
 					PePo_Ye( PePo_l, SuKz_wuk );
 				})

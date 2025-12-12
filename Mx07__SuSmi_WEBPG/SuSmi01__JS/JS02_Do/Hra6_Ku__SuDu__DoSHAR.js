@@ -99,7 +99,7 @@ DoSHAR.BriYa = function( Yz_k )
 	  if (canBrowserShareData(sharedDataSample))
 		{
 		// Enable the share button in the UI.
-		SmaSme( "SHARING ALLOWED" );
+		// SmaSme( "SHARING ALLOWED" );
 	  }
 	  else
 	{
@@ -112,11 +112,29 @@ DoSHAR.BriYa = function( Yz_k )
 
 
 //-------------------------------------------------
-DoSHAR.Mo = function( Sa_l, Jy_k, Mo_l )
+DoSHAR.Mo = async function( Sa_l, Jy_k, Mo_l )
 //-------------------------------------------------
 {
 
-	
+	const sharedDataSample =
+	{
+	  title: "Some text title",
+	  text: "More text",
+	  url: "A url we want to share",
+	};
+
+	SmaSme( "SHARING TEXT" );
+
+	try {
+		await navigator.share( sharedDataSample );
+		// The data was shared successfully.
+	  } catch (e) {
+		// The data could not be shared.
+		console.error(`Error: ${e}`);
+	  }
+
+	SmaSme( "SHARING DONE" );
+
 }
 
 
