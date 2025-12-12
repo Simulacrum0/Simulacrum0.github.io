@@ -9,13 +9,21 @@ fn JiHry( @builtin( global_invocation_id ) Wz_wu3: vec3u )
 	if( ( Wz_wu3.x >= Se__Gy_wu2.x ) || ( Wz_wu3.y >= Se__Gy_wu2.y ) ){ return; }
 
 	let Se__Ge_wu3 = vec3u( 0, 0, 0 );
-	let SePo_wf4 = vec4f( 1.0, 1.0, 0.0, 1.0 );
-
-//	textureLoad( SePo_k, Se__Ge_wu3.xy + Wz_wu3.xy, Se__Ge_wu3.z, SePo_wf4 );
+	let NuPo_wf4 = vec4f( 1.0, 1.0, 0.0, 1.0 );
 
 
 
-	textureStore( SePo_k, Se__Ge_wu3.xy + Wz_wu3.xy, Se__Ge_wu3.z, SePo_wf4 );
+	let SiMy_wf2 = vec2f( vec2u( Wz_wu3.x, Wz_wu3.y ) );
+
+	let JaMy_wu2 = vec2u( fract( SiMy_wf2 / 1024.0 ) * 1024.0 );
+
+	let Brz_wu = 0;
+
+	// let MePo_wf4 = textureBias( JaPo_k, JaKro_k, JaMy_wf2, 0 );
+	let SePo_wf4 = textureLoad( JaPo_k, JaMy_wu2, 0, Brz_wu );
+
+
+	textureStore( SePo_k, Se__Ge_wu3.xy + Wz_wu3.xy, Se__Ge_wu3.z, mix( NuPo_wf4, SePo_wf4, vec4f( 0.5 ) ) );
 }
 
 //-------------------------------------------------
