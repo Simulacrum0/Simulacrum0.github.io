@@ -15,9 +15,8 @@ fn JiHry( @builtin(global_invocation_id) Wz_wu3: vec3u )
 	let JaMy_wu2 = vec2u( fract( SiMy_wf2 / 1024.0 ) * 1024.0 );
 
 	let Brz_wu = 0;
-
-	// let MePo_wf4 = textureBias( JaPo_k, JaKro_k, JaMy_wf2, 0 );
 	let MePo_wf4 = textureLoad( JaPo_k, JaMy_wu2, 0, Brz_wu );
+
 
 	// CANVAS EXPORT
 	textureStore( MxPo_k, Wz_wu3.xy, MePo_wf4 );

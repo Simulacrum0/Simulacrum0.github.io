@@ -162,7 +162,7 @@ async function ToKz__JSON_v( ChaKuTu_vbg, ToKzVa_vbg )
 		const json = await res.json();
 		return json;
 	}
-	catch ( err )
+	catch( err )
 	{
 		SmaTrx( `FileRead_Error: ${err}` );
 	}

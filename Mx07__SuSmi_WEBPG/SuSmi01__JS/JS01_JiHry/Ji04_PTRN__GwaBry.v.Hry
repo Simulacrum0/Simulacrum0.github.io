@@ -23,7 +23,7 @@ fn JiHry( @builtin( global_invocation_id ) Wz_wu3: vec3u )
 	let SePo_wf4 = textureLoad( JaPo_k, JaMy_wu2, 0, Brz_wu );
 
 
-	textureStore( SePo_k, Se__Ge_wu3.xy + Wz_wu3.xy, Se__Ge_wu3.z, mix( NuPo_wf4, SePo_wf4, vec4f( 0.5 ) ) );
+	textureStore( SePo_k, Se__Ge_wu3.xy + Wz_wu3.xy, Se__Ge_wu3.z, mix( NuPo_wf4, SePo_wf4, select( vec4f( 0.7 ), vec4f( 0.3 ), bool( Wz_wu3.x & 16 ))  ) );
 }
 
 //-------------------------------------------------

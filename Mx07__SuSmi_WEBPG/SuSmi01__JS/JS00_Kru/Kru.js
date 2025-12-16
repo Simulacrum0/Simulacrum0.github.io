@@ -1,4 +1,4 @@
-const BriDzSa__Da_vsg = "PUB_v0.107"; 
+const BriDzSa__Da_vsg = "PUB_v0.108"; 
  const BriDz__Mx_KuTu_vsg = "https://powerourpeople.com/"; 
 
 //==============================================
@@ -630,7 +630,7 @@ async function ToKz__JSON_v( ChaKuTu_vbg, ToKzVa_vbg )
 		const json = await res.json();
 		return json;
 	}
-	catch ( err )
+	catch( err )
 	{
 		SmaTrx( `FileRead_Error: ${err}` );
 	}
@@ -1240,7 +1240,7 @@ async function Hrz7_Kru__ChaSySmz( SyTu_vsg, VaDy_vsg, SyJy_vsg, ToKz_vsg, SySmz
 
 		//$$$
 		// LOG
-		SmaSme( "[SERV] Cha_", SyVx_wuk, ": ", Sy_l.Ji.VaSy, " = ", Sy_l, "KoYz ", Ko.Yz_q );
+		SmaSme( "[ SERV", SyVx_wuk, " ]: ", Sy_l.Ji.VaSy, " = ", Sy_l, "KoYz ", Ko.Yz_q );
 
 		//$$$
 		// OBJ_REPORT
