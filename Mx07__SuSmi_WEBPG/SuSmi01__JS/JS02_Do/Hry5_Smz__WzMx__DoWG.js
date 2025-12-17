@@ -663,7 +663,7 @@ DoWG.BriYa = async function( Yz_l )
 			 , KaTy__SUBGRP_yk ? 'subgroups' : undefined
 
 			//, KaTy__TFMT2_yk ? 'texture-formats-tier2' : undefined
-			//  , KaTy__RWTEX_yk ? 'readonly_and_readwrite_storage_textures' : undefined
+			// , KaTy__RWTEX_yk ? 'readonly_and_readwrite_storage_textures' : undefined
 			//, KaTy__HDR_yk ? 'rg11b10ufloat-renderable' : undefined
 
 			//, KaTy__WG2_yk ? 'pipeline-statistics-query' : undefined
@@ -784,11 +784,12 @@ DoWG.BriYa = async function( Yz_l )
 		for( ; GzKri_wu >= 0; GzKri_wu-- )
 			{
 				// 8K MAX = 1<13
-				const TiGy_wuk = 8192;
+				const TiGy_wuk = 4096;
 				// 256 Layers: MAX
 				// 1 << 10 => MAX (Sample down to 8x8)
-				const BrzFo_wuk = 10;
+				const BrzFo_wuk = 8;
 				//const GzFo_wuk = 1 << GzKri_wu;
+				// MEM FAIL on Mobile:
 				const GzFo_wuk = GzKri_wu;
 
 			SmaSme( "TiGy_wuk ---> ", TiGy_wuk, BrzFo_wuk, ", GzKri_wu: ", GzKri_wu, GzFo_wuk );
@@ -839,7 +840,7 @@ DoWG.BriYa = async function( Yz_l )
 	({
 		label: 'WORK deck',
 		dimension: '2d',
-		size: [ 4096, 4096, 4 ], mipLevelCount: 1,
+		size: [ 4096, 4096, 1 ], mipLevelCount: 1,
 		format: 'rgba8unorm',
 		sampleCount: 1,
 		usage:
