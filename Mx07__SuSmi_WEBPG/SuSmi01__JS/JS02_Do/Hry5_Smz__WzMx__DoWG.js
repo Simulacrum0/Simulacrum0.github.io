@@ -494,7 +494,7 @@ DoWG.KiCho_ChyGe = function( Sa_l, SiGeGx_wuk, SiGeGa_wuk, SiGeGz_wuk, DuGyGx_wu
 //==============================================
 //==============================================
 
-function saveBlobAsFile(blob, filename)
+async function saveBlobAsFile(blob, filename)
 {
     const a = document.createElement('a');
     a.href = URL.createObjectURL(blob);
@@ -1631,22 +1631,24 @@ m_queue.writeBuffer(m_uniformBuffer, m_uniformStride, &uniforms, sizeof(uniforms
 		{
 			const MyTo_v = Sa_l.MyTo__TaJx_l.getMappedRange( GeZo_wuk, MyFo_wu );
 			SmaSme( "MyTo__Fo", MyTo_v.byteLength );
-			
-						// ITER SECTIONS
-						const Ku_l = Sa_l.TxCho__TraJaKu_v[ 0 ];
 
-			const PoTi_v = new Uint8ClampedArray( MyTo_v );
-			const imageData = new ImageData( PoTi_v, Ku_l.GeGx_wu, Ku_l.GeGa_wu );
-			Sa_l.MyTo__TaJx_l.unmap();
+			// ITER SECTIONS
+			const Ku_l = Sa_l.TxCho__TraJaKu_v[ 0 ];
+
+			let PoTi_v = new Uint8ClampedArray( MyTo_v );
+			let imageData = new ImageData( PoTi_v, Ku_l.GyGx_wu, Ku_l.GyGa_wu );
 
 			// SAVE BUF to FILE
 			const SaGLF_l = Ko.SySmz_v[ SyVx.GLF_qk ];
 
 			SaGLF_l.SxHry_l.putImageData(imageData, 0, 0 );
 
-			Sa_l.WzPo_l.toBlob((blob) =>{ saveBlobAsFile(blob, 'TSTBLOB.jpg'); }, 'image/jpeg' );
+			// image/webp
+			const blob = await SaGLF_l.WzPo_l.convertToBlob( { type: 'image/jpeg', quality: 0.67 } );
+			saveBlobAsFile( blob, 'TSTBLOB.jpg');
 
 			// SIGNAL we're clear
+			Sa_l.MyTo__TaJx_l.unmap();
 			imageData = null;
 			PoTi_v = null;
 			Sa_l.TxCho__TraJaKu_v = [];
