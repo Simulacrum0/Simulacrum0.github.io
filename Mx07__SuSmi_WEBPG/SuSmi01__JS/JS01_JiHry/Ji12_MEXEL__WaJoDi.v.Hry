@@ -58,19 +58,21 @@ fn normal(p: vec3f) -> vec3f {
 }
 
 @compute @workgroup_size( WzGy_wuk, WzGy_wuk )
-
 fn JiHry( @builtin( global_invocation_id ) Wz_wu3: vec3u )
 {
 	let Se__Gy_wu2 = vec2u( 512, 512 );
 	if( ( Wz_wu3.x >= Se__Gy_wu2.x ) || ( Wz_wu3.y >= Se__Gy_wu2.y ) ){ return; }
 
-
-    let uv = (2.*(vec2f(Wz_wu3.xy) + .5) - vec2f(res)) / f32(res.y);
+	let Se__Ge_wu3 = vec3u( 0, 0, 0 );
+    let uv = (2.*(vec2f(Wz_wu3.xy) + .5) - vec2f( Se__Gy_wu2 )) / f32(Se__Gy_wu2.y);
 
     var ro = vec3f(0, 0, 4); // Coordinate system: X→, Y↑, Z⊙
-    var rd = normalize(vec3f(uv, -2*mouse.zoom));
-    ro = rotM(ro, 0.32 );
-    rd = rotM(rd, 0.42 );
+    var rd = normalize(vec3f(uv, -2 ));
+
+	let Go_wf2 = vec2f( 0.32, 0.42 );
+
+    ro = rotM(ro, Go_wf2 );
+    rd = rotM(rd, Go_wf2 );
 
     let p = march(ro, rd);
     let n = normal(p);
@@ -79,12 +81,11 @@ fn JiHry( @builtin( global_invocation_id ) Wz_wu3: vec3u )
     let bg = vec3f(0);
     var col = vec3f(n*.5+.5);
     col = mix(col, bg, map(p));
-    textureStore(screen, vec2u(Wz_wu3.x, res.y-1-Wz_wu3.y), vec4f(col, 1.));
+
+
+    textureStore( SePo_k, vec2u( Wz_wu3.x + Se__Gy_wu2.x, Se__Gy_wu2.y-1-Wz_wu3.y + Se__Gy_wu2.y ), Se__Ge_wu3.z, vec4f(col, 1.) );
 }
 
-{
-
-}
 
 //-------------------------------------------------
 // WGSL_Yi
