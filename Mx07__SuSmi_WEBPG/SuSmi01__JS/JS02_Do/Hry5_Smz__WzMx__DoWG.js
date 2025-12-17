@@ -277,7 +277,7 @@ DoWG.GyHa = function( Sa_l )
 //==============================================
 // CLONE PROG
 //==============================================
-DoWG.KiCho_JiJa = function( Sa_l )
+DoWG.KiCho_JiJa = async function( Sa_l )
 {
 	if( KoDz__YzTrx_y() ) return;
 	SmaSme( "DoWG JiJa: CLONE PROG" );
@@ -285,21 +285,21 @@ DoWG.KiCho_JiJa = function( Sa_l )
 
 	// SAVE SHADER PRECOMPILED
 	// // Check for shader cache support
-	// if (device.features.has('pipeline-cache')) {
+	// if (KaSmz_l.features.has('pipeline-cache')) {
 		//   // Get cached shader binary if available
 		//   const cachedShader = await caches.match('/shaders/particle.wgsl.bin');
 
 		//   if (cachedShader) {
 //     // Use pre-compiled binary shader
 //     const binaryData = await cachedShader.arrayBuffer();
-//     const pipeline = device.createRenderPipelineWithBinary(binaryData);
+//     const pipeline = KaSmz_l.createRenderPipelineWithBinary(binaryData);
 //   } else {
 	//     // Compile and cache for future use
-	//     const shader = device.createShaderModule({
+	//     const shader = KaSmz_l.createShaderModule({
 //       code: particleShaderCode
 //     });
 
-//     const pipeline = device.createRenderPipeline({
+//     const pipeline = KaSmz_l.createRenderPipeline({
 	//       vertex: { module: shader, entryPoint: 'vertexMain' },
 	//       fragment: { module: shader, entryPoint: 'fragmentMain' },
 	//       // Other pipeline settings...
@@ -352,7 +352,7 @@ DoWG.KiCho_JxRe = function( Sa_l )
 
 	//@@@
 	// // Create a buffer with direct memory mapping
-	//   const buffer = device.createBuffer({
+	//   const buffer = KaSmz_l.createBuffer({
 	// 	  size: 1024 * 1024 * 16, // 16MB
 	// 	  usage: GPUBufferUsage.STORAGE | GPUBufferUsage.COPY_DST,
 	// 	  mappedAtCreation: true,
@@ -494,6 +494,16 @@ DoWG.KiCho_ChyGe = function( Sa_l, SiGeGx_wuk, SiGeGa_wuk, SiGeGz_wuk, DuGyGx_wu
 //==============================================
 //==============================================
 
+function saveBlobAsFile(blob, filename)
+{
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+}
+
 //==============================================
 // EXPORT TIMESTAMP
 //==============================================
@@ -518,12 +528,14 @@ DoWG.TxCho_JxRe = function( Sa_l )
 //==============================================
 // EXPORT: SIGNAL
 //==============================================
-DoWG.TxCho_JaKu = function( Sa_l )
+DoWG.TxCho_JaKu = function( Sa_l, Brz_wu, GeGx_wu, GeGa_wu, GeGz_wu, GyGx_wu, GyGa_wu )
 {
 	if( KoDz__YzTrx_y() ) return;
 	SmaSme( "DoWG_TxCho_JaKu EXPORT FORM" );
 
 
+	if( Sa_l.TxCho__TraJaKu_v.length ) return;
+	Sa_l.TxCho__KriJaKu_v.push({ Brz_wu, GeGx_wu, GeGa_wu, GeGz_wu, GyGx_wu, GyGa_wu });
 }
 
 //==============================================
@@ -544,6 +556,9 @@ DoWG.BriYi = function( Sa_l )
 	Sa_l.DuPo__TaGwa_l = null;
 	Sa_l.WzPo__TaGwa_l = null;
 
+
+	Sa_l.TxCho__KriJaKu_v = null;
+	Sa_l.TxCho__TraJaKu_v = null;
 
 	Sa_l.KaSmz_l = null;
 	Sa_l.KaKy_l = null;
@@ -593,6 +608,13 @@ DoWG.BriYa = async function( Yz_l )
 	{
 		TaJiHry_vh[ Vx_wu ] = Hrz7_Kru__ToKz_vsg( "Mx07__SuSmi_WEBPG/SuSmi01__JS/JS01_JiHry/", Ti_v.Va_vsg + ".v.Hry" );
 	});
+
+	//-------------------------------------------------
+	// REQUESTS
+	//-------------------------------------------------
+	Sa_l.TxCho__KriJaKu_v = [];
+	Sa_l.TxCho__TraJaKu_v = [];
+
 
 
 	//-------------------------------------------------
@@ -769,6 +791,17 @@ DoWG.BriYa = async function( Yz_l )
 	// BUF
 	//-------------------------------------------------
 
+	const MyTo__Ve_wuk = 4096;
+
+	const MyTo__TaJx_l = KaSmz_l.createBuffer
+	({
+			label: "MyTo__TaJx_l"
+			, usage: GPUBufferUsage.COPY_DST | GPUBufferUsage.MAP_READ
+			, size: 4 * MyTo__Ve_wuk * MyTo__Ve_wuk
+		})
+
+	if( MoDzTrx__NxHo_y( "MyTo__TaJx_l", MyTo__TaJx_l )){ return null; }
+	Sa_l.MyTo__TaJx_l = MyTo__TaJx_l;
 
 
 	//-------------------------------------------------
@@ -800,7 +833,7 @@ DoWG.BriYa = async function( Yz_l )
 
 			DuPo__TaGwa_l = Sa_l.KaSmz_l.createTexture
 			({
-				label: 'CLR deck'
+				label: 'DuPo__TaGwa_l'
 				// Not 2d-array!
 				, dimension: '2d'
 				, size: [ TiGy_wuk, TiGy_wuk, GzFo_wuk ]
@@ -830,7 +863,7 @@ DoWG.BriYa = async function( Yz_l )
 
 		SmaSme( "DuPo__TaGwa_l @ ", ( 1<<GzKri_wu ), DuPo__TaGwa_l );
 
-		if( MoDzTrx__NxHo_y( "CLR Deck FAILED", DuPo__TaGwa_l )){ return null; }
+		if( MoDzTrx__NxHo_y( "DuPo__TaGwa_l FAILED", DuPo__TaGwa_l )){ return null; }
 		// Set Always
 		Sa_l.DuPo__TaGwa_l = DuPo__TaGwa_l;
 	}
@@ -838,9 +871,9 @@ DoWG.BriYa = async function( Yz_l )
 
 	const WzPo__TaGwa_l = Sa_l.KaSmz_l.createTexture
 	({
-		label: 'WORK deck',
+		label: 'WzPo__TaGwa_l',
 		dimension: '2d',
-		size: [ 4096, 4096, 1 ], mipLevelCount: 1,
+		size: [ 4096, 4096, 2 ], mipLevelCount: 1,
 		format: 'rgba8unorm',
 		sampleCount: 1,
 		usage:
@@ -851,7 +884,7 @@ DoWG.BriYa = async function( Yz_l )
 			| GPUTextureUsage.RENDER_ATTACHMENT
 	});
 
-	if( MoDzTrx__NxHo_y( "WORK Deck", WzPo__TaGwa_l )){ return null; }
+	if( MoDzTrx__NxHo_y( "WzPo__TaGwa_l", WzPo__TaGwa_l )){ return null; }
 	Sa_l.WzPo__TaGwa_l = WzPo__TaGwa_l;
 
 
@@ -1369,7 +1402,7 @@ DoWG.BriYo = function( Sa_l )
 //==============================================
 // SESSION UPDATE
 //==============================================
-DoWG.BriYe = function( Sa_l, GiDri_duk  )
+DoWG.BriYe = async function( Sa_l, GiDri_duk  )
 {
 	//@@@
 	// UPD if active
@@ -1423,7 +1456,6 @@ uniforms.color = { 1.0f, 1.0f, 1.0f, 0.7f };
 m_queue.writeBuffer(m_uniformBuffer, m_uniformStride, &uniforms, sizeof(uniforms));
 
 */
-
 
 
 	//@@@
@@ -1560,30 +1592,68 @@ m_queue.writeBuffer(m_uniformBuffer, m_uniformStride, &uniforms, sizeof(uniforms
 
 	//@@@
 	// DNLOAD
-/*
-	const texture = getTheRenderedTexture()
+	if( ( Sa_l.TxCho__KriJaKu_v.length > 0 ) && ( Sa_l.TxCho__TraJaKu_v.length === 0 ) )
+	{
+		//&&&
+		// XFER Req to Use
+		Sa_l.TxCho__TraJaKu_v = Sa_l.TxCho__KriJaKu_v;
+		Sa_l.TxCho__KriJaKu_v = [];
 
-	const readbackBuffer = device.createBuffer({
-	  usage: GPUBufferUsage.COPY_DST | GPUBufferUsage.MAP_READ,
-	  size: 4 * textureWidth * textureHeight,
-	})
+		// FILL MyTo__TaJx_l
+		// then READ
+		let MyFo_wu = 0;
+		const MoKro_l = KaSmz_l.createCommandEncoder()
 
-	const encoder = device.createCommandEncoder()
-	encoder.copyTextureToBuffer(
-	  { texture },
-	  { buffer, rowPitch: textureWidth * 4 },
-	  [textureWidth, textureHeight],
-	)
-	device.submit([encoder.finish()])
+		Sa_l.TxCho__TraJaKu_v.forEach
+		( function( Ku_l, Vx_wu )
+		{
+			const ChoFo_wuk = ( 4 * Ku_l.GyGx_wu * Ku_l.GyGa_wu );
 
-	await buffer.mapAsync(GPUMapMode.READ, ofs, len )
+			SmaSme( "SCRNSHOT[", Vx_wu, "] Lv"
+				, Ku_l.Brz_wu, " = ", Ku_l.GeGx_wu, Ku_l.GeGa_wu, Ku_l.GeGz_wu, "@",  Ku_l.GyGx_wu, Ku_l.GyGa_wu  );
 
-	// if( buffer.mapState === "mapped" )
+			MoKro_l.copyTextureToBuffer
+			(
+				{ texture: Sa_l.DuPo__TaGwa_l, mipLevel: Ku_l.Brz_wu, origin: [ Ku_l.GeGx_wu, Ku_l.GeGa_wu, Ku_l.GeGz_wu ] }
+				//
+				, { buffer: Sa_l.MyTo__TaJx_l, offset: MyFo_wu, bytesPerRow: 4 * 256, rowsPerImage: 256 }
+				, { width: Ku_l.GyGx_wu, height: Ku_l.GyGa_wu, depthOrArrayLayers: 1 }
+			);
 
-	// getMappedRange(offset, size)
-	saveScreenshot(buffer.getMappedRange())
-	buffer.unmap()
-*/
+			MyFo_wu += ChoFo_wuk;
+		}); // for ALL READS
+
+		KaSmz_l.queue.submit([MoKro_l.finish()]);
+
+		const GeZo_wuk = 0;
+		await Sa_l.MyTo__TaJx_l.mapAsync( GPUMapMode.READ, GeZo_wuk, MyFo_wu );
+		if( Sa_l.MyTo__TaJx_l.mapState === "mapped" )
+		{
+			const MyTo_v = Sa_l.MyTo__TaJx_l.getMappedRange( GeZo_wuk, MyFo_wu );
+			SmaSme( "MyTo__Fo", MyTo_v.byteLength );
+			
+						// ITER SECTIONS
+						const Ku_l = Sa_l.TxCho__TraJaKu_v[ 0 ];
+
+			const PoTi_v = new Uint8ClampedArray( MyTo_v );
+			const imageData = new ImageData( PoTi_v, Ku_l.GeGx_wu, Ku_l.GeGa_wu );
+			Sa_l.MyTo__TaJx_l.unmap();
+
+			// SAVE BUF to FILE
+			const SaGLF_l = Ko.SySmz_v[ SyVx.GLF_qk ];
+
+			SaGLF_l.SxHry_l.putImageData(imageData, 0, 0 );
+
+			Sa_l.WzPo_l.toBlob((blob) =>{ saveBlobAsFile(blob, 'TSTBLOB.jpg'); }, 'image/jpeg' );
+
+			// SIGNAL we're clear
+			imageData = null;
+			PoTi_v = null;
+			Sa_l.TxCho__TraJaKu_v = [];
+		}
+
+	}// if DNLOAD
+
 
 	//@@@
 	// CLEANUP

@@ -1,4 +1,4 @@
-const BriDzSa__Da_vsg = "PUB_v0.110"; 
+const BriDzSa__Da_vsg = "PUB_v0.111"; 
  const BriDz__Mx_KuTu_vsg = "https://powerourpeople.com/"; 
 
 //==============================================
@@ -945,7 +945,7 @@ function KeMeTrx()
 	const TrxBz_k = document.getElementById('TrxBz');
 	const TrxKa_k = document.getElementById('TrxKa');
 
-	TrxBz_k.innerText = KoKeDru.TrxBz_vsg;
+	TrxBz_k.innerText = KoKeDru.TrxBz_vsg + BriDzSa__Da_vsg;
 	TrxKa_k.innerText = Module.Trx_vsg;
 }
 

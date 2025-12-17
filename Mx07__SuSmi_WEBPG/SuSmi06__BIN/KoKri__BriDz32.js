@@ -3442,26 +3442,24 @@ var ASM_CONSTS = {
     const SaSHAR_l = Ko.SySmz_v[SyVx.SHAR_qk];
     DoSHAR.Mo(SaSHAR_l, 0, 0);
   },
-  74161: () => {
-    const SaPAY_l = Ko.SySmz_v[SyVx.PAY_qk];
-    DoPAY.Mo(SaPAY_l, 0, 0);
+  74161: () => {},
+  74165: () => {
+    const SaWG_l = Ko.SySmz_v[SyVx.WG_qk];
+    const Brz_wuk = 0;
+    DoWG.TxCho_JaKu(SaWG_l, Brz_wuk, 0, 0, 0, 256, 256);
   },
-  74235: () => {
-    const SaPAY_l = Ko.SySmz_v[SyVx.PAY_qk];
-    DoPAY.Mo(SaPAY_l, 0, 0);
-  },
-  74309: () => {},
-  74313: () => {
+  74284: () => {},
+  74288: () => {
     console.log("MC: HrySmz__BriYa");
   },
-  74353: () => {},
-  74357: () => {
+  74328: () => {},
+  74332: () => {
     const SaSTRM_l = Ko.SySmz_v[SyVx.STRM_qk];
     SaSTRM_l.Ji.KiCho__JaPo(SaSTRM_l, 0, "Mx01__SuKz_MEDIA/SuKz02_JaPo__PICT/JaPo00__FyHo.jpg");
     SaSTRM_l.Ji.KiCho__MzPo(SaSTRM_l, 1, "WEBCAM 0");
     SaSTRM_l.Ji.KiCho__PePo(SaSTRM_l, 2, "Mx01__SuKz_MEDIA/SuKz02_JaPo__PICT/JaPo04__Jirafe.mp4");
   },
-  74650: $0 => {
+  74625: $0 => {
     const SaWG_l = Ko.SySmz_v[SyVx.WG_qk];
     const SaSTRM_l = Ko.SySmz_v[SyVx.STRM_qk];
     const LAYER_Gz_wuk = 0;
