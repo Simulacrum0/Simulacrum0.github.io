@@ -252,7 +252,7 @@ DoGLF.BriYa = async function( Yz_l )
 
 	//@@@
 	// CANVAS
-	const WzPo_l = new OffscreenCanvas( Yz_l.Gy_wu, Yz_l.Gy_wu )
+	const WzPo_l = new OffscreenCanvas( Yz_l.Gy_wu, Yz_l.Gy_wu );
 	if( MoDzTrx__NxHo_y( "GLF Canvas", WzPo_l )){ return null; }
 
 	const SxHry_l = WzPo_l.getContext("2d");

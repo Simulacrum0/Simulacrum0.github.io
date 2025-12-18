@@ -3446,20 +3446,20 @@ var ASM_CONSTS = {
   74165: () => {
     const SaWG_l = Ko.SySmz_v[SyVx.WG_qk];
     const Brz_wuk = 0;
-    DoWG.TxCho_JaKu(SaWG_l, Brz_wuk, 0, 0, 0, 256, 256);
+    DoWG.TxCho_JaKu(SaWG_l, Brz_wuk, 0, 0, 0, SaWG_l.MxPo_l.width, SaWG_l.MxPo_l.height);
   },
-  74284: () => {},
-  74288: () => {
+  74317: () => {},
+  74321: () => {
     console.log("MC: HrySmz__BriYa");
   },
-  74328: () => {},
-  74332: () => {
+  74361: () => {},
+  74365: () => {
     const SaSTRM_l = Ko.SySmz_v[SyVx.STRM_qk];
     SaSTRM_l.Ji.KiCho__JaPo(SaSTRM_l, 0, "Mx01__SuKz_MEDIA/SuKz02_JaPo__PICT/JaPo00__FyHo.jpg");
     SaSTRM_l.Ji.KiCho__MzPo(SaSTRM_l, 1, "WEBCAM 0");
     SaSTRM_l.Ji.KiCho__PePo(SaSTRM_l, 2, "Mx01__SuKz_MEDIA/SuKz02_JaPo__PICT/JaPo04__Jirafe.mp4");
   },
-  74625: $0 => {
+  74658: $0 => {
     const SaWG_l = Ko.SySmz_v[SyVx.WG_qk];
     const SaSTRM_l = Ko.SySmz_v[SyVx.STRM_qk];
     const LAYER_Gz_wuk = 0;

@@ -49,7 +49,9 @@ let CS_Kwi_wu = 0;
 // CRAFT as UNIFORM
 // wf4_t = 16_Vu * 64bu_wf4 * 64_Ti = 64K
 
-const SuTy__BraHiFrz_k = ( 16 * 64 * 64 )
+// REQUIRE: CHROME FLAG to Enable Tier0 Test ( Compatibility Mode )
+//const SuTy__BraHiFrz_k = ( 16 * 64 * 64 )
+const SuTy__BraHiFrz_k = ( 16 * 64 * 16 )
 
 
 //==============================================
@@ -209,12 +211,13 @@ DoWG.SmaYz = function( Sa_l )
 	//SmaSme( Sa_l.KaSmz_l );
 
 	SmaSme( "--------WORK ----------" );
-	SmaSme( "- maxComputeInvocationsPerWorkgroup", Sa_l.KaKy_l.limits.maxComputeInvocationsPerWorkgroup, " <> ", 256 );
-	SmaSme( "- maxComputeWorkgroupSizeX", Sa_l.KaKy_l.limits.maxComputeWorkgroupSizeX, " <> ", 256 );
-	SmaSme( "- maxComputeWorkgroupSizeY", Sa_l.KaKy_l.limits.maxComputeWorkgroupSizeY, " <> ", 256 );
+	SmaSme( "- maxComputeInvocationsPerWorkgroup", Sa_l.KaKy_l.limits.maxComputeInvocationsPerWorkgroup, " <T1> ", 256, "<T0>", 128 );
+	SmaSme( "- maxComputeWorkgroupSizeX", Sa_l.KaKy_l.limits.maxComputeWorkgroupSizeX, " <T1> ", 256, "<T0>", 128 );
+	SmaSme( "- maxComputeWorkgroupSizeY", Sa_l.KaKy_l.limits.maxComputeWorkgroupSizeY, " <T1> ", 256, "<T0>", 128 );
 	SmaSme( "- maxComputeWorkgroupSizeZ", Sa_l.KaKy_l.limits.maxComputeWorkgroupSizeZ, " <> ", 64 );
 	SmaSme( "- maxComputeWorkgroupStorageSize", Sa_l.KaKy_l.limits.maxComputeWorkgroupStorageSize, " <> ", 16384 );
 	SmaSme( "- maxComputeWorkgroupsPerDimension", Sa_l.KaKy_l.limits.maxComputeWorkgroupsPerDimension, " <> ", 65535 );
+
 
 	SmaSme( "------- USED --------" );
 	// SmaSme( Sa_l.DuPo__TaGwa_l );
@@ -230,14 +233,14 @@ DoWG.SmaYz = function( Sa_l )
 	SmaSme( "- maxStorageTexturesPerShaderStage", Sa_l.KaKy_l.limits.maxStorageTexturesPerShaderStage, " <> ", 4 );
 
 	SmaSme( "- maxTextureArrayLayers", Sa_l.KaKy_l.limits.maxTextureArrayLayers, " <> ", 256 );
-	// SmaSme( "- maxTextureDimension1D", Sa_l.KaKy_l.limits.maxTextureDimension1D, " <> ", 8192 );
-	SmaSme( "- maxTextureDimension2D", Sa_l.KaKy_l.limits.maxTextureDimension2D, " <> ", 8192 );
+
+	SmaSme( "- maxTextureDimension2D", Sa_l.KaKy_l.limits.maxTextureDimension2D, " <T1> ", 8192, "<T0>", 4096 );
 	// SmaSme( "- maxTextureDimension3D", Sa_l.KaKy_l.limits.maxTextureDimension3D, " <> ", 2048 );
-	SmaSme( "- maxUniformBufferBindingSize", Sa_l.KaKy_l.limits.maxUniformBufferBindingSize, " <> ", 65536 );
+	SmaSme( "- maxUniformBufferBindingSize", Sa_l.KaKy_l.limits.maxUniformBufferBindingSize, " <T1> ", 65536, "<T0>", 16384 );
+
 	// SmaSme( "- maxUniformBuffersPerShaderStage", Sa_l.KaKy_l.limits.maxUniformBuffersPerShaderStage, " <> ", 12 );
 	SmaSme( "- minStorageBufferOffsetAlignment", Sa_l.KaKy_l.limits.minStorageBufferOffsetAlignment, " <> ", 256 );
 	SmaSme( "- minUniformBufferOffsetAlignment", Sa_l.KaKy_l.limits.minUniformBufferOffsetAlignment, " <> ", 256 );
-
 
 	SmaSme( "--------------------------------------------" );
 }
@@ -511,7 +514,6 @@ DoWG.TxCho_JeGi = function( Sa_l )
 {
 	if( KoDz__YzTrx_y() ) return;
 	SmaSme( "DoWG_TxCho_JeGi: EXPORT TIMESTAMP" );
-
 }
 
 //==============================================
@@ -521,8 +523,6 @@ DoWG.TxCho_JxRe = function( Sa_l )
 {
 	if( KoDz__YzTrx_y() ) return;
 	SmaSme( "DoWG_TxCho_JxRe: EXPORT SEQ" );
-
-
 }
 
 //==============================================
@@ -533,6 +533,9 @@ DoWG.TxCho_JaKu = function( Sa_l, Brz_wu, GeGx_wu, GeGa_wu, GeGz_wu, GyGx_wu, Gy
 	if( KoDz__YzTrx_y() ) return;
 	SmaSme( "DoWG_TxCho_JaKu EXPORT FORM" );
 
+	//!!!
+	// bytesPerRow MULTIPLE of 256, so 4bpp => MULTIPLE of 64
+	GyGx_wu = (( GyGx_wu + 63 ) & ~63 );
 
 	if( Sa_l.TxCho__TraJaKu_v.length ) return;
 	Sa_l.TxCho__KriJaKu_v.push({ Brz_wu, GeGx_wu, GeGa_wu, GeGz_wu, GyGx_wu, GyGa_wu });
@@ -594,13 +597,11 @@ DoWG.BriYa = async function( Yz_l )
 	//@@@
 	// MAKE SESSION with Ji INTERFACE
 	const Sa_l = SySmz__YaFz_v( DoWG );
-
 	Sa_l.KaVy = Yz_l.KaVy;
 
 
 	//-------------------------------------------------
-	// PROJ TXT ASYNC LOAD
-	//
+	// PROG TXT ASYNC LOAD
 	//-------------------------------------------------
 	const TaJiHry_vh = [];
 	TaJiHry_vvsg.forEach
@@ -616,7 +617,6 @@ DoWG.BriYa = async function( Yz_l )
 	Sa_l.TxCho__TraJaKu_v = [];
 
 
-
 	//-------------------------------------------------
 	// CHIP ADAPTER
 	//-------------------------------------------------
@@ -627,12 +627,15 @@ DoWG.BriYa = async function( Yz_l )
 		// powerPreference: 'low-power'
 		// FAILS
 		// forceFallbackAdapter: true
+		//
+		featureLevel: "compatibility"
 	};
 
 	const KaKy_l = await navigator.gpu?.requestAdapter( pref );
 	if( MoDzTrx__NxHo_y( "Adapter", KaKy_l )){ return null; }
 	Sa_l.KaKy_l = KaKy_l;
 
+	const T1_yk = KaKy_l.features.has('core-features-and-limits');
 
 	//-------------------------------------------------
 	// SCREEN
@@ -643,7 +646,13 @@ DoWG.BriYa = async function( Yz_l )
 		? navigator.gpu.getPreferredCanvasFormat()
 		: 'rgba8unorm';
 
-		//rg11b10ufloat-renderable
+	//@@@
+	// HDR
+	const HDR_v = window.matchMedia('(dynamic-range: high)');
+	const KaTy__HDR_yk = HDR_v.matches ? true : false;
+	SmaSme( "- HDR", KaTy__HDR_yk );
+	//rg11b10ufloat-renderable
+	if( 0 ){ Sa_l.MxPo__FMT_l = "rgba16float"; }
 
 	//-------------------------------------------------
 	// CHIP DRIVER
@@ -678,8 +687,9 @@ DoWG.BriYa = async function( Yz_l )
 		 // FEATS
 		 requiredFeatures:
 		 [
+			T1_yk ? '' : undefined
 			 // if bgra8unorm exists, MUST USE!
-			 Sa_l.MxPo__FMT_l === 'bgra8unorm' ? ['bgra8unorm-storage'] : undefined
+			 , Sa_l.MxPo__FMT_l === 'bgra8unorm' ? ['bgra8unorm-storage'] : undefined
 
 			 , KaTy__TIMER_yk ? 'timestamp-query' : undefined
 			 , KaTy__SUBGRP_yk ? 'subgroups' : undefined
@@ -715,6 +725,10 @@ DoWG.BriYa = async function( Yz_l )
 	if( MoDzTrx__NxHo_y( "Device", KaSmz_l )){ return null; }
 	Sa_l.KaSmz_l = KaSmz_l;
 
+	const Tier_wqk = KaSmz_l.features.has('core-features-and-limits') ? 1 : 0;
+	SmaSme( "- GPU_Tier: ", Tier_wqk );
+
+
 	//&&&
 	// ERR DEV LOST
   	KaSmz_l.lost.then((info) =>
@@ -749,6 +763,19 @@ DoWG.BriYa = async function( Yz_l )
 		, format: Sa_l.MxPo__FMT_l
 		// REQ for RW MxPo via ComputeShader
 		, usage: GPUTextureUsage.TEXTURE_BINDING | GPUTextureUsage.STORAGE_BINDING
+
+		//@@@
+		// CLR_FMT
+		// SDR means Standard Dynamic Range (standard NTSC/sRGB colorspace)
+		// WCG means Wide Color Gamut (greener greens, redder reds, bluer blues)
+		// HDR means High Dynamic Ranges (brightnesses brighter than normal RGB colorspace)
+		, alphaMode: "opaque"
+		// P3
+		, colorSpace: "display-p3"
+		, toneMapping: { mode: "extended" }
+		// NITS 200~1200
+		// Not AVAIL, colorSpace: "rec2100-display-linear"
+		//, toneMapping: { mode:"hdr10", clli:{maxFALL:200, maxCLL:1200} }
 	});
 
 
@@ -815,15 +842,15 @@ DoWG.BriYa = async function( Yz_l )
 
 		let GzKri_wu = 8;
 		for( ; GzKri_wu >= 0; GzKri_wu-- )
-			{
-				// 8K MAX = 1<13
-				const TiGy_wuk = 4096;
-				// 256 Layers: MAX
-				// 1 << 10 => MAX (Sample down to 8x8)
-				const BrzFo_wuk = 8;
-				//const GzFo_wuk = 1 << GzKri_wu;
-				// MEM FAIL on Mobile:
-				const GzFo_wuk = GzKri_wu;
+		{
+			// 8K MAX = 1<13
+			const TiGy_wuk = 4096;
+			// 256 Layers: MAX
+			// 1 << 10 => MAX (Sample down to 8x8)
+			const BrzFo_wuk = 8;
+			//const GzFo_wuk = 1 << GzKri_wu;
+			// MEM FAIL on Mobile:
+			const GzFo_wuk = GzKri_wu;
 
 			SmaSme( "TiGy_wuk ---> ", TiGy_wuk, BrzFo_wuk, ", GzKri_wu: ", GzKri_wu, GzFo_wuk );
 
@@ -1201,7 +1228,7 @@ DoWG.BriYa = async function( Yz_l )
 			// resource: Sa_l.JaMi__TRILNR_k
 		  },{
 			binding: 1,
-			resource: Sa_l.DuPo__TaGwa_l.createView()
+			resource: Sa_l.DuPo__TaGwa_l
 		  }] })
 
 
@@ -1213,7 +1240,7 @@ DoWG.BriYa = async function( Yz_l )
 		  entries:
 		  [{
 			binding: 0,
-			resource: Sa_l.WzPo__TaGwa_l.createView()
+			resource: Sa_l.WzPo__TaGwa_l
 		  }] })
 
 
@@ -1226,10 +1253,30 @@ DoWG.BriYa = async function( Yz_l )
 			entries:
 			[{
 				binding: 0,
+				// T1_REQ: resource: Sa_l.DuPo__TaGwa_l.createView( { baseMipLevel: 0, mipLevelCount: 1, baseArrayLayer: 0, arrayLayerCount: 1 } )
 				resource: Sa_l.DuPo__TaGwa_l.createView( { baseMipLevel: 0, mipLevelCount: 1 } )
+
 			}
 		]
 		})
+
+
+		// 5
+		 , KaSmz_l.createBindGroup
+		 ({
+		   label: "DuPoMy MIP_SRC",
+		   layout: DuPoMy_SuTyJy,
+		   entries:
+		   [{
+			 binding: 0,
+			 resource: Sa_l.JaMi__BILNR_k
+			 // resource: Sa_l.JaMi__TRILNR_k
+		   },{
+			 binding: 1,
+			 // T1_REQ: resource: Sa_l.DuPo__TaGwa_l.createView( { baseMipLevel: 0, mipLevelCount: 1, baseArrayLayer: 0, arrayLayerCount: 1 } )
+			 resource: Sa_l.DuPo__TaGwa_l.createView( { baseMipLevel: 0, mipLevelCount: 1 } )
+
+		   }] })
 
 	];
 
@@ -1562,11 +1609,10 @@ m_queue.writeBuffer(m_uniformBuffer, m_uniformStride, &uniforms, sizeof(uniforms
 
 
 	const MxPo_l = Sa_l.Sx_l.getCurrentTexture();
-	const MxPo__VIEW_l = MxPo_l.createView();
 	let MxPo__bindGroup = KaSmz_l.createBindGroup
 	({
 		layout: Sa_l.PIPER_k.getBindGroupLayout(1),
-		entries: [ { binding: 0, resource: MxPo__VIEW_l } ],
+		entries: [ { binding: 0, resource: MxPo_l } ],
 	});
 
 	{
@@ -1615,13 +1661,14 @@ m_queue.writeBuffer(m_uniformBuffer, m_uniformStride, &uniforms, sizeof(uniforms
 			MoKro_l.copyTextureToBuffer
 			(
 				{ texture: Sa_l.DuPo__TaGwa_l, mipLevel: Ku_l.Brz_wu, origin: [ Ku_l.GeGx_wu, Ku_l.GeGa_wu, Ku_l.GeGz_wu ] }
-				//
-				, { buffer: Sa_l.MyTo__TaJx_l, offset: MyFo_wu, bytesPerRow: 4 * 256, rowsPerImage: 256 }
+				// bytesPerRow MULTIPLE of 256, so 4bpp => MULTIPLE of 64
+				, { buffer: Sa_l.MyTo__TaJx_l, offset: MyFo_wu, bytesPerRow: 4 * Ku_l.GyGx_wu, rowsPerImage: Ku_l.GyGa_wu }
 				, { width: Ku_l.GyGx_wu, height: Ku_l.GyGa_wu, depthOrArrayLayers: 1 }
 			);
 
 			MyFo_wu += ChoFo_wuk;
 		}); // for ALL READS
+
 
 		KaSmz_l.queue.submit([MoKro_l.finish()]);
 
@@ -1629,30 +1676,51 @@ m_queue.writeBuffer(m_uniformBuffer, m_uniformStride, &uniforms, sizeof(uniforms
 		await Sa_l.MyTo__TaJx_l.mapAsync( GPUMapMode.READ, GeZo_wuk, MyFo_wu );
 		if( Sa_l.MyTo__TaJx_l.mapState === "mapped" )
 		{
+			// SAVE BUF to FILE
 			const MyTo_v = Sa_l.MyTo__TaJx_l.getMappedRange( GeZo_wuk, MyFo_wu );
-			SmaSme( "MyTo__Fo", MyTo_v.byteLength );
 
 			// ITER SECTIONS
 			const Ku_l = Sa_l.TxCho__TraJaKu_v[ 0 ];
+			{
+				const WzPo_l = new OffscreenCanvas( Ku_l.GyGx_wu, Ku_l.GyGa_wu );
+				if( MyTo_v && WzPo_l )
+				{
+					SmaSme( "MyTo__Fo", MyTo_v.byteLength );
 
-			let PoTi_v = new Uint8ClampedArray( MyTo_v );
-			let imageData = new ImageData( PoTi_v, Ku_l.GyGx_wu, Ku_l.GyGa_wu );
+					let PoTi_v = new Uint8ClampedArray( MyTo_v );
+					let IDAT_l = new ImageData( PoTi_v, Ku_l.GyGx_wu, Ku_l.GyGa_wu );
 
-			// SAVE BUF to FILE
-			const SaGLF_l = Ko.SySmz_v[ SyVx.GLF_qk ];
+					const SxHry_l = WzPo_l.getContext("2d");
+					if( SxHry_l )
+					{
+						SxHry_l.putImageData( IDAT_l, 0, 0 );
+						// INVERT Y for IMAGE SCREENSHOT;
+						SxHry_l.transform(1, 0, 0, -1, 0, Ku_l.GyGa_wu );
+						SxHry_l.globalCompositeOperation = "copy"; // if you have transparent pixels
+						SxHry_l.drawImage( SxHry_l.canvas,0,0);
 
-			SaGLF_l.SxHry_l.putImageData(imageData, 0, 0 );
+						// SAFARI: NO webp!
+						// image/webp,jpeg,png
+						const blobA = await WzPo_l.convertToBlob( { type: 'image/jpeg', quality: 0.67 } );
+						saveBlobAsFile( blobA, 'SHOT_A.jpeg');
 
-			// image/webp
-			const blob = await SaGLF_l.WzPo_l.convertToBlob( { type: 'image/jpeg', quality: 0.67 } );
-			saveBlobAsFile( blob, 'TSTBLOB.jpg');
+						// const blobB = await WzPo_l.convertToBlob( { type: 'image/jpeg', quality: 0.33 } );
+						// saveBlobAsFile( blobB, 'SHOT_B.jpeg');
+
+						// const blobC = await WzPo_l.convertToBlob( { type: 'image/jpeg', quality: 0.00 } );
+						// saveBlobAsFile( blobC, 'SHOT_C.jpeg');
+
+					}// if ctx
+
+					IDAT_l = null;
+					PoTi_v = null;
+				}// if canvas
+			}// per Request
 
 			// SIGNAL we're clear
 			Sa_l.MyTo__TaJx_l.unmap();
-			imageData = null;
-			PoTi_v = null;
 			Sa_l.TxCho__TraJaKu_v = [];
-		}
+		}// per IMG
 
 	}// if DNLOAD
 
