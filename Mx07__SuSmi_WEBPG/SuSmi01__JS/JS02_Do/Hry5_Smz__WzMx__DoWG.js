@@ -50,9 +50,12 @@ let CS_Kwi_wu = 0;
 // wf4_t = 16_Vu * 64bu_wf4 * 64_Ti = 64K
 
 // REQUIRE: CHROME FLAG to Enable Tier0 Test ( Compatibility Mode )
-//const SuTy__BraHiFrz_k = ( 16 * 64 * 64 )
+
+// MAX 'T0' UNIFORM
 const SuTy__BraHiFrz_k = ( 16 * 64 * 16 )
 
+// MAX 'T1'
+//const SuTy__BraHiFrz_k = ( 16 * 64 * 64 )
 
 //==============================================
 // NAMES
@@ -615,6 +618,7 @@ DoWG.BriYa = async function( Yz_l )
 	//-------------------------------------------------
 	Sa_l.TxCho__KriJaKu_v = [];
 	Sa_l.TxCho__TraJaKu_v = [];
+	Sa_l.KaTy = {};
 
 
 	//-------------------------------------------------
@@ -650,7 +654,7 @@ DoWG.BriYa = async function( Yz_l )
 	// HDR
 	const HDR_v = window.matchMedia('(dynamic-range: high)');
 	const KaTy__HDR_yk = HDR_v.matches ? true : false;
-	SmaSme( "- HDR", KaTy__HDR_yk );
+	SmaSme( "- HDR", KaTy__HDR_yk, KaKy_l.limits.maxBufferSize );
 	//rg11b10ufloat-renderable
 	if( 0 ){ Sa_l.MxPo__FMT_l = "rgba16float"; }
 
@@ -660,7 +664,7 @@ DoWG.BriYa = async function( Yz_l )
 	//@@@
 	// AVAIL
 	//const KaTy__WG2 = KaKy_l.features.has('extended-pipeline-cache');
-	const KaTy__TIMER_yk = KaKy_l.features.has('timestamp-query');
+	Sa_l.KaTy.TIMER_yk = KaKy_l.features.has('timestamp-query');
 
 
 	//&&&
@@ -668,7 +672,7 @@ DoWG.BriYa = async function( Yz_l )
 	// subgroupsize:  [4, 128]
 	//https://caniuse.com/?search=subgroup ~70%
 	// Not Apple!
-	const KaTy__SUBGRP_yk = KaKy_l.features.has( 'subgroups' );
+	Sa_l.KaTy.SUBGRP_yk = KaKy_l.features.has( 'subgroups' );
 
 	//&&&
 	// FMT
@@ -687,12 +691,12 @@ DoWG.BriYa = async function( Yz_l )
 		 // FEATS
 		 requiredFeatures:
 		 [
-			T1_yk ? '' : undefined
+			T1_yk ? 'core-features-and-limits' : undefined
 			 // if bgra8unorm exists, MUST USE!
 			 , Sa_l.MxPo__FMT_l === 'bgra8unorm' ? ['bgra8unorm-storage'] : undefined
 
-			 , KaTy__TIMER_yk ? 'timestamp-query' : undefined
-			 , KaTy__SUBGRP_yk ? 'subgroups' : undefined
+			 , Sa_l.KaTy.TIMER_yk ? 'timestamp-query' : undefined
+			 , Sa_l.KaTy.SUBGRP_yk ? 'subgroups' : undefined
 
 			//, KaTy__TFMT2_yk ? 'texture-formats-tier2' : undefined
 			// , KaTy__RWTEX_yk ? 'readonly_and_readwrite_storage_textures' : undefined
@@ -726,7 +730,7 @@ DoWG.BriYa = async function( Yz_l )
 	Sa_l.KaSmz_l = KaSmz_l;
 
 	const Tier_wqk = KaSmz_l.features.has('core-features-and-limits') ? 1 : 0;
-	SmaSme( "- GPU_Tier: ", Tier_wqk );
+	SmaSme( "- GPU_Tier: ", Tier_wqk, KaSmz_l.limits.maxBufferSize );
 
 
 	//&&&
@@ -813,6 +817,42 @@ DoWG.BriYa = async function( Yz_l )
 			mipmapFilter: "linear",
 	 } );
 
+	 //-------------------------------------------------
+	 // TIMER
+	 //-------------------------------------------------
+	 if( Sa_l.KaTy.TIMER_yk )
+	 {
+		Sa_l.capacity = 2;//Max number of timestamps we can store
+
+		Sa_l.querySet = Sa_l.KaSmz_l.createQuerySet
+		({
+			label: 'TaGiMy',
+			type: 'timestamp',
+			count: Sa_l.capacity,
+		});
+
+		Sa_l.queryBuffer = Sa_l.KaSmz_l.createBuffer
+		({
+			label: 'TaGiMy_Ma',
+			// 8 is 'du_t' timestamp
+			size: Sa_l.capacity * 8,
+			usage:
+			GPUBufferUsage.QUERY_RESOLVE | GPUBufferUsage.COPY_SRC,
+			//GPUBufferUsage.QUERY_RESOLVE | GPUBufferUsage.STORAGE
+			// | GPUBufferUsage.COPY_SRC | GPUBufferUsage.COPY_DST
+		});
+
+		Sa_l.resultBuffer = Sa_l.KaSmz_l.createBuffer
+		({
+			label: 'GiMy_Sma',
+			size:  Sa_l.capacity * 8,
+			usage: GPUBufferUsage.COPY_DST | GPUBufferUsage.MAP_READ,
+		});
+	}
+	else
+	{
+	}
+	Ko.gpuTime = 0.;
 
 	//-------------------------------------------------
 	// BUF
@@ -1462,8 +1502,12 @@ DoWG.BriYe = async function( Sa_l, GiDri_duk  )
 	//@@@
 	// CMD PASS BEGIN
 	const KaSmz_l = Sa_l.KaSmz_l;
-	const MoKro_l = KaSmz_l.createCommandEncoder();
-	let TaMo_l = MoKro_l.beginComputePass();
+	const MoKro_l = KaSmz_l.createCommandEncoder( { label: 'MoKro' } );
+
+	if( Sa_l.KaTy.TIMER_yk ){ MoKro_l.writeTimestamp( Sa_l.querySet, 0 ); }
+
+	let TaMo_l = MoKro_l.beginComputePass( { label: 'TaMo' } );
+
 
 /*
 
@@ -1510,8 +1554,6 @@ m_queue.writeBuffer(m_uniformBuffer, m_uniformStride, &uniforms, sizeof(uniforms
 
 
 
-
-
 	//@@@
 	// FORMULA
 	{
@@ -1523,7 +1565,6 @@ m_queue.writeBuffer(m_uniformBuffer, m_uniformStride, &uniforms, sizeof(uniforms
 
 		CS_Kwi_wu++;
 	}
-
 
 	//@@@
 	// PTRN
@@ -1539,7 +1580,6 @@ m_queue.writeBuffer(m_uniformBuffer, m_uniformStride, &uniforms, sizeof(uniforms
 		}
 		TaMo_l.popDebugGroup();
 	}
-
 
 	//@@@
 	// SHP
@@ -1568,15 +1608,15 @@ m_queue.writeBuffer(m_uniformBuffer, m_uniformStride, &uniforms, sizeof(uniforms
 	// }
 	// TaMo_l.popDebugGroup();
 
-
 	TaMo_l.end();
+
 
 	//@@@
 	// ADAPT
 
 
 	//&&&
-	// CLONE RESULTS
+	// COMPRESS & MIP RESULTS
 	if( 10 )
 	{
 		MoKro_l.copyTextureToTexture
@@ -1586,17 +1626,28 @@ m_queue.writeBuffer(m_uniformBuffer, m_uniformStride, &uniforms, sizeof(uniforms
 			// dst:
 			, { texture: Sa_l.DuPo__TaGwa_l, mipLevel: 0, origin: [0, 0, 0 ] }
 			// size:
-			, { width: 1024, height: 200 }
+			, { width: 1024, height: 512 }
+		);
+
+
+		MoKro_l.copyTextureToTexture
+		(
+			// src:
+			{ texture: Sa_l.WzPo__TaGwa_l, mipLevel: 0, origin: [0, 0, 0] }
+			// dst:
+			, { texture: Sa_l.DuPo__TaGwa_l, mipLevel: 1, origin: [0, 0, 0 ] }
+			// size:
+			, { width: 256, height: 256 }
 		);
 
 		MoKro_l.copyTextureToTexture
 		(
 			// src:
-			{ texture: Sa_l.WzPo__TaGwa_l, mipLevel: 0, origin: [0, 256, 0] }
+			{ texture: Sa_l.WzPo__TaGwa_l, mipLevel: 0, origin: [0, 0, 0] }
 			// dst:
-			, { texture: Sa_l.DuPo__TaGwa_l, mipLevel: 0, origin: [0, 256, 0 ] }
+			, { texture: Sa_l.DuPo__TaGwa_l, mipLevel: 2, origin: [0, 0, 0 ] }
 			// size:
-			, { width: 1024, height: 200 }
+			, { width: 128, height: 128 }
 		);
 
 
@@ -1606,7 +1657,6 @@ m_queue.writeBuffer(m_uniformBuffer, m_uniformStride, &uniforms, sizeof(uniforms
 	//@@@
 	// DISP_PRESENT
 	TaMo_l = MoKro_l.beginComputePass();
-
 
 	const MxPo_l = Sa_l.Sx_l.getCurrentTexture();
 	let MxPo__bindGroup = KaSmz_l.createBindGroup
@@ -1628,12 +1678,44 @@ m_queue.writeBuffer(m_uniformBuffer, m_uniformStride, &uniforms, sizeof(uniforms
 	// WzMe^WORK RUN
 	TaMo_l.end();
 
+	if( Sa_l.KaTy.TIMER_yk ){ MoKro_l.writeTimestamp( Sa_l.querySet, 1 ); }
+
+	if( Sa_l.KaTy.TIMER_yk )
+	{
+		MoKro_l.resolveQuerySet
+		(
+			Sa_l.querySet,
+			0,// index of first query to resolve
+			Sa_l.capacity,//number of queries to resolve
+			Sa_l.queryBuffer, 0 // destination offset
+		);
+
+		// COPY QUERY RESULTS
+		if( Sa_l.resultBuffer.mapState === 'unmapped' )
+		{
+			MoKro_l.copyBufferToBuffer( Sa_l.queryBuffer, 0, Sa_l.resultBuffer, 0, Sa_l.resultBuffer.size);
+		};
+	}
+
 	KaSmz_l.queue.submit( [ MoKro_l.finish() ] );
 
 
 
 	//@@@
 	// TIMER
+	// timestamps are recorded in nanoseconds.
+    if( Sa_l.KaTy.TIMER_yk && Sa_l.resultBuffer.mapState === 'unmapped' )
+	{
+		//SmaSme( "TIMER WAIT" );
+      	await Sa_l.resultBuffer.mapAsync(GPUMapMode.READ).then(() =>
+		{
+			//SmaSme( "TIMER READ" );
+        	const times = new BigUint64Array( Sa_l.resultBuffer.getMappedRange()	);
+        	const gpuTime = ( Number(times[1] - times[0]) ) / 1000000.0;
+			Ko.gpuTime = Ko.gpuTime * 0.9 + gpuTime * 0.1;
+        	Sa_l.resultBuffer.unmap();
+      });
+    }
 
 
 	//@@@

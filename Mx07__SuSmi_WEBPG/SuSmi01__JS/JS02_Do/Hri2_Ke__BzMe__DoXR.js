@@ -44,6 +44,13 @@ Technical Recommendations
 - When picking up objects within the app, use the touch controller’s grip button rather than the trigger button.
 - For applications that support hand tracking, hands must render in the correct position and orientation, and must animate properly.
 - For applications that support hand tracking, hands must be hidden if they are not being tracked or if tracking confidence is low.
+
+QUEST:
+- https://developers.meta.com/horizon/documentation/web/webxr-mixed-reality/
+- RANGE: 5m
+- PERSISTENT ANCHORS: requestPersistent(Handle|Anchor) max:8
+-
+
 */
 
 //==============================================

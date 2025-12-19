@@ -1,4 +1,4 @@
-const BriDzSa__Da_vsg = "PUB_v0.113"; 
+const BriDzSa__Da_vsg = "PUB_v0.114"; 
  const BriDz__Mx_KuTu_vsg = "https://powerourpeople.com/"; 
 
 //==============================================
@@ -1171,9 +1171,11 @@ const SyVx = Object.freeze
 	, PAY_qk: 10
 	, CAL_qk: 11
 
-
 	// Hra5_Ka^CHIP
+	, USB_qk: 12
 	, GPS_qk: 777
+
+	// Hra0_Ko^COMPUTER
 	, ENRG_qk: 777
 
 	// Hru^AUD
@@ -1214,7 +1216,7 @@ const SuKz__GryFo_wuk = 10;
 //==============================================
 // SERV_ADD^ChaSy
 //==============================================
-async function Hrz7_Kru__ChaSySmz( SyTu_vsg, VaDy_vsg, SyJy_vsg, ToKz_vsg, SySmz__Kri_yk, Yz_l )
+async function Hrz7_Kru__ChaSySmz( SyJy_vsg, ToKz_vsg, SyTu_vsg, VaDy_vsg, SySmz__Kri_yk, Yz_l )
 {
 	//@@@
 	// ECOSYS_GOOD
@@ -1435,30 +1437,35 @@ async function KoDz__Ya( )
 	const SySmz__Kri_yk = true;
 	const Kri__SySmz_v =
 	[
-		Hrz7_Kru__ChaSySmz( "Do", "CFG", "Hrz4_Bu", "BriDzYz", SySmz__Kri_yk, { SmzYz: "0" } )
-		, Hrz7_Kru__ChaSySmz( "Do", "TAK", "Hre1_Dru", "KeDruPy", SySmz__Kri_yk, { Si_KeDru: "en" } )
-		, Hrz7_Kru__ChaSySmz( "Do", "FS", "Hra6_Ku", "KoToKz", SySmz__Kri_yk, { VaDyFy: "true" } )
-		, Hrz7_Kru__ChaSySmz( "Do", "TRU", "Hrx4_Che", "MoDxGri", SySmz__Kri_yk, { KaVy: "0" } )
+		Hrz7_Kru__ChaSySmz( "Hrz4_Bu", "BriDzYz", "Do", "CFG", SySmz__Kri_yk, { SmzYz: "0" } )
+		, Hrz7_Kru__ChaSySmz( "Hre1_Dru", "KeDruPy", "Do", "TAK", SySmz__Kri_yk, { Si_KeDru: "en" } )
+		, Hrz7_Kru__ChaSySmz( "Hra6_Ku", "KoToKz", "Do", "FS", SySmz__Kri_yk, { VaDyFy: "true" } )
+		, Hrz7_Kru__ChaSySmz( "Hrx4_Che", "MoDxGri", "Do", "TRU", SySmz__Kri_yk, { KaVy: "0" } )
 
-		, Hrz7_Kru__ChaSySmz( "Do", "STRM", "Hra7_Ta", "ToMi", SySmz__Kri_yk, { SmzYz: "0" } )
-		, Hrz7_Kru__ChaSySmz( "Do", "FNT", "Hre1_Dru", "WaDru", SySmz__Kri_yk, { SmzYz: "0" } )
-		, Hrz7_Kru__ChaSySmz( "Do", "WG", "Hry5_Smz", "WzMx", SySmz__Kri_yk, { KaVy: "0" } )
-		, Hrz7_Kru__ChaSySmz( "Do", "GLF", "Hry1_Brz", "KeDru", SySmz__Kri_yk, { Gy_wu: 512 } )
+		, Hrz7_Kru__ChaSySmz( "Hra7_Ta", "ToMi", "Do", "STRM", SySmz__Kri_yk, { SmzYz: "0" } )
+		, Hrz7_Kru__ChaSySmz( "Hre1_Dru", "WaDru", "Do", "FNT", SySmz__Kri_yk, { SmzYz: "0" } )
+		, Hrz7_Kru__ChaSySmz( "Hry5_Smz", "WzMx", "Do", "WG", SySmz__Kri_yk, { KaVy: "0" } )
+		, Hrz7_Kru__ChaSySmz( "Hry1_Brz", "KeDru", "Do", "GLF", SySmz__Kri_yk, { Gy_wu: 512 } )
 
-		, Hrz7_Kru__ChaSySmz( "Do", "NET", "Hra4_Bru", "ToDry", SySmz__Kri_yk, { SmzYz: "0" } )
-		, Hrz7_Kru__ChaSySmz( "Do", "SHAR", "Hra6_Ku", "SuDu", SySmz__Kri_yk, { SmzYz: "0" } )
-		, Hrz7_Kru__ChaSySmz( "Do", "PAY", "Hra6_Ku", "SpeDry", SySmz__Kri_yk, { SmzYz: "0" } )
-		, Hrz7_Kru__ChaSySmz( "Do", "CAL", "Hra6_Ku", "SaBri", SySmz__Kri_yk, { SmzYz: "0" } )
+		, Hrz7_Kru__ChaSySmz( "Hra4_Bru", "ToDry", "Do", "NET", SySmz__Kri_yk, { SmzYz: "0" } )
+		, Hrz7_Kru__ChaSySmz( "Hra6_Ku", "SuDu", "Do", "SHAR", SySmz__Kri_yk, { SmzYz: "0" } )
+		, Hrz7_Kru__ChaSySmz( "Hra6_Ku", "SpeDry", "Do", "PAY", SySmz__Kri_yk, { SmzYz: "0" } )
+		, Hrz7_Kru__ChaSySmz( "Hra6_Ku", "SaNoJe", "Do", "CAL", SySmz__Kri_yk, { SmzYz: "0" } )
 
-		//, Hrz7_Kru__ChaSySmz( "Do", "", "Hr_", "?", SySmz__Kri_yk, { SmzYz: "0" } )
-		//, Hrz7_Kru__ChaSySmz( "Do", "", "Hr_", "?", SySmz__Kri_yk, { SmzYz: "0" } )
-		//, Hrz7_Kru__ChaSySmz( "Do", "", "Hr_", "?", SySmz__Kri_yk, { SmzYz: "0" } )
-		//, Hrz7_Kru__ChaSySmz( "Do", "", "Hr_", "?", SySmz__Kri_yk, { SmzYz: "0" } )
+		// , Hrz7_Kru__ChaSySmz( "Hra6_Ku", "SaNoKe", "Do", "CARD", SySmz__Kri_yk, { SmzYz: "0" } )
 
-		//, Hrz7_Kru__ChaSySmz( "Do", "", "Hr_", "?", SySmz__Kri_yk, { SmzYz: "0" } )
-		//, Hrz7_Kru__ChaSySmz( "Do", "", "Hr_", "?", SySmz__Kri_yk, { SmzYz: "0" } )
-		//, Hrz7_Kru__ChaSySmz( "Do", "", "Hr_", "?", SySmz__Kri_yk, { SmzYz: "0" } )
-		//, Hrz7_Kru__ChaSySmz( "Do", "", "Hr_", "?", SySmz__Kri_yk, { SmzYz: "0" } )
+		//, Hrz7_Kru__ChaSySmz( "Hr", "", "Do", "ABC", SySmz__Kri_yk, { SmzYz: "0" } )
+		// LGTs/Humidifiers
+		//, Hrz7_Kru__ChaSySmz( "Hra5_Ka", "KzGwe", "Do", "USB", SySmz__Kri_yk, { SmzYz: "0" } )
+		//, Hrz7_Kru__ChaSySmz( "Hra1_Mz", "GeFy", "Do", "GPS", SySmz__Kri_yk, { SmzYz: "0" } )
+		//, Hrz7_Kru__ChaSySmz( "Hra0_Ko", "BriDzSpe", "Do", "ENRG", SySmz__Kri_yk, { SmzYz: "0" } )
+
+
+
+		//, Hrz7_Kru__ChaSySmz( "Hr", "", "Do", "ABC", SySmz__Kri_yk, { SmzYz: "0" } )
+		//, Hrz7_Kru__ChaSySmz( "Hr", "", "Do", "ABC", SySmz__Kri_yk, { SmzYz: "0" } )
+		//, Hrz7_Kru__ChaSySmz( "Hr", "", "Do", "ABC", SySmz__Kri_yk, { SmzYz: "0" } )
+		//, Hrz7_Kru__ChaSySmz( "Hr", "", "Do", "ABC", SySmz__Kri_yk, { SmzYz: "0" } )
 
 	];
 
@@ -1470,9 +1477,9 @@ async function KoDz__Ya( )
 	// SERV_OPT
 	const SySmz__HoKri_yk = false;
 	// DoXR
-	//Hrz7_Kru__ChaSySmz( "Do", "", "Hri2_Ke", "BzMe", "DoXR", SySmz__HoKri_yk, { SmzYz: "0" } );
+	//Hrz7_Kru__ChaSySmz( "Hri2_Ke", "BzMe", "Do", "XR", "Hri2_Ke", SySmz__HoKri_yk, { SmzYz: "0" } );
 	// DoGLES
-	//Hrz7_Kru__ChaSySmz( "Do", "", "Hry5_Smz", "BzMe", "DoGLES", SySmz__HoKri_yk, { SmzYz: "0" } );
+	//Hrz7_Kru__ChaSySmz( "Hry5_Smz", "BzMe", "Do", "GLES", "Hry5_Smz", SySmz__HoKri_yk, { SmzYz: "0" } );
 
 
 	//@@@

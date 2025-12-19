@@ -47,9 +47,11 @@ const SyVx = Object.freeze
 	, PAY_qk: 10
 	, CAL_qk: 11
 
-
 	// Hra5_Ka^CHIP
+	, USB_qk: 12
 	, GPS_qk: 777
+
+	// Hra0_Ko^COMPUTER
 	, ENRG_qk: 777
 
 	// Hru^AUD
@@ -90,7 +92,7 @@ const SuKz__GryFo_wuk = 10;
 //==============================================
 // SERV_ADD^ChaSy
 //==============================================
-async function Hrz7_Kru__ChaSySmz( SyTu_vsg, VaDy_vsg, SyJy_vsg, ToKz_vsg, SySmz__Kri_yk, Yz_l )
+async function Hrz7_Kru__ChaSySmz( SyJy_vsg, ToKz_vsg, SyTu_vsg, VaDy_vsg, SySmz__Kri_yk, Yz_l )
 {
 	//@@@
 	// ECOSYS_GOOD
