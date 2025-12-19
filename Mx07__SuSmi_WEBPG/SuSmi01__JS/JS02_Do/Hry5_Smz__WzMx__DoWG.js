@@ -664,7 +664,7 @@ DoWG.BriYa = async function( Yz_l )
 	//@@@
 	// AVAIL
 	//const KaTy__WG2 = KaKy_l.features.has('extended-pipeline-cache');
-	Sa_l.KaTy.TIMER_yk = KaKy_l.features.has('timestamp-query');
+	Sa_l.KaTy.TIMER_yk = 0 && KaKy_l.features.has('timestamp-query');
 
 
 	//&&&
@@ -1504,9 +1504,23 @@ DoWG.BriYe = async function( Sa_l, GiDri_duk  )
 	const KaSmz_l = Sa_l.KaSmz_l;
 	const MoKro_l = KaSmz_l.createCommandEncoder( { label: 'MoKro' } );
 
-	if( Sa_l.KaTy.TIMER_yk ){ MoKro_l.writeTimestamp( Sa_l.querySet, 0 ); }
+	const computePassDescriptor =
+	{
+		label: 'TaMo'
+	};
 
-	let TaMo_l = MoKro_l.beginComputePass( { label: 'TaMo' } );
+	if( Sa_l.KaTy.TIMER_yk )
+	{
+		computePassDescriptor.timestampWrites =
+		{
+			querySet: Sa_l.querySet,
+			beginningOfPassWriteIndex: 0,
+			endOfPassWriteIndex: 1,
+		};
+		//MoKro_l.writeTimestamp( Sa_l.querySet, 0 ); }
+	}
+
+	let TaMo_l = MoKro_l.beginComputePass( computePassDescriptor );
 
 
 /*
@@ -1678,7 +1692,7 @@ m_queue.writeBuffer(m_uniformBuffer, m_uniformStride, &uniforms, sizeof(uniforms
 	// WzMe^WORK RUN
 	TaMo_l.end();
 
-	if( Sa_l.KaTy.TIMER_yk ){ MoKro_l.writeTimestamp( Sa_l.querySet, 1 ); }
+	//if( Sa_l.KaTy.TIMER_yk ){ MoKro_l.writeTimestamp( Sa_l.querySet, 1 ); }
 
 	if( Sa_l.KaTy.TIMER_yk )
 	{
