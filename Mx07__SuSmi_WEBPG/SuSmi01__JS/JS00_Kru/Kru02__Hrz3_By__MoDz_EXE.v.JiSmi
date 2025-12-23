@@ -2,6 +2,25 @@
 // STARTUP
 //==============================================
 
+//----------------------------
+// SYSTEM SERVICE_GOVERNOR
+//----------------------------
+var Ko =
+{
+	//@@@
+	// BOOT
+	WASM64_yk: false
+	, MoDzYa__Gi_duk: 0
+	, BriYa_GiDri_df: 0.0
+	, BriYe_GiDri_df: 0.0
+
+	//@@@
+	// UPD
+	, YeFo_wu: 0
+	, YeWi_df: 0.0
+};
+window.Ko = Ko;
+
 //==============================================
 // LOGS
 // Skipped usual 8 layers for minimal JS
@@ -22,20 +41,16 @@ if( !window.crossOriginIsolated )
 	// MSG should display @ DOM
 	MoDzTrx( KoKeDru.TrxJy00__HrxCheHo__CORS_vsg );
 }
-// KeMeTrx();
+
 
 
 //==============================================
-// WASM64
-//==============================================
-
-//@@@
 // WASM64 preferred
-let WASM64_yk = false;
+//==============================================
 try
 {
-	// WASM64_yk = false;
-	WASM64_yk = WebAssembly.validate(new Uint8Array([0,97,115,109,1,0,0,0,5,3,1,4,1]));
+	// Ko.WASM64_yk = false;
+	Ko.WASM64_yk = WebAssembly.validate(new Uint8Array([0,97,115,109,1,0,0,0,5,3,1,4,1]));
 }
 catch(e)
 {
@@ -44,7 +59,7 @@ catch(e)
 	MoDzTrx( KoKeDru.TrxJy01__HrzMoHo__WASM_vsg );
 }
 
-SmaSme( "[LAUNCH] Web_Assembly[ " + ( WASM64_yk ? "64" : "32" ) + "bit:" + ( WASM64_yk ? "✅😀" : "❌😞") + " ]" );
+SmaSme( "[LAUNCH] Web_Assembly[ " + ( Ko.WASM64_yk ? "64" : "32" ) + "bit:" + ( Ko.WASM64_yk ? "✅😀" : "❌😞") + " ]" );
 
 
 //==============================================
@@ -73,7 +88,7 @@ var Module =
 	// ERR STATUS
 	Trx_vsg: null,
 	// REQ: Input
-	canvas: document.getElementById('MxPo_De'),
+	canvas: document.getElementById('MxPo_Bri'),
 	// REQ: load
 	totalDependencies: 0,
 
@@ -92,7 +107,7 @@ var Module =
         // SmaSme( "WASM module is ready" );
 		KoDz__Ya();
 		MoDz__DzStxGru();
-		KeMeKwi();
+		HryMx01_KeMeKwi();
     },
 
 	//@@@
@@ -164,7 +179,7 @@ function MoDzTrx( Trx_vsg )
 	// alert( Bo_vsg );
 
 	// DISPLAY ERR
-	KeMeTrx();
+	HryMx00_KeMeTrx();
 
 	// STOP INTERVALS
 	// if( window.Ko.Trx_GyHa  ){ clearInterval( window.Ko.Trx_GyHa ); }
@@ -233,8 +248,8 @@ async function MoDz__DzStxGru()
 	}
 
 	// STORE TIME by SESSION
-	const Sa_KoGi_k = (new Date()).getTime();
-	sessionStorage.setItem('KoGi', Sa_KoGi_k);
+	Ko.MoDzYa__Gi_duk = (new Date()).getTime();
+	sessionStorage.setItem('KoGi', Ko.MoDzYa__Gi_duk);
 
 	// TAB-CONNECTIONS = Broadcast Type
 //	var BCHN_l = new BroadcastChannel('tab-connections');
@@ -255,7 +270,7 @@ async function MoDz__DzStxGru()
 		if( PKT_k[0] == 'KrzVy' )
 		{
 			// If Newer; Error on Self
-			if( Sa_KoGi_k > parseInt( PKT_k[1] ))
+			if( Ko.MoDzYa__Gi_duk > parseInt( PKT_k[1] ))
 			{
 				SmaSme('!!! FAIL Duplicate Tab.');
 				BCHN_l = null;
@@ -269,7 +284,7 @@ async function MoDz__DzStxGru()
 		else if( PKT_k[0] == 'MxVy' )
 		{
 			// SmaSme('Send Time to Test if Duplicate Tab.');
-			BCHN_l.postMessage( 'KrzVy:' + Sa_KoGi_k );
+			BCHN_l.postMessage( 'KrzVy:' + Ko.MoDzYa__Gi_duk );
 		}
 	}
 }

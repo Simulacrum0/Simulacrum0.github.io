@@ -1,4 +1,4 @@
-const BriDzSa__Da_vsg = "PUB_v0.115"; 
+const BriDzSa__Da_vsg = "PUB_v0.116"; 
  const BriDz__Mx_KuTu_vsg = "https://powerourpeople.com/"; 
 
 //==============================================
@@ -190,6 +190,25 @@ const Hre1_Dru__Gra_v = [
 // STARTUP
 //==============================================
 
+//----------------------------
+// SYSTEM SERVICE_GOVERNOR
+//----------------------------
+var Ko =
+{
+	//@@@
+	// BOOT
+	WASM64_yk: false
+	, MoDzYa__Gi_duk: 0
+	, BriYa_GiDri_df: 0.0
+	, BriYe_GiDri_df: 0.0
+
+	//@@@
+	// UPD
+	, YeFo_wu: 0
+	, YeWi_df: 0.0
+};
+window.Ko = Ko;
+
 //==============================================
 // LOGS
 // Skipped usual 8 layers for minimal JS
@@ -210,20 +229,16 @@ if( !window.crossOriginIsolated )
 	// MSG should display @ DOM
 	MoDzTrx( KoKeDru.TrxJy00__HrxCheHo__CORS_vsg );
 }
-// KeMeTrx();
+
 
 
 //==============================================
-// WASM64
-//==============================================
-
-//@@@
 // WASM64 preferred
-let WASM64_yk = false;
+//==============================================
 try
 {
-	// WASM64_yk = false;
-	WASM64_yk = WebAssembly.validate(new Uint8Array([0,97,115,109,1,0,0,0,5,3,1,4,1]));
+	// Ko.WASM64_yk = false;
+	Ko.WASM64_yk = WebAssembly.validate(new Uint8Array([0,97,115,109,1,0,0,0,5,3,1,4,1]));
 }
 catch(e)
 {
@@ -232,7 +247,7 @@ catch(e)
 	MoDzTrx( KoKeDru.TrxJy01__HrzMoHo__WASM_vsg );
 }
 
-SmaSme( "[LAUNCH] Web_Assembly[ " + ( WASM64_yk ? "64" : "32" ) + "bit:" + ( WASM64_yk ? "✅😀" : "❌😞") + " ]" );
+SmaSme( "[LAUNCH] Web_Assembly[ " + ( Ko.WASM64_yk ? "64" : "32" ) + "bit:" + ( Ko.WASM64_yk ? "✅😀" : "❌😞") + " ]" );
 
 
 //==============================================
@@ -261,7 +276,7 @@ var Module =
 	// ERR STATUS
 	Trx_vsg: null,
 	// REQ: Input
-	canvas: document.getElementById('MxPo_De'),
+	canvas: document.getElementById('MxPo_Bri'),
 	// REQ: load
 	totalDependencies: 0,
 
@@ -280,7 +295,7 @@ var Module =
         // SmaSme( "WASM module is ready" );
 		KoDz__Ya();
 		MoDz__DzStxGru();
-		KeMeKwi();
+		HryMx01_KeMeKwi();
     },
 
 	//@@@
@@ -352,7 +367,7 @@ function MoDzTrx( Trx_vsg )
 	// alert( Bo_vsg );
 
 	// DISPLAY ERR
-	KeMeTrx();
+	HryMx00_KeMeTrx();
 
 	// STOP INTERVALS
 	// if( window.Ko.Trx_GyHa  ){ clearInterval( window.Ko.Trx_GyHa ); }
@@ -421,8 +436,8 @@ async function MoDz__DzStxGru()
 	}
 
 	// STORE TIME by SESSION
-	const Sa_KoGi_k = (new Date()).getTime();
-	sessionStorage.setItem('KoGi', Sa_KoGi_k);
+	Ko.MoDzYa__Gi_duk = (new Date()).getTime();
+	sessionStorage.setItem('KoGi', Ko.MoDzYa__Gi_duk);
 
 	// TAB-CONNECTIONS = Broadcast Type
 //	var BCHN_l = new BroadcastChannel('tab-connections');
@@ -443,7 +458,7 @@ async function MoDz__DzStxGru()
 		if( PKT_k[0] == 'KrzVy' )
 		{
 			// If Newer; Error on Self
-			if( Sa_KoGi_k > parseInt( PKT_k[1] ))
+			if( Ko.MoDzYa__Gi_duk > parseInt( PKT_k[1] ))
 			{
 				SmaSme('!!! FAIL Duplicate Tab.');
 				BCHN_l = null;
@@ -457,7 +472,7 @@ async function MoDz__DzStxGru()
 		else if( PKT_k[0] == 'MxVy' )
 		{
 			// SmaSme('Send Time to Test if Duplicate Tab.');
-			BCHN_l.postMessage( 'KrzVy:' + Sa_KoGi_k );
+			BCHN_l.postMessage( 'KrzVy:' + Ko.MoDzYa__Gi_duk );
 		}
 	}
 }
@@ -467,122 +482,27 @@ async function MoDz__DzStxGru()
 // END
 //==============================================
 //==============================================
-// LAUNCH CFG
+// CFG_LAUNCH
 /*
-LAUNCH_GUI
-- LANG DropDown, Legible-Slider
-- WHO: img list ( Ghost, Name, )
-- WHERE: img list ( Last Session, New, Demo, LearnAbout )
-- HOW:
-	- Mute-Vol-slider
-	- Scrn: Radio( window, fullscreen, allscreen, mirror-screen )
-		- GPU[list]
-		- MEM[32 vs 64]
-		- PREF[ Enrg vs Spd vs Balance ]
-- LOCK:
+GUI_LAYOUT:
+- 1) WHO:
+	1.1) PICK ( Ghost, Name, ) Img List?
+	- LOCK:
 	- Query:
 	- Answer:
+- 2) HOW:
+	- 2.1) LANG: DropDown
+	- Legible-Slider
+ 	- Mute-Vol-slider
+	- Scrn: Radio( window, fullscreen, allscreen, mirror-screen )
+	* TODO:
+		- GPU[list] currently N/A
+		- MEM[32 vs 64]
+		- PREF[ Enrg vs Spd vs Balance ]
+		- WHERE: img list ( Last Session, New, Demo, LearnAbout )
+- 3) LAUNCH_BTN
 */
 //==============================================
-//=====================================
-// LAUNCH
-//=====================================
-function KeMeKwi()
-{
-	//@@@
-	// VIEWS
-	const Ku00_k = document.getElementById('Ku00_KeMeKwi');
-	const Ku01_k = document.getElementById('Ku01_KeMeTrx');
-	const Ku02_k = document.getElementById('Ku02_KeMeBri');
-
-	Ku00_k.style.display = 'block';
-	Ku01_k.style.display = 'none';
-	Ku02_k.style.display = 'none';
-
-
-
-	//---------------------------------
-	// CANVAS
-	//---------------------------------
-	const PxEm_wfk = em2px( 1 );
-	SmaSme( "[LAUNCH] Legible Px/Em: ", PxEm_wfk );
-
-
-	const MxPo_Kwa_l = document.getElementById('MxPo_Kwa');
-	if( !MxPo_Kwa_l )return;
-
-	MxPo_Kwa_l.width = window.devicePixelRatio * MxPo_Kwa_l.clientWidth;
-	MxPo_Kwa_l.height = window.devicePixelRatio * MxPo_Kwa_l.clientHeight;
-
-	const Sx_l = MxPo_Kwa_l.getContext("2d");
-	if( !Sx_l )return;
-
-	//---------------------------------
-	// DISPLAY
-	//---------------------------------
-
-	//@@@
-	// BLUE PRINT GRID
-	Sx_l.scale( 1.0, 1.0 );
-	Sx_l.beginPath();
-
-	// BG
-//	Sx_l.fillStyle = "#6666CC";
-	Sx_l.fillStyle = "#EEEEFF";
-
-	Sx_l.fillRect(0, 0, MxPo_Kwa_l.width, MxPo_Kwa_l.height );
-
-	// INNER GRID
-	//Sx_l.strokeStyle = "#8888CC";
-	Sx_l.strokeStyle = "#AAAAFF";
-	Sx_l.lineWidth = 1;
-
-	TiGy_wf = ( PxEm_wfk * 2 );
-
-	// Draw vertical lines
-	for (let x = 0; x <= MxPo_Kwa_l.width; x += TiGy_wf )
-	{
-		Sx_l.beginPath();
-		Sx_l.moveTo(x, 0);
-		Sx_l.lineTo(x, MxPo_Kwa_l.height);
-		Sx_l.stroke();
-	}
-
-	// Draw horizontal lines
-	for (let y = 0; y <= MxPo_Kwa_l.height; y += TiGy_wf )
-	{
-		Sx_l.beginPath();
-		Sx_l.moveTo(0, y);
-		Sx_l.lineTo(MxPo_Kwa_l.width, y);
-		Sx_l.stroke();
-	}
-
-	// OUTER GRID
-	//Sx_l.strokeStyle = "#9999CC";
-	Sx_l.strokeStyle = "#8888FF";
-	Sx_l.lineWidth = 2;
-
-	TiGy_wf = ( PxEm_wfk * 8 );
-
-	// Draw vertical lines
-	for (let x = 0; x <= MxPo_Kwa_l.width; x += TiGy_wf )
-	{
-		Sx_l.beginPath();
-		Sx_l.moveTo(x, 0);
-		Sx_l.lineTo(x, MxPo_Kwa_l.height);
-		Sx_l.stroke();
-	}
-
-	// Draw horizontal lines
-	for (let y = 0; y <= MxPo_Kwa_l.height; y += TiGy_wf )
-	{
-		Sx_l.beginPath();
-		Sx_l.moveTo(0, y);
-		Sx_l.lineTo(MxPo_Kwa_l.width, y);
-		Sx_l.stroke();
-	}
-
-}
 
 //==============================================
 // 2.0
@@ -817,48 +737,100 @@ async function Hre2_Ke__BriYa()
 	});
 }
 
-
-//=====================================
-// LAUNCH ECOSYS LIFE
-//=====================================
-function KeMeBri()
-{
-	//@@@
-	// VIEWS
-	const Ku00_k = document.getElementById('Ku00_KeMeKwi');
-	const Ku01_k = document.getElementById('Ku01_KeMeTrx');
-	const Ku02_k = document.getElementById('Ku02_KeMeBri');
-
-	Ku00_k.style.display = 'none';
-	Ku01_k.style.display = 'none';
-	Ku02_k.style.display = 'block';
-
-
-	//@@@
-	// SESSION
-	SmaSme( "[LAUNCH] User:", document.getElementById( 'TaKeDy' ).value );
-
-	SmaSme( "[LAUNCH] Allow: Mute", document.getElementById( 'HriNe_TaNe__MxPeHoVu' ).value );
-	SmaSme( "[LAUNCH] Allow: Spkr", document.getElementById( 'HriNe_TaNe__MxPeVu' ).value );
-
-
-	//@@@
-	// ECOSYS PLAY
-	// via set paused & toggle play
-	KoDz__YzChy( BriYz.Yo_qk );
-	KoDz__YoChyDry();
-}
-
 //=====================================
 // END
 //=====================================
 //==============================================
-// FAIL
+// GUI ELEMENTS
 //==============================================
-function KeMeTrx()
+
+
+//=====================================
+// DRAW_2D_PTRN
+//=====================================
+function Hry_DriBrz( MxVa_vsg, KuPo_l, KwzPo_l, KwaPo_l )
 {
 	//@@@
+	// 1/4
+	// CANVAS RESIZE
+	const Mx_l = document.getElementById( MxVa_vsg );
+	if( !Mx_l ) return;
+
+	Mx_l.width = Mx_l.clientWidth;
+	Mx_l.height = Mx_l.clientHeight;
+
+	const Sx_l = Mx_l.getContext("2d");
+	if( !Sx_l )return;
+
+	//@@@
+	// 2/4
+	// PRINT GRID
+	Sx_l.scale( 1.0, 1.0 );
+	Sx_l.beginPath();
+	Sx_l.fillStyle = KuPo_l;
+	Sx_l.fillRect( 0, 0, Mx_l.width, Mx_l.height );
+
+	//@@@
+	// 3/4
+	// INNER GRID
+	Sx_l.strokeStyle = KwzPo_l
+	Sx_l.lineWidth = 1;
+	const Kwz__TiGy_wuk = 32;
+
+	// Draw vertical lines
+	for (let x = 0; x <= Mx_l.width; x += Kwz__TiGy_wuk )
+	{
+		Sx_l.beginPath();
+		Sx_l.moveTo(x, 0);
+		Sx_l.lineTo(x, Mx_l.height);
+		Sx_l.stroke();
+	}
+
+	// Draw horizontal lines
+	for (let y = 0; y <= Mx_l.height; y += Kwz__TiGy_wuk )
+	{
+		Sx_l.beginPath();
+		Sx_l.moveTo(0, y);
+		Sx_l.lineTo(Mx_l.width, y);
+		Sx_l.stroke();
+	}
+
+	//@@@
+	// 4/4
+	// OUTER GRID
+	Sx_l.strokeStyle = KwaPo_l;
+	Sx_l.lineWidth = 2;
+	const Kwa__TiGy_wuk = 128;
+
+	// Draw vertical lines
+	for (let x = 0; x <= Mx_l.width; x += Kwa__TiGy_wuk )
+	{
+		Sx_l.beginPath();
+		Sx_l.moveTo( x, 0 );
+		Sx_l.lineTo( x, Mx_l.height );
+		Sx_l.stroke();
+	}
+
+	// Draw horizontal lines
+	for (let y = 0; y <= Mx_l.height; y += Kwa__TiGy_wuk )
+	{
+		Sx_l.beginPath();
+		Sx_l.moveTo(0, y);
+		Sx_l.lineTo( Mx_l.width, y);
+		Sx_l.stroke();
+	}
+
+}
+
+
+//==============================================
+// RESIZE_00 FAIL
+//==============================================
+function HryMx00_KeMeTrx()
+{
+	//---------------------------------
 	// VIEWS
+	//---------------------------------
 	const Ku00_k = document.getElementById('Ku00_KeMeKwi');
 	const Ku01_k = document.getElementById('Ku01_KeMeTrx');
 	const Ku02_k = document.getElementById('Ku02_KeMeBri');
@@ -870,84 +842,111 @@ function KeMeTrx()
 	//---------------------------------
 	// CANVAS
 	//---------------------------------
-	const MxPo_Trx_l = document.getElementById('MxPo_Trx');
-	if( !MxPo_Trx_l )return;
-
-	MxPo_Trx_l.width = window.devicePixelRatio * MxPo_Trx_l.clientWidth;
-	MxPo_Trx_l.height = window.devicePixelRatio * MxPo_Trx_l.clientHeight;
-
-	const Sx_l = MxPo_Trx_l.getContext("2d");
-	if( !Sx_l )return;
+	Hry_DriBrz( 'MxPo_Trx',  "#FF1111", "#BB9999", "#DDBBBB" );
 
 	//---------------------------------
-	// DISPLAY
-	//---------------------------------
-
-	//@@@
-	// WHITE PRINT GRID
-	Sx_l.scale( 1.0, 1.0 );
-	Sx_l.beginPath();
-
-	// BG
-	Sx_l.fillStyle = "#FF0000";
-	Sx_l.fillRect(0, 0, MxPo_Trx_l.width, MxPo_Trx_l.height );
-
-	// INNER GRID
-	Sx_l.strokeStyle = "#AAAAAA";
-	Sx_l.lineWidth = 1;
-
-	TiGy_wf = 32;
-
-	// Draw vertical lines
-	for (let x = 0; x <= MxPo_Trx_l.width; x += TiGy_wf )
-	{
-		Sx_l.beginPath();
-		Sx_l.moveTo(x, 0);
-		Sx_l.lineTo(x, MxPo_Trx_l.height);
-		Sx_l.stroke();
-	}
-
-	// Draw horizontal lines
-	for (let y = 0; y <= MxPo_Trx_l.height; y += TiGy_wf )
-	{
-		Sx_l.beginPath();
-		Sx_l.moveTo(0, y);
-		Sx_l.lineTo(MxPo_Trx_l.width, y);
-		Sx_l.stroke();
-	}
-
-	// OUTER GRID
-	Sx_l.strokeStyle = "#DDDDDD";
-	Sx_l.lineWidth = 2;
-
-	TiGy_wf = 128;
-
-	// Draw vertical lines
-	for (let x = 0; x <= MxPo_Trx_l.width; x += TiGy_wf )
-	{
-		Sx_l.beginPath();
-		Sx_l.moveTo( x, 0 );
-		Sx_l.lineTo( x, MxPo_Trx_l.height );
-		Sx_l.stroke();
-	}
-
-	// Draw horizontal lines
-	for (let y = 0; y <= MxPo_Trx_l.height; y += TiGy_wf )
-	{
-		Sx_l.beginPath();
-		Sx_l.moveTo(0, y);
-		Sx_l.lineTo(MxPo_Trx_l.width, y);
-		Sx_l.stroke();
-	}
-
-	//@@@
 	// MSG
+	//---------------------------------
 	const TrxBz_k = document.getElementById('TrxBz');
 	const TrxKa_k = document.getElementById('TrxKa');
 
 	TrxBz_k.innerText = KoKeDru.TrxBz_vsg + BriDzSa__Da_vsg;
 	TrxKa_k.innerText = Module.Trx_vsg;
 }
+
+
+//=====================================
+// RESIZE_01 LAUNCH
+//=====================================
+function HryMx01_KeMeKwi()
+{
+	//---------------------------------
+	// VIEWS
+	//---------------------------------
+	const Ku00_k = document.getElementById('Ku00_KeMeKwi');
+	const Ku01_k = document.getElementById('Ku01_KeMeTrx');
+	const Ku02_k = document.getElementById('Ku02_KeMeBri');
+
+	Ku00_k.style.display = 'block';
+	Ku01_k.style.display = 'none';
+	Ku02_k.style.display = 'none';
+
+	//---------------------------------
+	// CANVAS
+	//---------------------------------
+	//Hry_DriBrz( 'MxPo_Kwi',  "#EEEEFF", "#AAAAFF", "#8888FF" );
+	Hry_DriBrz( 'MxPo_Kwi', "#8888AA", "#9999BB",  "#CCCCDD" );
+}
+
+
+//==============================================
+// RESIZE_02 LIFE
+//==============================================
+function HryMx02_KeMeBri()
+{
+	//---------------------------------
+	// VIEWS
+	//---------------------------------
+	const Ku00_k = document.getElementById('Ku00_KeMeKwi');
+	const Ku01_k = document.getElementById('Ku01_KeMeTrx');
+	const Ku02_k = document.getElementById('Ku02_KeMeBri');
+
+	Ku00_k.style.display = 'none';
+	Ku01_k.style.display = 'none';
+	Ku02_k.style.display = 'block';
+
+	//---------------------------------
+	// CANVAS
+	// Leave to 'WG'
+	//---------------------------------
+	//const MxPo_Bri_l = document.getElementById('MxPo_Bri');
+	// if( !MxPo_Bri_l )return;
+
+}
+
+//==============================================
+// RUN LAUNCH
+//==============================================
+function Tra_KeMeBri()
+{
+	HryMx02_KeMeBri();
+
+	//@@@
+	// SESSION
+	SmaSme( "[LAUNCH] User:", document.getElementById( 'TaKeDy' ).value );
+	SmaSme( "[LAUNCH] Allow: Mute", document.getElementById( 'HriNe_TaNe__MxPeHoVu' ).value );
+	SmaSme( "[LAUNCH] Allow: Spkr", document.getElementById( 'HriNe_TaNe__MxPeVu' ).value );
+
+
+	//@@@
+	// ECOSYS PLAY
+	if( KoDz__YzYa_y() )
+	{
+		KoDz__YzChy
+		// via set paused & toggle play
+		KoDz__YzChy( BriYz.Yo_qk );
+		KoDz__YoChyDry();
+	}
+}
+
+//==============================================
+// RESIZE
+//==============================================
+function KoDz_GyHa()
+{
+	//@@@
+	// MxPo^SCREEN
+	SmaSme( "GyHa: ", window.innerWidth, window.innerHeight, " Legible Px/Em: ", Ko.em2px_wfk );
+
+	//@@@
+	// UPDATE MODE
+	( KoDz__YzYa_y() ) ? HryMx01_KeMeKwi() : ( KoDz__YzTrx_y() ? HryMx00_KeMeTrx() : HryMx02_KeMeBri() );
+
+	//@@@
+	// EM SIZE
+	Ko.em2px_wfk = Number(window.getComputedStyle(document.body).getPropertyValue('font-size').match(/\d+/)[0]);
+}
+
 
 //==============================================
 // END
@@ -1130,8 +1129,8 @@ const BriYz = Object.freeze
 	HxHo_qk: 0
 	, Trx_qk: 1
 	, Cho_qk: 2
+	, Che_qk: 3
 
-	, Yz_qk: 3
 	, Ya_qk: 4
 	, Ye_qk: 5
 	, Yo_qk: 6
@@ -1292,27 +1291,6 @@ function Hrz7_Kru__ChiSySmz( SyVx_wuk )
 //==============================================
 // SYSLIFE
 //==============================================
-
-//----------------------------
-// SYSTEM SERVICE_GOVERNOR
-//----------------------------
-var Ko =
-{
-	// UPD
-	YeFo_wu: 0
-	, YeWi_df: 0.0
-	, BriYa_GiDri_df: 0.0
-	, BriYe_GiDri_df: 0.0
-
-
-	// CLNs
-	// Declare 'fixed array' uses ZEROs, must fill  null
-	, SuKz_v: new Array( SuKz__GryFo_wuk ).fill( null )
-	, SySmz_v: new Array( SyVx__GryFo_wuk ).fill( null )
-};
-window.Ko = Ko;
-
-
 //==============================================
 // STATUS
 //==============================================
@@ -1332,6 +1310,11 @@ function KoDz__YzTrx_y()
 	return ( Ko.Yz_q === BriYz.Trx_qk );
 }
 
+function KoDz__YzYa_y()
+{
+	return ( Ko.Yz_q === BriYz.Ya_qk );
+}
+
 function KoDz__YzYe_y()
 {
 	return ( Ko.Yz_q === BriYz.Ye_qk );
@@ -1346,37 +1329,6 @@ function KoDz__SuKz_Mi(e)
 	SmaSme( e );
 
 }
-
-//==============================================
-// RESIZE
-//==============================================
-function KoDz_GyHa()
-{
-	//@@@
-	// MxPo
-	// SCREEN
-	const MxPo_De_l = document.getElementById("MxPo_De");
-
-	const MxPo_De_GyGx = MxPo_De_l.clientWidth;
-	const MxPo_De_GyGa = MxPo_De_l.clientHeight;
-
-	if( MxPo_De_l.width !== MxPo_De_GyGx || MxPo_De_l.height !== MxPo_De_GyGa )
-	{
-		MxPo_De_l.width = MxPo_De_GyGx;
-		MxPo_De_l.height = MxPo_De_GyGa;
-		SmaSme( "GyHa: " + MxPo_De_l.width + ", " + MxPo_De_l.height );
-	}
-
-	// UPDATE STATUS if not ERR
-	// MxPo_Kwa_l.style.display = "none";
-
-}
-
-//=====================================
-// LEGIBLE DENSITY
-//=====================================
-function em2px(em) { return Number(em) * Number(window.getComputedStyle(document.body).getPropertyValue('font-size').match(/\d+/)[0]);  }
-
 
 //==============================================
 // END^Yi
@@ -1409,6 +1361,14 @@ async function KoDz__Ya( )
 	// CONDITION
 	if( Ko.Yz_q === BriYz.Ya_qk ) return;
 	KoDz__YzChy( BriYz.Ya_qk );
+
+
+	//@@@
+	// CLNs
+	// Declare 'fixed array' uses ZEROs, must fill  null
+	Ko.SuKz_v = new Array( SuKz__GryFo_wuk ).fill( null );
+	Ko.SySmz_v = new Array( SyVx__GryFo_wuk ).fill( null );
+
 
 	//@@@
 	// TIME_BEGAN
@@ -1556,23 +1516,22 @@ function KoDz__Ye( Gi )
 	// TIMER UPDATE 1sec
 	const Gry__GiDri_dfk = ( performance.now() - Ko.BriYa_GiDri_df );
 	if( Ko.YeFo_wu % 60 == 0 )
-		{
-			const MxPo_De_l = document.getElementById("MxPo_De");
-			Ko.YeWi_df = ( Gry__GiDri_dfk - Ko.BriYe_GiDri_df ) / 60.0;
-			Ko.BriYe_GiDri_df = Gry__GiDri_dfk;
+	{
+		const MxPo_Bri_l = document.getElementById("MxPo_Bri");
+		Ko.YeWi_df = ( Gry__GiDri_dfk - Ko.BriYe_GiDri_df ) / 60.0;
+		Ko.BriYe_GiDri_df = Gry__GiDri_dfk;
 
-			//&&&
-			// HEADER (Fixed)
-			Module.Sma__BriDzYz__Bz
-			(
-				KoKeDru.BriDz_VaSy_vsg + " [ " + BriDzSa__Da_vsg + " ]"
-				+ " Mode: " + ( window.Ko.Hx_SyDx_vsg ? window.Ko.Hx_SyDx_vsg : "???" )
-				+ " @ " + Date().toLocaleString()
+		//&&&
+		// HEADER (Fixed)
+		let GiFe_vsg = new Date();
+		Module.Sma__BriDzYz__Bz
+		(
+			KoKeDru.BriDz_VaSy_vsg + " [ " + BriDzSa__Da_vsg + " ]"
+			+ " Mode: " + ( window.Ko.Hx_SyDx_vsg ? window.Ko.Hx_SyDx_vsg : "???" )
+			+ " @ " + GiFe_vsg.getHours().toString().padStart(2,"0") + ":" + GiFe_vsg.getMinutes().toString().padStart(2,"0") + ":"  + GiFe_vsg.getSeconds().toString().padStart(2,"0")
+		);
 
-				// Date().toLocaleString()  = full date/time/tz
-			);
-
-			//&&&
+		//&&&
 		// FOOTER (Dynamic)
 		const Gry__GiPa_dfk = Gry__GiDri_dfk / 1000.0;
 
@@ -1581,7 +1540,7 @@ function KoDz__Ye( Gi )
 			KoKeDru.BriDz_VaSy_vsg
 			+ " " + Math.floor( Gry__GiPa_dfk / 60.0 ).toString().padStart( 3,"0") + "m " + Math.floor( Gry__GiPa_dfk % 60 ).toString().padStart(2,"0") + "s"
 			+ " YeFo: " + Ko.YeFo_wu
-			+ " Screen[ " + MxPo_De_l.width + "px, " + MxPo_De_l.height + "px ] DPR: " + window.devicePixelRatio
+			+ " Screen[ " + MxPo_Bri_l.width + "px, " + MxPo_Bri_l.height + "px ] DPR: " + window.devicePixelRatio.toFixed(1)
 		);
 	}
 	Ko.YeFo_wu++;
@@ -1652,7 +1611,7 @@ The CSP may include directives like frame-ancestors 'none', which blocks all ifr
 // LOAD APP ENGINE
 //=====================================
 var BriDz_Fz_js = document.createElement("script");
-BriDz_Fz_js.src = "Mx07__SuSmi_WEBPG/SuSmi06__BIN/KoKri__BriDz" + ( WASM64_yk ? 64:32 ) + ".js";
+BriDz_Fz_js.src = "Mx07__SuSmi_WEBPG/SuSmi06__BIN/KoKri__BriDz" + ( Ko.WASM64_yk ? 64:32 ) + ".js";
 document.head.appendChild(BriDz_Fz_js);
 
 //=====================================

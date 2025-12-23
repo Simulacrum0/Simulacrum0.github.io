@@ -2,7 +2,7 @@
 CSS BEGIN
 
 3 DIVs as 'SCREENs'
-MxPo_De
+MxPo_Bri
 MxPo_Kwi
 MxPo_Trx
 
@@ -62,7 +62,7 @@ AREA
 .MxPo
 {
 	left: 0dvw;
-	top: 1.0em;
+	top: 1.5em;
 	width: 100dvw;
 	height: calc( 100dvh - 3.0em);
 
@@ -83,7 +83,6 @@ DBG
 	color: rgb(255, 255, 255);
 }
 
-
 /* DEBUG TXT */
 .TrxKz
 {
@@ -101,25 +100,22 @@ DBG
 GUI
 @@@@@@@@@@@@@@@*/
 
-/* LAUNCH_PANEL */
+/* BASE-PANEL */
 .HriNeKu
 {
 	display: block;
-	position: relative;
-	z-index: 2;
+	position: absolute;
+	z-index: 1;
 
 	left: calc( 50dvw - 16em);
 	top: 4em;
-
 	width: 32em;
-
 	margin: 0.5em;
 	padding: 0.5em;
 
 	box-sizing: border-box;
 	border-radius: 1.5em;
 	border: 0.125em solid rgb( 255, 255, 255 );
-
 	background-color: rgb( 0, 0, 0, 0.5 );
 }
 
@@ -128,13 +124,13 @@ GUI
 {
 	display: block;
 	position: relative;
-	margin: 0.5em;
+	z-index: 2;
+
+	margin: 0.2em;
 	padding: 0.0em;
-
-	left: 1.0em;
-	width: calc( 100% - 3.0em );
-	height: 8em;
-
+	left: 2.0em;
+	width: calc( 100% - 4.0em );
+	height: 6em;
 
 	box-sizing: border-box;
 	border-radius: 8.0em;
@@ -144,7 +140,7 @@ GUI
 /* SUBMIT ===> LAUNCH BTN RED */
 input[type=submit]
 {
-	display: block;
+	display: inline-flex;
 	position: relative;
 	margin: 0.5em;
 	padding: 0.0em;
@@ -153,15 +149,13 @@ input[type=submit]
 	width: calc( 100% - 3.0em );
 	height: 2.5em;
 
-
 	box-sizing: border-box;
 	border-radius: 1.5em;
 	border: 0.1em solid rgb( 255, 255, 255 );
+	background-color: rgb( 192, 32, 32 );
 
 	font-size: 1.25em;
 	text-align: center;
-
-	background-color: rgb( 192, 32, 32 );
 }
 /* HOVER BG Po ==> GREEN */
 input[type=submit]:hover
@@ -169,13 +163,12 @@ input[type=submit]:hover
 	background-color: rgb( 32, 160, 32 );
 }
 
-
-/* TOPIC_PANEL */
+/* INNER_TOPIC_PANEL */
 .HriNzKu
 {
 	display: block;
 	position: relative;
-	z-index: 3;
+	z-index: 4;
 
 	margin: 0.5em;
 	padding: 0.5em;
@@ -188,15 +181,40 @@ input[type=submit]:hover
 }
 
 /* TOPIC_TITLE */
+.BriDzVa
+{
+	text-align:center;
+	margin: 0.25em;
+	padding: 0.em;
+}
+
+/* TOPIC_TITLE */
 .HriNzVa
 {
 	text-align:left;
-	/* display: block;
-	position: relative;
-	*/
+	margin: 0.125em;
+	padding: 0.0em;
+}
 
-	margin: 0.5em;
-	padding: 0.5em;
+/* PACK ELEMENTS */
+.BriDzDa
+{
+	display: block;
+	text-align:center;
+	margin: 0.em;
+	padding: 0.em;
+	color: rgb( 192, 192, 192 );
+}
+
+/* DROP DOWN LIST */
+.TaNeVa
+{
+	display: inline-flex;
+	text-align:center;
+	margin: 0.25em;
+	padding: 0.25em;
+
+	color: rgb(255, 255, 255 );
 }
 
 /* PACK ELEMENTS */
@@ -204,7 +222,6 @@ input[type=submit]:hover
 {
 	display: inline-flex;
 	text-align:left;
-
 	margin: 0.25em;
 	padding: 0.25em;
 
@@ -216,9 +233,8 @@ input[type=submit]:hover
 {
 	display: inline-flex;
 	text-align:left;
-
 	margin: 0.25em;
-	padding: 0.25em;
+	padding: 0.0em;
 
 	color: rgb(255, 255, 255 );
 }

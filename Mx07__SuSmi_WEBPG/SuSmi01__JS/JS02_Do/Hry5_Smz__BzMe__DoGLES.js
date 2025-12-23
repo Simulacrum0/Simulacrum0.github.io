@@ -60,8 +60,8 @@ DoGLES.BriYa = async function( Yz_l )
 
 	//@@@
 	// CTX
-	//const gl = document.getElementById( "MxPo_De" ).getContext( "webgl2", { xrCompatible: true } );
-	const gl = document.getElementById( "MxPo_De" ).getContext( "webgl2" );
+	//const gl = document.getElementById( "MxPo_Bri" ).getContext( "webgl2", { xrCompatible: true } );
+	const gl = document.getElementById( "MxPo_Bri" ).getContext( "webgl2" );
 	if ( !gl )
 	{
 		DoGLES.Trx( "WebGL2 required: Please check your Browser" );
@@ -112,15 +112,15 @@ DoGLES.BriYa = async function( Yz_l )
 //==============================================
 // DoGLES_RESIZE
 //==============================================
-DoGLES.GyHa = function( Sa_l, MxPo_l )
+DoGLES.GyHa = function( Sa_l, MxPo_Bri_l )
 {
-	const width = MxPo_l.clientWidth;
-	const height = MxPo_l.clientHeight;
-	const needResize = width !== MxPo_l.width || height !== MxPo_l.height;
+	const width = MxPo_Bri_l.clientWidth;
+	const height = MxPo_Bri_l.clientHeight;
+	const needResize = width !== MxPo_Bri_l.width || height !== MxPo_Bri_l.height;
 	if ( needResize )
 	{
-		MxPo_l.width = width;
-		MxPo_l.height = height;
+		MxPo_Bri_l.width = width;
+		MxPo_Bri_l.height = height;
 	}
 	return needResize;
 }

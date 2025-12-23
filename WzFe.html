@@ -28,31 +28,16 @@
 
 	<!-- Ku00__LAUNCH ------------------------------------------------>
 	<div class="SpoJy KuJy" id="Ku00_KeMeKwi" hidden>
-		<canvas class="SpoJy MxPo " id="MxPo_Kwa"></canvas>
+		<canvas class="SpoJy MxPo " id="MxPo_Kwi"></canvas>
 
 		<div class="HriNeKu" id="Nz00_BriDzKwi">
-			<h1  id="BriDzVaSy" class="HriNzVa WaDru_Bz"></h1>
+			<h2  id="BriDzVaSy" class="BriDzVa WaDru_Bz"></h2>
 			<img class="HriNeJaPo" src="Mx01__SuKz_MEDIA/SuKz02_JaPo__PICT/JaPo06__Banner.jpg"></img>
 
-			<h4 id="BriDzSa__Da" class="HriNeTi WaDru_Ka" style="text-align: center"></h4>
-
-
-			<details>
-				<summary  id="HriNe_KeDru" class="HriNzVa WaDru_Bz"></summary>
-				<div class="HriNzKu" id="Nz02_KeDru">
-
-					<span id="HriNe_TaNe__KeDruGyVa" class="HriNeVa WaDru_Ka"></span>
-					<input id="HriNe_TaNe__KeDruGyVu" class="HriNeVa" type="range" min="0" max="100" value="50" id="volume" />
-					<br>
-					<button id="HriNe_KeDru__KoKriKro" class="HriNzVa WaDru_Bz TBD" type="button"></button>
-				</div>
-			</details>
-			<select id="TaKeDru" class="HriNeTi WaDru_Ka" onchange="JeKeDru_JeChy()" tabindex=2 ></select>
-
-
-			<details>
-				<summary id="HriNe_KeDy" class="HriNzVa WaDru_Bz" ></summary>
-				<div class="HriNzKu" id="Nz03_KeDy">
+			<!-- #1 WHO -->
+			<details class="TaNeVa">
+				<summary id="HriNe_KeDy" class="HriNzVa WaDru_Bz" >ID</summary>
+				<div class="HriNzKu" id="Nz01_KeDy">
 
 					<button id="HriNe_KeDy__ChaKz" class="HriNzVa WaDru_Bz TBD" type="button"></button>
 					<input id="HriNe_KeDy__ChaKeDyVa" class="HriNeTi WaDru_Ka TBD" type="text" placeholder="???" disabled></input>
@@ -71,11 +56,17 @@
 				</div>
 			</details>
 			<select id="TaKeDy" class="HriNeTi WaDru_Ka" onchange="JeKeDy_JeChy()" tabindex=3 ></select>
+			<br>
 
+			<!-- #2 HOW -->
+			<details class="TaNeVa">
+				<summary id="HriNe_TaNe" class="HriNzVa WaDru_Bz">WHO</summary>
+				<div class="HriNzKu" id="Nz02_TaNe">
 
-			<details>
-				<summary id="HriNe_TaNe" class="HriNzVa WaDru_Bz"></summary>
-				<div class="HriNzKu" id="Nz04_TaNe">
+					<span id="HriNe_TaNe__KeDruGyVa" class="HriNeVa WaDru_Ka"></span>
+					<input id="HriNe_TaNe__KeDruGyVu" class="HriNeVa" type="range" min="0" max="100" value="50" id="volume" />
+					<br>
+					<button id="HriNe_KeDru__KoKriKro" class="HriNzVa WaDru_Bz TBD" type="button"></button>
 
 					<span id="HriNe_TaNe__MxPeVa" class="HriNeVa WaDru_Ka"></span>
 					<input id="HriNe_TaNe__MxPeVu" type="range" min="0" max="100" value="50" id="volume" />
@@ -97,8 +88,11 @@
 					<label class="switch"><input id="HriNe_TaNe__MxPoGryVu" type="checkbox"><span class="slider"></span></label>
 				</div>
 			</details>
+			<select id="TaKeDru" class="HriNeTi WaDru_Ka" onchange="JeKeDru_JeChy()" tabindex=2 ></select>
 
-			<input id="HriNe_KwiVu" class="HriNeTi WaDru_Bz" tabindex=1 type="submit" onclick="KeMeBri()" value="!"/>
+			<!-- LAUNCH -->
+			<input id="HriNe_KwiVu" class="HriNeTi WaDru_Bz" tabindex=1 type="submit" onclick="Tra_KeMeBri()" value="!"/>
+			<code id="BriDzSa__Da" class="BriDzDa WaDru_Ka" style="font-size: 67%";></code>
 
 		</div>
 	</div>
@@ -116,7 +110,7 @@
 
 	<!-- Ku02__LIFE ------------------------------------------------>
 	<div class="SpoJy KuJy" id="Ku02_KeMeBri" hidden>
-		<canvas class="SpoJy MxPo" id="MxPo_De"></canvas>
+		<canvas class="SpoJy MxPo" id="MxPo_Bri"></canvas>
 
 		<input type="text" id="KeDruTre" name="?" hidden></input>
 		<!-- <audio class="SpoJy" id="audio-player" controls="true" src="https://raw.githubusercontent.com/kbstt/pwa-demos/main/track2.mp3"></audio> -->

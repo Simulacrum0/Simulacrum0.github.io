@@ -1,0 +1,211 @@
+//==============================================
+// GUI ELEMENTS
+//==============================================
+
+
+//=====================================
+// DRAW_2D_PTRN
+//=====================================
+function Hry_DriBrz( MxVa_vsg, KuPo_l, KwzPo_l, KwaPo_l )
+{
+	//@@@
+	// 1/4
+	// CANVAS RESIZE
+	const Mx_l = document.getElementById( MxVa_vsg );
+	if( !Mx_l ) return;
+
+	Mx_l.width = Mx_l.clientWidth;
+	Mx_l.height = Mx_l.clientHeight;
+
+	const Sx_l = Mx_l.getContext("2d");
+	if( !Sx_l )return;
+
+	//@@@
+	// 2/4
+	// PRINT GRID
+	Sx_l.scale( 1.0, 1.0 );
+	Sx_l.beginPath();
+	Sx_l.fillStyle = KuPo_l;
+	Sx_l.fillRect( 0, 0, Mx_l.width, Mx_l.height );
+
+	//@@@
+	// 3/4
+	// INNER GRID
+	Sx_l.strokeStyle = KwzPo_l
+	Sx_l.lineWidth = 1;
+	const Kwz__TiGy_wuk = 32;
+
+	// Draw vertical lines
+	for (let x = 0; x <= Mx_l.width; x += Kwz__TiGy_wuk )
+	{
+		Sx_l.beginPath();
+		Sx_l.moveTo(x, 0);
+		Sx_l.lineTo(x, Mx_l.height);
+		Sx_l.stroke();
+	}
+
+	// Draw horizontal lines
+	for (let y = 0; y <= Mx_l.height; y += Kwz__TiGy_wuk )
+	{
+		Sx_l.beginPath();
+		Sx_l.moveTo(0, y);
+		Sx_l.lineTo(Mx_l.width, y);
+		Sx_l.stroke();
+	}
+
+	//@@@
+	// 4/4
+	// OUTER GRID
+	Sx_l.strokeStyle = KwaPo_l;
+	Sx_l.lineWidth = 2;
+	const Kwa__TiGy_wuk = 128;
+
+	// Draw vertical lines
+	for (let x = 0; x <= Mx_l.width; x += Kwa__TiGy_wuk )
+	{
+		Sx_l.beginPath();
+		Sx_l.moveTo( x, 0 );
+		Sx_l.lineTo( x, Mx_l.height );
+		Sx_l.stroke();
+	}
+
+	// Draw horizontal lines
+	for (let y = 0; y <= Mx_l.height; y += Kwa__TiGy_wuk )
+	{
+		Sx_l.beginPath();
+		Sx_l.moveTo(0, y);
+		Sx_l.lineTo( Mx_l.width, y);
+		Sx_l.stroke();
+	}
+
+}
+
+
+//==============================================
+// RESIZE_00 FAIL
+//==============================================
+function HryMx00_KeMeTrx()
+{
+	//---------------------------------
+	// VIEWS
+	//---------------------------------
+	const Ku00_k = document.getElementById('Ku00_KeMeKwi');
+	const Ku01_k = document.getElementById('Ku01_KeMeTrx');
+	const Ku02_k = document.getElementById('Ku02_KeMeBri');
+
+	Ku00_k.style.display = 'none';
+	Ku01_k.style.display = 'block';
+	Ku02_k.style.display = 'none';
+
+	//---------------------------------
+	// CANVAS
+	//---------------------------------
+	Hry_DriBrz( 'MxPo_Trx',  "#FF1111", "#BB9999", "#DDBBBB" );
+
+	//---------------------------------
+	// MSG
+	//---------------------------------
+	const TrxBz_k = document.getElementById('TrxBz');
+	const TrxKa_k = document.getElementById('TrxKa');
+
+	TrxBz_k.innerText = KoKeDru.TrxBz_vsg + BriDzSa__Da_vsg;
+	TrxKa_k.innerText = Module.Trx_vsg;
+}
+
+
+//=====================================
+// RESIZE_01 LAUNCH
+//=====================================
+function HryMx01_KeMeKwi()
+{
+	//---------------------------------
+	// VIEWS
+	//---------------------------------
+	const Ku00_k = document.getElementById('Ku00_KeMeKwi');
+	const Ku01_k = document.getElementById('Ku01_KeMeTrx');
+	const Ku02_k = document.getElementById('Ku02_KeMeBri');
+
+	Ku00_k.style.display = 'block';
+	Ku01_k.style.display = 'none';
+	Ku02_k.style.display = 'none';
+
+	//---------------------------------
+	// CANVAS
+	//---------------------------------
+	//Hry_DriBrz( 'MxPo_Kwi',  "#EEEEFF", "#AAAAFF", "#8888FF" );
+	Hry_DriBrz( 'MxPo_Kwi', "#8888AA", "#9999BB",  "#CCCCDD" );
+}
+
+
+//==============================================
+// RESIZE_02 LIFE
+//==============================================
+function HryMx02_KeMeBri()
+{
+	//---------------------------------
+	// VIEWS
+	//---------------------------------
+	const Ku00_k = document.getElementById('Ku00_KeMeKwi');
+	const Ku01_k = document.getElementById('Ku01_KeMeTrx');
+	const Ku02_k = document.getElementById('Ku02_KeMeBri');
+
+	Ku00_k.style.display = 'none';
+	Ku01_k.style.display = 'none';
+	Ku02_k.style.display = 'block';
+
+	//---------------------------------
+	// CANVAS
+	// Leave to 'WG'
+	//---------------------------------
+	//const MxPo_Bri_l = document.getElementById('MxPo_Bri');
+	// if( !MxPo_Bri_l )return;
+
+}
+
+//==============================================
+// RUN LAUNCH
+//==============================================
+function Tra_KeMeBri()
+{
+	HryMx02_KeMeBri();
+
+	//@@@
+	// SESSION
+	SmaSme( "[LAUNCH] User:", document.getElementById( 'TaKeDy' ).value );
+	SmaSme( "[LAUNCH] Allow: Mute", document.getElementById( 'HriNe_TaNe__MxPeHoVu' ).value );
+	SmaSme( "[LAUNCH] Allow: Spkr", document.getElementById( 'HriNe_TaNe__MxPeVu' ).value );
+
+
+	//@@@
+	// ECOSYS PLAY
+	if( KoDz__YzYa_y() )
+	{
+		KoDz__YzChy
+		// via set paused & toggle play
+		KoDz__YzChy( BriYz.Yo_qk );
+		KoDz__YoChyDry();
+	}
+}
+
+//==============================================
+// RESIZE
+//==============================================
+function KoDz_GyHa()
+{
+	//@@@
+	// MxPo^SCREEN
+	SmaSme( "GyHa: ", window.innerWidth, window.innerHeight, " Legible Px/Em: ", Ko.em2px_wfk );
+
+	//@@@
+	// UPDATE MODE
+	( KoDz__YzYa_y() ) ? HryMx01_KeMeKwi() : ( KoDz__YzTrx_y() ? HryMx00_KeMeTrx() : HryMx02_KeMeBri() );
+
+	//@@@
+	// EM SIZE
+	Ko.em2px_wfk = Number(window.getComputedStyle(document.body).getPropertyValue('font-size').match(/\d+/)[0]);
+}
+
+
+//==============================================
+// END
+//==============================================

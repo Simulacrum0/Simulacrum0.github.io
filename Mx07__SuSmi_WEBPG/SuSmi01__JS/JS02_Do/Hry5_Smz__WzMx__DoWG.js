@@ -249,27 +249,28 @@ DoWG.SmaYz = function( Sa_l )
 }
 
 //==============================================
-// DISPLAY RESIZE
-// DoWG_GyHa
+// DISPLAY RESIZE REGULARLY 'Re-Run'
 //==============================================
-DoWG.GyHa = function( Sa_l )
+DoWG.Mz_GyHa = function( Sa_l )
 {
 	if( KoDz__YzTrx_y() ) return;
 
-	// SmaSme( "DoWG_GyHa ", Sa_l );
-	const width = Math.max( 1, Math.min( Sa_l.KaSmz_l.limits.maxTextureDimension2D, Sa_l.MxPo_l.clientWidth ) );
-	const height = Math.max( 1, Math.min( Sa_l.KaSmz_l.limits.maxTextureDimension2D, Sa_l.MxPo_l.clientHeight ) );
+	const width = Math.max( 1, Math.min( Sa_l.KaSmz_l.limits.maxTextureDimension2D, window.devicePixelRatio * Sa_l.MxPo_Bri_l.clientWidth ) );
+	const height = Math.max( 1, Math.min( Sa_l.KaSmz_l.limits.maxTextureDimension2D, window.devicePixelRatio * Sa_l.MxPo_Bri_l.clientHeight ) );
 
 	//@@@
 	// RESIZE OCCURED?
-	if( width !== Sa_l.MxPo_l.width || height !== Sa_l.MxPo_l.height )
+	if( width !== Sa_l.MxPo_Bri_l.width || height !== Sa_l.MxPo_Bri_l.height )
 	{
-		Sa_l.MxPo_l.width = width;
-		Sa_l.MxPo_l.height = height;
+		//&&&
+		// UPDATE BUFS
+		// SmaSme( "DoWG_Mz_GyHa ", Sa_l );
+		Sa_l.MxPo_Bri_l.width = width;
+		Sa_l.MxPo_Bri_l.height = height;
 
 		//&&&
 		// REALLOC MxPo BACKBUF
-
+		
 	}
 }
 
@@ -499,7 +500,6 @@ DoWG.KiCho_ChyGe = function( Sa_l, SiGeGx_wuk, SiGeGa_wuk, SiGeGz_wuk, DuGyGx_wu
 // FN_3/4: EXPORT
 //==============================================
 //==============================================
-
 async function saveBlobAsFile(blob, filename)
 {
     const a = document.createElement('a');
@@ -644,8 +644,8 @@ DoWG.BriYa = async function( Yz_l )
 	//-------------------------------------------------
 	// SCREEN
 	//-------------------------------------------------
-	const MxPo_l = document.getElementById( 'MxPo_De' );
-	Sa_l.MxPo_l = MxPo_l;
+	const MxPo_Bri_l = document.getElementById( 'MxPo_Bri' );
+	Sa_l.MxPo_Bri_l = MxPo_Bri_l;
 	Sa_l.MxPo__FMT_l = KaKy_l.features.has('bgra8unorm-storage')
 		? navigator.gpu.getPreferredCanvasFormat()
 		: 'rgba8unorm';
@@ -664,7 +664,7 @@ DoWG.BriYa = async function( Yz_l )
 	//@@@
 	// AVAIL
 	//const KaTy__WG2 = KaKy_l.features.has('extended-pipeline-cache');
-	Sa_l.KaTy.TIMER_yk = 0 && KaKy_l.features.has('timestamp-query');
+	Sa_l.KaTy.TIMER_yk = KaKy_l.features.has('timestamp-query');
 
 
 	//&&&
@@ -757,7 +757,7 @@ DoWG.BriYa = async function( Yz_l )
 	//-------------------------------------------------
 	// CANVAS-CTX
 	//-------------------------------------------------
-	const Sx_l = Sa_l.MxPo_l.getContext( 'webgpu' );
+	const Sx_l = Sa_l.MxPo_Bri_l.getContext( 'webgpu' );
 	if( MoDzTrx__NxHo_y( "Context", Sx_l )){ return null; }
 	Sa_l.Sx_l = Sx_l;
 
@@ -785,8 +785,8 @@ DoWG.BriYa = async function( Yz_l )
 
 	// ratio of the resolution in physical pixels to the resolution in CSS pixels
 	// const devicePixelRatio = window.devicePixelRatio;
-	MxPo_l.width = MxPo_l.clientWidth;
-	MxPo_l.height = MxPo_l.clientHeight;
+	MxPo_Bri_l.width = MxPo_Bri_l.clientWidth;
+	MxPo_Bri_l.height = MxPo_Bri_l.clientHeight;
 
 	//-------------------------------------------------
 	// SAMPLER^JaMi
@@ -1180,7 +1180,7 @@ DoWG.BriYa = async function( Yz_l )
 
 
 	//-------------------------------------------------
-	// BUF RECORD
+	// BUF SIM
 	// Instructions/Scene Data
 	//-------------------------------------------------
 	// Create an array representing the active state of each cell.
@@ -1497,7 +1497,7 @@ DoWG.BriYe = async function( Sa_l, GiDri_duk  )
 
 	//@@@
 	// CHECK RESIZE
-	DoWG.GyHa( Sa_l );
+	DoWG.Mz_GyHa( Sa_l );
 
 	//@@@
 	// CMD PASS BEGIN
@@ -1672,11 +1672,11 @@ m_queue.writeBuffer(m_uniformBuffer, m_uniformStride, &uniforms, sizeof(uniforms
 	// DISP_PRESENT
 	TaMo_l = MoKro_l.beginComputePass();
 
-	const MxPo_l = Sa_l.Sx_l.getCurrentTexture();
+	const MxPo_Bri_l = Sa_l.Sx_l.getCurrentTexture();
 	let MxPo__bindGroup = KaSmz_l.createBindGroup
 	({
 		layout: Sa_l.PIPER_k.getBindGroupLayout(1),
-		entries: [ { binding: 0, resource: MxPo_l } ],
+		entries: [ { binding: 0, resource: MxPo_Bri_l } ],
 	});
 
 	{
@@ -1684,7 +1684,7 @@ m_queue.writeBuffer(m_uniformBuffer, m_uniformStride, &uniforms, sizeof(uniforms
 		TaMo_l.setBindGroup( 0, Sa_l.SuGweKy[ 2 ] );
 		TaMo_l.setBindGroup( 1, MxPo__bindGroup );
 
-		TaMo_l.dispatchWorkgroups( ( MxPo_l.width + 7 ) >> 3, ( MxPo_l.height + 7 ) >> 3 );
+		TaMo_l.dispatchWorkgroups( ( MxPo_Bri_l.width + 7 ) >> 3, ( MxPo_Bri_l.height + 7 ) >> 3 );
 	}
 
 
