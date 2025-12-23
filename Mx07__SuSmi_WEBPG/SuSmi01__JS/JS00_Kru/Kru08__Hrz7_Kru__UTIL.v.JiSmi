@@ -1,0 +1,26 @@
+//=====================================
+// UTIL
+//=====================================
+
+function rand(min, max)
+{
+  if (min === undefined)
+	{
+    max = 1;
+    min = 0;
+  }
+  else if (max === undefined)
+  {
+    max = min;
+    min = 0;
+  }
+  return Math.random() * (max - min) + min;
+}
+
+// Selects a random array element
+const randomArrayElement = arr => arr[ Math.random() * arr.length | 0];
+
+
+//=====================================
+// END
+//=====================================

@@ -1,4 +1,4 @@
-const BriDzSa__Da_vsg = "PUB_v0.116"; 
+const BriDzSa__Da_vsg = "PUB_v0.117"; 
  const BriDz__Mx_KuTu_vsg = "https://powerourpeople.com/"; 
 
 //==============================================
@@ -875,7 +875,7 @@ function HryMx01_KeMeKwi()
 	// CANVAS
 	//---------------------------------
 	//Hry_DriBrz( 'MxPo_Kwi',  "#EEEEFF", "#AAAAFF", "#8888FF" );
-	Hry_DriBrz( 'MxPo_Kwi', "#8888AA", "#9999BB",  "#CCCCDD" );
+	Hry_DriBrz( 'MxPo_Kwi', "#8888BB", "#9999CC",  "#BBBBEE" );
 }
 
 
@@ -901,7 +901,6 @@ function HryMx02_KeMeBri()
 	//---------------------------------
 	//const MxPo_Bri_l = document.getElementById('MxPo_Bri');
 	// if( !MxPo_Bri_l )return;
-
 }
 
 //==============================================
