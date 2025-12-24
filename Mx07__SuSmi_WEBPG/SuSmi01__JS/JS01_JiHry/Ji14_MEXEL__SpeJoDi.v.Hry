@@ -1,6 +1,7 @@
 //-------------------------------------------------
 // WGSL_Ya
 //-------------------------------------------------
+ const WzGy_wuk: u32 = 8;
 
 @compute @workgroup_size( WzGy_wuk, WzGy_wuk )
 fn JiHry( @builtin( global_invocation_id ) Wz_wu3: vec3u )

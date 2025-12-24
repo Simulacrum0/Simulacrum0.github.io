@@ -63,13 +63,13 @@ const SuTy__BraHiFrz_k = ( 16 * 64 * 16 )
 
 //-------------------------------------------------
 // BUFFERS
-const JxJy = Object.freeze
+const JxReVa = Object.freeze
 //-------------------------------------------------
 ({
-	JoDu_qk: 0
-	, WzKu_qk: 1
-	, SuTy_qk: 2
-	, TaVx_qk: 3
+	SuTy_qk: 0 // Crafts for all
+	, SoVx_qk: 1 // Reference Values, such as Color Stacks
+	, _qk: 2 //
+	, WzKu_qk: 3 // Specific Jobs, *USES* 1 Offset
 });
 
 
@@ -1025,21 +1025,23 @@ DoWG.BriYa = async function( Yz_l )
 	  label: "GOLIFE CraftType",
 	  entries:
 	  [{
-		binding: 0
-		, visibility: GPUShaderStage.COMPUTE
-		, buffer: {} // Grid uniform buffer
-		, hasDynamicOffset: true
-	  }
-
-	  , {
-		binding: 1,
-		visibility: GPUShaderStage.COMPUTE,
-		buffer: { type: "read-only-storage"} // Cell state input buffer
+			// CRAFT
+			binding: 0
+			, visibility: GPUShaderStage.COMPUTE
+			, buffer: { type: "uniform", minBindingSize: 256 }
+			, hasDynamicOffset: false
 	  }
 	  , {
-		binding: 2,
-		visibility: GPUShaderStage.COMPUTE,
-		buffer: { type: "storage"} // Cell state output buffer
+		  	// INPUT
+			binding: 1
+			, visibility: GPUShaderStage.COMPUTE
+			, buffer: { type: "read-only-storage", minBindingSize: 256 }
+	  }
+	  , {
+			// OUTPUT
+			binding: 2
+			, visibility: GPUShaderStage.COMPUTE
+			, buffer: { type: "storage", minBindingSize: 256 }
 	  }]
 	});
 
@@ -1180,12 +1182,7 @@ DoWG.BriYa = async function( Yz_l )
 	({
 	  label: "Simulation pipeline",
 	  layout: GOLIFE_KySuTyJy,
-	  compute:
-	  {
-		module: JiHry02__GOLIFE
-		// WORKGROUP OVERRIDE
-		, constants: { 0: WzGy_wuk }
-	  }
+	  compute: { module: JiHry02__GOLIFE }
 	});
 
 	if( MoDzTrx__NxHo_y( "ProgPipe^JiGwe", JiGwe02__GOLIFE )){ return null; }
@@ -1202,7 +1199,7 @@ DoWG.BriYa = async function( Yz_l )
 		label: "CRAFTS^SuTy",
 		size: SuTy__BraHiFrz_k,
 		usage: GPUBufferUsage.UNIFORM | GPUBufferUsage.COPY_DST,
-		minBindingSize: 64
+
 	});
 	if( MoDzTrx__NxHo_y( "Crafts^SuTy", Jx00__SuTy )){ return null; }
 	Sa_l.Jx00__SuTy = Jx00__SuTy;
@@ -1380,10 +1377,11 @@ DoWG.BriYa = async function( Yz_l )
 	if( MoDzTrx__NxHo_y( "SRC:" + TaJiHry_vvsg[ Ji_wuk ].Va_vsg, JiKa_vsg )){ return null; }
 
 	const JiBz_vsg =`
-	@id( 0 ) override WzGy_wuk: u32 = 8;
 	@group(0) @binding(0) var JaKro_k: sampler;
 	@group(0) @binding(1) var JaPo_k: texture_2d_array<f32>;
 	@group(1) @binding(0) var SePo_k: texture_storage_2d_array<rgba8unorm, write>;
+
+	const WzGy_wuk: u32 = 8;
 	`;
 
 
@@ -1401,11 +1399,7 @@ DoWG.BriYa = async function( Yz_l )
 	  ({
 		label: "PIPE:" + TaJiHry_vvsg[ Ji_wuk ].Va_vsg
 		, layout: WzPoChy_KySuTyJy
-		, compute:
-		{
-		  module: JiSpo_v
-		  , constants: { 0: WzGy_wuk }
-		}
+		, compute: { module: JiSpo_v }
 	  });
   }
 
@@ -1421,12 +1415,20 @@ DoWG.BriYa = async function( Yz_l )
   if( MoDzTrx__NxHo_y( "SRC:" + TaJiHry_vvsg[ Ji_wuk ].Va_vsg, JiKa_vsg )){ return null; }
 
   const JiBz_vsg =`
-  @id( 0 ) override WzGy_wuk: u32 = 8;
   @group(0) @binding(0) var JaKro_k: sampler;
   @group(0) @binding(1) var JaPo_k: texture_2d_array<f32>;
   @group(1) @binding(0) var SePo_k: texture_storage_2d_array<rgba8unorm, write>;
+
+  const WzGy_wuk: u32 = 8;
+  var<private> Gwo_wu2: vec2u;
+  var<workgroup> Gwo__Vu_vwf2: array< array< vec2f, 8 >, 8>;
   `;
 
+  // Global variables
+  // private = current thread only
+  // workgroup = shared with all threads in workgroup
+
+  // ERR if using INDIRECT WzGy_wuk (Override can't be 2nd level of array );
 
   const JiSpo_v = KaSmz_l.createShaderModule
   ({
@@ -1436,17 +1438,11 @@ DoWG.BriYa = async function( Yz_l )
 
 	if( MoDzTrx__NxHo_y( "COMPILE:" + TaJiHry_vvsg[ Ji_wuk ].Va_vsg, JiSpo_v )){ return null; }
 
-	 WzGy_wuk = 8;
-
 	Sa_l.SHP_k = KaSmz_l.createComputePipeline
 	({
 	  label: "PIPE:" + TaJiHry_vvsg[ Ji_wuk ].Va_vsg
 	  , layout: WzPoChy_KySuTyJy
-	  , compute:
-	  {
-		module: JiSpo_v
-		, constants: { 0: WzGy_wuk }
-	  }
+	  , compute: { module: JiSpo_v }
 	});
 
 }
@@ -1461,10 +1457,11 @@ DoWG.BriYa = async function( Yz_l )
 	if( MoDzTrx__NxHo_y( "SRC:" + TaJiHry_vvsg[ Ji_wuk ].Va_vsg, JiKa_vsg )){ return null; }
 
 	const JiBz_vsg =`
-	@id( 0 ) override WzGy_wuk: u32 = 8;
 	@group(0) @binding(0) var JaKro_k: sampler;
 	@group(0) @binding(1) var JaPo_k: texture_2d_array<f32>;
 	@group(1) @binding(0) var MxPo_k: texture_storage_2d<${Sa_l.MxPo__FMT_l}, write>;
+
+	const WzGy_wuk: u32 = 8;
 	`;
 
 	const JiSpo_v = KaSmz_l.createShaderModule
@@ -1485,7 +1482,6 @@ DoWG.BriYa = async function( Yz_l )
 		{
 		  module: JiSpo_v
 		  //, entryPoint: 'cs'
-		  , constants: { 0: WzGy_wuk }
 		}
 	  });
 
@@ -1605,7 +1601,7 @@ m_queue.writeBuffer(m_uniformBuffer, m_uniformStride, &uniforms, sizeof(uniforms
 	// FORMULA
 	{
 		TaMo_l.setPipeline( Sa_l.JiGwe02__GOLIFE );
-		TaMo_l.setBindGroup(0, Sa_l.SuGweKy[  CS_Kwi_wu % 2]);
+		TaMo_l.setBindGroup(0, Sa_l.SuGweKy[  CS_Kwi_wu % 2 ]);
 
 		const TaWz__Fo_wuk = Math.ceil(CS_Gy_k / CS_WzVu_k);
 		TaMo_l.dispatchWorkgroups( TaWz__Fo_wuk, TaWz__Fo_wuk );
@@ -1630,6 +1626,7 @@ m_queue.writeBuffer(m_uniformBuffer, m_uniformStride, &uniforms, sizeof(uniforms
 
 	//@@@
 	// SHP
+	if( 0 )
 	{
 		TaMo_l.pushDebugGroup('Gen SHP');
 		{
@@ -1721,27 +1718,28 @@ m_queue.writeBuffer(m_uniformBuffer, m_uniformStride, &uniforms, sizeof(uniforms
 	//@@@
 	// DISP_PRESENT
 	TaMo_l = MoKro_l.beginComputePass();
-
-	const MxPo_Bri_l = Sa_l.Sx_l.getCurrentTexture();
-	let MxPo__bindGroup = KaSmz_l.createBindGroup
-	({
-		layout: Sa_l.PIPER_k.getBindGroupLayout(1),
-		entries: [ { binding: 0, resource: MxPo_Bri_l } ],
-	});
-
 	{
-		TaMo_l.setPipeline( Sa_l.PIPER_k );
-		TaMo_l.setBindGroup( 0, Sa_l.SuGweKy[ 2 ] );
-		TaMo_l.setBindGroup( 1, MxPo__bindGroup );
+		const MxPo_Bri_l = Sa_l.Sx_l.getCurrentTexture();
+		let MxPo__bindGroup = KaSmz_l.createBindGroup
+		({
+			layout: Sa_l.PIPER_k.getBindGroupLayout(1),
+			entries: [ { binding: 0, resource: MxPo_Bri_l } ],
+		});
 
-		TaMo_l.dispatchWorkgroups( ( MxPo_Bri_l.width + 7 ) >> 3, ( MxPo_Bri_l.height + 7 ) >> 3 );
+		{
+			TaMo_l.setPipeline( Sa_l.PIPER_k );
+			TaMo_l.setBindGroup( 0, Sa_l.SuGweKy[ 2 ] );
+			TaMo_l.setBindGroup( 1, MxPo__bindGroup );
+
+			TaMo_l.dispatchWorkgroups( ( MxPo_Bri_l.width + 7 ) >> 3, ( MxPo_Bri_l.height + 7 ) >> 3 );
+		}
+		
+		MxPo__bindGroup = null;
 	}
-
-
-	//@@@
-	// WzMe^WORK RUN
 	TaMo_l.end();
 
+	//@@@
+	// WzMe^TIMER RESULTS
 	//if( Sa_l.KaTy.TIMER_yk ){ MoKro_l.writeTimestamp( Sa_l.querySet, 1 ); }
 
 	if( Sa_l.KaTy.TIMER_yk )
@@ -1869,9 +1867,6 @@ m_queue.writeBuffer(m_uniformBuffer, m_uniformStride, &uniforms, sizeof(uniforms
 	}// if DNLOAD
 
 
-	//@@@
-	// CLEANUP
-	MxPo__bindGroup = null;
 }
 
 //==============================================

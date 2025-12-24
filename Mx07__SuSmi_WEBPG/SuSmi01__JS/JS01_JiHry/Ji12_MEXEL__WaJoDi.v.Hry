@@ -3,13 +3,6 @@
 //-------------------------------------------------
 
 
-// Global variables
-// private = current thread only
-// workgroup = shared with all threads in workgroup
-var<private> Gwo_wu2: vec2u;
-
-// ERR if using INDIRECT WzGy_wuk (Override can't be 2nd level of array );
-var<workgroup> Gwo__Vu_vwf2: array< array< vec2f, 8 >, WzGy_wuk>;
 
 
 
