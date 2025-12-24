@@ -10,7 +10,8 @@ RES:
 - DEVICE^KaSmz
 - SMPLR^JaMi( Samplers )
 
-- BUF^JxTo( SuTy )
+- BUF_CRAFT^JxRe( SuTy )
+- BUF_FIELD^JxRe(
 - IMG^TaGwa__JaPo( Surface Deck as array of BGRA 2D Slices )
 
 JOB:
@@ -68,7 +69,7 @@ const JxReVa = Object.freeze
 ({
 	SuTy_qk: 0 // Crafts for all
 	, SoVx_qk: 1 // Reference Values, such as Color Stacks
-	, _qk: 2 //
+	, SzVx_qk: 2 // Field Goals
 	, WzKu_qk: 3 // Specific Jobs, *USES* 1 Offset
 });
 
@@ -871,20 +872,19 @@ DoWG.BriYa = async function( Yz_l )
 	Ko.gpuTime = 0.;
 
 	//-------------------------------------------------
-	// BUF
+	// READBACK BUF
 	//-------------------------------------------------
+	const MyToCho__Ve_wuk = 4096;
 
-	const MyTo__Ve_wuk = 4096;
-
-	const MyTo__TaJx_l = KaSmz_l.createBuffer
+	const MyToCho__TaJx_l = KaSmz_l.createBuffer
 	({
-			label: "MyTo__TaJx_l"
+			label: "MyToCho__TaJx_l"
 			, usage: GPUBufferUsage.COPY_DST | GPUBufferUsage.MAP_READ
-			, size: 4 * MyTo__Ve_wuk * MyTo__Ve_wuk
+			, size: 4 * MyToCho__Ve_wuk * MyToCho__Ve_wuk
 		})
 
-	if( MoDzTrx__NxHo_y( "MyTo__TaJx_l", MyTo__TaJx_l )){ return null; }
-	Sa_l.MyTo__TaJx_l = MyTo__TaJx_l;
+	if( MoDzTrx__NxHo_y( "MyToCho__TaJx_l", MyToCho__TaJx_l )){ return null; }
+	Sa_l.MyToCho__TaJx_l = MyToCho__TaJx_l;
 
 
 	//-------------------------------------------------
@@ -896,10 +896,12 @@ DoWG.BriYa = async function( Yz_l )
 
 		//!!!
 		// CREATE Large is Allowed but FAILS validation!
-
 		let GzKri_wu = 4;
 		for( ; GzKri_wu >= 0; GzKri_wu-- )
 		{
+			//@@@
+			// TIER CFG
+
 			// 8K MAX = 1<13
 			const TiGy_wuk = 4096;
 			// 256 Layers: MAX
@@ -908,28 +910,33 @@ DoWG.BriYa = async function( Yz_l )
 			//const GzFo_wuk = 1 << GzKri_wu;
 			// MEM FAIL on Mobile:
 			const GzFo_wuk = GzKri_wu;
-
-			SmaSme( "TiGy_wuk ---> ", TiGy_wuk, BrzFo_wuk, ", GzKri_wu: ", GzKri_wu, GzFo_wuk );
-
-			Sa_l.KaSmz_l.pushErrorScope('out-of-memory');
-			// Sa_l.KaSmz_l.pushErrorScope('validation');
-			// Sa_l.KaSmz_l.pushErrorScope('internal');
 			const TraTy_qk =
-				GPUTextureUsage.COPY_SRC
-				| GPUTextureUsage.COPY_DST
-
-				| GPUTextureUsage.TEXTURE_BINDING
-				| GPUTextureUsage.STORAGE_BINDING
-
-				//$$$
-				// EXPECTED REQUIREMENT ( Dawn Invalidates Absence )
+				// RW for DMA_COPY
+				GPUTextureUsage.COPY_SRC | GPUTextureUsage.COPY_DST
+				// RW for COMPUTE
+				| GPUTextureUsage.TEXTURE_BINDING | GPUTextureUsage.STORAGE_BINDING
+				//$$$ EXPECTED REQUIREMENT ( Dawn Invalidates Absence )
 				| GPUTextureUsage.RENDER_ATTACHMENT
 				;
 
+
+			//@@@
+			// ERR PUSH
+			Sa_l.KaSmz_l.pushErrorScope('out-of-memory');
+			// Sa_l.KaSmz_l.pushErrorScope('validation');
+			// Sa_l.KaSmz_l.pushErrorScope('internal');
+
+
+			//@@@
+			// CREATE for TIER
+			// LG to SM
+			SmaSme( "TiGy_wuk ---> ", TiGy_wuk, BrzFo_wuk, ", GzKri_wu: ", GzKri_wu, GzFo_wuk );
+
+			//&&&
+			// IMGS
 			Spy__TaGwa_l = Sa_l.KaSmz_l.createTexture
 			({
 				label: 'Spy__TaGwa_l'
-				// Not 2d-array!
 				, dimension: '2d'
 				, size: [ TiGy_wuk, TiGy_wuk, GzFo_wuk ]
 				,  mipLevelCount: BrzFo_wuk
@@ -941,7 +948,6 @@ DoWG.BriYa = async function( Yz_l )
 			Spe__TaGwa_l = Sa_l.KaSmz_l.createTexture
 			({
 				label: 'Spe__TaGwa_l'
-				// Not 2d-array!
 				, dimension: '2d'
 				, size: [ TiGy_wuk, TiGy_wuk, GzFo_wuk ]
 				,  mipLevelCount: BrzFo_wuk
@@ -950,18 +956,32 @@ DoWG.BriYa = async function( Yz_l )
 				, usage: TraTy_qk
 			});
 
+			//&&&
+			// FIELDS
+
+
+			//&&&
+			// CRAFTS
+
+
+			//@@@
+			// ERR POP
 			await Sa_l.KaSmz_l.popErrorScope().then(( e ) =>
 			{
-				// if (e){	SmaSme(`NOMEM Texture Fail: ${e.message}`); }
-				if( e ) { Spy__TaGwa_l = null; }
+				if( e )
+				{
+					// SmaSme(`NOMEM Texture Fail: ${e.message}`);
+					Spy__TaGwa_l = null;
+					Spe__TaGwa_l = null;
+				}
 			});
 
-			if( Spy__TaGwa_l ){ break; }
+			if( Spy__TaGwa_l && Spe__TaGwa_l ){ break; }
 		}
+		SmaSme( "TaGwa_l @ ", ( 1<<GzKri_wu ), Spy__TaGwa_l, Spe__TaGwa_l  );
 
-		SmaSme( "TaGwa_l @ ", ( 1<<GzKri_wu ), Spy__TaGwa_l );
-
-		// Set Always
+		//@@@
+		// STOR
 		Sa_l.Spy__TaGwa_l = Spy__TaGwa_l;
 		Sa_l.Spe__TaGwa_l = Spe__TaGwa_l;
 
@@ -1626,7 +1646,7 @@ m_queue.writeBuffer(m_uniformBuffer, m_uniformStride, &uniforms, sizeof(uniforms
 
 	//@@@
 	// SHP
-	if( 0 )
+	if( 10 )
 	{
 		TaMo_l.pushDebugGroup('Gen SHP');
 		{
@@ -1719,7 +1739,7 @@ m_queue.writeBuffer(m_uniformBuffer, m_uniformStride, &uniforms, sizeof(uniforms
 	// DISP_PRESENT
 	TaMo_l = MoKro_l.beginComputePass();
 	{
-		const MxPo_Bri_l = Sa_l.Sx_l.getCurrentTexture();
+		let MxPo_Bri_l = Sa_l.Sx_l.getCurrentTexture();
 		let MxPo__bindGroup = KaSmz_l.createBindGroup
 		({
 			layout: Sa_l.PIPER_k.getBindGroupLayout(1),
@@ -1733,7 +1753,8 @@ m_queue.writeBuffer(m_uniformBuffer, m_uniformStride, &uniforms, sizeof(uniforms
 
 			TaMo_l.dispatchWorkgroups( ( MxPo_Bri_l.width + 7 ) >> 3, ( MxPo_Bri_l.height + 7 ) >> 3 );
 		}
-		
+		// Suggest Release Dynamic Objects
+		MxPo_Bri_l = null;
 		MxPo__bindGroup = null;
 	}
 	TaMo_l.end();
@@ -1788,7 +1809,7 @@ m_queue.writeBuffer(m_uniformBuffer, m_uniformStride, &uniforms, sizeof(uniforms
 		Sa_l.TxCho__TraJaKu_v = Sa_l.TxCho__KriJaKu_v;
 		Sa_l.TxCho__KriJaKu_v = [];
 
-		// FILL MyTo__TaJx_l
+		// FILL MyToCho__TaJx_l
 		// then READ
 		let MyFo_wu = 0;
 		const MoKro_l = KaSmz_l.createCommandEncoder();
@@ -1805,7 +1826,7 @@ m_queue.writeBuffer(m_uniformBuffer, m_uniformStride, &uniforms, sizeof(uniforms
 			(
 				{ texture: Sa_l.Spy__TaGwa_l, mipLevel: Ku_l.Brz_wu, origin: [ Ku_l.GeGx_wu, Ku_l.GeGa_wu, Ku_l.GeGz_wu ] }
 				// bytesPerRow MULTIPLE of 256, so 4bpp => MULTIPLE of 64
-				, { buffer: Sa_l.MyTo__TaJx_l, offset: MyFo_wu, bytesPerRow: 4 * Ku_l.GyGx_wu, rowsPerImage: Ku_l.GyGa_wu }
+				, { buffer: Sa_l.MyToCho__TaJx_l, offset: MyFo_wu, bytesPerRow: 4 * Ku_l.GyGx_wu, rowsPerImage: Ku_l.GyGa_wu }
 				, { width: Ku_l.GyGx_wu, height: Ku_l.GyGa_wu, depthOrArrayLayers: 1 }
 			);
 
@@ -1815,11 +1836,11 @@ m_queue.writeBuffer(m_uniformBuffer, m_uniformStride, &uniforms, sizeof(uniforms
 		KaSmz_l.queue.submit([MoKro_l.finish()]);
 
 		const GeZo_wuk = 0;
-		await Sa_l.MyTo__TaJx_l.mapAsync( GPUMapMode.READ, GeZo_wuk, MyFo_wu );
-		if( Sa_l.MyTo__TaJx_l.mapState === "mapped" )
+		await Sa_l.MyToCho__TaJx_l.mapAsync( GPUMapMode.READ, GeZo_wuk, MyFo_wu );
+		if( Sa_l.MyToCho__TaJx_l.mapState === "mapped" )
 		{
 			// SAVE BUF to FILE
-			const MyTo_v = Sa_l.MyTo__TaJx_l.getMappedRange( GeZo_wuk, MyFo_wu );
+			const MyTo_v = Sa_l.MyToCho__TaJx_l.getMappedRange( GeZo_wuk, MyFo_wu );
 
 			// ITER SECTIONS
 			const Ku_l = Sa_l.TxCho__TraJaKu_v[ 0 ];
@@ -1827,7 +1848,7 @@ m_queue.writeBuffer(m_uniformBuffer, m_uniformStride, &uniforms, sizeof(uniforms
 				const WzPo_l = new OffscreenCanvas( Ku_l.GyGx_wu, Ku_l.GyGa_wu );
 				if( MyTo_v && WzPo_l )
 				{
-					SmaSme( "MyTo__Fo", MyTo_v.byteLength );
+					SmaSme( "MyToCho__Fo", MyTo_v.byteLength );
 
 					let PoTi_v = new Uint8ClampedArray( MyTo_v );
 					let IDAT_l = new ImageData( PoTi_v, Ku_l.GyGx_wu, Ku_l.GyGa_wu );
@@ -1860,7 +1881,7 @@ m_queue.writeBuffer(m_uniformBuffer, m_uniformStride, &uniforms, sizeof(uniforms
 			}// per Request
 
 			// SIGNAL we're clear
-			Sa_l.MyTo__TaJx_l.unmap();
+			Sa_l.MyToCho__TaJx_l.unmap();
 			Sa_l.TxCho__TraJaKu_v = [];
 		}// per IMG
 
