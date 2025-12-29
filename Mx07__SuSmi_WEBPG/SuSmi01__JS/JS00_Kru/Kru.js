@@ -1,4 +1,4 @@
-const BriDzSa__Da_vsg = "PUB_v0.119"; 
+const BriDzSa__Da_vsg = "PUB_v0.120"; 
  const BriDz__Mx_KuTu_vsg = "https://powerourpeople.com/"; 
 
 //==============================================
@@ -921,10 +921,9 @@ function Tra_KeMeBri()
 	// ECOSYS PLAY
 	if( KoDz__YzYa_y() )
 	{
-		KoDz__YzChy
 		// via set paused & toggle play
 		KoDz__YzChy( BriYz.Yo_qk );
-		KoDz__YoChyDry();
+		KoDz__YeChy();
 	}
 }
 
@@ -1452,52 +1451,52 @@ async function KoDz__Ya( )
 	_Hrz5_Ki__BriSmz__Ya();
 }
 
-
 //==============================================
-// PAUSE^Yo or RESUME^Yu
+// PAUSE^Yo
 //==============================================
-function KoDz__YoChyDry()
+function KoDz__YoChy()
 {
 	//@@@
 	// ECOSYS_GOOD
-	if( KoDz__YzTrx_y() ) return;
+	if( KoDz__YzTrx_y() || ( Ko.Yz_q === BriYz.Yo_qk ) ) return;
 
-	//@@@
-	// PAUSE if updating
-	if( Ko.Yz_q === BriYz.Ye_qk )
+	//&&&
+	// STATUS
+	KoDz__YzChy( BriYz.Yo_qk );
+
+	//&&&
+	// BROADCAST PAUSE
+	_Hrz5_Ki__BriSmz__Yo();
+	Ko.SySmz_v.forEach( function ( Ti_v )
 	{
-		//&&&
-		// STATUS
-		KoDz__YzChy( BriYz.Yo_qk );
-
-		//&&&
-		// BROADCAST PAUSE
-		_Hrz5_Ki__BriSmz__Yo();
-		Ko.SySmz_v.forEach( function ( Ti_v )
-		{
-			if( SySmz__KrzYe_y( Ti_v ) && Ti_v.Ji.BriYo ){ Ti_v.Ji.BriYo( Ti_v ); }
-		});
-	}
-
-	//@@@
-	// RESUME if paused
-	else if( Ko.Yz_q === BriYz.Yo_qk )
-	{
-		//&&&
-		// BROADCAST RESUME
-		Ko.SySmz_v.forEach( function( Ti_v )
-		{
-			if( SySmz__KrzYe_y( Ti_v ) && Ti_v.Ji.BriYu ){ Ti_v.Ji.BriYu( Ti_v); }
-		});
-		_Hrz5_Ki__BriSmz__Yu();
-
-		//&&&
-		// STATUS
-		KoDz__YzChy( BriYz.Ye_qk );
-		Ko.BriYe_GiDri_df = performance.now();
-		requestAnimationFrame( KoDz__Ye );
-	}
+		if( SySmz__KrzYe_y( Ti_v ) && Ti_v.Ji.BriYo ){ Ti_v.Ji.BriYo( Ti_v ); }
+	});
 }
+
+//==============================================
+// UPDATE^Ye
+//==============================================
+function KoDz__YeChy()
+{
+	//@@@
+	// ECOSYS_GOOD
+	if( KoDz__YzTrx_y() || ( Ko.Yz_q === BriYz.Ye_qk ) ) return;
+
+	//&&&
+	// BROADCAST RESUME
+	Ko.SySmz_v.forEach( function( Ti_v )
+	{
+		if( SySmz__KrzYe_y( Ti_v ) && Ti_v.Ji.BriYu ){ Ti_v.Ji.BriYu( Ti_v); }
+	});
+	_Hrz5_Ki__BriSmz__Yu();
+
+	//&&&
+	// STATUS
+	KoDz__YzChy( BriYz.Ye_qk );
+	Ko.BriYe_GiDri_df = performance.now();
+	requestAnimationFrame( KoDz__Ye );
+}
+
 
 //==============================================
 // UPD^Ye

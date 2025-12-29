@@ -3594,35 +3594,38 @@ var ASM_CONSTS = {
     }
   },
   8397369: () => {
-    KoDz__YoChyDry();
+    KoDz__YoChy();
   },
-  8397391: () => {
+  8397388: () => {
+    KoDz__YeChy();
+  },
+  8397407: () => {
     MoDzTrx("TEST BAD BUILD as ERROR");
   },
-  8397433: () => {
+  8397449: () => {
     const SaPAY_l = Ko.SySmz_v[SyVx.PAY_qk];
     DoPAY.Mo(SaPAY_l, 0, 0);
   },
-  8397507: () => {
+  8397523: () => {
     const SaSHAR_l = Ko.SySmz_v[SyVx.SHAR_qk];
     DoSHAR.Mo(SaSHAR_l, 0, 0);
   },
-  8397585: () => {},
-  8397589: () => {
+  8397601: () => {},
+  8397605: () => {
     const SaWG_l = Ko.SySmz_v[SyVx.WG_qk];
     const Brz_wuk = 0;
     DoWG.TxCho_JaKu(SaWG_l, Brz_wuk, 0, 0, 0, SaWG_l.MxPo_Bri_l.width, SaWG_l.MxPo_Bri_l.height);
   },
-  8397749: () => {},
-  8397753: () => {
+  8397765: () => {},
+  8397769: () => {
     console.log("MC: HrySmz__BriYa");
   },
-  8397793: () => {},
-  8397797: () => {
+  8397809: () => {},
+  8397813: () => {
     const SaSTRM_l = Ko.SySmz_v[SyVx.STRM_qk];
     SaSTRM_l.Ji.KiCho__JaPo(SaSTRM_l, 0, "Mx01__SuKz_MEDIA/SuKz02_JaPo__PICT/JaPo00__FyHo.jpg");
   },
-  8397941: $0 => {
+  8397957: $0 => {
     const SaWG_l = Ko.SySmz_v[SyVx.WG_qk];
     const SaSTRM_l = Ko.SySmz_v[SyVx.STRM_qk];
     const LAYER_Gz_wuk = 0;

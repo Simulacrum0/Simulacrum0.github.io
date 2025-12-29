@@ -179,10 +179,9 @@ function Tra_KeMeBri()
 	// ECOSYS PLAY
 	if( KoDz__YzYa_y() )
 	{
-		KoDz__YzChy
 		// via set paused & toggle play
 		KoDz__YzChy( BriYz.Yo_qk );
-		KoDz__YoChyDry();
+		KoDz__YeChy();
 	}
 }
 

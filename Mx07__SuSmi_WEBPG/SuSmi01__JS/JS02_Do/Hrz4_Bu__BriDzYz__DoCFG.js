@@ -291,12 +291,12 @@ DoCFG.BriYa = function( Yz_k )
 		if (document.hidden)
 		{
 			SmaSme( "App HIDDEN" );
-			KoDz__YoChyDry();
+			KoDz__YoChy();
 		}
 		else
 		{
 			SmaSme( "App SHOWN" );
-			KoDz__YoChyDry();
+			KoDz__YeChy();
 		}
 	  });
 
