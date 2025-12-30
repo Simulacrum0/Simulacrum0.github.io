@@ -3635,14 +3635,14 @@ var ASM_CONSTS = {
     const SaSTRM_l = Ko.SySmz_v[SyVx.STRM_qk];
     const LAYER_Gz_wuk = 0;
     const SaGLF_l = Ko.SySmz_v[SyVx.GLF_qk];
-    SaGLF_l.Ji.Hre7_Me__KeDru_Ha(SaGLF_l, "👽| Usr: " + "jkv", 0, 0);
+    SaGLF_l.Ji.Hre7_Me__KeDru_Ha(SaGLF_l, "🛸| Je: " + Ko.YeFo_wu, 0, 0);
     SaGLF_l.Ji.Hre7_Me__KeDru_Ha(SaGLF_l, "👾| Ye: " + Ko.YeWi_df.toFixed(1) + "ms", 0, 64);
-    SaGLF_l.Ji.Hre7_Me__KeDru_Ha(SaGLF_l, "🛸| Evt: " + Ko.YeFo_wu, 0, 128);
-    SaGLF_l.Ji.Hre7_Me__KeDru_Ha(SaGLF_l, "🚀| Msg: " + "6-7, 4-1", 0, 192);
-    SaGLF_l.Ji.Hre7_Me__KeDru_Ha(SaGLF_l, "👹| Gpu: " + Ko.gpuTime.toFixed(1) + "ms", 0, 256);
-    SaGLF_l.Ji.Hre7_Me__KeDru_Ha(SaGLF_l, "🤖| B: " + "-", 0, 320);
-    SaGLF_l.Ji.Hre7_Me__KeDru_Ha(SaGLF_l, "💀| C: " + Ko.YeWi_df.toFixed(1) + "ms", 0, 384);
-    SaGLF_l.Ji.Hre7_Me__KeDru_Ha(SaGLF_l, "🔥| D: " + Ko.YeFo_wu, 0, 448);
+    SaGLF_l.Ji.Hre7_Me__KeDru_Ha(SaGLF_l, "👹| Hry: " + Ko.gpuTime.toFixed(1) + "ms", 0, 128);
+    SaGLF_l.Ji.Hre7_Me__KeDru_Ha(SaGLF_l, "🚀| Yz: ", 0, 192);
+    SaGLF_l.Ji.Hre7_Me__KeDru_Ha(SaGLF_l, "👽| Dro: " + "-", 0, 256);
+    SaGLF_l.Ji.Hre7_Me__KeDru_Ha(SaGLF_l, "🤖| Go: " + "-", 0, 320);
+    SaGLF_l.Ji.Hre7_Me__KeDru_Ha(SaGLF_l, "💀| C: ", 0, 384);
+    SaGLF_l.Ji.Hre7_Me__KeDru_Ha(SaGLF_l, "🔥| D: ", 0, 448);
     SaWG_l.Ji.KiCho_JaKz(SaWG_l, 0, 0, 0, 512, 512, SaGLF_l.WzPo_l);
     if ((Ko.SuKz_v[1] instanceof HTMLVideoElement) && (Ko.SuKz_v[1].Kwy_wu)) {
       SaWG_l.Ji.KiCho_JaKz(SaWG_l, 0, 512, LAYER_Gz_wuk, 480, 480, Ko.SuKz_v[1]);

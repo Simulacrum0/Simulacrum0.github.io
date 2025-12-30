@@ -2,6 +2,46 @@
 // WGSL_Ya
 //-------------------------------------------------
 
+//------------------------------------------
+// STRUCT
+//------------------------------------------
+
+struct Dro_t
+{
+	Ge_wf3: vec3f
+	, Vy_wu: u32
+	, Ky_wu2: array<u32, 2>
+	, GeZe_wf: f32
+	, Kwe_wu: u32
+}
+
+
+//------------------------------------------
+// NRM_STEP
+// !!! Shld be distance/object scaled !!!
+const GoKwe_wfk = 0.01;
+
+// SMALLEST STEP
+const KwiBraHi_wuk = 128;
+const KwiGyHu_wfk = 0.01;
+
+const GeZeHi_wfk = 64.0;
+
+const PI = 3.1415926;
+
+//------------------------------------------
+// XFRM
+//------------------------------------------
+fn rotX(p: vec3f, a: f32) -> vec3f { let r = p.yz * cos(a) + vec2f(-p.z, p.y) * sin(a); return vec3f(p.x, r.x, r.y ); }
+fn rotY(p: vec3f, a: f32) -> vec3f { let r = p.xz * cos(a) + vec2f(-p.z, p.x) * sin(a); return vec3f(r.x, p.y, r.y); }
+fn rotZ(p: vec3f, a: f32) -> vec3f { let r = p.xy * cos(a) + vec2f(-p.y, p.x) * sin(a); return vec3f(r.x, r.y, p.z); }
+
+fn rotM( p: vec3f, m: vec2f) -> vec3f { return rotX( rotY( p, PI * m.y ), PI * m.x ); }
+
+
+//------------------------------------------
+// WRK
+//------------------------------------------
 fn swap(x: u32) -> u32
 {
     // swap adjacent pairs of indices
@@ -13,7 +53,9 @@ fn swap(x: u32) -> u32
     return select(x - 1u, x + 1u, x % 2u == 0u);
 }
 
-
+//------------------------------------------
+// DERIVATIVE
+//------------------------------------------
 
 fn DD_wf2( Vu_wf2: vec2f ) -> vec2f
 {
@@ -36,23 +78,10 @@ fn DD_wf2( Vu_wf2: vec2f ) -> vec2f
 	return vec2f( ddx.x, ddy.x );
 }
 
-// NRM_STEP
-// !!! Shld be distance/object scaled !!!
-const GoKwe_wfk = 0.001;
 
-// SMALLEST STEP
-const KwiGyHu_wfk = 0.01;
-const GeZeHi_wfk = 100.0;
-
-const PI = 3.1415926;
-
-fn rotX(p: vec3f, a: f32) -> vec3f { let r = p.yz * cos(a) + vec2f(-p.z, p.y) * sin(a); return vec3f(p.x, r.x, r.y ); }
-fn rotY(p: vec3f, a: f32) -> vec3f { let r = p.xz * cos(a) + vec2f(-p.z, p.x) * sin(a); return vec3f(r.x, p.y, r.y); }
-fn rotZ(p: vec3f, a: f32) -> vec3f { let r = p.xy * cos(a) + vec2f(-p.y, p.x) * sin(a); return vec3f(r.x, r.y, p.z); }
-
-fn rotM( p: vec3f, m: vec2f) -> vec3f { return rotX( rotY( p, PI * m.y ), PI * m.x ); }
-
-
+//------------------------------------------
+// SHP
+//------------------------------------------
 
 // Other 3D SDF functions: https://gist.github.com/munrocket/f247155fc22ecb8edf974d905c677de1
 fn sdSphere(p: vec3f, r: f32) -> f32 {
@@ -74,50 +103,23 @@ fn opGrid( p: vec3f, c: f32, lim: vec3f) -> vec3f {
 }
 
 
-
+//------------------------------------------
+// MODEL
+//------------------------------------------
 fn DzKy__GeZe_wf(p0: vec3f) -> f32
 {
     let p
 	//= p0;
-	= opGrid( p0, 6, vec3f( 3.0, 3.0, 13.0 ) );
+	= opGrid( p0, 8, vec3f( 1.0, 1.0, 6.0 ) );
 
-    return min( opSubtract(sdBox(p, vec3f( 1.0, 1.0, 2.0 )), sdSphere(p, 1.37 )), sdBox( p, vec3f( 0.2 )) );
-
-    // return opSubtract( sdSphere(p, 1.3), sdBox(p, vec3f(1)) );
+    //return min( opSubtract(sdBox(p, vec3f( 1.0, 1.0, 2.0 )), sdSphere(p, 1.37 )), sdBox( p, vec3f( 0.2 )) );
+    return opSubtract( sdSphere(p, 2.67 ), sdBox(p, vec3f(2) ) );
 	//return max( sdSphere(p, 1.3), sdBox(p, vec3f(1)) );
 }
 
-struct Dro_t
-{
-	Ge_wf3: vec3f
-	, Vy_wu: u32
-	, Ky_wu3: array<u32, 3>
-	, Kwe_wu: u32
-}
-
-
-fn march(ro: vec3f, rd: vec3f) -> Dro_t
-{
-    var p: vec3f;
-    var s: f32;
-	var Vy_wu: u32 = 0;
-
-	var Kwe_wu = 0u;
-    for (; Kwe_wu < 2048; Kwe_wu++ )
-	{
-        p = ro + s * rd;
-
-		let ds = DzKy__GeZe_wf(p);
-        if( ds < KwiGyHu_wfk ) { Vy_wu = 1; break; }
-
-        s += ds;
-        if( s > GeZeHi_wfk) { break; }
-
-		Kwe_wu++;
-    }
-    return Dro_t( p, Vy_wu, array<u32, 3>( 0,0,0), Kwe_wu );
-}
-
+//------------------------------------------
+// GEOM
+//------------------------------------------
 fn normal(p: vec3f) -> vec3f
 {
     let e = vec2f(0., GoKwe_wfk );
@@ -132,6 +134,35 @@ fn normal(p: vec3f) -> vec3f
 }
 
 
+//------------------------------------------
+// SCENE
+//------------------------------------------
+fn march(ro: vec3f, rd: vec3f) -> Dro_t
+{
+    var p: vec3f;
+    var s: f32;
+	var Vy_wu: u32 = 0;
+
+	var Kwe_wu = 0u;
+    for (; Kwe_wu <= KwiBraHi_wuk; Kwe_wu++ )
+	{
+        p = ro + s * rd;
+
+		let ds = DzKy__GeZe_wf(p);
+        if( ds < KwiGyHu_wfk ) { Vy_wu = 1; break; }
+
+        s += ds;
+        if( s > GeZeHi_wfk) { break; }
+
+		Kwe_wu++;
+    }
+
+    return Dro_t( p, Vy_wu, array<u32, 2>( 0,0 ), s, Kwe_wu );
+}
+
+//------------------------------------------
+// OBSERVE
+//------------------------------------------
 @compute @workgroup_size( WzGy_wuk, WzGy_wuk )
 fn JiHry( @builtin( global_invocation_id ) Wz_wu3: vec3u, @builtin(local_invocation_id) WzGwo_wu3: vec3u )
 {
@@ -144,12 +175,11 @@ fn JiHry( @builtin( global_invocation_id ) Wz_wu3: vec3u, @builtin(local_invocat
     let uv = (2.*(vec2f(Wz_wu3.xy) + .5) - vec2f( Se__Gy_wu2 )) / f32(Se__Gy_wu2.y);
 
 	// Coordinate system: X→, Y↑, Z⊙
-    var ro = vec3f( 0, 0, -15.0 );
+    var ro = vec3f( 0.50, 0.50, -64.0 );
 
     var rd = normalize( vec3f( uv, 2.2 ));
 
-
-	let Go_wf2 = vec2f( 0.05, 0.05 );
+	let Go_wf2 = vec2f( 0.01, 0.0 );
 
     ro = rotM(ro, Go_wf2 );
     rd = rotM(rd, Go_wf2 );
@@ -157,28 +187,36 @@ fn JiHry( @builtin( global_invocation_id ) Wz_wu3: vec3u, @builtin(local_invocat
     let Dro_l = march( ro, rd );
     let Dro__Go_wfn3 = normal( Dro_l.Ge_wf3 );
 
-    var Po_wf3 = vec3f( 0.6 );
+    var Po_wf3 = vec3f( 0.4, 0.4, 1. );
 
-	if( Dro_l.Vy_wu > 0 )
+	// if( Dro_l.Vy_wu > 0 ) CONTACT ID
+	if( Dro_l.GeZe_wf < GeZeHi_wfk )
 	{
-    	let SpeGo_wfn3 = normalize(vec3f(-1,0.3,1));
-		let DroGo_wfa = clamp( 0., 1., dot( SpeGo_wfn3, Dro__Go_wfn3 ) );
-	    Po_wf3 = vec3f( Dro__Go_wfn3 * 0.5 + 0.5 );
+
+		//Po_wf3 = mix( Po_wf3, bg, vec3f( DroGo_wfa ) );
+	//	Po_wf3 = smoothstep( Po_wf3, bg, vec3f( DroGo_wfa ) );
+		// Po_wf3.g = select( 0, ( f32( Dro_l.Kwe_wu - 1024 ) / 1024.f ), ( Dro_l.Kwe_wu > 1024 ) );
+
+		// SHOW STEPS TAKEN & EXPOSE RESULTS
+		if( Wz_wu3.x >= 256u )
+		{
+			var Gu_fak = clamp( 0f, 1f, f32( Dro_l.Kwe_wu ) / f32( KwiBraHi_wuk >> 1 )  );
+			Gu_fak = smoothstep( 0.f, 1.f, Gu_fak *Gu_fak );
+			Po_wf3 = select( vec3f( 1. - Gu_fak ), vec3f( Gu_fak ), Wz_wu3.y >= 256u );
+		}
+		else if ( Wz_wu3.y >= 256u )
+		{
+			Po_wf3 = vec3( Dro_l.GeZe_wf / GeZeHi_wfk );
+		}
+		else
+		{
+			let SpeGo_wfn3 = normalize(vec3f(-1, 0.3,1));
+			let DroGo_wfa = clamp( 0., 1., dot( SpeGo_wfn3, Dro__Go_wfn3 ) );
+			Po_wf3 = vec3f( Dro__Go_wfn3 * 0.5 + 0.5 );
+		}
 	}
 
-   	//Po_wf3 = mix( Po_wf3, bg, vec3f( DroGo_wfa ) );
-   //	Po_wf3 = smoothstep( Po_wf3, bg, vec3f( DroGo_wfa ) );
-	// Po_wf3.g = select( 0, ( f32( Dro_l.Kwe_wu - 1024 ) / 1024.f ), ( Dro_l.Kwe_wu > 1024 ) );
-
-	// SHOW STEPS TAKEN & EXPOSE RESULTS
-	let Gu_fak = clamp( 0f, 1f, f32( Dro_l.Kwe_wu ) / 512f );
-	let KuPo_wf3 = vec3( 0.4, 0.4, 0.6 );
-	 Po_wf3 = mix( Po_wf3, KuPo_wf3, Gu_fak );
-	// Po_wf3 = vec3f( 1. - ( Gu_fak * Gu_fak ) );
-	Po_wf3 = vec3f( ( Gu_fak *Gu_fak ) );
-
-
-// HACK X & Y OFS
+	// HACK X & Y OFS
     textureStore( SePo_k, vec2u( Wz_wu3.x + Se__Gy_wu2.x, Se__Gy_wu2.y-1-Wz_wu3.y ), Se__Ge_wu3.z, vec4f(Po_wf3, 1.) );
 }
 
