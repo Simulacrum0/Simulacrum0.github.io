@@ -286,19 +286,10 @@ DoCFG.BriYa = function( Yz_k )
 
 	//@@@
 	// SCREEN HIDDEN
-	document.addEventListener("visibilitychange", () =>
-	{
-		if (document.hidden)
-		{
-			SmaSme( "App HIDDEN" );
-			KoDz__YoChy();
-		}
-		else
-		{
-			SmaSme( "App SHOWN" );
-			KoDz__YeChy();
-		}
-	  });
+	//	document.addEventListener("event", () =>
+	//	{
+	//		SmaSme( "Event" );
+	//	});
 
 
 	return SySmz__YaFx_v( Sa_l );

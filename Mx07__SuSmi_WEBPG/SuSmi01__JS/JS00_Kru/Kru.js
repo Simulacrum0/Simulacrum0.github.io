@@ -1,4 +1,4 @@
-const BriDzSa__Da_vsg = "PUB_v0.120"; 
+const BriDzSa__Da_vsg = "PUB_v0.121"; 
  const BriDz__Mx_KuTu_vsg = "https://powerourpeople.com/"; 
 
 //==============================================
@@ -921,9 +921,10 @@ function Tra_KeMeBri()
 	// ECOSYS PLAY
 	if( KoDz__YzYa_y() )
 	{
+		SmaSme( "[LAUNCH] ACTIVE via Resume" );
 		// via set paused & toggle play
-		KoDz__YzChy( BriYz.Yo_qk );
-		KoDz__YeChy();
+		// KoDz__YzChy( BriYz.Yo_qk );
+		KoDz__YuChy();
 	}
 }
 
@@ -1318,6 +1319,11 @@ function KoDz__YzYe_y()
 	return ( Ko.Yz_q === BriYz.Ye_qk );
 }
 
+function KoDz__YzYo_y()
+{
+	return ( Ko.Yz_q === BriYz.Yo_qk );
+}
+
 //==============================================
 // CONTENT_LOAD
 //==============================================
@@ -1458,7 +1464,7 @@ function KoDz__YoChy()
 {
 	//@@@
 	// ECOSYS_GOOD
-	if( KoDz__YzTrx_y() || ( Ko.Yz_q === BriYz.Yo_qk ) ) return;
+	if( KoDz__YzTrx_y() || KoDz__YzYo_y() ) return;
 
 	//&&&
 	// STATUS
@@ -1476,11 +1482,11 @@ function KoDz__YoChy()
 //==============================================
 // UPDATE^Ye
 //==============================================
-function KoDz__YeChy()
+function KoDz__YuChy()
 {
 	//@@@
 	// ECOSYS_GOOD
-	if( KoDz__YzTrx_y() || ( Ko.Yz_q === BriYz.Ye_qk ) ) return;
+	if( KoDz__YzTrx_y() || KoDz__YzYe_y() ) return;
 
 	//&&&
 	// BROADCAST RESUME
@@ -1506,8 +1512,7 @@ function KoDz__Ye( Gi )
 {
 	//@@@
 	// ECOSYS_GOOD
-	// No Err or Not-Update State Allowed
-	if( ( KoDz__YzTrx_y() ) || ( Ko.Yz_q !== BriYz.Ye_qk )) return;
+	if( !KoDz__YzYe_y() ) return;
 
 
 	//@@@

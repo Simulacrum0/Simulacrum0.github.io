@@ -2,10 +2,6 @@
 // WGSL_Ya
 //-------------------------------------------------
 
-
-
-
-
 fn swap(x: u32) -> u32
 {
     // swap adjacent pairs of indices
@@ -40,11 +36,14 @@ fn DD_wf2( Vu_wf2: vec2f ) -> vec2f
 	return vec2f( ddx.x, ddy.x );
 }
 
+// NRM_STEP
+// !!! Shld be distance/object scaled !!!
+const GoKwe_wfk = 0.001;
 
-const EPS = 0.000001;
-const GoKwe_wfk = 0.0001;
+// SMALLEST STEP
+const KwiGyHu_wfk = 0.01;
+const GeZeHi_wfk = 100.0;
 
-const FAR = 64.0;
 const PI = 3.1415926;
 
 fn rotX(p: vec3f, a: f32) -> vec3f { let r = p.yz * cos(a) + vec2f(-p.z, p.y) * sin(a); return vec3f(p.x, r.x, r.y ); }
@@ -74,11 +73,13 @@ fn opGrid( p: vec3f, c: f32, lim: vec3f) -> vec3f {
     return p - c * clamp(round(p / c), -lim, lim);
 }
 
+
+
 fn DzKy__GeZe_wf(p0: vec3f) -> f32
 {
     let p
 	//= p0;
-	= opGrid( p0, 6, vec3f( 3.0, 3.0, 3.0 ) );
+	= opGrid( p0, 6, vec3f( 3.0, 3.0, 13.0 ) );
 
     return min( opSubtract(sdBox(p, vec3f( 1.0, 1.0, 2.0 )), sdSphere(p, 1.37 )), sdBox( p, vec3f( 0.2 )) );
 
@@ -105,11 +106,12 @@ fn march(ro: vec3f, rd: vec3f) -> Dro_t
     for (; Kwe_wu < 2048; Kwe_wu++ )
 	{
         p = ro + s * rd;
-        let ds = DzKy__GeZe_wf(p);
-        s += ds;
 
-        if(ds < EPS ) { Vy_wu = 1; break; }
-        if( s > FAR) { break; }
+		let ds = DzKy__GeZe_wf(p);
+        if( ds < KwiGyHu_wfk ) { Vy_wu = 1; break; }
+
+        s += ds;
+        if( s > GeZeHi_wfk) { break; }
 
 		Kwe_wu++;
     }

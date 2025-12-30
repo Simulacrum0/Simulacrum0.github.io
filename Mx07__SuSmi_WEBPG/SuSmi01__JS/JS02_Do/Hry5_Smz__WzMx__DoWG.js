@@ -1542,7 +1542,7 @@ DoWG.BriYe = async function( Sa_l, GiDri_duk  )
 {
 	//@@@
 	// UPD if active
-	if( KoDz__YzTrx_y() || ( !KoDz__YzYe_y() ) ) return;
+	if( !KoDz__YzYe_y() ) return;
 
 	//@@@
 	// CHECK RESIZE

@@ -179,9 +179,10 @@ function Tra_KeMeBri()
 	// ECOSYS PLAY
 	if( KoDz__YzYa_y() )
 	{
+		SmaSme( "[LAUNCH] ACTIVE via Resume" );
 		// via set paused & toggle play
-		KoDz__YzChy( BriYz.Yo_qk );
-		KoDz__YeChy();
+		// KoDz__YzChy( BriYz.Yo_qk );
+		KoDz__YuChy();
 	}
 }
 

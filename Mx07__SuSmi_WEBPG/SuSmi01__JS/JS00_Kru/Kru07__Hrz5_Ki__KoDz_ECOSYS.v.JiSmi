@@ -30,6 +30,11 @@ function KoDz__YzYe_y()
 	return ( Ko.Yz_q === BriYz.Ye_qk );
 }
 
+function KoDz__YzYo_y()
+{
+	return ( Ko.Yz_q === BriYz.Yo_qk );
+}
+
 //==============================================
 // CONTENT_LOAD
 //==============================================
@@ -170,7 +175,7 @@ function KoDz__YoChy()
 {
 	//@@@
 	// ECOSYS_GOOD
-	if( KoDz__YzTrx_y() || ( Ko.Yz_q === BriYz.Yo_qk ) ) return;
+	if( KoDz__YzTrx_y() || KoDz__YzYo_y() ) return;
 
 	//&&&
 	// STATUS
@@ -188,11 +193,11 @@ function KoDz__YoChy()
 //==============================================
 // UPDATE^Ye
 //==============================================
-function KoDz__YeChy()
+function KoDz__YuChy()
 {
 	//@@@
 	// ECOSYS_GOOD
-	if( KoDz__YzTrx_y() || ( Ko.Yz_q === BriYz.Ye_qk ) ) return;
+	if( KoDz__YzTrx_y() || KoDz__YzYe_y() ) return;
 
 	//&&&
 	// BROADCAST RESUME
@@ -218,8 +223,7 @@ function KoDz__Ye( Gi )
 {
 	//@@@
 	// ECOSYS_GOOD
-	// No Err or Not-Update State Allowed
-	if( ( KoDz__YzTrx_y() ) || ( Ko.Yz_q !== BriYz.Ye_qk )) return;
+	if( !KoDz__YzYe_y() ) return;
 
 
 	//@@@
