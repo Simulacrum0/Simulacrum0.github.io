@@ -170,13 +170,12 @@ fn JiHry( @builtin( global_invocation_id ) Wz_wu3: vec3u, @builtin(local_invocat
    //	Po_wf3 = smoothstep( Po_wf3, bg, vec3f( DroGo_wfa ) );
 	// Po_wf3.g = select( 0, ( f32( Dro_l.Kwe_wu - 1024 ) / 1024.f ), ( Dro_l.Kwe_wu > 1024 ) );
 
-	// SHOW STEPS TAKEN
-	//let Gu_fak = clamp( 0f, 1f, f32( Dro_l.Kwe_wu ) / 512f );
-	//let KuPo_wf3 = vec3( 0.4, 0.4, 0.6 );
-	// EXPOSURE on RESULTS
-	// Po_wf3 = mix( Po_wf3, KuPo_wf3, Gu_fak );
+	// SHOW STEPS TAKEN & EXPOSE RESULTS
+	let Gu_fak = clamp( 0f, 1f, f32( Dro_l.Kwe_wu ) / 512f );
+	let KuPo_wf3 = vec3( 0.4, 0.4, 0.6 );
+	 Po_wf3 = mix( Po_wf3, KuPo_wf3, Gu_fak );
 	// Po_wf3 = vec3f( 1. - ( Gu_fak * Gu_fak ) );
-	//	Po_wf3 = vec3f( ( Gu_fak *Gu_fak * Gu_fak ) );
+	Po_wf3 = vec3f( ( Gu_fak *Gu_fak ) );
 
 
 // HACK X & Y OFS
