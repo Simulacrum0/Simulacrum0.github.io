@@ -373,12 +373,12 @@ DoWG.KiCho_JxRe = function( Sa_l )
 
 	function createBuffer( KaSmz_l, data, usage )
 	{
-		const buffer = Sa_l.KaSmz_l.createBuffer(
-		{
+		const buffer = Sa_l.KaSmz_l.createBuffer
+		({
 			size: data.byteLength,
 			usage,
 			mappedAtCreation: true,
-		} );
+		});
 
 		const dst = new data.constructor( buffer.getMappedRange() );
 		dst.set( data );
@@ -870,47 +870,53 @@ DoWG.BriYa = async function( Yz_l )
 	 } );
 
 	 //-------------------------------------------------
-	 // TIMER
+	 // QUERY BUF
 	 //-------------------------------------------------
 	 if( Sa_l.KaTy.TIMER_yk )
 	 {
-		Sa_l.capacity = 2;//Max number of timestamps we can store
+		 //Max number of timestamps we can store
+		Sa_l.TaGiMy__Fo_wuk = 2;
 
-		Sa_l.querySet = Sa_l.KaSmz_l.createQuerySet
+		//@@@
+		// QUERY SET
+		Sa_l.TaGiMy_Kz_l = Sa_l.KaSmz_l.createQuerySet
 		({
-			label: 'TaGiMy',
+			label: 'TaGiMy_Kz',
 			type: 'timestamp',
-			count: Sa_l.capacity,
+			count: Sa_l.TaGiMy__Fo_wuk,
 		});
 
-		Sa_l.queryBuffer = Sa_l.KaSmz_l.createBuffer
+		//@@@
+		// TIMER BUF
+		Sa_l.TaGiMy_Ma_l = Sa_l.KaSmz_l.createBuffer
 		({
 			label: 'TaGiMy_Ma',
 			// 8 is 'du_t' timestamp
-			size: Sa_l.capacity * 8,
+			size: Sa_l.TaGiMy__Fo_wuk * 8,
 			usage:
 			GPUBufferUsage.QUERY_RESOLVE | GPUBufferUsage.COPY_SRC,
-			//GPUBufferUsage.QUERY_RESOLVE | GPUBufferUsage.STORAGE
-			// | GPUBufferUsage.COPY_SRC | GPUBufferUsage.COPY_DST
 		});
+	}
 
-		Sa_l.resultBuffer = Sa_l.KaSmz_l.createBuffer
-		({
-			label: 'GiMy_Sma',
-			size:  Sa_l.capacity * 8,
-			usage: GPUBufferUsage.COPY_DST | GPUBufferUsage.MAP_READ,
-		});
-	}
-	else
-	{
-	}
+	//@@@
+	// SOLVER BUF
+
+
+	//@@@
+	// RESULT BUF
+	Sa_l.resultBuffer = Sa_l.KaSmz_l.createBuffer
+	({
+		label: 'GiMy_Sma',
+		size:  Sa_l.TaGiMy__Fo_wuk * 8,
+		usage: GPUBufferUsage.COPY_DST | GPUBufferUsage.MAP_READ,
+	});
+
 	Ko.gpuTime = 0.;
 
 	//-------------------------------------------------
 	// READBACK BUF
 	//-------------------------------------------------
 	const MyToCho__Ve_wuk = 4096;
-
 	const MyToCho__TaJx_l = KaSmz_l.createBuffer
 	({
 			label: "MyToCho__TaJx_l"
@@ -933,7 +939,7 @@ DoWG.BriYa = async function( Yz_l )
 		//!!!
 		// CREATE Large is Allowed but FAILS validation!
 		// 256 Layers: MAX = 8
-		let GzKri_wu = 4;
+		let GzKri_wu = 2;
 		for( ; GzKri_wu >= 0; GzKri_wu-- )
 		{
 			//@@@
@@ -1642,7 +1648,7 @@ DoWG.BriYe = async function( Sa_l, GiDri_duk  )
 	{
 		TaMoVa_k.timestampWrites =
 		{
-			querySet: Sa_l.querySet,
+			querySet: Sa_l.TaGiMy_Kz_l,
 			beginningOfPassWriteIndex: 0,
 			endOfPassWriteIndex: 1,
 		};
@@ -1856,16 +1862,16 @@ m_queue.writeBuffer(m_uniformBuffer, m_uniformStride, &uniforms, sizeof(uniforms
 	{
 		MoKro_l.resolveQuerySet
 		(
-			Sa_l.querySet,
+			Sa_l.TaGiMy_Kz_l,
 			0,// index of first query to resolve
-			Sa_l.capacity,//number of queries to resolve
-			Sa_l.queryBuffer, 0 // destination offset
+			Sa_l.TaGiMy__Fo_wuk,//number of queries to resolve
+			Sa_l.TaGiMy_Ma_l, 0 // destination offset
 		);
 
 		// COPY QUERY RESULTS
 		if( Sa_l.resultBuffer.mapState === 'unmapped' )
 		{
-			MoKro_l.copyBufferToBuffer( Sa_l.queryBuffer, 0, Sa_l.resultBuffer, 0, Sa_l.resultBuffer.size);
+			MoKro_l.copyBufferToBuffer( Sa_l.TaGiMy_Ma_l, 0, Sa_l.resultBuffer, 0, Sa_l.resultBuffer.size);
 		};
 	}
 
