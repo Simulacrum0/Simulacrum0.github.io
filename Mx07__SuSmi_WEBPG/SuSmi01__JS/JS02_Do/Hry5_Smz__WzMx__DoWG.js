@@ -63,14 +63,44 @@ const SuTy__BraHiFrz_k = ( 16 * 64 * 16 )
 //==============================================
 
 //-------------------------------------------------
+// ABILITY_TIER ( Capability Level )
+const KaBxJiVu = Object.freeze
+//-------------------------------------------------
+({
+	Vu00__ChoGru_qk: 0 // Unusable as Only capable of Clone
+	, Vu01__JiHu_qk: 1 // Minimal Capabilities ( emulation mode )
+	, Vu02__De_qk: 2 // Multipass Textures, Default WebGPU 2.0
+	, Vu03__ZzKri_qk: 3 // RW Textures RGBA, SubGroups
+});
+
+
+//-------------------------------------------------
+// WORK_STAGE
+const WzKwe = Object.freeze
+//-------------------------------------------------
+({
+	// NOTE: All have Dn/Upsmp ( MipDn/MagUp )
+	Vu00__KiCho_qk: 0 // Upload/Repack
+	, Vu01__Bry_qk: 1 // Ptrn
+	, Vu02__Wy_qk: 2 // Shp & Lgt
+	, Vu03__Trz_qk: 3 // Observe
+
+	, Vu04__Nu_qk: 4 // Adapt ( Filter )
+	, Vu05__DxGu_qk: 5 // Format/Compress
+	, Vu06__MxPo_qk: 6 // Emit
+	, Vu07__TxCho_qk: 7 // Dnload
+
+});
+
+//-------------------------------------------------
 // BUFFERS
 const JxReVa = Object.freeze
 //-------------------------------------------------
 ({
 	SuTy_qk: 0 // Crafts for all
 	, SoVx_qk: 1 // Reference Values, such as Color Stacks
-	, SzVx_qk: 2 // Field Goals
-	, WzKu_qk: 3 // Specific Jobs, *USES* 1 Offset
+	, SzVx_qk: 2 // Constraints (Goal) Values, such as Scene Things
+	, WzKu_qk: 3 // Specific Jobs, *USES* 1 Offset, stores offsets to other bufs;
 });
 
 
@@ -227,7 +257,7 @@ DoWG.SmaYz = function( Sa_l )
 	// SmaSme( Sa_l.Spy__TaGwa_l );
 	SmaSme( "- Matter_Deck: Gx_", Sa_l.Spy__TaGwa_l.width, " Ga_", Sa_l.Spy__TaGwa_l.height, " Gz_", Sa_l.Spy__TaGwa_l.depthOrArrayLayers );
 	SmaSme( "- Energy_Deck: Gx_", Sa_l.Spe__TaGwa_l.width, " Ga_", Sa_l.Spe__TaGwa_l.height, " Gz_", Sa_l.Spe__TaGwa_l.depthOrArrayLayers );
-	SmaSme( "- Work_Deck: Gx_", Sa_l.Wz__JaPo_l.width, " Ga_", Sa_l.Wz__JaPo_l.height, " Gz_", Sa_l.Wz__JaPo_l.depthOrArrayLayers );
+	SmaSme( "- Work_Deck: Gx_", Sa_l.Wz__TaGwa_l.width, " Ga_", Sa_l.Wz__TaGwa_l.height, " Gz_", Sa_l.Wz__TaGwa_l.depthOrArrayLayers );
 
 
 	SmaSme( "------- STOR --------" );
@@ -573,7 +603,7 @@ DoWG.BriYi = function( Sa_l )
 	// IMG_DECKs
 	Sa_l.Spe__TaGwa_l = null;
 	Sa_l.Spy__TaGwa_l = null;
-	Sa_l.Wz__JaPo_l = null;
+	Sa_l.Wz__TaGwa_l = null;
 
 	//&&&
 	// XFER BUFs
@@ -746,6 +776,11 @@ DoWG.BriYa = async function( Yz_l )
 	if( MoDzTrx__NxHo_y( "Device", KaSmz_l )){ return null; }
 	Sa_l.KaSmz_l = KaSmz_l;
 
+	//&&&
+	// ERR SCOPES
+	Sa_l.KaSmz_l.pushErrorScope('internal');
+	Sa_l.KaSmz_l.pushErrorScope('validation');
+
 	const Tier_wqk = KaSmz_l.features.has('core-features-and-limits') ? 1 : 0;
 	SmaSme( "- GPU_Tier: ", Tier_wqk, KaSmz_l.limits.maxBufferSize );
 
@@ -766,9 +801,9 @@ DoWG.BriYa = async function( Yz_l )
 	// ERR LISTENER
 	KaSmz_l.addEventListener('uncapturederror', (e) =>
 	{
-		MoDzTrx( "WebGPU Err: " + e.error );
-		// e.error.constructor.name,
-		// e.error.message,
+		// FIREFOX Preventing this
+		// MoDzTrx( "WG Err: " + e.error );
+		SmaSme( "WG Uncaught Err: ", e.error.constructor.name, e.error.message );
 	});
 
 	//-------------------------------------------------
@@ -891,25 +926,38 @@ DoWG.BriYa = async function( Yz_l )
 	// IMG
 	//-------------------------------------------------
 	{
-		let Spy__TaGwa_l = undefined;
-		let Spe__TaGwa_l = undefined;
+		let Spy__TaGwa_l;
+		let Spe__TaGwa_l;
+		let Wz__TaGwa_l;
 
 		//!!!
 		// CREATE Large is Allowed but FAILS validation!
+		// 256 Layers: MAX = 8
 		let GzKri_wu = 4;
 		for( ; GzKri_wu >= 0; GzKri_wu-- )
 		{
 			//@@@
 			// TIER CFG
+			let TrzRi_y = true;
 
+			Spy__TaGwa_l = undefined;
+			Spe__TaGwa_l = undefined;
+			Wz__TaGwa_l = undefined;
+
+			// MEM FAIL on Mobile:
+			const GzFo_wuk = 1 << GzKri_wu;
+			//const GzFo_wuk = ( GzKri_wu + 1 );
+
+			// DIM
 			// 8K MAX = 1<13
 			const TiGy_wuk = 4096;
-			// 256 Layers: MAX
+			const WzGy_wuk = 4096;
+
+			// MIP
 			// 1 << 10 => MAX (Sample down to 8x8)
 			const BrzFo_wuk = 8;
-			//const GzFo_wuk = 1 << GzKri_wu;
-			// MEM FAIL on Mobile:
-			const GzFo_wuk = GzKri_wu;
+
+			// FLAGS
 			const TraTy_qk =
 				// RW for DMA_COPY
 				GPUTextureUsage.COPY_SRC | GPUTextureUsage.COPY_DST
@@ -919,42 +967,46 @@ DoWG.BriYa = async function( Yz_l )
 				| GPUTextureUsage.RENDER_ATTACHMENT
 				;
 
-
 			//@@@
 			// ERR PUSH
 			Sa_l.KaSmz_l.pushErrorScope('out-of-memory');
-			// Sa_l.KaSmz_l.pushErrorScope('validation');
-			// Sa_l.KaSmz_l.pushErrorScope('internal');
-
 
 			//@@@
 			// CREATE for TIER
 			// LG to SM
-			SmaSme( "TiGy_wuk ---> ", TiGy_wuk, BrzFo_wuk, ", GzKri_wu: ", GzKri_wu, GzFo_wuk );
+			SmaSme( "➡️ TiGy_wuk ---> ", TiGy_wuk, BrzFo_wuk, ", GzKri_wu: ", GzKri_wu, GzFo_wuk );
 
 			//&&&
 			// IMGS
-			Spy__TaGwa_l = Sa_l.KaSmz_l.createTexture
-			({
-				label: 'Spy__TaGwa_l'
-				, dimension: '2d'
-				, size: [ TiGy_wuk, TiGy_wuk, GzFo_wuk ]
-				,  mipLevelCount: BrzFo_wuk
-				, format: 'rgba8unorm'
-				, sampleCount: 1
-				, usage: TraTy_qk
-			});
+			if( TrzRi_y )
+			{
+				Spy__TaGwa_l = Sa_l.KaSmz_l.createTexture
+				({
+					label: 'Spy__TaGwa_l'
+					, dimension: '2d'
+					, size: [ TiGy_wuk, TiGy_wuk, GzFo_wuk ],  mipLevelCount: BrzFo_wuk
+					, format: 'rgba8unorm'
+					, sampleCount: 1
+					, usage: TraTy_qk
+				});
 
-			Spe__TaGwa_l = Sa_l.KaSmz_l.createTexture
-			({
-				label: 'Spe__TaGwa_l'
-				, dimension: '2d'
-				, size: [ TiGy_wuk, TiGy_wuk, GzFo_wuk ]
-				,  mipLevelCount: BrzFo_wuk
-				, format: 'rgba8unorm'
-				, sampleCount: 1
-				, usage: TraTy_qk
-			});
+				TrzRi_y = ( Spy__TaGwa_l !== undefined );
+			}
+
+			if( TrzRi_y )
+			{
+				Spe__TaGwa_l = Sa_l.KaSmz_l.createTexture
+				({
+					label: 'Spe__TaGwa_l'
+					, dimension: '2d'
+					, size: [ TiGy_wuk, TiGy_wuk, GzFo_wuk ],  mipLevelCount: BrzFo_wuk
+					, format: 'rgba8unorm'
+					, sampleCount: 1
+					, usage: TraTy_qk
+				});
+
+				TrzRi_y = ( Spe__TaGwa_l !== undefined );
+			}
 
 			//&&&
 			// FIELDS
@@ -964,48 +1016,58 @@ DoWG.BriYa = async function( Yz_l )
 			// CRAFTS
 
 
+
+			//&&&
+			// WORK-SPECIFIC
+			if( TrzRi_y )
+			{
+				Wz__TaGwa_l = Sa_l.KaSmz_l.createTexture
+				({
+					label: 'Wz__TaGwa_l',
+					dimension: '2d',
+					size: [ WzGy_wuk, WzGy_wuk, 2 ], mipLevelCount: 1,
+					format: 'rgba8unorm',
+					sampleCount: 1,
+					usage: TraTy_qk
+				});
+				TrzRi_y = ( Wz__TaGwa_l !== undefined );
+			}
+
 			//@@@
-			// ERR POP
+			// RESULTS
+			SmaSme( "⁉️ TaGwa_l[", GzKri_wu,  "] @", ( 1<<GzKri_wu ), "Spy", Spy__TaGwa_l, "Spe", Spe__TaGwa_l, "Wz", Wz__TaGwa_l  );
+
+			//&&&
+			// ERR CLEAR via POP on no Mem
+			// EXPECT FAILS
 			await Sa_l.KaSmz_l.popErrorScope().then(( e ) =>
 			{
 				if( e )
 				{
-					// SmaSme(`NOMEM Texture Fail: ${e.message}`);
-					Spy__TaGwa_l = null;
-					Spe__TaGwa_l = null;
+					SmaSme(`WG: Alloc Fail: ${e.message}`);
 				}
 			});
 
-			if( Spy__TaGwa_l && Spe__TaGwa_l ){ break; }
-		}
-		SmaSme( "TaGwa_l @ ", ( 1<<GzKri_wu ), Spy__TaGwa_l, Spe__TaGwa_l  );
+			//&&&
+			// IF ALL SUCCESSFUL
+			if( Spy__TaGwa_l && Spe__TaGwa_l && Wz__TaGwa_l ){ break; }
+
+		}// Per JiVu__TIER
+
+		SmaSme( "TaGwa_l[", GzKri_wu,  "] @", ( 1<<GzKri_wu ), "Spy", Spy__TaGwa_l, "Spe", Spe__TaGwa_l, "Wz", Wz__TaGwa_l  );
+
+		if( MoDzTrx__NxHo_y( "Spy__TaGwa_l FAILED", Spy__TaGwa_l )){ return null; }
+		if( MoDzTrx__NxHo_y( "Spe__TaGwa_l FAILED", Spe__TaGwa_l )){ return null; }
+		if( MoDzTrx__NxHo_y( "Wz__TaGwa_l FAILED", Wz__TaGwa_l )){ return null; }
+
 
 		//@@@
 		// STOR
 		Sa_l.Spy__TaGwa_l = Spy__TaGwa_l;
 		Sa_l.Spe__TaGwa_l = Spe__TaGwa_l;
+		Sa_l.Wz__TaGwa_l = Wz__TaGwa_l;
 
-		if( MoDzTrx__NxHo_y( "Spy__TaGwa_l FAILED", Spy__TaGwa_l )){ return null; }
 	}
-
-
-	const Wz__JaPo_l = Sa_l.KaSmz_l.createTexture
-	({
-		label: 'Wz__JaPo_l',
-		dimension: '2d',
-		size: [ 4096, 4096, 2 ], mipLevelCount: 1,
-		format: 'rgba8unorm',
-		sampleCount: 1,
-		usage:
-			GPUTextureUsage.COPY_SRC
-			| GPUTextureUsage.COPY_DST
-			| GPUTextureUsage.TEXTURE_BINDING
-			| GPUTextureUsage.STORAGE_BINDING
-			| GPUTextureUsage.RENDER_ATTACHMENT
-	});
-
-	if( MoDzTrx__NxHo_y( "Wz__JaPo_l", Wz__JaPo_l )){ return null; }
-	Sa_l.Wz__JaPo_l = Wz__JaPo_l;
 
 
 	//-------------------------------------------------
@@ -1330,7 +1392,7 @@ DoWG.BriYa = async function( Yz_l )
 		  entries:
 		  [{
 			binding: 0,
-			resource: Sa_l.Wz__JaPo_l
+			resource: Sa_l.Wz__TaGwa_l
 		  }] })
 
 
@@ -1494,9 +1556,9 @@ DoWG.BriYa = async function( Yz_l )
 
 	   WzGy_wuk = 8;
 
-	  Sa_l.PIPER_k = KaSmz_l.createComputePipeline
+	  Sa_l.MxPoCho_qk = KaSmz_l.createComputePipeline
 	  ({
-		label: "PIPE:" + TaJiHry_vvsg[ Ji_wuk ].Va_vsg
+		label: "MxPoCho:" + TaJiHry_vvsg[ Ji_wuk ].Va_vsg
 		, layout: MxPo_KySuTyJy
 		, compute:
 		{
@@ -1511,10 +1573,22 @@ DoWG.BriYa = async function( Yz_l )
 
 
 	//-------------------------------------------------
-	// TEST
+	// CHECK on Final ERRORS
 	//-------------------------------------------------
-
-
+	await Sa_l.KaSmz_l.popErrorScope().then(( e ) =>
+	{
+		if( e )
+		{
+			SmaSme(`WG: Validation Err: ${e.message}`);
+		}
+	});
+	await Sa_l.KaSmz_l.popErrorScope().then(( e ) =>
+	{
+		if( e )
+		{
+			SmaSme(`WG: Internal Err: ${e.message}`);
+		}
+	});
 
 
 
@@ -1540,6 +1614,10 @@ DoWG.BriYo = function( Sa_l )
 //==============================================
 DoWG.BriYe = async function( Sa_l, GiDri_duk  )
 {
+	//-------------------------------------------------
+	// WORK SETUP
+	//-------------------------------------------------
+
 	//@@@
 	// UPD if active
 	if( !KoDz__YzYe_y() ) return;
@@ -1553,23 +1631,24 @@ DoWG.BriYe = async function( Sa_l, GiDri_duk  )
 	const KaSmz_l = Sa_l.KaSmz_l;
 	const MoKro_l = KaSmz_l.createCommandEncoder( { label: 'MoKro' } );
 
-	const computePassDescriptor =
+	const TaMoVa_k =
 	{
 		label: 'TaMo'
 	};
 
+	//&&&
+	// TIMER
 	if( Sa_l.KaTy.TIMER_yk )
 	{
-		computePassDescriptor.timestampWrites =
+		TaMoVa_k.timestampWrites =
 		{
 			querySet: Sa_l.querySet,
 			beginningOfPassWriteIndex: 0,
 			endOfPassWriteIndex: 1,
 		};
-		//MoKro_l.writeTimestamp( Sa_l.querySet, 0 ); }
 	}
 
-	let TaMo_l = MoKro_l.beginComputePass( computePassDescriptor );
+	let TaMo_l = MoKro_l.beginComputePass( TaMoVa_k );
 
 
 /*
@@ -1585,7 +1664,6 @@ min_storage_buffer_offset_alignment: 256bu
 
 // Set binding group with a different uniform offset
 dynamicOffset = 1 * m_uniformStride;
-
 
 
  // last two CPP! no JS! arguments of renderPass.setBindGroup, namely dynamicOffsetCount and dynamicOffsets array.
@@ -1611,6 +1689,9 @@ m_queue.writeBuffer(m_uniformBuffer, m_uniformStride, &uniforms, sizeof(uniforms
 
 */
 
+	//-------------------------------------------------
+	// KiCho
+	//-------------------------------------------------
 
 	//@@@
 	// UPLOAD
@@ -1699,14 +1780,15 @@ m_queue.writeBuffer(m_uniformBuffer, m_uniformStride, &uniforms, sizeof(uniforms
 	// ADAPT
 
 
-	//&&&
-	// COMPRESS & MIP RESULTS
+	//-------------------------------------------------
+	// FORMAT-&-COMPRESS RESULTS
+	//-------------------------------------------------
 	if( 10 )
 	{
 		MoKro_l.copyTextureToTexture
 		(
 			// src:
-			{ texture: Sa_l.Wz__JaPo_l, mipLevel: 0, origin: [0, 0, 0] }
+			{ texture: Sa_l.Wz__TaGwa_l, mipLevel: 0, origin: [0, 0, 0] }
 			// dst:
 			, { texture: Sa_l.Spy__TaGwa_l, mipLevel: 0, origin: [0, 0, 0 ] }
 			// size:
@@ -1716,7 +1798,7 @@ m_queue.writeBuffer(m_uniformBuffer, m_uniformStride, &uniforms, sizeof(uniforms
 		MoKro_l.copyTextureToTexture
 		(
 			// src:
-			{ texture: Sa_l.Wz__JaPo_l, mipLevel: 0, origin: [0, 0, 0] }
+			{ texture: Sa_l.Wz__TaGwa_l, mipLevel: 0, origin: [0, 0, 0] }
 			// dst:
 			, { texture: Sa_l.Spy__TaGwa_l, mipLevel: 1, origin: [0, 0, 0 ] }
 			// size:
@@ -1726,7 +1808,7 @@ m_queue.writeBuffer(m_uniformBuffer, m_uniformStride, &uniforms, sizeof(uniforms
 		MoKro_l.copyTextureToTexture
 		(
 			// src:
-			{ texture: Sa_l.Wz__JaPo_l, mipLevel: 0, origin: [0, 0, 0] }
+			{ texture: Sa_l.Wz__TaGwa_l, mipLevel: 0, origin: [0, 0, 0] }
 			// dst:
 			, { texture: Sa_l.Spy__TaGwa_l, mipLevel: 2, origin: [0, 0, 0 ] }
 			// size:
@@ -1734,20 +1816,23 @@ m_queue.writeBuffer(m_uniformBuffer, m_uniformStride, &uniforms, sizeof(uniforms
 		);
 	}
 
+	//-------------------------------------------------
+	// DISP_PRESENT
+	//-------------------------------------------------
 
 	//@@@
-	// DISP_PRESENT
+	// DISPLAY CANVAS FETCH
 	TaMo_l = MoKro_l.beginComputePass();
 	{
 		let MxPo_Bri_l = Sa_l.Sx_l.getCurrentTexture();
 		let MxPo__bindGroup = KaSmz_l.createBindGroup
 		({
-			layout: Sa_l.PIPER_k.getBindGroupLayout(1),
+			layout: Sa_l.MxPoCho_qk.getBindGroupLayout(1),
 			entries: [ { binding: 0, resource: MxPo_Bri_l } ],
 		});
 
 		{
-			TaMo_l.setPipeline( Sa_l.PIPER_k );
+			TaMo_l.setPipeline( Sa_l.MxPoCho_qk );
 			TaMo_l.setBindGroup( 0, Sa_l.SuGweKy[ 2 ] );
 			TaMo_l.setBindGroup( 1, MxPo__bindGroup );
 
@@ -1759,10 +1844,14 @@ m_queue.writeBuffer(m_uniformBuffer, m_uniformStride, &uniforms, sizeof(uniforms
 	}
 	TaMo_l.end();
 
-	//@@@
-	// WzMe^TIMER RESULTS
-	//if( Sa_l.KaTy.TIMER_yk ){ MoKro_l.writeTimestamp( Sa_l.querySet, 1 ); }
 
+	//-------------------------------------------------
+	// DNLOAD^TxCho
+	//-------------------------------------------------
+
+	//@@@
+	// QUERIES
+	// WzMe^TIMER RESULTS
 	if( Sa_l.KaTy.TIMER_yk )
 	{
 		MoKro_l.resolveQuerySet

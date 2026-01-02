@@ -5,20 +5,21 @@
 @compute @workgroup_size( WzGy_wuk, WzGy_wuk )
 fn JiHry( @builtin(global_invocation_id) Wz_wu3: vec3u )
 {
+	// EMIT DST CLIP & REMAP
 	let MxPo__Ve_wu2 = textureDimensions( MxPo_k );
 	if( ( Wz_wu3.x >= MxPo__Ve_wu2.x ) || ( Wz_wu3.y >= MxPo__Ve_wu2.y ) ){ return; }
-
 	let SiMy_wf2 = vec2f( vec2u( Wz_wu3.x, MxPo__Ve_wu2.y - Wz_wu3.y ) );
 
-	// RG, B, A
+	// READ
 	// let JaMy_wf2 = vec2f( fract( SiMy_wf2 / 1024.0 ) * 1024.0 );
-	let JaMy_wu2 = vec2u( fract( SiMy_wf2 / 1024.0 ) * 1024.0 );
+	let JaMy_wu2 = vec2u( fract( SiMy_wf2.xy / vec2f( MxPo__Ve_wu2.xy ) ) * vec2f( 1024.f, 512.f ) );
 
 	let Brz_wu = 0;
-	let MePo_wf4 = textureLoad( JaPo_k, JaMy_wu2, 0, Brz_wu );
+	let Grz_wuk = 0;
+	let MePo_wf4 = textureLoad( JaPo_k, JaMy_wu2, Grz_wuk, Brz_wu );
 
 
-	// CANVAS EXPORT
+	// WRITE
 	textureStore( MxPo_k, Wz_wu3.xy, MePo_wf4 );
 }
 

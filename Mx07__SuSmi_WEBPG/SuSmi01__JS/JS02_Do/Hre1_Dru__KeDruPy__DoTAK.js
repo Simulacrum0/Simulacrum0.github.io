@@ -35,7 +35,7 @@ DoTAK.SmaYz = function( Sa_l )
 DoTAK.BriYi = function( Sa_l )
 //-------------------------------------------------
 {
-	SmaSme( "BriYi: " + this.VaSy );
+	// SmaSme( "?" + this.VaSy );
 
 }
 

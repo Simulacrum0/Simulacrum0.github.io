@@ -170,7 +170,7 @@ function MoDzTrx( Trx_vsg )
 
 	//&&&
 	// DBG
-	SmaSme( "*STK_TRACE:%s", jsStackTrace() );
+	SmaSme( "*STK_TRACE:", jsStackTrace() );
 
 	// POST for DBG
 	// console.error( Bo_vsg );

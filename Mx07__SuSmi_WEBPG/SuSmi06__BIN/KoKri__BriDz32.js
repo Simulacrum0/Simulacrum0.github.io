@@ -3463,9 +3463,8 @@ var ASM_CONSTS = {
   74631: () => {},
   74635: () => {
     const SaSTRM_l = Ko.SySmz_v[SyVx.STRM_qk];
-    SaSTRM_l.Ji.KiCho__JaPo(SaSTRM_l, 0, "Mx01__SuKz_MEDIA/SuKz02_JaPo__PICT/JaPo00__FyHo.jpg");
   },
-  74779: $0 => {
+  74684: $0 => {
     const SaWG_l = Ko.SySmz_v[SyVx.WG_qk];
     const SaSTRM_l = Ko.SySmz_v[SyVx.STRM_qk];
     const LAYER_Gz_wuk = 0;

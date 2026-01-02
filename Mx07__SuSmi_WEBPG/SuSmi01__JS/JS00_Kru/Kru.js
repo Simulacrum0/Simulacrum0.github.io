@@ -1,4 +1,4 @@
-const BriDzSa__Da_vsg = "PUB_v0.123"; 
+const BriDzSa__Da_vsg = "PUB_v0.124"; 
  const BriDz__Mx_KuTu_vsg = "https://powerourpeople.com/"; 
 
 //==============================================
@@ -358,7 +358,7 @@ function MoDzTrx( Trx_vsg )
 
 	//&&&
 	// DBG
-	SmaSme( "*STK_TRACE:%s", jsStackTrace() );
+	SmaSme( "*STK_TRACE:", jsStackTrace() );
 
 	// POST for DBG
 	// console.error( Bo_vsg );
@@ -1232,15 +1232,19 @@ async function Hrz7_Kru__ChaSySmz( SyJy_vsg, ToKz_vsg, SyTu_vsg, VaDy_vsg, SySmz
 
 	//@@@
 	// AWAIT BEGIN SERV_ADD
+	const SyVx_wuk = SyVx[ VaDy_vsg + "_qk" ];
+	// SmaSme( "--- SERV_FyGri [", SyVx_wuk, "]" );
+
+	//&&&
+	// Need available for ERR below
 	const Sy_l = await window[ VaSy_vsg ].BriYa( Yz_l );
 	if( Sy_l )
 	{
-		const SyVx_wuk = SyVx[ VaDy_vsg + "_qk" ];
 		Ko.SySmz_v[ SyVx_wuk ] = Sy_l;
 
 		//$$$
 		// LOG
-		SmaSme( "[ SERV", SyVx_wuk, " ]: ", Sy_l.Ji.VaSy, " = ", Sy_l, "KoYz ", Ko.Yz_q );
+		SmaSme( "--- SERV_Cha [", SyVx_wuk, "]: ", Sy_l.Ji.VaSy, " = ", Sy_l, "KoYz ", Ko.Yz_q );
 
 		//$$$
 		// OBJ_REPORT

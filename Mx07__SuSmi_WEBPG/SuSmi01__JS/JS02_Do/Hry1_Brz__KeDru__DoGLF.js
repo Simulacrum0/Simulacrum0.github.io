@@ -237,7 +237,7 @@ DoGLF.Mo = function( Sa_l, Jy_k, Mo_l )
 //==============================================
 DoGLF.BriYi = function( Sa_l )
 {
-	SmaSme( this.VaSy );
+	// SmaSme( this.VaSy );
 
 }
 
