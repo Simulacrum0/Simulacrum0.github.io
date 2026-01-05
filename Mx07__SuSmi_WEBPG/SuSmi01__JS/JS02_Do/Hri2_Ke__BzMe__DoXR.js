@@ -198,16 +198,17 @@ DoXR.BriYa = async function( Yz_k )
 
 	const AR_yk = await navigator.xr.isSessionSupported( "immersive-ar", KriYz_k );
 	const VR_yk = await navigator.xr.isSessionSupported( "immersive-vr", KriYz_k );
-	const SR_yk = await navigator.xr.isSessionSupported( "inline", KriYz_k );
+	//const SR_yk = await navigator.xr.isSessionSupported( "inline", KriYz_k );
 
-	if( !AR_yk && !VR_yk && !SR_yk )
+	SmaSme( "[XR] AR: ", AR_yk, "VR:", VR_yk ); // "SR:", SR_yk
+
+	if( !AR_yk && !VR_yk )
 	{
 		SmaSme("WebXR API Missing Options. Find a Modern Compatible Browser." );
 		DoXR.BriYi( Sa_l );
 		return null;
 	}
 
-	SmaSme( "[XR] AR: ", AR_yk, "VR:", VR_yk, "SR:", SR_yk );
 
 
 	//----------------------------
