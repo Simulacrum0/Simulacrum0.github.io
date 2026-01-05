@@ -3450,21 +3450,23 @@ var ASM_CONSTS = {
     const SaSHAR_l = Ko.SySmz_v[SyVx.SHAR_qk];
     DoSHAR.Mo(SaSHAR_l, 0, 0);
   },
-  74423: () => {},
-  74427: () => {
+  74423: () => {
+    location.reload();
+  },
+  74446: () => {
     const SaWG_l = Ko.SySmz_v[SyVx.WG_qk];
     const Brz_wuk = 0;
     DoWG.TxCho_JaKu(SaWG_l, Brz_wuk, 0, 0, 0, SaWG_l.MxPo_Bri_l.width, SaWG_l.MxPo_Bri_l.height);
   },
-  74587: () => {},
-  74591: () => {
+  74606: () => {},
+  74610: () => {
     console.log("MC: HrySmz__BriYa");
   },
-  74631: () => {},
-  74635: () => {
+  74650: () => {},
+  74654: () => {
     const SaSTRM_l = Ko.SySmz_v[SyVx.STRM_qk];
   },
-  74684: $0 => {
+  74703: $0 => {
     const SaWG_l = Ko.SySmz_v[SyVx.WG_qk];
     const SaSTRM_l = Ko.SySmz_v[SyVx.STRM_qk];
     const LAYER_Gz_wuk = 0;

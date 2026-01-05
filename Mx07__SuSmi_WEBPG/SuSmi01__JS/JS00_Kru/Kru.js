@@ -1,4 +1,4 @@
-const BriDzSa__Da_vsg = "PUB_v0.125"; 
+const BriDzSa__Da_vsg = "PUB_v0.126"; 
  const BriDz__Mx_KuTu_vsg = "https://powerourpeople.com/"; 
 
 //==============================================
@@ -1182,7 +1182,7 @@ const SyVx = Object.freeze
 	, SAY_qk: 777
 
 	// Hry^VIS
-	, XR_qk: 777
+	, XR_qk: 13
 	, GLES_qk: 777
 	, SCRN_qk: 777
 
@@ -1412,7 +1412,7 @@ async function KoDz__Ya( )
 
 		, Hrz7_Kru__ChaSySmz( "Hra7_Ta", "ToMi", "Do", "STRM", SySmz__Kri_yk, { SmzYz: "0" } )
 		, Hrz7_Kru__ChaSySmz( "Hre1_Dru", "WaDru", "Do", "FNT", SySmz__Kri_yk, { SmzYz: "0" } )
-		, Hrz7_Kru__ChaSySmz( "Hry5_Smz", "WzMx", "Do", "WG", SySmz__Kri_yk, { KaVy: "0" } )
+		, Hrz7_Kru__ChaSySmz( "Hry5_Smz", "WzMx", "Do", "WG", SySmz__Kri_yk, { SmzYz_q: -1 } )
 		, Hrz7_Kru__ChaSySmz( "Hry1_Brz", "KeDru", "Do", "GLF", SySmz__Kri_yk, { Gy_wu: 512 } )
 
 		, Hrz7_Kru__ChaSySmz( "Hra4_Bru", "ToDry", "Do", "NET", SySmz__Kri_yk, { SmzYz: "0" } )
@@ -1443,9 +1443,11 @@ async function KoDz__Ya( )
 
 	//@@@
 	// SERV_OPT
+	// Do NOT await Promises;
 	const SySmz__HoKri_yk = false;
 	// DoXR
-	//Hrz7_Kru__ChaSySmz( "Hri2_Ke", "BzMe", "Do", "XR", "Hri2_Ke", SySmz__HoKri_yk, { SmzYz: "0" } );
+	Hrz7_Kru__ChaSySmz( "Hri2_Ke", "BzMe", "Do", "XR", SySmz__HoKri_yk, { SmzYz: "0" } );
+
 	// DoGLES
 	//Hrz7_Kru__ChaSySmz( "Hry5_Smz", "BzMe", "Do", "GLES", "Hry5_Smz", SySmz__HoKri_yk, { SmzYz: "0" } );
 

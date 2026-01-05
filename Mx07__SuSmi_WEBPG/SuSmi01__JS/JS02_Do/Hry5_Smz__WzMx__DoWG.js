@@ -612,6 +612,8 @@ DoWG.BriYi = function( Sa_l )
 
 	//&&&
 	// ADAPTER/DEVICE
+	Sa_l.KaSmz_l.destroy();
+
 	Sa_l.KaSmz_l = null;
 	Sa_l.KaKy_l = null;
 }
@@ -647,7 +649,7 @@ DoWG.BriYa = async function( Yz_l )
 	//@@@
 	// MAKE SESSION with Ji INTERFACE
 	const Sa_l = SySmz__YaFz_v( DoWG );
-	Sa_l.KaVy = Yz_l.KaVy;
+	Sa_l.KaVy = Yz_l.SmzYz_q;
 
 
 	//-------------------------------------------------
@@ -789,7 +791,11 @@ DoWG.BriYa = async function( Yz_l )
 	// ERR DEV LOST
   	KaSmz_l.lost.then((info) =>
 	{
-		if (info.reason !== "destroyed")
+		if (info.reason == 'unknown')
+		{
+			SmaSme( "GPU Fail Unknown: needs REFRESH/RESTART PAGE" );
+		}
+		else// if (info.reason !== "destroyed")
 		{
 			// RESTART
 			SmaSme( "GPU needs REFRESH/RESTART PAGE" );
@@ -1611,8 +1617,8 @@ DoWG.BriYo = function( Sa_l )
 {
 	if( KoDz__YzTrx_y() ) return;
 	// SmaSme( "DoWG_BriYo: WG PAUSE" );
-	//
-	// Pause Tasks?
+	// Pause Compute Tasks?
+	// Reset Clocks?
 }
 
 //==============================================
@@ -1654,7 +1660,7 @@ DoWG.BriYe = async function( Sa_l, GiDri_duk  )
 		};
 	}
 
-	let TaMo_l = MoKro_l.beginComputePass( TaMoVa_k );
+	let TaMo_l;
 
 
 /*
@@ -1705,20 +1711,26 @@ m_queue.writeBuffer(m_uniformBuffer, m_uniformStride, &uniforms, sizeof(uniforms
 
 
 	//@@@
-	// FORMULA
+	// GOLIFE
 	{
-		TaMo_l.setPipeline( Sa_l.JiGwe02__GOLIFE );
-		TaMo_l.setBindGroup(0, Sa_l.SuGweKy[  CS_Kwi_wu % 2 ]);
+		TaMo_l = MoKro_l.beginComputePass( TaMoVa_k );
+		TaMo_l.pushDebugGroup('Gen GOLIFE');
+		{
+			TaMo_l.setPipeline( Sa_l.JiGwe02__GOLIFE );
+			TaMo_l.setBindGroup(0, Sa_l.SuGweKy[  CS_Kwi_wu % 2 ]);
 
-		const TaWz__Fo_wuk = Math.ceil(CS_Gy_k / CS_WzVu_k);
-		TaMo_l.dispatchWorkgroups( TaWz__Fo_wuk, TaWz__Fo_wuk );
-
+			const TaWz__Fo_wuk = Math.ceil(CS_Gy_k / CS_WzVu_k);
+			TaMo_l.dispatchWorkgroups( TaWz__Fo_wuk, TaWz__Fo_wuk );
+		}
+		TaMo_l.popDebugGroup();
+		TaMo_l.end();
 		CS_Kwi_wu++;
 	}
 
 	//@@@
 	// PTRN
 	{
+		TaMo_l = MoKro_l.beginComputePass( TaMoVa_k );
 		TaMo_l.pushDebugGroup('Gen PTRN');
 		{
 			TaMo_l.setPipeline( Sa_l.PTRN_k );
@@ -1729,12 +1741,14 @@ m_queue.writeBuffer(m_uniformBuffer, m_uniformStride, &uniforms, sizeof(uniforms
 			TaMo_l.dispatchWorkgroups( WzGy__Fo_wuk, WzGy__Fo_wuk );
 		}
 		TaMo_l.popDebugGroup();
+		TaMo_l.end();
 	}
 
 	//@@@
 	// SHP
 	if( 10 )
 	{
+		TaMo_l = MoKro_l.beginComputePass( TaMoVa_k );
 		TaMo_l.pushDebugGroup('Gen SHP');
 		{
 			TaMo_l.setPipeline( Sa_l.SHP_k );
@@ -1747,6 +1761,7 @@ m_queue.writeBuffer(m_uniformBuffer, m_uniformStride, &uniforms, sizeof(uniforms
 			TaMo_l.dispatchWorkgroups( WzGy__Fo_wuk, WzGy__Fo_wuk );
 		}
 		TaMo_l.popDebugGroup();
+		TaMo_l.end();
 	}
 
 
@@ -1754,6 +1769,7 @@ m_queue.writeBuffer(m_uniformBuffer, m_uniformStride, &uniforms, sizeof(uniforms
 	// LGT
 	if( 0 )
 	{
+		TaMo_l = MoKro_l.beginComputePass();
 		TaMo_l.pushDebugGroup('Gen LGT');
 		{
 			TaMo_l.setPipeline( Sa_l.LGT_k );
@@ -1766,10 +1782,12 @@ m_queue.writeBuffer(m_uniformBuffer, m_uniformStride, &uniforms, sizeof(uniforms
 			TaMo_l.dispatchWorkgroups( WzGy__Fo_wuk, WzGy__Fo_wuk );
 		}
 		TaMo_l.popDebugGroup();
+		TaMo_l.end();
 	}
 
 	//@@@
 	// MAKE
+	// TaMo_l = MoKro_l.beginComputePass();
 	// TaMo_l.pushDebugGroup('Gen MEXEL');
 	// {
 	// 	TaMo_l.setPipeline( Sa_l.MEXEL_Mz_k );
@@ -1778,8 +1796,9 @@ m_queue.writeBuffer(m_uniformBuffer, m_uniformStride, &uniforms, sizeof(uniforms
 	// 	TaMo_l.dispatchWorkgroups( WzGy__Fo_wuk, WzGy__Fo_wuk );
 	// }
 	// TaMo_l.popDebugGroup();
+	// TaMo_l.end();
 
-	TaMo_l.end();
+
 
 
 	//@@@
@@ -1863,8 +1882,8 @@ m_queue.writeBuffer(m_uniformBuffer, m_uniformStride, &uniforms, sizeof(uniforms
 		MoKro_l.resolveQuerySet
 		(
 			Sa_l.TaGiMy_Kz_l,
-			0,// index of first query to resolve
-			Sa_l.TaGiMy__Fo_wuk,//number of queries to resolve
+			0, // index of first query to resolve
+			Sa_l.TaGiMy__Fo_wuk, // number of queries to resolve
 			Sa_l.TaGiMy_Ma_l, 0 // destination offset
 		);
 

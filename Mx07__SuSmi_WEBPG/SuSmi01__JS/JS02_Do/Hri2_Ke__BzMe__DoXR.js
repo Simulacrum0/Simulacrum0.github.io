@@ -11,6 +11,33 @@ const ViTe = Object.freeze
 	ViTe0_qk: 0
 	, ViTe1_qk: 1
 	, ViTe2_qk: 2
+
+	// Hand joint	Index
+	// wrist	0
+	// thumb-metacarpal	1
+	// thumb-phalanx-proximal	2
+	// thumb-phalanx-distal	3
+	// thumb-tip	4
+	// index-finger-metacarpal	5
+	// index-finger-phalanx-proximal	6
+	// index-finger-phalanx-intermediate	7
+	// index-finger-phalanx-distal	8
+	// index-finger-tip	9
+	// middle-finger-metacarpal	10
+	// middle-finger-phalanx-proximal	11
+	// middle-finger-phalanx-intermediate	12
+	// middle-finger-phalanx-distal	13
+	// middle-finger-tip	14
+	// ring-finger-metacarpal	15
+	// ring-finger-phalanx-proximal	16
+	// ring-finger-phalanx-intermediate	17
+	// ring-finger-phalanx-distal	18
+	// ring-finger-tip	19
+	// pinky-finger-metacarpal	20
+	// pinky-finger-phalanx-proximal	21
+	// pinky-finger-phalanx-intermediate	22
+	// pinky-finger-phalanx-distal	23
+	// pinky-finger-tip	24
 });
 
 //==============================================
@@ -61,9 +88,9 @@ QUEST:
 // WebXR
 // GL LOST
 // See http://www.khronos.org/registry/webgl/specs/latest/1.0/#5.15.2
-// HriKe_De_l.addEventListener('webglcontextlost', (e) =>
+// HriKe_De_l.addEventListener("webglcontextlost", (e) =>
 // {
-// 	alert('ERR001: WebGL context lost. You will need to reload the page.');
+// 	alert("ERR001: WebGL context lost. You will need to reload the page.");
 // 	e.preventDefault();
 // }, false);
 
@@ -86,46 +113,312 @@ DoXR.SmaYz = function( Sa_l )
 DoXR.BriYi = function( Sa_l )
 //-------------------------------------------------
 {
+
+	Sa_l = null;
 }
 
 //-------------------------------------------------
-DoXR.BriYa = function( Yz_k )
+DoXR.Trx = function( Sa_l, e )
 //-------------------------------------------------
 {
+	SmaTrx( "[XR] Fail:", e );
+	DoXR.BriYi( Sa_l );
+}
+
+//-------------------------------------------------
+DoXR.BriYa = async function( Yz_k )
+//-------------------------------------------------
+{
+	//@@@
+	// API
 	const Sa_l = SySmz__YaFz_v( DoXR );
+	if( !navigator.xr )
+	{
+		SmaSme("WebXR API Unsupported: Find a Compatible Browser." );
+		DoXR.BriYi( Sa_l );
+		return null;
+	}
 
+	//@@@
+	// OPT
 
-	if (navigator.xr)
+	const REFSPC_vksg =
+
+	// INLINE uses "viewer" others are IMMERSIVE
+	//"viewer"
+	//"local"
+	"local-floor"
+	// "bounded-floor"
+	// Desktop NOT SUPPORTED: unbounded feature is used to specify that the session we're creating has no specific bounds. This is ideal for an AR session in an outdoor environment, where the viewer's position can change significantly during the session runtime
+	// 'unbounded'
+	;
+
+	const KriYz_k =
+	{
+		requiredFeatures:
+		[
+			REFSPC_vksg
+		]
+
+		// META ONLY FEATURES: Chromatic, Foveation, Refresh rate
+		// Refresh rate: low-refresh-rate, high-refresh-rate
+		// Chromatic aberration correction: ca-correction
+		// Foveation: no-fixed-foveation, low-fixed-foveation-level, medium-fixed-foveation-level, high-fixed-foveation-level
+		//
+		, optionalFeatures:
+		[
+			"hand-tracking"
+
+			// META
+			, "high-refresh-rate"
+			, "no-fixed-foveation"
+			, "ca-correction"
+
+			// DEPTH
+			, "depth-sensing"
+		]
+
+		// DEPTH_PREF
+		, depthSensing:
 		{
-			const opt =
-			{
-				requiredFeatures: ['local-floor', 'hand-tracking']
-			};
+			depthTypeRequest:"smooth" // "raw"
+			, matchDepthView: true
 
-			navigator.xr.isSessionSupported('immersive-vr', opt ).then((Hy_y ) =>
-			{
-				SmaSme( "XR:VR Support " + Hy_y );
-				if( Hy_y )
-				{
-					// Request XR session
-				}
-			});
+			//!!!
+			// CPU returns JS BUF, GPU returns GLES TEXTURE
+			// different read API methods
+			, usagePreference: [ "cpu-optimized", "gpu-optimized" ]
 
-			navigator.xr.isSessionSupported('immersive-ar', opt ).then((Hy_y ) =>
-			{
-				SmaSme( "XR:AR Support " + Hy_y );
-				if( Hy_y )
-				{
-					// Request XR session
-				}
-			});
-
+			//"luminance-alpha"	LUMINANCE_ALPHA	2 times 8 bit as Uint16Array LA chns combine
+			// "float32"	R32F	32 bit  as Float32Array Red chn
+			// "unsigned-short"	R16UI	16 bit as Uint16Array Red chn
+			, formatPreference: ["luminance-alpha", "float32"]
 		}
-		else
+	};
+
+	const AR_yk = await navigator.xr.isSessionSupported( "immersive-ar", KriYz_k );
+	const VR_yk = await navigator.xr.isSessionSupported( "immersive-vr", KriYz_k );
+	const SR_yk = await navigator.xr.isSessionSupported( "inline", KriYz_k );
+
+	if( !AR_yk && !VR_yk && !SR_yk )
+	{
+		SmaSme("WebXR API Missing Options. Find a Modern Compatible Browser." );
+		DoXR.BriYi( Sa_l );
+		return null;
+	}
+
+	SmaSme( "[XR] AR: ", AR_yk, "VR:", VR_yk, "SR:", SR_yk );
+
+
+	//----------------------------
+	// SESSION
+	//----------------------------
+	try
+	{
+		//@@@
+		// REQ
+		const Smz_v = await navigator.xr.requestSession( AR_yk ? "immersive-ar" : ( VR_yk ? "immersive-vr" : "inline" ), KriYz_k );
+
+		SmaSme( "[XR] Session:", Smz_v );
+
+
+		//@@@
+		// CANVAS
+		// XR_Display
+		const XR__MxPo_v = document.createElement( "canvas" );
+		// if( false ) // MODE: INLINE
+		// {
+			// 	const DIV_vk = document.getElementById( "Ku02_KeMeBri" );
+			// 	DIV_vk.appendChild( XR__MxPo_v );
+			// }
+
+			//@@@
+			// WebGL Ctx @ XR
+			const gl = XR__MxPo_v.getContext("webgl", { xrCompatible: true });
+			await gl.makeXRCompatible();
+			// attach XR layer
+			Smz_v.updateRenderState( { baseLayer: new XRWebGLLayer( Smz_v, gl) } );
+
+			//@@@
+			// REF SPACE
+			// const viewerRefSpace = await Smz_v.requestReferenceSpace('viewer');
+			// const localRefSpace = await Smz_v.requestReferenceSpace('local');
+			const KuGeGo_vk = await Smz_v.requestReferenceSpace( REFSPC_vksg );
+			//const unboundedRefSpace = await Smz_v.requestReferenceSpace();
+
+		//@@@
+		// DPTH
+		SmaSme( "[XR] Dpth:", Smz_v.depthUsage, Smz_v.depthFormat );
+
+		//@@@
+		// LGT
+		const SpeKzFy_vk = ( Smz_v.requestLightProbe ) ? ( await Smz_v.requestLightProbe() ) : false;
+
+		//@@@
+		// HAND JOINT RADII
+		let BeFz_Gy_vwf = new Float32Array(25);
+		let BeZx_Gy_vwf = new Float32Array(25);
+
+		//@@@
+		// UPDATE
+		// trackedAnchors RO: XRAnchorSet containing all anchors still tracked in the frame.
+		function XR_BriYe( time, xrFrame )
 		{
-		    SmaSme("WebXR is not supported. Please use a compatible browser.");
+			//
+			const Smz_v = xrFrame.session;
+			const Kwy_v = xrFrame.getViewerPose( KuGeGo_vk );
+			const TaMz_v = Kwy_v.views;
+			const Kwy__Fo_wuk = TaMz_v.length;
+
+			// render for each view (eye) 2 @ Lf/Rt, or 1 @ Passthru Camera
+			for(let Kwy_wu = 0; Kwy_wu < Kwy__Fo_wuk; Kwy_wu++ )
+			{
+				const view = TaMz_v[ Kwy_wu ];
+
+				//&&&
+				// XRWebGLLayer
+				const glLayer = Smz_v.renderState.baseLayer;
+				gl.bindFramebuffer(gl.FRAMEBUFFER, glLayer.framebuffer);
+
+				const SmzKu_vk = glLayer.getViewport( view );
+				gl.viewport( SmzKu_vk.x, SmzKu_vk.y, SmzKu_vk.width / 3, SmzKu_vk.height/3 );
+
+				//( Kwy_wu === 0 ) ? gl.clearColor( 1., 0.5, 0.0, 1.0 ) : gl.clearColor( 0.3, 0.3, 1.0, 1.0 );
+
+				gl.clearColor( 1., 0.5, 0.0, 1.0 );
+				gl.clear( gl.COLOR_BUFFER_BIT );
+
+
+				//&&&
+				// LGT
+				if( SpeKzFy_vk )
+					{
+						let lightEstimate = xrFrame.getLightEstimate( SpeKzFy_vk );
+
+						// Use light estimate data to light the scene
+
+					//%%%
+					// Available properties
+					lightEstimate.sphericalHarmonicsCoefficients;
+					lightEstimate.primaryLightDirection;
+					lightEstimate.primaryLightIntensity;
+				}
+
+
+				//&&&
+				// DPTH
+				// getDepthInformation() method will only return a result if the depth API was configured with mode set to "cpu-optimized".
+				if( xrFrame.getDepthInformation )
+				{
+					const depthData = xrFrame.getDepthInformation(view);
+					if (depthData)
+					{
+						//%%%
+						//------
+						// to METERS
+						// const float32Data = new Float32Array( depthData.data );
+						// const index = x + y * depthData.width;
+						// const depthInMetres = float32Data[index] * depthInfo.rawValueToMeters;
+
+						//------
+						// to NRM_Ge
+						// Xfm Depth buffer coordinates (x,y) to normalized view coordinates range [0...1]:
+						// const normDepthBufferCoordinates = [ x / depthInfo.width, y / depthInfo.height, 0.0, 1.0 ];
+						// const normViewFromNormDepthBuffer = depthInfo.normDepthBufferFromNormView.inverse.matrix;
+						//
+						// Transform to normalized view coordinates (with the origin in upper left corner of the screen) using a matrix multiplication library:
+						// const normalizedViewCoordinates = normViewFromNormDepthBuffer * normDepthBufferCoordinates;
+						//
+						// The above can also be denormalized to obtain absolute coordinates using viewport dimensions:
+						// const viewCoordinates = [normalizedViewCoordinates[0] * viewport.width, normalizedViewCoordinates[1] * viewport.height];
+					}
+				}
+
+				//&&&
+				// HAND
+				if( Smz_v.inputSources )
+				{
+					for (const SiMz_k of Smz_v.inputSources)
+					{
+						if (SiMz_k.hand)
+						{
+							const indexFingerTipJoint = SiMz_k.hand.get( "index-finger-tip" );
+							// XRJointPose
+							xrFrame.getJointPose( indexFingerTipJoint, KuGeGo_vk );
+						}
+					}
+
+					let BeFz_v = Smz_v.inputSources[0].hand;
+					if( BeFz_v ){ xrFrame.fillJointRadii(BeFz_v.values(), BeFz_Gy_vwf); }
+
+					let BeZx_v = Smz_v.inputSources[1].hand;
+					if( BeZx_v ){ xrFrame.fillJointRadii( BeZx_v.values(), BeZx_Gy_vwf); }
+				}
+
+				//%%%%
+				// NXT VIEW
+				// SmaSme( "XR_VIEW[", Kwy_wu, "]: ", SmzKu_vk.x, SmzKu_vk.y, SmzKu_vk.width, SmzKu_vk.height );
+			}
+
+			Smz_v.requestAnimationFrame( XR_BriYe );
 		}
 
+
+		//@@@
+		// EVENTS
+		Smz_v.addEventListener( "end", ( e ) => DoXR.Trx( Sa_l, e ) );
+
+		// Controller
+		Smz_v.addEventListener("selectstart", (event) =>
+		{
+			const MzKz_vk = event.target;
+			SmaSme( "Select Start", MzKz_vk );
+		});
+
+		Smz_v.addEventListener("selectend", (event) =>
+		{
+			const MzKz_vk = event.target;
+			SmaSme( "Select End", MzKz_vk );
+		});
+
+		Smz_v.addEventListener("select", (event) =>
+		{
+			const MzKz_vk = event.target;
+			SmaSme( "Select", MzKz_vk );
+
+			let source = event.inputSource;
+			let xrFrame = event.frame;
+			let targetRayPose = xrFrame.getPose( source.targetRaySpace, XR_KuGeGo_vk );
+
+			let targetObject = findTargetUsingRay( targetRay.transform.matrix );
+
+			if (source.targetRayMode === "tracked-pointer")
+			{
+				if(source.handedness === user.handedness)
+				{
+					SmaSme( "targetObject.primaryAction" );
+			  	}
+			  	else
+				{
+					SmaSme( "targetObject.offHandAction" );
+			  	}
+			}
+
+		});
+
+		//@@@
+		// SESSION GO
+		Smz_v.requestAnimationFrame( XR_BriYe );
+		Sa_l.Smz_v = Smz_v;
+	}
+	catch (e)
+	{
+		DoXR.Trx( Sa_l, e );
+		return null;
+	}
+
+	//@@@
+	// SUCCESS
 	return SySmz__YaFx_v( Sa_l );
 }
 
@@ -134,6 +427,10 @@ DoXR.BriYa = function( Yz_k )
 DoXR.Mo = function( Sa_l, Jy_k, Mo_l )
 //-------------------------------------------------
 {
+
+	// createAnchor() Returns a Promise which resolves to a free-floating XRAnchor object.
+
+
 
 	// KEYBRD:
 	//https://developers.meta.com/horizon/documentation/web/webxr-keyboard

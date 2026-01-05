@@ -60,7 +60,7 @@ const SyVx = Object.freeze
 	, SAY_qk: 777
 
 	// Hry^VIS
-	, XR_qk: 777
+	, XR_qk: 13
 	, GLES_qk: 777
 	, SCRN_qk: 777
 
