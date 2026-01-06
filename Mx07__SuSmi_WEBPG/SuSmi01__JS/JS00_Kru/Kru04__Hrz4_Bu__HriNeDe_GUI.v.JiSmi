@@ -132,8 +132,12 @@ function HryMx01_KeMeKwi()
 	//---------------------------------
 	// CANVAS
 	//---------------------------------
-	//Hry_DriBrz( 'MxPo_Kwi',  "#EEEEFF", "#AAAAFF", "#8888FF" );
-	Hry_DriBrz( 'MxPo_Kwi', "#8888BB", "#9999CC",  "#BBBBEE" );
+	// BLUEPRINT:
+	//  Hry_DriBrz( 'MxPo_Kwi', "#8888BB", "#9999CC",  "#BBBBEE" );
+	// GRAFPAPER:
+	// Hry_DriBrz( 'MxPo_Kwi',  "#EEEEFF", "#AAAAFF", "#8888FF" );
+	// YELLOWGRAF
+	Hry_DriBrz( 'MxPo_Kwi', "#EEEE77", "#7777EE",  "#777777" );
 }
 
 
@@ -180,8 +184,12 @@ function Tra_KeMeBri()
 	if( KoDz__YzYa_y() )
 	{
 		SmaSme( "[LAUNCH] ACTIVE via Resume" );
-		// via set paused & toggle play
-		// KoDz__YzChy( BriYz.Yo_qk );
+
+		//&&&
+		// LAUNCH SERVICES that REQUIRE a 'click'
+		KoDz__YaFx();
+		//&&&
+		// RESUME Update
 		KoDz__YuChy();
 	}
 }

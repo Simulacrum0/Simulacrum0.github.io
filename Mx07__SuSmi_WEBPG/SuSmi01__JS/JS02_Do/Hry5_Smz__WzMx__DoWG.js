@@ -612,7 +612,8 @@ DoWG.BriYi = function( Sa_l )
 
 	//&&&
 	// ADAPTER/DEVICE
-	Sa_l.KaSmz_l.destroy();
+	// fails w/ 'still mapped' buffers
+	// Sa_l.KaSmz_l.destroy();
 
 	Sa_l.KaSmz_l = null;
 	Sa_l.KaKy_l = null;
@@ -695,15 +696,17 @@ DoWG.BriYa = async function( Yz_l )
 	//-------------------------------------------------
 	const MxPo_Bri_l = document.getElementById( 'MxPo_Bri' );
 	Sa_l.MxPo_Bri_l = MxPo_Bri_l;
-	Sa_l.MxPo__FMT_l = KaKy_l.features.has('bgra8unorm-storage')
-		? navigator.gpu.getPreferredCanvasFormat()
-		: 'rgba8unorm';
+
+	// Default 'rgba8unorm'
+	Sa_l.MxPo__FMT_l = navigator.gpu.getPreferredCanvasFormat();
+
+
 
 	//@@@
 	// HDR
 	const HDR_v = window.matchMedia('(dynamic-range: high)');
 	const KaTy__HDR_yk = HDR_v.matches ? true : false;
-	SmaSme( "- HDR", KaTy__HDR_yk, KaKy_l.limits.maxBufferSize );
+	SmaSme( "- HDR", KaTy__HDR_yk, KaKy_l.limits.maxBufferSize, "FMT", navigator.gpu.getPreferredCanvasFormat() );
 	//rg11b10ufloat-renderable
 	if( 0 ){ Sa_l.MxPo__FMT_l = "rgba16float"; }
 

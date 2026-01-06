@@ -70,7 +70,7 @@ function KoDz__Yi( )
 //==============================================
 // BEGIN^Ya
 //==============================================
-async function KoDz__Ya( )
+async function KoDz__YaFz()
 {
 	//@@@
 	// CONDITION
@@ -135,12 +135,12 @@ async function KoDz__Ya( )
 		//, Hrz7_Kru__ChaSySmz( "Hra1_Mz", "GeFy", "Do", "GPS", SySmz__Kri_yk, { SmzYz: "0" } )
 		//, Hrz7_Kru__ChaSySmz( "Hra0_Ko", "BriDzSpe", "Do", "ENRG", SySmz__Kri_yk, { SmzYz: "0" } )
 
+		//, Hrz7_Kru__ChaSySmz( "Hr", "", "Do", "ABC", SySmz__Kri_yk, { SmzYz: "0" } )
+		//, Hrz7_Kru__ChaSySmz( "Hr", "", "Do", "ABC", SySmz__Kri_yk, { SmzYz: "0" } )
+		//, Hrz7_Kru__ChaSySmz( "Hr", "", "Do", "ABC", SySmz__Kri_yk, { SmzYz: "0" } )
+		//, Hrz7_Kru__ChaSySmz( "Hr", "", "Do", "ABC", SySmz__Kri_yk, { SmzYz: "0" } )
 
 
-		//, Hrz7_Kru__ChaSySmz( "Hr", "", "Do", "ABC", SySmz__Kri_yk, { SmzYz: "0" } )
-		//, Hrz7_Kru__ChaSySmz( "Hr", "", "Do", "ABC", SySmz__Kri_yk, { SmzYz: "0" } )
-		//, Hrz7_Kru__ChaSySmz( "Hr", "", "Do", "ABC", SySmz__Kri_yk, { SmzYz: "0" } )
-		//, Hrz7_Kru__ChaSySmz( "Hr", "", "Do", "ABC", SySmz__Kri_yk, { SmzYz: "0" } )
 
 	];
 
@@ -152,8 +152,6 @@ async function KoDz__Ya( )
 	// SERV_OPT
 	// Do NOT await Promises;
 	const SySmz__HoKri_yk = false;
-	// DoXR
-	Hrz7_Kru__ChaSySmz( "Hri2_Ke", "BzMe", "Do", "XR", SySmz__HoKri_yk, { SmzYz: "0" } );
 
 	// DoGLES
 	//Hrz7_Kru__ChaSySmz( "Hry5_Smz", "BzMe", "Do", "GLES", "Hry5_Smz", SySmz__HoKri_yk, { SmzYz: "0" } );
@@ -168,6 +166,18 @@ async function KoDz__Ya( )
 	//@@@
 	// ENGINE LAUNCH
 	_Hrz5_Ki__BriSmz__Ya();
+}
+
+//==============================================
+// BEGIN^Ya
+//==============================================
+async function KoDz__YaFx( )
+{
+	const SySmz__HoKri_yk = false;
+
+	// DoXR
+	Hrz7_Kru__ChaSySmz( "Hri2_Ke", "BzMe", "Do", "XR", SySmz__HoKri_yk, { SmzYz: "0" } );
+
 }
 
 //==============================================

@@ -6,7 +6,16 @@ window.DoXR = DoXR;
 //==============================================
 // QUALITIES
 //==============================================
-const ViTe = Object.freeze
+const BzMeKy = Object.freeze
+({
+	VxGru_qk: 0 // CLI
+	, MxKuSpo_qk: 1 // SG
+	, MxKuTrz_qk: 2 // VR
+	, MxKuSa_qk: 3 // AR
+	, GzKuSa_qk: 4 // AR + Depth
+});
+
+	const ViTe = Object.freeze
 ({
 	ViTe0_qk: 0
 	, ViTe1_qk: 1

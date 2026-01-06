@@ -1,4 +1,4 @@
-const BriDzSa__Da_vsg = "PUB_v0.131"; 
+const BriDzSa__Da_vsg = "PUB_v0.132"; 
  const BriDz__Mx_KuTu_vsg = "https://powerourpeople.com/"; 
 
 //==============================================
@@ -293,7 +293,7 @@ var Module =
 	onRuntimeInitialized: function()
 	{
         // SmaSme( "WASM module is ready" );
-		KoDz__Ya();
+		KoDz__YaFz();
 		MoDz__DzStxGru();
 		HryMx01_KeMeKwi();
     },
@@ -874,8 +874,12 @@ function HryMx01_KeMeKwi()
 	//---------------------------------
 	// CANVAS
 	//---------------------------------
-	//Hry_DriBrz( 'MxPo_Kwi',  "#EEEEFF", "#AAAAFF", "#8888FF" );
-	Hry_DriBrz( 'MxPo_Kwi', "#8888BB", "#9999CC",  "#BBBBEE" );
+	// BLUEPRINT:
+	//  Hry_DriBrz( 'MxPo_Kwi', "#8888BB", "#9999CC",  "#BBBBEE" );
+	// GRAFPAPER:
+	// Hry_DriBrz( 'MxPo_Kwi',  "#EEEEFF", "#AAAAFF", "#8888FF" );
+	// YELLOWGRAF
+	Hry_DriBrz( 'MxPo_Kwi', "#EEEE77", "#7777EE",  "#777777" );
 }
 
 
@@ -922,8 +926,12 @@ function Tra_KeMeBri()
 	if( KoDz__YzYa_y() )
 	{
 		SmaSme( "[LAUNCH] ACTIVE via Resume" );
-		// via set paused & toggle play
-		// KoDz__YzChy( BriYz.Yo_qk );
+
+		//&&&
+		// LAUNCH SERVICES that REQUIRE a 'click'
+		KoDz__YaFx();
+		//&&&
+		// RESUME Update
 		KoDz__YuChy();
 	}
 }
@@ -1363,7 +1371,7 @@ function KoDz__Yi( )
 //==============================================
 // BEGIN^Ya
 //==============================================
-async function KoDz__Ya( )
+async function KoDz__YaFz()
 {
 	//@@@
 	// CONDITION
@@ -1428,12 +1436,12 @@ async function KoDz__Ya( )
 		//, Hrz7_Kru__ChaSySmz( "Hra1_Mz", "GeFy", "Do", "GPS", SySmz__Kri_yk, { SmzYz: "0" } )
 		//, Hrz7_Kru__ChaSySmz( "Hra0_Ko", "BriDzSpe", "Do", "ENRG", SySmz__Kri_yk, { SmzYz: "0" } )
 
+		//, Hrz7_Kru__ChaSySmz( "Hr", "", "Do", "ABC", SySmz__Kri_yk, { SmzYz: "0" } )
+		//, Hrz7_Kru__ChaSySmz( "Hr", "", "Do", "ABC", SySmz__Kri_yk, { SmzYz: "0" } )
+		//, Hrz7_Kru__ChaSySmz( "Hr", "", "Do", "ABC", SySmz__Kri_yk, { SmzYz: "0" } )
+		//, Hrz7_Kru__ChaSySmz( "Hr", "", "Do", "ABC", SySmz__Kri_yk, { SmzYz: "0" } )
 
 
-		//, Hrz7_Kru__ChaSySmz( "Hr", "", "Do", "ABC", SySmz__Kri_yk, { SmzYz: "0" } )
-		//, Hrz7_Kru__ChaSySmz( "Hr", "", "Do", "ABC", SySmz__Kri_yk, { SmzYz: "0" } )
-		//, Hrz7_Kru__ChaSySmz( "Hr", "", "Do", "ABC", SySmz__Kri_yk, { SmzYz: "0" } )
-		//, Hrz7_Kru__ChaSySmz( "Hr", "", "Do", "ABC", SySmz__Kri_yk, { SmzYz: "0" } )
 
 	];
 
@@ -1445,8 +1453,6 @@ async function KoDz__Ya( )
 	// SERV_OPT
 	// Do NOT await Promises;
 	const SySmz__HoKri_yk = false;
-	// DoXR
-	Hrz7_Kru__ChaSySmz( "Hri2_Ke", "BzMe", "Do", "XR", SySmz__HoKri_yk, { SmzYz: "0" } );
 
 	// DoGLES
 	//Hrz7_Kru__ChaSySmz( "Hry5_Smz", "BzMe", "Do", "GLES", "Hry5_Smz", SySmz__HoKri_yk, { SmzYz: "0" } );
@@ -1461,6 +1467,18 @@ async function KoDz__Ya( )
 	//@@@
 	// ENGINE LAUNCH
 	_Hrz5_Ki__BriSmz__Ya();
+}
+
+//==============================================
+// BEGIN^Ya
+//==============================================
+async function KoDz__YaFx( )
+{
+	const SySmz__HoKri_yk = false;
+
+	// DoXR
+	Hrz7_Kru__ChaSySmz( "Hri2_Ke", "BzMe", "Do", "XR", SySmz__HoKri_yk, { SmzYz: "0" } );
+
 }
 
 //==============================================
