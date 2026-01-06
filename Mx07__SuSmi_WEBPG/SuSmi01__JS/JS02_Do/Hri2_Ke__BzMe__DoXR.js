@@ -232,19 +232,20 @@ DoXR.BriYa = async function( Yz_k )
 		// DEPTH_PREF
 		, depthSensing:
 		{
-			depthTypeRequest:"smooth" // "raw"
+			depthTypeRequest: ["smooth"] // , "raw" ]
 			, matchDepthView: true
 
 			//!!!
 			// CPU returns JS BUF, GPU returns GLES TEXTURE
 			// different read API methods
-			, usagePreference: [ "cpu-optimized", "gpu-optimized" ]
+			, usagePreference: [ "cpu-optimized" ] // , "gpu-optimized" ]
 
 			//"luminance-alpha"	LUMINANCE_ALPHA	2 times 8 bit as Uint16Array LA chns combine
 			// "float32"	R32F	32 bit  as Float32Array Red chn
 			// "unsigned-short"	R16UI	16 bit as Uint16Array Red chn
-			, formatPreference: ["luminance-alpha", "float32"]
+			, dataFormatPreference: ["luminance-alpha", "float32"]
 		}
+
 	};
 
 	const AR_yk = await navigator.xr.isSessionSupported( "immersive-ar", KriYz_k );
