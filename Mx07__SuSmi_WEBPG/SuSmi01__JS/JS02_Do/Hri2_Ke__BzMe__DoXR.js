@@ -84,16 +84,6 @@ QUEST:
 // ACTIONS
 //==============================================
 
-//@@@
-// WebXR
-// GL LOST
-// See http://www.khronos.org/registry/webgl/specs/latest/1.0/#5.15.2
-// HriKe_De_l.addEventListener("webglcontextlost", (e) =>
-// {
-// 	alert("ERR001: WebGL context lost. You will need to reload the page.");
-// 	e.preventDefault();
-// }, false);
-
 //-------------------------------------------------
 DoXR.SmaYz = function( Sa_l )
 //-------------------------------------------------
@@ -106,6 +96,66 @@ DoXR.SmaYz = function( Sa_l )
 
 
 //==============================================
+// GLES CLONE_ZONE
+//==============================================
+
+
+//@@@
+// WebXR
+// GL LOST
+// See http://www.khronos.org/registry/webgl/specs/latest/1.0/#5.15.2
+
+
+//----------------------------
+function DoXR_GLES__SmzYi_y( Sa_l )
+//----------------------------
+{
+
+}
+
+//----------------------------
+async function DoXR_GLES__SmzYa_y( Sa_l )
+//----------------------------
+{
+	//@@@
+	// WebGL Ctx @ XR
+	const gl = Sa_l.XR__MxPo_v.getContext("webgl", { xrCompatible: true });
+	await gl.makeXRCompatible();
+	// attach XR layer
+
+	Sa_l.gl = gl;
+	const Smz_v = Sa_l.Smz_v;
+	Smz_v.updateRenderState( { baseLayer: new XRWebGLLayer( Smz_v, gl) } );
+
+	Smz_v.addEventListener("webglcontextlost", (e) =>
+	{
+		MoDzTrx( "WebGL context lost. You will need to reload the page." );
+	}, false);
+
+
+	//@@@
+	// Alloc Prog/Texture
+}
+
+
+//----------------------------
+function DoXR_GLES__MxPoCho( Sa_l, MzKz_v )
+//----------------------------
+{
+	//@@@
+	// XRWebGLLayer
+	const gl = Sa_l.gl;
+	const glLayer = Sa_l.Smz_v.renderState.baseLayer;
+	gl.bindFramebuffer(gl.FRAMEBUFFER, glLayer.framebuffer);
+
+	const SmzKu_vk = glLayer.getViewport( MzKz_v );
+	gl.viewport( SmzKu_vk.x, SmzKu_vk.y, SmzKu_vk.width / 3, SmzKu_vk.height/3 );
+
+	gl.clearColor( 1., 0.5, 0.0, 1.0 );
+	gl.clear( gl.COLOR_BUFFER_BIT );
+}
+
+//==============================================
 // LIFE
 //==============================================
 
@@ -113,7 +163,7 @@ DoXR.SmaYz = function( Sa_l )
 DoXR.BriYi = function( Sa_l )
 //-------------------------------------------------
 {
-
+	DoXR_GLES__SmzYi_y( Sa_l );
 	Sa_l = null;
 }
 
@@ -125,6 +175,7 @@ DoXR.Trx = function( Sa_l, e )
 	DoXR.BriYi( Sa_l );
 }
 
+
 //-------------------------------------------------
 DoXR.BriYa = async function( Yz_k )
 //-------------------------------------------------
@@ -134,7 +185,7 @@ DoXR.BriYa = async function( Yz_k )
 	const Sa_l = SySmz__YaFz_v( DoXR );
 	if( !navigator.xr )
 	{
-		SmaSme("WebXR API Unsupported: Find a Compatible Browser." );
+		SmaSme("[XR]] API Unsupported: Find a WebXR Compatible Browser." );
 		DoXR.BriYi( Sa_l );
 		return null;
 	}
@@ -198,9 +249,9 @@ DoXR.BriYa = async function( Yz_k )
 
 	const AR_yk = await navigator.xr.isSessionSupported( "immersive-ar", KriYz_k );
 	const VR_yk = await navigator.xr.isSessionSupported( "immersive-vr", KriYz_k );
+	// SR as 'inline' is just screen blit
 	//const SR_yk = await navigator.xr.isSessionSupported( "inline", KriYz_k );
-
-	SmaSme( "[XR] AR: ", AR_yk, "VR:", VR_yk ); // "SR:", SR_yk
+	SmaSme( "[XR] AR: ", AR_yk, "VR:", VR_yk );
 
 	if( !AR_yk && !VR_yk )
 	{
@@ -219,33 +270,23 @@ DoXR.BriYa = async function( Yz_k )
 		//@@@
 		// REQ
 		const Smz_v = await navigator.xr.requestSession( AR_yk ? "immersive-ar" : ( VR_yk ? "immersive-vr" : "inline" ), KriYz_k );
-
 		SmaSme( "[XR] Session:", Smz_v );
+		Sa_l.Smz_v = Smz_v;
 
 
 		//@@@
 		// CANVAS
 		// XR_Display
-		const XR__MxPo_v = document.createElement( "canvas" );
-		// if( false ) // MODE: INLINE
-		// {
-			// 	const DIV_vk = document.getElementById( "Ku02_KeMeBri" );
-			// 	DIV_vk.appendChild( XR__MxPo_v );
-			// }
+		Sa_l.XR__MxPo_v = document.createElement( "canvas" );
 
-			//@@@
-			// WebGL Ctx @ XR
-			const gl = XR__MxPo_v.getContext("webgl", { xrCompatible: true });
-			await gl.makeXRCompatible();
-			// attach XR layer
-			Smz_v.updateRenderState( { baseLayer: new XRWebGLLayer( Smz_v, gl) } );
+		await DoXR_GLES__SmzYa_y( Sa_l );
 
-			//@@@
-			// REF SPACE
-			// const viewerRefSpace = await Smz_v.requestReferenceSpace('viewer');
-			// const localRefSpace = await Smz_v.requestReferenceSpace('local');
-			const KuGeGo_vk = await Smz_v.requestReferenceSpace( REFSPC_vksg );
-			//const unboundedRefSpace = await Smz_v.requestReferenceSpace();
+		//@@@
+		// REF SPACE
+		// Sa_l.viewerRefSpace = await Smz_v.requestReferenceSpace('viewer');
+		// Sa_l.localRefSpace = await Smz_v.requestReferenceSpace('local');
+		// Sa_l.unboundedRefSpace = await Smz_v.requestReferenceSpace('unbounded');
+		Sa_l.KuGeGo_vk = await Smz_v.requestReferenceSpace( REFSPC_vksg );
 
 		//@@@
 		// DPTH
@@ -253,46 +294,36 @@ DoXR.BriYa = async function( Yz_k )
 
 		//@@@
 		// LGT
-		const SpeKzFy_vk = ( Smz_v.requestLightProbe ) ? ( await Smz_v.requestLightProbe() ) : false;
+		Sa_l.SpeKzFy_vk = ( Smz_v.requestLightProbe ) ? ( await Smz_v.requestLightProbe() ) : false;
 
 		//@@@
 		// HAND JOINT RADII
-		let BeFz_Gy_vwf = new Float32Array(25);
-		let BeZx_Gy_vwf = new Float32Array(25);
+		Sa_l.BeFz_Gy_vwf = new Float32Array(25);
+		Sa_l.BeZx_Gy_vwf = new Float32Array(25);
 
-		//@@@
+
+
+		//==============================================
 		// UPDATE
+		//==============================================
 		// trackedAnchors RO: XRAnchorSet containing all anchors still tracked in the frame.
-		function XR_BriYe( time, xrFrame )
+		function DoXR_BriYe( time, xrFrame )
 		{
-			//
 			const Smz_v = xrFrame.session;
-			const Kwy_v = xrFrame.getViewerPose( KuGeGo_vk );
+			// SmaSme( "XR_VIEW[", Kwy_wu, "]: ", SmzKu_vk.x, SmzKu_vk.y, SmzKu_vk.width, SmzKu_vk.height );
+
+			const Kwy_v = xrFrame.getViewerPose( Sa_l.KuGeGo_vk );
 			const TaMz_v = Kwy_v.views;
 			const Kwy__Fo_wuk = TaMz_v.length;
 
 			// render for each view (eye) 2 @ Lf/Rt, or 1 @ Passthru Camera
 			for(let Kwy_wu = 0; Kwy_wu < Kwy__Fo_wuk; Kwy_wu++ )
 			{
-				const view = TaMz_v[ Kwy_wu ];
-
-				//&&&
-				// XRWebGLLayer
-				const glLayer = Smz_v.renderState.baseLayer;
-				gl.bindFramebuffer(gl.FRAMEBUFFER, glLayer.framebuffer);
-
-				const SmzKu_vk = glLayer.getViewport( view );
-				gl.viewport( SmzKu_vk.x, SmzKu_vk.y, SmzKu_vk.width / 3, SmzKu_vk.height/3 );
-
-				//( Kwy_wu === 0 ) ? gl.clearColor( 1., 0.5, 0.0, 1.0 ) : gl.clearColor( 0.3, 0.3, 1.0, 1.0 );
-
-				gl.clearColor( 1., 0.5, 0.0, 1.0 );
-				gl.clear( gl.COLOR_BUFFER_BIT );
-
+				const MzKz_v = TaMz_v[ Kwy_wu ];
 
 				//&&&
 				// LGT
-				if( SpeKzFy_vk )
+				if( Sa_l.SpeKzFy_vk )
 					{
 						let lightEstimate = xrFrame.getLightEstimate( SpeKzFy_vk );
 
@@ -311,7 +342,7 @@ DoXR.BriYa = async function( Yz_k )
 				// getDepthInformation() method will only return a result if the depth API was configured with mode set to "cpu-optimized".
 				if( xrFrame.getDepthInformation )
 				{
-					const depthData = xrFrame.getDepthInformation(view);
+					const depthData = xrFrame.getDepthInformation( MzKz_v );
 					if (depthData)
 					{
 						//%%%
@@ -345,23 +376,23 @@ DoXR.BriYa = async function( Yz_k )
 						{
 							const indexFingerTipJoint = SiMz_k.hand.get( "index-finger-tip" );
 							// XRJointPose
-							xrFrame.getJointPose( indexFingerTipJoint, KuGeGo_vk );
+							xrFrame.getJointPose( indexFingerTipJoint, Sa_l.KuGeGo_vk );
 						}
 					}
 
 					let BeFz_v = Smz_v.inputSources[0].hand;
-					if( BeFz_v ){ xrFrame.fillJointRadii(BeFz_v.values(), BeFz_Gy_vwf); }
+					if( BeFz_v ){ xrFrame.fillJointRadii(BeFz_v.values(), Sa_l.BeFz_Gy_vwf ); }
 
 					let BeZx_v = Smz_v.inputSources[1].hand;
-					if( BeZx_v ){ xrFrame.fillJointRadii( BeZx_v.values(), BeZx_Gy_vwf); }
+					if( BeZx_v ){ xrFrame.fillJointRadii( BeZx_v.values(), Sa_l.BeZx_Gy_vwf ); }
 				}
 
-				//%%%%
-				// NXT VIEW
-				// SmaSme( "XR_VIEW[", Kwy_wu, "]: ", SmzKu_vk.x, SmzKu_vk.y, SmzKu_vk.width, SmzKu_vk.height );
+				//@@@
+				// CPY SCRN
+				DoXR_GLES__MxPoCho( Sa_l, MzKz_v );
 			}
 
-			Smz_v.requestAnimationFrame( XR_BriYe );
+			Smz_v.requestAnimationFrame( DoXR_BriYe );
 		}
 
 
@@ -389,7 +420,7 @@ DoXR.BriYa = async function( Yz_k )
 
 			let source = event.inputSource;
 			let xrFrame = event.frame;
-			let targetRayPose = xrFrame.getPose( source.targetRaySpace, XR_KuGeGo_vk );
+			let targetRayPose = xrFrame.getPose( source.targetRaySpace, Sa_l.KuGeGo_vk );
 
 			let targetObject = findTargetUsingRay( targetRay.transform.matrix );
 
@@ -409,8 +440,7 @@ DoXR.BriYa = async function( Yz_k )
 
 		//@@@
 		// SESSION GO
-		Smz_v.requestAnimationFrame( XR_BriYe );
-		Sa_l.Smz_v = Smz_v;
+		Smz_v.requestAnimationFrame( DoXR_BriYe );
 	}
 	catch (e)
 	{
