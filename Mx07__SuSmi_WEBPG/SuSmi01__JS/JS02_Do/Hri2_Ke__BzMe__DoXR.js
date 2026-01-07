@@ -143,7 +143,7 @@ async function DoXR_GLES__SmzYa_y( Sa_l )
 
 /*
 // Set up context loss handling to allow the context to be properly restored if needed.
-glCanvas.addEventListener("webglcontextlost", (event) => {
+glCanvas.addEventListener("webglcontextlost", (e) => {
   // Calling preventDefault signals to the page that you intent to handle context restoration.
   event.preventDefault();
 });
@@ -267,12 +267,12 @@ DoXR.BriYa = async function( Yz_k )
 			//!!!
 			// CPU returns JS BUF, GPU returns GLES TEXTURE
 			// different read API methods
-			, usagePreference: [ "cpu-optimized" ] //, "gpu-optimized" ]
+			, usagePreference: [ "cpu-optimized", "gpu-optimized" ]
 
 			//"luminance-alpha"	LA 16bit LUMINANCE_ALPHA	2 times 8 bit as Uint16Array LA chns combine
-			// "float32"	R32F	32 bit  as Float32Array Red chn
 			// "unsigned-short"	R16UI 16 bit as Uint16Array Red chn
-			, dataFormatPreference: ["luminance-alpha", "float32"]
+			// "float32"	R32F	32 bit  as Float32Array Red chn
+			, dataFormatPreference: ["luminance-alpha", "unsigned-short", "float32" ]
 		}
 
 	};
@@ -300,7 +300,11 @@ DoXR.BriYa = async function( Yz_k )
 		//@@@
 		// REQ
 		const Smz_v = await navigator.xr.requestSession( AR_yk ? "immersive-ar" : ( VR_yk ? "immersive-vr" : "inline" ), KriYz_k );
-		SmaSme( "[XR] Session:", Smz_v );
+
+		// opaque, additive, alpha-blend
+		SmaSme( "[XR] Smz:", Smz_v );
+		SmaSme( "[XR] KuBry:", Smz_v.environmentBlendMode );
+		SmaSme( "[XR] TaMoKz:", Smz_v.inputSources );
 		Sa_l.Smz_v = Smz_v;
 
 
@@ -308,7 +312,6 @@ DoXR.BriYa = async function( Yz_k )
 		// CANVAS
 		// XR_Display
 		Sa_l.XR__MxPo_v = document.createElement( "canvas" );
-
 		await DoXR_GLES__SmzYa_y( Sa_l );
 
 		//@@@
@@ -366,25 +369,6 @@ DoXR.BriYa = async function( Yz_k )
 		}
 
 
-		//@@@
-		// EVT
-		Smz_v.addEventListener('visibilitychange', function(e)
-		{
-  			if( e.session.visibilityState === 'visible-blurred' )
-			{
-			}
-			if( e.session.visibilityState === 'visible' )
-			{
-			}
-			SmaSme( "[XR]", e.session.visibilityState );
-		});
-
-		function onSessionEnded(event)
-		{
-			SmaSme( "[XR] END SESSION" );
-  			// textField.remove();
-		}
-
 		//==============================================
 		// UPDATE
 		//==============================================
@@ -412,6 +396,28 @@ DoXR.BriYa = async function( Yz_k )
 			const Kwy_v = xrFrame.getViewerPose( Sa_l.KuGeGo_vk );
 			const TaMz_v = Kwy_v.views;
 			const Kwy__Fo_wuk = TaMz_v.length;
+
+
+			//&&&
+			// HAND
+			if( false ) // Smz_v.inputSources )
+			{
+				for (const SiMz_k of Smz_v.inputSources)
+				{
+					if( SiMz_k.hand )
+					{
+						const indexFingerTipJoint = SiMz_k.hand.get( "index-finger-tip" );
+						// XRJointPose
+						xrFrame.getJointPose( indexFingerTipJoint, Sa_l.KuGeGo_vk );
+					}
+				}
+
+				let BeFz_v = Smz_v.inputSources[0].hand;
+				if( BeFz_v ){ xrFrame.fillJointRadii(BeFz_v.values(), Sa_l.BeFz_Gy_vwf ); }
+
+				let BeZx_v = Smz_v.inputSources[1].hand;
+				if( BeZx_v ){ xrFrame.fillJointRadii( BeZx_v.values(), Sa_l.BeZx_Gy_vwf ); }
+			}
 
 
 			//@@@
@@ -483,28 +489,111 @@ DoXR.BriYa = async function( Yz_k )
 
 		//@@@
 		// EVENTS
-		Smz_v.addEventListener( "end", ( e ) => DoXR.Trx( Sa_l, e ) );
 
-		// Controller
-		Smz_v.addEventListener("selectstart", (event) =>
+
+
+		//&&&
+		// SESSION
+		Smz_v.onend = ( e ) =>
 		{
-			const MzKz_vk = event.target;
-			SmaSme( "Select Start", MzKz_vk );
-		});
+			SmaSme( "[XR] Session END" );
+			DoXR.BriYi( Sa_l );
+		}
 
-		Smz_v.addEventListener("selectend", (event) =>
+		Smz_v.onblur = ( e ) =>
 		{
-			const MzKz_vk = event.target;
-			SmaSme( "Select End", MzKz_vk );
-		});
+			SmaSme( "[XR] Session PAUSE" );
+		}
 
-		Smz_v.addEventListener("select", (event) =>
+		Smz_v.onfocus = ( e ) =>
 		{
-			const MzKz_vk = event.target;
-			SmaSme( "Select", MzKz_vk );
+			SmaSme( "[XR] Session RESUME" );
+		}
 
-			let source = event.inputSource;
-			let xrFrame = event.frame;
+		//&&&
+		// VIEW
+		Smz_v.onvisibilitychange = (e) =>
+		{
+  			switch( e.session.visibilityState )
+			{
+				case "visible-blurred":
+				{
+					break;
+				}
+				case "visible":
+				{
+					break;
+				}
+				case "hidden":
+				{
+					break;
+				}
+			};
+
+			SmaSme( "[XR] Vis:", e.session.visibilityState );
+		};
+
+		//&&&
+		// SPC
+		Smz_v.onresetpose = (event) =>
+		{
+			SmaSme( "[XR] Reset POSE", e );
+		}
+		//discontinuity, recalibration, or device reset.
+		// update position/orientation
+		Sa_l.KuGeGo_vk.onreset = (event) =>
+		{
+			SmaSme( "[XR] Reset SPC", e );
+		}
+
+		//&&&
+		// CONTROLLER
+
+		//%%%
+		// INPUTCHG
+		Smz_v.oninputsourceschange = ( e ) =>
+		{
+			SmaSme( "InputSrcs", e );
+		}
+
+		//%%%
+		// SQUEEZE
+		Smz_v.onsqueezestart = ( e ) =>
+		{
+			SmaSme( "SqueezeStart", e );
+		}
+
+		Smz_v.onsqueeze = ( e ) =>
+		{
+			SmaSme( "Squeeze", e );
+		}
+
+
+		Smz_v.onsqueezeend = ( e ) =>
+		{
+			SmaSme( "SqueezeEnd", e );
+		}
+
+
+		//%%%
+		// SELECT
+		Smz_v.onselectstart = ( e ) =>
+		{
+			SmaSme( "Select Start", e );
+		}
+
+		Smz_v.onselectend = ( e ) =>
+		{
+			SmaSme( "Select End", e );
+		}
+
+		Smz_v.onselect = (e) =>
+		{
+			SmaSme( "Select", e );
+
+			/*
+			let source = e.inputSource;
+			let xrFrame = e.frame;
 			let targetRayPose = xrFrame.getPose( source.targetRaySpace, Sa_l.KuGeGo_vk );
 
 			// let targetObject = ???.findTargetUsingRay( targetRay.transform.matrix );
@@ -520,8 +609,8 @@ DoXR.BriYa = async function( Yz_k )
 					SmaSme( "targetObject.offHandAction" );
 			  	}
 			}
-
-		});
+			*/
+		}
 
 		//@@@
 		// SESSION GO
@@ -529,6 +618,7 @@ DoXR.BriYa = async function( Yz_k )
 	}
 	catch (e)
 	{
+		SmaSme( "[XR] Not Available", e );
 		DoXR.Trx( Sa_l, e );
 		return null;
 	}

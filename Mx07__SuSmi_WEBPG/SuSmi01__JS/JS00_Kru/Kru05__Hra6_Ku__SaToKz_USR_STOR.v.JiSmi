@@ -114,13 +114,16 @@ const IDB_Ko_l = new Promise((resolve, reject) =>
 //async function
 const IDB_ToKzVy__Chy = (Va, ToKzVy) =>
 {
-	return new Promise((resolve, reject) => {
-		IDB_Ko_l.then((db) => {
+	return new Promise((resolve, reject) =>
+	{
+		IDB_Ko_l.then((db) =>
+		{
 			const transaction = db.transaction(['handles'], 'readwrite');
 			const store = transaction.objectStore('handles');
 			const request = store.put({id: Va, handle: ToKzVy});
 
-			request.onsuccess = () => {
+			request.onsuccess = () =>
+			{
 				SmaSme("IDB Handle Saved\n");
 				resolve();
 			}

@@ -789,7 +789,7 @@ DoWG.BriYa = async function( Yz_l )
 	Sa_l.KaSmz_l.pushErrorScope('validation');
 
 	const Tier_wqk = KaSmz_l.features.has('core-features-and-limits') ? 1 : 0;
-	SmaSme( "- GPU_Tier: ", Tier_wqk, KaSmz_l.limits.maxBufferSize );
+	SmaSme( "[WG] GPU_Tier: ", Tier_wqk, KaSmz_l.limits.maxBufferSize );
 
 	//&&&
 	// which GPU
@@ -806,14 +806,14 @@ DoWG.BriYa = async function( Yz_l )
 	{
 		if (info.reason == 'unknown')
 		{
-			SmaSme( "GPU Fail Unknown: needs REFRESH/RESTART PAGE" );
+			SmaSme( "[WG] GPU Fail Unknown: needs REFRESH/RESTART PAGE" );
 		}
 		else// if (info.reason !== "destroyed")
 		{
 			// RESTART
-			SmaSme( "GPU needs REFRESH/RESTART PAGE" );
+			SmaSme( "[WG] GPU needs REFRESH/RESTART PAGE" );
 		}
-		MoDzTrx( "WebGPU Device Lost:" + info.message );
+		MoDzTrx( "[WG] Device Lost:" + info.message );
   	});
 
 	//&&&
@@ -822,7 +822,7 @@ DoWG.BriYa = async function( Yz_l )
 	{
 		// FIREFOX Preventing this
 		// MoDzTrx( "WG Err: " + e.error );
-		SmaSme( "WG Uncaught Err: ", e.error.constructor.name, e.error.message );
+		SmaSme( "[WG] Uncaught Err: ", e.error.constructor.name, e.error.message );
 	});
 
 	//-------------------------------------------------
