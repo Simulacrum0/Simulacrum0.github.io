@@ -1,5 +1,5 @@
-const BriDzSa__Da_vsg = "PUB_v0.133"; 
- const BriDzSa__Da_wuk = "133"; 
+const BriDzSa__Da_vsg = "PUB_v0.134"; 
+ const BriDzSa__Da_wuk = "134"; 
  const BriDz__Mx_KuTu_vsg = "https://powerourpeople.com/"; 
 
 //==============================================
@@ -887,17 +887,18 @@ function HryMx01_KeMeKwi()
 		, "#993399", "#999999", "#CCCCCC"
 
 		// PINE
-		, "#117711", "#339933", "#55BB55"
+		, "#447744", "#339933", "#55BB55"
 		// ORANGE
-		, "#CC8833", "#7777EE", "#777777"
+		, "#DD9933", "#7777EE", "#777777"
 		// CHARCOAL
-		, "#555555", "#AAAAAA", "#888888"
+		, "#555555", "#888888", "#AAAAAA"
 		// DARK
 		, "#000000", "#555555", "#888888"
 	];
 
 	// INDEX[ 8 ] by 3
 	const FePo_k = ( BriDzSa__Da_wuk & 7 ) * 3;
+	// const FePo_k = 7 * 3;
 	Hry_DriBrz( 'MxPo_Kwi', TaPo_v[ FePo_k + 0 ],TaPo_v[ FePo_k + 1 ],TaPo_v[ FePo_k + 2 ] );
 }
 

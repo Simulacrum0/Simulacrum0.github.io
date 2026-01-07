@@ -200,19 +200,24 @@ DoXR.BriYa = async function( Yz_k )
 	}
 
 	//@@@
-	// OPT
+	// REFSPC
+		// viewer: space whose native origin tracks the viewer's position and orientation. This is used for environments in which the user can physically move around, and is supported by all instances of XRSession, both immersive and inline, though it's most useful for inline sessions. It's particularly useful when determining the distance between the viewer and an input, or when working with offset spaces. Otherwise, typically, one of the other reference space types will be used more often.
+		// bounded-floor: similar to the local type, except the user is not expected to move outside a predetermined boundary, given by the boundsGeometry in the returned object.
+		// local: space whose native origin is located near the viewer's position at the time the session was created. The exact position depends on the underlying platform and implementation. The user isn't expected to move much if at all beyond their starting position, and tracking is optimized for this use case. For devices with six degrees of freedom (6DoF) tracking, the local reference space tries to keep the origin stable relative to the environment.
+		// local-floor: starting position is placed in a safe location for the viewer to stand, where the value of the y axis is 0 at floor level. If that floor level isn't known, the user agent will estimate the floor level. If the estimated floor level is non-zero, the browser is expected to round it such a way as to avoid fingerprinting (likely to the nearest centimeter).
+		// unbounded: allows the user total freedom of movement, possibly over extremely long distances from their origin point. The viewer isn't tracked at all; tracking is optimized for stability around the user's current position, so the native origin may drift as needed to accommodate that need. Desktop NOT SUPPORTED: unbounded feature is used to specify that the session we're creating has no specific bounds. This is ideal for an AR session in an outdoor environment, where the viewer's position can change significantly during the session runtime
 
 	const REFSPC_vksg =
-
-	// INLINE uses "viewer" others are IMMERSIVE
-	//"viewer"
-	//"local"
-	"local-floor"
-	// "bounded-floor"
-	// Desktop NOT SUPPORTED: unbounded feature is used to specify that the session we're creating has no specific bounds. This is ideal for an AR session in an outdoor environment, where the viewer's position can change significantly during the session runtime
-	// 'unbounded'
+		// INLINE uses "viewer" others are IMMERSIVE
+		"viewer"
+		// 'unbounded'
+		// "bounded-floor"
+		// "local"
+		// "local-floor"
 	;
 
+	//@@@
+	// OPT
 	const KriYz_k =
 	{
 		requiredFeatures:
@@ -232,7 +237,7 @@ DoXR.BriYa = async function( Yz_k )
 			// META
 			, "high-refresh-rate"
 			, "no-fixed-foveation"
-			, "ca-correction"
+			// , "ca-correction"
 
 			// DEPTH
 			, "depth-sensing"
@@ -247,11 +252,11 @@ DoXR.BriYa = async function( Yz_k )
 			//!!!
 			// CPU returns JS BUF, GPU returns GLES TEXTURE
 			// different read API methods
-			, usagePreference: [ "cpu-optimized" ] // , "gpu-optimized" ]
+			, usagePreference: [ "cpu-optimized" ] //, "gpu-optimized" ]
 
-			//"luminance-alpha"	LUMINANCE_ALPHA	2 times 8 bit as Uint16Array LA chns combine
+			//"luminance-alpha"	LA 16bit LUMINANCE_ALPHA	2 times 8 bit as Uint16Array LA chns combine
 			// "float32"	R32F	32 bit  as Float32Array Red chn
-			// "unsigned-short"	R16UI	16 bit as Uint16Array Red chn
+			// "unsigned-short"	R16UI 16 bit as Uint16Array Red chn
 			, dataFormatPreference: ["luminance-alpha", "float32"]
 		}
 
@@ -307,7 +312,7 @@ DoXR.BriYa = async function( Yz_k )
 
 		//@@@
 		// LGT
-		if( "requestLightProbe" in Smz_v )
+		if( 0 ) // if( "requestLightProbe" in Smz_v )
 		{
 			// srgba8 (default value) or rgba16f
 			const SpeDx_l = XRSession.preferredReflectionFormat;
@@ -326,7 +331,45 @@ DoXR.BriYa = async function( Yz_k )
 		Sa_l.BeFz_Gy_vwf = new Float32Array(25);
 		Sa_l.BeZx_Gy_vwf = new Float32Array(25);
 
+		//@@@
+		// KEYBOARD
+		if( Smz_v.isSystemKeyboardSupported)
+		{
+			let myTextField = null; // keep a global reference to read text later
 
+			myTextField = document.createElement("input");
+			myTextField.type = "text";
+			document.body.appendChild(myTextField);
+
+			// oninput event listener can respond to any change in the text element’s value as the user is typing.
+			myTextField.oninput = function()
+			{
+				// ...
+				var textFromUser = myTextField.value;
+				SmaSme( "TYPED:", textFromUser );
+			};
+
+		}
+
+
+		//@@@
+		// EVT
+		Smz_v.addEventListener('visibilitychange', function(e)
+		{
+  			if( e.session.visibilityState === 'visible-blurred' )
+			{
+			}
+			if( e.session.visibilityState === 'visible' )
+			{
+			}
+			SmaSme( "[XR]", e.session.visibilityState );
+		});
+
+		function onSessionEnded(event)
+		{
+			SmaSme( "[XR] END SESSION" );
+  			// textField.remove();
+		}
 
 		//==============================================
 		// UPDATE
