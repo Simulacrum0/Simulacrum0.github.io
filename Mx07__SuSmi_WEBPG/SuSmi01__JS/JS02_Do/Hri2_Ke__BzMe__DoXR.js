@@ -168,7 +168,7 @@ function DoXR_GLES__MxPoCho( Sa_l, MzKz_v )
 	// XRWebGLLayer
 	const gl = Sa_l.gl;
 	const glLayer = Sa_l.Smz_v.renderState.baseLayer;
-	gl.bindFramebuffer(gl.FRAMEBUFFER, glLayer.framebuffer);
+	gl.bindFramebuffer( gl.FRAMEBUFFER, glLayer.framebuffer );
 
 	const SmzKu_vk = glLayer.getViewport( MzKz_v );
 	gl.viewport( SmzKu_vk.x, SmzKu_vk.y, SmzKu_vk.width / 3, SmzKu_vk.height/3 );
@@ -394,39 +394,42 @@ DoXR.BriYa = async function( Yz_k )
 			const Smz_v = xrFrame.session;
 			// SmaSme( "XR_VIEW[", Kwy_wu, "]: ", SmzKu_vk.x, SmzKu_vk.y, SmzKu_vk.width, SmzKu_vk.height );
 
+			//@@@
+			// LGT
+			if( Sa_l.SpeKzFy_vk )
+			{
+				// Use light estimate data to light the scene
+				let lightEstimate = xrFrame.getLightEstimate( SpeKzFy_vk );
+
+				//%%%
+				// Available properties
+				lightEstimate.sphericalHarmonicsCoefficients;
+				lightEstimate.primaryLightDirection;
+				lightEstimate.primaryLightIntensity;
+			}
+
+
 			const Kwy_v = xrFrame.getViewerPose( Sa_l.KuGeGo_vk );
 			const TaMz_v = Kwy_v.views;
 			const Kwy__Fo_wuk = TaMz_v.length;
 
+
+			//@@@
+			// EYE ITER
 			// render for each view (eye) 2 @ Lf/Rt, or 1 @ Passthru Camera
 			for(let Kwy_wu = 0; Kwy_wu < Kwy__Fo_wuk; Kwy_wu++ )
 			{
 				const MzKz_v = TaMz_v[ Kwy_wu ];
 
 				//&&&
-				// LGT
-				if( Sa_l.SpeKzFy_vk )
-				{
-					// Use light estimate data to light the scene
-					let lightEstimate = xrFrame.getLightEstimate( SpeKzFy_vk );
-
-					//%%%
-					// Available properties
-					lightEstimate.sphericalHarmonicsCoefficients;
-					lightEstimate.primaryLightDirection;
-					lightEstimate.primaryLightIntensity;
-				}
-
-
-				//&&&
-				// DPTH
+				// EYE DPTH
 				// getDepthInformation() method will only return a result if the depth API was configured with mode set to "cpu-optimized".
 				if( false ) // Smz_v.depthActive )
 				{
 					//%%%
 					// CPU
 					const CPU_depthData = xrFrame.getDepthInformation( MzKz_v );
-					if( CPU_depthData)
+					if( CPU_depthData )
 					{
 
 						//%%%
@@ -469,30 +472,8 @@ DoXR.BriYa = async function( Yz_k )
 					// Contains the width of the depth buffer (number of columns).
 				}
 
-
 				//&&&
-				// HAND
-				if( Smz_v.inputSources )
-				{
-					for (const SiMz_k of Smz_v.inputSources)
-					{
-						if (SiMz_k.hand)
-						{
-							const indexFingerTipJoint = SiMz_k.hand.get( "index-finger-tip" );
-							// XRJointPose
-							xrFrame.getJointPose( indexFingerTipJoint, Sa_l.KuGeGo_vk );
-						}
-					}
-
-					let BeFz_v = Smz_v.inputSources[0].hand;
-					if( BeFz_v ){ xrFrame.fillJointRadii(BeFz_v.values(), Sa_l.BeFz_Gy_vwf ); }
-
-					let BeZx_v = Smz_v.inputSources[1].hand;
-					if( BeZx_v ){ xrFrame.fillJointRadii( BeZx_v.values(), Sa_l.BeZx_Gy_vwf ); }
-				}
-
-				//@@@
-				// CPY SCRN
+				// CPY EYE SCRN
 				DoXR_GLES__MxPoCho( Sa_l, MzKz_v );
 			}
 
@@ -526,7 +507,7 @@ DoXR.BriYa = async function( Yz_k )
 			let xrFrame = event.frame;
 			let targetRayPose = xrFrame.getPose( source.targetRaySpace, Sa_l.KuGeGo_vk );
 
-			let targetObject = findTargetUsingRay( targetRay.transform.matrix );
+			// let targetObject = ???.findTargetUsingRay( targetRay.transform.matrix );
 
 			if (source.targetRayMode === "tracked-pointer")
 			{
