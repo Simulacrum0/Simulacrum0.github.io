@@ -154,8 +154,8 @@ function HryMx01_KeMeKwi()
 	];
 
 	// INDEX[ 8 ] by 3
+	// const FePo_k = 5 * 3;
 	const FePo_k = ( BriDzSa__Da_wuk & 7 ) * 3;
-	// const FePo_k = 7 * 3;
 	Hry_DriBrz( 'MxPo_Kwi', TaPo_v[ FePo_k + 0 ],TaPo_v[ FePo_k + 1 ],TaPo_v[ FePo_k + 2 ] );
 }
 

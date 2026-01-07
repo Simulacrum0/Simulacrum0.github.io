@@ -791,6 +791,14 @@ DoWG.BriYa = async function( Yz_l )
 	const Tier_wqk = KaSmz_l.features.has('core-features-and-limits') ? 1 : 0;
 	SmaSme( "- GPU_Tier: ", Tier_wqk, KaSmz_l.limits.maxBufferSize );
 
+	//&&&
+	// which GPU
+	// const powerPreference = device.adapterInfo.powerPreference;
+	// if (powerPreference === "high-performance") {
+	// // High-performance GPU detected. Enabling enhanced graphics settings.
+	// } else if (powerPreference === "low-power") {
+	// // Low-power GPU detected. Optimizing for battery life.
+	// }
 
 	//&&&
 	// ERR DEV LOST

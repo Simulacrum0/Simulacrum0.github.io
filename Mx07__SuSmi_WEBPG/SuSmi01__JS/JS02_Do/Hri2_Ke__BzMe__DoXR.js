@@ -141,6 +141,19 @@ async function DoXR_GLES__SmzYa_y( Sa_l )
 		MoDzTrx( "WebGL context lost. You will need to reload the page." );
 	}, false);
 
+/*
+// Set up context loss handling to allow the context to be properly restored if needed.
+glCanvas.addEventListener("webglcontextlost", (event) => {
+  // Calling preventDefault signals to the page that you intent to handle context restoration.
+  event.preventDefault();
+});
+
+glCanvas.addEventListener("webglcontextrestored", () => {
+  // Once this function is called the gl context will be restored but any graphics resources
+  // that were previously loaded will be lost, so the scene should be reloaded.
+  loadSceneGraphics(gl);
+});
+*/
 
 	//@@@
 	// Alloc Prog/Texture
@@ -307,9 +320,9 @@ DoXR.BriYa = async function( Yz_k )
 
 		//@@@
 		// DPTH
-		if( "depthUsage" in Smz_v )
+		if( "depthActive" in Smz_v )
 		{
-			SmaSme( "[XR] Dpth:", Smz_v.depthUsage , Smz.depthActive, Smz_v.depthFormat );
+			SmaSme( "[XR] Dpth:", Smz_v.depthActive, Smz_v.depthUsage, Smz_v.depthFormat );
 		}
 
 		//@@@
@@ -412,8 +425,8 @@ DoXR.BriYa = async function( Yz_k )
 				// getDepthInformation() method will only return a result if the depth API was configured with mode set to "cpu-optimized".
 				if( false ) // Smz_v.depthActive )
 				{
-					const depthData = xrFrame.getDepthInformation( MzKz_v );
-					if (depthData)
+					const CPU_depthData = xrFrame.getDepthInformation( MzKz_v );
+					if( CPU_depthData)
 					{
 						//%%%
 						//------
