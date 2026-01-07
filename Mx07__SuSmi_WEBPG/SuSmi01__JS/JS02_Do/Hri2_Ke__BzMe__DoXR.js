@@ -237,10 +237,12 @@ DoXR.BriYa = async function( Yz_k )
 			// META
 			, "high-refresh-rate"
 			, "no-fixed-foveation"
+
+			// UNFOUND
 			// , "ca-correction"
 
 			// DEPTH
-			, "depth-sensing"
+			//, "depth-sensing"
 		]
 
 		// DEPTH_PREF
@@ -307,7 +309,7 @@ DoXR.BriYa = async function( Yz_k )
 		// DPTH
 		if( "depthUsage" in Smz_v )
 		{
-			SmaSme( "[XR] Dpth:", Smz_v.depthUsage, Smz_v.depthFormat );
+			SmaSme( "[XR] Dpth:", Smz_v.depthUsage , Smz.depthActive, Smz_v.depthFormat );
 		}
 
 		//@@@
@@ -333,7 +335,7 @@ DoXR.BriYa = async function( Yz_k )
 
 		//@@@
 		// KEYBOARD
-		if( Smz_v.isSystemKeyboardSupported)
+		if( Smz_v.isSystemKeyboardSupported )
 		{
 			let myTextField = null; // keep a global reference to read text later
 
@@ -408,7 +410,7 @@ DoXR.BriYa = async function( Yz_k )
 				//&&&
 				// DPTH
 				// getDepthInformation() method will only return a result if the depth API was configured with mode set to "cpu-optimized".
-				if( xrFrame.getDepthInformation )
+				if( false ) // Smz_v.depthActive )
 				{
 					const depthData = xrFrame.getDepthInformation( MzKz_v );
 					if (depthData)
