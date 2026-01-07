@@ -261,7 +261,7 @@ DoXR.BriYa = async function( Yz_k )
 		// DEPTH_PREF
 		, depthSensing:
 		{
-			depthTypeRequest: ["smooth"] // , "raw" ]
+			depthTypeRequest: [ "smooth", "raw" ]
 			, matchDepthView: true
 
 			//!!!
@@ -322,7 +322,7 @@ DoXR.BriYa = async function( Yz_k )
 		// DPTH
 		if( "depthActive" in Smz_v )
 		{
-			SmaSme( "[XR] Dpth:", Smz_v.depthActive, Smz_v.depthUsage, Smz_v.depthFormat );
+			SmaSme( "[XR] DEPTH = On:", Smz_v.depthActive, "Use:", Smz_v.depthUsage, "Fmt:", Smz_v.depthFormat );
 		}
 
 		//@@@
@@ -363,7 +363,6 @@ DoXR.BriYa = async function( Yz_k )
 				var textFromUser = myTextField.value;
 				SmaSme( "TYPED:", textFromUser );
 			};
-
 		}
 
 
@@ -407,10 +406,9 @@ DoXR.BriYa = async function( Yz_k )
 				//&&&
 				// LGT
 				if( Sa_l.SpeKzFy_vk )
-					{
-						let lightEstimate = xrFrame.getLightEstimate( SpeKzFy_vk );
-
-						// Use light estimate data to light the scene
+				{
+					// Use light estimate data to light the scene
+					let lightEstimate = xrFrame.getLightEstimate( SpeKzFy_vk );
 
 					//%%%
 					// Available properties
@@ -425,9 +423,12 @@ DoXR.BriYa = async function( Yz_k )
 				// getDepthInformation() method will only return a result if the depth API was configured with mode set to "cpu-optimized".
 				if( false ) // Smz_v.depthActive )
 				{
+					//%%%
+					// CPU
 					const CPU_depthData = xrFrame.getDepthInformation( MzKz_v );
 					if( CPU_depthData)
 					{
+
 						//%%%
 						//------
 						// to METERS
@@ -448,6 +449,26 @@ DoXR.BriYa = async function( Yz_k )
 						// const viewCoordinates = [normalizedViewCoordinates[0] * viewport.width, normalizedViewCoordinates[1] * viewport.height];
 					}
 				}
+				//%%%
+				// GLES
+				// if( XRWebGLBinding.getDepthInformation() )
+				{
+					// XRDepthInformation.height Read only
+					// Contains the height of the depth buffer (number of rows).
+
+					// XRDepthInformation.normDepthBufferFromNormView Read only
+					// An XRRigidTransform that needs to be applied when indexing into the depth buffer. The transformation that the matrix represents changes the coordinate system from normalized view coordinates to normalized depth buffer coordinates that can then be scaled by depth buffer's width and height to obtain the absolute depth buffer coordinates.
+
+					// XRDepthInformation.rawValueToMeters Read only
+					// Contains the scale factor by which the raw depth values must be multiplied in order to get the depths in meters.
+
+					// XRWebGLDepthInformation.texture Read only Experimental
+					// A WebGLTexture containing depth buffer information as an opaque texture.
+
+					// XRDepthInformation.width Read only
+					// Contains the width of the depth buffer (number of columns).
+				}
+
 
 				//&&&
 				// HAND
