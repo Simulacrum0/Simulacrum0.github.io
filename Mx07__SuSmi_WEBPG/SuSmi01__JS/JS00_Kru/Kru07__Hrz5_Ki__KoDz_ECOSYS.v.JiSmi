@@ -127,20 +127,10 @@ async function KoDz__YaFz()
 		, Hrz7_Kru__ChaSySmz( "Hra6_Ku", "SpeDry", "Do", "PAY", SySmz__Kri_yk, { SmzYz: "0" } )
 		, Hrz7_Kru__ChaSySmz( "Hra6_Ku", "SaNoJe", "Do", "CAL", SySmz__Kri_yk, { SmzYz: "0" } )
 
-		// , Hrz7_Kru__ChaSySmz( "Hra6_Ku", "SaNoKe", "Do", "CARD", SySmz__Kri_yk, { SmzYz: "0" } )
-
-		//, Hrz7_Kru__ChaSySmz( "Hr", "", "Do", "ABC", SySmz__Kri_yk, { SmzYz: "0" } )
-		// LGTs/Humidifiers
-		//, Hrz7_Kru__ChaSySmz( "Hra5_Ka", "KzGwe", "Do", "USB", SySmz__Kri_yk, { SmzYz: "0" } )
-		//, Hrz7_Kru__ChaSySmz( "Hra1_Mz", "GeFy", "Do", "GPS", SySmz__Kri_yk, { SmzYz: "0" } )
-		//, Hrz7_Kru__ChaSySmz( "Hra0_Ko", "BriDzSpe", "Do", "ENRG", SySmz__Kri_yk, { SmzYz: "0" } )
-
 		//, Hrz7_Kru__ChaSySmz( "Hr", "", "Do", "ABC", SySmz__Kri_yk, { SmzYz: "0" } )
 		//, Hrz7_Kru__ChaSySmz( "Hr", "", "Do", "ABC", SySmz__Kri_yk, { SmzYz: "0" } )
 		//, Hrz7_Kru__ChaSySmz( "Hr", "", "Do", "ABC", SySmz__Kri_yk, { SmzYz: "0" } )
 		//, Hrz7_Kru__ChaSySmz( "Hr", "", "Do", "ABC", SySmz__Kri_yk, { SmzYz: "0" } )
-
-
 
 	];
 
@@ -173,11 +163,30 @@ async function KoDz__YaFz()
 //==============================================
 async function KoDz__YaFx( )
 {
+	//@@@
+	// SERV_OPT
 	const SySmz__HoKri_yk = false;
 
 	// DoXR
 	Hrz7_Kru__ChaSySmz( "Hri2_Ke", "BzMe", "Do", "XR", SySmz__HoKri_yk, { SmzYz: "0" } );
 
+	// DoAUD
+	//Hrz7_Kru__ChaSySmz( "Hru5_Smz", "MxPe", "Do", "AUD", SySmz__HoKri_yk, { SmzYz: "0" } );
+
+	// DoCARD ( CONTACT CARDS )
+	// , Hrz7_Kru__ChaSySmz( "Hra6_Ku", "SaNoKe", "Do", "CARD", SySmz__HoKri_yk, { SmzYz: "0" } )
+
+	// LGTs/Humidifiers
+	//, Hrz7_Kru__ChaSySmz( "Hra5_Ka", "KzGwe", "Do", "USB", SySmz__HoKri_yk, { SmzYz: "0" } )
+
+	// BATTERY/POWER?
+	//, Hrz7_Kru__ChaSySmz( "Hra0_Ko", "BriDzSpe", "Do", "ENRG", SySmz__HoKri_yk, { SmzYz: "0" } )
+
+	// TRACK LOCALE
+	//, Hrz7_Kru__ChaSySmz( "Hra1_Mz", "GeFy", "Do", "GPS", SySmz__HoKri_yk, { SmzYz: "0" } )
+
+	//
+	//, Hrz7_Kru__ChaSySmz( "Hr", "", "Do", "ABC", SySmz__HoKri_yk, { SmzYz: "0" } )
 }
 
 //==============================================

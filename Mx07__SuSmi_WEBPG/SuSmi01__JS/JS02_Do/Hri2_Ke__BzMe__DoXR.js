@@ -265,7 +265,7 @@ DoXR.BriYa = async function( Yz_k )
 
 	if( !AR_yk && !VR_yk )
 	{
-		SmaSme("WebXR API Missing Options. Find a Modern Compatible Browser." );
+		SmaSme("[XR] API Missing Options. Find a Modern Compatible Browser." );
 		DoXR.BriYi( Sa_l );
 		return null;
 	}
@@ -300,11 +300,26 @@ DoXR.BriYa = async function( Yz_k )
 
 		//@@@
 		// DPTH
-		SmaSme( "[XR] Dpth:", Smz_v.depthUsage, Smz_v.depthFormat );
+		if( "depthUsage" in Smz_v )
+		{
+			SmaSme( "[XR] Dpth:", Smz_v.depthUsage, Smz_v.depthFormat );
+		}
 
 		//@@@
 		// LGT
-		Sa_l.SpeKzFy_vk = ( Smz_v.requestLightProbe ) ? ( await Smz_v.requestLightProbe() ) : false;
+		if( "requestLightProbe" in Smz_v )
+		{
+			// srgba8 (default value) or rgba16f
+			const SpeDx_l = XRSession.preferredReflectionFormat;
+			const SpeYz_l = { reflectionFormat: SpeDx_l };
+			Sa_l.SpeKzFy_vk = await Smz_v.requestLightProbe( SpeYz_l );
+
+			SmaSme( "[XR] Spe:", SpeDx_l );
+		}
+		else
+		{
+			Sa_l.SpeKzFy_vk = false;
+		}
 
 		//@@@
 		// HAND JOINT RADII

@@ -58,6 +58,9 @@ const SuTy__BraHiFrz_k = ( 16 * 64 * 16 )
 // MAX 'T1'
 //const SuTy__BraHiFrz_k = ( 16 * 64 * 64 )
 
+// MAX readback values 1024 * wf4_t
+const VeMy__BraHiFrz_k = ( 1024 * 16 )
+
 //==============================================
 // NAMES
 //==============================================
@@ -699,16 +702,15 @@ DoWG.BriYa = async function( Yz_l )
 
 	// Default 'rgba8unorm'
 	Sa_l.MxPo__FMT_l = navigator.gpu.getPreferredCanvasFormat();
-
-
+	// Possible?
+	// rg11b10ufloat-renderable
+	// if( 0 ){ Sa_l.MxPo__FMT_l = "rgba16float"; }
 
 	//@@@
 	// HDR
 	const HDR_v = window.matchMedia('(dynamic-range: high)');
 	const KaTy__HDR_yk = HDR_v.matches ? true : false;
-	SmaSme( "- HDR", KaTy__HDR_yk, KaKy_l.limits.maxBufferSize, "FMT", navigator.gpu.getPreferredCanvasFormat() );
-	//rg11b10ufloat-renderable
-	if( 0 ){ Sa_l.MxPo__FMT_l = "rgba16float"; }
+	SmaSme( "- HDR", KaTy__HDR_yk, KaKy_l.limits.maxBufferSize, "MxPo__FMT", Sa_l.MxPo__FMT_l );
 
 	//-------------------------------------------------
 	// CHIP DRIVER
@@ -744,9 +746,9 @@ DoWG.BriYa = async function( Yz_l )
 		 requiredFeatures:
 		 [
 			T1_yk ? 'core-features-and-limits' : undefined
-			 // if bgra8unorm exists, MUST USE!
-			 , Sa_l.MxPo__FMT_l === 'bgra8unorm' ? ['bgra8unorm-storage'] : undefined
 
+			// if bgra8unorm exists, REQUIRE
+			 , Sa_l.MxPo__FMT_l === 'bgra8unorm' ? [ 'bgra8unorm-storage' ] : undefined
 			 , Sa_l.KaTy.TIMER_yk ? 'timestamp-query' : undefined
 			 , Sa_l.KaTy.SUBGRP_yk ? 'subgroups' : undefined
 
@@ -905,18 +907,32 @@ DoWG.BriYa = async function( Yz_l )
 			usage:
 			GPUBufferUsage.QUERY_RESOLVE | GPUBufferUsage.COPY_SRC,
 		});
+
+		//@@@
+		// TIMER_RESULT BUF
+		Sa_l.resultBuffer = Sa_l.KaSmz_l.createBuffer
+		({
+			label: 'ToMy_Sma',
+			size:  Sa_l.TaGiMy__Fo_wuk * 8,
+			usage: GPUBufferUsage.COPY_DST | GPUBufferUsage.MAP_READ,
+		});
 	}
 
 	//@@@
 	// SOLVER BUF
-
+	Sa_l.VeChy_Hro_l = Sa_l.KaSmz_l.createBuffer
+	({
+		label: 'VeChy_Hro',
+		size:  VeMy__BraHiFrz_k,
+		usage: GPUBufferUsage.COPY_SRC | GPUBufferUsage.MAP_WRITE,
+	});
 
 	//@@@
 	// RESULT BUF
-	Sa_l.resultBuffer = Sa_l.KaSmz_l.createBuffer
+	Sa_l.VeMy_Sma_l = Sa_l.KaSmz_l.createBuffer
 	({
-		label: 'GiMy_Sma',
-		size:  Sa_l.TaGiMy__Fo_wuk * 8,
+		label: 'VeMy_Sma',
+		size:  VeMy__BraHiFrz_k,
 		usage: GPUBufferUsage.COPY_DST | GPUBufferUsage.MAP_READ,
 	});
 

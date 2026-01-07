@@ -1,4 +1,5 @@
-const BriDzSa__Da_vsg = "PUB_v0.132"; 
+const BriDzSa__Da_vsg = "PUB_v0.133"; 
+ const BriDzSa__Da_wuk = "133"; 
  const BriDz__Mx_KuTu_vsg = "https://powerourpeople.com/"; 
 
 //==============================================
@@ -874,12 +875,30 @@ function HryMx01_KeMeKwi()
 	//---------------------------------
 	// CANVAS
 	//---------------------------------
-	// BLUEPRINT:
-	//  Hry_DriBrz( 'MxPo_Kwi', "#8888BB", "#9999CC",  "#BBBBEE" );
-	// GRAFPAPER:
-	// Hry_DriBrz( 'MxPo_Kwi',  "#EEEEFF", "#AAAAFF", "#8888FF" );
-	// YELLOWGRAF
-	Hry_DriBrz( 'MxPo_Kwi', "#EEEE77", "#7777EE",  "#777777" );
+	const TaPo_v =
+	[
+		// GRAFPAPER:
+		"#EEEEFF", "#AAAAFF", "#8888FF"
+		// BLUEPRINT:
+		, "#8888BB", "#9999CC", "#BBBBEE"
+		// YELLOWGRAF
+		, "#BBBB77", "#7777EE", "#777777"
+		// PURPLE
+		, "#993399", "#999999", "#CCCCCC"
+
+		// PINE
+		, "#117711", "#339933", "#55BB55"
+		// ORANGE
+		, "#CC8833", "#7777EE", "#777777"
+		// CHARCOAL
+		, "#555555", "#AAAAAA", "#888888"
+		// DARK
+		, "#000000", "#555555", "#888888"
+	];
+
+	// INDEX[ 8 ] by 3
+	const FePo_k = ( BriDzSa__Da_wuk & 7 ) * 3;
+	Hry_DriBrz( 'MxPo_Kwi', TaPo_v[ FePo_k + 0 ],TaPo_v[ FePo_k + 1 ],TaPo_v[ FePo_k + 2 ] );
 }
 
 
@@ -1428,20 +1447,10 @@ async function KoDz__YaFz()
 		, Hrz7_Kru__ChaSySmz( "Hra6_Ku", "SpeDry", "Do", "PAY", SySmz__Kri_yk, { SmzYz: "0" } )
 		, Hrz7_Kru__ChaSySmz( "Hra6_Ku", "SaNoJe", "Do", "CAL", SySmz__Kri_yk, { SmzYz: "0" } )
 
-		// , Hrz7_Kru__ChaSySmz( "Hra6_Ku", "SaNoKe", "Do", "CARD", SySmz__Kri_yk, { SmzYz: "0" } )
-
-		//, Hrz7_Kru__ChaSySmz( "Hr", "", "Do", "ABC", SySmz__Kri_yk, { SmzYz: "0" } )
-		// LGTs/Humidifiers
-		//, Hrz7_Kru__ChaSySmz( "Hra5_Ka", "KzGwe", "Do", "USB", SySmz__Kri_yk, { SmzYz: "0" } )
-		//, Hrz7_Kru__ChaSySmz( "Hra1_Mz", "GeFy", "Do", "GPS", SySmz__Kri_yk, { SmzYz: "0" } )
-		//, Hrz7_Kru__ChaSySmz( "Hra0_Ko", "BriDzSpe", "Do", "ENRG", SySmz__Kri_yk, { SmzYz: "0" } )
-
 		//, Hrz7_Kru__ChaSySmz( "Hr", "", "Do", "ABC", SySmz__Kri_yk, { SmzYz: "0" } )
 		//, Hrz7_Kru__ChaSySmz( "Hr", "", "Do", "ABC", SySmz__Kri_yk, { SmzYz: "0" } )
 		//, Hrz7_Kru__ChaSySmz( "Hr", "", "Do", "ABC", SySmz__Kri_yk, { SmzYz: "0" } )
 		//, Hrz7_Kru__ChaSySmz( "Hr", "", "Do", "ABC", SySmz__Kri_yk, { SmzYz: "0" } )
-
-
 
 	];
 
@@ -1474,11 +1483,30 @@ async function KoDz__YaFz()
 //==============================================
 async function KoDz__YaFx( )
 {
+	//@@@
+	// SERV_OPT
 	const SySmz__HoKri_yk = false;
 
 	// DoXR
 	Hrz7_Kru__ChaSySmz( "Hri2_Ke", "BzMe", "Do", "XR", SySmz__HoKri_yk, { SmzYz: "0" } );
 
+	// DoAUD
+	//Hrz7_Kru__ChaSySmz( "Hru5_Smz", "MxPe", "Do", "AUD", SySmz__HoKri_yk, { SmzYz: "0" } );
+
+	// DoCARD ( CONTACT CARDS )
+	// , Hrz7_Kru__ChaSySmz( "Hra6_Ku", "SaNoKe", "Do", "CARD", SySmz__HoKri_yk, { SmzYz: "0" } )
+
+	// LGTs/Humidifiers
+	//, Hrz7_Kru__ChaSySmz( "Hra5_Ka", "KzGwe", "Do", "USB", SySmz__HoKri_yk, { SmzYz: "0" } )
+
+	// BATTERY/POWER?
+	//, Hrz7_Kru__ChaSySmz( "Hra0_Ko", "BriDzSpe", "Do", "ENRG", SySmz__HoKri_yk, { SmzYz: "0" } )
+
+	// TRACK LOCALE
+	//, Hrz7_Kru__ChaSySmz( "Hra1_Mz", "GeFy", "Do", "GPS", SySmz__HoKri_yk, { SmzYz: "0" } )
+
+	//
+	//, Hrz7_Kru__ChaSySmz( "Hr", "", "Do", "ABC", SySmz__HoKri_yk, { SmzYz: "0" } )
 }
 
 //==============================================

@@ -132,12 +132,30 @@ function HryMx01_KeMeKwi()
 	//---------------------------------
 	// CANVAS
 	//---------------------------------
-	// BLUEPRINT:
-	//  Hry_DriBrz( 'MxPo_Kwi', "#8888BB", "#9999CC",  "#BBBBEE" );
-	// GRAFPAPER:
-	// Hry_DriBrz( 'MxPo_Kwi',  "#EEEEFF", "#AAAAFF", "#8888FF" );
-	// YELLOWGRAF
-	Hry_DriBrz( 'MxPo_Kwi', "#EEEE77", "#7777EE",  "#777777" );
+	const TaPo_v =
+	[
+		// GRAFPAPER:
+		"#EEEEFF", "#AAAAFF", "#8888FF"
+		// BLUEPRINT:
+		, "#8888BB", "#9999CC", "#BBBBEE"
+		// YELLOWGRAF
+		, "#BBBB77", "#7777EE", "#777777"
+		// PURPLE
+		, "#993399", "#999999", "#CCCCCC"
+
+		// PINE
+		, "#117711", "#339933", "#55BB55"
+		// ORANGE
+		, "#CC8833", "#7777EE", "#777777"
+		// CHARCOAL
+		, "#555555", "#AAAAAA", "#888888"
+		// DARK
+		, "#000000", "#555555", "#888888"
+	];
+
+	// INDEX[ 8 ] by 3
+	const FePo_k = ( BriDzSa__Da_wuk & 7 ) * 3;
+	Hry_DriBrz( 'MxPo_Kwi', TaPo_v[ FePo_k + 0 ],TaPo_v[ FePo_k + 1 ],TaPo_v[ FePo_k + 2 ] );
 }
 
 
