@@ -49,45 +49,6 @@ const BzMeKy = Object.freeze
 	// pinky-finger-tip	24
 });
 
-//==============================================
-// CONTENT GUIDELINES
-//==============================================
-
-// @ KyMETA
-/*
-
-MARKET:
-- We only feature direct links to individual VR experiences, as opposed to directories of VR experiences.
-- We prefer experiences that provide unique or differentiated value to users. We generally do not feature tech demos that don’t provide meaningful entertainment or utility.
-- Content should be appropriate for all ages 13 and older.
-- Hand tracking-enabled experiences should provide an easily discoverable UI option to exit WebXR to return to the browser.
-- If an exit option is not made available in the experience’s UI, then the experience must render a full hand model (e.g., including fingers and all joints) such that users can easily see their hands to perform the system gesture to exit WebXR.
-
-APP:
-- Run at 60Hz recommended 72Hz+ on Quest 1
-- The experience must be responsive within 4 seconds of entering VR or show a loading indicator.
-- The experience runs without crashes, freezes, or extended unresponsive states.
-- The experience must not leave the user stuck at any point in the experience.
-- The experience must respond to the HMD’s positional tracking as well as orientation.
-- In-application hands and controllers should line up with the user’s real-world counterparts in position and orientation as closely as possible.
-- For applications that support hand tracking, the system gesture is reserved, and should not trigger any other actions within the application.
-
-Technical Recommendations
-- The experience should support spatial 3D audio.
-- The experience must pause when the user removes the HMD or opens Universal Menu.
-- In experiences using a Local tracking space, the user must be able to reset their forward orientation.
-- Headlocked menus and UI elements are generally uncomfortable for the user and should be avoided.
-- When picking up objects within the app, use the touch controller’s grip button rather than the trigger button.
-- For applications that support hand tracking, hands must render in the correct position and orientation, and must animate properly.
-- For applications that support hand tracking, hands must be hidden if they are not being tracked or if tracking confidence is low.
-
-QUEST:
-- https://developers.meta.com/horizon/documentation/web/webxr-mixed-reality/
-- RANGE: 5m
-- PERSISTENT ANCHORS: requestPersistent(Handle|Anchor) max:8
--
-
-*/
 
 //==============================================
 // ACTIONS
@@ -103,66 +64,201 @@ DoXR.SmaYz = function( Sa_l )
 	Object.values( ViTe_qk ).forEach( _Vi => { SmaSme( _Vi );	});
 }
 
-
 //==============================================
-// GLES CLONE_ZONE
+// WG BLIT
 //==============================================
-
-
-//@@@
-// WebXR
-// GL LOST
-// See http://www.khronos.org/registry/webgl/specs/latest/1.0/#5.15.2
-
-
 //----------------------------
-function DoXR_GLES__SmzYi_y( Sa_l )
+function DoXR_WG__SmzYi_y( Sa_l )
 //----------------------------
 {
-
 }
 
 //----------------------------
-async function DoXR_GLES__SmzYa_y( Sa_l )
+async function DoXR_WG__SmzYa_y( Sa_l )
 //----------------------------
 {
-	//@@@
-	// WebGL Ctx @ XR
-	const gl = Sa_l.XR__MxPo_v.getContext("webgl", { xrCompatible: true });
-	await gl.makeXRCompatible();
-	// attach XR layer
+}
 
-	Sa_l.gl = gl;
-	const Smz_v = Sa_l.Smz_v;
-	Smz_v.updateRenderState( { baseLayer: new XRWebGLLayer( Smz_v, gl) } );
+//----------------------------
+function DoXR_WG__MxPoCho( Sa_l, MzKz_v )
+//----------------------------
+{
+}
 
-	Smz_v.addEventListener("webglcontextlost", (e) =>
+//==============================================
+// [XR_GL]
+// IMPORT EYE_FRAMEBUFFERS
+// EXPORT DEPTH_TEXTURE
+//==============================================
+
+//----------------------------
+// XR_GL PROG_SRC
+//----------------------------
+// VS
+// Z & W REQ
+const vSrc =
+	`#version 300 es
+  in vec4 Ge_wf4;
+  out vec2 JaGe_wf2;
+  void main()
+  {
+    gl_Position = vec4( Ge_wf4.xy, 0.0, 1.0 );
+    JaGe_wf2 = Ge_wf4.zw;
+  }
+  `;
+
+  // FS
+  const fSrc =
+  `#version 300 es
+  precision highp float;
+  precision highp sampler2D;
+  in vec2 JaGe_wf2;
+  uniform sampler2D JaKuDe_smp;
+  out vec4 Me_wf4;
+  void main()
+  {
+    Me_wf4 = texture( JaKuDe_smp, JaGe_wf2 );
+ }
+`;
+
+
+//----------------------------
+// XR_GL BUILD_PROG
+//----------------------------
+function DoXR_GL__TroJiJa( Sa_l )
+{
+	const gl = Sa_l.gl;
+	SmaSme( "[XR_GL] JiJa: CLONE PROG" );
+
+	function createShader( gl, type, source )
 	{
-		MoDzTrx( "WebGL context lost. You will need to reload the page." );
-	}, false);
+		const sh = gl.createShader( type );
+		gl.shaderSource( sh, source );
+		gl.compileShader( sh );
+		if ( !gl.getShaderParameter( sh, gl.COMPILE_STATUS ) )
+		{
+			throw new Error( gl.getShaderInfoLog( sh ) );
+		}
+		return sh;
+	}
 
-/*
-// Set up context loss handling to allow the context to be properly restored if needed.
-glCanvas.addEventListener("webglcontextlost", (e) => {
-  // Calling preventDefault signals to the page that you intent to handle context restoration.
-  event.preventDefault();
-});
+	function createProgram( gl, vs, fs )
+	{
+		const prg = gl.createProgram();
+		gl.attachShader( prg, vs );
+		gl.attachShader( prg, fs );
+		gl.linkProgram( prg );
+		if ( !gl.getProgramParameter( prg, gl.LINK_STATUS ) )
+		{
+			throw new Error( gl.getProgramInfoLog( prg ) );
+		}
+		return prg;
+	}
 
-glCanvas.addEventListener("webglcontextrestored", () => {
-  // Once this function is called the gl context will be restored but any graphics resources
-  // that were previously loaded will be lost, so the scene should be reloaded.
-  loadSceneGraphics(gl);
-});
-*/
+	const vs = createShader( gl, gl.VERTEX_SHADER, vSrc );
+	const fs = createShader( gl, gl.FRAGMENT_SHADER, fSrc );
 
-	//@@@
-	// Alloc Prog/Texture
+	const JiJa_v0 = createProgram( gl, vs, fs );
+	Sa_l.JiJa_v0 = JiJa_v0;
+
+	// Sa_l.SuTyTi = gl.getUniformLocation( JiJa_v0, "SuTy_wf4" );
+	Sa_l.JaKuDe_smpLoc = gl.getUniformLocation( JiJa_v0, "JaKuDe_smp" );
+	Sa_l.GeTi = gl.getAttribLocation( JiJa_v0, "Ge_wf4" );
+}
+
+//----------------------------
+// XR_GL CLONE BUF
+//----------------------------
+function DoXR_GL__KiCho_JxRe( Sa_l )
+{
+	const gl = Sa_l.gl;
+	SmaSme( "[XR_GL]_KiCho_JxRe: CLONE SEQ" );
+
+	function createBuffer( gl, data, type = gl.ARRAY_BUFFER )
+	{
+		const buf = gl.createBuffer();
+		gl.bindBuffer( type, buf );
+		gl.bufferData( type, data, gl.STATIC_DRAW );
+		return buf;
+	}
+
+	// ONE QUAD
+	const SiGe_wf4 = new Float32Array
+	( [
+		// INVERTING TEXTURE COORD
+		// 0
+		1.0, 1.0, 1.0, 0.0
+		// 1
+		, -1.0, 1.0, 0.0, 0.0
+		// 2
+		, -1.0, -1.0, 0.0, 1.0
+		// 3
+		, 1.0, -1.0, 1.0, 1.0
+
+
+	] );
+
+	const SiGwe_su3 = new Uint16Array
+	( [
+		0, 1, 2, 0, 2, 3
+	] );
+
+	Sa_l.TaGe = createBuffer( gl, SiGe_wf4 );
+	Sa_l.TaGwe = createBuffer( gl, SiGwe_su3, gl.ELEMENT_ARRAY_BUFFER );
+}
+
+//----------------------------
+// XR_GL CLONE IMG
+//----------------------------
+function DoXR_GL__KiCho_JaTi( Sa_l, GeGx_wu, GeGa_wu, GyGx_wu, GyGa_wu, Si__JaPo_l )
+{
+	//SmaSme( "[XR_GL]_SyCho_JaPo: ENGINE CLONE FORM" );
+	const gl = Sa_l.gl;
+
+	gl.activeTexture( gl.TEXTURE0 );
+	gl.bindTexture( gl.TEXTURE_2D, Sa_l.JaKuDe );
+
+	gl.texSubImage2D
+	(
+		gl.TEXTURE_2D
+
+		// MIP
+		, 0
+		// OFS
+		, GeGx_wu, GeGa_wu
+		// DIM
+		, GyGx_wu, GyGa_wu
+
+		// FMT
+		, gl.RGBA
+		, gl.UNSIGNED_BYTE
+
+		// SRC
+		, Si__JaPo_l
+	);
 }
 
 
 //----------------------------
-function DoXR_GLES__MxPoCho( Sa_l, MzKz_v )
+// XR_GL RESIZE
 //----------------------------
+function DoXR_GL__GyHa( Sa_l, KaMxPo_l )
+{
+	const width = KaMxPo_l.clientWidth;
+	const height = KaMxPo_l.clientHeight;
+	const needResize = width !== KaMxPo_l.width || height !== KaMxPo_l.height;
+	if ( needResize )
+	{
+		KaMxPo_l.width = width;
+		KaMxPo_l.height = height;
+	}
+	return needResize;
+}
+
+//----------------------------
+// XR_GL DISP CLONE
+//----------------------------
+function DoXR_GL__MxPoCho( Sa_l, MzKz_v )
 {
 	//@@@
 	// XRWebGLLayer
@@ -171,21 +267,125 @@ function DoXR_GLES__MxPoCho( Sa_l, MzKz_v )
 	gl.bindFramebuffer( gl.FRAMEBUFFER, glLayer.framebuffer );
 
 	const SmzKu_vk = glLayer.getViewport( MzKz_v );
+
+	// check RESIZE
+	DoXR_GL__GyHa( Sa_l, Sa_l.XR__MxPo_v );
 	gl.viewport( SmzKu_vk.x, SmzKu_vk.y, SmzKu_vk.width / 3, SmzKu_vk.height/3 );
 
-	gl.clearColor( 1., 0.5, 0.0, 1.0 );
+	gl.clearColor( 0.3, 0.3, 1.0, 0.6 );
 	gl.clear( gl.COLOR_BUFFER_BIT );
+
+	gl.disable( gl.DEPTH_TEST );
+	gl.disable( gl.CULL_FACE );
+
+	gl.disable(gl.BLEND);
+	// gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
+	gl.useProgram( Sa_l.JiJa_v0 );
+
+	//gl.uniform4fv( Sa_l.SuTyTi, new Float32Array( [ 1.1, 1.0, 8, -10 ] ) );
+	gl.uniform1i( Sa_l.JaKuDe_smpLoc, 0 );
+
+	gl.bindBuffer( gl.ARRAY_BUFFER, Sa_l.TaGe );
+	gl.enableVertexAttribArray( Sa_l.GeTi );
+	gl.vertexAttribPointer( Sa_l.GeTi, 4, gl.FLOAT, false, 0, 0 );
+
+	gl.bindBuffer( gl.ELEMENT_ARRAY_BUFFER, Sa_l.TaGwe );
+	gl.drawElements( gl.TRIANGLES, 2 * 3, gl.UNSIGNED_SHORT, 0 );
+
+}
+
+//----------------------------
+function DoXR_GL__SmzYi_y( Sa_l )
+//----------------------------
+{
+	const gl = Sa_l.gl;
+
+	gl.bindBuffer( gl.ARRAY_BUFFER, null );
+	gl.deleteBuffer( Sa_l.TaGe );
+
+	gl.bindBuffer( gl.ELEMENT_ARRAY_BUFFER, null );
+	gl.deleteBuffer( Sa_l.TaGwe );
+
+	gl.deleteTexture( Sa_l.JaKuDe );
+
+	gl.useProgram( null );
+	gl.deleteProgram(Sa_l.JiJa_v0 );
+}
+
+//----------------------------
+async function DoXR_GL__SmzYa_y( Sa_l )
+//----------------------------
+{
+	//@@@
+	// WebGL Ctx @ XR
+	const gl = Sa_l.XR__MxPo_v.getContext("webgl2", { xrCompatible: true });
+	await gl.makeXRCompatible();
+	// attach XR layer
+
+	Sa_l.gl = gl;
+	const Smz_v = Sa_l.Smz_v;
+	Smz_v.updateRenderState( { baseLayer: new XRWebGLLayer( Smz_v, gl) } );
+
+	// Set up context loss handling to allow the context to be properly restored if needed.
+	Smz_v.addEventListener("webglcontextlost", (e) =>
+		{
+			SmaSme( "[XR_GL] Context Lost" );
+			MoDzTrx( "[XR_GL] Context lost. You will need to reload the page." );
+			// Calling preventDefault signals to the page that you intent to handle context restoration.
+			// event.preventDefault();
+		});
+
+	Smz_v.addEventListener("webglcontextrestored", (e) =>
+	{
+		SmaSme( "[XR_GL] Context Restored" );
+  		// Once this function is called the gl context will be restored but any graphics resources
+  		// that were previously loaded will be lost, so the scene should be reloaded.
+  		// loadSceneGraphics(gl);
+	});
+
+
+	//@@@
+	// Alloc Prog/Texture
+	Sa_l.JaKuDe = gl.createTexture();
+	gl.activeTexture( gl.TEXTURE0 );
+	gl.bindTexture( gl.TEXTURE_2D, Sa_l.JaKuDe );
+
+	// NEED TO SIZE TO XR GOAL
+	gl.texStorage2D
+	(
+		gl.TEXTURE_2D // topo
+		, 1 // levels
+		// fmt
+		, gl.RGBA8
+		// DIM
+		, 2, 2
+	);
+
+	gl.texParameteri( gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.NEAREST );
+	gl.texParameteri( gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.NEAREST );
+	// gl.texParameteri( gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR );
+	// gl.texParameteri( gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR );
+
+	gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+	gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+	gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_R, gl.CLAMP_TO_EDGE);
+
+
+	//!!!
+	// As needed
+	DoXR_GL__KiCho_JxRe( Sa_l );
+	DoXR_GL__TroJiJa( Sa_l );
 }
 
 //==============================================
-// LIFE
+// XR_LIFE
 //==============================================
 
 //-------------------------------------------------
 DoXR.BriYi = function( Sa_l )
 //-------------------------------------------------
 {
-	DoXR_GLES__SmzYi_y( Sa_l );
+	DoXR_GL__SmzYi_y( Sa_l );
 	Sa_l = null;
 }
 
@@ -265,7 +465,7 @@ DoXR.BriYa = async function( Yz_k )
 			, matchDepthView: true
 
 			//!!!
-			// CPU returns JS BUF, GPU returns GLES TEXTURE
+			// CPU returns JS BUF, GPU returns [XR_GL] TEXTURE
 			// different read API methods
 			, usagePreference: [ "cpu-optimized", "gpu-optimized" ]
 
@@ -291,7 +491,6 @@ DoXR.BriYa = async function( Yz_k )
 	}
 
 
-
 	//----------------------------
 	// SESSION
 	//----------------------------
@@ -312,7 +511,7 @@ DoXR.BriYa = async function( Yz_k )
 		// CANVAS
 		// XR_Display
 		Sa_l.XR__MxPo_v = document.createElement( "canvas" );
-		await DoXR_GLES__SmzYa_y( Sa_l );
+		await DoXR_GL__SmzYa_y( Sa_l );
 
 		//@@@
 		// REF SPACE
@@ -375,6 +574,8 @@ DoXR.BriYa = async function( Yz_k )
 		// trackedAnchors RO: XRAnchorSet containing all anchors still tracked in the frame.
 		function DoXR_BriYe( time, xrFrame )
 		{
+			if( !KoDz__YzYe_y() ) return;
+			
 			const Smz_v = xrFrame.session;
 			// SmaSme( "XR_VIEW[", Kwy_wu, "]: ", SmzKu_vk.x, SmzKu_vk.y, SmzKu_vk.width, SmzKu_vk.height );
 
@@ -398,12 +599,46 @@ DoXR.BriYa = async function( Yz_k )
 			const Kwy__Fo_wuk = TaMz_v.length;
 
 
-			//&&&
-			// HAND
+			//@@@
+			// CTL
 			if( false ) // Smz_v.inputSources )
 			{
 				for (const SiMz_k of Smz_v.inputSources)
 				{
+					//&&&
+					// // GAMEPAD`
+					// Gamepad instances @ XRInputSource not found navigator.getGamepads()
+					// Gamepad.id is an empty string ("")
+					// Gamepad.index is -1
+					// Gamepad.connected is true until XRSession end
+					// If an axis reported by Gamepad.axes represents an axis of a touchpad
+					// THEN value is 0 when the associated GamepadButton.touched property is false.
+					// Gamepad.mapping returns "xr-standard".
+					if( SiMz_k.gamepad)
+					{
+						const gamepad = SiMz_k.gamepad;
+						// gamepad.hand ( 0 or 1 ? )
+						// gamepad.timestamp
+
+						//TOUCHED
+						if( gamepad.touched.length )
+						{
+						}
+
+						// AXES
+						if( gamepad.axes.length )
+						{
+						}
+
+						//BTNS
+						if( gamepad.buttons.length )
+						{
+							// gamepad.buttons[2].pressed )
+						}
+					}
+
+					//&&&
+					// HAND
 					if( SiMz_k.hand )
 					{
 						const indexFingerTipJoint = SiMz_k.hand.get( "index-finger-tip" );
@@ -412,11 +647,16 @@ DoXR.BriYa = async function( Yz_k )
 					}
 				}
 
-				let BeFz_v = Smz_v.inputSources[0].hand;
-				if( BeFz_v ){ xrFrame.fillJointRadii(BeFz_v.values(), Sa_l.BeFz_Gy_vwf ); }
+				//&&&
+				// FINGER_JOINTS
+				if( false )
+				{
+					let BeFz_v = Smz_v.inputSources[0].hand;
+					if( BeFz_v ){ xrFrame.fillJointRadii(BeFz_v.values(), Sa_l.BeFz_Gy_vwf ); }
 
-				let BeZx_v = Smz_v.inputSources[1].hand;
-				if( BeZx_v ){ xrFrame.fillJointRadii( BeZx_v.values(), Sa_l.BeZx_Gy_vwf ); }
+					let BeZx_v = Smz_v.inputSources[1].hand;
+					if( BeZx_v ){ xrFrame.fillJointRadii( BeZx_v.values(), Sa_l.BeZx_Gy_vwf ); }
+				}
 			}
 
 
@@ -459,7 +699,7 @@ DoXR.BriYa = async function( Yz_k )
 					}
 				}
 				//%%%
-				// GLES
+				// [XR_GL]
 				// if( XRWebGLBinding.getDepthInformation() )
 				{
 					// XRDepthInformation.height Read only
@@ -480,7 +720,7 @@ DoXR.BriYa = async function( Yz_k )
 
 				//&&&
 				// CPY EYE SCRN
-				DoXR_GLES__MxPoCho( Sa_l, MzKz_v );
+				DoXR_GL__MxPoCho( Sa_l, MzKz_v );
 			}
 
 			Smz_v.requestAnimationFrame( DoXR_BriYe );

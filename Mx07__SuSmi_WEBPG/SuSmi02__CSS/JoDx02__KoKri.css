@@ -185,7 +185,7 @@ input[type=submit]:hover
 {
 	text-align:center;
 	margin: 0.25em;
-	padding: 0.em;
+	padding: 0.0em;
 }
 
 /* TOPIC_TITLE */
@@ -201,8 +201,8 @@ input[type=submit]:hover
 {
 	display: block;
 	text-align:center;
-	margin: 0.em;
-	padding: 0.em;
+	margin: 0.0em;
+	padding: 0.0em;
 	color: rgb( 192, 192, 192 );
 }
 

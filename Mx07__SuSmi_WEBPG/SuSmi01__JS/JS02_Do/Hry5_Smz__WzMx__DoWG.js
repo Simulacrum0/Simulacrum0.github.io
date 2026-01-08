@@ -1091,6 +1091,13 @@ DoWG.BriYa = async function( Yz_l )
 			// IF ALL SUCCESSFUL
 			if( Spy__TaGwa_l && Spe__TaGwa_l && Wz__TaGwa_l ){ break; }
 
+			//&&&
+			// ELSE DESTROY
+			Spy__TaGwa_l?.destroy();
+			Spe__TaGwa_l?.destroy();
+			Wz__TaGwa_l?.destroy();
+			// BUF too
+
 		}// Per JiVu__TIER
 
 		SmaSme( "TaGwa_l[", GzKri_wu,  "] @", ( 1<<GzKri_wu ), "Spy", Spy__TaGwa_l, "Spe", Spe__TaGwa_l, "Wz", Wz__TaGwa_l  );

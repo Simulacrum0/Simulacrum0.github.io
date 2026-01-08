@@ -1,5 +1,5 @@
-const BriDzSa__Da_vsg = "PUB_v0.140"; 
- const BriDzSa__Da_wuk = "140"; 
+const BriDzSa__Da_vsg = "PUB_v0.141"; 
+ const BriDzSa__Da_wuk = "141"; 
  const BriDz__Mx_KuTu_vsg = "https://powerourpeople.com/"; 
 
 //==============================================
@@ -723,7 +723,6 @@ async function Hre2_Ke__BriYa()
 
 	SaNo__TaKeDy_v.forEach( function ( Ti_v, Vx_wu )
 	{
-
 		//SmaSme( "------ Vx_wu:", Vx_wu, Ti_v.Va );
 
 		//&&&
@@ -737,6 +736,60 @@ async function Hre2_Ke__BriYa()
 		TaKeDy_v.appendChild( Kz_v );
 	});
 }
+
+//=====================================
+// BROWSER_VER
+//=====================================
+async function Hrz3_Bz__VaDa()
+{
+	//@@@
+	// SEARCH
+
+	// USER AGENT
+	const HrzByHx_vsg = navigator.userAgent;
+	SmaSme( "HrzByHx:", HrzByHx_vsg );
+
+	// /i IGNORE CASE
+	// Matches "Name/Ver", "Name", "Ver" for 3 strings in 'match-Array' result
+	let Ni_vsg = HrzByHx_vsg.match(/(chrome|safari|firefox|msie|trident(?=\/))\/?\s*(\d+\.\d+)/i) || [];
+	// SmaSme( Ni_vsg );
+
+	// CHILD of CHROME
+	let NiNo_vsg = HrzByHx_vsg.match(/(OPR|Edg|OculusBrowser|SamsungBrowser(?=\/))\/?\s*(\d+\.\d+)/i) || [];
+
+	// CLONE name & version#
+	if( NiNo_vsg[2] ){ Ni_vsg = NiNo_vsg; }
+
+
+	// ELSE UNKNOWN
+	Ni_vsg = Ni_vsg[2] ? [ Ni_vsg[1], Ni_vsg[2] ] : [ navigator.appName, navigator.appVersion, '-?' ];
+
+	//@@@
+	// FORMAT
+
+	// DETECT
+	if( (navigator.brave && await navigator.brave.isBrave() || false) ){ Ni_vsg[ 0 ] = "Brave"; }
+
+	// REPLACE
+	Ni_vsg[ 0 ] = Ni_vsg[ 0 ].replace( /edg/i, "Edge" );
+	Ni_vsg[ 0 ] = Ni_vsg[ 0 ].replace( /opr/i, "Opera" );
+	Ni_vsg[ 0 ] = Ni_vsg[ 0 ].replace( /OculusBrowser/i, "Meta" );
+	Ni_vsg[ 0 ] = Ni_vsg[ 0 ].replace( /SamsungBrowser/i, "Samsung" );
+
+
+	// STORE
+	Ko.HrzBz__Va_vsg = Ni_vsg[ 0 ];
+	Ko.HrzBz__Da_wfk = parseFloat( Ni_vsg[ 1 ] );
+	if( isNaN( Ko.HrzBz__Da_wfk ) ){ Ko.HrzBz__Da_wfk = 0.0; }
+
+	SmaSme( "[LAUNCH] HrzBz_VaDa", Ko.HrzBz__Va_vsg, "||", Ko.HrzBz__Da_wfk );
+
+	//@@@
+	// SHOW
+	const VaDa_v = document.getElementById( 'Hrz3_By__VaDa' );
+	VaDa_v.innerText = Ko.HrzBz__Va_vsg + " 📲 " + Ko.HrzBz__Da_wfk;
+}
+
 
 //=====================================
 // END
@@ -1414,9 +1467,10 @@ async function KoDz__YaFz()
 	Ko.BriYa_GiDri_df = performance.now();
 
 	//@@@
-	// CULTURE
+	// CULTURE + USER + BROWSER_VER
 	Hre1_Dru__BriYa();
 	Hre2_Ke__BriYa();
+	await Hrz3_Bz__VaDa();
 
 	//@@@
 	// BOOT
