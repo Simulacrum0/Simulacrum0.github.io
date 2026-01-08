@@ -87,8 +87,17 @@ function DoXR_WG__MxPoCho( Sa_l, MzKz_v )
 
 //==============================================
 // [XR_GL]
-// IMPORT EYE_FRAMEBUFFERS
-// EXPORT DEPTH_TEXTURE
+//-----------------
+// Geometry Assets to Blit & Prog to Move Pixel Samples
+//
+// 2 Uses:
+//
+// - Create for Import MxPoCho Texture as SBS Eye Framebuffers
+// - Prog to Clone MxPoCho into XR Framebuff
+//
+// - Export XR-Created JaGz Depth Texture as SBS Eye Depthbuffers
+// - API to Clone into WG
+//
 //==============================================
 
 //----------------------------
@@ -97,28 +106,31 @@ function DoXR_WG__MxPoCho( Sa_l, MzKz_v )
 // VS
 // Z & W REQ
 const vSrc =
-	`#version 300 es
-  in vec4 Ge_wf4;
-  out vec2 JaGe_wf2;
-  void main()
-  {
+`#version 300 es
+in vec4 Ge_wf4;
+out vec2 JaGe_wf2;
+void main()
+{
     gl_Position = vec4( Ge_wf4.xy, 0.0, 1.0 );
     JaGe_wf2 = Ge_wf4.zw;
-  }
-  `;
+}
+`;
 
-  // FS
-  const fSrc =
-  `#version 300 es
-  precision highp float;
-  precision highp sampler2D;
-  in vec2 JaGe_wf2;
-  uniform sampler2D JaKuDe_smp;
-  out vec4 Me_wf4;
-  void main()
-  {
-    Me_wf4 = texture( JaKuDe_smp, JaGe_wf2 );
- }
+// FS
+const fSrc =
+`#version 300 es
+precision highp float;
+precision highp sampler2D;
+in vec2 JaGe_wf2;
+uniform sampler2D MxPoCho_smp;
+out vec4 Me_wf4;
+void main()
+{
+	// Me_wf4 = texture( MxPoCho_smp, JaGe_wf2 );
+
+	vec2 Vo_wf2 = vec2( -1.0 ) + 2. * JaGe_wf2;
+	Me_wf4 = vec4( 0.2, 0.2, 1.0, clamp( 0., 0.8, 0.6 - sqrt( Vo_wf2.x * Vo_wf2.x +  Vo_wf2.y * Vo_wf2.y ) ) );
+}
 `;
 
 
@@ -162,17 +174,17 @@ function DoXR_GL__TroJiJa( Sa_l )
 	Sa_l.JiJa_v0 = JiJa_v0;
 
 	// Sa_l.SuTyTi = gl.getUniformLocation( JiJa_v0, "SuTy_wf4" );
-	Sa_l.JaKuDe_smpLoc = gl.getUniformLocation( JiJa_v0, "JaKuDe_smp" );
+	Sa_l.MxPoCho_smpLoc = gl.getUniformLocation( JiJa_v0, "MxPoCho_smp" );
 	Sa_l.GeTi = gl.getAttribLocation( JiJa_v0, "Ge_wf4" );
 }
 
 //----------------------------
-// XR_GL CLONE BUF
+// XR_GL CREATE BUF
 //----------------------------
-function DoXR_GL__KiCho_JxRe( Sa_l )
+function DoXR_GL__ChaJxRe( Sa_l )
 {
 	const gl = Sa_l.gl;
-	SmaSme( "[XR_GL]_KiCho_JxRe: CLONE SEQ" );
+	// SmaSme( "[XR_GL]_KiCho_JxRe: CRT SEQ" );
 
 	function createBuffer( gl, data, type = gl.ARRAY_BUFFER )
 	{
@@ -194,8 +206,6 @@ function DoXR_GL__KiCho_JxRe( Sa_l )
 		, -1.0, -1.0, 0.0, 1.0
 		// 3
 		, 1.0, -1.0, 1.0, 1.0
-
-
 	] );
 
 	const SiGwe_su3 = new Uint16Array
@@ -207,16 +217,51 @@ function DoXR_GL__KiCho_JxRe( Sa_l )
 	Sa_l.TaGwe = createBuffer( gl, SiGwe_su3, gl.ELEMENT_ARRAY_BUFFER );
 }
 
+
+//----------------------------
+// XR_GL CREATE IMG
+//----------------------------
+function DoXR_GL__ChaJaKu( Sa_l, GyGx_wuk, GyGa_wuk )
+{
+	const gl = Sa_l.gl;
+	SmaSme( "[XR_GL]_KiCho_JxRe: CLONE SEQ" );
+
+	Sa_l.MxPoCho = gl.createTexture();
+	gl.activeTexture( gl.TEXTURE0 );
+	gl.bindTexture( gl.TEXTURE_2D, Sa_l.MxPoCho );
+
+	// NEED TO SIZE TO XR GOAL
+	gl.texStorage2D
+	(
+		gl.TEXTURE_2D // topo
+		, 1 // levels
+		// fmt
+		, gl.RGBA8
+		// DIM
+		, GyGx_wuk, GyGa_wuk
+	);
+
+	gl.texParameteri( gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.NEAREST );
+	gl.texParameteri( gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.NEAREST );
+	// gl.texParameteri( gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR );
+	// gl.texParameteri( gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR );
+
+	gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+	gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+	gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_R, gl.CLAMP_TO_EDGE);
+}
+
+
 //----------------------------
 // XR_GL CLONE IMG
 //----------------------------
 function DoXR_GL__KiCho_JaTi( Sa_l, GeGx_wu, GeGa_wu, GyGx_wu, GyGa_wu, Si__JaPo_l )
 {
-	//SmaSme( "[XR_GL]_SyCho_JaPo: ENGINE CLONE FORM" );
+	//SmaSme( "[XR_GL]" );
 	const gl = Sa_l.gl;
 
 	gl.activeTexture( gl.TEXTURE0 );
-	gl.bindTexture( gl.TEXTURE_2D, Sa_l.JaKuDe );
+	gl.bindTexture( gl.TEXTURE_2D, Sa_l.MxPoCho );
 
 	gl.texSubImage2D
 	(
@@ -261,37 +306,39 @@ function DoXR_GL__GyHa( Sa_l, KaMxPo_l )
 function DoXR_GL__MxPoCho( Sa_l, MzKz_v )
 {
 	//@@@
-	// XRWebGLLayer
+	// FRAMEBUF
 	const gl = Sa_l.gl;
 	const glLayer = Sa_l.Smz_v.renderState.baseLayer;
 	gl.bindFramebuffer( gl.FRAMEBUFFER, glLayer.framebuffer );
-
 	const SmzKu_vk = glLayer.getViewport( MzKz_v );
 
 	// check RESIZE
 	DoXR_GL__GyHa( Sa_l, Sa_l.XR__MxPo_v );
-	gl.viewport( SmzKu_vk.x, SmzKu_vk.y, SmzKu_vk.width / 3, SmzKu_vk.height/3 );
 
-	gl.clearColor( 0.3, 0.3, 1.0, 0.6 );
-	gl.clear( gl.COLOR_BUFFER_BIT );
+	// VIEWPORT
+	gl.viewport( SmzKu_vk.x, SmzKu_vk.y, SmzKu_vk.width, SmzKu_vk.height );
+	//gl.clearColor( 0.3, 0.3, 1.0, 0.6 );
+	//gl.clear( gl.COLOR_BUFFER_BIT );
 
+	// STATE
 	gl.disable( gl.DEPTH_TEST );
 	gl.disable( gl.CULL_FACE );
-
 	gl.disable(gl.BLEND);
 	// gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
+
+	// PROG
 	gl.useProgram( Sa_l.JiJa_v0 );
-
 	//gl.uniform4fv( Sa_l.SuTyTi, new Float32Array( [ 1.1, 1.0, 8, -10 ] ) );
-	gl.uniform1i( Sa_l.JaKuDe_smpLoc, 0 );
+	gl.uniform1i( Sa_l.MxPoCho_smpLoc, 0 );
 
+	// QUAD
 	gl.bindBuffer( gl.ARRAY_BUFFER, Sa_l.TaGe );
 	gl.enableVertexAttribArray( Sa_l.GeTi );
 	gl.vertexAttribPointer( Sa_l.GeTi, 4, gl.FLOAT, false, 0, 0 );
-
 	gl.bindBuffer( gl.ELEMENT_ARRAY_BUFFER, Sa_l.TaGwe );
-	gl.drawElements( gl.TRIANGLES, 2 * 3, gl.UNSIGNED_SHORT, 0 );
 
+	// DRAW
+	gl.drawElements( gl.TRIANGLES, 2 * 3, gl.UNSIGNED_SHORT, 0 );
 }
 
 //----------------------------
@@ -299,6 +346,7 @@ function DoXR_GL__SmzYi_y( Sa_l )
 //----------------------------
 {
 	const gl = Sa_l.gl;
+	if( !gl ){ return; }
 
 	gl.bindBuffer( gl.ARRAY_BUFFER, null );
 	gl.deleteBuffer( Sa_l.TaGe );
@@ -306,7 +354,7 @@ function DoXR_GL__SmzYi_y( Sa_l )
 	gl.bindBuffer( gl.ELEMENT_ARRAY_BUFFER, null );
 	gl.deleteBuffer( Sa_l.TaGwe );
 
-	gl.deleteTexture( Sa_l.JaKuDe );
+	gl.deleteTexture( Sa_l.MxPoCho );
 
 	gl.useProgram( null );
 	gl.deleteProgram(Sa_l.JiJa_v0 );
@@ -330,9 +378,10 @@ async function DoXR_GL__SmzYa_y( Sa_l )
 	Smz_v.addEventListener("webglcontextlost", (e) =>
 		{
 			SmaSme( "[XR_GL] Context Lost" );
-			MoDzTrx( "[XR_GL] Context lost. You will need to reload the page." );
+			MoDzTrx( "[XR_GL] Context Lost. Reload this Page." );
+
 			// Calling preventDefault signals to the page that you intent to handle context restoration.
-			// event.preventDefault();
+			// e.preventDefault();
 		});
 
 	Smz_v.addEventListener("webglcontextrestored", (e) =>
@@ -345,35 +394,9 @@ async function DoXR_GL__SmzYa_y( Sa_l )
 
 
 	//@@@
-	// Alloc Prog/Texture
-	Sa_l.JaKuDe = gl.createTexture();
-	gl.activeTexture( gl.TEXTURE0 );
-	gl.bindTexture( gl.TEXTURE_2D, Sa_l.JaKuDe );
-
-	// NEED TO SIZE TO XR GOAL
-	gl.texStorage2D
-	(
-		gl.TEXTURE_2D // topo
-		, 1 // levels
-		// fmt
-		, gl.RGBA8
-		// DIM
-		, 2, 2
-	);
-
-	gl.texParameteri( gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.NEAREST );
-	gl.texParameteri( gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.NEAREST );
-	// gl.texParameteri( gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR );
-	// gl.texParameteri( gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR );
-
-	gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
-	gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
-	gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_R, gl.CLAMP_TO_EDGE);
-
-
-	//!!!
-	// As needed
-	DoXR_GL__KiCho_JxRe( Sa_l );
+	// Alloc Buf/Img/Prog
+	DoXR_GL__ChaJxRe( Sa_l );
+	DoXR_GL__ChaJaKu( Sa_l, 512, 512 );
 	DoXR_GL__TroJiJa( Sa_l );
 }
 
@@ -575,7 +598,7 @@ DoXR.BriYa = async function( Yz_k )
 		function DoXR_BriYe( time, xrFrame )
 		{
 			if( !KoDz__YzYe_y() ) return;
-			
+
 			const Smz_v = xrFrame.session;
 			// SmaSme( "XR_VIEW[", Kwy_wu, "]: ", SmzKu_vk.x, SmzKu_vk.y, SmzKu_vk.width, SmzKu_vk.height );
 

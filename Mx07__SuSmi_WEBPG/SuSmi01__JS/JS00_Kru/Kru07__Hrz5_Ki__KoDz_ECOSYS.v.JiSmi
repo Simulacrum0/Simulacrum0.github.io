@@ -197,7 +197,7 @@ function KoDz__YoChy()
 {
 	//@@@
 	// ECOSYS_GOOD
-	if( KoDz__YzTrx_y() || KoDz__YzYo_y() ) return;
+	if( KoDz__YzTrx_y() || KoDz__YzYo_y() || Ko.KoDzYo_GrxHo_y ) return;
 
 	//&&&
 	// STATUS

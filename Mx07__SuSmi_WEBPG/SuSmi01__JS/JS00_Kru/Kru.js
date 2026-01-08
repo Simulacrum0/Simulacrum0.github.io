@@ -1,5 +1,5 @@
-const BriDzSa__Da_vsg = "PUB_v0.141"; 
- const BriDzSa__Da_wuk = "141"; 
+const BriDzSa__Da_vsg = "PUB_v0.142"; 
+ const BriDzSa__Da_wuk = "142"; 
  const BriDz__Mx_KuTu_vsg = "https://powerourpeople.com/"; 
 
 //==============================================
@@ -614,8 +614,6 @@ async function Hre1_Dru__ChyKeDru( KeKuMi_vbg )
 	HriNe_KwiVu_k.value = KeDru_v.LABELS.HriNe_KwiVu;
 	HriNe_KwiVu_k.focus();
 
-
-
 	//&&&
 	// UPDATE LABELS
 	// SmaDx__Kz_JSON( KeDru_v.LABELS );
@@ -636,10 +634,17 @@ async function Hre1_Dru__ChyKeDru( KeKuMi_vbg )
 		}
 	);
 
-
-	//&&&
+	//@@@
 	// VERSION
 	document.getElementById( 'BriDzSa__Da' ).innerText = BriDzSa__Da_vsg;
+
+	//@@@
+	// DEFAULT CFG
+
+	//&&&
+	// ALWAYS RUN
+	//Ko.KoDzYo_GrxHo_y = true;
+	Ko.KoDzYo_GrxHo_y = false;
 }
 
 //-------------------------------------------------
@@ -747,7 +752,7 @@ async function Hrz3_Bz__VaDa()
 
 	// USER AGENT
 	const HrzByHx_vsg = navigator.userAgent;
-	SmaSme( "HrzByHx:", HrzByHx_vsg );
+	//SmaSme( "[LAUNCH] HrzByHx:", HrzByHx_vsg );
 
 	// /i IGNORE CASE
 	// Matches "Name/Ver", "Name", "Ver" for 3 strings in 'match-Array' result
@@ -778,16 +783,16 @@ async function Hrz3_Bz__VaDa()
 
 
 	// STORE
-	Ko.HrzBz__Va_vsg = Ni_vsg[ 0 ];
-	Ko.HrzBz__Da_wfk = parseFloat( Ni_vsg[ 1 ] );
-	if( isNaN( Ko.HrzBz__Da_wfk ) ){ Ko.HrzBz__Da_wfk = 0.0; }
+	Ko.HrzBy__Va_vsg = Ni_vsg[ 0 ];
+	Ko.HrzBy__Da_wfk = parseFloat( Ni_vsg[ 1 ] );
+	if( isNaN( Ko.HrzBy__Da_wfk ) ){ Ko.HrzBy__Da_wfk = 0.0; }
 
-	SmaSme( "[LAUNCH] HrzBz_VaDa", Ko.HrzBz__Va_vsg, "||", Ko.HrzBz__Da_wfk );
+	SmaSme( "[LAUNCH] HrzBy_VaDa", Ko.HrzBy__Va_vsg, "||", Ko.HrzBy__Da_wfk );
 
 	//@@@
 	// SHOW
 	const VaDa_v = document.getElementById( 'Hrz3_By__VaDa' );
-	VaDa_v.innerText = Ko.HrzBz__Va_vsg + " 📲 " + Ko.HrzBz__Da_wfk;
+	VaDa_v.innerText = Ko.HrzBy__Va_vsg + " 📲 " + Ko.HrzBy__Da_wfk;
 }
 
 
@@ -989,9 +994,11 @@ function Tra_KeMeBri()
 
 	//@@@
 	// SESSION
-	SmaSme( "[LAUNCH] User:", document.getElementById( 'TaKeDy' ).value );
-	SmaSme( "[LAUNCH] Allow: Mute", document.getElementById( 'HriNe_TaNe__MxPeHoVu' ).value );
-	SmaSme( "[LAUNCH] Allow: Spkr", document.getElementById( 'HriNe_TaNe__MxPeVu' ).value );
+	Ko.TaKeDy_vsg = document.getElementById( 'TaKeDy' ).value;
+	Ko.HriNe_TaNe__MxPeHoVu_q = document.getElementById( 'HriNe_TaNe__MxPeHoVu' ).value;
+	Ko.HriNe_TaNe__MxPeVu_sa = document.getElementById( 'HriNe_TaNe__MxPeVu' ).value;
+
+	SmaSme( "[LAUNCH] User:", Ko.TaKeDy_vsg, " NeverPause:", Ko.KoDzYo_GrxHo_y );
 
 
 	//@@@
@@ -1574,7 +1581,7 @@ function KoDz__YoChy()
 {
 	//@@@
 	// ECOSYS_GOOD
-	if( KoDz__YzTrx_y() || KoDz__YzYo_y() ) return;
+	if( KoDz__YzTrx_y() || KoDz__YzYo_y() || Ko.KoDzYo_GrxHo_y ) return;
 
 	//&&&
 	// STATUS

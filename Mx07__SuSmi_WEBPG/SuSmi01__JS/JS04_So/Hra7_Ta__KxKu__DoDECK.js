@@ -1066,7 +1066,6 @@ function Hry5_Smz__ChyYe( Fe__GiDri_wf )
 	requestAnimationFrame( Hry5_Smz__ChyYe );
 
 	Hry5_Smz__KriYe = false;
-	// console.log( "frame: " + MxSi__YeFo_wu + " Bri__Dri6_wf: " + Bri__Dri6_wf );
 }
 
 //@@@

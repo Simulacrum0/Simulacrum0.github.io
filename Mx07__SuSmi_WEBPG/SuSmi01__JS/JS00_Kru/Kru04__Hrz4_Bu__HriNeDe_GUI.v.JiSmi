@@ -193,9 +193,11 @@ function Tra_KeMeBri()
 
 	//@@@
 	// SESSION
-	SmaSme( "[LAUNCH] User:", document.getElementById( 'TaKeDy' ).value );
-	SmaSme( "[LAUNCH] Allow: Mute", document.getElementById( 'HriNe_TaNe__MxPeHoVu' ).value );
-	SmaSme( "[LAUNCH] Allow: Spkr", document.getElementById( 'HriNe_TaNe__MxPeVu' ).value );
+	Ko.TaKeDy_vsg = document.getElementById( 'TaKeDy' ).value;
+	Ko.HriNe_TaNe__MxPeHoVu_q = document.getElementById( 'HriNe_TaNe__MxPeHoVu' ).value;
+	Ko.HriNe_TaNe__MxPeVu_sa = document.getElementById( 'HriNe_TaNe__MxPeVu' ).value;
+
+	SmaSme( "[LAUNCH] User:", Ko.TaKeDy_vsg, " NeverPause:", Ko.KoDzYo_GrxHo_y );
 
 
 	//@@@

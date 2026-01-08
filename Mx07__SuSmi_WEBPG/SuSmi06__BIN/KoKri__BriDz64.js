@@ -3636,11 +3636,11 @@ var ASM_CONSTS = {
     const SaSTRM_l = Ko.SySmz_v[SyVx.STRM_qk];
     const LAYER_Gz_wuk = 0;
     const SaGLF_l = Ko.SySmz_v[SyVx.GLF_qk];
-    SaGLF_l.Ji.Hre7_Me__KeDru_Ha(SaGLF_l, "🛸| Je: " + Ko.YeFo_wu, 0, 0);
+    SaGLF_l.Ji.Hre7_Me__KeDru_Ha(SaGLF_l, "🛸| Ke: " + Ko.TaKeDy_vsg, 0, 0);
     SaGLF_l.Ji.Hre7_Me__KeDru_Ha(SaGLF_l, "👾| Ye: " + Ko.YeWi_df.toFixed(1) + "ms", 0, 64);
     SaGLF_l.Ji.Hre7_Me__KeDru_Ha(SaGLF_l, "👹| Hry: " + Ko.gpuTime.toFixed(1) + "ms", 0, 128);
-    SaGLF_l.Ji.Hre7_Me__KeDru_Ha(SaGLF_l, "🚀| Yz: ", 0, 192);
-    SaGLF_l.Ji.Hre7_Me__KeDru_Ha(SaGLF_l, "👽| Dro: " + "-", 0, 256);
+    SaGLF_l.Ji.Hre7_Me__KeDru_Ha(SaGLF_l, "🔊| Hru: Spkr: " + Ko.HriNe_TaNe__MxPeVu_sa + " Mute:" + Ko.HriNe_TaNe__MxPeHoVu_q, 0, 192);
+    SaGLF_l.Ji.Hre7_Me__KeDru_Ha(SaGLF_l, "👽| HrzBy: " + Ko.HrzBy__Va_vsg + " v" + Ko.HrzBy__Da_wfk, 0, 256);
     SaGLF_l.Ji.Hre7_Me__KeDru_Ha(SaGLF_l, "🤖| Go: " + "-", 0, 320);
     SaGLF_l.Ji.Hre7_Me__KeDru_Ha(SaGLF_l, "💀| C: ", 0, 384);
     SaGLF_l.Ji.Hre7_Me__KeDru_Ha(SaGLF_l, "🔥| D: ", 0, 448);
