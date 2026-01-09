@@ -376,13 +376,13 @@ async function DoXR_GL__SmzYa_y( Sa_l )
 	// attach XR layer
 	const GL_Gwa_l = new XRWebGLLayer( Smz_v, gl,
 	{
-		alpha: true,
-		depth: false,
-		stencil: false,
-		ignoreDepthValues: true,
+		// alpha: true,
+		// depth: false,
+		// stencil: false,
+		// ignoreDepthValues: true,
 
-		framebufferScaleFactor: FRM__Gy_wfk,
-		antialias: false,
+		// framebufferScaleFactor: FRM__Gy_wfk,
+		// antialias: false,
   	});
 	Smz_v.updateRenderState( { baseLayer: GL_Gwa_l } );
 
@@ -566,9 +566,9 @@ DoXR.BriYa = async function( Yz_k )
 	// REFSPC
 	// INLINE, aka SG via screendevice, uses "viewer" AR/VR are IMMERSIVE
 	const Sa__GeGo_vksg =
-		// "viewer" //screen
+		"viewer" //screen
 		// 'unbounded' // no position tracking, Walking Outside?
-		"local"	// Local = Limited Space, Seated/Standing in place
+		//"local"	// Local = Limited Space, Seated/Standing in place
 		// "local-floor" // Flat floor means consistent height via groundplane Y=0
 		// "bounded-floor" // has Fixed UserSpc via XRBoundedReferenceSpace.boundsGeometry
 	;
@@ -701,6 +701,7 @@ DoXR.BriYa = async function( Yz_k )
 		//----------------------------
 		// KEYBOARD
 		//----------------------------
+		/*
 		if( Smz_v.isSystemKeyboardSupported )
 		{
 			let myTextField = null; // keep a global reference to read text later
@@ -717,7 +718,7 @@ DoXR.BriYa = async function( Yz_k )
 				SmaSme( "TYPED:", textFromUser );
 			};
 		}
-
+		*/
 
 		//----------------------------
 		// SESSION
@@ -840,6 +841,7 @@ DoXR.BriYa = async function( Yz_k )
 		//----------------------------
 		function MzPoYe( Gi_k, FRM_k )
 		{
+			if( !KoDz__YzYe_y() ) return;
 			DoXR__MzPoYe( Sa_l, Gi_k, FRM_k );
 			Smz_v.requestAnimationFrame( MzPoYe );
 		}
@@ -867,15 +869,14 @@ function DoXR__MzPoYe( Sa_l, Gi_k, FRM_k )
 {
 	//@@@
 	// CFG
-	if( !KoDz__YzYe_y() ) return;
+	// if( !( "session" in FRM_k )) return;
+	const Smz_v = FRM_k.session;
 
 if( ( Sa_l.Se__MzPo_l.clientWidth === 0 ) || ( Sa_l.Se__MzPo_l.clientHeight === 0 ))
 	{
 		SmaSme( "[XR] No SeMzPo YET:", FRM_k );
 	}
 
-	if( !( "session" in FRM_k )) return;
-	const Smz_v = FRM_k.session;
 
 	//@@@
 	// ANCHORS
@@ -1075,8 +1076,6 @@ if( ( Sa_l.Se__MzPo_l.clientWidth === 0 ) || ( Sa_l.Se__MzPo_l.clientHeight === 
 		// CPY EYE SCRN
 		DoXR_GL__Cho_MzPo( Sa_l, MzKz_v );
 	}
-
-	//	Smz_v.requestAnimationFrame( DoXR__MzPoYe );
 }
 
 
