@@ -187,7 +187,6 @@ void main()
 function DoXR_GL__TroJiJa( Sa_l )
 {
 	const gl = Sa_l.gl;
-	SmaSme( "[XR_GL] JiJa: CLONE PROG" );
 
 	function createShader( gl, type, source )
 	{
@@ -231,8 +230,6 @@ function DoXR_GL__TroJiJa( Sa_l )
 function DoXR_GL__ChaJxRe( Sa_l )
 {
 	const gl = Sa_l.gl;
-	// SmaSme( "[XR_GL]_KiCho_JxRe: CRT SEQ" );
-
 	function createBuffer( gl, data, type = gl.ARRAY_BUFFER )
 	{
 		const buf = gl.createBuffer();
@@ -271,7 +268,6 @@ function DoXR_GL__ChaJxRe( Sa_l )
 function DoXR_GL__ChaJaKu( Sa_l, GyGx_wuk, GyGa_wuk )
 {
 	const gl = Sa_l.gl;
-	SmaSme( "[XR_GL]_KiCho_JxRe: CLONE SEQ" );
 
 	Sa_l.Si__MzPo_l = gl.createTexture();
 	gl.activeTexture( gl.TEXTURE0 );
@@ -951,7 +947,7 @@ function DoXR__MzPoYe( Sa_l, Gi_k, FRM_k )
 				{
 					if( gamepad.axes[ a ] )
 						{
-							SmaSme( "Axis", a, " = ", gamepad.axes[ a ] );
+							//SmaSme( "Axis", a, " = ", gamepad.axes[ a ] );
 						}
 					}
 
@@ -961,7 +957,7 @@ function DoXR__MzPoYe( Sa_l, Gi_k, FRM_k )
 				//  if touched false, then value is '0' on touchpad BTN
 				if( gamepad.buttons[ b ].value )
 				{
-					SmaSme( "Btn", b, "=", gamepad.buttons[ b ].value );
+					//SmaSme( "Btn", b, "=", gamepad.buttons[ b ].value );
 				}
 			}// BTNS
 		}//GAMEPAD
@@ -1087,7 +1083,7 @@ DoXR.Mo = function( Sa_l, Jy_k, Mo_l )
 	// PERSIST ANCHOR
 	// Privacy Issues
 	// To create a persistent anchor, call “requestPersistentHandle” on an anchor object & Store resulting string.
-	// To restore an anchor, such as when the site is reloaded, call “restorePersistentAnchor” 
+	// To restore an anchor, such as when the site is reloaded, call “restorePersistentAnchor”
 	// [META] site only create 8 persistent anchors at a time in NON-Private mode.
 
 
