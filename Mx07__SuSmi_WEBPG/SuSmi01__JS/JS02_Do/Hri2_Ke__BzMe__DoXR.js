@@ -77,12 +77,59 @@ function DoXR_WG__SmzYi_y( Sa_l )
 async function DoXR_WG__SmzYa_y( Sa_l )
 //----------------------------
 {
+	// NOTES:
+	// https://github.com/immersive-web/WebXR-WebGPU-Binding/blob/main/explainer.md
+	// The projectionMatrix attribute of XRViews will return a matrix appropriate for a clip-space depth range of [0, 1] instead of [-1, 1].
+
+	/*
+	const gpuAdapter = await navigator.gpu.requestAdapter({xrCompatible: true});
+	const gpuDevice = await gpuAdapter.requestDevice();
+	const xrGpuBinding = new XRGPUBinding(xrSession, gpuDevice);
+	const projLayer = xrGpuBinding.createProjectionLayer
+	({
+		colorFormat: xrGpuBinding.getPreferredColorFormat(),
+
+		//Note that if a depthStencilFormat added,
+		// App MUST wrt scene's depth for XR Compositing
+		// depthStencilFormat: 'depth24plus',
+	});
+	xrSession.updateRenderState({ layers: [projLayer] });
+	*/
+
 }
 
 //----------------------------
 function DoXR_WG__Cho_MzPo( Sa_l, MzKz_v )
 //----------------------------
 {
+/*
+	readonly attribute double nativeProjectionScaleFactor;
+	XRProjectionLayer createProjectionLayer(optional XRGPUProjectionLayerInit init);
+	GPUTextureFormat getPreferredColorFormat();
+
+	XRGPUSubImage getSubImage(XRCompositionLayer layer, XRFrame frame, optional XREye eye = "none");
+	XRGPUSubImage getViewSubImage(XRProjectionLayer layer, XRView view);
+
+	interface XRGPUSubImage : XRSubImage {
+		[SameObject] readonly attribute GPUTexture colorTexture;
+		[SameObject] readonly attribute GPUTexture? depthStencilTexture;
+		[SameObject] readonly attribute GPUTexture? motionVectorTexture;
+		GPUTextureViewDescriptor getViewDescriptor();
+	  };
+
+// function onXRFrame(time, xrFrame)
+
+  for (const view in xrViewerPose.views)
+  {
+		const subImage = xrGpuBinding.getViewSubImage(layer, view);
+		view: subImage.colorTexture.createView(subImage.getViewDescriptor()),
+		let vp = subImage.viewport;
+		passEncoder.setViewport(vp.x, vp.y, vp.width, vp.height, 0.0, 1.0);
+		// Render from the viewpoint of xrView
+	}// EYE
+
+*/
+
 }
 
 //==============================================
@@ -1035,6 +1082,14 @@ DoXR.Mo = function( Sa_l, Jy_k, Mo_l )
 		},
 	  );
 	  */
+
+	//@@@
+	// PERSIST ANCHOR
+	// Privacy Issues
+	// To create a persistent anchor, call “requestPersistentHandle” on an anchor object & Store resulting string.
+	// To restore an anchor, such as when the site is reloaded, call “restorePersistentAnchor” 
+	// [META] site only create 8 persistent anchors at a time in NON-Private mode.
+
 
 	//@@@
 	// ERS ANCHOR
