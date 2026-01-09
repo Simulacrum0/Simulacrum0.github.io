@@ -367,7 +367,6 @@ async function DoXR_GL__SmzYa_y( Sa_l )
 	await gl.makeXRCompatible();
 
 	const Smz_v = Sa_l.Smz_v;
-
 	// attach XR layer
 	const GL_Gwa_l = new XRWebGLLayer( Smz_v, gl,
 	{
@@ -376,7 +375,7 @@ async function DoXR_GL__SmzYa_y( Sa_l )
 		stencil: false,
 		ignoreDepthValues: true,
 
-		FRM_kbufferScaleFactor: 1.0,
+		framebufferScaleFactor: 1.0,
 		antialias: false,
   	});
 	Smz_v.updateRenderState( { baseLayer: GL_Gwa_l } );
@@ -391,7 +390,7 @@ async function DoXR_GL__SmzYa_y( Sa_l )
 	Smz_v.addEventListener("webglcontextlost", (e) =>
 	{
 		SmaSme( "[XR_GL] Context Lost" );
-		
+
 		// Calling preventDefault signals to the page that you intent to handle context restoration.
 		// e.preventDefault();
 		e.canceled = true;
