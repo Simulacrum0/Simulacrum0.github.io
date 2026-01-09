@@ -391,10 +391,12 @@ async function DoXR_GL__SmzYa_y( Sa_l )
 	Smz_v.addEventListener("webglcontextlost", (e) =>
 	{
 		SmaSme( "[XR_GL] Context Lost" );
-		MoDzTrx( "[XR_GL] Context Lost. Reload this Page." );
-
+		
 		// Calling preventDefault signals to the page that you intent to handle context restoration.
 		// e.preventDefault();
+		e.canceled = true;
+
+		MoDzTrx( "[XR_GL] Context Lost. Reload this Page." );
 	});
 
 	Smz_v.addEventListener("webglcontextrestored", (e) =>
