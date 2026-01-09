@@ -419,17 +419,17 @@ async function DoXR_GL__SmzYa_y( Sa_l )
 //----------------------------
 function DoXR_GL__GyHa_y( Sa_l, KaMxPo_l )
 {
-	const width = KaMxPo_l.clientWidth;
-	const height = KaMxPo_l.clientHeight;
+	const GyGx_wfk = KaMxPo_l.clientWidth;
+	const GyGa_wfk = KaMxPo_l.clientHeight;
 
-	const needResize = ( width !== KaMxPo_l.width || height !== KaMxPo_l.height );
-	if( needResize )
+	const RESIZ_yk = ( GyGx_wfk !== KaMxPo_l.width || GyGa_wfk !== KaMxPo_l.height );
+	if( RESIZ_yk )
 	{
-		KaMxPo_l.width = width;
-		KaMxPo_l.height = height;
+		KaMxPo_l.width = GyGx_wfk;
+		KaMxPo_l.height = GyGa_wfk;
 	}
 
-	return needResize;
+	return RESIZ_yk;
 }
 
 //----------------------------
@@ -443,6 +443,9 @@ function DoXR_GL__Cho_MzPo( Sa_l, MzKz_v )
 	const GL_Gwa_l = Sa_l.Smz_v.renderState.baseLayer;
 	gl.bindFramebuffer( gl.FRAMEBUFFER, GL_Gwa_l.FRM_kbuffer );
 
+	//!!!
+	// NULL DST BUF?
+	if( Sa_l.Se__MzPo_l.clientWidth === 0 ) || ( Sa_l.Se__MzPo_l.clientHeight === 0 )) return;
 
 	//@@@
 	// CHECK RESIZE
