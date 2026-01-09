@@ -446,7 +446,7 @@ function DoXR_GL__Cho_MzPo( Sa_l, MzKz_v )
 
 	//!!!
 	// NULL DST BUF?
-	if( Sa_l.Se__MzPo_l.clientWidth === 0 ) || ( Sa_l.Se__MzPo_l.clientHeight === 0 )) return;
+	if( ( Sa_l.Se__MzPo_l.clientWidth === 0 ) || ( Sa_l.Se__MzPo_l.clientHeight === 0 )) return;
 
 	//@@@
 	// CHECK RESIZE
@@ -861,7 +861,7 @@ function DoXR__MzPoYe( Sa_l, Gi_k, FRM_k )
 	// CFG
 	if( !KoDz__YzYe_y() ) return;
 
-if( Sa_l.Se__MzPo_l.clientWidth === 0 ) || ( Sa_l.Se__MzPo_l.clientHeight === 0 ))
+if( ( Sa_l.Se__MzPo_l.clientWidth === 0 ) || ( Sa_l.Se__MzPo_l.clientHeight === 0 ))
 	{
 		SmaSme( "[XR] No SeMzPo YET:", FRM_k );
 	}
