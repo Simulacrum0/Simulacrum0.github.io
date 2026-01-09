@@ -585,7 +585,8 @@ DoXR.BriYa = async function( Yz_k )
 			"hand-tracking"
 
 			// META
-			, "high-refresh-rate"
+			// , "low-refresh-rate"
+			//, "high-refresh-rate"
 			, "no-fixed-foveation"
 
 			// UNFOUND
