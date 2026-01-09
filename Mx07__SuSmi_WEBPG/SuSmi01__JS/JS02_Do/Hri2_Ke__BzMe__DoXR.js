@@ -376,13 +376,14 @@ async function DoXR_GL__SmzYa_y( Sa_l )
 	// attach XR layer
 	const GL_Gwa_l = new XRWebGLLayer( Smz_v, gl,
 	{
-		// alpha: true,
-		// depth: false,
-		// stencil: false,
-		// ignoreDepthValues: true,
+		framebufferScaleFactor: FRM__Gy_wfk,
 
-		// framebufferScaleFactor: FRM__Gy_wfk,
-		// antialias: false,
+		alpha: true,
+		depth: false,
+		stencil: false,
+		ignoreDepthValues: true,
+
+		antialias: false,
   	});
 	Smz_v.updateRenderState( { baseLayer: GL_Gwa_l } );
 
@@ -452,8 +453,15 @@ function DoXR_GL__Cho_MzPo( Sa_l, MzKz_v )
 	gl.bindFramebuffer( gl.FRAMEBUFFER, GL_Gwa_l.FRM_kbuffer );
 
 	//!!!
-	// NULL DST BUF?
-	if( ( Sa_l.Se__MzPo_l.clientWidth === 0 ) || ( Sa_l.Se__MzPo_l.clientHeight === 0 )) return;
+	// NULL DST BUF
+
+	if( ( Sa_l.Se__MzPo_l.clientWidth === 0 ) || ( Sa_l.Se__MzPo_l.clientHeight === 0 ))
+		{
+			SmaSme( "EYE", MzKz_v, SmzKu_vk.x, SmzKu_vk.y, SmzKu_vk.width, SmzKu_vk.height );
+			SmaSme( "[XR] No SeMzPo YET:", GL_Gwa_l.FRM_kbuffer, FRM_k );
+
+		}
+	//if( ( Sa_l.Se__MzPo_l.clientWidth === 0 ) || ( Sa_l.Se__MzPo_l.clientHeight === 0 )) return;
 
 	//@@@
 	// CHECK RESIZE
@@ -466,7 +474,6 @@ function DoXR_GL__Cho_MzPo( Sa_l, MzKz_v )
 
 	//@@@
 	// VIEWPORT
-	//SmaSme( "EYE", MzKz_v, SmzKu_vk.x, SmzKu_vk.y, SmzKu_vk.width, SmzKu_vk.height );
 	gl.viewport( SmzKu_vk.x, SmzKu_vk.y, SmzKu_vk.width, SmzKu_vk.height );
 
 
@@ -869,13 +876,7 @@ function DoXR__MzPoYe( Sa_l, Gi_k, FRM_k )
 {
 	//@@@
 	// CFG
-	// if( !( "session" in FRM_k )) return;
 	const Smz_v = FRM_k.session;
-
-if( ( Sa_l.Se__MzPo_l.clientWidth === 0 ) || ( Sa_l.Se__MzPo_l.clientHeight === 0 ))
-	{
-		SmaSme( "[XR] No SeMzPo YET:", FRM_k );
-	}
 
 
 	//@@@
@@ -1018,7 +1019,8 @@ if( ( Sa_l.Se__MzPo_l.clientWidth === 0 ) || ( Sa_l.Se__MzPo_l.clientHeight === 
 	for(let Kwy_wu = 0; Kwy_wu < Kwy__Fo_wuk; Kwy_wu++ )
 	{
 		const MzKz_v = TaMz_v[ Kwy_wu ];
-		// SmaSme( "[XR] MzPoYe:", MzKz_v );
+
+		if( Kwy_wu == 0 ) { SmaSme( "[XR] MzPoYe:", MzKz_v );}
 
 		//&&&
 		// EYE DPTH
