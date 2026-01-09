@@ -421,7 +421,8 @@ DoWG.KiCho_JxRe = function( Sa_l )
 //
 // Row = Block Row!
 // raw textures: block width/height = 1
-// compressed textures, ex: bc1-rgba-unorm, block width/height = 4 //==============================================
+// compressed textures, ex: bc1-rgba-unorm, block width/height = 4
+//==============================================
 DoWG.KiCho_JaTi = function( Sa_l, GeGx_wuk, GeGa_wuk, GeGz_wuk, GyGx_wuk, GyGa_wuk, JaTi_vk )
 {
 	if( KoDz__YzTrx_y() ) return;

@@ -110,7 +110,8 @@ function DoXR_WG__Cho_MzPo( Sa_l, MzKz_v )
 	XRGPUSubImage getSubImage(XRCompositionLayer layer, XRFrame frame, optional XREye eye = "none");
 	XRGPUSubImage getViewSubImage(XRProjectionLayer layer, XRView view);
 
-	interface XRGPUSubImage : XRSubImage {
+	interface XRGPUSubImage : XRSubImage
+	{
 		[SameObject] readonly attribute GPUTexture colorTexture;
 		[SameObject] readonly attribute GPUTexture? depthStencilTexture;
 		[SameObject] readonly attribute GPUTexture? motionVectorTexture;
@@ -265,9 +266,10 @@ function DoXR_GL__ChaJxRe( Sa_l )
 //----------------------------
 // XR_GL CREATE IMG
 //----------------------------
-function DoXR_GL__ChaJaKu( Sa_l, GyGx_wuk, GyGa_wuk )
+function DoXR_GL__ChaJaKu__Si__MzPo( Sa_l, GyGx_wuk, GyGa_wuk )
 {
 	const gl = Sa_l.gl;
+	SmaSme( "[XR] ChaJaKu: Si__MzPo", GyGx_wuk, GyGa_wuk );
 
 	Sa_l.Si__MzPo_l = gl.createTexture();
 	gl.activeTexture( gl.TEXTURE0 );
@@ -358,22 +360,24 @@ async function DoXR_GL__SmzYa_y( Sa_l )
 {
 	//@@@
 	// WebGL Ctx @ XR
-	const gl = Sa_l.Se__MzPo_l.getContext("webgl2", { xrCompatible: true });
-	await gl.makeXRCompatible();
-	// attach XR layer
-
+	const gl = Sa_l.Se__MzPo_l.getContext( "webgl2", { xrCompatible: true });
 	Sa_l.gl = gl;
+
+	SmaSme( "[XR_GL] CTX_Tro" );
+	await gl.makeXRCompatible();
+
 	const Smz_v = Sa_l.Smz_v;
+
+	// attach XR layer
 	const GL_Gwa_l = new XRWebGLLayer( Smz_v, gl,
 	{
 		alpha: true,
-		antialias: false,
 		depth: false,
+		stencil: false,
+		ignoreDepthValues: true,
 
 		FRM_kbufferScaleFactor: 1.0,
-
-		ignoreDepthValues: true,
-		stencil: false,
+		antialias: false,
   	});
 	Smz_v.updateRenderState( { baseLayer: GL_Gwa_l } );
 
@@ -439,14 +443,14 @@ function DoXR_GL__Cho_MzPo( Sa_l, MzKz_v )
 	const GL_Gwa_l = Sa_l.Smz_v.renderState.baseLayer;
 	gl.bindFramebuffer( gl.FRAMEBUFFER, GL_Gwa_l.FRM_kbuffer );
 
-	//&&&
+
+	//@@@
 	// CHECK RESIZE
 	if( DoXR_GL__GyHa_y( Sa_l, Sa_l.Se__MzPo_l ) || ( Sa_l.Si__MzPo_l === null ))
 	{
 		// SmaSme( "[XR] Ctx", GL_Gwa_l, GL_Gwa_l.context );
-		// SmaSme( "[XR] Buf", Sa_l.Se__MzPo_l.clientWidth, Sa_l.Se__MzPo_l.clientHeight );
-
-		DoXR_GL__ChaJaKu( Sa_l, Sa_l.Se__MzPo_l.clientWidth, Sa_l.Se__MzPo_l.clientHeight );
+		SmaSme( "[XR] Se__MzPo", Sa_l.Se__MzPo_l.clientWidth, Sa_l.Se__MzPo_l.clientHeight );
+		DoXR_GL__ChaJaKu__Si__MzPo( Sa_l, Sa_l.Se__MzPo_l.clientWidth, Sa_l.Se__MzPo_l.clientHeight );
 	}
 
 	//@@@
