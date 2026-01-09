@@ -451,14 +451,14 @@ function DoXR_GL__Cho_MzPo( Sa_l, FRM_k, Kwy_wu, MzKz_v )
 	const gl = Sa_l.gl;
 	const GL_Gwa_l = Sa_l.Smz_v.renderState.baseLayer;
 	const SmzKu_vk = GL_Gwa_l.getViewport( MzKz_v );
-	gl.bindFramebuffer( gl.FRAMEBUFFER, GL_Gwa_l.FRM_kbuffer );
+	gl.bindFramebuffer( gl.FRAMEBUFFER, GL_Gwa_l.framebuffer );
 
 	//!!!
 	// NULL DST BUF
 
 	if( DBG_wu < 8 )
 	{
-		SmaSme( "[XR] SeMzPo:", MzKz_v, GL_Gwa_l.FRM_kbuffer, FRM_k );
+		SmaSme( "[XR] SeMzPo:", MzKz_v, GL_Gwa_l.framebuffer, FRM_k );
 		SmaSme( "[XR] EYE", MzKz_v, SmzKu_vk.x, SmzKu_vk.y, SmzKu_vk.width, SmzKu_vk.height );
 		DBG_wu++;
 	}
