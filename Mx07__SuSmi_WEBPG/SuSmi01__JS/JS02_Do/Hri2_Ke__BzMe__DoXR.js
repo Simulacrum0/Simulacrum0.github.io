@@ -443,7 +443,8 @@ function DoXR_GL__GyHa_y( Sa_l, KaMxPo_l )
 //----------------------------
 // XR_GL DISP CLONE
 //----------------------------
-function DoXR_GL__Cho_MzPo( Sa_l, MzKz_v )
+let DBG_wu =0;
+function DoXR_GL__Cho_MzPo( Sa_l, FRM_k, Kwy_wu, MzKz_v )
 {
 	//@@@
 	// FRAMEBUF
@@ -455,13 +456,15 @@ function DoXR_GL__Cho_MzPo( Sa_l, MzKz_v )
 	//!!!
 	// NULL DST BUF
 
-	if( ( Sa_l.Se__MzPo_l.clientWidth === 0 ) || ( Sa_l.Se__MzPo_l.clientHeight === 0 ))
-		{
-			SmaSme( "EYE", MzKz_v, SmzKu_vk.x, SmzKu_vk.y, SmzKu_vk.width, SmzKu_vk.height );
-			SmaSme( "[XR] No SeMzPo YET:", GL_Gwa_l.FRM_kbuffer, FRM_k );
+	if( DBG_wu < 8 )
+	{
+		SmaSme( "[XR] SeMzPo:", MzKz_v, GL_Gwa_l.FRM_kbuffer, FRM_k );
+		SmaSme( "[XR] EYE", MzKz_v, SmzKu_vk.x, SmzKu_vk.y, SmzKu_vk.width, SmzKu_vk.height );
+		DBG_wu++;
+	}
 
-		}
-	//if( ( Sa_l.Se__MzPo_l.clientWidth === 0 ) || ( Sa_l.Se__MzPo_l.clientHeight === 0 )) return;
+	if( ( Sa_l.Se__MzPo_l.clientWidth === 0 ) || ( Sa_l.Se__MzPo_l.clientHeight === 0 )) return;
+
 
 	//@@@
 	// CHECK RESIZE
@@ -1020,8 +1023,6 @@ function DoXR__MzPoYe( Sa_l, Gi_k, FRM_k )
 	{
 		const MzKz_v = TaMz_v[ Kwy_wu ];
 
-		if( Kwy_wu == 0 ) { SmaSme( "[XR] MzPoYe:", MzKz_v );}
-
 		//&&&
 		// EYE DPTH
 		// getDepthInformation() method will only return a result if the depth API was configured with mode set to "cpu-optimized".
@@ -1076,7 +1077,7 @@ function DoXR__MzPoYe( Sa_l, Gi_k, FRM_k )
 
 		//&&&
 		// CPY EYE SCRN
-		DoXR_GL__Cho_MzPo( Sa_l, MzKz_v );
+		DoXR_GL__Cho_MzPo( Sa_l, FRM_k, Kwy_wu, MzKz_v );
 	}
 }
 
