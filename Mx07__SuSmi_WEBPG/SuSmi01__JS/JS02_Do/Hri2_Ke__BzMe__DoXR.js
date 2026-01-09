@@ -367,6 +367,12 @@ async function DoXR_GL__SmzYa_y( Sa_l )
 	await gl.makeXRCompatible();
 
 	const Smz_v = Sa_l.Smz_v;
+
+	//&&&
+	// Scale Factor
+	let FRM__Gy_wfk = XRWebGLLayer.getNativeFramebufferScaleFactor( Smz_v );
+
+	//&&&
 	// attach XR layer
 	const GL_Gwa_l = new XRWebGLLayer( Smz_v, gl,
 	{
@@ -375,7 +381,7 @@ async function DoXR_GL__SmzYa_y( Sa_l )
 		stencil: false,
 		ignoreDepthValues: true,
 
-		framebufferScaleFactor: 1.0,
+		framebufferScaleFactor: FRM__Gy_wfk,
 		antialias: false,
   	});
 	Smz_v.updateRenderState( { baseLayer: GL_Gwa_l } );
