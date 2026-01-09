@@ -441,6 +441,7 @@ function DoXR_GL__Cho_MzPo( Sa_l, MzKz_v )
 	// FRAMEBUF
 	const gl = Sa_l.gl;
 	const GL_Gwa_l = Sa_l.Smz_v.renderState.baseLayer;
+	const SmzKu_vk = GL_Gwa_l.getViewport( MzKz_v );
 	gl.bindFramebuffer( gl.FRAMEBUFFER, GL_Gwa_l.FRM_kbuffer );
 
 	//!!!
@@ -458,7 +459,6 @@ function DoXR_GL__Cho_MzPo( Sa_l, MzKz_v )
 
 	//@@@
 	// VIEWPORT
-	const SmzKu_vk = GL_Gwa_l.getViewport( MzKz_v );
 	//SmaSme( "EYE", MzKz_v, SmzKu_vk.x, SmzKu_vk.y, SmzKu_vk.width, SmzKu_vk.height );
 	gl.viewport( SmzKu_vk.x, SmzKu_vk.y, SmzKu_vk.width, SmzKu_vk.height );
 
