@@ -860,6 +860,12 @@ function DoXR__MzPoYe( Sa_l, Gi_k, FRM_k )
 	//@@@
 	// CFG
 	if( !KoDz__YzYe_y() ) return;
+
+if( Sa_l.Se__MzPo_l.clientWidth === 0 ) || ( Sa_l.Se__MzPo_l.clientHeight === 0 ))
+	{
+		SmaSme( "No SeMzPo YET:", FRM_k );
+	}
+
 	if( !( "session" in FRM_k )) return;
 	const Smz_v = FRM_k.session;
 
