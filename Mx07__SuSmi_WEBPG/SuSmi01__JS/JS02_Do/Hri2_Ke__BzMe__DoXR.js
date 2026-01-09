@@ -443,7 +443,7 @@ function DoXR_GL__GyHa_y( Sa_l, KaMxPo_l )
 //----------------------------
 // XR_GL DISP CLONE
 //----------------------------
-let DBG_wu =0;
+let DBG_wu = 3;
 function DoXR_GL__Cho_MzPo( Sa_l, FRM_k, Kwy_wu, MzKz_v )
 {
 	//@@@
