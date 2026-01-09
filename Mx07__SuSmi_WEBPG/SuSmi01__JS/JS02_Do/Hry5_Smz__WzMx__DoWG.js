@@ -1650,7 +1650,8 @@ DoWG.BriYa = async function( Yz_l )
 DoWG.BriYo = function( Sa_l )
 {
 	if( KoDz__YzTrx_y() ) return;
-	// SmaSme( "DoWG_BriYo: WG PAUSE" );
+	//SmaSme( "DoWG_BriYo: WG PAUSE" );
+
 	// Pause Compute Tasks?
 	// Reset Clocks?
 }

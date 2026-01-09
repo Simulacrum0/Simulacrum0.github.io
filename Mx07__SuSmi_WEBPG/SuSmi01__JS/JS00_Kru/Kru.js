@@ -1,5 +1,5 @@
-const BriDzSa__Da_vsg = "PUB_v0.142"; 
- const BriDzSa__Da_wuk = "142"; 
+const BriDzSa__Da_vsg = "PUB_v0.143"; 
+ const BriDzSa__Da_wuk = "143"; 
  const BriDz__Mx_KuTu_vsg = "https://powerourpeople.com/"; 
 
 //==============================================
@@ -643,8 +643,8 @@ async function Hre1_Dru__ChyKeDru( KeKuMi_vbg )
 
 	//&&&
 	// ALWAYS RUN
-	//Ko.KoDzYo_GrxHo_y = true;
-	Ko.KoDzYo_GrxHo_y = false;
+	Ko.KoDzYo_GrxHo_y = true;
+	//Ko.KoDzYo_GrxHo_y = false;
 }
 
 //-------------------------------------------------
@@ -998,7 +998,7 @@ function Tra_KeMeBri()
 	Ko.HriNe_TaNe__MxPeHoVu_q = document.getElementById( 'HriNe_TaNe__MxPeHoVu' ).value;
 	Ko.HriNe_TaNe__MxPeVu_sa = document.getElementById( 'HriNe_TaNe__MxPeVu' ).value;
 
-	SmaSme( "[LAUNCH] User:", Ko.TaKeDy_vsg, " NeverPause:", Ko.KoDzYo_GrxHo_y );
+	SmaSme( "[LAUNCH] User:", Ko.TaKeDy_vsg, " NEVER_PAUSE:", Ko.KoDzYo_GrxHo_y );
 
 
 	//@@@

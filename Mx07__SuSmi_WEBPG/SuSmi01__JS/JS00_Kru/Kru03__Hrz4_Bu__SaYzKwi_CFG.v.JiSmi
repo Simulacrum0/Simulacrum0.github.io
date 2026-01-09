@@ -159,8 +159,8 @@ async function Hre1_Dru__ChyKeDru( KeKuMi_vbg )
 
 	//&&&
 	// ALWAYS RUN
-	//Ko.KoDzYo_GrxHo_y = true;
-	Ko.KoDzYo_GrxHo_y = false;
+	Ko.KoDzYo_GrxHo_y = true;
+	//Ko.KoDzYo_GrxHo_y = false;
 }
 
 //-------------------------------------------------

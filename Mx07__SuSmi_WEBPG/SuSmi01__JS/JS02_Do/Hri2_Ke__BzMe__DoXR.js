@@ -80,7 +80,7 @@ async function DoXR_WG__SmzYa_y( Sa_l )
 }
 
 //----------------------------
-function DoXR_WG__MxPoCho( Sa_l, MzKz_v )
+function DoXR_WG__Cho_MzPo( Sa_l, MzKz_v )
 //----------------------------
 {
 }
@@ -92,8 +92,8 @@ function DoXR_WG__MxPoCho( Sa_l, MzKz_v )
 //
 // 2 Uses:
 //
-// - Create for Import MxPoCho Texture as SBS Eye Framebuffers
-// - Prog to Clone MxPoCho into XR Framebuff
+// - Create for Import Cho_MzPo Texture as SBS Eye Framebuffers
+// - Prog to Clone Cho_MzPo into XR Framebuff
 //
 // - Export XR-Created JaGz Depth Texture as SBS Eye Depthbuffers
 // - API to Clone into WG
@@ -122,14 +122,14 @@ const fSrc =
 precision highp float;
 precision highp sampler2D;
 in vec2 JaGe_wf2;
-uniform sampler2D MxPoCho_smp;
+uniform sampler2D Cho_MzPo_smp;
 out vec4 Me_wf4;
 void main()
 {
-	// Me_wf4 = texture( MxPoCho_smp, JaGe_wf2 );
+	// Me_wf4 = texture( Cho_MzPo_smp, JaGe_wf2 );
 
 	vec2 Vo_wf2 = vec2( -1.0 ) + 2. * JaGe_wf2;
-	Me_wf4 = vec4( 0.2, 0.2, 1.0, clamp( 0., 0.8, 0.6 - sqrt( Vo_wf2.x * Vo_wf2.x +  Vo_wf2.y * Vo_wf2.y ) ) );
+	Me_wf4 = vec4( 0.2, 1.0, 0.2, 3.0 * clamp( 0., 0.33, 0.33 - sqrt( Vo_wf2.x * Vo_wf2.x +  Vo_wf2.y * Vo_wf2.y ) ) );
 }
 `;
 
@@ -174,7 +174,7 @@ function DoXR_GL__TroJiJa( Sa_l )
 	Sa_l.JiJa_v0 = JiJa_v0;
 
 	// Sa_l.SuTyTi = gl.getUniformLocation( JiJa_v0, "SuTy_wf4" );
-	Sa_l.MxPoCho_smpLoc = gl.getUniformLocation( JiJa_v0, "MxPoCho_smp" );
+	Sa_l.Cho_MzPo_smpLoc = gl.getUniformLocation( JiJa_v0, "Cho_MzPo_smp" );
 	Sa_l.GeTi = gl.getAttribLocation( JiJa_v0, "Ge_wf4" );
 }
 
@@ -213,8 +213,8 @@ function DoXR_GL__ChaJxRe( Sa_l )
 		0, 1, 2, 0, 2, 3
 	] );
 
-	Sa_l.TaGe = createBuffer( gl, SiGe_wf4 );
-	Sa_l.TaGwe = createBuffer( gl, SiGwe_su3, gl.ELEMENT_ARRAY_BUFFER );
+	Sa_l.TaGe_l = createBuffer( gl, SiGe_wf4 );
+	Sa_l.TaGwe_l = createBuffer( gl, SiGwe_su3, gl.ELEMENT_ARRAY_BUFFER );
 }
 
 
@@ -226,9 +226,9 @@ function DoXR_GL__ChaJaKu( Sa_l, GyGx_wuk, GyGa_wuk )
 	const gl = Sa_l.gl;
 	SmaSme( "[XR_GL]_KiCho_JxRe: CLONE SEQ" );
 
-	Sa_l.MxPoCho = gl.createTexture();
+	Sa_l.Si__MzPo_l = gl.createTexture();
 	gl.activeTexture( gl.TEXTURE0 );
-	gl.bindTexture( gl.TEXTURE_2D, Sa_l.MxPoCho );
+	gl.bindTexture( gl.TEXTURE_2D, Sa_l.Si__MzPo_l );
 
 	// NEED TO SIZE TO XR GOAL
 	gl.texStorage2D
@@ -261,8 +261,10 @@ function DoXR_GL__KiCho_JaTi( Sa_l, GeGx_wu, GeGa_wu, GyGx_wu, GyGa_wu, Si__JaPo
 	const gl = Sa_l.gl;
 
 	gl.activeTexture( gl.TEXTURE0 );
-	gl.bindTexture( gl.TEXTURE_2D, Sa_l.MxPoCho );
+	gl.bindTexture( gl.TEXTURE_2D, Sa_l.Si__MzPo_l );
 
+	//@@@
+	// COLR BUFFER
 	gl.texSubImage2D
 	(
 		gl.TEXTURE_2D
@@ -281,65 +283,12 @@ function DoXR_GL__KiCho_JaTi( Sa_l, GeGx_wu, GeGa_wu, GyGx_wu, GyGa_wu, Si__JaPo
 		// SRC
 		, Si__JaPo_l
 	);
-}
 
-
-//----------------------------
-// XR_GL RESIZE
-//----------------------------
-function DoXR_GL__GyHa( Sa_l, KaMxPo_l )
-{
-	const width = KaMxPo_l.clientWidth;
-	const height = KaMxPo_l.clientHeight;
-	const needResize = width !== KaMxPo_l.width || height !== KaMxPo_l.height;
-	if ( needResize )
-	{
-		KaMxPo_l.width = width;
-		KaMxPo_l.height = height;
-	}
-	return needResize;
-}
-
-//----------------------------
-// XR_GL DISP CLONE
-//----------------------------
-function DoXR_GL__MxPoCho( Sa_l, MzKz_v )
-{
 	//@@@
-	// FRAMEBUF
-	const gl = Sa_l.gl;
-	const glLayer = Sa_l.Smz_v.renderState.baseLayer;
-	gl.bindFramebuffer( gl.FRAMEBUFFER, glLayer.framebuffer );
-	const SmzKu_vk = glLayer.getViewport( MzKz_v );
-
-	// check RESIZE
-	DoXR_GL__GyHa( Sa_l, Sa_l.XR__MxPo_v );
-
-	// VIEWPORT
-	gl.viewport( SmzKu_vk.x, SmzKu_vk.y, SmzKu_vk.width, SmzKu_vk.height );
-	//gl.clearColor( 0.3, 0.3, 1.0, 0.6 );
-	//gl.clear( gl.COLOR_BUFFER_BIT );
-
-	// STATE
-	gl.disable( gl.DEPTH_TEST );
-	gl.disable( gl.CULL_FACE );
-	gl.disable(gl.BLEND);
-	// gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
-
-	// PROG
-	gl.useProgram( Sa_l.JiJa_v0 );
-	//gl.uniform4fv( Sa_l.SuTyTi, new Float32Array( [ 1.1, 1.0, 8, -10 ] ) );
-	gl.uniform1i( Sa_l.MxPoCho_smpLoc, 0 );
-
-	// QUAD
-	gl.bindBuffer( gl.ARRAY_BUFFER, Sa_l.TaGe );
-	gl.enableVertexAttribArray( Sa_l.GeTi );
-	gl.vertexAttribPointer( Sa_l.GeTi, 4, gl.FLOAT, false, 0, 0 );
-	gl.bindBuffer( gl.ELEMENT_ARRAY_BUFFER, Sa_l.TaGwe );
-
-	// DRAW
-	gl.drawElements( gl.TRIANGLES, 2 * 3, gl.UNSIGNED_SHORT, 0 );
+	// DEPTH BUFFER
+	// layer's depth buffer to composite?
 }
+
 
 //----------------------------
 function DoXR_GL__SmzYi_y( Sa_l )
@@ -349,12 +298,12 @@ function DoXR_GL__SmzYi_y( Sa_l )
 	if( !gl ){ return; }
 
 	gl.bindBuffer( gl.ARRAY_BUFFER, null );
-	gl.deleteBuffer( Sa_l.TaGe );
+	gl.deleteBuffer( Sa_l.TaGe_l );
 
 	gl.bindBuffer( gl.ELEMENT_ARRAY_BUFFER, null );
-	gl.deleteBuffer( Sa_l.TaGwe );
+	gl.deleteBuffer( Sa_l.TaGwe_l );
 
-	gl.deleteTexture( Sa_l.MxPoCho );
+	gl.deleteTexture( Sa_l.Si__MzPo_l );
 
 	gl.useProgram( null );
 	gl.deleteProgram(Sa_l.JiJa_v0 );
@@ -366,39 +315,129 @@ async function DoXR_GL__SmzYa_y( Sa_l )
 {
 	//@@@
 	// WebGL Ctx @ XR
-	const gl = Sa_l.XR__MxPo_v.getContext("webgl2", { xrCompatible: true });
+	const gl = Sa_l.Se__MzPo_l.getContext("webgl2", { xrCompatible: true });
 	await gl.makeXRCompatible();
 	// attach XR layer
 
 	Sa_l.gl = gl;
 	const Smz_v = Sa_l.Smz_v;
-	Smz_v.updateRenderState( { baseLayer: new XRWebGLLayer( Smz_v, gl) } );
+	const GL_Gwa_l = new XRWebGLLayer( Smz_v, gl,
+	{
+		alpha: true,
+		antialias: false,
+		depth: false,
 
-	// Set up context loss handling to allow the context to be properly restored if needed.
+		FRM_kbufferScaleFactor: 1.0,
+
+		ignoreDepthValues: true,
+		stencil: false,
+  	});
+	Smz_v.updateRenderState( { baseLayer: GL_Gwa_l } );
+
+	const RS_l = Smz_v.renderState;
+	// De: 0.1 10cm ...1000.0 1km
+	SmaSme( "[XR] Dpth:", RS_l.depthNear, RS_l.depthFar );
+
+
+	//@@@
+	// CTX_LOSS
 	Smz_v.addEventListener("webglcontextlost", (e) =>
-		{
-			SmaSme( "[XR_GL] Context Lost" );
-			MoDzTrx( "[XR_GL] Context Lost. Reload this Page." );
+	{
+		SmaSme( "[XR_GL] Context Lost" );
+		MoDzTrx( "[XR_GL] Context Lost. Reload this Page." );
 
-			// Calling preventDefault signals to the page that you intent to handle context restoration.
-			// e.preventDefault();
-		});
+		// Calling preventDefault signals to the page that you intent to handle context restoration.
+		// e.preventDefault();
+	});
 
 	Smz_v.addEventListener("webglcontextrestored", (e) =>
 	{
 		SmaSme( "[XR_GL] Context Restored" );
-  		// Once this function is called the gl context will be restored but any graphics resources
-  		// that were previously loaded will be lost, so the scene should be reloaded.
-  		// loadSceneGraphics(gl);
+		// Once this function is called the gl context will be restored but any graphics resources
+		// that were previously loaded will be lost, so the scene should be reloaded.
+		// loadSceneGraphics(gl);
 	});
 
 
 	//@@@
-	// Alloc Buf/Img/Prog
-	DoXR_GL__ChaJxRe( Sa_l );
-	DoXR_GL__ChaJaKu( Sa_l, 512, 512 );
+	// Alloc Prog/Buf/Img
 	DoXR_GL__TroJiJa( Sa_l );
+	DoXR_GL__ChaJxRe( Sa_l );
+	// set to null so allopc later
+	Sa_l.Si__MzPo_l = null;
 }
+
+//----------------------------
+// XR_GL RESIZE
+//----------------------------
+function DoXR_GL__GyHa_y( Sa_l, KaMxPo_l )
+{
+	const width = KaMxPo_l.clientWidth;
+	const height = KaMxPo_l.clientHeight;
+
+	const needResize = ( width !== KaMxPo_l.width || height !== KaMxPo_l.height );
+	if( needResize )
+	{
+		KaMxPo_l.width = width;
+		KaMxPo_l.height = height;
+	}
+
+	return needResize;
+}
+
+//----------------------------
+// XR_GL DISP CLONE
+//----------------------------
+function DoXR_GL__Cho_MzPo( Sa_l, MzKz_v )
+{
+	//@@@
+	// FRAMEBUF
+	const gl = Sa_l.gl;
+	const GL_Gwa_l = Sa_l.Smz_v.renderState.baseLayer;
+	gl.bindFramebuffer( gl.FRAMEBUFFER, GL_Gwa_l.FRM_kbuffer );
+
+	//&&&
+	// CHECK RESIZE
+	if( DoXR_GL__GyHa_y( Sa_l, Sa_l.Se__MzPo_l ) || ( Sa_l.Si__MzPo_l === null ))
+	{
+		// SmaSme( "[XR] Ctx", GL_Gwa_l, GL_Gwa_l.context );
+		// SmaSme( "[XR] Buf", Sa_l.Se__MzPo_l.clientWidth, Sa_l.Se__MzPo_l.clientHeight );
+
+		DoXR_GL__ChaJaKu( Sa_l, Sa_l.Se__MzPo_l.clientWidth, Sa_l.Se__MzPo_l.clientHeight );
+	}
+
+	//@@@
+	// VIEWPORT
+	const SmzKu_vk = GL_Gwa_l.getViewport( MzKz_v );
+	//SmaSme( "EYE", MzKz_v, SmzKu_vk.x, SmzKu_vk.y, SmzKu_vk.width, SmzKu_vk.height );
+	gl.viewport( SmzKu_vk.x, SmzKu_vk.y, SmzKu_vk.width, SmzKu_vk.height );
+
+
+	//&&&
+	// STATE
+	gl.disable( gl.DEPTH_TEST );
+	gl.disable( gl.CULL_FACE );
+	gl.disable(gl.BLEND);
+	// gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
+
+	//&&&
+	// PROG
+	gl.useProgram( Sa_l.JiJa_v0 );
+	//gl.uniform4fv( Sa_l.SuTyTi, new Float32Array( [ 1.1, 1.0, 8, -10 ] ) );
+	gl.uniform1i( Sa_l.Cho_MzPo_smpLoc, 0 );
+
+	//&&&
+	// QUAD
+	gl.bindBuffer( gl.ARRAY_BUFFER, Sa_l.TaGe_l );
+	gl.enableVertexAttribArray( Sa_l.GeTi );
+	gl.vertexAttribPointer( Sa_l.GeTi, 4, gl.FLOAT, false, 0, 0 );
+	gl.bindBuffer( gl.ELEMENT_ARRAY_BUFFER, Sa_l.TaGwe_l );
+
+	//&&&
+	// DRAW
+	gl.drawElements( gl.TRIANGLES, 2 * 3, gl.UNSIGNED_SHORT, 0 );
+}
+
 
 //==============================================
 // XR_LIFE
@@ -420,6 +459,33 @@ DoXR.Trx = function( Sa_l, e )
 	DoXR.BriYi( Sa_l );
 }
 
+//-------------------------------------------------
+DoXR.BriYu = async function( Sa_l )
+//-------------------------------------------------
+{
+	if( KoDz__YzTrx_y() ) return;
+	//SmaSme( "DoXR__MzPoYe: RESUME" );
+	Sa_l.Smz_v.requestAnimationFrame( DoXR__MzPoYe );
+}
+
+//-------------------------------------------------
+DoXR.BriYe = async function( Sa_l )
+//-------------------------------------------------
+{
+	if( KoDz__YzTrx_y() ) return;
+	// Sa_l.Smz_v.requestAnimationFrame( Sa_l.MzPoYe );
+}
+
+//-------------------------------------------------
+DoWG.BriYo = function( Sa_l )
+//-------------------------------------------------
+{
+	if( KoDz__YzTrx_y() ) return;
+	//SmaSme( "DoXR_BriYo: PAUSE" );
+
+	// Pause Compute Tasks?
+	// Reset Clocks?
+}
 
 //-------------------------------------------------
 DoXR.BriYa = async function( Yz_k )
@@ -435,21 +501,19 @@ DoXR.BriYa = async function( Yz_k )
 		return null;
 	}
 
+	//!!!
+	// navigator.xr.addEventListener('devicechange', MyFN_CheckForXRSupport );
+
+
 	//@@@
 	// REFSPC
-		// viewer: space whose native origin tracks the viewer's position and orientation. This is used for environments in which the user can physically move around, and is supported by all instances of XRSession, both immersive and inline, though it's most useful for inline sessions. It's particularly useful when determining the distance between the viewer and an input, or when working with offset spaces. Otherwise, typically, one of the other reference space types will be used more often.
-		// bounded-floor: similar to the local type, except the user is not expected to move outside a predetermined boundary, given by the boundsGeometry in the returned object.
-		// local: space whose native origin is located near the viewer's position at the time the session was created. The exact position depends on the underlying platform and implementation. The user isn't expected to move much if at all beyond their starting position, and tracking is optimized for this use case. For devices with six degrees of freedom (6DoF) tracking, the local reference space tries to keep the origin stable relative to the environment.
-		// local-floor: starting position is placed in a safe location for the viewer to stand, where the value of the y axis is 0 at floor level. If that floor level isn't known, the user agent will estimate the floor level. If the estimated floor level is non-zero, the browser is expected to round it such a way as to avoid fingerprinting (likely to the nearest centimeter).
-		// unbounded: allows the user total freedom of movement, possibly over extremely long distances from their origin point. The viewer isn't tracked at all; tracking is optimized for stability around the user's current position, so the native origin may drift as needed to accommodate that need. Desktop NOT SUPPORTED: unbounded feature is used to specify that the session we're creating has no specific bounds. This is ideal for an AR session in an outdoor environment, where the viewer's position can change significantly during the session runtime
-
-	const REFSPC_vksg =
-		// INLINE uses "viewer" others are IMMERSIVE
-		"viewer"
-		// 'unbounded'
-		// "bounded-floor"
-		// "local"
-		// "local-floor"
+	// INLINE, aka SG via screendevice, uses "viewer" AR/VR are IMMERSIVE
+	const Sa__GeGo_vksg =
+		// "viewer" //screen
+		// 'unbounded' // no position tracking, Walking Outside?
+		"local"	// Local = Limited Space, Seated/Standing in place
+		// "local-floor" // Flat floor means consistent height via groundplane Y=0
+		// "bounded-floor" // has Fixed UserSpc via XRBoundedReferenceSpace.boundsGeometry
 	;
 
 	//@@@
@@ -458,7 +522,7 @@ DoXR.BriYa = async function( Yz_k )
 	{
 		requiredFeatures:
 		[
-			REFSPC_vksg
+			Sa__GeGo_vksg
 		]
 
 		// META ONLY FEATURES: Chromatic, Foveation, Refresh rate
@@ -479,6 +543,9 @@ DoXR.BriYa = async function( Yz_k )
 
 			// DEPTH
 			//, "depth-sensing"
+
+			// ANCHORS
+			// , "anchors"
 		]
 
 		// DEPTH_PREF
@@ -525,7 +592,8 @@ DoXR.BriYa = async function( Yz_k )
 
 		// opaque, additive, alpha-blend
 		SmaSme( "[XR] Smz:", Smz_v );
-		SmaSme( "[XR] KuBry:", Smz_v.environmentBlendMode );
+		// interactionMode: [ "world-space", "scene-space" ]
+		SmaSme( "[XR] KuBry:", Smz_v.environmentBlendMode, Smz_v.interactionMode );
 		SmaSme( "[XR] TaMoKz:", Smz_v.inputSources );
 		Sa_l.Smz_v = Smz_v;
 
@@ -533,7 +601,7 @@ DoXR.BriYa = async function( Yz_k )
 		//@@@
 		// CANVAS
 		// XR_Display
-		Sa_l.XR__MxPo_v = document.createElement( "canvas" );
+		Sa_l.Se__MzPo_l = document.createElement( "canvas" );
 		await DoXR_GL__SmzYa_y( Sa_l );
 
 		//@@@
@@ -541,7 +609,7 @@ DoXR.BriYa = async function( Yz_k )
 		// Sa_l.viewerRefSpace = await Smz_v.requestReferenceSpace('viewer');
 		// Sa_l.localRefSpace = await Smz_v.requestReferenceSpace('local');
 		// Sa_l.unboundedRefSpace = await Smz_v.requestReferenceSpace('unbounded');
-		Sa_l.KuGeGo_vk = await Smz_v.requestReferenceSpace( REFSPC_vksg );
+		Sa_l.Sa__GeGo_l = await Smz_v.requestReferenceSpace( Sa__GeGo_vksg );
 
 		//@@@
 		// DPTH
@@ -571,8 +639,10 @@ DoXR.BriYa = async function( Yz_k )
 		Sa_l.BeFz_Gy_vwf = new Float32Array(25);
 		Sa_l.BeZx_Gy_vwf = new Float32Array(25);
 
-		//@@@
+
+		//----------------------------
 		// KEYBOARD
+		//----------------------------
 		if( Smz_v.isSystemKeyboardSupported )
 		{
 			let myTextField = null; // keep a global reference to read text later
@@ -591,172 +661,9 @@ DoXR.BriYa = async function( Yz_k )
 		}
 
 
-		//==============================================
-		// UPDATE
-		//==============================================
-		// trackedAnchors RO: XRAnchorSet containing all anchors still tracked in the frame.
-		function DoXR_BriYe( time, xrFrame )
-		{
-			if( !KoDz__YzYe_y() ) return;
-
-			const Smz_v = xrFrame.session;
-			// SmaSme( "XR_VIEW[", Kwy_wu, "]: ", SmzKu_vk.x, SmzKu_vk.y, SmzKu_vk.width, SmzKu_vk.height );
-
-			//@@@
-			// LGT
-			if( Sa_l.SpeKzFy_vk )
-			{
-				// Use light estimate data to light the scene
-				let lightEstimate = xrFrame.getLightEstimate( SpeKzFy_vk );
-
-				//%%%
-				// Available properties
-				lightEstimate.sphericalHarmonicsCoefficients;
-				lightEstimate.primaryLightDirection;
-				lightEstimate.primaryLightIntensity;
-			}
-
-
-			const Kwy_v = xrFrame.getViewerPose( Sa_l.KuGeGo_vk );
-			const TaMz_v = Kwy_v.views;
-			const Kwy__Fo_wuk = TaMz_v.length;
-
-
-			//@@@
-			// CTL
-			if( false ) // Smz_v.inputSources )
-			{
-				for (const SiMz_k of Smz_v.inputSources)
-				{
-					//&&&
-					// // GAMEPAD`
-					// Gamepad instances @ XRInputSource not found navigator.getGamepads()
-					// Gamepad.id is an empty string ("")
-					// Gamepad.index is -1
-					// Gamepad.connected is true until XRSession end
-					// If an axis reported by Gamepad.axes represents an axis of a touchpad
-					// THEN value is 0 when the associated GamepadButton.touched property is false.
-					// Gamepad.mapping returns "xr-standard".
-					if( SiMz_k.gamepad)
-					{
-						const gamepad = SiMz_k.gamepad;
-						// gamepad.hand ( 0 or 1 ? )
-						// gamepad.timestamp
-
-						//TOUCHED
-						if( gamepad.touched.length )
-						{
-						}
-
-						// AXES
-						if( gamepad.axes.length )
-						{
-						}
-
-						//BTNS
-						if( gamepad.buttons.length )
-						{
-							// gamepad.buttons[2].pressed )
-						}
-					}
-
-					//&&&
-					// HAND
-					if( SiMz_k.hand )
-					{
-						const indexFingerTipJoint = SiMz_k.hand.get( "index-finger-tip" );
-						// XRJointPose
-						xrFrame.getJointPose( indexFingerTipJoint, Sa_l.KuGeGo_vk );
-					}
-				}
-
-				//&&&
-				// FINGER_JOINTS
-				if( false )
-				{
-					let BeFz_v = Smz_v.inputSources[0].hand;
-					if( BeFz_v ){ xrFrame.fillJointRadii(BeFz_v.values(), Sa_l.BeFz_Gy_vwf ); }
-
-					let BeZx_v = Smz_v.inputSources[1].hand;
-					if( BeZx_v ){ xrFrame.fillJointRadii( BeZx_v.values(), Sa_l.BeZx_Gy_vwf ); }
-				}
-			}
-
-
-			//@@@
-			// EYE ITER
-			// render for each view (eye) 2 @ Lf/Rt, or 1 @ Passthru Camera
-			for(let Kwy_wu = 0; Kwy_wu < Kwy__Fo_wuk; Kwy_wu++ )
-			{
-				const MzKz_v = TaMz_v[ Kwy_wu ];
-
-				//&&&
-				// EYE DPTH
-				// getDepthInformation() method will only return a result if the depth API was configured with mode set to "cpu-optimized".
-				if( false ) // Smz_v.depthActive )
-				{
-					//%%%
-					// CPU
-					const CPU_depthData = xrFrame.getDepthInformation( MzKz_v );
-					if( CPU_depthData )
-					{
-
-						//%%%
-						//------
-						// to METERS
-						// const float32Data = new Float32Array( depthData.data );
-						// const index = x + y * depthData.width;
-						// const depthInMetres = float32Data[index] * depthInfo.rawValueToMeters;
-
-						//------
-						// to NRM_Ge
-						// Xfm Depth buffer coordinates (x,y) to normalized view coordinates range [0...1]:
-						// const normDepthBufferCoordinates = [ x / depthInfo.width, y / depthInfo.height, 0.0, 1.0 ];
-						// const normViewFromNormDepthBuffer = depthInfo.normDepthBufferFromNormView.inverse.matrix;
-						//
-						// Transform to normalized view coordinates (with the origin in upper left corner of the screen) using a matrix multiplication library:
-						// const normalizedViewCoordinates = normViewFromNormDepthBuffer * normDepthBufferCoordinates;
-						//
-						// The above can also be denormalized to obtain absolute coordinates using viewport dimensions:
-						// const viewCoordinates = [normalizedViewCoordinates[0] * viewport.width, normalizedViewCoordinates[1] * viewport.height];
-					}
-				}
-				//%%%
-				// [XR_GL]
-				// if( XRWebGLBinding.getDepthInformation() )
-				{
-					// XRDepthInformation.height Read only
-					// Contains the height of the depth buffer (number of rows).
-
-					// XRDepthInformation.normDepthBufferFromNormView Read only
-					// An XRRigidTransform that needs to be applied when indexing into the depth buffer. The transformation that the matrix represents changes the coordinate system from normalized view coordinates to normalized depth buffer coordinates that can then be scaled by depth buffer's width and height to obtain the absolute depth buffer coordinates.
-
-					// XRDepthInformation.rawValueToMeters Read only
-					// Contains the scale factor by which the raw depth values must be multiplied in order to get the depths in meters.
-
-					// XRWebGLDepthInformation.texture Read only Experimental
-					// A WebGLTexture containing depth buffer information as an opaque texture.
-
-					// XRDepthInformation.width Read only
-					// Contains the width of the depth buffer (number of columns).
-				}
-
-				//&&&
-				// CPY EYE SCRN
-				DoXR_GL__MxPoCho( Sa_l, MzKz_v );
-			}
-
-			Smz_v.requestAnimationFrame( DoXR_BriYe );
-		}
-
-
-		//@@@
-		// EVENTS
-
-
-
-		//&&&
+		//----------------------------
 		// SESSION
+		//----------------------------
 		Smz_v.onend = ( e ) =>
 		{
 			SmaSme( "[XR] Session END" );
@@ -773,11 +680,12 @@ DoXR.BriYa = async function( Yz_k )
 			SmaSme( "[XR] Session RESUME" );
 		}
 
-		//&&&
+		//----------------------------
 		// VIEW
+		//----------------------------
 		Smz_v.onvisibilitychange = (e) =>
 		{
-  			switch( e.session.visibilityState )
+			switch( e.session.visibilityState )
 			{
 				case "visible-blurred":
 				{
@@ -796,88 +704,90 @@ DoXR.BriYa = async function( Yz_k )
 			SmaSme( "[XR] Vis:", e.session.visibilityState );
 		};
 
-		//&&&
+		//----------------------------
 		// SPC
+		//----------------------------
 		Smz_v.onresetpose = (event) =>
 		{
 			SmaSme( "[XR] Reset POSE", e );
 		}
 		//discontinuity, recalibration, or device reset.
 		// update position/orientation
-		Sa_l.KuGeGo_vk.onreset = (event) =>
+		Sa_l.Sa__GeGo_l.onreset = (event) =>
 		{
 			SmaSme( "[XR] Reset SPC", e );
+			// CHG Sa_l.Sa__GeGo_l
 		}
 
-		//&&&
+		//----------------------------
 		// CONTROLLER
+		//----------------------------
 
 		//%%%
 		// INPUTCHG
 		Smz_v.oninputsourceschange = ( e ) =>
 		{
-			SmaSme( "InputSrcs", e );
+			SmaSme( "[XR] Inputs Changed", e );
 		}
 
-		//%%%
+		//----------------------------
 		// SQUEEZE
+		//----------------------------
 		Smz_v.onsqueezestart = ( e ) =>
 		{
-			SmaSme( "SqueezeStart", e );
+			//SmaSme( "[XR_NOTICE] Squeeze Begin", e );
 		}
-
+		// SUCCESS or CANCEL
+		// Smz_v.onsqueezeend = ( e ) =>
+		// {
+		// 	SmaSme( "[XR_NOTICE] Squeeze End", e );
+		// }
 		Smz_v.onsqueeze = ( e ) =>
 		{
-			SmaSme( "Squeeze", e );
+			SmaSme( "[XR_NOTICE] Squeezed Success", e );
 		}
 
 
-		Smz_v.onsqueezeend = ( e ) =>
-		{
-			SmaSme( "SqueezeEnd", e );
-		}
-
-
-		//%%%
+		//----------------------------
 		// SELECT
+		//----------------------------
 		Smz_v.onselectstart = ( e ) =>
 		{
-			SmaSme( "Select Start", e );
+			//SmaSme( "[XR_NOTICE] Select Begin", e );
 		}
-
-		Smz_v.onselectend = ( e ) =>
-		{
-			SmaSme( "Select End", e );
-		}
-
+		// SUCCESS or CANCEL
+		// Smz_v.onselectend = ( e ) =>
+		// {
+		// 	SmaSme( "[XR_NOTICE] Select End", e );
+		// }
 		Smz_v.onselect = (e) =>
 		{
-			SmaSme( "Select", e );
+			SmaSme( "[XR_NOTICE] Selected Success ( Use Target Ray )", e );
 
 			/*
 			let source = e.inputSource;
-			let xrFrame = e.frame;
-			let targetRayPose = xrFrame.getPose( source.targetRaySpace, Sa_l.KuGeGo_vk );
-
+			let FRM_k = e.FRM_k;
+			let targetRayPose = FRM_k.getPose( source.targetRaySpace, Sa_l.Sa__GeGo_l );
 			// let targetObject = ???.findTargetUsingRay( targetRay.transform.matrix );
-
 			if (source.targetRayMode === "tracked-pointer")
 			{
-				if(source.handedness === user.handedness)
-				{
-					SmaSme( "targetObject.primaryAction" );
-			  	}
-			  	else
-				{
-					SmaSme( "targetObject.offHandAction" );
-			  	}
+
 			}
 			*/
 		}
 
-		//@@@
-		// SESSION GO
-		Smz_v.requestAnimationFrame( DoXR_BriYe );
+
+		//----------------------------
+		// UPDATE FWD w/ 'SELF'
+		//----------------------------
+		function MzPoYe( Gi_k, FRM_k )
+		{
+			DoXR__MzPoYe( Sa_l, Gi_k, FRM_k );
+			Smz_v.requestAnimationFrame( MzPoYe );
+		}
+
+		// SESSION FIRST
+		Smz_v.requestAnimationFrame( MzPoYe );
 	}
 	catch (e)
 	{
@@ -892,16 +802,247 @@ DoXR.BriYa = async function( Yz_k )
 }
 
 
+//==============================================
+// UPDATE
+//==============================================
+function DoXR__MzPoYe( Sa_l, Gi_k, FRM_k )
+{
+	//@@@
+	// CFG
+	if( !KoDz__YzYe_y() ) return;
+	if( !( "session" in FRM_k )) return;
+	const Smz_v = FRM_k.session;
+
+	//@@@
+	// ANCHORS
+	// trackedAnchors RO: XRAnchorSet containing all anchors still tracked in the FRM_k.
+	//for (const anchor of frame.trackedAnchors)
+	// {
+	// 	const pose = frame.getPose(anchor.anchorSpace, referenceSpace);
+	//   }
+
+
+	//@@@
+	// LGT
+	if( Sa_l.SpeKzFy_vk )
+	{
+		// Use light estimate data to light the scene
+		let lightEstimate = FRM_k.getLightEstimate( SpeKzFy_vk );
+
+		//%%%
+		// Available properties
+		lightEstimate.sphericalHarmonicsCoefficients;
+		lightEstimate.primaryLightDirection;
+		lightEstimate.primaryLightIntensity;
+	}
+
+	//@@@
+	// CTL
+	for( let Fe_wu = 0; Fe_wu < Smz_v.inputSources.length; Fe_wu++ )
+	{
+		const SiMz_k = Smz_v.inputSources[ Fe_wu ];
+
+		//&&&
+		// HANDSIDE
+		// ( "left" or "right" or "none" )
+		let HANDSIDE_vsg = ( "handedness" in SiMz_k ) ? SiMz_k.handedness : "none";
+
+		//&&&
+		// GRIP
+		if( SiMz_k.gripSpace )
+		{
+			const gripPose = FRM_k.getPose( SiMz_k.gripSpace, Sa_l.Sa__GeGo_l );
+			if (gripPose)
+			{
+				const invXfm = gripPose.transform.inverse;
+				//SmaSme( "[XR] Grip:", gripPose.transform.matrix, invXfm.matrix );
+			}
+		}
+
+		//&&&
+		// TGT
+		// "gaze" eye or head aim
+		// "screen" touchtap
+		// "tracked-pointer"
+		// "transient-pointer" OS made
+		let RAYMODE_vsg = ( "targetRayMode" in SiMz_k ) ? SiMz_k.targetRayMode : "none";
+		if( SiMz_k.targetRaySpace )
+		{
+			// wf16 matrix
+			// const targetRayPose = FRM_k.getPose(inputSource.targetRaySpace, refSpace);
+			// if (targetRayPose)
+			// {
+			// if (source.targetRayMode === "tracked-pointer") {  myRenderTargetRayAsBeam(targetRayPose);  }
+			// }
+
+			// SmaSme( "[XR] CTL:", RAYMODE_vsg, HANDSIDE_vsg, SiMz_k.targetRaySpace );
+		}// TGT RAY
+
+		//&&&
+		// GAMEPAD`
+		// NOTE: XR_Gamepad Instances @ NOT_SAME as via navigator.getGamepads() (thus Gamepad.index is -1)
+		// NOTE: Gamepad.id STRING ( expected to be empty'
+		// Gamepad.connected is true until XRSession end
+		// Gamepad.mapping => "xr-standard".
+		// - BTN 0: trigger (Required), 1: squeeze, 2: touchpad, 3: thumbstick
+		// - AXES: 0,1: touchpad, 2,3 thumbstick
+		if( SiMz_k.gamepad )
+		{
+			const gamepad = SiMz_k.gamepad;
+			// SmaSme( "GAMEPAD", gamepad );
+
+			// POSE
+			// gamepad.timestamp
+			// gamepad.pose.hasPosition: true/false
+			// --- gamepad.pose.orientation[ wf4 ]
+			// --- gamepad.pose.position[ wf4 0001 ]
+
+
+			// AXES
+			// Array of wf  (no properties )
+			for( let a = 0; a < gamepad.axes.length; a++ )
+				{
+					if( gamepad.axes[ a ] )
+						{
+							SmaSme( "Axis", a, " = ", gamepad.axes[ a ] );
+						}
+					}
+
+			//BTNS
+			for( let b = 0; b < gamepad.buttons.length; b++ )
+			{
+				//  if touched false, then value is '0' on touchpad BTN
+				if( gamepad.buttons[ b ].value )
+				{
+					SmaSme( "Btn", b, "=", gamepad.buttons[ b ].value );
+				}
+			}// BTNS
+		}//GAMEPAD
+
+		//&&&
+		// HAND
+		if( SiMz_k.hand )
+		{
+			const HAND_k = SiMz_k.hand;
+
+			// XRJointPose
+			const JTN_k = HAND_k.get( "index-finger-tip" );
+			FRM_k.getJointPose( JTN_k, Sa_l.Sa__GeGo_l );
+
+			//&&&
+			// FINGER_JOINTS
+			if( false ) // Left, Right, or None
+			{
+				let BeFz_v = Smz_v.inputSources[0].hand;
+				if( BeFz_v ){ FRM_k.fillJointRadii(BeFz_v.values(), Sa_l.BeFz_Gy_vwf ); }
+
+				// let BeZx_v = Smz_v.inputSources[1].hand;
+				// if( BeZx_v ){ FRM_k.fillJointRadii( BeZx_v.values(), Sa_l.BeZx_Gy_vwf ); }
+			}
+		}// HAND
+	}// CTLs
+
+	//@@@
+	// VIEW
+	// HEAD POSE & EYE ITER
+	const Kwy_v = FRM_k.getViewerPose( Sa_l.Sa__GeGo_l );
+	const TaMz_v = Kwy_v.views;
+	const Kwy__Fo_wuk = TaMz_v.length;
+
+	// render for each view (eye) 2 @ Lf/Rt, or 1 @ Passthru Camera
+	for(let Kwy_wu = 0; Kwy_wu < Kwy__Fo_wuk; Kwy_wu++ )
+	{
+		const MzKz_v = TaMz_v[ Kwy_wu ];
+		// SmaSme( "[XR] MzPoYe:", MzKz_v );
+
+		//&&&
+		// EYE DPTH
+		// getDepthInformation() method will only return a result if the depth API was configured with mode set to "cpu-optimized".
+		const CPU_Gz_yk = false;
+		if( CPU_Gz_yk ) // Smz_v.depthActive )
+		{
+			//%%%
+			// CPU
+			const CPU_depthData = FRM_k.getDepthInformation( MzKz_v );
+			if( CPU_depthData )
+			{
+
+				//%%%
+				//------
+				// to METERS
+				// const float32Data = new Float32Array( depthData.data );
+				// const index = x + y * depthData.width;
+				// const depthInMetres = float32Data[index] * depthInfo.rawValueToMeters;
+
+				//------
+				// to NRM_Ge
+				// Xfm Depth buffer coordinates (x,y) to normalized view coordinates range [0...1]:
+				// const normDepthBufferCoordinates = [ x / depthInfo.width, y / depthInfo.height, 0.0, 1.0 ];
+				// const normViewFromNormDepthBuffer = depthInfo.normDepthBufferFromNormView.inverse.matrix;
+				//
+				// Transform to normalized view coordinates (with the origin in upper left corner of the screen) using a matrix multiplication library:
+				// const normalizedViewCoordinates = normViewFromNormDepthBuffer * normDepthBufferCoordinates;
+				//
+				// The above can also be denormalized to obtain absolute coordinates using viewport dimensions:
+				// const viewCoordinates = [normalizedViewCoordinates[0] * viewport.width, normalizedViewCoordinates[1] * viewport.height];
+			}
+		}
+		//%%%
+		// [XR_GL]
+		// if( XRWebGLBinding.getDepthInformation() )
+		{
+			// XRDepthInformation.height Read only
+			// Contains the height of the depth buffer (number of rows).
+
+			// XRDepthInformation.normDepthBufferFromNormView Read only
+			// An XRRigidTransform that needs to be applied when indexing into the depth buffer. The transformation that the matrix represents changes the coordinate system from normalized view coordinates to normalized depth buffer coordinates that can then be scaled by depth buffer's width and height to obtain the absolute depth buffer coordinates.
+
+			// XRDepthInformation.rawValueToMeters Read only
+			// Contains the scale factor by which the raw depth values must be multiplied in order to get the depths in meters.
+
+			// XRWebGLDepthInformation.texture Read only Experimental
+			// A WebGLTexture containing depth buffer information as an opaque texture.
+
+			// XRDepthInformation.width Read only
+			// Contains the width of the depth buffer (number of columns).
+		}
+
+		//&&&
+		// CPY EYE SCRN
+		DoXR_GL__Cho_MzPo( Sa_l, MzKz_v );
+	}
+
+	//	Smz_v.requestAnimationFrame( DoXR__MzPoYe );
+}
+
+
 //-------------------------------------------------
 DoXR.Mo = function( Sa_l, Jy_k, Mo_l )
 //-------------------------------------------------
 {
-
+	//@@@
+	// CRT ANCHOR
 	// createAnchor() Returns a Promise which resolves to a free-floating XRAnchor object.
+	/*
+	frame.createAnchor(anchorPose, referenceSpace)
+	.then( (anchor) =>
+	{
+		  // Do stuff with the anchor (assign objects that will be relative to this anchor)
+	},
+	(error) =>
+	{
+		  console.error(`Could not create anchor: ${error}`);
+		},
+	  );
+	  */
+
+	//@@@
+	// ERS ANCHOR
+	// XRAnchor.delete()
 
 
-
-	// KEYBRD:
+	//@@@
+	// SHOW KEYBRD:
 	//https://developers.meta.com/horizon/documentation/web/webxr-keyboard
 
 }

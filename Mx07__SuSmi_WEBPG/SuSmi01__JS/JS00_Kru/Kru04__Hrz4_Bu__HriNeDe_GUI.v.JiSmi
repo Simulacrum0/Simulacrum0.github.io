@@ -197,7 +197,7 @@ function Tra_KeMeBri()
 	Ko.HriNe_TaNe__MxPeHoVu_q = document.getElementById( 'HriNe_TaNe__MxPeHoVu' ).value;
 	Ko.HriNe_TaNe__MxPeVu_sa = document.getElementById( 'HriNe_TaNe__MxPeVu' ).value;
 
-	SmaSme( "[LAUNCH] User:", Ko.TaKeDy_vsg, " NeverPause:", Ko.KoDzYo_GrxHo_y );
+	SmaSme( "[LAUNCH] User:", Ko.TaKeDy_vsg, " NEVER_PAUSE:", Ko.KoDzYo_GrxHo_y );
 
 
 	//@@@
