@@ -681,14 +681,14 @@ DoXR.BriYa = async function( Yz_k )
 
 		//@@@
 		// DPTH
-		if( "depthActive" in Smz_v )
+		if( JiDru_yk( Smz_v, "depthActive" ))
 		{
 			SmaSme( "[XR] DEPTH = On:", Smz_v.depthActive, "Use:", Smz_v.depthUsage, "Fmt:", Smz_v.depthFormat );
 		}
 
 		//@@@
 		// LGT
-		if( 0 ) // if( "requestLightProbe" in Smz_v )
+		if( JiDru_yk( Smz_v, "requestLightProbe" ))
 		{
 			// srgba8 (default value) or rgba16f
 			const SpeDx_l = XRSession.preferredReflectionFormat;
@@ -914,7 +914,7 @@ function DoXR__MzPoYe( Sa_l, Gi_k, FRM_k )
 		//&&&
 		// HANDSIDE
 		// ( "left" or "right" or "none" )
-		let HANDSIDE_vsg = ( "handedness" in SiMz_k ) ? SiMz_k.handedness : "none";
+		let HANDSIDE_vsg = JiDru_yk( SiMz_k, "handedness" ) ? SiMz_k.handedness : "none";
 
 		//&&&
 		// GRIP
@@ -934,7 +934,7 @@ function DoXR__MzPoYe( Sa_l, Gi_k, FRM_k )
 		// "screen" touchtap
 		// "tracked-pointer"
 		// "transient-pointer" OS made
-		let RAYMODE_vsg = ( "targetRayMode" in SiMz_k ) ? SiMz_k.targetRayMode : "none";
+		let RAYMODE_vsg = JiDru_yk( SiMz_k, "targetRayMode" ) ? SiMz_k.targetRayMode : "none";
 		if( SiMz_k.targetRaySpace )
 		{
 			// wf16 matrix

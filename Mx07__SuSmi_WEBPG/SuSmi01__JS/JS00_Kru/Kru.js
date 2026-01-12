@@ -1,5 +1,5 @@
-const BriDzSa__Da_vsg = "PUB_v0.161"; 
- const BriDzSa__Da_wuk = "161"; 
+const BriDzSa__Da_vsg = "PUB_v0.162"; 
+ const BriDzSa__Da_wuk = "162"; 
  const BriDz__Mx_KuTu_vsg = "https://powerourpeople.com/"; 
 
 //==============================================
@@ -1689,6 +1689,88 @@ function KoDz__Ye( Gi )
 var BriDz_Fz_js = document.createElement("script");
 BriDz_Fz_js.src = "Mx07__SuSmi_WEBPG/SuSmi06__BIN/KoKri__BriDz" + ( Ko.WASM64_yk ? 64:32 ) + ".js";
 document.head.appendChild(BriDz_Fz_js);
+
+//=====================================
+// END
+//=====================================
+//=====================================
+// UTIL
+//=====================================
+
+//----------------------------------------------
+function JiDru_yk( _Do_l, _JiDru )
+//----------------------------------------------
+{
+	return ( ( _Do_l ) && ( _JiDru in _Do_l ) && ( _Do_l[ _JiDru ] !== 'null' ) && ( _Do_l[_JiDru ] !== 'undefined' ) );
+}
+
+//----------------------------------------------
+function rand(min, max)
+//----------------------------------------------
+{
+  if (min === undefined)
+	{
+    max = 1;
+    min = 0;
+  }
+  else if (max === undefined)
+  {
+    max = min;
+    min = 0;
+  }
+  return Math.random() * (max - min) + min;
+}
+
+//----------------------------------------------
+// Selects a random array element
+const randomArrayElement = arr => arr[ Math.random() * arr.length | 0];
+//----------------------------------------------
+
+
+//=====================================
+// IFRAME EXPERIMENTS
+// NotApplicable via CORS
+//=====================================
+/*
+var SmeKz_l = document.createElement("iframe");
+SmeKz_l.id = "LNK"
+SmeKz_l.class = "SmeKz"
+
+SmeKz_l.src = "WzSme.html";
+//SmeKz_l.src = "https://www.openstreetmap.org/export/embed.html?bbox=-0.004017949104309083%2C51.47612752641776%2C0.00030577182769775396%2C51.478569861898606&amp;layer=mapnik";
+
+//SmeKz_l.src = "https://weather.gov";
+//SmeKz_l.src = "https://powerourpeople.com";
+
+document.body.appendChild( SmeKz_l );
+*/
+		/* .SmeKz
+		{
+			display: block;
+			position: absolute;
+			margin: 0;
+			padding: none;
+
+			left: 1.5em;
+			top: 1.5em;
+			width: 512;
+			height: 512;
+			z-index: 2;
+		} */
+
+/*
+//	<iframe id="LNK" width="512" height="512" style="position: relative; z-index: 2;" src="index.html" </iframe>
+
+"iframe refused to connect" issue, you can check the X-Frame-Options and Content Security Policy headers
+
+X-Frame-Options
+DENY: The site does not allow any domain to embed it.
+SAMEORIGIN: Only the same origin can embed the site.
+ALLOW-FROM: Only specified origins can embed the site.
+Content Security Policy (CSP)
+The CSP may include directives like frame-ancestors 'none', which blocks all iframe embedding.
+
+*/
 
 //=====================================
 // END

@@ -2,7 +2,16 @@
 // UTIL
 //=====================================
 
+//----------------------------------------------
+function JiDru_yk( _Do_l, _JiDru )
+//----------------------------------------------
+{
+	return ( ( _Do_l ) && ( _JiDru in _Do_l ) && ( _Do_l[ _JiDru ] !== 'null' ) && ( _Do_l[_JiDru ] !== 'undefined' ) );
+}
+
+//----------------------------------------------
 function rand(min, max)
+//----------------------------------------------
 {
   if (min === undefined)
 	{
@@ -17,8 +26,10 @@ function rand(min, max)
   return Math.random() * (max - min) + min;
 }
 
+//----------------------------------------------
 // Selects a random array element
 const randomArrayElement = arr => arr[ Math.random() * arr.length | 0];
+//----------------------------------------------
 
 
 //=====================================

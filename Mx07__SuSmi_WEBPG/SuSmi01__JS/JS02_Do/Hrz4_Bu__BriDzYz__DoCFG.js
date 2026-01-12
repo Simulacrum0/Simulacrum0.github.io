@@ -208,7 +208,7 @@ if( keyboard.getLayoutMap() )
 
 //@@@
 // TOGGLE VIRTUAL KEYBOARD
-if ("virtualKeyboard" in navigator)
+if JiDru_yk( navigator, "virtualKeyboard" )
 {
 	const editor = document.getElementById("editor");
 	const editButton = document.getElementById("edit-button");
@@ -229,7 +229,7 @@ if ("virtualKeyboard" in navigator)
   }
 
   // GET BBOX
-  if ("virtualKeyboard" in navigator) {
+  if JiDru_yk( navigator, "virtualKeyboard" ) {
 	navigator.virtualKeyboard.overlaysContent = true;
 
 	navigator.virtualKeyboard.addEventListener("geometrychange", (event) => {
