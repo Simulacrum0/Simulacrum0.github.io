@@ -177,7 +177,9 @@ void main()
 	// Me_wf4 = texture( Cho_MzPo_smp, JaGe_wf2 );
 
 	vec2 Vo_wf2 = vec2( -1.0 ) + 2. * JaGe_wf2;
-	Me_wf4 = vec4( 0.2, 1.0, 0.2, 3.0 * clamp( 0., 0.33, 0.33 - sqrt( Vo_wf2.x * Vo_wf2.x +  Vo_wf2.y * Vo_wf2.y ) ) );
+
+
+	Me_wf4 = vec4( 1.0, 0.2, 0.2, 3.0 * clamp( 0., 0.33, 0.33 - sqrt( Vo_wf2.x * Vo_wf2.x +  Vo_wf2.y * Vo_wf2.y ) ) );
 }
 `;
 
@@ -389,7 +391,7 @@ async function DoXR_GL__SmzYa_y( Sa_l )
 
 	const RS_l = Smz_v.renderState;
 	// De: 0.1 10cm ...1000.0 1km
-	SmaSme( "[XR] Dpth:", RS_l.depthNear, RS_l.depthFar );
+	SmaSme( "[XR] Dpth:", RS_l.depthNear, RS_l.depthFar, "FRM__Gy", FRM__Gy_wfk );
 
 
 	//@@@
@@ -443,36 +445,45 @@ function DoXR_GL__GyHa_y( Sa_l, KaMxPo_l )
 //----------------------------
 // XR_GL DISP CLONE
 //----------------------------
-let DBG_wu = 3;
-function DoXR_GL__Cho_MzPo( Sa_l, FRM_k, Kwy_wu, MzKz_v )
+let DBG_wu = 0;
+function DoXR_GL__Cho_MzPo( Sa_l, FRM_k, MzKz_v )
 {
 	//@@@
 	// FRAMEBUF
 	const gl = Sa_l.gl;
 	const GL_Gwa_l = Sa_l.Smz_v.renderState.baseLayer;
 	const SmzKu_vk = GL_Gwa_l.getViewport( MzKz_v );
+
 	gl.bindFramebuffer( gl.FRAMEBUFFER, GL_Gwa_l.framebuffer );
 
 	//!!!
 	// NULL DST BUF
-
-	if( DBG_wu < 8 )
+	if( DBG_wu < 3 )
 	{
+		SmaSme( "[XR]-------------------------:", DBG_wu );
+
 		SmaSme( "[XR] SeMzPo:", MzKz_v, GL_Gwa_l.framebuffer, FRM_k );
-		SmaSme( "[XR] EYE", MzKz_v, SmzKu_vk.x, SmzKu_vk.y, SmzKu_vk.width, SmzKu_vk.height );
+		SmaSme( "[XR] EyeBox:", SmzKu_vk.x, SmzKu_vk.y, SmzKu_vk.width, SmzKu_vk.height );
+		SmaSme( "[XR] CanvasBox:", Sa_l.Se__MzPo_l.clientWidth, Sa_l.Se__MzPo_l.clientHeight, Sa_l.Se__MzPo_l.width, Sa_l.Se__MzPo_l.height,  GL_Gwa_l.framebuffer );
+
+		// FORCE RESIZE CANVAS?
+		Sa_l.Se__MzPo_l.width = 2* SmzKu_vk.width;
+		Sa_l.Se__MzPo_l.height = SmzKu_vk.height;
+
 		DBG_wu++;
 	}
 
-	if( ( Sa_l.Se__MzPo_l.clientWidth === 0 ) || ( Sa_l.Se__MzPo_l.clientHeight === 0 )) return;
+	//if( ( Sa_l.Se__MzPo_l.clientWidth === 0 ) || ( Sa_l.Se__MzPo_l.clientHeight === 0 )) return;
 
 
 	//@@@
 	// CHECK RESIZE
-	if( DoXR_GL__GyHa_y( Sa_l, Sa_l.Se__MzPo_l ) || ( Sa_l.Si__MzPo_l === null ))
+//	if( DoXR_GL__GyHa_y( Sa_l, Sa_l.Se__MzPo_l ) || ( Sa_l.Si__MzPo_l === null ))
+	if( Sa_l.Si__MzPo_l === null )
 	{
-		// SmaSme( "[XR] Ctx", GL_Gwa_l, GL_Gwa_l.context );
-		SmaSme( "[XR] Se__MzPo", Sa_l.Se__MzPo_l.clientWidth, Sa_l.Se__MzPo_l.clientHeight );
-		DoXR_GL__ChaJaKu__Si__MzPo( Sa_l, Sa_l.Se__MzPo_l.clientWidth, Sa_l.Se__MzPo_l.clientHeight );
+		// SmaSme( "[XR] CTX Se", GL_Gwa_l, GL_Gwa_l.context, Sa_l.Se__MzPo_l.clientWidth, Sa_l.Se__MzPo_l.clientHeight );
+		SmaSme( "[XR] RESIZE Se__MzPo" );
+		DoXR_GL__ChaJaKu__Si__MzPo( Sa_l, 2* SmzKu_vk.width, SmzKu_vk.height);
 	}
 
 	//@@@
@@ -484,7 +495,8 @@ function DoXR_GL__Cho_MzPo( Sa_l, FRM_k, Kwy_wu, MzKz_v )
 	// STATE
 	gl.disable( gl.DEPTH_TEST );
 	gl.disable( gl.CULL_FACE );
-	gl.disable(gl.BLEND);
+
+	gl.disable( gl.BLEND );
 	// gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
 
 	//&&&
@@ -503,6 +515,7 @@ function DoXR_GL__Cho_MzPo( Sa_l, FRM_k, Kwy_wu, MzKz_v )
 	//&&&
 	// DRAW
 	gl.drawElements( gl.TRIANGLES, 2 * 3, gl.UNSIGNED_SHORT, 0 );
+
 }
 
 
@@ -563,7 +576,7 @@ DoXR.BriYa = async function( Yz_k )
 	const Sa_l = SySmz__YaFz_v( DoXR );
 	if( !navigator.xr )
 	{
-		SmaSme("[XR]] API Unsupported: Find a WebXR Compatible Browser." );
+		SmaSme("[XR] No WebXR Browser & Device Found!" );
 		DoXR.BriYi( Sa_l );
 		return null;
 	}
@@ -610,10 +623,10 @@ DoXR.BriYa = async function( Yz_k )
 			// , "ca-correction"
 
 			// DEPTH
-			//, "depth-sensing"
+			, "depth-sensing"
 
 			// ANCHORS
-			// , "anchors"
+			, "anchors"
 		]
 
 		// DEPTH_PREF
@@ -670,7 +683,7 @@ DoXR.BriYa = async function( Yz_k )
 		// CANVAS
 		// XR_Display
 		Sa_l.Se__MzPo_l = document.createElement( "canvas" );
-		await DoXR_GL__SmzYa_y( Sa_l );
+		const GL_yk = await DoXR_GL__SmzYa_y( Sa_l );
 
 		//@@@
 		// REF SPACE
@@ -688,10 +701,10 @@ DoXR.BriYa = async function( Yz_k )
 
 		//@@@
 		// LGT
-		if( JiDru_yk( Smz_v, "requestLightProbe" ))
+		if( false )//JiDru_yk( Smz_v, "requestLightProbe" ))
 		{
 			// srgba8 (default value) or rgba16f
-			const SpeDx_l = XRSession.preferredReflectionFormat;
+			const SpeDx_l = Smz_v.preferredReflectionFormat;
 			const SpeYz_l = { reflectionFormat: SpeDx_l };
 			Sa_l.SpeKzFy_vk = await Smz_v.requestLightProbe( SpeYz_l );
 
@@ -861,7 +874,7 @@ DoXR.BriYa = async function( Yz_k )
 	}
 	catch (e)
 	{
-		SmaSme( "[XR] Not Available", e );
+		SmaTrx( "[XR] Session Not Available", e );
 		DoXR.Trx( Sa_l, e );
 		return null;
 	}
@@ -1018,6 +1031,7 @@ function DoXR__MzPoYe( Sa_l, Gi_k, FRM_k )
 	const TaMz_v = Kwy_v.views;
 	const Kwy__Fo_wuk = TaMz_v.length;
 
+
 	// render for each view (eye) 2 @ Lf/Rt, or 1 @ Passthru Camera
 	for(let Kwy_wu = 0; Kwy_wu < Kwy__Fo_wuk; Kwy_wu++ )
 	{
@@ -1030,7 +1044,7 @@ function DoXR__MzPoYe( Sa_l, Gi_k, FRM_k )
 		if( CPU_Gz_yk ) // Smz_v.depthActive )
 		{
 			//%%%
-			// CPU
+			// CPU_DPTH
 			const CPU_depthData = FRM_k.getDepthInformation( MzKz_v );
 			if( CPU_depthData )
 			{
@@ -1053,10 +1067,11 @@ function DoXR__MzPoYe( Sa_l, Gi_k, FRM_k )
 				//
 				// The above can also be denormalized to obtain absolute coordinates using viewport dimensions:
 				// const viewCoordinates = [normalizedViewCoordinates[0] * viewport.width, normalizedViewCoordinates[1] * viewport.height];
-			}
-		}
+			}//CPU DEPTH DATA
+		}// CPU DEPTH
+
 		//%%%
-		// [XR_GL]
+		// GPU_DPTH
 		// if( XRWebGLBinding.getDepthInformation() )
 		{
 			// XRDepthInformation.height Read only
@@ -1076,9 +1091,15 @@ function DoXR__MzPoYe( Sa_l, Gi_k, FRM_k )
 		}
 
 		//&&&
+		// RENDER
+		// MzKz_v.transform
+		// MzKz_v.projectionMatrix
+
+		//&&&
 		// CPY EYE SCRN
-		DoXR_GL__Cho_MzPo( Sa_l, FRM_k, Kwy_wu, MzKz_v );
+		DoXR_GL__Cho_MzPo( Sa_l, FRM_k, MzKz_v );
 	}
+
 }
 
 

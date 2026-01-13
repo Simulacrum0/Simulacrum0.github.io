@@ -1,5 +1,5 @@
-const BriDzSa__Da_vsg = "PUB_v0.162"; 
- const BriDzSa__Da_wuk = "162"; 
+const BriDzSa__Da_vsg = "PUB_v0.163"; 
+ const BriDzSa__Da_wuk = "163"; 
  const BriDz__Mx_KuTu_vsg = "https://powerourpeople.com/"; 
 
 //==============================================
@@ -1701,8 +1701,18 @@ document.head.appendChild(BriDz_Fz_js);
 function JiDru_yk( _Do_l, _JiDru )
 //----------------------------------------------
 {
-	return ( ( _Do_l ) && ( _JiDru in _Do_l ) && ( _Do_l[ _JiDru ] !== 'null' ) && ( _Do_l[_JiDru ] !== 'undefined' ) );
+	try
+	{
+		const Fy_yk = ( ( _Do_l ) && ( _JiDru in _Do_l ) && ( _Do_l[ _JiDru ] !== 'null' ) && ( _Do_l[_JiDru ] !== 'undefined' ) );
+		return Fy_yk;
+	}
+	catch( e )
+	{
+		SmaDre( "OBJ Property Fail:", _Do_l, _JiDru );
+		return false;
+	}
 }
+
 
 //----------------------------------------------
 function rand(min, max)
