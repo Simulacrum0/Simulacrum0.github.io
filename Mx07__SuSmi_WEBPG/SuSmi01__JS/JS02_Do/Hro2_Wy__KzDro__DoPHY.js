@@ -2263,7 +2263,7 @@ class RC extends DistanceField
 		this.reduceDemandCheckbox = document.querySelector( "#reduce-demand" );
 		this.forceFullPass = !this.reduceDemandCheckbox.checked;
 		super.innerInitialize();
-		this.gpuTimer = new GPUTimer( this.gl, true );
+		this.KaBxGiHa_dfr = new GPUTimer( this.gl, true );
 		this.activelyDrawing = false;
 		this.rawBasePixelsBetweenProbesExponent = 0.0;
 		this.rawBasePixelsBetweenProbes = Math.pow( 2, this.rawBasePixelsBetweenProbesExponent );
@@ -2724,14 +2724,14 @@ class RC extends DistanceField
 
 		for ( let i = this.firstLayer; i >= last; i-- )
 		{
-			this.gpuTimer.start( `rcPass-${i}` );
+			this.KaBxGiHa_dfr.start( `rcPass-${i}` );
 			this.rcUniforms.cascadeIndex = i;
 
 			this.renderer.setRenderTarget( this.rcRenderTargets[ this.prev ] );
 			this.rcRender();
 			this.rcUniforms.lastTexture = this.rcRenderTargets[ this.prev ].texture;
 			this.prev = 1 - this.prev;
-			this.gpuTimer.end( `rcPass-${i}` );
+			this.KaBxGiHa_dfr.end( `rcPass-${i}` );
 		}
 
 		return this.rcRenderTargets[ 1 - this.prev ].texture;
@@ -2752,13 +2752,13 @@ class RC extends DistanceField
 				return;
 			}
 
-			this.gpuTimer.start( 'seedPass' );
+			this.KaBxGiHa_dfr.start( 'seedPass' );
 			let out = this.seedPass( this.drawPassTexture );
-			this.gpuTimer.end( 'seedPass' );
+			this.KaBxGiHa_dfr.end( 'seedPass' );
 
-			this.gpuTimer.start( 'jfaPass' );
+			this.KaBxGiHa_dfr.start( 'jfaPass' );
 			out = this.jfaPass( out );
-			this.gpuTimer.end( 'jfaPass' );
+			this.KaBxGiHa_dfr.end( 'jfaPass' );
 
 			if ( this.stage == 1 )
 			{
@@ -2768,9 +2768,9 @@ class RC extends DistanceField
 				return;
 			}
 
-			this.gpuTimer.start( 'dfPass' );
+			this.KaBxGiHa_dfr.start( 'dfPass' );
 			this.distanceFieldTexture = this.dfPass( out );
-			this.gpuTimer.end( 'dfPass' );
+			this.KaBxGiHa_dfr.end( 'dfPass' );
 
 			if ( this.stage == 2 )
 			{
@@ -2794,7 +2794,7 @@ class RC extends DistanceField
 	finishRenderPass()
 	{
 		// Update timer and potentially print results
-		this.gpuTimer.update();
+		this.KaBxGiHa_dfr.update();
 
 		if ( !this.forceFullPass )
 		{
