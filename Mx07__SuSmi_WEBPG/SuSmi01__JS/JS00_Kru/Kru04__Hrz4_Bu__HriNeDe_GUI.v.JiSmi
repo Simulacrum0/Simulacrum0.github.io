@@ -108,7 +108,7 @@ function HryMx00_KeMeTrx()
 	const TrxBz_k = document.getElementById('TrxBz');
 	const TrxKa_k = document.getElementById('TrxKa');
 
-	TrxBz_k.innerText = KoKeDru.TrxBz_vsg + BriDzSa__Da_vsg;
+	TrxBz_k.innerText = KoKeDru.BriDz_VaSy_vsg + " " + KoKeDru.TrxBz_vsg + BriDzSa__Da_vsg;
 	TrxKa_k.innerText = Module.Trx_vsg;
 }
 

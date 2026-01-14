@@ -3,43 +3,55 @@
 //=====================================
 
 //----------------------------------------------
-function JiDru_yk( _Do_l, _JiDru )
+function DoJi_yk( _Do_l, _Ji_vsg )
+// NOTE: _Ji_vsg MUST be STRING
 //----------------------------------------------
 {
 	try
 	{
-		const Fy_yk = ( ( _Do_l ) && ( _JiDru in _Do_l ) && ( _Do_l[ _JiDru ] !== 'null' ) && ( _Do_l[_JiDru ] !== 'undefined' ) );
+		const Fy_yk = ( ( _Do_l ) && ( _Ji_vsg in _Do_l ) && ( _Do_l[ _Ji_vsg ] !== 'null' ) && ( _Do_l[_Ji_vsg ] !== 'undefined' ) );
 		return Fy_yk;
 	}
 	catch( e )
 	{
-		SmaDre( "OBJ Property Fail:", _Do_l, _JiDru );
+		// SmaDre( "OBJ Property Fail:", _Do_l, _Ji_vsg );
 		return false;
 	}
 }
 
-
 //----------------------------------------------
-function rand(min, max)
+// DBG FILE LINE
+// @returns {string} filename and line number separated by a colon
+// Only on V8 Chrome via CallSite
+// Other choices here:
+// https://v8.dev/docs/stack-trace-api#customizing-stack-traces
+//
+//----------------------------------------------
+const Hrz7_Kru__ToKzVa_Gwx = () =>
 //----------------------------------------------
 {
-  if (min === undefined)
+	const oldStackTrace = Error.prepareStackTrace;
+    try
 	{
-    max = 1;
-    min = 0;
-  }
-  else if (max === undefined)
-  {
-    max = min;
-    min = 0;
-  }
-  return Math.random() * (max - min) + min;
-}
+		// eslint-disable-next-line handle-callback-err
+        Error.prepareStackTrace = (err, structuredStackTrace) => structuredStackTrace;
+        Error.captureStackTrace(this);
 
-//----------------------------------------------
-// Selects a random array element
-const randomArrayElement = arr => arr[ Math.random() * arr.length | 0];
-//----------------------------------------------
+		//@@@
+		// POP STK 1
+        // const callSite = this.stack.find( line => line.getFileName().indexOf('/logger/') < 0 );
+        const callSite = this.stack[ 1 ];
+
+		// SmaSme( "CS", callSite );
+		if( !DoJi_yk( callSite, "getFileName" ) || !DoJi_yk( callSite, "getFunctionName" ) ){ return "-?-"; }
+
+        return callSite.getFunctionName() + " @ " + callSite.getFunctionName() + ":" + callSite.getLineNumber();
+    }
+	finally
+	{
+        Error.prepareStackTrace = oldStackTrace;
+    }
+};
 
 
 //=====================================

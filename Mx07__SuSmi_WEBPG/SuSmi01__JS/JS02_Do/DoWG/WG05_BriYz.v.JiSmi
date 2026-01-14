@@ -1,0 +1,1139 @@
+//==============================================
+//==============================================
+// WG: LIFE
+//==============================================
+//==============================================
+
+//==============================================
+// SESSION PAUSE
+//==============================================
+DoWG.BriYo = function( Sa_l )
+{
+	if( KoDz__YzTrx_y() ) return;
+	//SmaSme( "[WG] BriYo: WG PAUSE" );
+
+	// Pause Compute Tasks?
+	// Reset Clocks?
+}
+
+//==============================================
+// SESSION END
+//==============================================
+DoWG.BriYi = function( Sa_l )
+{
+	SmaSme( "[WG] BriYi: " + this.VaSy );
+
+
+	//&&&
+	// IMG_DECKs
+	Sa_l.Spe__TaGwa_l = null;
+	Sa_l.Spy__TaGwa_l = null;
+	Sa_l.Wz__TaGwa_l = null;
+
+	//&&&
+	// BUFs
+	Sa_l.KzDy__JxRe_l = null;
+	Sa_l.TxCho__JxRe_l = null;
+	Sa_l.SuTy__JxRe_l = null;
+
+
+	//&&&
+	// QUERY
+	// Timer Query Buf
+	Sa_l.TaGiMy_Kz_l = null;
+	// Answer  Buf
+	Sa_l.ToMy_Sma_l = null;
+	// Scrnshot Req (queue)
+	Sa_l.TxCho__KriJaKu_v = null;
+	// Scrnshot Use (export)
+	Sa_l.TxCho__TraJaKu_v = null;
+
+
+	//&&&
+	// SAMPLR
+	Sa_l.JaMi__BILNR_k = null;
+	Sa_l.JaMi__TRILNR_k = null;
+
+
+	//&&&
+	// CTX
+	Sa_l.MxPo_Sx_l = null;
+	// DISPLAYS
+	Sa_l.MxPo_Gwa_l = null;
+	Sa_l.WzPo_l = null;
+
+	//&&&
+	// ADAPTER/DEVICE
+	// fails w/ 'still mapped' buffers
+	// Sa_l.KaSmz_l.destroy();
+	Sa_l.KaSmz_l = null;
+	Sa_l.KaKy_l = null;
+}
+
+//==============================================
+// SESSION BEGIN
+/*
+CRT:
+- Make Session
+- Start Prog Load
+- Chip Adapter
+- Screen
+- Chip Device
+- Ctx
+- Smplr
+
+
+- BIND/PIPE_LAYOUTs
+- PROGs
+
+ALLOC:
+
+- SIGNAL Texture TaGwa_l
+- CRAFT Uniform SuTy_l
+- FIELD Storage JxRe_l
+- BINDINGS
+
+JOB:
+- Media_Strms
+- Strm_Models
+- Job_Models
+- Job_Prog
+- Job_Pipe
+
+*/
+//==============================================
+DoWG.BriYa = async function( Yz_l )
+{
+	//@@@
+	// MAKE SESSION with Ji INTERFACE
+	const Sa_l = SySmz__YaFz_v( DoWG );
+	Sa_l.KaVy = Yz_l.SmzYz_q;
+
+
+	//-------------------------------------------------
+	// PROG TXT ASYNC LOAD
+	//-------------------------------------------------
+	const TaJiHry_vh = [];
+	TaJiHry_vvsg.forEach
+	( function( Ti_v, Vx_wu )
+	{
+		TaJiHry_vh[ Vx_wu ] = Hra6_Ku__ToKz_My__vsg( "Mx07__SuSmi_WEBPG/SuSmi01__JS/JS01_JiHry/", Ti_v.Va_vsg + ".v.Hry" );
+	});
+
+	//-------------------------------------------------
+	// REQUESTS
+	//-------------------------------------------------
+	Sa_l.TxCho__KriJaKu_v = [];
+	Sa_l.TxCho__TraJaKu_v = [];
+	Sa_l.KaTy = {};
+
+
+	//-------------------------------------------------
+	// CHIP ADAPTER
+	//-------------------------------------------------
+	const pref =
+	{
+		// IGNORED 2025/11
+		// powerPreference: 'high-performance'
+		// powerPreference: 'low-power'
+		// FAILS
+		// forceFallbackAdapter: true
+		//
+		featureLevel: "compatibility"
+	};
+
+	const KaKy_l = await navigator.gpu?.requestAdapter( pref );
+	if( MoDzTrx__NxHo_y( "[WG] Adapter", KaKy_l )){ return null; }
+	Sa_l.KaKy_l = KaKy_l;
+
+	const T1_yk = KaKy_l.features.has('core-features-and-limits');
+
+	//-------------------------------------------------
+	// SCREEN
+	//-------------------------------------------------
+	const MxPo_Gwa_l = document.getElementById( 'MxPo_Bri' );
+	Sa_l.MxPo_Gwa_l = MxPo_Gwa_l;
+
+	// Offscreen Canvas ( for XR or ScreenShots )
+	Sa_l.WzPo_l = null;
+
+	// Default 'rgba8unorm'
+	Sa_l.MxPo__FMT_l = navigator.gpu.getPreferredCanvasFormat();
+	// Possible?
+	// rg11b10ufloat-renderable
+	// if( 0 ){ Sa_l.MxPo__FMT_l = "rgba16float"; }
+
+	//@@@
+	// HDR
+	const HDR_v = window.matchMedia('(dynamic-range: high)');
+	const KaTy__HDR_yk = HDR_v.matches ? true : false;
+	SmaSme( "[WG] HDR", KaTy__HDR_yk, "MxPo__FMT", Sa_l.MxPo__FMT_l );
+
+	//-------------------------------------------------
+	// CHIP DRIVER
+	//-------------------------------------------------
+	//@@@
+	// AVAIL
+	//const KaTy__WG2 = KaKy_l.features.has('extended-pipeline-cache');
+	Sa_l.KaTy.TIMER_yk = KaKy_l.features.has('timestamp-query');
+
+
+	//&&&
+	// SUBGRP
+	// subgroupsize:  [4, 128]
+	//https://caniuse.com/?search=subgroup ~70%
+	// Not Apple!
+	Sa_l.KaTy.SUBGRP_yk = KaKy_l.features.has( 'subgroups' );
+
+	//&&&
+	// FMT
+	// 2026: USELESS w/ MIPs ( can only BIND 1 MIP Level )
+	//const KaTy__TFMT2_yk = KaKy_l.features.has( 'texture-formats-tier2' );
+	//const KaTy__RWTEX_yk = KaKy_l.features.has( 'readonly_and_readwrite_storage_textures' );
+	//const KaTy__HDR_yk = KaKy_l.features.has( 'rg11b10ufloat-renderable' );
+	//SmaSme( "[WG] TFMT2: ", KaTy__TFMT2_yk, "RWTEX: ", KaTy__RWTEX_yk, "HDR: ", KaTy__HDR_yk );
+
+
+	//@@@
+	// DRV_REQ
+	const KaKri_k =
+	{
+		//&&&
+		// FEATS
+		requiredFeatures:
+		 [
+			 T1_yk ? 'core-features-and-limits' : undefined
+
+			 // if bgra8unorm exists, REQUIRE
+			 , Sa_l.MxPo__FMT_l === 'bgra8unorm' ? [ 'bgra8unorm-storage' ] : undefined
+			 , Sa_l.KaTy.TIMER_yk ? 'timestamp-query' : undefined
+			 , Sa_l.KaTy.SUBGRP_yk ? 'subgroups' : undefined
+
+			 //, KaTy__TFMT2_yk ? 'texture-formats-tier2' : undefined
+			 // , KaTy__RWTEX_yk ? 'readonly_and_readwrite_storage_textures' : undefined
+			 //, KaTy__HDR_yk ? 'rg11b10ufloat-renderable' : undefined
+
+			 //, KaTy__WG2_yk ? 'pipeline-statistics-query' : undefined
+			 //, KaTy__WG2_yk ? 'extended-pipeline-cache' : undefined
+			 //, KaTy__WG2_yk ? 'memory-mapping-control' : undefined
+
+			 //, KaTy__BC_yk ? 'texture-compression-bc' : undefined
+			 //, KaTy__ASTC_yk ? 'texture-compression-astc' : undefined
+
+			].filter(Boolean)
+
+			//&&&
+			// LIMITS
+			// Request maximum resource limits
+			, requiredLimits:
+			{
+				// PROG
+				maxComputeInvocationsPerWorkgroup: KaKy_l.limits.maxComputeInvocationsPerWorkgroup
+				, maxComputeWorkgroupSizeX: KaKy_l.limits.maxComputeWorkgroupSizeX
+				, maxComputeWorkgroupSizeY: KaKy_l.limits.maxComputeWorkgroupSizeY
+				, maxComputeWorkgroupSizeZ: KaKy_l.limits.maxComputeWorkgroupSizeZ
+				, maxComputeWorkgroupStorageSize: KaKy_l.limits.maxComputeWorkgroupStorageSize
+
+				// RCD
+				, maxBufferSize: KaKy_l.limits.maxBufferSize
+				, maxUniformBufferBindingSize: KaKy_l.limits.maxUniformBufferBindingSize
+				, maxStorageBufferBindingSize: KaKy_l.limits.maxStorageBufferBindingSize
+
+				// IMG
+				, maxTextureArrayLayers: KaKy_l.limits.maxTextureArrayLayers
+				, maxTextureDimension2D: KaKy_l.limits.maxTextureDimension2D
+			}
+	};
+
+	//@@@
+	// DEV
+	const KaSmz_l = await KaKy_l.requestDevice( KaKri_k );
+	if( MoDzTrx__NxHo_y( "[WG] Device", KaSmz_l )){ return null; }
+	Sa_l.KaSmz_l = KaSmz_l;
+
+	//&&&
+	// ERR SCOPES
+	Sa_l.KaSmz_l.pushErrorScope('internal');
+	Sa_l.KaSmz_l.pushErrorScope('validation');
+
+	const Tier_wqk = KaSmz_l.features.has('core-features-and-limits') ? 1 : 0;
+	SmaSme( "[WG] Tier: ", Tier_wqk, " LIM:", KaSmz_l.limits, " FEAT:", KaSmz_l.features );
+
+	//&&&
+	// which GPU
+	// const powerPreference = device.adapterInfo.powerPreference;
+	// if (powerPreference === "high-performance") {
+	// // High-performance GPU detected. Enabling enhanced graphics settings.
+	// } else if (powerPreference === "low-power") {
+	// // Low-power GPU detected. Optimizing for battery life.
+	// }
+
+	//&&&
+	// ERR DEV LOST
+  	KaSmz_l.lost.then((info) =>
+	{
+		if (info.reason == 'unknown')
+		{
+			SmaSme( "[WG] GPU Fail Unknown: needs REFRESH/RESTART PAGE" );
+		}
+		else// if (info.reason !== "destroyed")
+		{
+			// RESTART
+			SmaSme( "[WG] GPU needs REFRESH/RESTART PAGE" );
+		}
+		MoDzTrx( "[WG] Device Lost:" + info.message );
+  	});
+
+	//&&&
+	// ERR LISTENER
+	KaSmz_l.addEventListener('uncapturederror', (e) =>
+	{
+		// FIREFOX Preventing this
+		// MoDzTrx( "WG Err: " + e.error );
+		SmaSme( "[WG] Uncaught Err: ", e.error.constructor.name, e.error.message );
+	});
+
+
+	//-------------------------------------------------
+	// CANVAS-CTX
+	//-------------------------------------------------
+	{
+		const MxPo_Sx_l = Sa_l.MxPo_Gwa_l.getContext( 'webgpu' );
+		if( MoDzTrx__NxHo_y( "[WG] Context", MxPo_Sx_l )){ return null; }
+		Sa_l.MxPo_Sx_l = MxPo_Sx_l;
+
+		MxPo_Sx_l.configure
+		({
+			device: KaSmz_l
+			, format: Sa_l.MxPo__FMT_l
+			// REQ for RW MxPo via ComputeShader
+			, usage: GPUTextureUsage.TEXTURE_BINDING | GPUTextureUsage.STORAGE_BINDING
+
+			//@@@
+			// CLR_FMT
+			// SDR means Standard Dynamic Range (standard NTSC/sRGB colorspace)
+			// WCG means Wide Color Gamut (greener greens, redder reds, bluer blues)
+			// HDR means High Dynamic Ranges (brightnesses brighter than normal RGB colorspace)
+			, alphaMode: "opaque"
+			// P3
+			, colorSpace: "display-p3"
+			, toneMapping: { mode: "extended" }
+			// NITS 200~1200
+			// Not AVAIL, colorSpace: "rec2100-display-linear"
+			//, toneMapping: { mode:"hdr10", clli:{maxFALL:200, maxCLL:1200} }
+		});
+
+
+		// ratio of the resolution in physical pixels to the resolution in CSS pixels
+		// const devicePixelRatio = window.devicePixelRatio;
+		MxPo_Gwa_l.width = MxPo_Gwa_l.clientWidth;
+		MxPo_Gwa_l.height = MxPo_Gwa_l.clientHeight;
+	}
+
+	//-------------------------------------------------
+	// SAMPLER^JaMi
+	//-------------------------------------------------
+	// 'filtering', 'non-filtering', 'comparison'
+	// lodMinClamp: float= 0
+	// lodMaxClamp: float= 32
+	// compare: GPUCompareFunction
+	// maxAnisotropy: unsigned short= 1
+	//-------------------------------------------------
+	{
+		Sa_l.JaMi__BILNR_k = Sa_l.KaSmz_l.createSampler
+		({
+			addressModeU: "clamp-to-edge",
+			addressModeV: "clamp-to-edge",
+
+			magFilter: "linear",
+			minFilter: "linear",
+			mipmapFilter: "nearest",
+		});
+
+		Sa_l.JaMi__TRILNR_k = Sa_l.KaSmz_l.createSampler
+		({
+				addressModeU: "clamp-to-edge",
+				addressModeV: "clamp-to-edge",
+
+				magFilter: "linear",
+				minFilter: "linear",
+				mipmapFilter: "linear",
+		} );
+	}
+
+	//-------------------------------------------------
+	// QUERY BUF
+	//-------------------------------------------------
+	 if( Sa_l.KaTy.TIMER_yk )
+	 {
+		//!!!
+		// CLEAR TIME
+		Ko.KaBxGiHa_df = 0.;
+
+		//@@@
+		// QUERY SET
+		Sa_l.TaGiMy_Kz_l = Sa_l.KaSmz_l.createQuerySet
+		({
+			label: 'TaGiMy_Kz',
+			type: 'timestamp',
+			count: TaGiMy__Fo_wuk,
+		});
+
+		//@@@
+		// TIMER BUF
+		Sa_l.TaGiMy_Ma_l = Sa_l.KaSmz_l.createBuffer
+		({
+			label: 'TaGiMy_Ma',
+			// 8 is 'du_t' timestamp size
+			size: TaGiMy__Fo_wuk * 8,
+			usage:
+			GPUBufferUsage.QUERY_RESOLVE | GPUBufferUsage.COPY_SRC,
+		});
+
+		//@@@
+		// TIMER_RESULT BUF
+		Sa_l.ToMy_Sma_l = Sa_l.KaSmz_l.createBuffer
+		({
+			label: 'ToMy_Sma',
+			size:  TaGiMy__Fo_wuk * 8,
+			usage: GPUBufferUsage.COPY_DST | GPUBufferUsage.MAP_READ,
+		});
+	}
+
+
+	//-------------------------------------------------
+	// BUF
+	//-------------------------------------------------
+	{
+		let Spy__TaGwa_l = undefined;
+		let Spe__TaGwa_l = undefined;
+		let Wz__TaGwa_l = undefined;
+
+		let KzDy__JxRe_l = undefined;
+		let SuTy__JxRe_l = undefined;
+		let TxCho__JxRe_l = undefined;
+
+		//!!!
+		// CREATE Large is Allowed but FAILS validation!
+		// 256 Layers: MAX = 8
+		let GzKri_wu = 8;
+
+		for( ; GzKri_wu >= 0; GzKri_wu-- )
+		{
+			//@@@
+			// ERR PUSH
+			Sa_l.KaSmz_l.pushErrorScope('out-of-memory');
+
+			//@@@
+			// MAKE GOOD STATUS
+			let TrzRi_y = true;
+
+			//@@@
+			// DIM
+			const GzFo_wuk = 1 << GzKri_wu;
+			const TiGy_wuk = 4096;
+			const WzGy_wuk = 4096;
+			// const TiGy_wuk = 8192;
+			// const WzGy_wuk = 8192;
+			// MIP
+			// Sample down to 8x8
+			const BrzFo_wuk = 10; // 8K -> 8 :: 13 - 3 = 10
+
+			//@@@
+			// FLAGS
+			const TraTy_qk =
+				// RW for DMA_COPY
+				GPUTextureUsage.COPY_SRC | GPUTextureUsage.COPY_DST
+				// RW for COMPUTE
+				| GPUTextureUsage.TEXTURE_BINDING | GPUTextureUsage.STORAGE_BINDING
+				//$$$ EXPECTED REQUIREMENT ( Dawn Invalidates Absence )
+				| GPUTextureUsage.RENDER_ATTACHMENT
+				;
+
+			//@@@
+			// IMG
+			// LG to SM
+			//SmaSme( "[WG] REQ ➡️ TiGy_wuk ---> ", TiGy_wuk, " MIP:", BrzFo_wuk, ", GzKri_wu: ", GzKri_wu, " #", GzFo_wuk );
+
+			//&&&
+			// IMG MATTER
+			if( TrzRi_y )
+			{
+				Spy__TaGwa_l = Sa_l.KaSmz_l.createTexture
+				({
+					label: 'Spy__TaGwa_l'
+					, dimension: '2d'
+					, size: [ TiGy_wuk, TiGy_wuk, GzFo_wuk ],  mipLevelCount: BrzFo_wuk
+					, format: 'rgba8unorm'
+					, sampleCount: 1
+					, usage: TraTy_qk
+				});
+				TrzRi_y = ( !!Spy__TaGwa_l );
+			}
+			//&&&
+			// IMG ENERGY
+			if( TrzRi_y )
+			{
+				Spe__TaGwa_l = Sa_l.KaSmz_l.createTexture
+				({
+					label: 'Spe__TaGwa_l'
+					, dimension: '2d'
+					, size: [ TiGy_wuk, TiGy_wuk, GzFo_wuk ],  mipLevelCount: BrzFo_wuk
+					, format: 'rgba8unorm'
+					, sampleCount: 1
+					, usage: TraTy_qk
+				});
+
+				TrzRi_y = ( !!Spe__TaGwa_l );
+			}
+			//&&&
+			// IMG WORK
+			if( TrzRi_y )
+			{
+				Wz__TaGwa_l = Sa_l.KaSmz_l.createTexture
+				({
+					label: 'Wz__TaGwa_l',
+					dimension: '2d',
+					size: [ WzGy_wuk, WzGy_wuk, 2 ], mipLevelCount: 1,
+					format: 'rgba8unorm',
+					sampleCount: 1,
+					usage: TraTy_qk
+				});
+				TrzRi_y = ( !!Wz__TaGwa_l );
+			}
+			//@@@
+			// RCD
+			//&&&
+			// OBJS
+			if( TrzRi_y )
+			{
+				KzDy__JxRe_l = Sa_l.KaSmz_l.createBuffer
+				({
+					label: 'KzDy__JxRe',
+					size:  KzDy__BraHiFrz_k,
+					usage: GPUBufferUsage.COPY_SRC,
+				});
+				TrzRi_y = ( !!Wz__TaGwa_l );
+			}
+			//&&&
+			// PSBCLONE
+			if( TrzRi_y )
+			{
+				TxCho__JxRe_l = KaSmz_l.createBuffer
+			({
+					label: "TxCho__JxRe_l"
+					, usage: GPUBufferUsage.COPY_DST | GPUBufferUsage.MAP_READ
+					, size: TxCho__BraHiFrz_k
+				})
+				TrzRi_y = ( !!Wz__TaGwa_l );
+			}
+			//&&&
+			// CRAFTS
+			if( TrzRi_y )
+			{
+				SuTy__JxRe_l = Sa_l.KaSmz_l.createBuffer
+				({
+					label: 'SuTy__JxRe',
+					size:  SuTy__BraHiFrz_k,
+					usage: GPUBufferUsage.UNIFORM,
+				});
+				TrzRi_y = ( !!Wz__TaGwa_l );
+			}
+			//&&&
+			// LOG RESULTS
+			//SmaSme( "[WG] RESULTS ⁉️ TaGwa_l DIM", GzKri_wu,  " #", ( 1<<GzKri_wu ) );
+			// SmaSme( "[WG] RESULTS ⁉️ TaGwa_l DIM", GzKri_wu,  " #", ( 1<<GzKri_wu ), "Spy", Spy__TaGwa_l, "Spe", Spe__TaGwa_l, "Wz", Wz__TaGwa_l, " KzDy", KzDy__JxRe_l, " TxCho", TxCho__JxRe_l, " SuTy", SuTy__JxRe_l  );
+
+			//&&&
+			// ERR CLEAR via POP on no Mem
+			// EXPECT FAILS
+			await Sa_l.KaSmz_l.popErrorScope().then(( e ) =>
+			{
+				if( e )
+				{
+					// SmaSme( "[WG]: MEM_REQ Kri:", GzKri_wu,  " #", ( 1<<GzKri_wu ), e.message );
+
+					Spy__TaGwa_l?.destroy();
+					Spe__TaGwa_l?.destroy();
+					Wz__TaGwa_l?.destroy();
+
+					KzDy__JxRe_l?.destroy();
+					TxCho__JxRe_l?.destroy();
+					SuTy__JxRe_l?.destroy();
+
+
+					Spy__TaGwa_l = undefined;
+					Spe__TaGwa_l = undefined;
+					Wz__TaGwa_l = undefined;
+
+					KzDy__JxRe_l = undefined;
+					TxCho__JxRe_l = undefined;
+					SuTy__JxRe_l = undefined;
+				}
+			});
+
+			//&&&
+			// IF ALL SUCCESSFUL EXIT
+			if(
+				Spy__TaGwa_l && Spe__TaGwa_l && Wz__TaGwa_l
+				&&
+				KzDy__JxRe_l && TxCho__JxRe_l && SuTy__JxRe_l
+			){ break; }
+
+		}// Per JiVu__TIER
+
+		if( !(
+			Spy__TaGwa_l && Spe__TaGwa_l && Wz__TaGwa_l
+			&&
+			KzDy__JxRe_l && TxCho__JxRe_l && SuTy__JxRe_l
+		)){ MoDzTrx( "[WG] Alloc Bufs" ); return null; }
+
+		SmaSme( "[DBG] ", Hrz7_Kru__ToKzVa_Gwx() );
+
+		SmaSme( "[WG] FINAL TaGwa_l DIM", GzKri_wu,  " #", ( 1<<GzKri_wu ) );
+
+		SmaSme( "[WG] Spy", Spy__TaGwa_l );
+		SmaSme( "[WG] Spe", Spe__TaGwa_l );
+		SmaSme( "[WG] Wz", Wz__TaGwa_l );
+
+		SmaSme( "[WG] KzDy", KzDy__JxRe_l );
+		SmaSme( "[WG] TxCho", TxCho__JxRe_l );
+		SmaSme( "[WG] SuTy", SuTy__JxRe_l );
+
+
+		//@@@
+		// STOR
+		Sa_l.Spy__TaGwa_l = Spy__TaGwa_l;
+		Sa_l.Spe__TaGwa_l = Spe__TaGwa_l;
+		Sa_l.Wz__TaGwa_l = Wz__TaGwa_l;
+
+		Sa_l.KzDy__JxRe_l = KzDy__JxRe_l;
+		Sa_l.TxCho__JxRe_l = TxCho__JxRe_l;
+		Sa_l.SuTy__JxRe_l = SuTy__JxRe_l;
+	}
+
+
+	//-------------------------------------------------
+	// GROUP_LAYOUT
+	//-------------------------------------------------
+	// sampler:  GPUSamplerBindingType
+	// - type:{ comparison, non-filtering, filtering }
+	//
+	// buffer:	GPUBufferBindingType
+	// - "uniform": RO GPUBufferUsage.UNIFORM
+	// - "storage": RW GPUBufferUsage.STORAGE.
+	// - "read-only-storage": RO GPUBufferUsage.STORAGE.
+	//
+	// texture, GPUTextureBindingLayout
+	// 	- viewDimension{ "1d", "2d-array", "2d", "3d", "cube" }
+	//  - sampleType  RO
+	// 	"float"
+	// "unfilterable-float"
+	// "depth"
+	// "sint"
+	// "uint"
+	//
+	// storageTexture: GPUStorageTextureBindingLayout
+	// - access:{ read-only, read-write, write-only}
+	// "write-only"	WO
+	//
+	// "read-write" RW
+	// "read-only" RO
+	//
+	// - "readonly_and_readwrite_storage_textures"
+	// - !!--> ONLY IF
+	// - WGSL language extension is present in WGSLLanguageFeatures.
+	//-------------------------------------------------
+
+	const GOLIFE_SuTyJy = KaSmz_l.createBindGroupLayout
+	({
+	  label: "GOLIFE CraftType",
+	  entries:
+	  [{
+			// CRAFT
+			binding: 0
+			, visibility: GPUShaderStage.COMPUTE
+			, buffer: { type: "uniform", minBindingSize: 256 }
+			, hasDynamicOffset: false
+	  }
+	  , {
+		  	// INPUT
+			binding: 1
+			, visibility: GPUShaderStage.COMPUTE
+			, buffer: { type: "read-only-storage", minBindingSize: 256 }
+	  }
+	  , {
+			// OUTPUT
+			binding: 2
+			, visibility: GPUShaderStage.COMPUTE
+			, buffer: { type: "storage", minBindingSize: 256 }
+	  }]
+	});
+
+
+
+	const DuPoMy_SuTyJy = KaSmz_l.createBindGroupLayout
+	({
+		label: "DuPoMy CraftType",
+		entries:
+		[
+			{
+				binding: 0,
+				visibility: GPUShaderStage.COMPUTE,
+				sampler: { type: "filtering" }
+			}
+			,
+			{
+				binding: 1,
+				visibility: GPUShaderStage.COMPUTE,
+				texture: { viewDimension: '2d-array' }
+			}
+		]
+	});
+
+
+	const WzPoChy_SuTyJy = KaSmz_l.createBindGroupLayout
+	({
+		label: "WzPoChy CraftType",
+		entries:
+		[
+			{
+				binding: 0,
+				visibility: GPUShaderStage.COMPUTE,
+				storageTexture: { format: 'rgba8unorm', viewDimension: '2d-array', access: "write-only" }
+			}
+		]
+	});
+
+
+	const MzPo_SuTyJy = KaSmz_l.createBindGroupLayout
+	({
+		label: "MzPo CraftType",
+		entries:
+		[
+			{
+				binding: 0,
+				visibility: GPUShaderStage.COMPUTE,
+				// REQ: texture-format-tier2 for RW rgba8 RW
+				storageTexture: { viewDimension: '2d-array', format: 'rgba8unorm', access: "write-only" }
+				// storageTexture: { viewDimension: '2d-array', format: 'rgba8unorm', access: "read-write" }
+			}
+		]
+	});
+
+
+	const MxPoChy_SuTyJy = KaSmz_l.createBindGroupLayout
+	({
+		label: "MxPo CraftType",
+		entries:
+		[
+			{
+				binding: 0,
+				visibility: GPUShaderStage.COMPUTE,
+				storageTexture: { format: Sa_l.MxPo__FMT_l }
+			}
+		]
+	});
+
+
+	//-------------------------------------------------
+	// LAYOUT_PIPELINE
+	//-------------------------------------------------
+	const GOLIFE_KySuTyJy = KaSmz_l.createPipelineLayout
+	({
+	  label: "GOLIFE Pipeline Layout",
+	  bindGroupLayouts: [ GOLIFE_SuTyJy ],
+	});
+
+	const WzPoChy_KySuTyJy = KaSmz_l.createPipelineLayout
+	({
+		label: "DuPoMy WzPoChy Pipeline Layout",
+		bindGroupLayouts: [ DuPoMy_SuTyJy, WzPoChy_SuTyJy ],
+	});
+
+	const MzPo_KySuTyJy = KaSmz_l.createPipelineLayout
+	({
+		label: "MzPo Pipeline Layout",
+		bindGroupLayouts: [ MzPo_SuTyJy ],
+	});
+
+
+	const MxPo_KySuTyJy = KaSmz_l.createPipelineLayout
+	({
+		label: "DuPoMy MxPoChy Pipeline Layout",
+		bindGroupLayouts: [ DuPoMy_SuTyJy, MxPoChy_SuTyJy ],
+	});
+
+
+	//-------------------------------------------------
+	// PROG: SIM
+	//-------------------------------------------------
+
+
+	// RESOLVE TEXT
+	const JiJa08__GOLIFE_vsg = await TaJiHry_vh[ JiHry.Ji08_GOLIFE__ToWy_qk ];
+	if( MoDzTrx__NxHo_y( "JiJa08__GOLIFE_vsg", JiJa08__GOLIFE_vsg )){ return null; }
+
+
+	// CNV MODULE
+	const JiHry02__GOLIFE = KaSmz_l.createShaderModule({
+	  label: "Life simulation shader",
+	  code: JiJa08__GOLIFE_vsg	});
+
+	if( MoDzTrx__NxHo_y( "ProgObj^JiHry", JiHry02__GOLIFE )){ return null; }
+
+	const shaderInfo = await JiHry02__GOLIFE.getCompilationInfo();
+	if( shaderInfo.messages.length )
+		{
+			SmaSme( "[WG] Compile:", shaderInfo );
+		// const firstMessage = shaderInfo.messages[0];
+		// console.log(firstMessage.lineNum); // 9
+		// console.log(firstMessage.message); // "expected ')' for function declaration"
+		// console.log(firstMessage.type); // "error"
+
+		// ALWAYS QUIT as FAIL?
+		return null;
+	}
+	// if( MoDzTrx__NxHo_y( "ProgObj^JiHry", shaderInfo.messages.length )){ return null; }
+
+	// DBG: SmaSme( "[WG] PROG Src", JiHry02__GOLIFE );
+
+	// PIPELINE_IT
+
+	let WzGy_wuk = 8;
+
+	// Create a compute pipeline that updates the game state.
+	const JiGwe02__GOLIFE = KaSmz_l.createComputePipeline
+	({
+	  label: "Simulation pipeline",
+	  layout: GOLIFE_KySuTyJy,
+	  compute: { module: JiHry02__GOLIFE }
+	});
+
+	if( MoDzTrx__NxHo_y( "ProgPipe^JiGwe", JiGwe02__GOLIFE )){ return null; }
+	Sa_l.JiGwe02__GOLIFE =JiGwe02__GOLIFE;
+
+
+	//-------------------------------------------------
+	// BUF CRAFT
+	//-------------------------------------------------
+	// Create a uniform buffer that describes the grid.
+
+	const Jx00__SuTy = KaSmz_l.createBuffer
+	({
+		label: "CRAFTS^SuTy",
+		size: SuTy__BraHiFrz_k,
+		usage: GPUBufferUsage.UNIFORM | GPUBufferUsage.COPY_DST,
+
+	});
+	if( MoDzTrx__NxHo_y( "Crafts^SuTy", Jx00__SuTy )){ return null; }
+	Sa_l.Jx00__SuTy = Jx00__SuTy;
+
+	// 2 VALUES in CRAFT
+	const uniformArray = new Float32Array( [ CS_Gy_k, CS_Gy_k ] );
+	KaSmz_l.queue.writeBuffer( Sa_l.Jx00__SuTy, 0, uniformArray );
+
+
+	//-------------------------------------------------
+	// BUF SIM
+	// Instructions/Scene Data
+	//-------------------------------------------------
+	// Create an array representing the active state of each cell.
+	const cs_v = new Uint32Array( CS_Gy_k * CS_Gy_k );
+
+	// Create two storage buffers to hold the cell state.
+	const cellStateStorage =
+	[
+	  KaSmz_l.createBuffer
+	  ({
+		label: "GOLIFE State A",
+		size: cs_v.byteLength,
+		usage: GPUBufferUsage.STORAGE | GPUBufferUsage.COPY_DST,
+	  }),
+
+	  KaSmz_l.createBuffer
+	  ({
+		label: "GOLIFE State B",
+		size: cs_v.byteLength,
+		usage: GPUBufferUsage.STORAGE | GPUBufferUsage.COPY_DST,
+	  })
+	];
+
+	// Set each cell to a random state, then copy the JavaScript array into
+	// the storage buffer.
+	for (let i = 0; i < cs_v.length; ++i)
+	{
+	  // cs_v[i] = Math.random() > 0.6 ? 1 : 0;
+	  cs_v[i] = 0;
+	}
+
+	function cs_w( x, y )
+	{ cs_v[ x + ( y * CS_Gy_k ) ] = 1; }
+
+	cs_w( 1, 2 );
+	cs_w( 2, 1 );
+	cs_w( 3, 1 );
+	cs_w( 3, 2 );
+	cs_w( 3, 3 );
+
+
+	// Write First Buf Only
+	KaSmz_l.queue.writeBuffer(cellStateStorage[0], 0, cs_v);
+
+
+	//-------------------------------------------------
+	// CLN CRAFT STRM
+	const SuGweKy =
+	//-------------------------------------------------
+	[
+	  KaSmz_l.createBindGroup
+	  ({
+		label: "GOLIFE A MEDIA_STRM",
+		layout: GOLIFE_SuTyJy,
+		entries:
+		[
+		  { binding: 0, resource: { buffer: Sa_l.Jx00__SuTy }}
+		, { binding: 1, resource: { buffer: cellStateStorage[0] }}
+		, { binding: 2, resource: { buffer: cellStateStorage[1] }}
+		]
+		 })
+
+	  , KaSmz_l.createBindGroup
+	  ({
+		label: "GOLIFE B MEDIA_STRM",
+		layout: GOLIFE_SuTyJy,
+		entries:
+		[
+			{ binding: 0, resource: { buffer: Sa_l.Jx00__SuTy }}
+		  , { binding: 1, resource: { buffer: cellStateStorage[1] }}
+		  , { binding: 2, resource: { buffer: cellStateStorage[0] }}
+		]
+	   })
+
+
+	   // 2
+		, KaSmz_l.createBindGroup
+		({
+		  label: "DuPoMy MEDIA_STRM",
+		  layout: DuPoMy_SuTyJy,
+		  entries:
+		  [{
+			binding: 0,
+			resource: Sa_l.JaMi__BILNR_k
+			// resource: Sa_l.JaMi__TRILNR_k
+		  },{
+			binding: 1,
+			resource: Sa_l.Spy__TaGwa_l
+		  }] })
+
+
+		  // 3
+		, KaSmz_l.createBindGroup
+		({
+		  label: "WzPoChy MEDIA_STRM",
+		  layout: WzPoChy_SuTyJy,
+		  entries:
+		  [{
+			binding: 0,
+			resource: Sa_l.Wz__TaGwa_l
+		  }] })
+
+
+
+		  // 4
+		, KaSmz_l.createBindGroup
+		({
+			label: "MzPo OBS",
+			layout: MzPo_SuTyJy,
+			entries:
+			[{
+				binding: 0,
+				// T1_REQ: resource: Sa_l.Spy__TaGwa_l.createView( { baseMipLevel: 0, mipLevelCount: 1, baseArrayLayer: 0, arrayLayerCount: 1 } )
+				resource: Sa_l.Spy__TaGwa_l.createView( { baseMipLevel: 0, mipLevelCount: 1 } )
+
+			}
+		]
+		})
+
+
+		// 5
+		 , KaSmz_l.createBindGroup
+		 ({
+		   label: "DuPoMy MIP_SRC",
+		   layout: DuPoMy_SuTyJy,
+		   entries:
+		   [{
+			 binding: 0,
+			 resource: Sa_l.JaMi__BILNR_k
+			 // resource: Sa_l.JaMi__TRILNR_k
+		   },{
+			 binding: 1,
+			 // T1_REQ: resource: Sa_l.Spy__TaGwa_l.createView( { baseMipLevel: 0, mipLevelCount: 1, baseArrayLayer: 0, arrayLayerCount: 1 } )
+			 resource: Sa_l.Spy__TaGwa_l.createView( { baseMipLevel: 0, mipLevelCount: 1 } )
+
+		   }] })
+
+	];
+
+	Sa_l.SuGweKy = SuGweKy;
+
+
+	//-------------------------------------------------
+	// LOADED DONE
+	// RESOLVE ALL AT ONCE?
+	// Or TOLERATE some fails to iterate w/ placeholders?
+	//-------------------------------------------------
+	const TaJiHry_Smx_k = await Promise.all( TaJiHry_vh );
+	// allows iteration: Promise.allSettled( TaJiHry_vh ).then(( MSG ) => SmaSme( "[WG] PROG Load:", MSG ) );
+
+
+	//-------------------------------------------------
+	// PTRN
+	//-------------------------------------------------
+	{
+	const Ji_wuk = JiHry.Ji04_PTRN__GwaBry_qk;
+//	const Ji_wuk = JiHry.Ji14_MEXEL__SpeJoDi_qk;
+
+	const JiKa_vsg = await TaJiHry_vh[ Ji_wuk ];
+	if( MoDzTrx__NxHo_y( "SRC:" + TaJiHry_vvsg[ Ji_wuk ].Va_vsg, JiKa_vsg )){ return null; }
+
+	const JiBz_vsg =`
+	@group(0) @binding(0) var JaKro_k: sampler;
+	@group(0) @binding(1) var JaPo_k: texture_2d_array<f32>;
+	@group(1) @binding(0) var SePo_k: texture_storage_2d_array<rgba8unorm, write>;
+
+	const WzGy_wuk: u32 = 8;
+	`;
+
+	const JiSpo_v = KaSmz_l.createShaderModule
+	({
+		label: TaJiHry_vvsg[ Ji_wuk ].Va_vsg
+		, code: JiBz_vsg + JiKa_vsg
+	  });
+
+	  if( MoDzTrx__NxHo_y( "COMPILE:" + TaJiHry_vvsg[ Ji_wuk ].Va_vsg, JiSpo_v )){ return null; }
+
+	   WzGy_wuk = 8;
+
+	  Sa_l.PTRN_k = KaSmz_l.createComputePipeline
+	  ({
+		label: "PIPE:" + TaJiHry_vvsg[ Ji_wuk ].Va_vsg
+		, layout: WzPoChy_KySuTyJy
+		, compute: { module: JiSpo_v }
+	  });
+  }
+
+
+  //-------------------------------------------------
+  // SHAPE
+  //-------------------------------------------------
+  {
+
+  const Ji_wuk = JiHry.Ji12_MEXEL__WaJoDi_qk;
+
+  const JiKa_vsg = await TaJiHry_vh[ Ji_wuk ];
+  if( MoDzTrx__NxHo_y( "SRC:" + TaJiHry_vvsg[ Ji_wuk ].Va_vsg, JiKa_vsg )){ return null; }
+
+  const JiBz_vsg =`
+  @group(0) @binding(0) var JaKro_k: sampler;
+  @group(0) @binding(1) var JaPo_k: texture_2d_array<f32>;
+  @group(1) @binding(0) var SePo_k: texture_storage_2d_array<rgba8unorm, write>;
+
+  const WzGy_wuk: u32 = 8;
+  var<private> Gwo_wu2: vec2u;
+  var<workgroup> Gwo__Vu_vwf2: array< array< vec2f, 8 >, 8>;
+  `;
+
+  // Global variables
+  // private = current thread only
+  // workgroup = shared with all threads in workgroup
+
+  // ERR if using INDIRECT WzGy_wuk (Override can't be 2nd level of array );
+
+  const JiSpo_v = KaSmz_l.createShaderModule
+  ({
+	  label: TaJiHry_vvsg[ Ji_wuk ].Va_vsg
+	  , code: JiBz_vsg + JiKa_vsg
+	});
+
+	if( MoDzTrx__NxHo_y( "COMPILE:" + TaJiHry_vvsg[ Ji_wuk ].Va_vsg, JiSpo_v )){ return null; }
+
+	Sa_l.SHP_k = KaSmz_l.createComputePipeline
+	({
+	  label: "PIPE:" + TaJiHry_vvsg[ Ji_wuk ].Va_vsg
+	  , layout: WzPoChy_KySuTyJy
+	  , compute: { module: JiSpo_v }
+	});
+
+	}//SHP
+
+
+	//-------------------------------------------------
+	// PRESENT
+	//-------------------------------------------------
+	{
+	const Ji_wuk = JiHry.Ji00_PRESENT__MxPoCho_qk;
+	const JiKa_vsg = await TaJiHry_vh[ Ji_wuk ];
+	if( MoDzTrx__NxHo_y( "[WG] Prog Src:" + TaJiHry_vvsg[ Ji_wuk ].Va_vsg, JiKa_vsg )){ return null; }
+
+	const JiBz_vsg =`
+	@group(0) @binding(0) var JaKro_k: sampler;
+	@group(0) @binding(1) var JaPo_k: texture_2d_array<f32>;
+	@group(1) @binding(0) var MxPo_k: texture_storage_2d<${Sa_l.MxPo__FMT_l}, write>;
+
+	const WzGy_wuk: u32 = 8;
+	`;
+
+	const JiSpo_v = KaSmz_l.createShaderModule
+	({
+		label: TaJiHry_vvsg[ Ji_wuk ].Va_vsg
+		, code: JiBz_vsg + JiKa_vsg
+	  });
+
+	  if( MoDzTrx__NxHo_y( "[WG] Compile:" + TaJiHry_vvsg[ Ji_wuk ].Va_vsg, JiSpo_v )){ return null; }
+
+	   WzGy_wuk = 8;
+
+	  Sa_l.MxPoCho_qk = KaSmz_l.createComputePipeline
+	  ({
+		label: "MxPoCho:" + TaJiHry_vvsg[ Ji_wuk ].Va_vsg
+		, layout: MxPo_KySuTyJy
+		, compute:
+		{
+		  module: JiSpo_v
+		  //, entryPoint: 'cs'
+		}
+	  });
+
+	}
+
+
+	//-------------------------------------------------
+	// CHECK on Final ERRORS
+	//-------------------------------------------------
+	await Sa_l.KaSmz_l.popErrorScope().then(( e ) =>
+	{
+		if( e )
+		{
+			SmaSme( "[WG] Validation Err:", e );
+		}
+	});
+	await Sa_l.KaSmz_l.popErrorScope().then(( e ) =>
+	{
+		if( e )
+		{
+			SmaSme( "[WG] Internal Err:", e );
+		}
+	});
+
+	//-------------------------------------------------
+	// SPATIAL ENGINE BEGAN
+	//-------------------------------------------------
+	return SySmz__YaFx_v( Sa_l );
+}
+
+//==============================================
+//==============================================
+// WG LIFE
+//==============================================
+//==============================================

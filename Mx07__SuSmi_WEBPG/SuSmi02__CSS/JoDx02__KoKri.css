@@ -318,7 +318,7 @@ input:checked + .slider:before
 /*@@@@@@@@@@@@@@@
 STATUS BARS
 @@@@@@@@@@@@@@@ */
-#KeMeBri_Bz
+#KeMe_Bz
 {
 	left: 0dvw;
 	top: 0dvh;
@@ -326,7 +326,7 @@ STATUS BARS
 	height: 1.5em;
 }
 
-#KeMeBri_Ka
+#KeMe_Bo
 {
 	left: 0dvw;
 	top: calc(100dvh - 1.5em);

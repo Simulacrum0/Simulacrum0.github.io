@@ -112,26 +112,28 @@ var Module =
 
 	//@@@
 	// HEADER BAR
-	Sma__BriDzYz__Bz( Sma_vsg )
+	Sma__KeMe_Bz( Sma_vsg )
 	{
-		let BriDzYz__Bz_l = document.getElementById('KeMeBri_Bz');
-		BriDzYz__Bz_l.innerHTML = "|> "+ ( Sma_vsg );
+		let DzYz__Bz_l = document.getElementById('KeMe_Bz');
+		DzYz__Bz_l.innerHTML = "|> "+ ( Sma_vsg );
 	},
 
 	//@@@
 	// FOOTER BAR
-	Sma__BriDzYz__Bo( Sma_vsg )
+	Sma__KeMe_Bo( Sma_vsg )
 	{
-		let BriDzYz__Bo_l = document.getElementById('KeMeBri_Ka');
-		BriDzYz__Bo_l.innerHTML = "|> " + ( Sma_vsg );
+		let DzYz__Bo_l = document.getElementById('KeMe_Bo');
+		DzYz__Bo_l.innerHTML = "|> " + ( Sma_vsg );
 	},
 
 	//@@@
 	// LOAD
-	monitorRunDependencies(left)
+	monitorRunDependencies( left )
 	{
+		// NO NEED TO REPORT CURRENTLY
 		this.totalDependencies = Math.max(this.totalDependencies, left);
-		Module.Sma__BriDzYz__Bz( left ? ( KoKeDru.BriDz_KiMiFe_vsg + ' (' + (this.totalDependencies - left) + '/' + this.totalDependencies + ')') : KoKeDru.BriDz_KiMiFi_vsg );
+		Module.Sma__KeMe_Bo( left ? ( KoKeDru.BriDz_KiMiFe_vsg + ' (' + (this.totalDependencies - left) + '/' + this.totalDependencies + ')') : " " );
+
 	},
 
 };
@@ -159,18 +161,21 @@ function MoDzTrx( Trx_vsg )
 
 	//&&&
 	// HEADER (Fixed)
-	var Bz_vsg = KoKeDru.TrxBz_vsg + " [" + ( window.Ko.Hx_SyDx_vsg ? window.Ko.Hx_SyDx_vsg : "???" ) + " " + BriDzSa__Da_vsg + "] " + KoKeDru.TrxKrx_vsg;
-	Module.Sma__BriDzYz__Bz( Bz_vsg );
+	// Err Alert, Build Version,
+	var Bz_vsg = KoKeDru.TrxBz_vsg + " [" + ( window.Ko.Hx_SyDx_vsg ? window.Ko.Hx_SyDx_vsg : "???" ) + " " + BriDzSa__Da_vsg + "] ";
+	Module.Sma__KeMe_Bz( Bz_vsg );
 
 	//&&&
 	// FOOTER (Dynamic)
-	var Bo_vsg = KoKeDru.TrxBz_vsg + Trx_vsg;
-	Module.Sma__BriDzYz__Bo( Bo_vsg );
+	// Please Quit + Err Msg
+	var Bo_vsg = KoKeDru.TrxKrx_vsg + " " + Trx_vsg;
+	Module.Sma__KeMe_Bo( Bo_vsg );
 
 
 	//&&&
 	// DBG
-	SmaSme( "*STK_TRACE:", jsStackTrace() );
+	SmaTrx( Bo_vsg );
+	SmaTrx( "*STK_TRACE:", jsStackTrace() );
 
 	// POST for DBG
 	// console.error( Bo_vsg );

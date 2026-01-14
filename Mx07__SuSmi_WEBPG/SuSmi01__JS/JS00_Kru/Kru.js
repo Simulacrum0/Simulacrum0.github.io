@@ -1,5 +1,5 @@
-const BriDzSa__Da_vsg = "PUB_v0.165"; 
- const BriDzSa__Da_wuk = "165"; 
+const BriDzSa__Da_vsg = "PUB_v0.166"; 
+ const BriDzSa__Da_wuk = "166"; 
  const BriDz__Mx_KuTu_vsg = "https://powerourpeople.com/"; 
 
 //==============================================
@@ -11,8 +11,7 @@ const KoKeDru =
 	// MSG
 	BriDz_VaSy_vsg: "MicroCosm"
 
-	, BriDz_KiMiFe_vsg: "Engine Downloading"
-	, BriDz_KiMiFi_vsg: "Engine Complete"
+	, BriDz_KiMiFe_vsg: "Tech Loading"
 
 
 	//@@@@
@@ -301,26 +300,28 @@ var Module =
 
 	//@@@
 	// HEADER BAR
-	Sma__BriDzYz__Bz( Sma_vsg )
+	Sma__KeMe_Bz( Sma_vsg )
 	{
-		let BriDzYz__Bz_l = document.getElementById('KeMeBri_Bz');
-		BriDzYz__Bz_l.innerHTML = "|> "+ ( Sma_vsg );
+		let DzYz__Bz_l = document.getElementById('KeMe_Bz');
+		DzYz__Bz_l.innerHTML = "|> "+ ( Sma_vsg );
 	},
 
 	//@@@
 	// FOOTER BAR
-	Sma__BriDzYz__Bo( Sma_vsg )
+	Sma__KeMe_Bo( Sma_vsg )
 	{
-		let BriDzYz__Bo_l = document.getElementById('KeMeBri_Ka');
-		BriDzYz__Bo_l.innerHTML = "|> " + ( Sma_vsg );
+		let DzYz__Bo_l = document.getElementById('KeMe_Bo');
+		DzYz__Bo_l.innerHTML = "|> " + ( Sma_vsg );
 	},
 
 	//@@@
 	// LOAD
-	monitorRunDependencies(left)
+	monitorRunDependencies( left )
 	{
+		// NO NEED TO REPORT CURRENTLY
 		this.totalDependencies = Math.max(this.totalDependencies, left);
-		Module.Sma__BriDzYz__Bz( left ? ( KoKeDru.BriDz_KiMiFe_vsg + ' (' + (this.totalDependencies - left) + '/' + this.totalDependencies + ')') : KoKeDru.BriDz_KiMiFi_vsg );
+		Module.Sma__KeMe_Bo( left ? ( KoKeDru.BriDz_KiMiFe_vsg + ' (' + (this.totalDependencies - left) + '/' + this.totalDependencies + ')') : " " );
+
 	},
 
 };
@@ -348,18 +349,21 @@ function MoDzTrx( Trx_vsg )
 
 	//&&&
 	// HEADER (Fixed)
-	var Bz_vsg = KoKeDru.TrxBz_vsg + " [" + ( window.Ko.Hx_SyDx_vsg ? window.Ko.Hx_SyDx_vsg : "???" ) + " " + BriDzSa__Da_vsg + "] " + KoKeDru.TrxKrx_vsg;
-	Module.Sma__BriDzYz__Bz( Bz_vsg );
+	// Err Alert, Build Version,
+	var Bz_vsg = KoKeDru.TrxBz_vsg + " [" + ( window.Ko.Hx_SyDx_vsg ? window.Ko.Hx_SyDx_vsg : "???" ) + " " + BriDzSa__Da_vsg + "] ";
+	Module.Sma__KeMe_Bz( Bz_vsg );
 
 	//&&&
 	// FOOTER (Dynamic)
-	var Bo_vsg = KoKeDru.TrxBz_vsg + Trx_vsg;
-	Module.Sma__BriDzYz__Bo( Bo_vsg );
+	// Please Quit + Err Msg
+	var Bo_vsg = KoKeDru.TrxKrx_vsg + " " + Trx_vsg;
+	Module.Sma__KeMe_Bo( Bo_vsg );
 
 
 	//&&&
 	// DBG
-	SmaSme( "*STK_TRACE:", jsStackTrace() );
+	SmaTrx( Bo_vsg );
+	SmaTrx( "*STK_TRACE:", jsStackTrace() );
 
 	// POST for DBG
 	// console.error( Bo_vsg );
@@ -909,7 +913,7 @@ function HryMx00_KeMeTrx()
 	const TrxBz_k = document.getElementById('TrxBz');
 	const TrxKa_k = document.getElementById('TrxKa');
 
-	TrxBz_k.innerText = KoKeDru.TrxBz_vsg + BriDzSa__Da_vsg;
+	TrxBz_k.innerText = KoKeDru.BriDz_VaSy_vsg + " " + KoKeDru.TrxBz_vsg + BriDzSa__Da_vsg;
 	TrxKa_k.innerText = Module.Trx_vsg;
 }
 
@@ -1043,9 +1047,9 @@ function KoDz_GyHa()
 //==============================================
 
 //==============================================
-// JSON_ADD^Cha
+// JSON_RD^ToKz_My
 //==============================================
-async function Hrz7_Kru__ToKz_vJSON( ChaKuTu_vsg, ToKzVa_vsg )
+async function Hra6_Ku__ToKz_My__vJSON( ChaKuTu_vsg, ToKzVa_vsg )
 {
 	let KuTu_vbg = BriDz__Mx_KuTu_vsg + ChaKuTu_vsg + ToKzVa_vsg;
 	SmaSme( "FILE seeking JSON: " + KuTu_vbg );
@@ -1061,9 +1065,9 @@ async function Hrz7_Kru__ToKz_vJSON( ChaKuTu_vsg, ToKzVa_vsg )
 };
 
 //==============================================
-// TXT_ADD^Cha
+// TXT_RD^ToKz_My
 //==============================================
-async function Hrz7_Kru__ToKz_vsg( ChaKuTu_vsg, ToKzVa_vsg )
+async function Hra6_Ku__ToKz_My__vsg( ChaKuTu_vsg, ToKzVa_vsg )
 {
 	let KuTu_vbg = BriDz__Mx_KuTu_vsg + ChaKuTu_vsg + ToKzVa_vsg;
 	//SmaSme( "FILE seeking TEXT: " + KuTu_vbg );
@@ -1079,9 +1083,9 @@ async function Hrz7_Kru__ToKz_vsg( ChaKuTu_vsg, ToKzVa_vsg )
 };
 
 //==============================================
-// BLOB_ADD^Cha
+// BLOB_RD^ToKz_My
 //==============================================
-async function Hrz7_Kru__ToKz_vBLOB( ChaKuTu_vsg, ToKzVa_vsg )
+async function Hra6_Ku__ToKz_My__vBLOB( ChaKuTu_vsg, ToKzVa_vsg )
 {
 	let KuTu_vbg = BriDz__Mx_KuTu_vsg + ChaKuTu_vsg + ToKzVa_vsg;
 	SmaSme( "FILE seeking BLOB: " + KuTu_vbg );
@@ -1096,9 +1100,22 @@ async function Hrz7_Kru__ToKz_vBLOB( ChaKuTu_vsg, ToKzVa_vsg )
 };
 
 //==============================================
-// BUF_ADD^Cha
+// BLOB_WRT^ToKz_Chy
 //==============================================
-async function Hrz7_Kru__ToKz_vBUF( ChaKuTu_vsg, ToKzVa_vsg )
+async function Hra6_Ku__ToKz_ChyBLOB(blob, filename)
+{
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+}
+
+//==============================================
+// BUF_RD^ToKz_My
+//==============================================
+async function Hra6_Ku__ToKz_My__vBUF( ChaKuTu_vsg, ToKzVa_vsg )
 {
 	let KuTu_vbg = BriDz__Mx_KuTu_vsg + ChaKuTu_vsg + ToKzVa_vsg;
 	SmaSme( "FILE seeking BUFFER: " + KuTu_vbg );
@@ -1488,6 +1505,19 @@ async function KoDz__YaFz()
 	// window.Ko.Trx_GyHa = setInterval( KoDz_GyHa, 1000 );
 
 	//&&&
+	// POSTURE
+	if( DoJi_yk( navigator, "devicePosture" ))
+	{
+		navigator.devicePosture.onchange = () =>
+		{
+			// folded (applies to laptop/book postures)
+			// folded-over
+			// continuous (applies to flat, tablet, or even seamless curved displays)
+			SmaSme( "[DEV] Posture:" + navigator.devicePosture.type );
+		};
+	}
+
+	//&&&
 	// LOADS
 	window.addEventListener( "DOMContentLoaded", KoDz__SuKz_Mi );
 
@@ -1572,6 +1602,7 @@ async function KoDz__YaFx( )
 
 	//
 	//, Hrz7_Kru__ChaSySmz( "Hr", "", "Do", "ABC", SySmz__HoKri_yk, { SmzYz: "0" } )
+
 }
 
 //==============================================
@@ -1644,23 +1675,26 @@ function KoDz__Ye( Gi )
 		//&&&
 		// HEADER (Fixed)
 		let GiFe_vsg = new Date();
-		Module.Sma__BriDzYz__Bz
+		Module.Sma__KeMe_Bz
 		(
 			KoKeDru.BriDz_VaSy_vsg + " [ " + BriDzSa__Da_vsg + " ]"
 			+ " Mode: " + ( window.Ko.Hx_SyDx_vsg ? window.Ko.Hx_SyDx_vsg : "???" )
 			+ " @ " + GiFe_vsg.getHours().toString().padStart(2,"0") + ":" + GiFe_vsg.getMinutes().toString().padStart(2,"0") + ":"  + GiFe_vsg.getSeconds().toString().padStart(2,"0")
 		);
 
+
 		//&&&
 		// FOOTER (Dynamic)
 		const Gry__GiPa_dfk = Gry__GiDri_dfk / 1000.0;
 
-		Module.Sma__BriDzYz__Bo
+		Module.Sma__KeMe_Bo
 		(
 			KoKeDru.BriDz_VaSy_vsg
 			+ " " + Math.floor( Gry__GiPa_dfk / 60.0 ).toString().padStart( 3,"0") + "m " + Math.floor( Gry__GiPa_dfk % 60 ).toString().padStart(2,"0") + "s"
 			+ " YeFo: " + Ko.YeFo_wu
-			+ " Screen[ " + MxPo_Bri_l.width + "px, " + MxPo_Bri_l.height + "px ] DPR: " + window.devicePixelRatio.toFixed(1)
+			+ " Screen[ " + MxPo_Bri_l.width + "px, " + MxPo_Bri_l.height + "px ]"
+			+ " DPR: " + window.devicePixelRatio.toFixed(1)
+			+ " Ps: " + ( DoJi_yk( navigator, "devicePosture" ) ? navigator.devicePosture.type : " ")
 		);
 	}
 	Ko.YeFo_wu++;
@@ -1698,43 +1732,55 @@ document.head.appendChild(BriDz_Fz_js);
 //=====================================
 
 //----------------------------------------------
-function JiDru_yk( _Do_l, _JiDru )
+function DoJi_yk( _Do_l, _Ji_vsg )
+// NOTE: _Ji_vsg MUST be STRING
 //----------------------------------------------
 {
 	try
 	{
-		const Fy_yk = ( ( _Do_l ) && ( _JiDru in _Do_l ) && ( _Do_l[ _JiDru ] !== 'null' ) && ( _Do_l[_JiDru ] !== 'undefined' ) );
+		const Fy_yk = ( ( _Do_l ) && ( _Ji_vsg in _Do_l ) && ( _Do_l[ _Ji_vsg ] !== 'null' ) && ( _Do_l[_Ji_vsg ] !== 'undefined' ) );
 		return Fy_yk;
 	}
 	catch( e )
 	{
-		SmaDre( "OBJ Property Fail:", _Do_l, _JiDru );
+		// SmaDre( "OBJ Property Fail:", _Do_l, _Ji_vsg );
 		return false;
 	}
 }
 
-
 //----------------------------------------------
-function rand(min, max)
+// DBG FILE LINE
+// @returns {string} filename and line number separated by a colon
+// Only on V8 Chrome via CallSite
+// Other choices here:
+// https://v8.dev/docs/stack-trace-api#customizing-stack-traces
+//
+//----------------------------------------------
+const Hrz7_Kru__ToKzVa_Gwx = () =>
 //----------------------------------------------
 {
-  if (min === undefined)
+	const oldStackTrace = Error.prepareStackTrace;
+    try
 	{
-    max = 1;
-    min = 0;
-  }
-  else if (max === undefined)
-  {
-    max = min;
-    min = 0;
-  }
-  return Math.random() * (max - min) + min;
-}
+		// eslint-disable-next-line handle-callback-err
+        Error.prepareStackTrace = (err, structuredStackTrace) => structuredStackTrace;
+        Error.captureStackTrace(this);
 
-//----------------------------------------------
-// Selects a random array element
-const randomArrayElement = arr => arr[ Math.random() * arr.length | 0];
-//----------------------------------------------
+		//@@@
+		// POP STK 1
+        // const callSite = this.stack.find( line => line.getFileName().indexOf('/logger/') < 0 );
+        const callSite = this.stack[ 1 ];
+
+		// SmaSme( "CS", callSite );
+		if( !DoJi_yk( callSite, "getFileName" ) || !DoJi_yk( callSite, "getFunctionName" ) ){ return "-?-"; }
+
+        return callSite.getFunctionName() + " @ " + callSite.getFunctionName() + ":" + callSite.getLineNumber();
+    }
+	finally
+	{
+        Error.prepareStackTrace = oldStackTrace;
+    }
+};
 
 
 //=====================================

@@ -3,9 +3,9 @@
 //==============================================
 
 //==============================================
-// JSON_ADD^Cha
+// JSON_RD^ToKz_My
 //==============================================
-async function Hrz7_Kru__ToKz_vJSON( ChaKuTu_vsg, ToKzVa_vsg )
+async function Hra6_Ku__ToKz_My__vJSON( ChaKuTu_vsg, ToKzVa_vsg )
 {
 	let KuTu_vbg = BriDz__Mx_KuTu_vsg + ChaKuTu_vsg + ToKzVa_vsg;
 	SmaSme( "FILE seeking JSON: " + KuTu_vbg );
@@ -21,9 +21,9 @@ async function Hrz7_Kru__ToKz_vJSON( ChaKuTu_vsg, ToKzVa_vsg )
 };
 
 //==============================================
-// TXT_ADD^Cha
+// TXT_RD^ToKz_My
 //==============================================
-async function Hrz7_Kru__ToKz_vsg( ChaKuTu_vsg, ToKzVa_vsg )
+async function Hra6_Ku__ToKz_My__vsg( ChaKuTu_vsg, ToKzVa_vsg )
 {
 	let KuTu_vbg = BriDz__Mx_KuTu_vsg + ChaKuTu_vsg + ToKzVa_vsg;
 	//SmaSme( "FILE seeking TEXT: " + KuTu_vbg );
@@ -39,9 +39,9 @@ async function Hrz7_Kru__ToKz_vsg( ChaKuTu_vsg, ToKzVa_vsg )
 };
 
 //==============================================
-// BLOB_ADD^Cha
+// BLOB_RD^ToKz_My
 //==============================================
-async function Hrz7_Kru__ToKz_vBLOB( ChaKuTu_vsg, ToKzVa_vsg )
+async function Hra6_Ku__ToKz_My__vBLOB( ChaKuTu_vsg, ToKzVa_vsg )
 {
 	let KuTu_vbg = BriDz__Mx_KuTu_vsg + ChaKuTu_vsg + ToKzVa_vsg;
 	SmaSme( "FILE seeking BLOB: " + KuTu_vbg );
@@ -56,9 +56,22 @@ async function Hrz7_Kru__ToKz_vBLOB( ChaKuTu_vsg, ToKzVa_vsg )
 };
 
 //==============================================
-// BUF_ADD^Cha
+// BLOB_WRT^ToKz_Chy
 //==============================================
-async function Hrz7_Kru__ToKz_vBUF( ChaKuTu_vsg, ToKzVa_vsg )
+async function Hra6_Ku__ToKz_ChyBLOB(blob, filename)
+{
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+}
+
+//==============================================
+// BUF_RD^ToKz_My
+//==============================================
+async function Hra6_Ku__ToKz_My__vBUF( ChaKuTu_vsg, ToKzVa_vsg )
 {
 	let KuTu_vbg = BriDz__Mx_KuTu_vsg + ChaKuTu_vsg + ToKzVa_vsg;
 	SmaSme( "FILE seeking BUFFER: " + KuTu_vbg );

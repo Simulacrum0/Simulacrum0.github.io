@@ -1,0 +1,45 @@
+//==============================================
+//==============================================
+// WG: EXPORT
+//==============================================
+//==============================================
+
+//==============================================
+// EXPORT TIMESTAMP
+//==============================================
+DoWG.TxCho_JeGi = function( Sa_l )
+{
+	if( KoDz__YzTrx_y() ) return;
+	SmaSme( "[WG] TxCho_JeGi: EXPORT TIMESTAMP" );
+}
+
+//==============================================
+// EXPORT: RECORD
+//==============================================
+DoWG.TxCho_JxRe = function( Sa_l )
+{
+	if( KoDz__YzTrx_y() ) return;
+	SmaSme( "[WG] TxCho_JxRe: EXPORT SEQ" );
+}
+
+//==============================================
+// EXPORT: SIGNAL
+//==============================================
+DoWG.TxCho_JaKu = function( Sa_l, Brz_wu, GeGx_wu, GeGa_wu, GeGz_wu, GyGx_wu, GyGa_wu )
+{
+	if( KoDz__YzTrx_y() ) return;
+	SmaSme( "[WG] TxCho_JaKu EXPORT FORM" );
+
+	//!!!
+	// bytesPerRow MULTIPLE of 256, so 4bpp => MULTIPLE of 64
+	GyGx_wu = (( GyGx_wu + 63 ) & ~63 );
+
+	if( Sa_l.TxCho__TraJaKu_v.length ) return;
+	Sa_l.TxCho__KriJaKu_v.push({ Brz_wu, GeGx_wu, GeGa_wu, GeGz_wu, GyGx_wu, GyGa_wu });
+}
+
+//==============================================
+//==============================================
+// WG: EXPORT
+//==============================================
+//==============================================

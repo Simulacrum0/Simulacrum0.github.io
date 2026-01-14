@@ -7,8 +7,7 @@ const KoKeDru =
 	// MSG
 	BriDz_VaSy_vsg: "MicroCosm"
 
-	, BriDz_KiMiFe_vsg: "Engine Downloading"
-	, BriDz_KiMiFi_vsg: "Engine Complete"
+	, BriDz_KiMiFe_vsg: "Tech Loading"
 
 
 	//@@@@

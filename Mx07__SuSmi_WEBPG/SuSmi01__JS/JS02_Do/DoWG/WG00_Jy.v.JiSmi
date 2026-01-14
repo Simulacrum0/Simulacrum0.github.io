@@ -1,0 +1,244 @@
+//==============================================
+//==============================================
+// WG: Jy
+//==============================================
+//==============================================
+/*
+//-------------------
+TERMS^TaVaHx:
+//-------------------
+
+RES:
+- ADAPTER^KaKy
+- DEVICE^KaSmz
+- SMPLR^JaMi( Samplers )
+
+- BUF_CRAFT^JxRe( SuTy )
+- BUF_FIELD^JxRe(
+- IMG^TaGwa__JaPo( Surface Deck as array of BGRA 2D Slices )
+
+JOB:
+- MEDIA_STRMs^SuTruTa (BindGroup map smplr/buf/img to Group/Bind Index )
+- STRM_MODELs^SuGweKy ( BindGroupLayout collect Media Strms )
+- JOB_MODELs^JiSuKy ( Model Strms for Job )
+- JOB_PROG^JiHry ( Compute Programs )
+- JOB_PIPE^JiGwe( Pipeline Connect Job_Model(Strm_Models) + Prog )
+
+//-------------------
+FN^TaJiDru:
+//-------------------
+- FN_1/4: UTIL^Sma
+- FN_2/4: CLONE^KiCho
+- FN_3/4: PSB^TxCho
+- FN_4/4: LIFE^BriYz
+
+*/
+//==============================================
+"use strict";
+const DoWG = { VaSy: "DoWG" };
+window.DoWG = DoWG;
+
+//==============================================
+// COUNTS
+//==============================================
+
+const CS_Gy_k = 32;
+const CS_WzVu_k = 8;
+let CS_Kwi_wu = 0;
+
+//@@@
+// RCD SIZES
+
+// REQUIRE: CHROME FLAG to Enable Tier0 Test ( Compatibility Mode )
+
+
+// TIMESTAMP MAX:
+const TaGiMy__Fo_wuk = 2;
+
+//&&&
+// CRAFT as UNIFORM
+// wf4_t = 16_Vu * 64bu_wf4 * 64_Ti = 64K
+// MAX 'T0' UNIFORM ( 16KiB )
+// const SuTy__BraHiFrz_k = ( 16 * 64 * 16 )
+// MAX 'T1' UNIFORM ( 64KiB )
+const SuTy__BraHiFrz_k = ( 1024 * 64 );
+// MAX 'T2' UNIFORM ( 64MiB )
+//const SuTy__BraHiFrz_k = ( 1024 * 1024 * 64 )
+
+// MAX write/readback values 1024 * wf4_t
+const KzDy__BraHiFrz_k = ( 1024 * 16 );
+
+// MAX READBACK BUF
+// Currently ~50MiB for XR copy buf ( storagebuf req to have at least 128MiB each )
+const TxCho__Ga_wuk = 2 * 2560; // 5120
+const TxCho__Gx_wuk = 2 * TxCho__Ga_wuk;
+const TxCho__BraHiFrz_k = 4 * TxCho__Gx_wuk * TxCho__Ga_wuk;
+
+//==============================================
+// NAMES
+//==============================================
+
+//-------------------------------------------------
+// ABILITY_TIER ( Capability Level )
+const KaBxJiVu = Object.freeze
+//-------------------------------------------------
+({
+	Vu00__ChoGru_qk: 0 // Unusable as Only capable of Clone
+	, Vu01__JiHu_qk: 1 // Minimal Capabilities ( emulation mode )
+	, Vu02__De_qk: 2 // Multipass Textures, Default WebGPU 2.0
+	, Vu03__ZzKri_qk: 3 // RW Textures RGBA, SubGroups
+});
+
+
+//-------------------------------------------------
+// WORK_STAGE
+const WzKwe = Object.freeze
+//-------------------------------------------------
+({
+	// NOTE: All have Dn/Upsmp ( MipDn/MagUp )
+	Vu00__KiCho_qk: 0 // Upload/Repack
+	, Vu01__Bry_qk: 1 // Ptrn
+	, Vu02__Wy_qk: 2 // Shp & Lgt
+	, Vu03__Trz_qk: 3 // Observe
+
+	, Vu04__Nu_qk: 4 // Adapt ( Filter )
+	, Vu05__DxGu_qk: 5 // Format/Compress
+	, Vu06__MxPo_qk: 6 // Emit
+	, Vu07__TxCho_qk: 7 // Dnload
+
+});
+
+//-------------------------------------------------
+// BUFFERS
+const JxReVa = Object.freeze
+//-------------------------------------------------
+({
+	SuTy_qk: 0 // Crafts for all
+	, SoVx_qk: 1 // Reference Values, such as Color Stacks
+	, SzVx_qk: 2 // Constraints (Goal) Values, such as Scene Things
+	, WzKu_qk: 3 // Specific Jobs, *USES* 1 Offset, stores offsets to other bufs;
+});
+
+
+//-------------------------------------------------
+// MEDIA ANCESTOR ( Bind Group Slots )
+const SuTyDo = Object.freeze
+//-------------------------------------------------
+({
+	// REAL ( Shared Craft & References )
+	JoDu_qk: 0
+	// FRMs ( Si, Se )
+	, WzKu_qk: 1
+	// WORK DTLs
+	, WzDy_qk: 2
+});
+
+//-------------------------------------------------
+// MEDIA_STRM ( BindGroup )
+const SuTruTa = Object.freeze
+//-------------------------------------------------
+({
+	SuTruTa00_qk: 0
+	, SuTruTa01_qk: 1
+	, SuTruTa02_qk: 2
+});
+
+//-------------------------------------------------
+// STRM_MODEL ( BindGroupLayout )
+const SuGweKy = Object.freeze
+//-------------------------------------------------
+({
+	SuGweKy00_qk: 0
+	, SuGweKy01_qk: 1
+	, SuGweKy02_qk: 2
+});
+
+
+//-------------------------------------------------
+// JOB_MODEL^JiSuKy
+// PipelineLayout
+const KySuTyJy = Object.freeze
+//-------------------------------------------------
+({
+	KySuTyJy00_qk: 0
+	, KySuTyJy01_qk: 1
+	, KySuTyJy02_qk: 2
+});
+
+
+//-------------------------------------------------
+// JOB_PIPE^JiGwe
+// ComputePipeline
+const JiGwe = Object.freeze
+//-------------------------------------------------
+({
+	JiGwe00_qk: 0
+	, JiGwe01_qk: 1
+	, JiGwe02_qk: 2
+});
+
+
+//-------------------------------------------------
+// JOB_PIPE^JiGwe
+// ComputePipeline
+const JiSuKy = Object.freeze
+//-------------------------------------------------
+({
+	Brz_qk: 0
+	, Wy_qk: 1
+	, Trz_qk: 2
+	, Nu_qk: 3
+});
+
+
+//-------------------------------------------------
+// CRAFT^SuTyJy
+const SuTyJy = Object.freeze
+//-------------------------------------------------
+({
+	Cho_qk: 0
+	, Nu_qk: 1
+	, Brz_qk: 2
+	, Hri_qk: 3
+});
+
+
+//-------------------------------------------------
+// JOB_PROG^JiHry
+// ProcessedShaderProgram
+const JiHry = Object.freeze
+//-------------------------------------------------
+({
+	  Ji00_PRESENT__MxPoCho_qk: 0
+	, Ji04_PTRN__GwaBry_qk: 1
+	, Ji08_GOLIFE__ToWy_qk: 2
+
+	, Ji12_MEXEL__WaJoDi_qk: 3
+	, Ji14_MEXEL__SpeJoDi_qk: 4
+});
+
+//==============================================
+// DoWG_TaJiHry
+// CODE FILES(LAB) or CODE NAMES(PUB)
+//==============================================
+const TaJiHry_vvsg =
+[
+	// { SRC NAME, ANCESTOR NAME, CONTENT_MODEL, CRAFT_TYPE }
+	  { Va_vsg: "Ji00_PRESENT__MxPoCho", Do_vsg: "JiJy00__WaPo", JiSuKy_q: JiSuKy.Wy_qk, SuTyJy_q: SuTyJy.Bry_qk }
+
+	  , { Va_vsg: "Ji04_PTRN__GwaBry", Do_vsg: "JiJy00__WaPo", JiSuKy_q: JiSuKy.Wy_qk, SuTyJy_q: SuTyJy.Bry_qk }
+
+	, { Va_vsg: "Ji08_GOLIFE__ToWy", Do_vsg: "JiJy00__WaPo", JiSuKy_q: JiSuKy.Wy_qk, SuTyJy_q: SuTyJy.Bry_qk }
+
+	, { Va_vsg: "Ji12_MEXEL__WaJoDi", Do_vsg: "JiJy00__WaPo", JiSuKy_q: JiSuKy.Wy_qk, SuTyJy_q: SuTyJy.Bry_qk }
+	// , { Va_vsg: "Ji13_MEXEL__KuJoDi", Do_vsg: "JiJy00__WaPo", JiSuKy_q: JiSuKy.Wy_qk, SuTyJy_q: SuTyJy.Bry_qk }
+	, { Va_vsg: "Ji14_MEXEL__SpeJoDi", Do_vsg: "JiJy00__WaPo", JiSuKy_q: JiSuKy.Wy_qk, SuTyJy_q: SuTyJy.Bry_qk }
+	// , { Va_vsg: "Ji15_MEXEL__MzJoDi", Do_vsg: "JiJy00__WaPo", JiSuKy_q: JiSuKy.Wy_qk, SuTyJy_q: SuTyJy.Bry_qk }
+
+];
+
+//==============================================
+//==============================================
+// WG: Jy
+//==============================================
+//==============================================

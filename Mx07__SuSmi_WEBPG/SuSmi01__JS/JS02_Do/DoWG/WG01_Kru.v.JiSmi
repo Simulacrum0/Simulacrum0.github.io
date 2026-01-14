@@ -1,0 +1,129 @@
+//==============================================
+// WG: UTIL
+//==============================================
+//==============================================
+// REPORT CFG
+//==============================================
+DoWG.SmaYz = function( Sa_l )
+{
+	if( KoDz__YzTrx_y() ) return;
+
+	// REPORT
+	SmaSme( "[WG] --------------------------------------------" );
+	SmaSme( "[WG] Yz" );
+	SmaSme( "[WG] --------------------------------------------" );
+	SmaSme( "[WG] - Chip:", Sa_l.KaKy_l.info.vendor );
+	SmaSme( "[WG] - Class:", Sa_l.KaKy_l.info.architecture );
+
+	//SmaSme( Sa_l.KaSmz_l );
+
+	// REQUIRES feature 'subgroups'
+	//SmaSme( "[WG] - SGrp_Gy:", Sa_l.KaKy_l.info.subgroupMinSize, Sa_l.KaKy_l.info.subgroupMaxSize );
+
+	SmaSme( "[WG] --------WORK ----------" );
+	SmaSme( "[WG] - WrkGrp_Invoke", Sa_l.KaKy_l.limits.maxComputeInvocationsPerWorkgroup, " <T1> ", 256, "<T0>", 128 );
+	SmaSme( "[WG] - WrkGrp_X", Sa_l.KaKy_l.limits.maxComputeWorkgroupSizeX, " <T1> ", 256, "<T0>", 128 );
+	SmaSme( "[WG] - WrkGrp_Y", Sa_l.KaKy_l.limits.maxComputeWorkgroupSizeY, " <T1> ", 256, "<T0>", 128 );
+	SmaSme( "[WG] - WrkGrp_Z", Sa_l.KaKy_l.limits.maxComputeWorkgroupSizeZ, " <> ", 64 );
+	SmaSme( "[WG] - WrkGrp_Store", Sa_l.KaKy_l.limits.maxComputeWorkgroupStorageSize, " <> ", 16384 );
+	SmaSme( "[WG] - WrkGrp_MaxDim", Sa_l.KaKy_l.limits.maxComputeWorkgroupsPerDimension, " <> ", 65535 );
+
+
+	SmaSme( "[WG] ------- USED --------" );
+	// SmaSme( Sa_l.Spy__TaGwa_l );
+	SmaSme( "[WG] - Matter_Deck: Gx_", Sa_l.Spy__TaGwa_l.width, " Ga_", Sa_l.Spy__TaGwa_l.height, " Gz_", Sa_l.Spy__TaGwa_l.depthOrArrayLayers );
+	SmaSme( "[WG] - Energy_Deck: Gx_", Sa_l.Spe__TaGwa_l.width, " Ga_", Sa_l.Spe__TaGwa_l.height, " Gz_", Sa_l.Spe__TaGwa_l.depthOrArrayLayers );
+	SmaSme( "[WG] - Work_Deck: Gx_", Sa_l.Wz__TaGwa_l.width, " Ga_", Sa_l.Wz__TaGwa_l.height, " Gz_", Sa_l.Wz__TaGwa_l.depthOrArrayLayers );
+
+
+	SmaSme( "[WG] ------- STOR --------" );
+
+	SmaSme( "[WG] - Buf_Gy", Sa_l.KaKy_l.limits.maxBufferSize, " <> ", 268435456 );
+	SmaSme( "[WG] - StorBuf_BindSiz", Sa_l.KaKy_l.limits.maxStorageBufferBindingSize, " <> ", 134217728 );
+	SmaSme( "[WG] - StorBuf_Stage", Sa_l.KaKy_l.limits.maxStorageBuffersPerShaderStage, " <> ", 8 );
+	SmaSme( "[WG] - TexStor_Stage", Sa_l.KaKy_l.limits.maxStorageTexturesPerShaderStage, " <> ", 4 );
+
+	SmaSme( "[WG] - TexLayers", Sa_l.KaKy_l.limits.maxTextureArrayLayers, " <> ", 256 );
+
+	SmaSme( "[WG] - Tex2D_Dim", Sa_l.KaKy_l.limits.maxTextureDimension2D, " <T1> ", 8192, "<T0>", 4096 );
+	// SmaSme( "[WG] - Tex3D_Dim", Sa_l.KaKy_l.limits.maxTextureDimension3D, " <> ", 2048 );
+	SmaSme( "[WG] - UniBuf_BindSiz", Sa_l.KaKy_l.limits.maxUniformBufferBindingSize, " <T1> ", 65536, "<T0>", 16384 );
+
+	// SmaSme( "[WG] - maxUniformBuffersPerShaderStage", Sa_l.KaKy_l.limits.maxUniformBuffersPerShaderStage, " <> ", 12 );
+	SmaSme( "[WG] - StorBuf_Align", Sa_l.KaKy_l.limits.minStorageBufferOffsetAlignment, " <> ", 256 );
+	SmaSme( "[WG] - UniBuf_Align", Sa_l.KaKy_l.limits.minUniformBufferOffsetAlignment, " <> ", 256 );
+
+	SmaSme( "[WG] --------------------------------------------" );
+}
+
+//==============================================
+// DISPLAY RESIZE REGULARLY 'Re-Run'
+//==============================================
+DoWG.Mz_GyHa = function( Sa_l )
+{
+	if( KoDz__YzTrx_y() ) return;
+
+	//@@@
+	// max w/ 1 prevents 0
+	const width = Math.max( 1, Math.min( Sa_l.KaSmz_l.limits.maxTextureDimension2D, window.devicePixelRatio * Sa_l.MxPo_Gwa_l.clientWidth ) );
+	const height = Math.max( 1, Math.min( Sa_l.KaSmz_l.limits.maxTextureDimension2D, window.devicePixelRatio * Sa_l.MxPo_Gwa_l.clientHeight ) );
+
+	//@@@
+	// RESIZE OCCURED?
+	if( width !== Sa_l.MxPo_Gwa_l.width || height !== Sa_l.MxPo_Gwa_l.height )
+	{
+		//&&&
+		// UPDATE BUFS
+		// SmaSme( "[WG] Mz_GyHa ", Sa_l );
+		Sa_l.MxPo_Gwa_l.width = width;
+		Sa_l.MxPo_Gwa_l.height = height;
+
+		//&&&
+		// REALLOC MxPo BACKBUF
+
+	}
+}
+
+
+//==============================================
+// RELOCATE IMG ( Move Rect for Relocate/Compact )
+//==============================================
+DoWG.KiCho_ChyGe = function( Sa_l, SiGeGx_wuk, SiGeGa_wuk, SiGeGz_wuk, DuGyGx_wuk, DuGyGa_wuk, SeGeGx_wuk, SeGeGa_wuk, SeGeGz_wuk )
+{
+/*
+
+src.texture must have a usage of GPUTextureUsage.COPY_SRC
+dst.texture must have a usage of GPUTextureUsage.COPY_DST
+width must be a multiple of block width
+height must be a multiple of block height
+src.origin[0] or .x must be a multiple of block width
+src.origin[1] or .y must be a multiple of block height
+dst.origin[0] or .x must be a multiple of block width
+dst.origin[1] or .y must be a multiple of block height
+
+Sa_l.KaSmz_l.queue.copyTextureToTexture(
+	// details of the source texture
+	src: { texture, mipLevel: 0, origin: [0, 0, 0], aspect: "all" },
+
+	// details of the destination texture
+	dst: { texture, mipLevel: 0, origin: [0, 0, 0], aspect: "all" },
+
+	// size:
+	[ width, height, depthOrArrayLayers ] or { width, height, depthOrArrayLayers }
+  );
+  )
+*/
+}
+
+//==============================================
+// RELOCATE BUF ( Move Rect for Relocate/Compact )
+//==============================================
+DoWG.KiCho_ChyGe = function( Sa_l, SiGeGx_wuk, SiGeGa_wuk, SiGeGz_wuk, DuGyGx_wuk, DuGyGa_wuk, SeGeGx_wuk, SeGeGa_wuk, SeGeGz_wuk )
+{
+
+}
+
+
+//==============================================
+// WG: UTIL
+//==============================================
