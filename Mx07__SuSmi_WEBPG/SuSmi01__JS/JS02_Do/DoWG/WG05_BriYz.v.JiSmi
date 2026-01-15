@@ -796,8 +796,8 @@ DoWG.BriYa = async function( Yz_l )
 
 			//&&&
 			// LOG RESULTS
-			SmaSme( "[WG] RESULTS ⁉️=", TrzRi_y, " YzTi:", GzKri_wu,  " Ve", ( 1<<GzKri_wu ) );
-			// SmaSme( "[WG] RESULTS ⁉️ TaGwa_l DIM", GzKri_wu,  " #", ( 1<<GzKri_wu ), "Spy", Spy__TaGwa_l, "Spe", Spe__TaGwa_l, "Wz", Wz__TaGwa_l, " KzDy", KzDy__JxRe_l, " TxCho", TxCho__JxRe_l, " SuTy", SuTy__JxRe_l  );
+			SmaSme( "[WG] RESULTS ⁉️=", TrzRi_y, " YzTi:", GzKri_wu,  " Ve", GzFo_wuk );
+			// SmaSme( "[WG] RESULTS ⁉️= ", "Spy", Spy__TaGwa_l, "Spe", Spe__TaGwa_l, "Wz", Wz__TaGwa_l, " KzDy", KzDy__JxRe_l, " TxCho", TxCho__JxRe_l, " SuTy", SuTy__JxRe_l  );
 
 			//&&&
 			// ERR CLEAR via POP on no Mem
@@ -806,7 +806,7 @@ DoWG.BriYa = async function( Yz_l )
 			{
 				if( e )
 				{
-					SmaSme( "[WG]: MEM_REQ Kri:", GzKri_wu,  " #", ( 1<<GzKri_wu ), e.message );
+					SmaSme( "[WG]: MEM_REQ Kri:", GzKri_wu,  " #", ( GzFo_wuk ), e.message );
 
 					Spy__TaGwa_l?.destroy();
 					Spe__TaGwa_l?.destroy();
