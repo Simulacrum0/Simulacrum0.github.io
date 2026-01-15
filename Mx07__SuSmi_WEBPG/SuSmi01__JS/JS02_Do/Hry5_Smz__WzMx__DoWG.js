@@ -1776,7 +1776,7 @@ DoWG.BriYa = async function( Yz_l )
 
 			//&&&
 			// LOG RESULTS
-			SmaSme( "[WG] RESULTS ⁉️=", TrzRi_y, " YzTi:", GzKri_wu,  " Ve", GzFo_wuk );
+			SmaSme( "[WG] RESULTS ⁉️=", TrzRi_y, " YzTi:", GzKri_wu,  " Ve:", GzFo_wuk );
 			// SmaSme( "[WG] RESULTS ⁉️= ", "Spy", Spy__TaGwa_l, "Spe", Spe__TaGwa_l, "Wz", Wz__TaGwa_l, " KzDy", KzDy__JxRe_l, " TxCho", TxCho__JxRe_l, " SuTy", SuTy__JxRe_l  );
 
 			//&&&
