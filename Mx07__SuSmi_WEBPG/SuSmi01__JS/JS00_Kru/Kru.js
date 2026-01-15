@@ -1,5 +1,5 @@
-const BriDzSa__Da_vsg = "PUB_v0.171"; 
- const BriDzSa__Da_wuk = "171"; 
+const BriDzSa__Da_vsg = "PUB_v0.172"; 
+ const BriDzSa__Da_wuk = "172"; 
  const BriDz__Mx_KuTu_vsg = "https://powerourpeople.com/"; 
 
 //==============================================
@@ -1588,7 +1588,7 @@ async function KoDz__YaFx( )
 	const SySmz__HoKri_yk = false;
 
 	// DoXR
-	Hrz7_Kru__ChaSySmz( "Hri2_Ke", "BzMe", "Do", "XR", SySmz__HoKri_yk, { YzTi_wu: "0" } );
+	// Hrz7_Kru__ChaSySmz( "Hri2_Ke", "BzMe", "Do", "XR", SySmz__HoKri_yk, { YzTi_wu: "0" } );
 
 	// DoAUD
 	//Hrz7_Kru__ChaSySmz( "Hru5_Smz", "MxPe", "Do", "AUD", SySmz__HoKri_yk, { YzTi_wu: "0" } );
