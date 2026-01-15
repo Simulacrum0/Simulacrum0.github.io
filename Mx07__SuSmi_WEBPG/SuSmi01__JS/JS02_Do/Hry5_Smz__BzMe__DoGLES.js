@@ -55,7 +55,6 @@ DoGLES.BriYa = async function( Yz_l )
 {
 	// MAKE SESSION with Ji INTERFACE
 	const Sa_l = SySmz__YaFz_v( DoGLES );
-
 	Sa_l.KaVy = Yz_l.KaVy;
 
 	//@@@

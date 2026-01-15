@@ -17,6 +17,16 @@ DoWG.BriYe = async function( Sa_l, GiDri_duk  )
 	// CHECK RESIZE
 	DoWG.Mz_GyHa( Sa_l );
 
+
+	//@@@
+	// ERR_CHECK
+	const DBG_yk = true;
+	if( DBG_yk )
+	{
+		Sa_l.KaSmz_l.pushErrorScope('internal');
+		Sa_l.KaSmz_l.pushErrorScope('validation');
+	}
+
 	//@@@
 	// CMD PASS BEGIN
 	const KaSmz_l = Sa_l.KaSmz_l;
@@ -41,45 +51,6 @@ DoWG.BriYe = async function( Sa_l, GiDri_duk  )
 
 	let TaMo_l;
 
-
-/*
-
-Media_Strms ROUND-ROBIN @ UNIFORMS
-UNIFORM: buf-max = 64 KiB, RO
-STORE: buf-max = 128 MiB, RW
-
-maxDynamicUniformBuffersPerPipelineLayout: 8
-
-min_uniform_buffer_offset_alignment: 256bu
-min_storage_buffer_offset_alignment: 256bu
-
-// Set binding group with a different uniform offset
-dynamicOffset = 1 * m_uniformStride;
-
-
- // last two CPP! no JS! arguments of renderPass.setBindGroup, namely dynamicOffsetCount and dynamicOffsets array.
-renderPass.setBindGroup(0, m_bindGroup, 1, &dynamicOffset);
-
-// setBindGroup(index, bindGroup, dynamicOffsets, dynamicOffsetsStart,
-             dynamicOffsetsLength)
-// Entries in bindGroup with hasDynamicOffset: true set.
-	bindingLayout.buffer.hasDynamicOffset = true;
-
-
-MyUniforms uniforms;
-
-// Upload first value
-uniforms.time = 1.0f;
-uniforms.color = { 0.0f, 1.0f, 0.4f, 1.0f };
-m_queue.writeBuffer(m_uniformBuffer, 0, &uniforms, sizeof(uniforms));
-
-// Upload second value
-uniforms.time = -1.0f;
-uniforms.color = { 1.0f, 1.0f, 1.0f, 0.7f };
-m_queue.writeBuffer(m_uniformBuffer, m_uniformStride, &uniforms, sizeof(uniforms));
-
-*/
-
 	//-------------------------------------------------
 	// KiCho
 	//-------------------------------------------------
@@ -88,24 +59,6 @@ m_queue.writeBuffer(m_uniformBuffer, m_uniformStride, &uniforms, sizeof(uniforms
 	// UPLOAD
 
 
-
-	//@@@
-	// GOLIFE
-	{
-		TaMo_l = MoKro_l.beginComputePass( TaMoVa_k );
-		TaMo_l.pushDebugGroup('Gen GOLIFE');
-		{
-			TaMo_l.setPipeline( Sa_l.JiGwe02__GOLIFE );
-			TaMo_l.setBindGroup(0, Sa_l.SuGweKy[  CS_Kwi_wu % 2 ]);
-
-			const TaWz__Fo_wuk = Math.ceil(CS_Gy_k / CS_WzVu_k);
-			TaMo_l.dispatchWorkgroups( TaWz__Fo_wuk, TaWz__Fo_wuk );
-		}
-		TaMo_l.popDebugGroup();
-		TaMo_l.end();
-		CS_Kwi_wu++;
-	}
-
 	//@@@
 	// PTRN
 	{
@@ -113,8 +66,8 @@ m_queue.writeBuffer(m_uniformBuffer, m_uniformStride, &uniforms, sizeof(uniforms
 		TaMo_l.pushDebugGroup('Gen PTRN');
 		{
 			TaMo_l.setPipeline( Sa_l.PTRN_k );
-			TaMo_l.setBindGroup( 0, Sa_l.SuGweKy[ 2 ] );
-			TaMo_l.setBindGroup( 1, Sa_l.SuGweKy[ 3 ] );
+			TaMo_l.setBindGroup( 0, Sa_l.SuGweKy_v[ SuGweKy.DuPoMy_qk ] );
+			TaMo_l.setBindGroup( 1, Sa_l.SuGweKy_v[ SuGweKy.WzPoChy_qk ] );
 
 			const WzGy__Fo_wuk = ( 512 >> 3 );
 			TaMo_l.dispatchWorkgroups( WzGy__Fo_wuk, WzGy__Fo_wuk );
@@ -131,8 +84,8 @@ m_queue.writeBuffer(m_uniformBuffer, m_uniformStride, &uniforms, sizeof(uniforms
 		TaMo_l.pushDebugGroup('Gen SHP');
 		{
 			TaMo_l.setPipeline( Sa_l.SHP_k );
-			TaMo_l.setBindGroup( 0, Sa_l.SuGweKy[ 2 ] );
-			TaMo_l.setBindGroup( 1, Sa_l.SuGweKy[ 3 ] );
+			TaMo_l.setBindGroup( 0, Sa_l.SuGweKy_v[ SuGweKy.DuPoMy_qk ] );
+			TaMo_l.setBindGroup( 1, Sa_l.SuGweKy_v[ SuGweKy.WzPoChy_qk ] );
 
 			// OFS/SIZ
 
@@ -152,8 +105,8 @@ m_queue.writeBuffer(m_uniformBuffer, m_uniformStride, &uniforms, sizeof(uniforms
 		TaMo_l.pushDebugGroup('Gen LGT');
 		{
 			TaMo_l.setPipeline( Sa_l.LGT_k );
-			TaMo_l.setBindGroup( 0, Sa_l.SuGweKy[ 2 ] );
-			TaMo_l.setBindGroup( 1, Sa_l.SuGweKy[ 3 ] );
+			TaMo_l.setBindGroup( 0, Sa_l.SuGweKy_v[ SuGweKy.DuPoMy_qk ] );
+			TaMo_l.setBindGroup( 1, Sa_l.SuGweKy_v[ SuGweKy.WzPoChy_qk ] );
 
 			// OFS/SIZ
 
@@ -170,7 +123,7 @@ m_queue.writeBuffer(m_uniformBuffer, m_uniformStride, &uniforms, sizeof(uniforms
 	// TaMo_l.pushDebugGroup('Gen MEXEL');
 	// {
 	// 	TaMo_l.setPipeline( Sa_l.MEXEL_Mz_k );
-	// 	TaMo_l.setBindGroup( 0, Sa_l.SuGweKy[ 4 ] );
+	// 	TaMo_l.setBindGroup( 0, Sa_l.SuGweKy_v[ SuGweKy.DuPoTrz_qk ] );
 	// 	const WzGy__Fo_wuk = ( 512 >> 3 );
 	// 	TaMo_l.dispatchWorkgroups( WzGy__Fo_wuk, WzGy__Fo_wuk );
 	// }
@@ -237,7 +190,7 @@ m_queue.writeBuffer(m_uniformBuffer, m_uniformStride, &uniforms, sizeof(uniforms
 
 		{
 			TaMo_l.setPipeline( Sa_l.MxPoCho_qk );
-			TaMo_l.setBindGroup( 0, Sa_l.SuGweKy[ 2 ] );
+			TaMo_l.setBindGroup( 0, Sa_l.SuGweKy_v[ SuGweKy.DuPoMy_qk ] );
 			TaMo_l.setBindGroup( 1, MxPo__bindGroup );
 
 			TaMo_l.dispatchWorkgroups( ( MxPo_JaPo_l.width + 7 ) >> 3, ( MxPo_JaPo_l.height + 7 ) >> 3 );
@@ -385,6 +338,27 @@ m_queue.writeBuffer(m_uniformBuffer, m_uniformStride, &uniforms, sizeof(uniforms
 	}// if DNLOAD
 
 
+
+	//-------------------------------------------------
+	// CMD ERRORS
+	//-------------------------------------------------
+	if( DBG_yk )
+	{
+		await Sa_l.KaSmz_l.popErrorScope().then(( e ) =>
+		{
+			if( e )
+			{
+				SmaSme( "[WG] CMD Validation Err:", e );
+			}
+		});
+		await Sa_l.KaSmz_l.popErrorScope().then(( e ) =>
+		{
+			if( e )
+			{
+				SmaSme( "[WG] CMD Internal Err:", e );
+			}
+		});
+	}
 }
 
 //==============================================

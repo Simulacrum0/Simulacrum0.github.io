@@ -126,25 +126,25 @@ async function KoDz__YaFz()
 	const SySmz__Kri_yk = true;
 	const Kri__SySmz_v =
 	[
-		Hrz7_Kru__ChaSySmz( "Hrz4_Bu", "BriDzYz", "Do", "CFG", SySmz__Kri_yk, { SmzYz: "0" } )
+		Hrz7_Kru__ChaSySmz( "Hrz4_Bu", "BriDzYz", "Do", "CFG", SySmz__Kri_yk, { YzTi_wu: "0" } )
 		, Hrz7_Kru__ChaSySmz( "Hre1_Dru", "KeDruPy", "Do", "TAK", SySmz__Kri_yk, { Si_KeDru: "en" } )
 		, Hrz7_Kru__ChaSySmz( "Hra6_Ku", "KoToKz", "Do", "FS", SySmz__Kri_yk, { VaDyFy: "true" } )
-		, Hrz7_Kru__ChaSySmz( "Hrx4_Che", "MoDxGri", "Do", "TRU", SySmz__Kri_yk, { KaVy: "0" } )
+		, Hrz7_Kru__ChaSySmz( "Hrx4_Che", "MoDxGri", "Do", "TRU", SySmz__Kri_yk, { YzTi_wu: "0" } )
 
-		, Hrz7_Kru__ChaSySmz( "Hra7_Ta", "ToMi", "Do", "STRM", SySmz__Kri_yk, { SmzYz: "0" } )
-		, Hrz7_Kru__ChaSySmz( "Hre1_Dru", "WaDru", "Do", "FNT", SySmz__Kri_yk, { SmzYz: "0" } )
-		, Hrz7_Kru__ChaSySmz( "Hry5_Smz", "WzMx", "Do", "WG", SySmz__Kri_yk, { SmzYz_q: -1 } )
+		, Hrz7_Kru__ChaSySmz( "Hra7_Ta", "ToMi", "Do", "STRM", SySmz__Kri_yk, { YzTi_wu: "0" } )
+		, Hrz7_Kru__ChaSySmz( "Hre1_Dru", "WaDru", "Do", "FNT", SySmz__Kri_yk, { YzTi_wu: "0" } )
+		, Hrz7_Kru__ChaSySmz( "Hry5_Smz", "WzMx", "Do", "WG", SySmz__Kri_yk, { YzTi_wu: Ko.WG__YzTi_wu } )
 		, Hrz7_Kru__ChaSySmz( "Hry1_Brz", "KeDru", "Do", "GLF", SySmz__Kri_yk, { Gy_wu: 512 } )
 
-		, Hrz7_Kru__ChaSySmz( "Hra4_Bru", "ToDry", "Do", "NET", SySmz__Kri_yk, { SmzYz: "0" } )
-		, Hrz7_Kru__ChaSySmz( "Hra6_Ku", "SuDu", "Do", "SHAR", SySmz__Kri_yk, { SmzYz: "0" } )
-		, Hrz7_Kru__ChaSySmz( "Hra6_Ku", "SpeDry", "Do", "PAY", SySmz__Kri_yk, { SmzYz: "0" } )
-		, Hrz7_Kru__ChaSySmz( "Hra6_Ku", "SaNoJe", "Do", "CAL", SySmz__Kri_yk, { SmzYz: "0" } )
+		, Hrz7_Kru__ChaSySmz( "Hra4_Bru", "ToDry", "Do", "NET", SySmz__Kri_yk, { YzTi_wu: "0" } )
+		, Hrz7_Kru__ChaSySmz( "Hra6_Ku", "SuDu", "Do", "SHAR", SySmz__Kri_yk, { YzTi_wu: "0" } )
+		, Hrz7_Kru__ChaSySmz( "Hra6_Ku", "SpeDry", "Do", "PAY", SySmz__Kri_yk, { YzTi_wu: "0" } )
+		, Hrz7_Kru__ChaSySmz( "Hra6_Ku", "SaNoJe", "Do", "CAL", SySmz__Kri_yk, { YzTi_wu: "0" } )
 
-		//, Hrz7_Kru__ChaSySmz( "Hr", "", "Do", "ABC", SySmz__Kri_yk, { SmzYz: "0" } )
-		//, Hrz7_Kru__ChaSySmz( "Hr", "", "Do", "ABC", SySmz__Kri_yk, { SmzYz: "0" } )
-		//, Hrz7_Kru__ChaSySmz( "Hr", "", "Do", "ABC", SySmz__Kri_yk, { SmzYz: "0" } )
-		//, Hrz7_Kru__ChaSySmz( "Hr", "", "Do", "ABC", SySmz__Kri_yk, { SmzYz: "0" } )
+		//, Hrz7_Kru__ChaSySmz( "Hr", "", "Do", "ABC", SySmz__Kri_yk, { YzTi_wu: "0" } )
+		//, Hrz7_Kru__ChaSySmz( "Hr", "", "Do", "ABC", SySmz__Kri_yk, { YzTi_wu: "0" } )
+		//, Hrz7_Kru__ChaSySmz( "Hr", "", "Do", "ABC", SySmz__Kri_yk, { YzTi_wu: "0" } )
+		//, Hrz7_Kru__ChaSySmz( "Hr", "", "Do", "ABC", SySmz__Kri_yk, { YzTi_wu: "0" } )
 
 	];
 
@@ -158,7 +158,7 @@ async function KoDz__YaFz()
 	const SySmz__HoKri_yk = false;
 
 	// DoGLES
-	//Hrz7_Kru__ChaSySmz( "Hry5_Smz", "BzMe", "Do", "GLES", "Hry5_Smz", SySmz__HoKri_yk, { SmzYz: "0" } );
+	//Hrz7_Kru__ChaSySmz( "Hry5_Smz", "BzMe", "Do", "GLES", "Hry5_Smz", SySmz__HoKri_yk, { YzTi_wu: "0" } );
 
 
 	//@@@
@@ -182,25 +182,25 @@ async function KoDz__YaFx( )
 	const SySmz__HoKri_yk = false;
 
 	// DoXR
-	Hrz7_Kru__ChaSySmz( "Hri2_Ke", "BzMe", "Do", "XR", SySmz__HoKri_yk, { SmzYz: "0" } );
+	Hrz7_Kru__ChaSySmz( "Hri2_Ke", "BzMe", "Do", "XR", SySmz__HoKri_yk, { YzTi_wu: "0" } );
 
 	// DoAUD
-	//Hrz7_Kru__ChaSySmz( "Hru5_Smz", "MxPe", "Do", "AUD", SySmz__HoKri_yk, { SmzYz: "0" } );
+	//Hrz7_Kru__ChaSySmz( "Hru5_Smz", "MxPe", "Do", "AUD", SySmz__HoKri_yk, { YzTi_wu: "0" } );
 
 	// DoCARD ( CONTACT CARDS )
-	// , Hrz7_Kru__ChaSySmz( "Hra6_Ku", "SaNoKe", "Do", "CARD", SySmz__HoKri_yk, { SmzYz: "0" } )
+	// , Hrz7_Kru__ChaSySmz( "Hra6_Ku", "SaNoKe", "Do", "CARD", SySmz__HoKri_yk, { YzTi_wu: "0" } )
 
 	// LGTs/Humidifiers
-	//, Hrz7_Kru__ChaSySmz( "Hra5_Ka", "KzGwe", "Do", "USB", SySmz__HoKri_yk, { SmzYz: "0" } )
+	//, Hrz7_Kru__ChaSySmz( "Hra5_Ka", "KzGwe", "Do", "USB", SySmz__HoKri_yk, { YzTi_wu: "0" } )
 
 	// BATTERY/POWER?
-	//, Hrz7_Kru__ChaSySmz( "Hra0_Ko", "BriDzSpe", "Do", "ENRG", SySmz__HoKri_yk, { SmzYz: "0" } )
+	//, Hrz7_Kru__ChaSySmz( "Hra0_Ko", "BriDzSpe", "Do", "ENRG", SySmz__HoKri_yk, { YzTi_wu: "0" } )
 
 	// TRACK LOCALE
-	//, Hrz7_Kru__ChaSySmz( "Hra1_Mz", "GeFy", "Do", "GPS", SySmz__HoKri_yk, { SmzYz: "0" } )
+	//, Hrz7_Kru__ChaSySmz( "Hra1_Mz", "GeFy", "Do", "GPS", SySmz__HoKri_yk, { YzTi_wu: "0" } )
 
 	//
-	//, Hrz7_Kru__ChaSySmz( "Hr", "", "Do", "ABC", SySmz__HoKri_yk, { SmzYz: "0" } )
+	//, Hrz7_Kru__ChaSySmz( "Hr", "", "Do", "ABC", SySmz__HoKri_yk, { YzTi_wu: "0" } )
 
 }
 

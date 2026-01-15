@@ -91,34 +91,37 @@ async function Hra6_Ku__ToKz_My__vBUF( ChaKuTu_vsg, ToKzVa_vsg )
 //==============================================
 
 //---------------------------------------------------
-// IDB
+// IDB INIT
 //---------------------------------------------------
 const IDB_Ko_l = new Promise((resolve, reject) =>
 {
-	// IDB NAME
-	const request = indexedDB.open('handle', 1);
+	// IDB NAME & VER #
+	const Da_wuk = 1;
+	const request = indexedDB.open('handle', Da_wuk );
 
-	request.onupgradeneeded = (event) =>
+	// CALLED when we change VER# above
+	request.onupgradeneeded = ( e ) =>
 	{
 		const db = event.target.result;
-		db.createObjectStore('handles', {keyPath: 'id'});
+		db.createObjectStore( 'handles', { keyPath: 'id' } );
 	};
 
-	request.onsuccess = (event) =>
-		{
-		SmaSme("IDB_Good\n");
-		resolve(event.target.result);
+	request.onsuccess = ( e ) =>
+	{
+		// SmaSme("IDB_Good\n");
+		resolve( e.target.result );
 	};
 
-	request.onerror = (event) => {
-		console.error(event);
-		reject(event.target.error);
+	request.onerror = ( e ) =>
+	{
+		SmaTrx( e );
+		reject( e.target.error);
 	};
 });
 
 
 //---------------------------------------------------
-// Chy
+// IDB Chy
 //---------------------------------------------------
 /* Saves a directory handle to the database.
  * @param {FileSystemDirectoryHandle} ToKzVy  - The directory handle to save.
@@ -132,7 +135,7 @@ const IDB_ToKzVy__Chy = (Va, ToKzVy) =>
 		IDB_Ko_l.then((db) =>
 		{
 			const transaction = db.transaction(['handles'], 'readwrite');
-			const store = transaction.objectStore('handles');
+			const store = transaction.objectStore( 'handles' );
 			const request = store.put({id: Va, handle: ToKzVy});
 
 			request.onsuccess = () =>
@@ -140,22 +143,23 @@ const IDB_ToKzVy__Chy = (Va, ToKzVy) =>
 				SmaSme("IDB Handle Saved\n");
 				resolve();
 			}
-			request.onerror = () => {
+			request.onerror = () =>
+			{
 				SmaSme("IDB Handle Failed\n");
-				reject(request.error);
+				reject( request.error );
 			}
 		});
 	});
 };
 
 //---------------------------------------------------
-// My
+// IDB My
 //---------------------------------------------------
-/**
- * Retrieves the last saved folder handle from the database.
- * @returns {Promise<FileSystemDirectoryHandle|undefined>} A promise that resolves with the folder handle or undefined if not found.
- */
-const IDB_ToKzVy__My = (Va) =>
+// Retrieves the last saved folder handle from the database.
+// @returns {Promise<FileSystemDirectoryHandle|undefined>}
+// A promise that resolves with the folder handle or undefined if not found.
+//
+const IDB_ToKzVy__My = ( Va ) =>
 {
 	return new Promise((resolve, reject) =>
 	{
@@ -165,10 +169,10 @@ const IDB_ToKzVy__My = (Va) =>
 			const store = transaction.objectStore('handles');
 			const request = store.get(Va);
 
-			request.onsuccess = (event) =>
+			request.onsuccess = ( e ) =>
 			{
-				SmaSme("IDB Handle Found\n" + event.target.result);
-				resolve(event.target.result?.handle);
+				SmaSme("IDB Handle Found\n" + e.target.result );
+				resolve( e.target.result?.handle );
 			}
 
 			request.onerror = () =>

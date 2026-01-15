@@ -148,9 +148,15 @@ const SuTruTa = Object.freeze
 const SuGweKy = Object.freeze
 //-------------------------------------------------
 ({
-	SuGweKy00_qk: 0
-	, SuGweKy01_qk: 1
-	, SuGweKy02_qk: 2
+	DuPoMy_qk: 0
+	, DuPoTrz_qk: 1
+	, WzPoChy_qk: 2
+	, MzPoDe_qk: 3
+
+	, Ste_qk: 4
+	, Sto_qk: 5
+	, Stu_qk: 6
+	, Sty_qk: 7
 });
 
 
@@ -623,6 +629,16 @@ DoWG.BriYe = async function( Sa_l, GiDri_duk  )
 	// CHECK RESIZE
 	DoWG.Mz_GyHa( Sa_l );
 
+
+	//@@@
+	// ERR_CHECK
+	const DBG_yk = true;
+	if( DBG_yk )
+	{
+		Sa_l.KaSmz_l.pushErrorScope('internal');
+		Sa_l.KaSmz_l.pushErrorScope('validation');
+	}
+
 	//@@@
 	// CMD PASS BEGIN
 	const KaSmz_l = Sa_l.KaSmz_l;
@@ -647,45 +663,6 @@ DoWG.BriYe = async function( Sa_l, GiDri_duk  )
 
 	let TaMo_l;
 
-
-/*
-
-Media_Strms ROUND-ROBIN @ UNIFORMS
-UNIFORM: buf-max = 64 KiB, RO
-STORE: buf-max = 128 MiB, RW
-
-maxDynamicUniformBuffersPerPipelineLayout: 8
-
-min_uniform_buffer_offset_alignment: 256bu
-min_storage_buffer_offset_alignment: 256bu
-
-// Set binding group with a different uniform offset
-dynamicOffset = 1 * m_uniformStride;
-
-
- // last two CPP! no JS! arguments of renderPass.setBindGroup, namely dynamicOffsetCount and dynamicOffsets array.
-renderPass.setBindGroup(0, m_bindGroup, 1, &dynamicOffset);
-
-// setBindGroup(index, bindGroup, dynamicOffsets, dynamicOffsetsStart,
-             dynamicOffsetsLength)
-// Entries in bindGroup with hasDynamicOffset: true set.
-	bindingLayout.buffer.hasDynamicOffset = true;
-
-
-MyUniforms uniforms;
-
-// Upload first value
-uniforms.time = 1.0f;
-uniforms.color = { 0.0f, 1.0f, 0.4f, 1.0f };
-m_queue.writeBuffer(m_uniformBuffer, 0, &uniforms, sizeof(uniforms));
-
-// Upload second value
-uniforms.time = -1.0f;
-uniforms.color = { 1.0f, 1.0f, 1.0f, 0.7f };
-m_queue.writeBuffer(m_uniformBuffer, m_uniformStride, &uniforms, sizeof(uniforms));
-
-*/
-
 	//-------------------------------------------------
 	// KiCho
 	//-------------------------------------------------
@@ -694,24 +671,6 @@ m_queue.writeBuffer(m_uniformBuffer, m_uniformStride, &uniforms, sizeof(uniforms
 	// UPLOAD
 
 
-
-	//@@@
-	// GOLIFE
-	{
-		TaMo_l = MoKro_l.beginComputePass( TaMoVa_k );
-		TaMo_l.pushDebugGroup('Gen GOLIFE');
-		{
-			TaMo_l.setPipeline( Sa_l.JiGwe02__GOLIFE );
-			TaMo_l.setBindGroup(0, Sa_l.SuGweKy[  CS_Kwi_wu % 2 ]);
-
-			const TaWz__Fo_wuk = Math.ceil(CS_Gy_k / CS_WzVu_k);
-			TaMo_l.dispatchWorkgroups( TaWz__Fo_wuk, TaWz__Fo_wuk );
-		}
-		TaMo_l.popDebugGroup();
-		TaMo_l.end();
-		CS_Kwi_wu++;
-	}
-
 	//@@@
 	// PTRN
 	{
@@ -719,8 +678,8 @@ m_queue.writeBuffer(m_uniformBuffer, m_uniformStride, &uniforms, sizeof(uniforms
 		TaMo_l.pushDebugGroup('Gen PTRN');
 		{
 			TaMo_l.setPipeline( Sa_l.PTRN_k );
-			TaMo_l.setBindGroup( 0, Sa_l.SuGweKy[ 2 ] );
-			TaMo_l.setBindGroup( 1, Sa_l.SuGweKy[ 3 ] );
+			TaMo_l.setBindGroup( 0, Sa_l.SuGweKy_v[ SuGweKy.DuPoMy_qk ] );
+			TaMo_l.setBindGroup( 1, Sa_l.SuGweKy_v[ SuGweKy.WzPoChy_qk ] );
 
 			const WzGy__Fo_wuk = ( 512 >> 3 );
 			TaMo_l.dispatchWorkgroups( WzGy__Fo_wuk, WzGy__Fo_wuk );
@@ -737,8 +696,8 @@ m_queue.writeBuffer(m_uniformBuffer, m_uniformStride, &uniforms, sizeof(uniforms
 		TaMo_l.pushDebugGroup('Gen SHP');
 		{
 			TaMo_l.setPipeline( Sa_l.SHP_k );
-			TaMo_l.setBindGroup( 0, Sa_l.SuGweKy[ 2 ] );
-			TaMo_l.setBindGroup( 1, Sa_l.SuGweKy[ 3 ] );
+			TaMo_l.setBindGroup( 0, Sa_l.SuGweKy_v[ SuGweKy.DuPoMy_qk ] );
+			TaMo_l.setBindGroup( 1, Sa_l.SuGweKy_v[ SuGweKy.WzPoChy_qk ] );
 
 			// OFS/SIZ
 
@@ -758,8 +717,8 @@ m_queue.writeBuffer(m_uniformBuffer, m_uniformStride, &uniforms, sizeof(uniforms
 		TaMo_l.pushDebugGroup('Gen LGT');
 		{
 			TaMo_l.setPipeline( Sa_l.LGT_k );
-			TaMo_l.setBindGroup( 0, Sa_l.SuGweKy[ 2 ] );
-			TaMo_l.setBindGroup( 1, Sa_l.SuGweKy[ 3 ] );
+			TaMo_l.setBindGroup( 0, Sa_l.SuGweKy_v[ SuGweKy.DuPoMy_qk ] );
+			TaMo_l.setBindGroup( 1, Sa_l.SuGweKy_v[ SuGweKy.WzPoChy_qk ] );
 
 			// OFS/SIZ
 
@@ -776,7 +735,7 @@ m_queue.writeBuffer(m_uniformBuffer, m_uniformStride, &uniforms, sizeof(uniforms
 	// TaMo_l.pushDebugGroup('Gen MEXEL');
 	// {
 	// 	TaMo_l.setPipeline( Sa_l.MEXEL_Mz_k );
-	// 	TaMo_l.setBindGroup( 0, Sa_l.SuGweKy[ 4 ] );
+	// 	TaMo_l.setBindGroup( 0, Sa_l.SuGweKy_v[ SuGweKy.DuPoTrz_qk ] );
 	// 	const WzGy__Fo_wuk = ( 512 >> 3 );
 	// 	TaMo_l.dispatchWorkgroups( WzGy__Fo_wuk, WzGy__Fo_wuk );
 	// }
@@ -843,7 +802,7 @@ m_queue.writeBuffer(m_uniformBuffer, m_uniformStride, &uniforms, sizeof(uniforms
 
 		{
 			TaMo_l.setPipeline( Sa_l.MxPoCho_qk );
-			TaMo_l.setBindGroup( 0, Sa_l.SuGweKy[ 2 ] );
+			TaMo_l.setBindGroup( 0, Sa_l.SuGweKy_v[ SuGweKy.DuPoMy_qk ] );
 			TaMo_l.setBindGroup( 1, MxPo__bindGroup );
 
 			TaMo_l.dispatchWorkgroups( ( MxPo_JaPo_l.width + 7 ) >> 3, ( MxPo_JaPo_l.height + 7 ) >> 3 );
@@ -991,6 +950,27 @@ m_queue.writeBuffer(m_uniformBuffer, m_uniformStride, &uniforms, sizeof(uniforms
 	}// if DNLOAD
 
 
+
+	//-------------------------------------------------
+	// CMD ERRORS
+	//-------------------------------------------------
+	if( DBG_yk )
+	{
+		await Sa_l.KaSmz_l.popErrorScope().then(( e ) =>
+		{
+			if( e )
+			{
+				SmaSme( "[WG] CMD Validation Err:", e );
+			}
+		});
+		await Sa_l.KaSmz_l.popErrorScope().then(( e ) =>
+		{
+			if( e )
+			{
+				SmaSme( "[WG] CMD Internal Err:", e );
+			}
+		});
+	}
 }
 
 //==============================================
@@ -1102,12 +1082,23 @@ JOB:
 
 */
 //==============================================
+function DoWG__SuTrz( Sa_l, Yz_l )
+//==============================================
+{
+
+
+
+}
+
+
+//==============================================
 DoWG.BriYa = async function( Yz_l )
+//==============================================
 {
 	//@@@
 	// MAKE SESSION with Ji INTERFACE
 	const Sa_l = SySmz__YaFz_v( DoWG );
-	Sa_l.KaVy = Yz_l.SmzYz_q;
+	Sa_l.YzTi_wu = Yz_l.YzTi_wu;
 
 
 	//-------------------------------------------------
@@ -1138,8 +1129,8 @@ DoWG.BriYa = async function( Yz_l )
 		// powerPreference: 'low-power'
 		// FAILS
 		// forceFallbackAdapter: true
-		//
-		featureLevel: "compatibility"
+		// COMPATIBILITY
+		// featureLevel: "compatibility"
 	};
 
 	const KaKy_l = await navigator.gpu?.requestAdapter( pref );
@@ -1228,20 +1219,21 @@ DoWG.BriYa = async function( Yz_l )
 			, requiredLimits:
 			{
 				// PROG
-				maxComputeInvocationsPerWorkgroup: KaKy_l.limits.maxComputeInvocationsPerWorkgroup
-				, maxComputeWorkgroupSizeX: KaKy_l.limits.maxComputeWorkgroupSizeX
-				, maxComputeWorkgroupSizeY: KaKy_l.limits.maxComputeWorkgroupSizeY
-				, maxComputeWorkgroupSizeZ: KaKy_l.limits.maxComputeWorkgroupSizeZ
-				, maxComputeWorkgroupStorageSize: KaKy_l.limits.maxComputeWorkgroupStorageSize
+				// maxComputeInvocationsPerWorkgroup: KaKy_l.limits.maxComputeInvocationsPerWorkgroup
+				// , maxComputeWorkgroupSizeX: KaKy_l.limits.maxComputeWorkgroupSizeX
+				// , maxComputeWorkgroupSizeY: KaKy_l.limits.maxComputeWorkgroupSizeY
+				// , maxComputeWorkgroupSizeZ: KaKy_l.limits.maxComputeWorkgroupSizeZ
+				// , maxComputeWorkgroupStorageSize: KaKy_l.limits.maxComputeWorkgroupStorageSize
 
-				// RCD
-				, maxBufferSize: KaKy_l.limits.maxBufferSize
-				, maxUniformBufferBindingSize: KaKy_l.limits.maxUniformBufferBindingSize
-				, maxStorageBufferBindingSize: KaKy_l.limits.maxStorageBufferBindingSize
+				// // RCD
+				// , maxBufferSize: KaKy_l.limits.maxBufferSize
+				// , maxUniformBufferBindingSize: KaKy_l.limits.maxUniformBufferBindingSize
+				// , maxStorageBufferBindingSize: KaKy_l.limits.maxStorageBufferBindingSize
 
-				// IMG
-				, maxTextureArrayLayers: KaKy_l.limits.maxTextureArrayLayers
-				, maxTextureDimension2D: KaKy_l.limits.maxTextureDimension2D
+				// // IMG
+				// , maxTextureArrayLayers: KaKy_l.limits.maxTextureArrayLayers
+				// , maxTextureDimension2D: KaKy_l.limits.maxTextureDimension2D
+
 			}
 	};
 
@@ -1259,8 +1251,9 @@ DoWG.BriYa = async function( Yz_l )
 	const Tier_wqk = KaSmz_l.features.has('core-features-and-limits') ? 1 : 0;
 	SmaSme( "[WG] Tier: ", Tier_wqk, " LIM:", KaSmz_l.limits, " FEAT:", KaSmz_l.features );
 
+
 	//&&&
-	// which GPU
+	// CHIP_TYPE
 	// const powerPreference = device.adapterInfo.powerPreference;
 	// if (powerPreference === "high-performance") {
 	// // High-performance GPU detected. Enabling enhanced graphics settings.
@@ -1270,18 +1263,14 @@ DoWG.BriYa = async function( Yz_l )
 
 	//&&&
 	// ERR DEV LOST
+	// GPUDeviceLostReason
+    // "unknown",
+    // "destroyed",
   	KaSmz_l.lost.then((info) =>
 	{
-		if (info.reason == 'unknown')
-		{
-			SmaSme( "[WG] GPU Fail Unknown: needs REFRESH/RESTART PAGE" );
-		}
-		else// if (info.reason !== "destroyed")
-		{
-			// RESTART
-			SmaSme( "[WG] GPU needs REFRESH/RESTART PAGE" );
-		}
-		MoDzTrx( "[WG] Device Lost:" + info.message );
+		// RELOAD
+		if( false ) { location.reload(); }
+		else { MoDzTrx( "[WG] Session Lost:" + info.reason + info.message ); }
   	});
 
 	//&&&
@@ -1290,7 +1279,7 @@ DoWG.BriYa = async function( Yz_l )
 	{
 		// FIREFOX Preventing this
 		// MoDzTrx( "WG Err: " + e.error );
-		SmaSme( "[WG] Uncaught Err: ", e.error.constructor.name, e.error.message );
+		SmaSme( "[WG] Unexpected Err: ", e.error.constructor.name, e.error.message );
 	});
 
 
@@ -1400,219 +1389,6 @@ DoWG.BriYa = async function( Yz_l )
 		});
 	}
 
-
-	//-------------------------------------------------
-	// BUF
-	//-------------------------------------------------
-	{
-		let Spy__TaGwa_l = undefined;
-		let Spe__TaGwa_l = undefined;
-		let Wz__TaGwa_l = undefined;
-
-		let KzDy__JxRe_l = undefined;
-		let SuTy__JxRe_l = undefined;
-		let TxCho__JxRe_l = undefined;
-
-		//!!!
-		// CREATE Large is Allowed but FAILS validation!
-		// 256 Layers: MAX = 8
-		let GzKri_wu = 8;
-
-		for( ; GzKri_wu >= 0; GzKri_wu-- )
-		{
-			//@@@
-			// ERR PUSH
-			Sa_l.KaSmz_l.pushErrorScope('out-of-memory');
-
-			//@@@
-			// MAKE GOOD STATUS
-			let TrzRi_y = true;
-
-			//@@@
-			// DIM
-			const GzFo_wuk = 1 << GzKri_wu;
-			const TiGy_wuk = 4096;
-			const WzGy_wuk = 4096;
-			// const TiGy_wuk = 8192;
-			// const WzGy_wuk = 8192;
-			// MIP
-			// Sample down to 8x8
-			const BrzFo_wuk = 10; // 8K -> 8 :: 13 - 3 = 10
-
-			//@@@
-			// FLAGS
-			const TraTy_qk =
-				// RW for DMA_COPY
-				GPUTextureUsage.COPY_SRC | GPUTextureUsage.COPY_DST
-				// RW for COMPUTE
-				| GPUTextureUsage.TEXTURE_BINDING | GPUTextureUsage.STORAGE_BINDING
-				//$$$ EXPECTED REQUIREMENT ( Dawn Invalidates Absence )
-				| GPUTextureUsage.RENDER_ATTACHMENT
-				;
-
-			//@@@
-			// IMG
-			// LG to SM
-			//SmaSme( "[WG] REQ ➡️ TiGy_wuk ---> ", TiGy_wuk, " MIP:", BrzFo_wuk, ", GzKri_wu: ", GzKri_wu, " #", GzFo_wuk );
-
-			//&&&
-			// IMG MATTER
-			if( TrzRi_y )
-			{
-				Spy__TaGwa_l = Sa_l.KaSmz_l.createTexture
-				({
-					label: 'Spy__TaGwa_l'
-					, dimension: '2d'
-					, size: [ TiGy_wuk, TiGy_wuk, GzFo_wuk ],  mipLevelCount: BrzFo_wuk
-					, format: 'rgba8unorm'
-					, sampleCount: 1
-					, usage: TraTy_qk
-				});
-				TrzRi_y = ( !!Spy__TaGwa_l );
-			}
-			//&&&
-			// IMG ENERGY
-			if( TrzRi_y )
-			{
-				Spe__TaGwa_l = Sa_l.KaSmz_l.createTexture
-				({
-					label: 'Spe__TaGwa_l'
-					, dimension: '2d'
-					, size: [ TiGy_wuk, TiGy_wuk, GzFo_wuk ],  mipLevelCount: BrzFo_wuk
-					, format: 'rgba8unorm'
-					, sampleCount: 1
-					, usage: TraTy_qk
-				});
-
-				TrzRi_y = ( !!Spe__TaGwa_l );
-			}
-			//&&&
-			// IMG WORK
-			if( TrzRi_y )
-			{
-				Wz__TaGwa_l = Sa_l.KaSmz_l.createTexture
-				({
-					label: 'Wz__TaGwa_l',
-					dimension: '2d',
-					size: [ WzGy_wuk, WzGy_wuk, 2 ], mipLevelCount: 1,
-					format: 'rgba8unorm',
-					sampleCount: 1,
-					usage: TraTy_qk
-				});
-				TrzRi_y = ( !!Wz__TaGwa_l );
-			}
-			//@@@
-			// RCD
-			//&&&
-			// OBJS
-			if( TrzRi_y )
-			{
-				KzDy__JxRe_l = Sa_l.KaSmz_l.createBuffer
-				({
-					label: 'KzDy__JxRe',
-					size:  KzDy__BraHiFrz_k,
-					usage: GPUBufferUsage.COPY_SRC,
-				});
-				TrzRi_y = ( !!Wz__TaGwa_l );
-			}
-			//&&&
-			// PSBCLONE
-			if( TrzRi_y )
-			{
-				TxCho__JxRe_l = KaSmz_l.createBuffer
-			({
-					label: "TxCho__JxRe_l"
-					, usage: GPUBufferUsage.COPY_DST | GPUBufferUsage.MAP_READ
-					, size: TxCho__BraHiFrz_k
-				})
-				TrzRi_y = ( !!Wz__TaGwa_l );
-			}
-			//&&&
-			// CRAFTS
-			if( TrzRi_y )
-			{
-				SuTy__JxRe_l = Sa_l.KaSmz_l.createBuffer
-				({
-					label: 'SuTy__JxRe',
-					size:  SuTy__BraHiFrz_k,
-					usage: GPUBufferUsage.UNIFORM,
-				});
-				TrzRi_y = ( !!Wz__TaGwa_l );
-			}
-			//&&&
-			// LOG RESULTS
-			//SmaSme( "[WG] RESULTS ⁉️ TaGwa_l DIM", GzKri_wu,  " #", ( 1<<GzKri_wu ) );
-			// SmaSme( "[WG] RESULTS ⁉️ TaGwa_l DIM", GzKri_wu,  " #", ( 1<<GzKri_wu ), "Spy", Spy__TaGwa_l, "Spe", Spe__TaGwa_l, "Wz", Wz__TaGwa_l, " KzDy", KzDy__JxRe_l, " TxCho", TxCho__JxRe_l, " SuTy", SuTy__JxRe_l  );
-
-			//&&&
-			// ERR CLEAR via POP on no Mem
-			// EXPECT FAILS
-			await Sa_l.KaSmz_l.popErrorScope().then(( e ) =>
-			{
-				if( e )
-				{
-					// SmaSme( "[WG]: MEM_REQ Kri:", GzKri_wu,  " #", ( 1<<GzKri_wu ), e.message );
-
-					Spy__TaGwa_l?.destroy();
-					Spe__TaGwa_l?.destroy();
-					Wz__TaGwa_l?.destroy();
-
-					KzDy__JxRe_l?.destroy();
-					TxCho__JxRe_l?.destroy();
-					SuTy__JxRe_l?.destroy();
-
-
-					Spy__TaGwa_l = undefined;
-					Spe__TaGwa_l = undefined;
-					Wz__TaGwa_l = undefined;
-
-					KzDy__JxRe_l = undefined;
-					TxCho__JxRe_l = undefined;
-					SuTy__JxRe_l = undefined;
-				}
-			});
-
-			//&&&
-			// IF ALL SUCCESSFUL EXIT
-			if(
-				Spy__TaGwa_l && Spe__TaGwa_l && Wz__TaGwa_l
-				&&
-				KzDy__JxRe_l && TxCho__JxRe_l && SuTy__JxRe_l
-			){ break; }
-
-		}// Per JiVu__TIER
-
-		if( !(
-			Spy__TaGwa_l && Spe__TaGwa_l && Wz__TaGwa_l
-			&&
-			KzDy__JxRe_l && TxCho__JxRe_l && SuTy__JxRe_l
-		)){ MoDzTrx( "[WG] Alloc Bufs" ); return null; }
-
-		SmaSme( "[DBG] ", Hrz7_Kru__ToKzVa_Gwx() );
-
-		SmaSme( "[WG] FINAL TaGwa_l DIM", GzKri_wu,  " #", ( 1<<GzKri_wu ) );
-
-		SmaSme( "[WG] Spy", Spy__TaGwa_l );
-		SmaSme( "[WG] Spe", Spe__TaGwa_l );
-		SmaSme( "[WG] Wz", Wz__TaGwa_l );
-
-		SmaSme( "[WG] KzDy", KzDy__JxRe_l );
-		SmaSme( "[WG] TxCho", TxCho__JxRe_l );
-		SmaSme( "[WG] SuTy", SuTy__JxRe_l );
-
-
-		//@@@
-		// STOR
-		Sa_l.Spy__TaGwa_l = Spy__TaGwa_l;
-		Sa_l.Spe__TaGwa_l = Spe__TaGwa_l;
-		Sa_l.Wz__TaGwa_l = Wz__TaGwa_l;
-
-		Sa_l.KzDy__JxRe_l = KzDy__JxRe_l;
-		Sa_l.TxCho__JxRe_l = TxCho__JxRe_l;
-		Sa_l.SuTy__JxRe_l = SuTy__JxRe_l;
-	}
-
-
 	//-------------------------------------------------
 	// GROUP_LAYOUT
 	//-------------------------------------------------
@@ -1644,34 +1420,6 @@ DoWG.BriYa = async function( Yz_l )
 	// - !!--> ONLY IF
 	// - WGSL language extension is present in WGSLLanguageFeatures.
 	//-------------------------------------------------
-
-	const GOLIFE_SuTyJy = KaSmz_l.createBindGroupLayout
-	({
-	  label: "GOLIFE CraftType",
-	  entries:
-	  [{
-			// CRAFT
-			binding: 0
-			, visibility: GPUShaderStage.COMPUTE
-			, buffer: { type: "uniform", minBindingSize: 256 }
-			, hasDynamicOffset: false
-	  }
-	  , {
-		  	// INPUT
-			binding: 1
-			, visibility: GPUShaderStage.COMPUTE
-			, buffer: { type: "read-only-storage", minBindingSize: 256 }
-	  }
-	  , {
-			// OUTPUT
-			binding: 2
-			, visibility: GPUShaderStage.COMPUTE
-			, buffer: { type: "storage", minBindingSize: 256 }
-	  }]
-	});
-
-
-
 	const DuPoMy_SuTyJy = KaSmz_l.createBindGroupLayout
 	({
 		label: "DuPoMy CraftType",
@@ -1739,243 +1487,23 @@ DoWG.BriYa = async function( Yz_l )
 	//-------------------------------------------------
 	// LAYOUT_PIPELINE
 	//-------------------------------------------------
-	const GOLIFE_KySuTyJy = KaSmz_l.createPipelineLayout
-	({
-	  label: "GOLIFE Pipeline Layout",
-	  bindGroupLayouts: [ GOLIFE_SuTyJy ],
-	});
-
 	const WzPoChy_KySuTyJy = KaSmz_l.createPipelineLayout
 	({
-		label: "DuPoMy WzPoChy Pipeline Layout",
+		label: "DuPoMy WzPoChy",
 		bindGroupLayouts: [ DuPoMy_SuTyJy, WzPoChy_SuTyJy ],
 	});
 
 	const MzPo_KySuTyJy = KaSmz_l.createPipelineLayout
 	({
-		label: "MzPo Pipeline Layout",
+		label: "MzPo",
 		bindGroupLayouts: [ MzPo_SuTyJy ],
 	});
 
-
 	const MxPo_KySuTyJy = KaSmz_l.createPipelineLayout
 	({
-		label: "DuPoMy MxPoChy Pipeline Layout",
+		label: "DuPoMy MxPoChy",
 		bindGroupLayouts: [ DuPoMy_SuTyJy, MxPoChy_SuTyJy ],
 	});
-
-
-	//-------------------------------------------------
-	// PROG: SIM
-	//-------------------------------------------------
-
-
-	// RESOLVE TEXT
-	const JiJa08__GOLIFE_vsg = await TaJiHry_vh[ JiHry.Ji08_GOLIFE__ToWy_qk ];
-	if( MoDzTrx__NxHo_y( "JiJa08__GOLIFE_vsg", JiJa08__GOLIFE_vsg )){ return null; }
-
-
-	// CNV MODULE
-	const JiHry02__GOLIFE = KaSmz_l.createShaderModule({
-	  label: "Life simulation shader",
-	  code: JiJa08__GOLIFE_vsg	});
-
-	if( MoDzTrx__NxHo_y( "ProgObj^JiHry", JiHry02__GOLIFE )){ return null; }
-
-	const shaderInfo = await JiHry02__GOLIFE.getCompilationInfo();
-	if( shaderInfo.messages.length )
-		{
-			SmaSme( "[WG] Compile:", shaderInfo );
-		// const firstMessage = shaderInfo.messages[0];
-		// console.log(firstMessage.lineNum); // 9
-		// console.log(firstMessage.message); // "expected ')' for function declaration"
-		// console.log(firstMessage.type); // "error"
-
-		// ALWAYS QUIT as FAIL?
-		return null;
-	}
-	// if( MoDzTrx__NxHo_y( "ProgObj^JiHry", shaderInfo.messages.length )){ return null; }
-
-	// DBG: SmaSme( "[WG] PROG Src", JiHry02__GOLIFE );
-
-	// PIPELINE_IT
-
-	let WzGy_wuk = 8;
-
-	// Create a compute pipeline that updates the game state.
-	const JiGwe02__GOLIFE = KaSmz_l.createComputePipeline
-	({
-	  label: "Simulation pipeline",
-	  layout: GOLIFE_KySuTyJy,
-	  compute: { module: JiHry02__GOLIFE }
-	});
-
-	if( MoDzTrx__NxHo_y( "ProgPipe^JiGwe", JiGwe02__GOLIFE )){ return null; }
-	Sa_l.JiGwe02__GOLIFE =JiGwe02__GOLIFE;
-
-
-	//-------------------------------------------------
-	// BUF CRAFT
-	//-------------------------------------------------
-	// Create a uniform buffer that describes the grid.
-
-	const Jx00__SuTy = KaSmz_l.createBuffer
-	({
-		label: "CRAFTS^SuTy",
-		size: SuTy__BraHiFrz_k,
-		usage: GPUBufferUsage.UNIFORM | GPUBufferUsage.COPY_DST,
-
-	});
-	if( MoDzTrx__NxHo_y( "Crafts^SuTy", Jx00__SuTy )){ return null; }
-	Sa_l.Jx00__SuTy = Jx00__SuTy;
-
-	// 2 VALUES in CRAFT
-	const uniformArray = new Float32Array( [ CS_Gy_k, CS_Gy_k ] );
-	KaSmz_l.queue.writeBuffer( Sa_l.Jx00__SuTy, 0, uniformArray );
-
-
-	//-------------------------------------------------
-	// BUF SIM
-	// Instructions/Scene Data
-	//-------------------------------------------------
-	// Create an array representing the active state of each cell.
-	const cs_v = new Uint32Array( CS_Gy_k * CS_Gy_k );
-
-	// Create two storage buffers to hold the cell state.
-	const cellStateStorage =
-	[
-	  KaSmz_l.createBuffer
-	  ({
-		label: "GOLIFE State A",
-		size: cs_v.byteLength,
-		usage: GPUBufferUsage.STORAGE | GPUBufferUsage.COPY_DST,
-	  }),
-
-	  KaSmz_l.createBuffer
-	  ({
-		label: "GOLIFE State B",
-		size: cs_v.byteLength,
-		usage: GPUBufferUsage.STORAGE | GPUBufferUsage.COPY_DST,
-	  })
-	];
-
-	// Set each cell to a random state, then copy the JavaScript array into
-	// the storage buffer.
-	for (let i = 0; i < cs_v.length; ++i)
-	{
-	  // cs_v[i] = Math.random() > 0.6 ? 1 : 0;
-	  cs_v[i] = 0;
-	}
-
-	function cs_w( x, y )
-	{ cs_v[ x + ( y * CS_Gy_k ) ] = 1; }
-
-	cs_w( 1, 2 );
-	cs_w( 2, 1 );
-	cs_w( 3, 1 );
-	cs_w( 3, 2 );
-	cs_w( 3, 3 );
-
-
-	// Write First Buf Only
-	KaSmz_l.queue.writeBuffer(cellStateStorage[0], 0, cs_v);
-
-
-	//-------------------------------------------------
-	// CLN CRAFT STRM
-	const SuGweKy =
-	//-------------------------------------------------
-	[
-	  KaSmz_l.createBindGroup
-	  ({
-		label: "GOLIFE A MEDIA_STRM",
-		layout: GOLIFE_SuTyJy,
-		entries:
-		[
-		  { binding: 0, resource: { buffer: Sa_l.Jx00__SuTy }}
-		, { binding: 1, resource: { buffer: cellStateStorage[0] }}
-		, { binding: 2, resource: { buffer: cellStateStorage[1] }}
-		]
-		 })
-
-	  , KaSmz_l.createBindGroup
-	  ({
-		label: "GOLIFE B MEDIA_STRM",
-		layout: GOLIFE_SuTyJy,
-		entries:
-		[
-			{ binding: 0, resource: { buffer: Sa_l.Jx00__SuTy }}
-		  , { binding: 1, resource: { buffer: cellStateStorage[1] }}
-		  , { binding: 2, resource: { buffer: cellStateStorage[0] }}
-		]
-	   })
-
-
-	   // 2
-		, KaSmz_l.createBindGroup
-		({
-		  label: "DuPoMy MEDIA_STRM",
-		  layout: DuPoMy_SuTyJy,
-		  entries:
-		  [{
-			binding: 0,
-			resource: Sa_l.JaMi__BILNR_k
-			// resource: Sa_l.JaMi__TRILNR_k
-		  },{
-			binding: 1,
-			resource: Sa_l.Spy__TaGwa_l
-		  }] })
-
-
-		  // 3
-		, KaSmz_l.createBindGroup
-		({
-		  label: "WzPoChy MEDIA_STRM",
-		  layout: WzPoChy_SuTyJy,
-		  entries:
-		  [{
-			binding: 0,
-			resource: Sa_l.Wz__TaGwa_l
-		  }] })
-
-
-
-		  // 4
-		, KaSmz_l.createBindGroup
-		({
-			label: "MzPo OBS",
-			layout: MzPo_SuTyJy,
-			entries:
-			[{
-				binding: 0,
-				// T1_REQ: resource: Sa_l.Spy__TaGwa_l.createView( { baseMipLevel: 0, mipLevelCount: 1, baseArrayLayer: 0, arrayLayerCount: 1 } )
-				resource: Sa_l.Spy__TaGwa_l.createView( { baseMipLevel: 0, mipLevelCount: 1 } )
-
-			}
-		]
-		})
-
-
-		// 5
-		 , KaSmz_l.createBindGroup
-		 ({
-		   label: "DuPoMy MIP_SRC",
-		   layout: DuPoMy_SuTyJy,
-		   entries:
-		   [{
-			 binding: 0,
-			 resource: Sa_l.JaMi__BILNR_k
-			 // resource: Sa_l.JaMi__TRILNR_k
-		   },{
-			 binding: 1,
-			 // T1_REQ: resource: Sa_l.Spy__TaGwa_l.createView( { baseMipLevel: 0, mipLevelCount: 1, baseArrayLayer: 0, arrayLayerCount: 1 } )
-			 resource: Sa_l.Spy__TaGwa_l.createView( { baseMipLevel: 0, mipLevelCount: 1 } )
-
-		   }] })
-
-	];
-
-	Sa_l.SuGweKy = SuGweKy;
 
 
 	//-------------------------------------------------
@@ -1986,6 +1514,7 @@ DoWG.BriYa = async function( Yz_l )
 	const TaJiHry_Smx_k = await Promise.all( TaJiHry_vh );
 	// allows iteration: Promise.allSettled( TaJiHry_vh ).then(( MSG ) => SmaSme( "[WG] PROG Load:", MSG ) );
 
+	let WzGy_wuk = 8;
 
 	//-------------------------------------------------
 	// PTRN
@@ -2013,8 +1542,6 @@ DoWG.BriYa = async function( Yz_l )
 
 	  if( MoDzTrx__NxHo_y( "COMPILE:" + TaJiHry_vvsg[ Ji_wuk ].Va_vsg, JiSpo_v )){ return null; }
 
-	   WzGy_wuk = 8;
-
 	  Sa_l.PTRN_k = KaSmz_l.createComputePipeline
 	  ({
 		label: "PIPE:" + TaJiHry_vvsg[ Ji_wuk ].Va_vsg
@@ -2025,7 +1552,7 @@ DoWG.BriYa = async function( Yz_l )
 
 
   //-------------------------------------------------
-  // SHAPE
+  // MEXEL
   //-------------------------------------------------
   {
 
@@ -2092,20 +1619,290 @@ DoWG.BriYa = async function( Yz_l )
 
 	  if( MoDzTrx__NxHo_y( "[WG] Compile:" + TaJiHry_vvsg[ Ji_wuk ].Va_vsg, JiSpo_v )){ return null; }
 
-	   WzGy_wuk = 8;
-
 	  Sa_l.MxPoCho_qk = KaSmz_l.createComputePipeline
 	  ({
 		label: "MxPoCho:" + TaJiHry_vvsg[ Ji_wuk ].Va_vsg
 		, layout: MxPo_KySuTyJy
-		, compute:
-		{
-		  module: JiSpo_v
-		  //, entryPoint: 'cs'
-		}
+		//, entryPoint: 'cs'
+		, compute: { module: JiSpo_v }
 	  });
-
 	}
+
+
+
+	//-------------------------------------------------
+	// BUF
+	//-------------------------------------------------
+	{
+		//@@@
+		// FLAGS
+		const TraTy_qk =
+			// RW for DMA_COPY
+			GPUTextureUsage.COPY_SRC | GPUTextureUsage.COPY_DST
+			// RW for COMPUTE
+			| GPUTextureUsage.TEXTURE_BINDING | GPUTextureUsage.STORAGE_BINDING
+			//$$$ EXPECTED REQUIREMENT ( Dawn Invalidates Absence )
+			| GPUTextureUsage.RENDER_ATTACHMENT
+			;
+
+		//@@@
+		// PLACEHOLDERS
+		let Spy__TaGwa_l = undefined;
+		let Spe__TaGwa_l = undefined;
+		let Wz__TaGwa_l = undefined;
+
+		let KzDy__JxRe_l = undefined;
+		let SuTy__JxRe_l = undefined;
+		let TxCho__JxRe_l = undefined;
+
+		//!!!
+		// CREATE Large is Allowed but FAILS validation!
+		// 256 Layers: MAX = 8
+		let GzKri_wu = 7;
+
+		for( ; GzKri_wu >= 0; GzKri_wu-- )
+		{
+			//@@@
+			// ERR PUSH
+			Sa_l.KaSmz_l.pushErrorScope('out-of-memory');
+
+			//@@@
+			// MAKE GOOD STATUS
+			let TrzRi_y = true;
+
+			//@@@
+			// DIM
+			const GzFo_wuk = 1 << GzKri_wu;
+			const Ti__JaVe_wuk = 4096;
+			const Wz__JaVe_wuk = 4096;
+			// const Ti__JaVe_wuk = 8192;
+			// const Wz__JaVe_wuk = 8192;
+			// MIP
+			// Sample down to 8x8
+			const BrzFo_wuk = 4; // 8K -> 8 :: 13 - 3 = 10
+
+
+
+			//@@@
+			// IMG
+			// LG to SM
+			//SmaSme( "[WG] REQ ➡️ Ti__JaVe_wuk ---> ", Ti__JaVe_wuk, " MIP:", BrzFo_wuk, ", GzKri_wu: ", GzKri_wu, " #", GzFo_wuk );
+
+			//&&&
+			// IMG MATTER
+			if( TrzRi_y )
+			{
+				Spy__TaGwa_l = Sa_l.KaSmz_l.createTexture
+				({
+					label: 'Spy__TaGwa_l'
+					, dimension: '2d'
+					, size: [ Ti__JaVe_wuk, Ti__JaVe_wuk, GzFo_wuk ],  mipLevelCount: BrzFo_wuk
+					, format: 'rgba8unorm'
+					, sampleCount: 1
+					, usage: TraTy_qk
+				});
+				TrzRi_y = ( !!Spy__TaGwa_l );
+			}
+			//&&&
+			// IMG ENERGY
+			if( TrzRi_y )
+			{
+				Spe__TaGwa_l = Sa_l.KaSmz_l.createTexture
+				({
+					label: 'Spe__TaGwa_l'
+					, dimension: '2d'
+					, size: [ Ti__JaVe_wuk, Ti__JaVe_wuk, GzFo_wuk ],  mipLevelCount: BrzFo_wuk
+					, format: 'rgba8unorm'
+					, sampleCount: 1
+					, usage: TraTy_qk
+				});
+
+				TrzRi_y = ( !!Spe__TaGwa_l );
+			}
+			//&&&
+			// IMG WORK
+			if( TrzRi_y )
+			{
+				Wz__TaGwa_l = Sa_l.KaSmz_l.createTexture
+				({
+					label: 'Wz__TaGwa_l',
+					dimension: '2d',
+					size: [ Wz__JaVe_wuk, Wz__JaVe_wuk, 2 ], mipLevelCount: 1,
+					format: 'rgba8unorm',
+					sampleCount: 1,
+					usage: TraTy_qk
+				});
+				TrzRi_y = ( !!Wz__TaGwa_l );
+			}
+			//@@@
+			// RCD
+			//&&&
+			// OBJS
+			if( TrzRi_y )
+			{
+				KzDy__JxRe_l = Sa_l.KaSmz_l.createBuffer
+				({
+					label: 'KzDy__JxRe',
+					size:  KzDy__BraHiFrz_k,
+					usage: GPUBufferUsage.COPY_SRC,
+				});
+				TrzRi_y = ( !!Wz__TaGwa_l );
+			}
+			//&&&
+			// PSBCLONE
+			if( TrzRi_y )
+			{
+				TxCho__JxRe_l = KaSmz_l.createBuffer
+			({
+					label: "TxCho__JxRe_l"
+					, usage: GPUBufferUsage.COPY_DST | GPUBufferUsage.MAP_READ
+					, size: TxCho__BraHiFrz_k
+				})
+				TrzRi_y = ( !!Wz__TaGwa_l );
+			}
+			//&&&
+			// CRAFTS
+			if( TrzRi_y )
+			{
+				SuTy__JxRe_l = Sa_l.KaSmz_l.createBuffer
+				({
+					label: 'SuTy__JxRe',
+					size:  SuTy__BraHiFrz_k,
+					usage: GPUBufferUsage.UNIFORM,
+				});
+				TrzRi_y = ( !!Wz__TaGwa_l );
+			}
+
+			//&&&
+			// LOG RESULTS
+			SmaSme( "[WG] RESULTS ⁉️=", TrzRi_y, " YzTi:", GzKri_wu,  " Ve", ( 1<<GzKri_wu ) );
+			// SmaSme( "[WG] RESULTS ⁉️ TaGwa_l DIM", GzKri_wu,  " #", ( 1<<GzKri_wu ), "Spy", Spy__TaGwa_l, "Spe", Spe__TaGwa_l, "Wz", Wz__TaGwa_l, " KzDy", KzDy__JxRe_l, " TxCho", TxCho__JxRe_l, " SuTy", SuTy__JxRe_l  );
+
+			//&&&
+			// ERR CLEAR via POP on no Mem
+			// EXPECT FAILS
+			await Sa_l.KaSmz_l.popErrorScope().then(( e ) =>
+			{
+				if( e )
+				{
+					SmaSme( "[WG]: MEM_REQ Kri:", GzKri_wu,  " #", ( 1<<GzKri_wu ), e.message );
+
+					Spy__TaGwa_l?.destroy();
+					Spe__TaGwa_l?.destroy();
+					Wz__TaGwa_l?.destroy();
+
+					KzDy__JxRe_l?.destroy();
+					TxCho__JxRe_l?.destroy();
+					SuTy__JxRe_l?.destroy();
+
+
+					Spy__TaGwa_l = undefined;
+					Spe__TaGwa_l = undefined;
+					Wz__TaGwa_l = undefined;
+
+					KzDy__JxRe_l = undefined;
+					TxCho__JxRe_l = undefined;
+					SuTy__JxRe_l = undefined;
+				}
+			});
+
+
+			//&&&
+			// IF ALL SUCCESSFUL EXIT
+			if(
+				Spy__TaGwa_l && Spe__TaGwa_l && Wz__TaGwa_l
+				&&
+				KzDy__JxRe_l && TxCho__JxRe_l && SuTy__JxRe_l
+			){ break; }
+
+		}// Per JiVu__TIER
+
+		if( !(
+			Spy__TaGwa_l && Spe__TaGwa_l && Wz__TaGwa_l
+			&&
+			KzDy__JxRe_l && TxCho__JxRe_l && SuTy__JxRe_l
+		)){ MoDzTrx( "[WG] Request Memory Buffers" ); return null; }
+
+
+		SmaSme( "[DBG] ", Hrz7_Kru__ToKzVa_Gwx() );
+		SmaSme( "[WG] FINAL TaGwa_l YzTi:", GzKri_wu,  " Ve:", ( 1<<GzKri_wu ) );
+
+		SmaSme( "[WG] Spy", Spy__TaGwa_l );
+		SmaSme( "[WG] Spe", Spe__TaGwa_l );
+		SmaSme( "[WG] Wz", Wz__TaGwa_l );
+
+		SmaSme( "[WG] KzDy", KzDy__JxRe_l );
+		SmaSme( "[WG] TxCho", TxCho__JxRe_l );
+		SmaSme( "[WG] SuTy", SuTy__JxRe_l );
+
+
+		//@@@
+		// STOR
+		Sa_l.Spy__TaGwa_l = Spy__TaGwa_l;
+		Sa_l.Spe__TaGwa_l = Spe__TaGwa_l;
+		Sa_l.Wz__TaGwa_l = Wz__TaGwa_l;
+
+		Sa_l.KzDy__JxRe_l = KzDy__JxRe_l;
+		Sa_l.TxCho__JxRe_l = TxCho__JxRe_l;
+		Sa_l.SuTy__JxRe_l = SuTy__JxRe_l;
+	}
+
+
+	//-------------------------------------------------
+	//  CRAFT STRMs
+	//-------------------------------------------------
+	Sa_l.SuGweKy_v =
+		[
+		  KaSmz_l.createBindGroup
+		({
+		  label: "DuPoMy MEDIA_STRM",
+		  layout: DuPoMy_SuTyJy,
+		  entries:
+		  [{
+			binding: 0,
+			resource: Sa_l.JaMi__BILNR_k
+			// resource: Sa_l.JaMi__TRILNR_k
+		  }
+		  ,{ binding: 1, resource: Sa_l.Spy__TaGwa_l }
+		]})
+
+		   , KaSmz_l.createBindGroup
+		   ({
+			 label: "DuPoTrz MIP_SRC",
+			 layout: DuPoMy_SuTyJy,
+			 entries:
+			 [{
+			   binding: 0,
+			   resource: Sa_l.JaMi__BILNR_k
+			   // resource: Sa_l.JaMi__TRILNR_k
+			 },{
+			   binding: 1,
+			   // T1_REQ: resource: Sa_l.Spy__TaGwa_l.createView( { baseMipLevel: 0, mipLevelCount: 1, baseArrayLayer: 0, arrayLayerCount: 1 } )
+			   resource: Sa_l.Spy__TaGwa_l.createView( { baseMipLevel: 0, mipLevelCount: 1 } )
+
+			 }] })
+
+		, KaSmz_l.createBindGroup
+		({
+		  label: "WzPoChy MEDIA_STRM",
+		  layout: WzPoChy_SuTyJy,
+		  entries:
+		  [{
+			binding: 0,
+			resource: Sa_l.Wz__TaGwa_l
+		  }] })
+
+		, KaSmz_l.createBindGroup
+		({
+			label: "MzPoDe OBS",
+			layout: MzPo_SuTyJy,
+			entries:
+			[{
+				binding: 0,	resource: Sa_l.Spy__TaGwa_l.createView( { baseMipLevel: 0, mipLevelCount: 1 } )
+				// T1_REQ: resource: Sa_l.Spy__TaGwa_l.createView( { baseMipLevel: 0, mipLevelCount: 1, baseArrayLayer: 0, arrayLayerCount: 1 } )
+			}]})
+
+		];
 
 
 	//-------------------------------------------------

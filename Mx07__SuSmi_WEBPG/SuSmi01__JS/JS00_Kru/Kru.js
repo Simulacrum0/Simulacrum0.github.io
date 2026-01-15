@@ -1,5 +1,5 @@
-const BriDzSa__Da_vsg = "PUB_v0.166"; 
- const BriDzSa__Da_wuk = "166"; 
+const BriDzSa__Da_vsg = "PUB_v0.167"; 
+ const BriDzSa__Da_wuk = "167"; 
  const BriDz__Mx_KuTu_vsg = "https://powerourpeople.com/"; 
 
 //==============================================
@@ -997,13 +997,14 @@ function Tra_KeMeBri()
 	HryMx02_KeMeBri();
 
 	//@@@
-	// SESSION
+	// SESSION CFG
 	Ko.TaKeDy_vsg = document.getElementById( 'TaKeDy' ).value;
 	Ko.HriNe_TaNe__MxPeHoVu_q = document.getElementById( 'HriNe_TaNe__MxPeHoVu' ).value;
 	Ko.HriNe_TaNe__MxPeVu_sa = document.getElementById( 'HriNe_TaNe__MxPeVu' ).value;
 
-	SmaSme( "[LAUNCH] User:", Ko.TaKeDy_vsg, " NEVER_PAUSE:", Ko.KoDzYo_GrxHo_y );
+	Ko.WG__YzTi_wu = 3;
 
+	SmaSme( "[LAUNCH] User:", Ko.TaKeDy_vsg, " NEVER_PAUSE:", Ko.KoDzYo_GrxHo_y );
 
 	//@@@
 	// ECOSYS PLAY
@@ -1135,34 +1136,37 @@ async function Hra6_Ku__ToKz_My__vBUF( ChaKuTu_vsg, ToKzVa_vsg )
 //==============================================
 
 //---------------------------------------------------
-// IDB
+// IDB INIT
 //---------------------------------------------------
 const IDB_Ko_l = new Promise((resolve, reject) =>
 {
-	// IDB NAME
-	const request = indexedDB.open('handle', 1);
+	// IDB NAME & VER #
+	const Da_wuk = 1;
+	const request = indexedDB.open('handle', Da_wuk );
 
-	request.onupgradeneeded = (event) =>
+	// CALLED when we change VER# above
+	request.onupgradeneeded = ( e ) =>
 	{
 		const db = event.target.result;
-		db.createObjectStore('handles', {keyPath: 'id'});
+		db.createObjectStore( 'handles', { keyPath: 'id' } );
 	};
 
-	request.onsuccess = (event) =>
-		{
-		SmaSme("IDB_Good\n");
-		resolve(event.target.result);
+	request.onsuccess = ( e ) =>
+	{
+		// SmaSme("IDB_Good\n");
+		resolve( e.target.result );
 	};
 
-	request.onerror = (event) => {
-		console.error(event);
-		reject(event.target.error);
+	request.onerror = ( e ) =>
+	{
+		SmaTrx( e );
+		reject( e.target.error);
 	};
 });
 
 
 //---------------------------------------------------
-// Chy
+// IDB Chy
 //---------------------------------------------------
 /* Saves a directory handle to the database.
  * @param {FileSystemDirectoryHandle} ToKzVy  - The directory handle to save.
@@ -1176,7 +1180,7 @@ const IDB_ToKzVy__Chy = (Va, ToKzVy) =>
 		IDB_Ko_l.then((db) =>
 		{
 			const transaction = db.transaction(['handles'], 'readwrite');
-			const store = transaction.objectStore('handles');
+			const store = transaction.objectStore( 'handles' );
 			const request = store.put({id: Va, handle: ToKzVy});
 
 			request.onsuccess = () =>
@@ -1184,22 +1188,23 @@ const IDB_ToKzVy__Chy = (Va, ToKzVy) =>
 				SmaSme("IDB Handle Saved\n");
 				resolve();
 			}
-			request.onerror = () => {
+			request.onerror = () =>
+			{
 				SmaSme("IDB Handle Failed\n");
-				reject(request.error);
+				reject( request.error );
 			}
 		});
 	});
 };
 
 //---------------------------------------------------
-// My
+// IDB My
 //---------------------------------------------------
-/**
- * Retrieves the last saved folder handle from the database.
- * @returns {Promise<FileSystemDirectoryHandle|undefined>} A promise that resolves with the folder handle or undefined if not found.
- */
-const IDB_ToKzVy__My = (Va) =>
+// Retrieves the last saved folder handle from the database.
+// @returns {Promise<FileSystemDirectoryHandle|undefined>}
+// A promise that resolves with the folder handle or undefined if not found.
+//
+const IDB_ToKzVy__My = ( Va ) =>
 {
 	return new Promise((resolve, reject) =>
 	{
@@ -1209,10 +1214,10 @@ const IDB_ToKzVy__My = (Va) =>
 			const store = transaction.objectStore('handles');
 			const request = store.get(Va);
 
-			request.onsuccess = (event) =>
+			request.onsuccess = ( e ) =>
 			{
-				SmaSme("IDB Handle Found\n" + event.target.result);
-				resolve(event.target.result?.handle);
+				SmaSme("IDB Handle Found\n" + e.target.result );
+				resolve( e.target.result?.handle );
 			}
 
 			request.onerror = () =>
@@ -1527,25 +1532,25 @@ async function KoDz__YaFz()
 	const SySmz__Kri_yk = true;
 	const Kri__SySmz_v =
 	[
-		Hrz7_Kru__ChaSySmz( "Hrz4_Bu", "BriDzYz", "Do", "CFG", SySmz__Kri_yk, { SmzYz: "0" } )
+		Hrz7_Kru__ChaSySmz( "Hrz4_Bu", "BriDzYz", "Do", "CFG", SySmz__Kri_yk, { YzTi_wu: "0" } )
 		, Hrz7_Kru__ChaSySmz( "Hre1_Dru", "KeDruPy", "Do", "TAK", SySmz__Kri_yk, { Si_KeDru: "en" } )
 		, Hrz7_Kru__ChaSySmz( "Hra6_Ku", "KoToKz", "Do", "FS", SySmz__Kri_yk, { VaDyFy: "true" } )
-		, Hrz7_Kru__ChaSySmz( "Hrx4_Che", "MoDxGri", "Do", "TRU", SySmz__Kri_yk, { KaVy: "0" } )
+		, Hrz7_Kru__ChaSySmz( "Hrx4_Che", "MoDxGri", "Do", "TRU", SySmz__Kri_yk, { YzTi_wu: "0" } )
 
-		, Hrz7_Kru__ChaSySmz( "Hra7_Ta", "ToMi", "Do", "STRM", SySmz__Kri_yk, { SmzYz: "0" } )
-		, Hrz7_Kru__ChaSySmz( "Hre1_Dru", "WaDru", "Do", "FNT", SySmz__Kri_yk, { SmzYz: "0" } )
-		, Hrz7_Kru__ChaSySmz( "Hry5_Smz", "WzMx", "Do", "WG", SySmz__Kri_yk, { SmzYz_q: -1 } )
+		, Hrz7_Kru__ChaSySmz( "Hra7_Ta", "ToMi", "Do", "STRM", SySmz__Kri_yk, { YzTi_wu: "0" } )
+		, Hrz7_Kru__ChaSySmz( "Hre1_Dru", "WaDru", "Do", "FNT", SySmz__Kri_yk, { YzTi_wu: "0" } )
+		, Hrz7_Kru__ChaSySmz( "Hry5_Smz", "WzMx", "Do", "WG", SySmz__Kri_yk, { YzTi_wu: Ko.WG__YzTi_wu } )
 		, Hrz7_Kru__ChaSySmz( "Hry1_Brz", "KeDru", "Do", "GLF", SySmz__Kri_yk, { Gy_wu: 512 } )
 
-		, Hrz7_Kru__ChaSySmz( "Hra4_Bru", "ToDry", "Do", "NET", SySmz__Kri_yk, { SmzYz: "0" } )
-		, Hrz7_Kru__ChaSySmz( "Hra6_Ku", "SuDu", "Do", "SHAR", SySmz__Kri_yk, { SmzYz: "0" } )
-		, Hrz7_Kru__ChaSySmz( "Hra6_Ku", "SpeDry", "Do", "PAY", SySmz__Kri_yk, { SmzYz: "0" } )
-		, Hrz7_Kru__ChaSySmz( "Hra6_Ku", "SaNoJe", "Do", "CAL", SySmz__Kri_yk, { SmzYz: "0" } )
+		, Hrz7_Kru__ChaSySmz( "Hra4_Bru", "ToDry", "Do", "NET", SySmz__Kri_yk, { YzTi_wu: "0" } )
+		, Hrz7_Kru__ChaSySmz( "Hra6_Ku", "SuDu", "Do", "SHAR", SySmz__Kri_yk, { YzTi_wu: "0" } )
+		, Hrz7_Kru__ChaSySmz( "Hra6_Ku", "SpeDry", "Do", "PAY", SySmz__Kri_yk, { YzTi_wu: "0" } )
+		, Hrz7_Kru__ChaSySmz( "Hra6_Ku", "SaNoJe", "Do", "CAL", SySmz__Kri_yk, { YzTi_wu: "0" } )
 
-		//, Hrz7_Kru__ChaSySmz( "Hr", "", "Do", "ABC", SySmz__Kri_yk, { SmzYz: "0" } )
-		//, Hrz7_Kru__ChaSySmz( "Hr", "", "Do", "ABC", SySmz__Kri_yk, { SmzYz: "0" } )
-		//, Hrz7_Kru__ChaSySmz( "Hr", "", "Do", "ABC", SySmz__Kri_yk, { SmzYz: "0" } )
-		//, Hrz7_Kru__ChaSySmz( "Hr", "", "Do", "ABC", SySmz__Kri_yk, { SmzYz: "0" } )
+		//, Hrz7_Kru__ChaSySmz( "Hr", "", "Do", "ABC", SySmz__Kri_yk, { YzTi_wu: "0" } )
+		//, Hrz7_Kru__ChaSySmz( "Hr", "", "Do", "ABC", SySmz__Kri_yk, { YzTi_wu: "0" } )
+		//, Hrz7_Kru__ChaSySmz( "Hr", "", "Do", "ABC", SySmz__Kri_yk, { YzTi_wu: "0" } )
+		//, Hrz7_Kru__ChaSySmz( "Hr", "", "Do", "ABC", SySmz__Kri_yk, { YzTi_wu: "0" } )
 
 	];
 
@@ -1559,7 +1564,7 @@ async function KoDz__YaFz()
 	const SySmz__HoKri_yk = false;
 
 	// DoGLES
-	//Hrz7_Kru__ChaSySmz( "Hry5_Smz", "BzMe", "Do", "GLES", "Hry5_Smz", SySmz__HoKri_yk, { SmzYz: "0" } );
+	//Hrz7_Kru__ChaSySmz( "Hry5_Smz", "BzMe", "Do", "GLES", "Hry5_Smz", SySmz__HoKri_yk, { YzTi_wu: "0" } );
 
 
 	//@@@
@@ -1583,25 +1588,25 @@ async function KoDz__YaFx( )
 	const SySmz__HoKri_yk = false;
 
 	// DoXR
-	Hrz7_Kru__ChaSySmz( "Hri2_Ke", "BzMe", "Do", "XR", SySmz__HoKri_yk, { SmzYz: "0" } );
+	Hrz7_Kru__ChaSySmz( "Hri2_Ke", "BzMe", "Do", "XR", SySmz__HoKri_yk, { YzTi_wu: "0" } );
 
 	// DoAUD
-	//Hrz7_Kru__ChaSySmz( "Hru5_Smz", "MxPe", "Do", "AUD", SySmz__HoKri_yk, { SmzYz: "0" } );
+	//Hrz7_Kru__ChaSySmz( "Hru5_Smz", "MxPe", "Do", "AUD", SySmz__HoKri_yk, { YzTi_wu: "0" } );
 
 	// DoCARD ( CONTACT CARDS )
-	// , Hrz7_Kru__ChaSySmz( "Hra6_Ku", "SaNoKe", "Do", "CARD", SySmz__HoKri_yk, { SmzYz: "0" } )
+	// , Hrz7_Kru__ChaSySmz( "Hra6_Ku", "SaNoKe", "Do", "CARD", SySmz__HoKri_yk, { YzTi_wu: "0" } )
 
 	// LGTs/Humidifiers
-	//, Hrz7_Kru__ChaSySmz( "Hra5_Ka", "KzGwe", "Do", "USB", SySmz__HoKri_yk, { SmzYz: "0" } )
+	//, Hrz7_Kru__ChaSySmz( "Hra5_Ka", "KzGwe", "Do", "USB", SySmz__HoKri_yk, { YzTi_wu: "0" } )
 
 	// BATTERY/POWER?
-	//, Hrz7_Kru__ChaSySmz( "Hra0_Ko", "BriDzSpe", "Do", "ENRG", SySmz__HoKri_yk, { SmzYz: "0" } )
+	//, Hrz7_Kru__ChaSySmz( "Hra0_Ko", "BriDzSpe", "Do", "ENRG", SySmz__HoKri_yk, { YzTi_wu: "0" } )
 
 	// TRACK LOCALE
-	//, Hrz7_Kru__ChaSySmz( "Hra1_Mz", "GeFy", "Do", "GPS", SySmz__HoKri_yk, { SmzYz: "0" } )
+	//, Hrz7_Kru__ChaSySmz( "Hra1_Mz", "GeFy", "Do", "GPS", SySmz__HoKri_yk, { YzTi_wu: "0" } )
 
 	//
-	//, Hrz7_Kru__ChaSySmz( "Hr", "", "Do", "ABC", SySmz__HoKri_yk, { SmzYz: "0" } )
+	//, Hrz7_Kru__ChaSySmz( "Hr", "", "Do", "ABC", SySmz__HoKri_yk, { YzTi_wu: "0" } )
 
 }
 
