@@ -1,3 +1,5 @@
+const DoWG__BriDzSa__Da_wuk = "173"; 
+
 //==============================================
 //==============================================
 // WG: Jy
@@ -1099,6 +1101,9 @@ DoWG.BriYa = async function( Yz_l )
 	// MAKE SESSION with Ji INTERFACE
 	const Sa_l = SySmz__YaFz_v( DoWG );
 	Sa_l.YzTi_wu = Yz_l.YzTi_wu;
+
+	const CDN_Version_yk = ( BriDzSa__Da_wuk == DoWG__BriDzSa__Da_wuk );
+	if( MoDzTrx__NxHo_y( "[WG] Version Behind (Try again in 2~15min?)", CDN_Version_yk )){ return null; }
 
 
 	//-------------------------------------------------
