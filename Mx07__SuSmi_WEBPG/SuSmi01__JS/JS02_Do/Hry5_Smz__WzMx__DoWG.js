@@ -1658,7 +1658,7 @@ DoWG.BriYa = async function( Yz_l )
 		//!!!
 		// CREATE Large is Allowed but FAILS validation!
 		// 256 Layers: MAX = 8
-		let GzKri_wu = 7;
+		let GzKri_wu = 2;
 
 		for( ; GzKri_wu >= 0; GzKri_wu-- )
 		{
@@ -1673,6 +1673,7 @@ DoWG.BriYa = async function( Yz_l )
 			//@@@
 			// DIM
 			const GzFo_wuk = 1 << GzKri_wu;
+
 			const Ti__JaVe_wuk = 4096;
 			const Wz__JaVe_wuk = 4096;
 			// const Ti__JaVe_wuk = 8192;
