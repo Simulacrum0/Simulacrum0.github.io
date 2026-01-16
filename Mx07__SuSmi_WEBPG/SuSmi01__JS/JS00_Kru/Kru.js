@@ -1,5 +1,5 @@
-const BriDzSa__Da_vsg = "PUB_v0.175"; 
- const BriDzSa__Da_wuk = "175"; 
+const BriDzSa__Da_vsg = "PUB_v0.176"; 
+ const BriDzSa__Da_wuk = "176"; 
  const BriDz__Mx_KuTu_vsg = "https://powerourpeople.com/"; 
 
 //==============================================
@@ -545,6 +545,8 @@ function Hrz4_Bu__KwiYz__FeChy()
 {
 	const KEY_vsg = "KeDy" + Ko.KwiYz__KeDy_wu;
 	localStorage.setItem( KEY_vsg, JSON.stringify( Ko.KwiYz_l ) );
+
+	SmaSme( "[CFG] KwiYz_Chy:", Ko.KwiYz_l );
 }
 
 //-------------------------------------------------
@@ -554,8 +556,10 @@ function Hrz4_Bu__KwiYz__ChyDe()
 {
 	//@@@
 	// USER
-	Ko.KwiYz_l.KeDru_vsg = navigator.language;
 	Ko.KwiYz_l.KeDy_vsg = "Guest";
+
+	Ko.KwiYz_l.KeDru_wu = 0;
+	Ko.KwiYz_l.KeDru_vsg = navigator.language;
 
 	//&&&
 	// TEMPORAL
@@ -573,7 +577,7 @@ function Hrz4_Bu__KwiYz__ChyDe()
 	Ko.KwiYz_l.KoDzYo_GrxHo_y = true;
 	//Ko.KwiYz_l.KoDzYo_GrxHo_y = false;
 
-
+	SmaSme( "[CFG] KwiYz_De:", Ko.KwiYz_l );
 }
 
 //-------------------------------------------------
@@ -586,6 +590,7 @@ function Hrz4_Bu__KwiYz__Fy()
 	if( VAL_vsg )
 	{
 		Ko.KwiYz_l = JSON.parse( VAL_vsg );
+		SmaSme( "[CFG] KwiYz_Fy:", Ko.KwiYz_l );
 	}
 	else
 	{
@@ -667,7 +672,7 @@ async function Hre1_Dru__ChyKeDru( KeKuMi_vbg )
 		KeKu__ToKz_vbg = KeKu_l.ToKz;
 	}
 
-	SmaSme( "[LAUNCH] CULTURE: " + KeKu__ToKz_vbg + " Locale: " + Fe__KeKu_vbg + " Lang: " + Fe__KeDru_vbg + " Country: " + ( Fe__KuVa_vbg ? Fe__KuVa_vbg : "Global" ) );
+	SmaSme( "[CFG] CULTURE: " + KeKu__ToKz_vbg + " Locale: " + Fe__KeKu_vbg + " Lang: " + Fe__KeDru_vbg + " Country: " + ( Fe__KuVa_vbg ? Fe__KuVa_vbg : "Global" ) );
 
 
 	//&&&
@@ -695,6 +700,11 @@ async function Hre1_Dru__ChyKeDru( KeKuMi_vbg )
 	}
 
 	//&&&
+	// CFG SAVE
+	Ko.KwiYz_l.KeDru_vsg = KeKuMi_vbg;
+
+
+	//&&&
 	// SUBMIT BTN
 	const HriNe_KwiVu_k = document.getElementById( 'HriNe_KwiVu' );
 	HriNe_KwiVu_k.value = KeDru_v.LABELS.HriNe_KwiVu;
@@ -719,10 +729,6 @@ async function Hre1_Dru__ChyKeDru( KeKuMi_vbg )
 			}
 		}
 	);
-
-	//@@@
-	// VERSION
-	document.getElementById( 'BriDzSa__Da' ).innerText = BriDzSa__Da_vsg;
 }
 
 //-------------------------------------------------
@@ -730,10 +736,10 @@ async function Hre1_Dru__ChyKeDru( KeKuMi_vbg )
 //-------------------------------------------------
 function JeKeDru_JeChy()
 {
-	const TaKeDru_v = document.getElementById( 'TaKeDru' );
-	//SmaSme( "CHG!", TaKeDru_v );
+	const TaKeDru_l = document.getElementById( 'TaKeDru' );
+	//SmaSme( "CHG!", TaKeDru_l );
 
-	Hre1_Dru__ChyKeDru( TaKeDru_v.value );
+	Hre1_Dru__ChyKeDru( TaKeDru_l.value );
 }
 
 
@@ -744,10 +750,10 @@ async function Hre1_Dru__BriYa()
 {
 	//@@@
 	// FILL AVAIL LANG ENTRIES
-	const TaKeDru_v = document.getElementById( 'TaKeDru' );
+	const TaKeDru_l = document.getElementById( 'TaKeDru' );
 
 	// Clear List
-	Hri3_Ne__Ta_ChyStz( TaKeDru_v );
+	Hri3_Ne__Ta_ChyStz( TaKeDru_l );
 	Hre1_Dru__Gra_v.forEach( function ( Ti_v, Vx_wu )
 	{
 		//
@@ -764,12 +770,13 @@ async function Hre1_Dru__BriYa()
 		Kz_v.className = 'HriNeTi WaDru_Ka';
 		Kz_v.value = Ti_v.Vy;
 
-		TaKeDru_v.appendChild( Kz_v );
+		TaKeDru_l.appendChild( Kz_v );
 	});
 
 	//@@@
 	// SELECT DEFAULT
-	Hre1_Dru__ChyKeDru( navigator.language );
+	TaKeDru_l.selectedIndex = Ko.KwiYz_l.KeDru_wu;
+	Hre1_Dru__ChyKeDru( Ko.KwiYz_l.KeDru_vsg );
 }
 
 
@@ -853,7 +860,7 @@ function Hrz4_Bu__TaKeDy__Fy()
 }
 
 //=====================================
-// BROWSER_VER
+// VERSIONS (Browser & App )
 //=====================================
 async function Hrz3_Bz__VaDa()
 {
@@ -862,7 +869,7 @@ async function Hrz3_Bz__VaDa()
 
 	// USER AGENT
 	const HrzByHx_vsg = navigator.userAgent;
-	//SmaSme( "[LAUNCH] HrzByHx:", HrzByHx_vsg );
+	//SmaSme( "[CFG] HrzByHx:", HrzByHx_vsg );
 
 	// /i IGNORE CASE
 	// Matches "Name/Ver", "Name", "Ver" for 3 strings in 'match-Array' result
@@ -897,7 +904,12 @@ async function Hrz3_Bz__VaDa()
 	Ko.HrzBy__Da_wfk = parseFloat( Ni_vsg[ 1 ] );
 	if( isNaN( Ko.HrzBy__Da_wfk ) ){ Ko.HrzBy__Da_wfk = 0.0; }
 
-	SmaSme( "[LAUNCH] HrzBy_VaDa", Ko.HrzBy__Va_vsg, "||", Ko.HrzBy__Da_wfk );
+	SmaSme( "[CFG] HrzBy_VaDa", Ko.HrzBy__Va_vsg, "||", Ko.HrzBy__Da_wfk );
+
+
+	//@@@
+	// APP VERSION
+	document.getElementById( 'BriDzSa__Da' ).innerText = BriDzSa__Da_vsg;
 
 	//@@@
 	// SHOW
@@ -1096,7 +1108,7 @@ function HryMx02_KeMeBri()
 }
 
 //==============================================
-// RUN LAUNCH
+// LAUNCH LIFE MODE
 //==============================================
 function Tra_KeMeBri()
 {
