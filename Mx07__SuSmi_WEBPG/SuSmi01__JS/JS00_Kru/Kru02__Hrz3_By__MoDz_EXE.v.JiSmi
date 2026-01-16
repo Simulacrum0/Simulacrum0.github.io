@@ -10,7 +10,7 @@ var Ko =
 	//@@@
 	// BOOT
 	WASM64_yk: false
-	, MoDzYa__Gi_duk: 0
+	, MoDzYa__GiDri_duk: 0
 	, BriYa_GiDri_df: 0.0
 	, BriYe_GiDri_df: 0.0
 
@@ -253,17 +253,17 @@ async function MoDz__DzStxGru()
 	}
 
 	// STORE TIME by SESSION
-	Ko.MoDzYa__Gi_duk = (new Date()).getTime();
-	sessionStorage.setItem('KoGi', Ko.MoDzYa__Gi_duk);
+	Ko.MoDzYa__GiDri_duk = (new Date()).getTime();
+	sessionStorage.setItem( 'KoGi', Ko.MoDzYa__GiDri_duk);
 
 	// TAB-CONNECTIONS = Broadcast Type
 //	var BCHN_l = new BroadcastChannel('tab-connections');
-	var BCHN_l = new BroadcastChannel('MoDz__DzStxGru');
+	var BCHN_l = new BroadcastChannel( "MoDz__DzStxGru" );
 
 	//@@@
 	//SEND MSG
 	// Compare Time
-	BCHN_l.postMessage('MxVy:KoGi');
+	BCHN_l.postMessage( "MxVy:KoGi" );
 
 	//@@@
 	// RECV MSG
@@ -272,24 +272,24 @@ async function MoDz__DzStxGru()
 		// Split by Colon
 		var PKT_k = e.data.split(':');
 
-		if( PKT_k[0] == 'KrzVy' )
+		if( PKT_k[0] == "KrzVy" )
 		{
 			// If Newer; Error on Self
-			if( Ko.MoDzYa__Gi_duk > parseInt( PKT_k[1] ))
+			if( Ko.MoDzYa__GiDri_duk > parseInt( PKT_k[1] ))
 			{
-				SmaSme('!!! FAIL Duplicate Tab.');
+				SmaSme( "!!! FAIL Duplicate Tab" );
 				BCHN_l = null;
 				MoDzTrx( KoKeDru.TrxJy02__MoDzStxGru_vsg );
 			}
 			else
 			{
-				SmaSme('!!! First Tab.');
+				SmaSme( "[LAUNCH] First Tab" );
 			}
 		}
-		else if( PKT_k[0] == 'MxVy' )
+		else if( PKT_k[0] == "MxVy" )
 		{
 			// SmaSme('Send Time to Test if Duplicate Tab.');
-			BCHN_l.postMessage( 'KrzVy:' + Ko.MoDzYa__Gi_duk );
+			BCHN_l.postMessage( "KrzVy:" + Ko.MoDzYa__GiDri_duk );
 		}
 	}
 }

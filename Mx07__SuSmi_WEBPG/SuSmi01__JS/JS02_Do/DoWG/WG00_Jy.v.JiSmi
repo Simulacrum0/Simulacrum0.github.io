@@ -190,7 +190,7 @@ const JiGwe = Object.freeze
 const JiSuKy = Object.freeze
 //-------------------------------------------------
 ({
-	Brz_qk: 0
+	Bry_qk: 0
 	, Wy_qk: 1
 	, Trz_qk: 2
 	, Nu_qk: 3
@@ -204,7 +204,7 @@ const SuTyJy = Object.freeze
 ({
 	Cho_qk: 0
 	, Nu_qk: 1
-	, Brz_qk: 2
+	, Bry_qk: 2
 	, Hri_qk: 3
 });
 
@@ -238,6 +238,7 @@ const TaJiHry_vvsg =
 
 	, { Va_vsg: "Ji12_MEXEL__WaJoDi", Do_vsg: "JiJy00__WaPo", JiSuKy_q: JiSuKy.Wy_qk, SuTyJy_q: SuTyJy.Bry_qk }
 	// , { Va_vsg: "Ji13_MEXEL__KuJoDi", Do_vsg: "JiJy00__WaPo", JiSuKy_q: JiSuKy.Wy_qk, SuTyJy_q: SuTyJy.Bry_qk }
+
 	, { Va_vsg: "Ji14_MEXEL__SpeJoDi", Do_vsg: "JiJy00__WaPo", JiSuKy_q: JiSuKy.Wy_qk, SuTyJy_q: SuTyJy.Bry_qk }
 	// , { Va_vsg: "Ji15_MEXEL__MzJoDi", Do_vsg: "JiJy00__WaPo", JiSuKy_q: JiSuKy.Wy_qk, SuTyJy_q: SuTyJy.Bry_qk }
 

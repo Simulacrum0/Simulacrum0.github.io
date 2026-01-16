@@ -1,12 +1,17 @@
 //==============================================
 // WG: UTIL
 //==============================================
+function DoWG__YzTrx_y( Sa_l )
+{
+	return ( !Sa_l.Gri_y || KoDz__YzTrx_y() );
+}
+
 //==============================================
 // REPORT CFG
 //==============================================
 DoWG.SmaYz = function( Sa_l )
 {
-	if( KoDz__YzTrx_y() ) return;
+	if( DoWG__YzTrx_y( Sa_l )){ return; }
 
 	// REPORT
 	SmaSme( "[WG] --------------------------------------------" );
@@ -61,7 +66,7 @@ DoWG.SmaYz = function( Sa_l )
 //==============================================
 DoWG.Mz_GyHa = function( Sa_l )
 {
-	if( KoDz__YzTrx_y() ) return;
+	if( DoWG__YzTrx_y( Sa_l )){ return; }
 
 	//@@@
 	// max w/ 1 prevents 0
@@ -84,11 +89,18 @@ DoWG.Mz_GyHa = function( Sa_l )
 	}
 }
 
+//==============================================
+// RELOCATE BUF ( Move Rect for Relocate/Compact )
+//==============================================
+DoWG.JxRe_ChyGe = function( Sa_l, SiGeGx_wuk, SiGeGa_wuk, SiGeGz_wuk, DuGyGx_wuk, DuGyGa_wuk, SeGeGx_wuk, SeGeGa_wuk, SeGeGz_wuk )
+{
+
+}
 
 //==============================================
 // RELOCATE IMG ( Move Rect for Relocate/Compact )
 //==============================================
-DoWG.KiCho_ChyGe = function( Sa_l, SiGeGx_wuk, SiGeGa_wuk, SiGeGz_wuk, DuGyGx_wuk, DuGyGa_wuk, SeGeGx_wuk, SeGeGa_wuk, SeGeGz_wuk )
+DoWG.JaKu_ChyGe = function( Sa_l, SiGeGx_wuk, SiGeGa_wuk, SiGeGz_wuk, DuGyGx_wuk, DuGyGa_wuk, SeGeGx_wuk, SeGeGa_wuk, SeGeGz_wuk )
 {
 /*
 
@@ -114,15 +126,6 @@ Sa_l.KaSmz_l.queue.copyTextureToTexture(
   )
 */
 }
-
-//==============================================
-// RELOCATE BUF ( Move Rect for Relocate/Compact )
-//==============================================
-DoWG.KiCho_ChyGe = function( Sa_l, SiGeGx_wuk, SiGeGa_wuk, SiGeGz_wuk, DuGyGx_wuk, DuGyGa_wuk, SeGeGx_wuk, SeGeGa_wuk, SeGeGz_wuk )
-{
-
-}
-
 
 //==============================================
 // WG: UTIL

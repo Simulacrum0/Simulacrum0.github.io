@@ -3423,52 +3423,60 @@ function checkIncomingModuleAPI() {
 }
 
 var ASM_CONSTS = {
-  73976: $0 => {
+  74008: $0 => {
     if (!window.Ko.Hx_SyDx_vsg) {
       window.Ko.Hx_SyDx_vsg = UTF8ToString($0);
     }
   },
-  74057: () => {
+  74089: () => {
     const isHidden = document.hidden;
     const hasFocus = document.hasFocus();
     (isHidden || !hasFocus) ? KoDz__YoChy() : KoDz__YuChy();
   },
-  74191: () => {
+  74223: () => {
     KoDz__YuChy();
   },
-  74210: () => {
+  74242: () => {
     KoDz__YoChy();
   },
-  74229: () => {
+  74261: () => {
     MoDzTrx("TEST BAD BUILD as ERROR");
   },
-  74271: () => {
+  74303: () => {
     const SaPAY_l = Ko.SySmz_v[SyVx.PAY_qk];
     DoPAY.Mo(SaPAY_l, 0, 0);
   },
-  74345: () => {
+  74377: () => {
     const SaSHAR_l = Ko.SySmz_v[SyVx.SHAR_qk];
     DoSHAR.Mo(SaSHAR_l, 0, 0);
   },
-  74423: () => {
+  74455: () => {
     location.reload();
   },
-  74446: () => {
+  74478: () => {
     const SaWG_l = Ko.SySmz_v[SyVx.WG_qk];
     const Brz_wuk = 0;
     DoWG.TxCho_JaKu(SaWG_l, Brz_wuk, 0, 0, 0, SaWG_l.MxPo_Bri_l.width, SaWG_l.MxPo_Bri_l.height);
   },
-  74606: () => {},
-  74610: () => {
+  74638: () => {
+    location.reload();
+  },
+  74661: () => {
+    const SaWG_l = Ko.SySmz_v[SyVx.WG_qk];
+    SaWG_l.KaSmz_l.destroy();
+  },
+  74732: () => {},
+  74736: () => {
     console.log("MC: HrySmz__BriYa");
   },
-  74650: () => {},
-  74654: () => {
+  74776: () => {},
+  74780: () => {
     const SaSTRM_l = Ko.SySmz_v[SyVx.STRM_qk];
   },
-  74703: $0 => {
+  74829: $0 => {
     const SaWG_l = Ko.SySmz_v[SyVx.WG_qk];
     const SaSTRM_l = Ko.SySmz_v[SyVx.STRM_qk];
+    if (!SaWG_l || !SaWG_l.Gri_y || !SaSTRM_l) return 0;
     const LAYER_Gz_wuk = 0;
     const SaGLF_l = Ko.SySmz_v[SyVx.GLF_qk];
     SaGLF_l.Ji.Hre7_Me__KeDru_Ha(SaGLF_l, "🛸| Ke: " + Ko.TaKeDy_vsg, 0, 0);

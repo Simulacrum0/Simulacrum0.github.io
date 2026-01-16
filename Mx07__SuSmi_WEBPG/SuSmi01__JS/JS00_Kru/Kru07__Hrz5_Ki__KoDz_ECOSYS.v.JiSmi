@@ -150,7 +150,7 @@ async function KoDz__YaFz()
 
 	const Kri__SySmzCha__Smx_k = await Promise.all( Kri__SySmz_v );
 	// SmaSme( "SERV REQ", Kri__SySmzCha__Smx_k );
-
+	if( !Kri__SySmzCha__Smx_k ){ return; }
 
 	//@@@
 	// SERV_OPT

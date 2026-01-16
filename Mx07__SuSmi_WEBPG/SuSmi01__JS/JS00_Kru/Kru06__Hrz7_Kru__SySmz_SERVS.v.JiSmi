@@ -97,6 +97,7 @@ async function Hrz7_Kru__ChaSySmz( SyJy_vsg, ToKz_vsg, SyTu_vsg, VaDy_vsg, SySmz
 	//@@@
 	// ECOSYS_GOOD
 	if( KoDz__YzTrx_y() ) return;
+	
 	const VaSy_vsg = SyTu_vsg + VaDy_vsg;
 	const Do_yk = ( SyTu_vsg === "Do" );
 

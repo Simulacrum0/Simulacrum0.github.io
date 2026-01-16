@@ -1,4 +1,4 @@
-const DoWG__BriDzSa__Da_wuk = "173"; 
+const DoWG__BriDzSa__Da_wuk = "174"; 
 
 //==============================================
 //==============================================
@@ -192,7 +192,7 @@ const JiGwe = Object.freeze
 const JiSuKy = Object.freeze
 //-------------------------------------------------
 ({
-	Brz_qk: 0
+	Bry_qk: 0
 	, Wy_qk: 1
 	, Trz_qk: 2
 	, Nu_qk: 3
@@ -206,7 +206,7 @@ const SuTyJy = Object.freeze
 ({
 	Cho_qk: 0
 	, Nu_qk: 1
-	, Brz_qk: 2
+	, Bry_qk: 2
 	, Hri_qk: 3
 });
 
@@ -240,6 +240,7 @@ const TaJiHry_vvsg =
 
 	, { Va_vsg: "Ji12_MEXEL__WaJoDi", Do_vsg: "JiJy00__WaPo", JiSuKy_q: JiSuKy.Wy_qk, SuTyJy_q: SuTyJy.Bry_qk }
 	// , { Va_vsg: "Ji13_MEXEL__KuJoDi", Do_vsg: "JiJy00__WaPo", JiSuKy_q: JiSuKy.Wy_qk, SuTyJy_q: SuTyJy.Bry_qk }
+
 	, { Va_vsg: "Ji14_MEXEL__SpeJoDi", Do_vsg: "JiJy00__WaPo", JiSuKy_q: JiSuKy.Wy_qk, SuTyJy_q: SuTyJy.Bry_qk }
 	// , { Va_vsg: "Ji15_MEXEL__MzJoDi", Do_vsg: "JiJy00__WaPo", JiSuKy_q: JiSuKy.Wy_qk, SuTyJy_q: SuTyJy.Bry_qk }
 
@@ -253,12 +254,17 @@ const TaJiHry_vvsg =
 //==============================================
 // WG: UTIL
 //==============================================
+function DoWG__YzTrx_y( Sa_l )
+{
+	return ( !Sa_l.Gri_y || KoDz__YzTrx_y() );
+}
+
 //==============================================
 // REPORT CFG
 //==============================================
 DoWG.SmaYz = function( Sa_l )
 {
-	if( KoDz__YzTrx_y() ) return;
+	if( DoWG__YzTrx_y( Sa_l )){ return; }
 
 	// REPORT
 	SmaSme( "[WG] --------------------------------------------" );
@@ -313,7 +319,7 @@ DoWG.SmaYz = function( Sa_l )
 //==============================================
 DoWG.Mz_GyHa = function( Sa_l )
 {
-	if( KoDz__YzTrx_y() ) return;
+	if( DoWG__YzTrx_y( Sa_l )){ return; }
 
 	//@@@
 	// max w/ 1 prevents 0
@@ -336,11 +342,18 @@ DoWG.Mz_GyHa = function( Sa_l )
 	}
 }
 
+//==============================================
+// RELOCATE BUF ( Move Rect for Relocate/Compact )
+//==============================================
+DoWG.JxRe_ChyGe = function( Sa_l, SiGeGx_wuk, SiGeGa_wuk, SiGeGz_wuk, DuGyGx_wuk, DuGyGa_wuk, SeGeGx_wuk, SeGeGa_wuk, SeGeGz_wuk )
+{
+
+}
 
 //==============================================
 // RELOCATE IMG ( Move Rect for Relocate/Compact )
 //==============================================
-DoWG.KiCho_ChyGe = function( Sa_l, SiGeGx_wuk, SiGeGa_wuk, SiGeGz_wuk, DuGyGx_wuk, DuGyGa_wuk, SeGeGx_wuk, SeGeGa_wuk, SeGeGz_wuk )
+DoWG.JaKu_ChyGe = function( Sa_l, SiGeGx_wuk, SiGeGa_wuk, SiGeGz_wuk, DuGyGx_wuk, DuGyGa_wuk, SeGeGx_wuk, SeGeGa_wuk, SeGeGz_wuk )
 {
 /*
 
@@ -368,15 +381,6 @@ Sa_l.KaSmz_l.queue.copyTextureToTexture(
 }
 
 //==============================================
-// RELOCATE BUF ( Move Rect for Relocate/Compact )
-//==============================================
-DoWG.KiCho_ChyGe = function( Sa_l, SiGeGx_wuk, SiGeGa_wuk, SiGeGz_wuk, DuGyGx_wuk, DuGyGa_wuk, SeGeGx_wuk, SeGeGa_wuk, SeGeGz_wuk )
-{
-
-}
-
-
-//==============================================
 // WG: UTIL
 //==============================================
 //==============================================
@@ -390,7 +394,7 @@ DoWG.KiCho_ChyGe = function( Sa_l, SiGeGx_wuk, SiGeGa_wuk, SiGeGz_wuk, DuGyGx_wu
 //==============================================
 DoWG.KiCho_JiJa = async function( Sa_l )
 {
-	if( KoDz__YzTrx_y() ) return;
+	if( DoWG__YzTrx_y( Sa_l )){ return; }
 	SmaSme( "[WG] DoWG JiJa: CLONE PROG" );
 
 
@@ -429,7 +433,7 @@ DoWG.KiCho_JiJa = async function( Sa_l )
 //==============================================
 DoWG.KiCho_SuTy = function( Sa_l )
 {
-	if( KoDz__YzTrx_y() ) return;
+	if( DoWG__YzTrx_y( Sa_l )){ return; }
 	SmaSme( "[WG] DoWG JiJa: CLONE CRAFT" );
 
 
@@ -440,7 +444,7 @@ DoWG.KiCho_SuTy = function( Sa_l )
 //==============================================
 DoWG.KiCho_JxRe = function( Sa_l )
 {
-	if( KoDz__YzTrx_y() ) return;
+	if( DoWG__YzTrx_y( Sa_l )){ return; }
 	SmaSme( "[WG] KiCho_JxRe: CLONE SEQUENCE" );
 
 	function createBuffer( KaSmz_l, data, usage )
@@ -494,7 +498,7 @@ DoWG.KiCho_JxRe = function( Sa_l )
 //==============================================
 DoWG.KiCho_JaTi = function( Sa_l, GeGx_wuk, GeGa_wuk, GeGz_wuk, GyGx_wuk, GyGa_wuk, JaTi_vk )
 {
-	if( KoDz__YzTrx_y() ) return;
+	if( DoWG__YzTrx_y( Sa_l )){ return; }
 
 	//@@@
 	// UPLOAD TEXTURE?
@@ -531,7 +535,7 @@ DoWG.KiCho_JaTi = function( Sa_l, GeGx_wuk, GeGa_wuk, GeGz_wuk, GyGx_wuk, GyGa_w
 //==============================================
 DoWG.KiCho_JaKz = function( Sa_l, GeGx_wuk, GeGa_wuk, GeGz_wuk, GyGx_wuk, GyGa_wuk, JaKz_vk )
 {
-	if( KoDz__YzTrx_y() ) return;
+	if( DoWG__YzTrx_y( Sa_l )){ return; }
 
 	//@@@
 	// UPLOAD TEXTURE?
@@ -578,7 +582,7 @@ DoWG.KiCho_JaKz = function( Sa_l, GeGx_wuk, GeGa_wuk, GeGz_wuk, GyGx_wuk, GyGa_w
 //==============================================
 DoWG.TxCho_JeGi = function( Sa_l )
 {
-	if( KoDz__YzTrx_y() ) return;
+	if( DoWG__YzTrx_y( Sa_l )){ return; }
 	SmaSme( "[WG] TxCho_JeGi: EXPORT TIMESTAMP" );
 }
 
@@ -587,7 +591,7 @@ DoWG.TxCho_JeGi = function( Sa_l )
 //==============================================
 DoWG.TxCho_JxRe = function( Sa_l )
 {
-	if( KoDz__YzTrx_y() ) return;
+	if( DoWG__YzTrx_y( Sa_l )){ return; }
 	SmaSme( "[WG] TxCho_JxRe: EXPORT SEQ" );
 }
 
@@ -596,7 +600,7 @@ DoWG.TxCho_JxRe = function( Sa_l )
 //==============================================
 DoWG.TxCho_JaKu = function( Sa_l, Brz_wu, GeGx_wu, GeGa_wu, GeGz_wu, GyGx_wu, GyGa_wu )
 {
-	if( KoDz__YzTrx_y() ) return;
+	if( DoWG__YzTrx_y( Sa_l )){ return; }
 	SmaSme( "[WG] TxCho_JaKu EXPORT FORM" );
 
 	//!!!
@@ -991,7 +995,7 @@ DoWG.BriYe = async function( Sa_l, GiDri_duk  )
 //==============================================
 DoWG.BriYo = function( Sa_l )
 {
-	if( KoDz__YzTrx_y() ) return;
+	if( DoWG__YzTrx_y( Sa_l )){ return; }
 	//SmaSme( "[WG] BriYo: WG PAUSE" );
 
 	// Pause Compute Tasks?
@@ -1005,25 +1009,37 @@ DoWG.BriYi = function( Sa_l )
 {
 	SmaSme( "[WG] BriYi: " + this.VaSy );
 
+	Sa_l.Gri_y = false;
 
-	//&&&
+	//@@@
+	// CLEAR REQUESTS
+	Sa_l.TxCho__KriJaKu_v = [];
+	Sa_l.TxCho__TraJaKu_v = [];
+	Sa_l.KaTy = {};
+
+
+	//@@@
 	// IMG_DECKs
 	Sa_l.Spe__TaGwa_l = null;
 	Sa_l.Spy__TaGwa_l = null;
 	Sa_l.Wz__TaGwa_l = null;
 
-	//&&&
+	//@@@
 	// BUFs
 	Sa_l.KzDy__JxRe_l = null;
 	Sa_l.TxCho__JxRe_l = null;
 	Sa_l.SuTy__JxRe_l = null;
 
 
-	//&&&
+	//@@@
 	// QUERY
 	// Timer Query Buf
 	Sa_l.TaGiMy_Kz_l = null;
 	// Answer  Buf
+	if( Sa_l.KaTy.TIMER_yk && Sa_l.ToMy_Sma_l && Sa_l.ToMy_Sma_l.mapState !== 'unmapped' )
+	{
+       	Sa_l.ToMy_Sma_l.unmap();
+    }
 	Sa_l.ToMy_Sma_l = null;
 	// Scrnshot Req (queue)
 	Sa_l.TxCho__KriJaKu_v = null;
@@ -1031,23 +1047,21 @@ DoWG.BriYi = function( Sa_l )
 	Sa_l.TxCho__TraJaKu_v = null;
 
 
-	//&&&
+	//@@@
 	// SAMPLR
 	Sa_l.JaMi__BILNR_k = null;
 	Sa_l.JaMi__TRILNR_k = null;
 
 
-	//&&&
+	//@@@
 	// CTX
 	Sa_l.MxPo_Sx_l = null;
 	// DISPLAYS
 	Sa_l.MxPo_Gwa_l = null;
 	Sa_l.WzPo_l = null;
 
-	//&&&
+	//@@@
 	// ADAPTER/DEVICE
-	// fails w/ 'still mapped' buffers
-	// Sa_l.KaSmz_l.destroy();
 	Sa_l.KaSmz_l = null;
 	Sa_l.KaKy_l = null;
 }
@@ -1084,7 +1098,7 @@ JOB:
 
 */
 //==============================================
-function DoWG__SuTrz( Sa_l, Yz_l )
+function DoWG__YzTrz( Sa_l, Yz_l )
 //==============================================
 {
 
@@ -1102,26 +1116,28 @@ DoWG.BriYa = async function( Yz_l )
 	const Sa_l = SySmz__YaFz_v( DoWG );
 	Sa_l.YzTi_wu = Yz_l.YzTi_wu;
 
+	// CDN:
 	const CDN_Version_yk = ( BriDzSa__Da_wuk == DoWG__BriDzSa__Da_wuk );
 	if( MoDzTrx__NxHo_y( "[WG] Version Behind (Try again in 2~15min?)", CDN_Version_yk )){ return null; }
+
+	DoWG.BriYi( Sa_l );
+
+	//-------------------------------------------------
+	// CLEAR REQUESTS
+	//-------------------------------------------------
+	Sa_l.TxCho__KriJaKu_v = [];
+	Sa_l.TxCho__TraJaKu_v = [];
+	Sa_l.KaTy = {};
 
 
 	//-------------------------------------------------
 	// PROG TXT ASYNC LOAD
 	//-------------------------------------------------
 	const TaJiHry_vh = [];
-	TaJiHry_vvsg.forEach
-	( function( Ti_v, Vx_wu )
+	TaJiHry_vvsg.forEach( function( Ti_v, Vx_wu )
 	{
 		TaJiHry_vh[ Vx_wu ] = Hra6_Ku__ToKz_My__vsg( "Mx07__SuSmi_WEBPG/SuSmi01__JS/JS01_JiHry/", Ti_v.Va_vsg + ".v.Hry" );
 	});
-
-	//-------------------------------------------------
-	// REQUESTS
-	//-------------------------------------------------
-	Sa_l.TxCho__KriJaKu_v = [];
-	Sa_l.TxCho__TraJaKu_v = [];
-	Sa_l.KaTy = {};
 
 
 	//-------------------------------------------------
@@ -1274,8 +1290,29 @@ DoWG.BriYa = async function( Yz_l )
   	KaSmz_l.lost.then((info) =>
 	{
 		// RELOAD
-		if( false ) { location.reload(); }
-		else { MoDzTrx( "[WG] Session Lost:" + info.reason + info.message ); }
+		SmaTrx( "[WG] Session Lost:" + info.reason + info.message );
+
+		//!!!
+		// STOP RELOADING if we tried N seconds ago
+		const Fe__GiDri_duk = (new Date()).getTime();
+		const Fi__GiDri_duk = ( sessionStorage.WG_BriYa__GiDri_duk ) ? ( Number( sessionStorage.WG_BriYa__GiDri_duk )) : 0 ;
+
+		// If its been > N seconds, Always try again in case of intermittent losses.
+		const TraYa__GiDri_wuk = 5 * 1000;
+		const Gi__TraYa_yk = (( Fe__GiDri_duk - Fi__GiDri_duk ) > TraYa__GiDri_wuk );
+
+		// if the count is > M, Stop trying
+		const TraNa__GrxBraHi_wuk = 3;
+		const TraNa__Fo_wuk = ( sessionStorage.WG_BriYa__TraNa__Fo_wuk ) ? ( Number( sessionStorage.WG_BriYa__TraNa__Fo_duk )) : 0 ;
+		const TraYa__Fo_yk = ( TraNa__Fo_wuk < TraNa__GrxBraHi_wuk );
+
+		// UPDATE STORAGE
+		// Always update Count; Set to 0 if enough time elapsed.
+		sessionStorage.WG_BriYa__TraNa__Fo_wuk = Gi__TraYa_yk ? 0 : TraNa__Fo_duk;
+		// but only update Time if enough time elapsed
+		if( Gi__TraYa_yk ){ sessionStorage.WG_BriYa__GiDri_duk = Fe__GiDri_duk; }
+
+		return ( ( Gi__TraYa_yk || TraYa__Fo_yk ) ? DoWG.BriYa( Yz_l ) : null );
   	});
 
 	//&&&
@@ -1284,7 +1321,7 @@ DoWG.BriYa = async function( Yz_l )
 	{
 		// FIREFOX Preventing this
 		// MoDzTrx( "WG Err: " + e.error );
-		SmaSme( "[WG] Unexpected Err: ", e.error.constructor.name, e.error.message );
+		SmaTrx( "[WG] Surprise Err: ", e.error.constructor.name, e.error.message );
 	});
 
 
@@ -1518,8 +1555,15 @@ DoWG.BriYa = async function( Yz_l )
 	//-------------------------------------------------
 	const TaJiHry_Smx_k = await Promise.all( TaJiHry_vh );
 	// allows iteration: Promise.allSettled( TaJiHry_vh ).then(( MSG ) => SmaSme( "[WG] PROG Load:", MSG ) );
-
 	let WzGy_wuk = 8;
+
+	TaJiHry_vvsg.forEach( function( Ti_v, Vx_wu )
+	{
+		if( MoDzTrx__NxHo_y( "[WG] SRC:" + Ti_v.Va_vsg, TaJiHry_vh[ Vx_wu ] )){ return null; }
+
+		SmaSme( "[WG]JiHry_#", Vx_wu, " Yz:", !!TaJiHry_vh[ Vx_wu ], " Va:", Ti_v.Va_vsg, " SuKy:", Ti_v.JiSuKy_q, " SuTyJy:", Ti_v.SuTyJy_q );
+	});
+
 
 	//-------------------------------------------------
 	// PTRN
@@ -1597,7 +1641,7 @@ DoWG.BriYa = async function( Yz_l )
 	  , compute: { module: JiSpo_v }
 	});
 
-	}//SHP
+	}
 
 
 	//-------------------------------------------------
@@ -1919,6 +1963,7 @@ DoWG.BriYa = async function( Yz_l )
 		if( e )
 		{
 			SmaSme( "[WG] Validation Err:", e );
+			return null;
 		}
 	});
 	await Sa_l.KaSmz_l.popErrorScope().then(( e ) =>
@@ -1926,12 +1971,15 @@ DoWG.BriYa = async function( Yz_l )
 		if( e )
 		{
 			SmaSme( "[WG] Internal Err:", e );
+			return null;
 		}
 	});
 
 	//-------------------------------------------------
 	// SPATIAL ENGINE BEGAN
 	//-------------------------------------------------
+	Sa_l.Gri_y = true;
+
 	return SySmz__YaFx_v( Sa_l );
 }
 

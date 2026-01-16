@@ -1,5 +1,5 @@
-const BriDzSa__Da_vsg = "PUB_v0.173"; 
- const BriDzSa__Da_wuk = "173"; 
+const BriDzSa__Da_vsg = "PUB_v0.174"; 
+ const BriDzSa__Da_wuk = "174"; 
  const BriDz__Mx_KuTu_vsg = "https://powerourpeople.com/"; 
 
 //==============================================
@@ -198,7 +198,7 @@ var Ko =
 	//@@@
 	// BOOT
 	WASM64_yk: false
-	, MoDzYa__Gi_duk: 0
+	, MoDzYa__GiDri_duk: 0
 	, BriYa_GiDri_df: 0.0
 	, BriYe_GiDri_df: 0.0
 
@@ -441,17 +441,17 @@ async function MoDz__DzStxGru()
 	}
 
 	// STORE TIME by SESSION
-	Ko.MoDzYa__Gi_duk = (new Date()).getTime();
-	sessionStorage.setItem('KoGi', Ko.MoDzYa__Gi_duk);
+	Ko.MoDzYa__GiDri_duk = (new Date()).getTime();
+	sessionStorage.setItem( 'KoGi', Ko.MoDzYa__GiDri_duk);
 
 	// TAB-CONNECTIONS = Broadcast Type
 //	var BCHN_l = new BroadcastChannel('tab-connections');
-	var BCHN_l = new BroadcastChannel('MoDz__DzStxGru');
+	var BCHN_l = new BroadcastChannel( "MoDz__DzStxGru" );
 
 	//@@@
 	//SEND MSG
 	// Compare Time
-	BCHN_l.postMessage('MxVy:KoGi');
+	BCHN_l.postMessage( "MxVy:KoGi" );
 
 	//@@@
 	// RECV MSG
@@ -460,24 +460,24 @@ async function MoDz__DzStxGru()
 		// Split by Colon
 		var PKT_k = e.data.split(':');
 
-		if( PKT_k[0] == 'KrzVy' )
+		if( PKT_k[0] == "KrzVy" )
 		{
 			// If Newer; Error on Self
-			if( Ko.MoDzYa__Gi_duk > parseInt( PKT_k[1] ))
+			if( Ko.MoDzYa__GiDri_duk > parseInt( PKT_k[1] ))
 			{
-				SmaSme('!!! FAIL Duplicate Tab.');
+				SmaSme( "!!! FAIL Duplicate Tab" );
 				BCHN_l = null;
 				MoDzTrx( KoKeDru.TrxJy02__MoDzStxGru_vsg );
 			}
 			else
 			{
-				SmaSme('!!! First Tab.');
+				SmaSme( "[LAUNCH] First Tab" );
 			}
 		}
-		else if( PKT_k[0] == 'MxVy' )
+		else if( PKT_k[0] == "MxVy" )
 		{
 			// SmaSme('Send Time to Test if Duplicate Tab.');
-			BCHN_l.postMessage( 'KrzVy:' + Ko.MoDzYa__Gi_duk );
+			BCHN_l.postMessage( "KrzVy:" + Ko.MoDzYa__GiDri_duk );
 		}
 	}
 }
@@ -1332,6 +1332,7 @@ async function Hrz7_Kru__ChaSySmz( SyJy_vsg, ToKz_vsg, SyTu_vsg, VaDy_vsg, SySmz
 	//@@@
 	// ECOSYS_GOOD
 	if( KoDz__YzTrx_y() ) return;
+	
 	const VaSy_vsg = SyTu_vsg + VaDy_vsg;
 	const Do_yk = ( SyTu_vsg === "Do" );
 
@@ -1556,7 +1557,7 @@ async function KoDz__YaFz()
 
 	const Kri__SySmzCha__Smx_k = await Promise.all( Kri__SySmz_v );
 	// SmaSme( "SERV REQ", Kri__SySmzCha__Smx_k );
-
+	if( !Kri__SySmzCha__Smx_k ){ return; }
 
 	//@@@
 	// SERV_OPT
