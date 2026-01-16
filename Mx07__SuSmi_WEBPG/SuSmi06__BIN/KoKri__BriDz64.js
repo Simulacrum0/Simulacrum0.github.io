@@ -3588,80 +3588,84 @@ function checkIncomingModuleAPI() {
 }
 
 var ASM_CONSTS = {
-  8397368: $0 => {
+  8397416: $0 => {
     if (!window.Ko.Hx_SyDx_vsg) {
       window.Ko.Hx_SyDx_vsg = UTF8ToString($0);
     }
   },
-  8397449: () => {
+  8397497: () => {
     const isHidden = document.hidden;
     const hasFocus = document.hasFocus();
     (isHidden || !hasFocus) ? KoDz__YoChy() : KoDz__YuChy();
   },
-  8397583: () => {
+  8397631: () => {
     KoDz__YuChy();
   },
-  8397602: () => {
+  8397650: () => {
     KoDz__YoChy();
   },
-  8397621: () => {
+  8397669: () => {
     MoDzTrx("TEST BAD BUILD as ERROR");
   },
-  8397663: () => {
+  8397711: () => {
     const SaPAY_l = Ko.SySmz_v[SyVx.PAY_qk];
     DoPAY.Mo(SaPAY_l, 0, 0);
   },
-  8397737: () => {
+  8397785: () => {
     const SaSHAR_l = Ko.SySmz_v[SyVx.SHAR_qk];
     DoSHAR.Mo(SaSHAR_l, 0, 0);
   },
-  8397815: () => {
+  8397863: () => {
     location.reload();
   },
-  8397838: () => {
+  8397886: () => {
     const SaWG_l = Ko.SySmz_v[SyVx.WG_qk];
     const Brz_wuk = 0;
     DoWG.TxCho_JaKu(SaWG_l, Brz_wuk, 0, 0, 0, SaWG_l.MxPo_Bri_l.width, SaWG_l.MxPo_Bri_l.height);
   },
-  8397998: () => {
+  8398046: () => {
     location.reload();
   },
-  8398021: () => {
+  8398069: () => {
     const SaWG_l = Ko.SySmz_v[SyVx.WG_qk];
     SaWG_l.KaSmz_l.destroy();
   },
-  8398092: () => {},
-  8398096: () => {
+  8398140: () => {},
+  8398144: () => {
     console.log("MC: HrySmz__BriYa");
   },
-  8398136: () => {},
-  8398140: () => {
+  8398184: () => {},
+  8398188: () => {
     const SaSTRM_l = Ko.SySmz_v[SyVx.STRM_qk];
   },
-  8398189: $0 => {
+  8398237: $0 => {
     const SaWG_l = Ko.SySmz_v[SyVx.WG_qk];
     const SaSTRM_l = Ko.SySmz_v[SyVx.STRM_qk];
-    if (!SaWG_l || !SaWG_l.Gri_y || !SaSTRM_l) return 0;
+    if (!SySmz__BriYz__Ye_y(SaWG_l) || !SySmz__BriYz__Ye_y(SaSTRM_l)) return;
+    let Kwy_wu = $0;
     const LAYER_Gz_wuk = 0;
     const SaGLF_l = Ko.SySmz_v[SyVx.GLF_qk];
-    SaGLF_l.Ji.Hre7_Me__KeDru_Ha(SaGLF_l, "🛸| Ke: " + Ko.TaKeDy_vsg, 0, 0);
+    SaGLF_l.Ji.Hre7_Me__KeDru_Ha(SaGLF_l, "🛸| Ke: " + Ko.KwiYz_l.KeDy_vsg, 0, 0);
     SaGLF_l.Ji.Hre7_Me__KeDru_Ha(SaGLF_l, "👾| Ye: " + Ko.YeWi_df.toFixed(1) + "ms", 0, 64);
     SaGLF_l.Ji.Hre7_Me__KeDru_Ha(SaGLF_l, "👹| Hry: " + Ko.KaBxGiHa_df.toFixed(1) + "ms", 0, 128);
-    SaGLF_l.Ji.Hre7_Me__KeDru_Ha(SaGLF_l, "🔊| Hru: Spkr: " + Ko.HriNe_TaNe__MxPeVu_sa + " Mute: " + Ko.HriNe_TaNe__MxPeHoVu_q, 0, 192);
+    SaGLF_l.Ji.Hre7_Me__KeDru_Ha(SaGLF_l, "🔊| Hru: Spkr: " + Ko.KwiYz_l.HriNe_TaNe__MxPeVu_sa + " Mute: " + Ko.KwiYz_l.HriNe_TaNe__MxPeHoVu_q, 0, 192);
     SaGLF_l.Ji.Hre7_Me__KeDru_Ha(SaGLF_l, "👽| HrzBy: " + Ko.HrzBy__Va_vsg + " v" + Ko.HrzBy__Da_wfk, 0, 256);
     SaGLF_l.Ji.Hre7_Me__KeDru_Ha(SaGLF_l, "🤖| Go: " + "-", 0, 320);
     SaGLF_l.Ji.Hre7_Me__KeDru_Ha(SaGLF_l, "💀| C: ", 0, 384);
     SaGLF_l.Ji.Hre7_Me__KeDru_Ha(SaGLF_l, "🔥| YeFo: " + Ko.YeFo_wu, 0, 448);
-    SaWG_l.Ji.KiCho_JaKz(SaWG_l, 0, 0, 0, 512, 512, SaGLF_l.WzPo_l);
-    if ((Ko.SuKz_v[1] instanceof HTMLVideoElement) && (Ko.SuKz_v[1].Kwy_wu)) {
-      SaWG_l.Ji.KiCho_JaKz(SaWG_l, 0, 512, LAYER_Gz_wuk, 480, 480, Ko.SuKz_v[1]);
-    }
-    let Kwy_wu = $0;
-    if ((Ko.SuKz_v[2] instanceof HTMLVideoElement) && (Ko.SuKz_v[2].Kwy_wu > 0) && (Ko.SuKz_v[2].Kwy_wu != Kwy_wu)) {
-      {
-        SaWG_l.Ji.KiCho_JaKz(SaWG_l, 512, 512, LAYER_Gz_wuk, 512, 512, Ko.SuKz_v[2]);
+    try {
+      SaWG_l.Ji.KiCho_JaKz(SaWG_l, 0, 0, 0, 512, 512, SaGLF_l.WzPo_l);
+      if ((Ko.SuKz_v[1] instanceof HTMLVideoElement) && (Ko.SuKz_v[1].Kwy_wu)) {
+        SaWG_l.Ji.KiCho_JaKz(SaWG_l, 0, 512, LAYER_Gz_wuk, 480, 480, Ko.SuKz_v[1]);
       }
-      Kwy_wu = Ko.SuKz_v[2].Kwy_wu;
+      if ((Ko.SuKz_v[2] instanceof HTMLVideoElement) && (Ko.SuKz_v[2].Kwy_wu > 0) && (Ko.SuKz_v[2].Kwy_wu != Kwy_wu)) {
+        {
+          SaWG_l.Ji.KiCho_JaKz(SaWG_l, 512, 512, LAYER_Gz_wuk, 512, 512, Ko.SuKz_v[2]);
+        }
+        Kwy_wu = Ko.SuKz_v[2].Kwy_wu;
+      }
+    } catch (e) {
+      SmaTrx("[WG] CMD Err:", e);
     }
     return Kwy_wu;
   }

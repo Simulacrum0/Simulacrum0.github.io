@@ -21,8 +21,9 @@ const KoKeDru =
 
 	, TrxJy__CheFyHo_CORS_vsg: "Security Fail: No CORS Found"
 	, TrxJy00__HrxCheHo__CORS_vsg: "WAITING: Engaging HTTPS CORS in order to run under Security Policies."
-	, TrxJy01__HrzMoHo__WASM_vsg: "NO Web Assembly Support!"
+	, TrxJy01__HrzMoHo__WASM_vsg: "Web Assembly not Supported: Try a Modern Browser"
 	, TrxJy02__MoDzStxGru_vsg: "Only *1* Webpage Allowed"
+	, TrxJy03__KaBzTrx__WG_vsg: "GPU Not Available or Capable: Try Restarting Browser or Machine"
 
 	, TrxJy__SySmz_GriHo_vsg: "Required Service Fail:"
 	, TrxJy__SuKz_GriHo_vsg: "Required Content Fail:"

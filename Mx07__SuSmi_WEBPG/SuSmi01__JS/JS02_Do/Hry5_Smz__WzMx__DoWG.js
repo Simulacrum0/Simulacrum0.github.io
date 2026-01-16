@@ -1,4 +1,4 @@
-const DoWG__BriDzSa__Da_wuk = "174"; 
+const DoWG__BriDzSa__Da_wuk = "175"; 
 
 //==============================================
 //==============================================
@@ -79,18 +79,6 @@ const TxCho__BraHiFrz_k = 4 * TxCho__Gx_wuk * TxCho__Ga_wuk;
 //==============================================
 // NAMES
 //==============================================
-
-//-------------------------------------------------
-// ABILITY_TIER ( Capability Level )
-const KaBxJiVu = Object.freeze
-//-------------------------------------------------
-({
-	Vu00__ChoGru_qk: 0 // Unusable as Only capable of Clone
-	, Vu01__JiHu_qk: 1 // Minimal Capabilities ( emulation mode )
-	, Vu02__De_qk: 2 // Multipass Textures, Default WebGPU 2.0
-	, Vu03__ZzKri_qk: 3 // RW Textures RGBA, SubGroups
-});
-
 
 //-------------------------------------------------
 // WORK_STAGE
@@ -254,9 +242,9 @@ const TaJiHry_vvsg =
 //==============================================
 // WG: UTIL
 //==============================================
-function DoWG__YzTrx_y( Sa_l )
+function DoWG__KrzYeHo_y( Sa_l )
 {
-	return ( !Sa_l.Gri_y || KoDz__YzTrx_y() );
+	return ( !SySmz__BriYz__Ye_y( Sa_l ) || KoDz__YzTrx_y() );
 }
 
 //==============================================
@@ -264,7 +252,7 @@ function DoWG__YzTrx_y( Sa_l )
 //==============================================
 DoWG.SmaYz = function( Sa_l )
 {
-	if( DoWG__YzTrx_y( Sa_l )){ return; }
+	if( DoWG__KrzYeHo_y( Sa_l )){ return; }
 
 	// REPORT
 	SmaSme( "[WG] --------------------------------------------" );
@@ -319,7 +307,7 @@ DoWG.SmaYz = function( Sa_l )
 //==============================================
 DoWG.Mz_GyHa = function( Sa_l )
 {
-	if( DoWG__YzTrx_y( Sa_l )){ return; }
+	if( DoWG__KrzYeHo_y( Sa_l )){ return; }
 
 	//@@@
 	// max w/ 1 prevents 0
@@ -394,7 +382,7 @@ Sa_l.KaSmz_l.queue.copyTextureToTexture(
 //==============================================
 DoWG.KiCho_JiJa = async function( Sa_l )
 {
-	if( DoWG__YzTrx_y( Sa_l )){ return; }
+	if( DoWG__KrzYeHo_y( Sa_l )){ return; }
 	SmaSme( "[WG] DoWG JiJa: CLONE PROG" );
 
 
@@ -433,7 +421,7 @@ DoWG.KiCho_JiJa = async function( Sa_l )
 //==============================================
 DoWG.KiCho_SuTy = function( Sa_l )
 {
-	if( DoWG__YzTrx_y( Sa_l )){ return; }
+	if( DoWG__KrzYeHo_y( Sa_l )){ return; }
 	SmaSme( "[WG] DoWG JiJa: CLONE CRAFT" );
 
 
@@ -444,7 +432,7 @@ DoWG.KiCho_SuTy = function( Sa_l )
 //==============================================
 DoWG.KiCho_JxRe = function( Sa_l )
 {
-	if( DoWG__YzTrx_y( Sa_l )){ return; }
+	if( DoWG__KrzYeHo_y( Sa_l )){ return; }
 	SmaSme( "[WG] KiCho_JxRe: CLONE SEQUENCE" );
 
 	function createBuffer( KaSmz_l, data, usage )
@@ -498,7 +486,7 @@ DoWG.KiCho_JxRe = function( Sa_l )
 //==============================================
 DoWG.KiCho_JaTi = function( Sa_l, GeGx_wuk, GeGa_wuk, GeGz_wuk, GyGx_wuk, GyGa_wuk, JaTi_vk )
 {
-	if( DoWG__YzTrx_y( Sa_l )){ return; }
+	if( DoWG__KrzYeHo_y( Sa_l )){ return; }
 
 	//@@@
 	// UPLOAD TEXTURE?
@@ -535,7 +523,7 @@ DoWG.KiCho_JaTi = function( Sa_l, GeGx_wuk, GeGa_wuk, GeGz_wuk, GyGx_wuk, GyGa_w
 //==============================================
 DoWG.KiCho_JaKz = function( Sa_l, GeGx_wuk, GeGa_wuk, GeGz_wuk, GyGx_wuk, GyGa_wuk, JaKz_vk )
 {
-	if( DoWG__YzTrx_y( Sa_l )){ return; }
+	if( DoWG__KrzYeHo_y( Sa_l )){ return; }
 
 	//@@@
 	// UPLOAD TEXTURE?
@@ -582,7 +570,7 @@ DoWG.KiCho_JaKz = function( Sa_l, GeGx_wuk, GeGa_wuk, GeGz_wuk, GyGx_wuk, GyGa_w
 //==============================================
 DoWG.TxCho_JeGi = function( Sa_l )
 {
-	if( DoWG__YzTrx_y( Sa_l )){ return; }
+	if( DoWG__KrzYeHo_y( Sa_l )){ return; }
 	SmaSme( "[WG] TxCho_JeGi: EXPORT TIMESTAMP" );
 }
 
@@ -591,7 +579,7 @@ DoWG.TxCho_JeGi = function( Sa_l )
 //==============================================
 DoWG.TxCho_JxRe = function( Sa_l )
 {
-	if( DoWG__YzTrx_y( Sa_l )){ return; }
+	if( DoWG__KrzYeHo_y( Sa_l )){ return; }
 	SmaSme( "[WG] TxCho_JxRe: EXPORT SEQ" );
 }
 
@@ -600,7 +588,7 @@ DoWG.TxCho_JxRe = function( Sa_l )
 //==============================================
 DoWG.TxCho_JaKu = function( Sa_l, Brz_wu, GeGx_wu, GeGa_wu, GeGz_wu, GyGx_wu, GyGa_wu )
 {
-	if( DoWG__YzTrx_y( Sa_l )){ return; }
+	if( DoWG__KrzYeHo_y( Sa_l )){ return; }
 	SmaSme( "[WG] TxCho_JaKu EXPORT FORM" );
 
 	//!!!
@@ -623,27 +611,28 @@ DoWG.TxCho_JaKu = function( Sa_l, Brz_wu, GeGx_wu, GeGa_wu, GeGz_wu, GyGx_wu, Gy
 //==============================================
 DoWG.BriYe = async function( Sa_l, GiDri_duk  )
 {
+
 	//-------------------------------------------------
 	// WORK SETUP
 	//-------------------------------------------------
-
-	//@@@
-	// UPD if active
-	if( !KoDz__YzYe_y() ) return;
-
-	//@@@
-	// CHECK RESIZE
-	DoWG.Mz_GyHa( Sa_l );
+	if( DoWG__KrzYeHo_y( Sa_l ) ){ return; }
 
 
 	//@@@
 	// ERR_CHECK
+	try
+	{
+
 	const DBG_yk = true;
 	if( DBG_yk )
 	{
 		Sa_l.KaSmz_l.pushErrorScope('internal');
 		Sa_l.KaSmz_l.pushErrorScope('validation');
 	}
+
+	//@@@
+	// CHECK RESIZE
+	DoWG.Mz_GyHa( Sa_l );
 
 	//@@@
 	// CMD PASS BEGIN
@@ -977,6 +966,11 @@ DoWG.BriYe = async function( Sa_l, GiDri_duk  )
 			}
 		});
 	}
+
+	//!!!
+	// TRY CATCH
+	}
+	catch(e) { SmaTrx( "[WG] CMD Err:", e ); }
 }
 
 //==============================================
@@ -995,7 +989,7 @@ DoWG.BriYe = async function( Sa_l, GiDri_duk  )
 //==============================================
 DoWG.BriYo = function( Sa_l )
 {
-	if( DoWG__YzTrx_y( Sa_l )){ return; }
+	if( DoWG__KrzYeHo_y( Sa_l )){ return; }
 	//SmaSme( "[WG] BriYo: WG PAUSE" );
 
 	// Pause Compute Tasks?
@@ -1008,8 +1002,7 @@ DoWG.BriYo = function( Sa_l )
 DoWG.BriYi = function( Sa_l )
 {
 	SmaSme( "[WG] BriYi: " + this.VaSy );
-
-	Sa_l.Gri_y = false;
+	SySmz__BriYz_ChyYi( Sa_l );
 
 	//@@@
 	// CLEAR REQUESTS
@@ -1036,10 +1029,6 @@ DoWG.BriYi = function( Sa_l )
 	// Timer Query Buf
 	Sa_l.TaGiMy_Kz_l = null;
 	// Answer  Buf
-	if( Sa_l.KaTy.TIMER_yk && Sa_l.ToMy_Sma_l && Sa_l.ToMy_Sma_l.mapState !== 'unmapped' )
-	{
-       	Sa_l.ToMy_Sma_l.unmap();
-    }
 	Sa_l.ToMy_Sma_l = null;
 	// Scrnshot Req (queue)
 	Sa_l.TxCho__KriJaKu_v = null;
@@ -1108,18 +1097,9 @@ function DoWG__YzTrz( Sa_l, Yz_l )
 
 
 //==============================================
-DoWG.BriYa = async function( Yz_l )
+async function DoWG__BriYa_YzHa( Sa_l, Yz_l )
 //==============================================
 {
-	//@@@
-	// MAKE SESSION with Ji INTERFACE
-	const Sa_l = SySmz__YaFz_v( DoWG );
-	Sa_l.YzTi_wu = Yz_l.YzTi_wu;
-
-	// CDN:
-	const CDN_Version_yk = ( BriDzSa__Da_wuk == DoWG__BriDzSa__Da_wuk );
-	if( MoDzTrx__NxHo_y( "[WG] Version Behind (Try again in 2~15min?)", CDN_Version_yk )){ return null; }
-
 	DoWG.BriYi( Sa_l );
 
 	//-------------------------------------------------
@@ -1240,20 +1220,20 @@ DoWG.BriYa = async function( Yz_l )
 			, requiredLimits:
 			{
 				// PROG
-				// maxComputeInvocationsPerWorkgroup: KaKy_l.limits.maxComputeInvocationsPerWorkgroup
-				// , maxComputeWorkgroupSizeX: KaKy_l.limits.maxComputeWorkgroupSizeX
-				// , maxComputeWorkgroupSizeY: KaKy_l.limits.maxComputeWorkgroupSizeY
-				// , maxComputeWorkgroupSizeZ: KaKy_l.limits.maxComputeWorkgroupSizeZ
-				// , maxComputeWorkgroupStorageSize: KaKy_l.limits.maxComputeWorkgroupStorageSize
+				maxComputeInvocationsPerWorkgroup: KaKy_l.limits.maxComputeInvocationsPerWorkgroup
+				, maxComputeWorkgroupSizeX: KaKy_l.limits.maxComputeWorkgroupSizeX
+				, maxComputeWorkgroupSizeY: KaKy_l.limits.maxComputeWorkgroupSizeY
+				, maxComputeWorkgroupSizeZ: KaKy_l.limits.maxComputeWorkgroupSizeZ
+				, maxComputeWorkgroupStorageSize: KaKy_l.limits.maxComputeWorkgroupStorageSize
 
-				// // RCD
-				// , maxBufferSize: KaKy_l.limits.maxBufferSize
-				// , maxUniformBufferBindingSize: KaKy_l.limits.maxUniformBufferBindingSize
-				// , maxStorageBufferBindingSize: KaKy_l.limits.maxStorageBufferBindingSize
+				// RCD
+				, maxBufferSize: KaKy_l.limits.maxBufferSize
+				, maxUniformBufferBindingSize: KaKy_l.limits.maxUniformBufferBindingSize
+				, maxStorageBufferBindingSize: KaKy_l.limits.maxStorageBufferBindingSize
 
-				// // IMG
-				// , maxTextureArrayLayers: KaKy_l.limits.maxTextureArrayLayers
-				// , maxTextureDimension2D: KaKy_l.limits.maxTextureDimension2D
+				// IMG
+				, maxTextureArrayLayers: KaKy_l.limits.maxTextureArrayLayers
+				, maxTextureDimension2D: KaKy_l.limits.maxTextureDimension2D
 
 			}
 	};
@@ -1287,32 +1267,43 @@ DoWG.BriYa = async function( Yz_l )
 	// GPUDeviceLostReason
     // "unknown",
     // "destroyed",
-  	KaSmz_l.lost.then((info) =>
+	//
+	// TEST_LOSS in CHROME: navigate to “about:gpucrash”
+	// Note:needs CLI --disable-domain-blocking-for-3d-apis --disable-gpu-process-crash-limit
+  	KaSmz_l.lost.then((e) =>
 	{
-		// RELOAD
-		SmaTrx( "[WG] Session Lost:" + info.reason + info.message );
+		SySmz__BriYz_ChyTrx( Sa_l );
 
 		//!!!
-		// STOP RELOADING if we tried N seconds ago
+		// STOP RELOADING if we tried S seconds ago or T many times
 		const Fe__GiDri_duk = (new Date()).getTime();
-		const Fi__GiDri_duk = ( sessionStorage.WG_BriYa__GiDri_duk ) ? ( Number( sessionStorage.WG_BriYa__GiDri_duk )) : 0 ;
+		// If its been > S milliseconds, Always try again in case of intermittent losses.
+		const TraNa__GiDri_wuk = 8 * 1000;
+		const Fi__GiDri_duk = ( sessionStorage.WG_BriYa__GiDri_duk ) ? ( Number( sessionStorage.WG_BriYa__GiDri_duk )) : ( Fe__GiDri_duk - TraNa__GiDri_wuk );
 
-		// If its been > N seconds, Always try again in case of intermittent losses.
-		const TraYa__GiDri_wuk = 5 * 1000;
-		const Gi__TraYa_yk = (( Fe__GiDri_duk - Fi__GiDri_duk ) > TraYa__GiDri_wuk );
+		const Gi__TraNa_yk = (( Fe__GiDri_duk - Fi__GiDri_duk ) >= TraNa__GiDri_wuk );
 
-		// if the count is > M, Stop trying
+		// if the count is > T, Stop trying
 		const TraNa__GrxBraHi_wuk = 3;
-		const TraNa__Fo_wuk = ( sessionStorage.WG_BriYa__TraNa__Fo_wuk ) ? ( Number( sessionStorage.WG_BriYa__TraNa__Fo_duk )) : 0 ;
-		const TraYa__Fo_yk = ( TraNa__Fo_wuk < TraNa__GrxBraHi_wuk );
+		const TraNa__Fo_wuk = ( sessionStorage.WG_BriYa__TraNa__Fo_wuk ) ? ( Number( sessionStorage.WG_BriYa__TraNa__Fo_wuk )) : 0;
+		const Fo__TraNa_yk = ( TraNa__Fo_wuk < TraNa__GrxBraHi_wuk );
 
 		// UPDATE STORAGE
 		// Always update Count; Set to 0 if enough time elapsed.
-		sessionStorage.WG_BriYa__TraNa__Fo_wuk = Gi__TraYa_yk ? 0 : TraNa__Fo_duk;
+		sessionStorage.WG_BriYa__TraNa__Fo_wuk = Gi__TraNa_yk ? 1 : ( TraNa__Fo_wuk + 1 );
 		// but only update Time if enough time elapsed
-		if( Gi__TraYa_yk ){ sessionStorage.WG_BriYa__GiDri_duk = Fe__GiDri_duk; }
+		if( Gi__TraNa_yk ){ sessionStorage.WG_BriYa__GiDri_duk = Fe__GiDri_duk; }
 
-		return ( ( Gi__TraYa_yk || TraYa__Fo_yk ) ? DoWG.BriYa( Yz_l ) : null );
+		// RELOAD
+		SmaTrx
+		(
+			"[WG] Session LOST Reason:", e.reason, " Info:", e.message
+			, " GiTraNa:", Gi__TraNa_yk
+			, " DUR:",  ( ( Fe__GiDri_duk - Fi__GiDri_duk ) / 1000.0 )
+			, " TraNa:", TraNa__Fo_wuk
+		);
+
+		return ( ( Gi__TraNa_yk || Fo__TraNa_yk ) ? DoWG__BriYa( Sa_l, Yz_l ) : MoDzTrx( KoKeDru.TrxJy03__KaBzTrx__WG_vsg ) );
   	});
 
 	//&&&
@@ -1978,9 +1969,54 @@ DoWG.BriYa = async function( Yz_l )
 	//-------------------------------------------------
 	// SPATIAL ENGINE BEGAN
 	//-------------------------------------------------
-	Sa_l.Gri_y = true;
+	SmaSme( "[WG] READY CFG:", Yz_l.YzTi_wu );
 
 	return SySmz__YaFx_v( Sa_l );
+}
+
+//==============================================
+async function DoWG__BriYa( Sa_l, Yz_l )
+//==============================================
+{
+	//@@@
+	// CFG_DATA
+
+
+	//@@@
+	// RETURN OBJECT ONCE
+	do
+	{
+		SmaSme( "[WG] TRY CFG:", Yz_l.YzTi_wu, " / ", DoWG__Yz.Ti03__ZzKri_qk );
+		await DoWG__BriYa_YzHa( Sa_l, Yz_l );
+		if( SySmz__BriYz__Ye_y( Sa_l ) ) break;
+	}
+	while( --Yz_l.YzTi_wu )
+
+	//@@@
+	// SAVE
+	if( SySmz__BriYz__Ye_y( Sa_l ) )
+	{
+		Ko.KwiYz_l.DoWG__YzTi_wu = Yz_l.YzTi_wu;
+		Hrz4_Bu__KwiYz__FeChy();
+	}
+
+	return Sa_l;
+}
+
+//==============================================
+DoWG.BriYa = async function( Yz_l )
+//==============================================
+{
+	//@@@
+	// MAKE SESSION with Ji INTERFACE
+	const Sa_l = SySmz__YaFz_v( DoWG );
+
+	//@@@
+	// CDN SYNC
+	const CDN_Version_yk = ( BriDzSa__Da_wuk == DoWG__BriDzSa__Da_wuk );
+	if( MoDzTrx__NxHo_y( "[WG] Version Behind (Try again in 2~15min?)", CDN_Version_yk )){ return null; }
+
+	return await DoWG__BriYa( Sa_l, Yz_l );
 }
 
 //==============================================

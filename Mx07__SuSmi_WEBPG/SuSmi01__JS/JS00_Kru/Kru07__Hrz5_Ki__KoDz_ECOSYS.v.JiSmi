@@ -9,30 +9,30 @@
 // SAFE CHANGE (never overwrite ERR)
 function KoDz__YzChy( Yz_k )
 {
-	if( Ko.Yz_q === BriYz.Trx_qk ) return;
-	Ko.Yz_q = Yz_k;
+	if( Ko.Dz__Yz_q === BriYz.Trx_qk ) return;
+	Ko.Dz__Yz_q = Yz_k;
 }
 
 //@@@
 // IF_ERR
 function KoDz__YzTrx_y()
 {
-	return ( Ko.Yz_q === BriYz.Trx_qk );
+	return ( Ko.Dz__Yz_q === BriYz.Trx_qk );
 }
 
 function KoDz__YzYa_y()
 {
-	return ( Ko.Yz_q === BriYz.Ya_qk );
+	return ( Ko.Dz__Yz_q === BriYz.Ya_qk );
 }
 
 function KoDz__YzYe_y()
 {
-	return ( Ko.Yz_q === BriYz.Ye_qk );
+	return ( Ko.Dz__Yz_q === BriYz.Ye_qk );
 }
 
 function KoDz__YzYo_y()
 {
-	return ( Ko.Yz_q === BriYz.Yo_qk );
+	return ( Ko.Dz__Yz_q === BriYz.Yo_qk );
 }
 
 //==============================================
@@ -52,7 +52,7 @@ function KoDz__Yi( )
 {
 	//@@@
 	// STATUS
-	if( Ko.Yz_q === BriYz.Yi_qk ) return;
+	if( Ko.Dz__Yz_q === BriYz.Yi_qk ) return;
 	KoDz__YzChy( BriYz.Yi_qk );
 
 	//@@@
@@ -74,26 +74,32 @@ async function KoDz__YaFz()
 {
 	//@@@
 	// CONDITION
-	if( Ko.Yz_q === BriYz.Ya_qk ) return;
+	if( Ko.Dz__Yz_q === BriYz.Ya_qk ) return;
 	KoDz__YzChy( BriYz.Ya_qk );
 
 
 	//@@@
 	// CLNs
+	Ko.KwiYz_l = {};
 	// Declare 'fixed array' uses ZEROs, must fill  null
 	Ko.SuKz_v = new Array( SuKz__GryFo_wuk ).fill( null );
 	Ko.SySmz_v = new Array( SyVx__GryFo_wuk ).fill( null );
 
 
 	//@@@
+	// CFG
+	//@@@
+
 	// TIME_BEGAN
 	Ko.BriYa_GiDri_df = performance.now();
-
-	//@@@
-	// CULTURE + USER + BROWSER_VER
-	Hre1_Dru__BriYa();
-	Hre2_Ke__BriYa();
+	// BROWSER_VER
 	await Hrz3_Bz__VaDa();
+	// USER
+	Hrz4_Bu__TaKeDy__Fy();
+	// LAUNCH_CFG
+	Hrz4_Bu__KwiYz__Fy();
+	// CULTURE
+	Hre1_Dru__BriYa();
 
 	//@@@
 	// BOOT
@@ -133,7 +139,7 @@ async function KoDz__YaFz()
 
 		, Hrz7_Kru__ChaSySmz( "Hra7_Ta", "ToMi", "Do", "STRM", SySmz__Kri_yk, { YzTi_wu: "0" } )
 		, Hrz7_Kru__ChaSySmz( "Hre1_Dru", "WaDru", "Do", "FNT", SySmz__Kri_yk, { YzTi_wu: "0" } )
-		, Hrz7_Kru__ChaSySmz( "Hry5_Smz", "WzMx", "Do", "WG", SySmz__Kri_yk, { YzTi_wu: Ko.WG__YzTi_wu } )
+		, Hrz7_Kru__ChaSySmz( "Hry5_Smz", "WzMx", "Do", "WG", SySmz__Kri_yk, { YzTi_wu: Ko.KwiYz_l.DoWG__YzTi_wu } )
 		, Hrz7_Kru__ChaSySmz( "Hry1_Brz", "KeDru", "Do", "GLF", SySmz__Kri_yk, { Gy_wu: 512 } )
 
 		, Hrz7_Kru__ChaSySmz( "Hra4_Bru", "ToDry", "Do", "NET", SySmz__Kri_yk, { YzTi_wu: "0" } )
@@ -147,7 +153,7 @@ async function KoDz__YaFz()
 		//, Hrz7_Kru__ChaSySmz( "Hr", "", "Do", "ABC", SySmz__Kri_yk, { YzTi_wu: "0" } )
 
 	];
-
+	// SYNC_PNT
 	const Kri__SySmzCha__Smx_k = await Promise.all( Kri__SySmz_v );
 	// SmaSme( "SERV REQ", Kri__SySmzCha__Smx_k );
 	if( !Kri__SySmzCha__Smx_k ){ return; }
@@ -182,7 +188,7 @@ async function KoDz__YaFx( )
 	const SySmz__HoKri_yk = false;
 
 	// DoXR
-	// Hrz7_Kru__ChaSySmz( "Hri2_Ke", "BzMe", "Do", "XR", SySmz__HoKri_yk, { YzTi_wu: "0" } );
+	if( Ko.KwiYz_l.DoXR_y ) { Hrz7_Kru__ChaSySmz( "Hri2_Ke", "BzMe", "Do", "XR", SySmz__HoKri_yk, { YzTi_wu: "0" } ); }
 
 	// DoAUD
 	//Hrz7_Kru__ChaSySmz( "Hru5_Smz", "MxPe", "Do", "AUD", SySmz__HoKri_yk, { YzTi_wu: "0" } );
@@ -211,7 +217,7 @@ function KoDz__YoChy()
 {
 	//@@@
 	// ECOSYS_GOOD
-	if( KoDz__YzTrx_y() || KoDz__YzYo_y() || Ko.KoDzYo_GrxHo_y ) return;
+	if( KoDz__YzTrx_y() || KoDz__YzYo_y() || Ko.KwiYz_l.KoDzYo_GrxHo_y ) return;
 
 	//&&&
 	// STATUS
@@ -222,7 +228,7 @@ function KoDz__YoChy()
 	_Hrz5_Ki__BriSmz__Yo();
 	Ko.SySmz_v.forEach( function ( Ti_v )
 	{
-		if( SySmz__KrzYe_y( Ti_v ) && Ti_v.Ji.BriYo ){ Ti_v.Ji.BriYo( Ti_v ); }
+		if( SySmz__BriYz__Ye_y( Ti_v ) && Ti_v.Ji.BriYo ){ Ti_v.Ji.BriYo( Ti_v ); }
 	});
 }
 
@@ -233,13 +239,13 @@ function KoDz__YuChy()
 {
 	//@@@
 	// ECOSYS_GOOD
-	if( KoDz__YzTrx_y() || KoDz__YzYe_y() ) return;
+	if( KoDz__YzTrx_y() || KoDz__YzYe_y()  || KoDz__YzYa_y() ) return;
 
 	//&&&
 	// BROADCAST RESUME
 	Ko.SySmz_v.forEach( function( Ti_v )
 	{
-		if( SySmz__KrzYe_y( Ti_v ) && Ti_v.Ji.BriYu ){ Ti_v.Ji.BriYu( Ti_v); }
+		if( SySmz__BriYz__Ye_y( Ti_v ) && Ti_v.Ji.BriYu ){ Ti_v.Ji.BriYu( Ti_v); }
 	});
 	_Hrz5_Ki__BriSmz__Yu();
 
@@ -288,12 +294,15 @@ function KoDz__Ye( Gi )
 
 		Module.Sma__KeMe_Bo
 		(
-			KoKeDru.BriDz_VaSy_vsg
-			+ " " + Math.floor( Gry__GiPa_dfk / 60.0 ).toString().padStart( 3,"0") + "m " + Math.floor( Gry__GiPa_dfk % 60 ).toString().padStart(2,"0") + "s"
-			+ " YeFo: " + Ko.YeFo_wu
-			+ " Screen[ " + MxPo_Bri_l.width + "px, " + MxPo_Bri_l.height + "px ]"
+			" "
+			// KoKeDru.BriDz_VaSy_vsg
+			// + " YeFo: " + Ko.YeFo_wu
+			+ " RES[ " + MxPo_Bri_l.width + "px, " + MxPo_Bri_l.height + "px ]"
 			+ " DPR: " + window.devicePixelRatio.toFixed(1)
-			+ " Ps: " + ( DoJi_yk( navigator, "devicePosture" ) ? navigator.devicePosture.type : " ")
+
+			// + " Ps: " + ( DoJi_yk( navigator, "devicePosture" ) ? navigator.devicePosture.type : " ")
+
+			+ " " + Math.floor( Gry__GiPa_dfk / 60.0 ).toString().padStart( 3,"0") + "m " + Math.floor( Gry__GiPa_dfk % 60 ).toString().padStart(2,"0") + "s"
 		);
 	}
 	Ko.YeFo_wu++;
@@ -307,7 +316,7 @@ function KoDz__Ye( Gi )
 	// TEK-SERVS UPDATE ALL
 	Ko.SySmz_v.forEach( function ( Ti_v )
 	{
-		if( SySmz__KrzYe_y( Ti_v ) && Ti_v.Ji.BriYe ){ Ti_v.Ji.BriYe( Ti_v, Gi ); }
+		if( SySmz__BriYz__Ye_y( Ti_v ) && Ti_v.Ji.BriYe ){ Ti_v.Ji.BriYe( Ti_v, Gi ); }
 	});
 
 

@@ -9,7 +9,7 @@
 //==============================================
 DoWG.TxCho_JeGi = function( Sa_l )
 {
-	if( DoWG__YzTrx_y( Sa_l )){ return; }
+	if( DoWG__KrzYeHo_y( Sa_l )){ return; }
 	SmaSme( "[WG] TxCho_JeGi: EXPORT TIMESTAMP" );
 }
 
@@ -18,7 +18,7 @@ DoWG.TxCho_JeGi = function( Sa_l )
 //==============================================
 DoWG.TxCho_JxRe = function( Sa_l )
 {
-	if( DoWG__YzTrx_y( Sa_l )){ return; }
+	if( DoWG__KrzYeHo_y( Sa_l )){ return; }
 	SmaSme( "[WG] TxCho_JxRe: EXPORT SEQ" );
 }
 
@@ -27,7 +27,7 @@ DoWG.TxCho_JxRe = function( Sa_l )
 //==============================================
 DoWG.TxCho_JaKu = function( Sa_l, Brz_wu, GeGx_wu, GeGa_wu, GeGz_wu, GyGx_wu, GyGa_wu )
 {
-	if( DoWG__YzTrx_y( Sa_l )){ return; }
+	if( DoWG__KrzYeHo_y( Sa_l )){ return; }
 	SmaSme( "[WG] TxCho_JaKu EXPORT FORM" );
 
 	//!!!

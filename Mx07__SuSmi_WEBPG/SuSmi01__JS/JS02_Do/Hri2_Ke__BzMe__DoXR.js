@@ -589,9 +589,9 @@ DoXR.BriYa = async function( Yz_k )
 	// REFSPC
 	// INLINE, aka SG via screendevice, uses "viewer" AR/VR are IMMERSIVE
 	const Sa__GeGo_vksg =
-		"viewer" //screen
+		//"viewer" //screen
 		// 'unbounded' // no position tracking, Walking Outside?
-		//"local"	// Local = Limited Space, Seated/Standing in place
+		"local"	// Local = Limited Space, Seated/Standing in place
 		// "local-floor" // Flat floor means consistent height via groundplane Y=0
 		// "bounded-floor" // has Fixed UserSpc via XRBoundedReferenceSpace.boundsGeometry
 	;

@@ -193,16 +193,42 @@ function Tra_KeMeBri()
 
 	//@@@
 	// SESSION CFG
-	Ko.TaKeDy_vsg = document.getElementById( 'TaKeDy' ).value;
-	Ko.HriNe_TaNe__MxPeHoVu_q = document.getElementById( 'HriNe_TaNe__MxPeHoVu' ).value;
-	Ko.HriNe_TaNe__MxPeVu_sa = document.getElementById( 'HriNe_TaNe__MxPeVu' ).value;
 
-	Ko.WG__YzTi_wu = 3;
+	//&&&
+	// USER
+	const TaKeDy_l = document.getElementById( 'TaKeDy' );
+	Ko.KwiYz__KeDy_wu = TaKeDy_l.selectedIndex;
+	Ko.KwiYz_l.KeDy_vsg = TaKeDy_l.value;
 
-	SmaSme( "[LAUNCH] User:", Ko.TaKeDy_vsg, " NEVER_PAUSE:", Ko.KoDzYo_GrxHo_y );
+	//&&&
+	// TEMPORAL
+	Ko.KwiYz_l.HriNe_TaNe__MxPeHoVu_q = document.getElementById( 'HriNe_TaNe__MxPeHoVu' ).value;
+	Ko.KwiYz_l.HriNe_TaNe__MxPeVu_sa = document.getElementById( 'HriNe_TaNe__MxPeVu' ).value;
+
+	//&&&
+	// SPATIAL
+	Ko.KwiYz_l.DoXR_y = false;
+
+	Ko.KwiYz_l.DoWG__YzTi_wu = 3; // if change, must redo WG
+	if( false )
+	{
+		const SaWG_l = Ko.SySmz_v[ SyVx.WG_qk ];
+		SaWG_l.KaSmz_l.destroy();
+	}
+
+	//&&&
+	// GOVERN
+	// Ko.KwiYz_l.KoDzYo_GrxHo_y = true;
+
+
+	//@@@
+	// SYNC
+	Hrz4_Bu__KwiYz__FeChy();
+
 
 	//@@@
 	// ECOSYS PLAY
+	SmaSme( "[LAUNCH] User:", Ko.KwiYz_l.KeDy_vsg, " NEVER_PAUSE:", Ko.KwiYz_l.KoDzYo_GrxHo_y );
 	if( KoDz__YzYa_y() )
 	{
 		SmaSme( "[LAUNCH] ACTIVE via Resume" );
@@ -210,6 +236,9 @@ function Tra_KeMeBri()
 		//&&&
 		// LAUNCH SERVICES that REQUIRE a 'click'
 		KoDz__YaFx();
+		//&&&
+		// PAUSE so 'RESUME' triggers
+		KoDz__YzChy( BriYz.Yo_qk );
 		//&&&
 		// RESUME Update
 		KoDz__YuChy();

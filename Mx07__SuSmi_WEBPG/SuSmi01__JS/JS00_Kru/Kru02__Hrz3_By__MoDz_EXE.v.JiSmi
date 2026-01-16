@@ -55,7 +55,7 @@ try
 catch(e)
 {
 	// WebAssembly is not supported at all
-	SmaTrx( 'No Web Assembly: ' + e);
+	SmaTrx( 'No Web Assembly: ' + e );
 	MoDzTrx( KoKeDru.TrxJy01__HrzMoHo__WASM_vsg );
 }
 
@@ -254,7 +254,7 @@ async function MoDz__DzStxGru()
 
 	// STORE TIME by SESSION
 	Ko.MoDzYa__GiDri_duk = (new Date()).getTime();
-	sessionStorage.setItem( 'KoGi', Ko.MoDzYa__GiDri_duk);
+	sessionStorage.setItem( 'KoGi', Ko.MoDzYa__GiDri_duk );
 
 	// TAB-CONNECTIONS = Broadcast Type
 //	var BCHN_l = new BroadcastChannel('tab-connections');

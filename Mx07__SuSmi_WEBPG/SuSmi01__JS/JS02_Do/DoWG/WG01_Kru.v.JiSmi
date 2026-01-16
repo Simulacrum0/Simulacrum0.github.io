@@ -1,9 +1,9 @@
 //==============================================
 // WG: UTIL
 //==============================================
-function DoWG__YzTrx_y( Sa_l )
+function DoWG__KrzYeHo_y( Sa_l )
 {
-	return ( !Sa_l.Gri_y || KoDz__YzTrx_y() );
+	return ( !SySmz__BriYz__Ye_y( Sa_l ) || KoDz__YzTrx_y() );
 }
 
 //==============================================
@@ -11,7 +11,7 @@ function DoWG__YzTrx_y( Sa_l )
 //==============================================
 DoWG.SmaYz = function( Sa_l )
 {
-	if( DoWG__YzTrx_y( Sa_l )){ return; }
+	if( DoWG__KrzYeHo_y( Sa_l )){ return; }
 
 	// REPORT
 	SmaSme( "[WG] --------------------------------------------" );
@@ -66,7 +66,7 @@ DoWG.SmaYz = function( Sa_l )
 //==============================================
 DoWG.Mz_GyHa = function( Sa_l )
 {
-	if( DoWG__YzTrx_y( Sa_l )){ return; }
+	if( DoWG__KrzYeHo_y( Sa_l )){ return; }
 
 	//@@@
 	// max w/ 1 prevents 0

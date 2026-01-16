@@ -5,27 +5,28 @@
 //==============================================
 DoWG.BriYe = async function( Sa_l, GiDri_duk  )
 {
+
 	//-------------------------------------------------
 	// WORK SETUP
 	//-------------------------------------------------
-
-	//@@@
-	// UPD if active
-	if( !KoDz__YzYe_y() ) return;
-
-	//@@@
-	// CHECK RESIZE
-	DoWG.Mz_GyHa( Sa_l );
+	if( DoWG__KrzYeHo_y( Sa_l ) ){ return; }
 
 
 	//@@@
 	// ERR_CHECK
+	try
+	{
+
 	const DBG_yk = true;
 	if( DBG_yk )
 	{
 		Sa_l.KaSmz_l.pushErrorScope('internal');
 		Sa_l.KaSmz_l.pushErrorScope('validation');
 	}
+
+	//@@@
+	// CHECK RESIZE
+	DoWG.Mz_GyHa( Sa_l );
 
 	//@@@
 	// CMD PASS BEGIN
@@ -359,6 +360,11 @@ DoWG.BriYe = async function( Sa_l, GiDri_duk  )
 			}
 		});
 	}
+
+	//!!!
+	// TRY CATCH
+	}
+	catch(e) { SmaTrx( "[WG] CMD Err:", e ); }
 }
 
 //==============================================

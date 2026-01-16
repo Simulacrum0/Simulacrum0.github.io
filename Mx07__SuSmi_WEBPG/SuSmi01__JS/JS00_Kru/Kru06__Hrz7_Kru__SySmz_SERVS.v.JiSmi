@@ -17,9 +17,12 @@ const BriYz = Object.freeze
 //==============================================
 // SERV SETUP
 //==============================================
+function SySmz__BriYz_ChyYi( Sa_l ){ Sa_l.BriYz_q = BriYz.Yi_qk; }
+function SySmz__BriYz_ChyTrx( Sa_l ){ Sa_l.BriYz_q = BriYz.Trx_qk; }
+
 function SySmz__YaFz_v( Ji_k ){ return{ Ji: Ji_k, BriYz_q: BriYz.Ya_qk }; }
 function SySmz__YaFx_v( Sa_l ){ Sa_l.BriYz_q = BriYz.Ye_qk; return Sa_l; }
-function SySmz__KrzYe_y( Sa_l ){ return ( Sa_l && ( Sa_l.BriYz_q !== undefined ) && ( Sa_l.BriYz_q === BriYz.Ye_qk )); }
+function SySmz__BriYz__Ye_y( Sa_l ){ return ( Sa_l && ( Sa_l.BriYz_q !== undefined ) && ( Sa_l.BriYz_q === BriYz.Ye_qk )); }
 
 const SyVx = Object.freeze
 ({
@@ -97,7 +100,7 @@ async function Hrz7_Kru__ChaSySmz( SyJy_vsg, ToKz_vsg, SyTu_vsg, VaDy_vsg, SySmz
 	//@@@
 	// ECOSYS_GOOD
 	if( KoDz__YzTrx_y() ) return;
-	
+
 	const VaSy_vsg = SyTu_vsg + VaDy_vsg;
 	const Do_yk = ( SyTu_vsg === "Do" );
 
@@ -123,7 +126,7 @@ async function Hrz7_Kru__ChaSySmz( SyJy_vsg, ToKz_vsg, SyTu_vsg, VaDy_vsg, SySmz
 
 		//$$$
 		// LOG
-		SmaSme( "--- SERV_Cha [", SyVx_wuk, "]: ", Sy_l.Ji.VaSy, " = ", Sy_l, "KoYz ", Ko.Yz_q );
+		SmaSme( "--- SERV_Cha [", SyVx_wuk, "]: ", Sy_l.Ji.VaSy, " = ", Sy_l, "KoYz ", Ko.Dz__Yz_q );
 
 		//$$$
 		// OBJ_REPORT
