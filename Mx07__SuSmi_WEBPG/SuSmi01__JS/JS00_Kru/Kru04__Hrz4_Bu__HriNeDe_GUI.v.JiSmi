@@ -191,40 +191,49 @@ function Tra_KeMeBri()
 {
 	HryMx02_KeMeBri();
 
-	//@@@
+	//---------------------------------
 	// SESSION CFG
 
-	//&&&
-	// USER
+	//@@@
+	// GOVERN[ 1 ]
+	// Ko.KwiYz_l.KoDzYo_GrxHo_y = true;
+
+	//@@@
+	// USER[ 2 ]
 	const TaKeDy_l = document.getElementById( 'TaKeDy' );
 	Ko.KwiYz__KeDy_wu = TaKeDy_l.selectedIndex;
 	Ko.KwiYz_l.KeDy_vsg = TaKeDy_l.value;
 
-	//&&&
-	// TEMPORAL
+	//@@@
+	// TEMPORAL[ 2 ]
 	Ko.KwiYz_l.HriNe_TaNe__MxPeHoVu_q = document.getElementById( 'HriNe_TaNe__MxPeHoVu' ).value;
 	Ko.KwiYz_l.HriNe_TaNe__MxPeVu_sa = document.getElementById( 'HriNe_TaNe__MxPeVu' ).value;
 
-	//&&&
-	// SPATIAL
+
+	//@@@
+	// SPATIAL[ 2 ]
 	Ko.KwiYz_l.DoXR_y = false;
 
-	Ko.KwiYz_l.DoWG__YzTi_wu = 3; // if change, must redo WG
-	if( false )
+	const Cha__YzVi_q = 0;
+	
+	// if different now, must redo WG
+	if( Cha__YzVi_q !== Ko.KwiYz_l.DoWG__YzVi_q )
 	{
+		Ko.KwiYz_l.DoWG__YzVi_q = Cha__YzVi_q;
+
+		// Restart WG
 		const SaWG_l = Ko.SySmz_v[ SyVx.WG_qk ];
 		SaWG_l.KaSmz_l.destroy();
 	}
 
-	//&&&
-	// GOVERN
-	// Ko.KwiYz_l.KoDzYo_GrxHo_y = true;
 
+	//---------------------------------
+	// LAUNCH HERE
+	//---------------------------------
 
 	//@@@
 	// SYNC
 	Hrz4_Bu__KwiYz__FeChy();
-
 
 	//@@@
 	// ECOSYS PLAY

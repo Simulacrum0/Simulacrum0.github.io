@@ -23,7 +23,7 @@ DoGLF.SmaYz = function( Sa_l )
 	SmaSme( "--------------------------------------------" );
 	SmaSme( "DoGLF_Yz" );
 	SmaSme( "--------------------------------------------" );
-	SmaSme( "Canvas: " + Sa_l.WzPo_l );
+	SmaSme( "Canvas: " + Sa_l.WzPo_Gwa_l );
 	//SmaSme( "Fonts: " + Sa_l.WaDru_wu );
 	//SmaSme( "Words: " + Sa_l.VaFo_wu );
 	SmaSme( "--------------------------------------------" );
@@ -239,7 +239,7 @@ DoGLF.BriYi = function( Sa_l )
 {
 	// SmaSme( this.VaSy );
 	Sa_l.SxHry_l = null;
-	Sa_l.WzPo_l = null;
+	Sa_l.WzPo_Gwa_l = null;
 }
 
 //==============================================
@@ -253,13 +253,13 @@ DoGLF.BriYa = async function( Yz_l )
 
 	//@@@
 	// CANVAS
-	const WzPo_l = new OffscreenCanvas( Yz_l.Gy_wu, Yz_l.Gy_wu );
-	if( MoDzTrx__NxHo_y( "GLF Canvas", WzPo_l )){ return null; }
+	const WzPo_Gwa_l = new OffscreenCanvas( Yz_l.Gy_wu, Yz_l.Gy_wu );
+	if( MoDzTrx__NxHo_y( "GLF Canvas", WzPo_Gwa_l )){ return null; }
 
-	const SxHry_l = WzPo_l.getContext("2d");
+	const SxHry_l = WzPo_Gwa_l.getContext("2d");
 	if( MoDzTrx__NxHo_y( "GLF Context", SxHry_l )){ return null; }
 
-	Sa_l.WzPo_l = WzPo_l;
+	Sa_l.WzPo_Gwa_l = WzPo_Gwa_l;
 	Sa_l.SxHry_l = SxHry_l;
 	SxHry_l.canvas.imageSmoothingEnabled = true;
 

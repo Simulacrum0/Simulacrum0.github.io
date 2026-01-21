@@ -296,15 +296,15 @@ DoWG.BriYe = async function( Sa_l, GiDri_duk  )
 			const Ku_l = Sa_l.TxCho__TraJaKu_v[ 0 ];
 			{
 				// SAVE for 'continuous Blit in WebXR'
-				const WzPo_l = new OffscreenCanvas( Ku_l.GyGx_wu, Ku_l.GyGa_wu );
-				if( MyTo_v && WzPo_l )
+				const WzPo_Gwa_l = new OffscreenCanvas( Ku_l.GyGx_wu, Ku_l.GyGa_wu );
+				if( MyTo_v && WzPo_Gwa_l )
 				{
 					SmaSme( "[WG] TxCho__Fo", MyTo_v.byteLength );
 
 					let PoTi_v = new Uint8ClampedArray( MyTo_v );
 					let IDAT_l = new ImageData( PoTi_v, Ku_l.GyGx_wu, Ku_l.GyGa_wu );
 
-					const SxHry_l = WzPo_l.getContext("2d");
+					const SxHry_l = WzPo_Gwa_l.getContext("2d");
 					if( SxHry_l )
 					{
 						SxHry_l.putImageData( IDAT_l, 0, 0 );
@@ -315,13 +315,13 @@ DoWG.BriYe = async function( Sa_l, GiDri_duk  )
 
 						// SAFARI: NO webp!
 						// image/webp,jpeg,png
-						const blobA = await WzPo_l.convertToBlob( { type: 'image/jpeg', quality: 0.67 } );
+						const blobA = await WzPo_Gwa_l.convertToBlob( { type: 'image/jpeg', quality: 0.67 } );
 						Hra6_Ku__ToKz_ChyBLOB( blobA, 'SHOT_A.jpeg');
 
-						// const blobB = await WzPo_l.convertToBlob( { type: 'image/jpeg', quality: 0.33 } );
+						// const blobB = await WzPo_Gwa_l.convertToBlob( { type: 'image/jpeg', quality: 0.33 } );
 						// Hra6_Ku__ToKz_ChyBLOB( blobB, 'SHOT_B.jpeg');
 
-						// const blobC = await WzPo_l.convertToBlob( { type: 'image/jpeg', quality: 0.00 } );
+						// const blobC = await WzPo_Gwa_l.convertToBlob( { type: 'image/jpeg', quality: 0.00 } );
 						// Hra6_Ku__ToKz_ChyBLOB( blobC, 'SHOT_C.jpeg');
 
 					}// if ctx

@@ -59,7 +59,8 @@ catch(e)
 	MoDzTrx( KoKeDru.TrxJy01__HrzMoHo__WASM_vsg );
 }
 
-SmaSme( "[LAUNCH] Web_Assembly[ " + ( Ko.WASM64_yk ? "64" : "32" ) + "bit:" + ( Ko.WASM64_yk ? "✅😀" : "❌😞") + " ]" );
+Ko.KaBx__TiFo_wuk = navigator.hardwareConcurrency;
+SmaSme( "[LAUNCH] Web_Assembly[ " + ( Ko.WASM64_yk ? "64" : "32" ) + "bit:" + ( Ko.WASM64_yk ? "✅😀" : "🆗😐") + " ]", "CPUs:", Ko.KaBx__TiFo_wuk );
 
 
 //==============================================

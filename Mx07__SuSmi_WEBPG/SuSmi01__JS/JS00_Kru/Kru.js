@@ -1,5 +1,5 @@
-const BriDzSa__Da_vsg = "PUB_v0.176"; 
- const BriDzSa__Da_wuk = "176"; 
+const BriDzSa__Da_vsg = "PUB_v0.177"; 
+ const BriDzSa__Da_wuk = "177"; 
  const BriDz__Mx_KuTu_vsg = "https://powerourpeople.com/"; 
 
 //==============================================
@@ -248,7 +248,8 @@ catch(e)
 	MoDzTrx( KoKeDru.TrxJy01__HrzMoHo__WASM_vsg );
 }
 
-SmaSme( "[LAUNCH] Web_Assembly[ " + ( Ko.WASM64_yk ? "64" : "32" ) + "bit:" + ( Ko.WASM64_yk ? "✅😀" : "❌😞") + " ]" );
+Ko.KaBx__TiFo_wuk = navigator.hardwareConcurrency;
+SmaSme( "[LAUNCH] Web_Assembly[ " + ( Ko.WASM64_yk ? "64" : "32" ) + "bit:" + ( Ko.WASM64_yk ? "✅😀" : "🆗😐") + " ]", "CPUs:", Ko.KaBx__TiFo_wuk );
 
 
 //==============================================
@@ -516,11 +517,52 @@ GUI_LAYOUT:
 const DoWG__Yz = Object.freeze
 //-------------------------------------------------
 ({
-	Ti00__ChoGru_qk: 0 // Unusable as Only capable of Clone
+	Ti00__TraHu_qk: 0 // Unusable as Only capable of Clone
 	, Ti01__JiHu_qk: 1 // Minimal Capabilities ( emulation mode )
 	, Ti02__De_qk: 2 // Multipass Textures, Default WebGPU 2.0
 	, Ti03__ZzKri_qk: 3 // RW Textures RGBA, SubGroups
 });
+
+//-------------------------------------------------
+// DEFAULT SPATIAL CFG
+//-------------------------------------------------
+function Hrz4_Bu__KwiYz__DoWG_ChyDe()
+{
+	//@@@
+	// BEST CFG
+	Ko.KwiYz_l.DoWG__YzVi_q = DoWG__Yz.Ti03__ZzKri_qk;
+
+	Ko.KwiYz_l.DoWG__Yz_v =
+	[
+		{
+			Vi_qk: DoWG__Yz.Ti00__TraHu_qk
+			, Va_vsg: "Minimal-Capabilities"
+			, Hx_vsg: "Legacy Compatibility Emulation Mode"
+			, TaGwa_Ve_wu: 2048, TaGwa_GzZy_wu: 4
+		}
+		, {
+			Vi_qk: DoWG__Yz.Ti01__JiHu_qk
+			, Va_vsg: "Low-Power"
+			, Hx_vsg: "Multipass Textures, Default WebGPU 2.0"
+			, TaGwa_Ve_wu: 4096, TaGwa_GzZy_wu: 6
+		}
+		, {
+			Vi_qk: DoWG__Yz.Ti02__De_qk
+			, Va_vsg: "High-Power"
+			, Hx_vsg: "RW Textures RGBA, SubGroups"
+			, TaGwa_Ve_wu: 8192, TaGwa_GzZy_wu: 8
+		}
+		, {
+			Vi_qk: DoWG__Yz.Ti03__ZzKri_qk
+			, Va_vsg: "Advanced-Features"
+			, Hx_vsg: "Ray-Box Intersections, SubGroup Ops"
+			//!!!
+			// ONLY ENABLE 16K ONCE we get to many layers since GRANULARITY matters
+			//, TaGwa_Ve_wu: 16384, TaGwa_GzZy_wu: 10
+			, TaGwa_Ve_wu: 8192, TaGwa_GzZy_wu: 10
+		}
+	];
+}
 
 
 //==============================================
@@ -549,34 +591,37 @@ function Hrz4_Bu__KwiYz__FeChy()
 	SmaSme( "[CFG] KwiYz_Chy:", Ko.KwiYz_l );
 }
 
+
 //-------------------------------------------------
 // WRITE DEFAULT LAUNCH CFG
 //-------------------------------------------------
 function Hrz4_Bu__KwiYz__ChyDe()
 {
 	//@@@
-	// USER
-	Ko.KwiYz_l.KeDy_vsg = "Guest";
-
-	Ko.KwiYz_l.KeDru_wu = 0;
-	Ko.KwiYz_l.KeDru_vsg = navigator.language;
-
-	//&&&
-	// TEMPORAL
-	Ko.KwiYz_l.HriNe_TaNe__MxPeHoVu_q = true;
-	Ko.KwiYz_l.HriNe_TaNe__MxPeVu_sa = 1.0;
-
-	//&&&
-	// SPATIAL
-	Ko.KwiYz_l.DoXR_y = true;
-	Ko.KwiYz_l.DoWG__YzTi_wu = DoWG__Yz.Ti03__ZzKri_qk;
-
-
-	//@@@
 	// GOVERN
 	Ko.KwiYz_l.KoDzYo_GrxHo_y = true;
 	//Ko.KwiYz_l.KoDzYo_GrxHo_y = false;
 
+
+	//@@@
+	// USER[ 3 ]
+	Ko.KwiYz_l.KeDy_vsg = "Guest";
+	Ko.KwiYz_l.KeDru_wu = 0;
+	Ko.KwiYz_l.KeDru_vsg = navigator.language;
+
+
+	//@@@
+	// TEMPORAL[ 2 ]
+	Ko.KwiYz_l.HriNe_TaNe__MxPeHoVu_q = true;
+	Ko.KwiYz_l.HriNe_TaNe__MxPeVu_sa = 1.0;
+
+	//@@@
+	// SPATIAL[ 2 ]
+	Ko.KwiYz_l.DoXR_y = true;
+	Hrz4_Bu__KwiYz__DoWG_ChyDe();
+
+	//@@@
+	// LOG
 	SmaSme( "[CFG] KwiYz_De:", Ko.KwiYz_l );
 }
 
@@ -586,7 +631,10 @@ function Hrz4_Bu__KwiYz__ChyDe()
 function Hrz4_Bu__KwiYz__Fy()
 {
 	const KEY_vsg = "KeDy" + Ko.KwiYz__KeDy_wu;
-	const VAL_vsg = localStorage.getItem( KEY_vsg );
+
+	//const VAL_vsg = localStorage.getItem( KEY_vsg );
+	const VAL_vsg = false;
+
 	if( VAL_vsg )
 	{
 		Ko.KwiYz_l = JSON.parse( VAL_vsg );
@@ -813,6 +861,15 @@ function JeKeDy_JeChy()
 
 }
 
+//-------------------------------------------------
+// ERASE ALL USER LAUNCH CFGs
+//-------------------------------------------------
+function Hrz4_Bu__TaKeDy__Chi()
+{
+	// localStorage.removeItem(  );
+
+
+}
 
 //-------------------------------------------------
 // ERASE ALL USER LAUNCH CFGs
@@ -1114,40 +1171,49 @@ function Tra_KeMeBri()
 {
 	HryMx02_KeMeBri();
 
-	//@@@
+	//---------------------------------
 	// SESSION CFG
 
-	//&&&
-	// USER
+	//@@@
+	// GOVERN[ 1 ]
+	// Ko.KwiYz_l.KoDzYo_GrxHo_y = true;
+
+	//@@@
+	// USER[ 2 ]
 	const TaKeDy_l = document.getElementById( 'TaKeDy' );
 	Ko.KwiYz__KeDy_wu = TaKeDy_l.selectedIndex;
 	Ko.KwiYz_l.KeDy_vsg = TaKeDy_l.value;
 
-	//&&&
-	// TEMPORAL
+	//@@@
+	// TEMPORAL[ 2 ]
 	Ko.KwiYz_l.HriNe_TaNe__MxPeHoVu_q = document.getElementById( 'HriNe_TaNe__MxPeHoVu' ).value;
 	Ko.KwiYz_l.HriNe_TaNe__MxPeVu_sa = document.getElementById( 'HriNe_TaNe__MxPeVu' ).value;
 
-	//&&&
-	// SPATIAL
+
+	//@@@
+	// SPATIAL[ 2 ]
 	Ko.KwiYz_l.DoXR_y = false;
 
-	Ko.KwiYz_l.DoWG__YzTi_wu = 3; // if change, must redo WG
-	if( false )
+	const Cha__YzVi_q = 0;
+	
+	// if different now, must redo WG
+	if( Cha__YzVi_q !== Ko.KwiYz_l.DoWG__YzVi_q )
 	{
+		Ko.KwiYz_l.DoWG__YzVi_q = Cha__YzVi_q;
+
+		// Restart WG
 		const SaWG_l = Ko.SySmz_v[ SyVx.WG_qk ];
 		SaWG_l.KaSmz_l.destroy();
 	}
 
-	//&&&
-	// GOVERN
-	// Ko.KwiYz_l.KoDzYo_GrxHo_y = true;
 
+	//---------------------------------
+	// LAUNCH HERE
+	//---------------------------------
 
 	//@@@
 	// SYNC
 	Hrz4_Bu__KwiYz__FeChy();
-
 
 	//@@@
 	// ECOSYS PLAY
@@ -1696,7 +1762,7 @@ async function KoDz__YaFz()
 
 		, Hrz7_Kru__ChaSySmz( "Hra7_Ta", "ToMi", "Do", "STRM", SySmz__Kri_yk, { YzTi_wu: "0" } )
 		, Hrz7_Kru__ChaSySmz( "Hre1_Dru", "WaDru", "Do", "FNT", SySmz__Kri_yk, { YzTi_wu: "0" } )
-		, Hrz7_Kru__ChaSySmz( "Hry5_Smz", "WzMx", "Do", "WG", SySmz__Kri_yk, { YzTi_wu: Ko.KwiYz_l.DoWG__YzTi_wu } )
+		, Hrz7_Kru__ChaSySmz( "Hry5_Smz", "WzMx", "Do", "WG", SySmz__Kri_yk, { YzVi_q: Ko.KwiYz_l.DoWG__YzVi_q } )
 		, Hrz7_Kru__ChaSySmz( "Hry1_Brz", "KeDru", "Do", "GLF", SySmz__Kri_yk, { Gy_wu: 512 } )
 
 		, Hrz7_Kru__ChaSySmz( "Hra4_Bru", "ToDry", "Do", "NET", SySmz__Kri_yk, { YzTi_wu: "0" } )
