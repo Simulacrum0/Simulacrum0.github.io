@@ -1,5 +1,5 @@
-const BriDzSa__Da_vsg = "PUB_v0.177"; 
- const BriDzSa__Da_wuk = "177"; 
+const BriDzSa__Da_vsg = "PUB_v0.178"; 
+ const BriDzSa__Da_wuk = "178"; 
  const BriDz__Mx_KuTu_vsg = "https://powerourpeople.com/"; 
 
 //==============================================
@@ -1194,8 +1194,10 @@ function Tra_KeMeBri()
 	// SPATIAL[ 2 ]
 	Ko.KwiYz_l.DoXR_y = false;
 
-	const Cha__YzVi_q = 0;
-	
+	//const Cha__YzVi_q = 0;
+	const Cha__YzVi_q = Ko.KwiYz_l.DoWG__YzVi_q;
+
+
 	// if different now, must redo WG
 	if( Cha__YzVi_q !== Ko.KwiYz_l.DoWG__YzVi_q )
 	{
