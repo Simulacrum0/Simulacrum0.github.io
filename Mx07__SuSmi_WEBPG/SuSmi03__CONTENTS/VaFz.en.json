@@ -1,27 +1,60 @@
 {
 	"LABELS":
 	{
-		"BriDzVaSy": "🌐MicroCosm Test"
-		, "BriDzSa__Sz": "🤖NEW --> WebGPU ReFMT Core WG Serv"
+		"BriDz00_VaSy_vsg": "🌐MicroCosm Test"
+		, "BriDz01_SaSz_vsg": "🤖NEW --> WebGPU ReFMT Core WG Serv"
+		, "BriDz02_TraKwi_vsg": "🚀 LAUNCH"
 
-		, "HriNe_KwiVu": "🚀 LAUNCH"
-		, "HriNe_KeDy": "🥸 1) WHO"
-		, "HriNe_TaNe": "⚙️ 2) HOW"
 
-		, "HriNe_KeDru__KoKriKro": "🏫About MICROCOSM"
+		, "Ne00_KeDy_vsg": "🥸WHO"
+		, "Ne01_Ko_vsg": "⚙️NODE"
+		, "Ne02_Hru_vsg": "👂AUDIO"
+		, "Ne03_Hry_vsg": "👀VISUAL"
+		, "Ne04_Hx_vsg": "🧩ABOUT"
+		, "Ne05_Grx_vsg": "📜LEGAL"
 
-		, "HriNe_KeDy__ChaKz": "👤Add New User"
-		, "HriNe_KeDy__ChaKeDyVa": "New user Name"
-		, "HriNe_KeDy__TraChe": "🛟Use security"
-		, "HriNe_KeDy__MaKz": "🔒Question-Lock"
-		, "HriNe_KeDy__SmzKz": "🗝️Answer-Key"
 
-		, "HriNe_TaNe__KeDruGyVa": "📄Legible Size"
-		, "HriNe_TaNe__MxPeVa": "🔊Speakers"
-		, "HriNe_TaNe__MxPeHoVa": "🔇Mute"
-		, "HriNe_TaNe__MxPoGry": "🖥️Fullscreen"
-		, "HriNe_TaNe__MzPe": "🎙️Mic"
-		, "HriNe_TaNe__MzPo": "📷Camera"
+		, "Ne00_KeDy00__NiKeDy_vsg": "👥Select User"
+		, "Ne00_KeDy01__VaTre_vsg": "🗣️ Name"
+		, "Ne00_KeDy02__TraChe_vsg": "🛟Use security"
+		, "Ne00_KeDy03__MaKz_vsg": "🔒Question-Lock"
+		, "Ne00_KeDy04__SmzKz_vsg": "🗝️Answer-Key"
+		, "Ne00_KeDy05__ChaKeDy_vsg": "👤Add New User"
+		, "Ne00_KeDy06__Chi_vsg": "🗑️Remove Current User"
+		, "Ne00_KeDy07__NiKeDru_vsg": "🌐Select Language"
+
+
+		, "Ne01_Ko00__YzYu": "♻️Reset ALL Settings"
+		, "Ne01_Ko01__HraBru_Tra_vsg": "🛜Network Active"
+		, "Ne01_Ko02__SpeVu_vsg": "🔋Power Use"
+		, "Ne01_Ko03__MzKu_vsg": "📍Allow GPS Location"
+		, "Ne01_Ko04__KoDz_YoHo_vsg": "♾️Always Active (Background Work)"
+
+
+		, "Ne02_Hru00__MxPeHo_vsg": "🔇Mute"
+		, "Ne02_Hru01__MxPeVo_vsg": "🔊Speakers"
+		, "Ne02_Hru02__MzPe_vsg": "🎙️Mic"
+		, "Ne02_Hru03__YoHo_vsg": "♾️Always Audible"
+		, "Ne03_Hru04__NiSmz_vsg": "📊Method"
+		, "Ne03_Hru05__GyBraHi_vsg": "📈Quality"
+
+
+		, "Ne03_Hry00__KeDruGy_vsg": "📄Legible Size"
+		, "Ne03_Hry01__MzPoGry_vsg": "🖥️Fullscreen"
+		, "Ne03_Hry02__HriKe_vsg": "🥽XR"
+		, "Ne03_Hry03__MzPo_vsg": "📷Camera"
+		, "Ne03_Hry04__NiSmz_vsg": "📊Method"
+		, "Ne03_Hry05__GyBraHi_vsg": "📈Quality"
+		, "Ne03_Hry06__TyGy_vsg": "🧱Detail"
+		, "Ne03_Hry07__PoGy_vsg": "🎨HDR"
+
+
+		, "Ne04_Hx00__Bz_vsg": "ABOUT"
+		, "Ne04_Hx01__Ka_vsg": "About MICROCOSM details here"
+
+
+		, "Ne05_Grx00__Bz_vsg": "LEGAL"
+		, "Ne05_Grx01__Ka_vsg": "Legal Notices go here"
 
 	}
 

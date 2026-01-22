@@ -100,6 +100,8 @@ async function KoDz__YaFz()
 	Hrz4_Bu__KwiYz__Fy();
 	// CULTURE
 	Hre1_Dru__BriYa();
+	// GUI
+	HryMx01_KeMeKwi();
 
 	//@@@
 	// BOOT
@@ -217,7 +219,7 @@ function KoDz__YoChy()
 {
 	//@@@
 	// ECOSYS_GOOD
-	if( KoDz__YzTrx_y() || KoDz__YzYo_y() || Ko.KwiYz_l.KoDzYo_GrxHo_y ) return;
+	if( KoDz__YzTrx_y() || KoDz__YzYo_y() || Ko.KwiYz_l.Ne01_Ko04__KoDz_YoHo_y_y ) return;
 
 	//&&&
 	// STATUS

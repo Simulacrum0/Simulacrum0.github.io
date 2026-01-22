@@ -1,27 +1,58 @@
 {
 	"LABELS":
 	{
-		"BriDzVaSy": "🌐MicroCosm Testo"
-		, "BriDzSa__Sz": "🚀 GOALS"
+		"BriDz00_VaSy_vsg": "🌐MicroCosm Testo"
+		, "BriDz01_SaSz_vsg": "🤖NUEVA --> WebGPU"
+		, "BriDz02_TraKwi_vsg": "🚀 EMPEZAR!"
 
-		, "HriNe_KwiVu": "🚀 EMPEZAR!"
-		, "HriNe_KeDy": "🥸 1) QUÍEN"
-		, "HriNe_TaNe": "⚙️ 2) PERMISOS"
+		, "Ne00_KeDy_vsg": "🥸 1) QUÍEN"
+		, "Ne01_Ko_vsg": "⚙️PERMISOS"
+		, "Ne02_Hru_vsg": "👂ESCUCHAR"
+		, "Ne03_Hry_vsg": "👀MIRAR"
+		, "Ne04_Hx_vsg": "🧩APRENDER"
+		, "Ne05_Grx_vsg": "📜LEGAL"
 
-		, "HriNe_KeDru__KoKriKro": "🏫Aprender de MICROCOSM"
 
-		, "HriNe_KeDy__ChaKz": "👤Nuevo Persona"
-		, "HriNe_KeDy__ChaKeDyVa": "Nuevo Namae"
-		, "HriNe_KeDy__TraChe": "🛟Usa Seguridad"
-		, "HriNe_KeDy__MaKz": "🔒Pregunta-Lock-o"
-		, "HriNe_KeDy__SmzKz": "🗝️Contesta-Llave"
+		, "Ne00_KeDy00__NiKeDy_vsg": "👥Coger Persona"
+		, "Ne00_KeDy01__VaTre_vsg": "🗣️ Nombre"
+		, "Ne00_KeDy02__TraChe_vsg": "🛟Usa Seguridad"
+		, "Ne00_KeDy03__MaKz_vsg": "🔒Pregunta-Lock-o"
+		, "Ne00_KeDy04__SmzKz_vsg": "🗝️Contesta-Llave"
+		, "Ne00_KeDy05__ChaKeDy_vsg": "👤Dar un Persona Nuevo"
+		, "Ne00_KeDy06__Chi_vsg": "🗑️Tomar esto Persona"
 
-		, "HriNe_TaNe__KeDruGyVa": "📄Txt-o Size-o"
-		, "HriNe_TaNe__MxPeVa": "🔊Espeakeroz"
-		, "HriNe_TaNe__MxPeHoVa": "🔇Mute-o"
-		, "HriNe_TaNe__MxPoGry": "🖥️Fullscreen-o"
-		, "HriNe_TaNe__MzPe": "🎙️Mic-o"
-		, "HriNe_TaNe__MzPo": "📷Camera-o"
+
+		, "Ne01_Ko00__YzYu": "♻️Reset ALL Settings-o"
+		, "Ne01_Ko01__HraBru_Tra_vsg": "🛜Network Active-o"
+		, "Ne01_Ko02__SpeVu_vsg": "🔋Power Use-o"
+		, "Ne01_Ko03__MzKu_vsg": "📍Allow GPS Location-o"
+		, "Ne01_Ko04__KoDz_YoHo_vsg": "♾️Always Active (Background Work)-o"
+
+
+		, "Ne02_Hru00__MxPeHo_vsg": "🔇Mute-o"
+		, "Ne02_Hru01__MxPeVo_vsg": "🔊Speakers"
+		, "Ne02_Hru02__MzPe_vsg": "🎙️Mic-o"
+		, "Ne02_Hru03__YoHo_vsg": "♾️Always Audible-o"
+		, "Ne03_Hru04__NiSmz_vsg": "📊Method-o"
+		, "Ne03_Hru05__GyBraHi_vsg": "📈Quality-o"
+
+
+		, "Ne03_Hry00__KeDruGy_vsg": "📄Legible Size-o"
+		, "Ne03_Hry01__MzPoGry_vsg": "🖥️Fullscreen-o"
+		, "Ne03_Hry02__HriKe_vsg": "🥽XR-o"
+		, "Ne03_Hry03__MzPo_vsg": "📷Camera-o"
+		, "Ne03_Hry04__NiSmz_vsg": "📊Method-o"
+		, "Ne03_Hry05__GyBraHi_vsg": "📈Quality-o"
+		, "Ne03_Hry06__TyGy_vsg": "🧱Detail-o"
+		, "Ne03_Hry07__PoGy_vsg": "🎨HDR-o"
+
+
+		, "Ne04_Hx00__Bz_vsg": "ABOUT-o"
+		, "Ne04_Hx01__Ka_vsg": "About MICROCOSM details here-o"
+
+
+		, "Ne05_Grx00__Bz_vsg": "LEGAL-o"
+		, "Ne05_Grx01__Ka_vsg": "Legal Notices go here-o"
 
 	}
 

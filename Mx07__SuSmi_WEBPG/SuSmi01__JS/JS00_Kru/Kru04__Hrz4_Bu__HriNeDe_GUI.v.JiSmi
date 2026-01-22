@@ -157,6 +157,35 @@ function HryMx01_KeMeKwi()
 	// const FePo_k = 5 * 3;
 	const FePo_k = ( BriDzSa__Da_wuk & 7 ) * 3;
 	Hry_DriBrz( 'MxPo_Kwi', TaPo_v[ FePo_k + 0 ],TaPo_v[ FePo_k + 1 ],TaPo_v[ FePo_k + 2 ] );
+
+
+	//---------------------------------
+	// GUI DEFAULTS
+	//---------------------------------
+
+	//@@@
+	// GOVERN[ 1 ]
+	document.getElementById( 'Ne01_Ko04__KoDz_YoHo_y' ).value = Ko.KwiYz_l.Ne01_Ko04__KoDz_YoHo_y_y;
+
+	//@@@
+	// USER[ 2 ]
+	const TaKeDy_l = document.getElementById( 'TaKeDy' );
+	TaKeDy_l.selectedIndex = Ko.KwiYz__KeDy_wu;
+	// TaKeDy_l.value = Ko.KwiYz_l.KeDy_vsg;
+
+	//@@@
+	// TEMPORAL[ 2 ]
+	document.getElementById( 'Ne03_Hry__MxPeHoVu' ).value = Ko.KwiYz_l.Ne03_Hry__MxPeHoVu_q;
+	document.getElementById( 'Ne03_Hry__MxPeVu' ).value = Ko.KwiYz_l.Ne03_Hry__MxPeVu_sa;
+
+	//@@@
+	// SPATIAL[ 2 ]
+	document.getElementById( 'Ne03_Hry02__HriKe_y' ).checked = Ko.KwiYz_l.DoXR_y;
+
+
+	//@@@
+	// LOG
+	SmaSme( "[GUI] KwiYz_My:", Ko.KwiYz_l );
 }
 
 
@@ -193,10 +222,11 @@ function Tra_KeMeBri()
 
 	//---------------------------------
 	// SESSION CFG
+	//---------------------------------
 
 	//@@@
 	// GOVERN[ 1 ]
-	// Ko.KwiYz_l.KoDzYo_GrxHo_y = true;
+	Ko.KwiYz_l.Ne01_Ko04__KoDz_YoHo_y_y = document.getElementById( 'Ne01_Ko04__KoDz_YoHo_y' ).value;
 
 	//@@@
 	// USER[ 2 ]
@@ -206,13 +236,13 @@ function Tra_KeMeBri()
 
 	//@@@
 	// TEMPORAL[ 2 ]
-	Ko.KwiYz_l.HriNe_TaNe__MxPeHoVu_q = document.getElementById( 'HriNe_TaNe__MxPeHoVu' ).value;
-	Ko.KwiYz_l.HriNe_TaNe__MxPeVu_sa = document.getElementById( 'HriNe_TaNe__MxPeVu' ).value;
+	Ko.KwiYz_l.Ne03_Hry__MxPeHoVu_q = document.getElementById( 'Ne03_Hry__MxPeHoVu' ).value;
+	Ko.KwiYz_l.Ne03_Hry__MxPeVu_sa = document.getElementById( 'Ne03_Hry__MxPeVu' ).value;
 
 
 	//@@@
 	// SPATIAL[ 2 ]
-	Ko.KwiYz_l.DoXR_y = false;
+	Ko.KwiYz_l.DoXR_y = document.getElementById( 'Ne03_Hry02__HriKe_y' ).value;
 
 	//const Cha__YzVi_q = 0;
 	const Cha__YzVi_q = Ko.KwiYz_l.DoWG__YzVi_q;
@@ -239,7 +269,7 @@ function Tra_KeMeBri()
 
 	//@@@
 	// ECOSYS PLAY
-	SmaSme( "[LAUNCH] User:", Ko.KwiYz_l.KeDy_vsg, " NEVER_PAUSE:", Ko.KwiYz_l.KoDzYo_GrxHo_y );
+	SmaSme( "[LAUNCH] User:", Ko.KwiYz_l.KeDy_vsg, " NEVER_PAUSE:", Ko.KwiYz_l.Ne01_Ko04__KoDz_YoHo_y_y );
 	if( KoDz__YzYa_y() )
 	{
 		SmaSme( "[LAUNCH] ACTIVE via Resume" );

@@ -26,101 +26,151 @@
 -->
 <body>
 
-	<!-- Ku00__LAUNCH ------------------------------------------------>
-	<div class="SpoJy KuJy" id="Ku00_KeMeKwi" hidden>
-		<canvas class="SpoJy MxPo" id="MxPo_Kwi"></canvas>
+	<!-- Ku00__LAUNCH ------------------------------------------------->
+	<div id="Ku00_KeMeKwi" class="SpoJy KuJy" hidden>
+		<canvas id="MxPo_Kwi" class="SpoJy MxPo"></canvas>
 
-		<div class="HriNeKu" id="Nz00_Kwi">
-			<h2  id="BriDzVaSy" class="BriDzVa WaDru_Bz"></h2>
-			<img class="HriNeJaPo" src="Mx01__SuKz_MEDIA/SuKz02_JaPo__PICT/JaPo06__Banner.jpg"></img>
-
-			<!-- #1 WHO -->
-			<details class="TaNeVa">
-				<summary id="HriNe_KeDy" class="HriNzVa WaDru_Bz" >ID</summary>
-				<div class="HriNzKu" id="Nz01_KeDy">
-
-					<button id="HriNe_KeDy__ChaKz" class="HriNzVa WaDru_Bz TBD" type="button"></button>
-					<input id="HriNe_KeDy__ChaKeDyVa" class="HriNeTi WaDru_Ka TBD" type="text" placeholder="???" disabled></input>
-					<br>
-
-					<span id="HriNe_KeDy__TraChe" class="HriNeVa WaDru_Ka"></span>
-					<label class="switch"><input id="HriNe_KeDy__TraCheVu" type="checkbox"><span class="slider"></span></label>
-					<br>
-
-					<span id="HriNe_KeDy__MaKz" class="HriNzVa WaDru_Bz TBD" ></span>
-					<input id="HriNe_KeDy__MaKzVu" class="HriNeTi WaDru_Ka TBD" type="text" placeholder="???" disabled></input>
-					<br>
-
-					<span id="HriNe_KeDy__SmzKz" class="HriNzVa WaDru_Bz TBD" ></span>
-					<input id="HriNe_KeDy__SmzKzVu" class="HriNeTi WaDru_Ka TBD" type="text" placeholder="???" disabled></input>
-				</div>
-			</details>
-			<select id="TaKeDy" class="HriNeTi WaDru_Ka" onchange="JeKeDy_JeChy()" tabindex=3 ></select>
+		<div id="Nz00_Kwi" class="HriNeKu">
+			<h2  id="BriDz00_VaSy_vsg" class="BriDzVa WaDru_Bz"></h2>
+			<img class="Kwi00__BriDzJaPo" src="Mx01__SuKz_MEDIA/SuKz02_JaPo__PICT/JaPo06__Banner.jpg"></img>
 			<br>
 
-			<!-- #2 HOW -->
-			<details class="TaNeVa">
-				<summary id="HriNe_TaNe" class="HriNzVa WaDru_Bz">WHO</summary>
-				<div class="HriNzKu" id="Nz02_TaNe">
-
-					<span id="HriNe_TaNe__KeDruGyVa" class="HriNeVa WaDru_Ka"></span>
-					<input id="HriNe_TaNe__KeDruGyVu" class="HriNeVa" type="range" min="0" max="100" value="50" id="volume" />
-					<br>
-					<button id="HriNe_KeDru__KoKriKro" class="HriNzVa WaDru_Bz TBD" type="button"></button>
-
-					<span id="HriNe_TaNe__MxPeVa" class="HriNeVa WaDru_Ka"></span>
-					<input id="HriNe_TaNe__MxPeVu" type="range" min="0" max="100" value="50" id="volume" />
-
-					<span id="HriNe_TaNe__MxPeHoVa" class="HriNeVa WaDru_Ka"></span>
-					<label class="switch"><input id="HriNe_TaNe__MxPeHoVu" type="checkbox"><span class="slider"></span></label>
-
-					<br>
-
-					<span id="HriNe_TaNe__MzPe" class="HriNeVa WaDru_Ka"></span>
-					<label class="switch WaDru_Ka"><input id="HriNe_TaNe__MzPeVu" type="checkbox"><span class="slider"></span></label>
-
-					<span id="HriNe_TaNe__MzPo" class="HriNeVa WaDru_Ka"></span>
-					<label class="switch"><input id="HriNe_TaNe__MzPoVu" type="checkbox"><span class="slider"></span></label>
-
-					<br>
-
-					<span id="HriNe_TaNe__MxPoGry" class="HriNeVa WaDru_Ka"></span>
-					<label class="switch"><input id="HriNe_TaNe__MxPoGryVu" type="checkbox"><span class="slider"></span></label>
+			<!-- Kwi01_TaNeVa^MENU TABS ------------------------------->
+			<div id="Kwi01_TaNeVa" class="HriNzKu">
+				<div class="Kwi01_TaNeVa">
+					<button id="Ne00_KeDy_vsg" class="HriNzVa WaDru_Bz" onclick="Hrz4_Bu__ChyNeKu( e, 0 )"></button>
+					<button id="Ne01_Ko_vsg" class="HriNzVa WaDru_Bz" onclick="Hrz4_Bu__ChyNeKu( e, 1 )"></button>
+					<button id="Ne02_Hru_vsg" class="HriNzVa WaDru_Bz" onclick="Hrz4_Bu__ChyNeKu( e, 2 )"></button>
+					<button id="Ne03_Hry_vsg" class="HriNzVa WaDru_Bz" onclick="Hrz4_Bu__ChyNeKu( e, 3 )"></button>
+					<button id="Ne04_Hx_vsg" class="HriNzVa WaDru_Bz" onclick="Hrz4_Bu__ChyNeKu( e, 4 )"></button>
+					<button id="Ne05_Grx_vsg" class="HriNzVa WaDru_Bz" onclick="Hrz4_Bu__ChyNeKu( e, 5 )"></button>
 				</div>
-			</details>
-			<select id="TaKeDru" class="HriNeTi WaDru_Ka" onchange="JeKeDru_JeChy()" tabindex=2 ></select>
 
-			<!-- LAUNCH -->
-			<input id="HriNe_KwiVu" class="HriNeTi WaDru_Bz" tabindex=1 type="submit" onclick="Tra_KeMeBri()"/>
+			<!-- Kwi02_NeKu^CHOICES ----------------------------------->
+
+			<!-- Kwi02_NeKu00^WHO -->
+			<div id="NeKu00" class="Kwi02_NeKu">
+				<div>
+					<label id="Ne00_KeDy00__NiKeDy_vsg"class="HriNeVa WaDru_Ka"></label>
+					<select id="TaKeDy" class="HriNeTi WaDru_Ka" onchange="JeKeDy_JeChy()" tabindex=3 ></select>
+				</div>
+				<div>
+					<label id="Ne00_KeDy07__NiKeDru_vsg"class="HriNeVa WaDru_Ka"></label>
+					<select id="TaKeDru" class="HriNeTi WaDru_Ka" onchange="JeKeDru_JeChy()" tabindex=2 ></select>
+				</div>
+				<div>
+					<span id="Ne00_KeDy01__VaTre_vsg"class="HriNeVa WaDru_Ka"></span>
+					<input id="Ne00_KeDy01__VaTre_Sma_vsg" class="HriNeTi WaDru_Ka TBD" type="text" placeholder="???" disabled></input>
+				</div>
+				<div>
+					<span id="Ne00_KeDy02__TraChe_vsg" class="HriNeVa WaDru_Ka"></span>
+					<label class="switch"><input id="Ne00_KeDy02__TraChe_y" type="checkbox"><span class="slider"></span></label>
+				</div>
+				<div>
+					<span id="Ne00_KeDy03__MaKz_vsg" class="HriNzVa WaDru_Bz TBD" ></span>
+					<input id="Ne00_KeDy03__MaKz__Sma_vsg" class="HriNeTi WaDru_Ka TBD" type="text" placeholder="???" disabled></input>
+				</div>
+				<div>
+					<span id="Ne00_KeDy04__SmzKz_vsg" class="HriNzVa WaDru_Bz TBD" ></span>
+					<input id="Ne00_KeDy04__SmzKz__Sma_vsg" class="HriNeTi WaDru_Ka TBD" type="text" placeholder="???" disabled></input>
+				</div>
+				<button id="Ne00_KeDy05__ChaKeDy_vsg" class="HriNzVa WaDru_Bz TBD" type="button"></button>
+
+			</div>
+
+			<!-- Kwi02_NeKu01^NODE -->
+			<div id="NeKu01" class="Kwi02_NeKu">
+				<div>
+					<span id="Ne01_Ko04__KoDz_YoHo_vsg" class="HriNeVa WaDru_Ka"></span>
+					<label class="switch"><input id="Ne01_Ko04__KoDz_YoHo_y" type="checkbox"><span class="slider"></span></label>
+				</div>
+			</div>
+
+			<!-- Kwi02_NeKu02^AUDIO -->
+			<div id="NeKu02" class="Kwi02_NeKu">
+				<div>
+					<span id="Ne02_Hru00__MxPeHo_vsg" class="HriNeVa WaDru_Ka"></span>
+					<label class="switch"><input id="Ne03_Hry__MxPeHoVu" type="checkbox"><span class="slider"></span></label>
+				</div>
+				<div>
+					<span id="Ne02_Hru01__MxPeVo_vsg" class="HriNeVa WaDru_Ka"></span>
+					<input id="Ne03_Hry__MxPeVu" type="range" min="0" max="100" value="50" id="volume" />
+				</div>
+				<div>
+					<span id="Ne02_Hru02__MzPe_vsg" class="HriNeVa WaDru_Ka"></span>
+					<label class="switch WaDru_Ka"><input id="Ne02_Hru02__MzPe_y" type="checkbox"><span class="slider"></span></label>
+				</div>
+
+			</div>
+
+			<!-- Kwi02_NeKu03^VISUAL -->
+			<div id="NeKu03" class="Kwi02_NeKu">
+				<div>
+					<span id="Ne03_Hry00__KeDruGy_vsg" class="HriNeVa WaDru_Ka"></span>
+					<input id="Ne03_Hry00__KeDruGy_su" id="volume" class="HriNeVa" type="range" min="0" max="100" value="50" />
+				</div>
+				<div>
+					<span id="Ne03_Hry01__MzPoGry_vsg" class="HriNeVa WaDru_Ka"></span>
+					<label class="switch"><input id="Ne03_Hry01__MzPoGry_yVu" type="checkbox"><span class="slider"></span></label>
+				</div>
+				<div>
+					<span id="Ne03_Hry02__HriKe_vsg" class="HriNeVa WaDru_Ka"></span>
+					<label class="switch"><input id="Ne03_Hry02__HriKe_y" type="checkbox"><span class="slider"></span></label>
+				</div>
+				<div>
+					<span id="Ne03_Hry03__MzPo_vsg" class="HriNeVa WaDru_Ka"></span>
+					<label class="switch"><input id="Ne03_Hry03__MzPo_yVu" type="checkbox"><span class="slider"></span></label>
+				</div>
+
+				<button id="Ne03_Hry04__NiSmz_vsg" class="HriNzVa WaDru_Bz TBD" type="button"></button>
+
+			</div>
+
+			<!-- Kwi02_NeKu04^ABOUT -->
+			<div id="NeKu04" class="Kwi03_KeDru">
+				<h4 id="Ne04_Hx00__Bz_vsg" class="HriNeVa WaDru_Bz"></h4>
+				<p id="Ne04_Hx01__Ka_vsg" class="HriNeVa WaDru_Ka"></p>
+			</div>
+
+			<!-- Kwi02_NeKu05^LEGAL -->
+			<div id="NeKu05" class="Kwi03_KeDru">
+				<h4 id="Ne05_Grx00__Bz_vsg" class="HriNeVa WaDru_Bz"></h4>
+				<p id="Ne05_Grx01__Ka_vsg" class="HriNeVa WaDru_Ka"></p>
+			</div>
+
+		</div>
+
+			<!-- LAUNCH ZONE ---------------->
+			<input id="BriDz02_TraKwi_vsg" class="HriNeTi WaDru_Bz" tabindex=1 type="submit" onclick="Tra_KeMeBri()"/>
 			<code id="BriDzSa__Da" class="BriDzDa WaDru_Ka" style="font-size: 75%";></code>
 			<code id="Hrz3_By__VaDa" class="BriDzDa WaDru_Ka" style="font-size: 75%";></code>
-			<code id="BriDzSa__Sz" class="BriDzDa WaDru_Bz" style="font-size: 75%";></code>
+			<code id="BriDz01_SaSz_vsg" class="BriDzDa WaDru_Bz" style="font-size: 75%";></code>
 
 		</div>
 	</div>
 
 	<!-- Ku01__FAIL ------------------------------------------------>
-	<div class="SpoJy KuJy" id="Ku01_KeMeTrx" hidden>
-		<canvas class="SpoJy MxPo" id="MxPo_Trx"></canvas>
+	<div id="Ku01_KeMeTrx" class="SpoJy KuJy" hidden>
+		<canvas id="MxPo_Trx" class="SpoJy MxPo"></canvas>
 
-		<div class="HriNeKu" id="Nz01_Trx">
-			<p class="WaDru_Bz TrxKz" id="TrxBz"></p>
-			<p class="WaDru_Ka TrxKz" id="TrxKa"></p>
+		<div id="Nz01_Trx" class="HriNeKu">
+			<p id="TrxBz" class="WaDru_Bz TrxKz"></p>
+			<p id="TrxKa" class="WaDru_Ka TrxKz"></p>
 		</div>
 	</div>
 
 
 	<!-- Ku02__LIFE ------------------------------------------------>
-	<div class="SpoJy KuJy" id="Ku02_KeMeBri" hidden>
-		<canvas class="SpoJy MxPo" id="MxPo_Bri"></canvas>
+	<div id="Ku02_KeMeBri" class="SpoJy KuJy" hidden>
+		<canvas id="MxPo_Bri" class="SpoJy MxPo"></canvas>
 
 		<input type="text" id="KeDruTre" name="?" hidden></input>
-		<!-- <audio class="SpoJy" id="audio-player" controls="true" src="https://raw.githubusercontent.com/kbstt/pwa-demos/main/track2.mp3"></audio> -->
+		<!-- <audio id="audio-player" controls="true" src="https://raw.githubusercontent.com/kbstt/pwa-demos/main/track2.mp3" class="SpoJy"></audio> -->
 
 	</div>
 
-	<p class="SpoJy YzKeDru WaDru_Bz" id="KeMe_Bz"></p>
-	<p class="SpoJy YzKeDru WaDru_Ka" id="KeMe_Bo"></p>
+	<p id="KeMe_Bz" class="SpoJy YzKeDru WaDru_Bz"></p>
+	<p id="KeMe_Bo" class="SpoJy YzKeDru WaDru_Ka"></p>
 
 </body>
 <!--

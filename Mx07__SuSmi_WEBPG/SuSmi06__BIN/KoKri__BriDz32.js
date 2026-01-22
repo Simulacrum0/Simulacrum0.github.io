@@ -3233,7 +3233,7 @@ var ASM_CONSTS = {
     SaGLF_l.Ji.Hre7_Me__KeDru_Ha(SaGLF_l, "🛸| Ke: " + Ko.KwiYz_l.KeDy_vsg, 0, 0);
     SaGLF_l.Ji.Hre7_Me__KeDru_Ha(SaGLF_l, "👾| Ye: " + Ko.YeWi_df.toFixed(1) + "ms", 0, 64);
     SaGLF_l.Ji.Hre7_Me__KeDru_Ha(SaGLF_l, "👹| Hry: " + Ko.KaBxGiHa_df.toFixed(1) + "ms", 0, 128);
-    SaGLF_l.Ji.Hre7_Me__KeDru_Ha(SaGLF_l, "🔊| Hru: Spkr: " + Ko.KwiYz_l.HriNe_TaNe__MxPeVu_sa + " Mute: " + Ko.KwiYz_l.HriNe_TaNe__MxPeHoVu_q, 0, 192);
+    SaGLF_l.Ji.Hre7_Me__KeDru_Ha(SaGLF_l, "🔊| Hru: Spkr: " + Ko.KwiYz_l.Ne03_Hry__MxPeVu_sa + " Mute: " + Ko.KwiYz_l.Ne03_Hry__MxPeHoVu_q, 0, 192);
     SaGLF_l.Ji.Hre7_Me__KeDru_Ha(SaGLF_l, "👽| HrzBy: " + Ko.HrzBy__Va_vsg + " v" + Ko.HrzBy__Da_wfk, 0, 256);
     SaGLF_l.Ji.Hre7_Me__KeDru_Ha(SaGLF_l, "🤖| Go: " + "-", 0, 320);
     SaGLF_l.Ji.Hre7_Me__KeDru_Ha(SaGLF_l, "💀| C: ", 0, 384);

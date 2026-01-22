@@ -107,9 +107,10 @@ GUI
 	position: absolute;
 	z-index: 1;
 
-	left: calc( 50dvw - 16em);
 	top: 4em;
-	width: 32em;
+	left: calc( 50dvw - 28em );
+	width: 56em;
+
 	margin: 0.5em;
 	padding: 0.5em;
 
@@ -120,7 +121,7 @@ GUI
 }
 
 /* LOGO */
-.HriNeJaPo
+.Kwi00__BriDzJaPo
 {
 	display: block;
 	position: relative;
@@ -179,6 +180,29 @@ input[type=submit]:hover
 
 	background-color: rgb( 0, 0, 0, 0.5 );
 }
+
+/* MENU TABS */
+.Kwi01_TaNeVa
+{
+	display: flex;
+	flex-wrap: wrap;
+	align-content: stretch;
+	justify-content: space-evenly;
+}
+
+.Kwi02_NeKu
+{
+	display: grid;
+	/* 3 columns */
+	grid-template-columns: auto auto auto;
+}
+
+.Kwi03_KeDru
+{
+	display: block;
+	justify-content: center;
+}
+
 
 /* TOPIC_TITLE */
 .BriDzVa
