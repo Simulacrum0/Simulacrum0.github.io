@@ -200,7 +200,7 @@ const SuTyJy = Object.freeze
 //-------------------------------------------------
 // JOB_PROG^JiHry
 // ProcessedShaderProgram
-const JiHry = Object.freeze
+const JiHry_l = Object.freeze
 //-------------------------------------------------
 ({
 	  Ji00_PRESENT__MxPoCho_qk: 0
@@ -210,6 +210,64 @@ const JiHry = Object.freeze
 	, Ji12_MEXEL__WaJoDi_qk: 3
 	, Ji14_MEXEL__SpeJoDi_qk: 4
 });
+
+
+//==============================================
+// CHIP FEATURE LEVELS
+//==============================================
+//-------------------------------------------------
+// ABILITY_TIER ( Capability Level )
+const DoWG__Yz = Object.freeze
+//-------------------------------------------------
+({
+	Ti00__TraHu_qk: 0 // Unusable as Only capable of Clone
+	, Ti01__JiHu_qk: 1 // Minimal Capabilities ( emulation mode )
+	, Ti02__De_qk: 2 // Multipass Textures, Default WebGPU 2.0
+	, Ti03__ZzKri_qk: 3 // RW Textures RGBA, SubGroups
+});
+
+const KaBxTy_v =
+[
+	// DoWG__Yz.Ti00__TraHu_qk
+ 	"Minimal-Capabilities^=Legacy Compatibility Emulation Mode"
+	// DoWG__Yz.Ti01__JiHu_qk
+	, "Low-Power^=Multipass Textures, Default WebGPU 2.0"
+	// DoWG__Yz.Ti02__De_qk
+	, "High-Power^=RW Textures RGBA, SubGroups"
+	// DoWG__Yz.Ti03__ZzKri_qk
+	, "Advanced-Features^=Ray-Box Intersections, SubGroup Ops"
+];
+Object.freeze( KaBxTy_v );
+
+//==============================================
+// CFGS
+//!!!
+// ONLY ENABLE 16K ONCE we get to many layers since GRANULARITY matters
+//==============================================
+const DoWG__SmzYz_v =
+[
+	{
+		Vi_qk: DoWG__Yz.Ti00__TraHu_qk
+		, JaVe_wu: 2048
+		, JaGzFo_wu: 3
+	}
+	, {
+		Vi_qk: DoWG__Yz.Ti01__JiHu_qk
+		, JaVe_wu: 4096
+		, JaGzFo_wu: 3
+	}
+	, {
+		Vi_qk: DoWG__Yz.Ti02__De_qk
+		, JaVe_wu: 8192
+		, JaGzFo_wu: 3
+	}
+	, {
+		Vi_qk: DoWG__Yz.Ti03__ZzKri_qk
+		, JaVe_wu: 16384
+		, JaGzFo_wu: 1
+	}
+];
+Object.freeze( DoWG__SmzYz_v );
 
 //==============================================
 // DoWG_TaJiHry
@@ -231,6 +289,7 @@ const TaJiHry_vvsg =
 	// , { Va_vsg: "Ji15_MEXEL__MzJoDi", Do_vsg: "JiJy00__WaPo", JiSuKy_q: JiSuKy.Wy_qk, SuTyJy_q: SuTyJy.Bry_qk }
 
 ];
+Object.freeze( TaJiHry_vvsg );
 
 //==============================================
 //==============================================

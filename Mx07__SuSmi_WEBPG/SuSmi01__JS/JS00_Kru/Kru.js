@@ -1,5 +1,5 @@
-const BriDzSa__Da_vsg = "PUB_v0.179"; 
- const BriDzSa__Da_wuk = "179"; 
+const BriDzSa__Da_vsg = "PUB_v0.180"; 
+ const BriDzSa__Da_wuk = "180"; 
  const BriDz__Mx_KuTu_vsg = "https://powerourpeople.com/"; 
 
 //==============================================
@@ -510,57 +510,65 @@ GUI_LAYOUT:
 */
 //==============================================
 
-
-//-------------------------------------------------
-// ABILITY_TIER ( Capability Level )
-const DoWG__Yz = Object.freeze
-//-------------------------------------------------
-({
-	Ti00__TraHu_qk: 0 // Unusable as Only capable of Clone
-	, Ti01__JiHu_qk: 1 // Minimal Capabilities ( emulation mode )
-	, Ti02__De_qk: 2 // Multipass Textures, Default WebGPU 2.0
-	, Ti03__ZzKri_qk: 3 // RW Textures RGBA, SubGroups
-});
-
-//-------------------------------------------------
-// DEFAULT SPATIAL CFG
-//-------------------------------------------------
-function Hrz4_Bu__KwiYz__DoWG_ChyDe()
+//=====================================
+// VERSIONS (Browser & App )
+//=====================================
+async function Hrz3_Bz__VaDa()
 {
 	//@@@
-	// BEST CFG
-	Ko.KwiYz_l.DoWG__YzVi_q = DoWG__Yz.Ti03__ZzKri_qk;
+	// SEARCH
 
-	Ko.KwiYz_l.DoWG__Yz_v =
-	[
-		{
-			Vi_qk: DoWG__Yz.Ti00__TraHu_qk
-			, Va_vsg: "Minimal-Capabilities"
-			, Hx_vsg: "Legacy Compatibility Emulation Mode"
-			, TaGwa_Ve_wu: 2048, TaGwa_GzZy_wu: 2
-		}
-		, {
-			Vi_qk: DoWG__Yz.Ti01__JiHu_qk
-			, Va_vsg: "Low-Power"
-			, Hx_vsg: "Multipass Textures, Default WebGPU 2.0"
-			, TaGwa_Ve_wu: 4096, TaGwa_GzZy_wu: 2
-		}
-		, {
-			Vi_qk: DoWG__Yz.Ti02__De_qk
-			, Va_vsg: "High-Power"
-			, Hx_vsg: "RW Textures RGBA, SubGroups"
-			, TaGwa_Ve_wu: 4096, TaGwa_GzZy_wu: 4
-		}
-		, {
-			Vi_qk: DoWG__Yz.Ti03__ZzKri_qk
-			, Va_vsg: "Advanced-Features"
-			, Hx_vsg: "Ray-Box Intersections, SubGroup Ops"
-			//!!!
-			// ONLY ENABLE 16K ONCE we get to many layers since GRANULARITY matters
-			//, TaGwa_Ve_wu: 16384, TaGwa_GzZy_wu: 10
-			, TaGwa_Ve_wu: 8192, TaGwa_GzZy_wu: 2
-		}
-	];
+	// USER AGENT
+	const HrzByHx_vsg = navigator.userAgent;
+	//SmaSme( "[CFG] HrzByHx:", HrzByHx_vsg );
+
+	// /i IGNORE CASE
+	// Matches "Name/Ver", "Name", "Ver" for 3 strings in 'match-Array' result
+	let Ni_vsg = HrzByHx_vsg.match(/(chrome|safari|firefox|msie|trident(?=\/))\/?\s*(\d+\.\d+)/i) || [];
+	// SmaSme( Ni_vsg );
+
+	// CHILD of CHROME
+	let NiNo_vsg = HrzByHx_vsg.match(/(OPR|Edg|OculusBrowser|SamsungBrowser(?=\/))\/?\s*(\d+\.\d+)/i) || [];
+
+	// CLONE name & version#
+	if( NiNo_vsg[2] ){ Ni_vsg = NiNo_vsg; }
+
+
+	// ELSE UNKNOWN
+	Ni_vsg = Ni_vsg[2] ? [ Ni_vsg[1], Ni_vsg[2] ] : [ navigator.appName, navigator.appVersion, '-?' ];
+
+	//@@@
+	// FORMAT
+
+	// DETECT
+	if( (navigator.brave && await navigator.brave.isBrave() || false) ){ Ni_vsg[ 0 ] = "Brave"; }
+
+	// REPLACE
+	Ni_vsg[ 0 ] = Ni_vsg[ 0 ].replace( /edg/i, "Edge" );
+	Ni_vsg[ 0 ] = Ni_vsg[ 0 ].replace( /opr/i, "Opera" );
+	Ni_vsg[ 0 ] = Ni_vsg[ 0 ].replace( /OculusBrowser/i, "Meta" );
+	Ni_vsg[ 0 ] = Ni_vsg[ 0 ].replace( /SamsungBrowser/i, "Samsung" );
+
+
+	// STORE
+	Ko.HrzBy__Va_vsg = Ni_vsg[ 0 ];
+	Ko.HrzBy__Da_wfk = parseFloat( Ni_vsg[ 1 ] );
+	if( isNaN( Ko.HrzBy__Da_wfk ) ){ Ko.HrzBy__Da_wfk = 0.0; }
+
+	SmaSme( "[CFG] HrzBy_VaDa", Ko.HrzBy__Va_vsg, "||", Ko.HrzBy__Da_wfk );
+	// NOT WELL SUPPORTED 2026
+	// if( navigator.userAgentData && navigator.userAgentData.brands )
+	// { SmaSme(  "[CFG] BRAND:", navigator.userAgentData.brands ); }
+
+
+	//@@@
+	// APP VERSION
+	document.getElementById( 'BriDzSa__Da' ).innerText = BriDzSa__Da_vsg;
+
+	//@@@
+	// SHOW
+	const VaDa_v = document.getElementById( 'Hrz3_By__VaDa' );
+	VaDa_v.innerText = Ko.HrzBy__Va_vsg + " 📲 " + Ko.HrzBy__Da_wfk;
 }
 
 
@@ -611,13 +619,20 @@ function Hrz4_Bu__KwiYz__ChyDe()
 
 	//@@@
 	// TEMPORAL[ 2 ]
-	Ko.KwiYz_l.Ne03_Hry__MxPeHoVu_q = true;
-	Ko.KwiYz_l.Ne03_Hry__MxPeVu_sa = 1.0;
+	Ko.KwiYz_l.Ne02_Hru00__MxPeHoVu_q = true;
+	Ko.KwiYz_l.Ne02_Hru01__MxPeVu_sa = 1.0;
 
 	//@@@
 	// SPATIAL[ 2 ]
-	Ko.KwiYz_l.DoXR_y = false;
-	Hrz4_Bu__KwiYz__DoWG_ChyDe();
+	Ko.KwiYz_l.Ne03_Hry02__HriKe_y = false;
+
+	// 'De'
+	Ko.KwiYz_l.Ne03_Hry04__SmzYz_q = 2;
+	Ko.KwiYz_l.Ne03_Hry05__GyBraHi_bu = 4;
+
+	//		, "Ne03_Hry04__SmzYz_vsg": "📊Method"
+	//, "": "📈Quality"
+	//, "Ne03_Hry06__TyGy_vsg": "🧱Detail"
 
 	//@@@
 	// STORE & LOG
@@ -634,8 +649,8 @@ function Hrz4_Bu__KwiYz__Fy()
 
 	//@@@
 	// FORCE DEFAULT
-	const VAL_vsg = localStorage.getItem( KEY_vsg );
-	//const VAL_vsg = false;
+//	const VAL_vsg = localStorage.getItem( KEY_vsg );
+	const VAL_vsg = false;
 
 	if( VAL_vsg )
 	{
@@ -847,6 +862,9 @@ function JeKeDy_JeChy()
 
 		// CHG LANG
 		Hre1_Dru__ChyKeDru( Ko.KwiYz_l.KeDru_vsg );
+
+		// SELECT FEATURES
+		Hrz4_Bu__ChyNeKu( null, 0 );
 	}
 
 	SmaSme( "USR:", TaKeDy_l.value, TaKeDy_l.selectedIndex  );
@@ -864,7 +882,7 @@ function JeKeDy_JeChy()
 }
 
 //-------------------------------------------------
-// ERASE ALL USER LAUNCH CFGs
+// ERASE USER LAUNCH CFGs
 //-------------------------------------------------
 function Hrz4_Bu__TaKeDy__Chi()
 {
@@ -874,7 +892,7 @@ function Hrz4_Bu__TaKeDy__Chi()
 }
 
 //-------------------------------------------------
-// ERASE ALL USER LAUNCH CFGs
+// DEFAULTS ALL USER LAUNCH CFGs
 //-------------------------------------------------
 function Hrz4_Bu__TaKeDy__ChyDe()
 {
@@ -917,65 +935,6 @@ function Hrz4_Bu__TaKeDy__Fy()
 		TaKeDy_l.appendChild( Kz_v );
 	});
 }
-
-//=====================================
-// VERSIONS (Browser & App )
-//=====================================
-async function Hrz3_Bz__VaDa()
-{
-	//@@@
-	// SEARCH
-
-	// USER AGENT
-	const HrzByHx_vsg = navigator.userAgent;
-	//SmaSme( "[CFG] HrzByHx:", HrzByHx_vsg );
-
-	// /i IGNORE CASE
-	// Matches "Name/Ver", "Name", "Ver" for 3 strings in 'match-Array' result
-	let Ni_vsg = HrzByHx_vsg.match(/(chrome|safari|firefox|msie|trident(?=\/))\/?\s*(\d+\.\d+)/i) || [];
-	// SmaSme( Ni_vsg );
-
-	// CHILD of CHROME
-	let NiNo_vsg = HrzByHx_vsg.match(/(OPR|Edg|OculusBrowser|SamsungBrowser(?=\/))\/?\s*(\d+\.\d+)/i) || [];
-
-	// CLONE name & version#
-	if( NiNo_vsg[2] ){ Ni_vsg = NiNo_vsg; }
-
-
-	// ELSE UNKNOWN
-	Ni_vsg = Ni_vsg[2] ? [ Ni_vsg[1], Ni_vsg[2] ] : [ navigator.appName, navigator.appVersion, '-?' ];
-
-	//@@@
-	// FORMAT
-
-	// DETECT
-	if( (navigator.brave && await navigator.brave.isBrave() || false) ){ Ni_vsg[ 0 ] = "Brave"; }
-
-	// REPLACE
-	Ni_vsg[ 0 ] = Ni_vsg[ 0 ].replace( /edg/i, "Edge" );
-	Ni_vsg[ 0 ] = Ni_vsg[ 0 ].replace( /opr/i, "Opera" );
-	Ni_vsg[ 0 ] = Ni_vsg[ 0 ].replace( /OculusBrowser/i, "Meta" );
-	Ni_vsg[ 0 ] = Ni_vsg[ 0 ].replace( /SamsungBrowser/i, "Samsung" );
-
-
-	// STORE
-	Ko.HrzBy__Va_vsg = Ni_vsg[ 0 ];
-	Ko.HrzBy__Da_wfk = parseFloat( Ni_vsg[ 1 ] );
-	if( isNaN( Ko.HrzBy__Da_wfk ) ){ Ko.HrzBy__Da_wfk = 0.0; }
-
-	SmaSme( "[CFG] HrzBy_VaDa", Ko.HrzBy__Va_vsg, "||", Ko.HrzBy__Da_wfk );
-
-
-	//@@@
-	// APP VERSION
-	document.getElementById( 'BriDzSa__Da' ).innerText = BriDzSa__Da_vsg;
-
-	//@@@
-	// SHOW
-	const VaDa_v = document.getElementById( 'Hrz3_By__VaDa' );
-	VaDa_v.innerText = Ko.HrzBy__Va_vsg + " 📲 " + Ko.HrzBy__Da_wfk;
-}
-
 
 //=====================================
 // END
@@ -1157,12 +1116,12 @@ function HryMx01_KeMeKwi()
 
 	//@@@
 	// TEMPORAL[ 2 ]
-	document.getElementById( 'Ne03_Hry__MxPeHoVu' ).value = Ko.KwiYz_l.Ne03_Hry__MxPeHoVu_q;
-	document.getElementById( 'Ne03_Hry__MxPeVu' ).value = Ko.KwiYz_l.Ne03_Hry__MxPeVu_sa;
+	document.getElementById( 'Ne02_Hru00__MxPeHoVu' ).value = Ko.KwiYz_l.Ne02_Hru00__MxPeHoVu_q;
+	document.getElementById( 'Ne02_Hru00__MxPeVu' ).value = Ko.KwiYz_l.Ne02_Hru00__MxPeVu_sa;
 
 	//@@@
 	// SPATIAL[ 2 ]
-	document.getElementById( 'Ne03_Hry02__HriKe_y' ).checked = Ko.KwiYz_l.DoXR_y;
+	document.getElementById( 'Ne03_Hry02__HriKe_y' ).checked = Ko.KwiYz_l.Ne03_Hry02__HriKe_y;
 
 
 	//@@@
@@ -1196,7 +1155,33 @@ function HryMx02_KeMeBri()
 }
 
 //==============================================
-// LAUNCH LIFE MODE
+// TEK_TAB as SECTION
+// CHANGE VISIBLE
+//==============================================
+function Hrz4_Bu__ChyNeKu( Vx_wu )
+{
+	const HriNzVa_v = document.getElementsByClassName( "HriNzVa" );
+	const NeKuJy_v = document.getElementsByClassName( "NeKuJy" );
+	if( ( Vx_wu > HriNzVa_v.length ) || ( Vx_wu < 0 ) || ( HriNzVa_v.length !== NeKuJy_v.length )) { return;}
+
+	//@@@
+	// SELECT MENU
+	for (i = 0; i < HriNzVa_v.length; i++)
+	{
+		HriNzVa_v[i].className = ( Vx_wu === i ) ? "HriNzVa WaDru_Bz" : "HriNzVa WaDru_Bz HriNzVa_Se";
+	}
+
+	//@@@
+	// SHOW/HIDE SECTIONS
+	for (i = 0; i < NeKuJy_v.length; i++)
+	{
+		NeKuJy_v[i].style.display = ( Vx_wu === i ) ? "block" : "none";
+	}
+}
+
+//==============================================
+// RUN LIFE
+// via LAUNCH BTN
 //==============================================
 function Tra_KeMeBri()
 {
@@ -1218,22 +1203,23 @@ function Tra_KeMeBri()
 
 	//@@@
 	// TEMPORAL[ 2 ]
-	Ko.KwiYz_l.Ne03_Hry__MxPeHoVu_q = document.getElementById( 'Ne03_Hry__MxPeHoVu' ).value;
-	Ko.KwiYz_l.Ne03_Hry__MxPeVu_sa = document.getElementById( 'Ne03_Hry__MxPeVu' ).value;
+	Ko.KwiYz_l.Ne02_Hru00__MxPeHoVu_q = document.getElementById( 'Ne02_Hru00__MxPeHoVu' ).value;
+	Ko.KwiYz_l.Ne02_Hru00__MxPeVu_sa = document.getElementById( 'Ne02_Hru00__MxPeVu' ).value;
 
 
 	//@@@
 	// SPATIAL[ 2 ]
-	Ko.KwiYz_l.DoXR_y = document.getElementById( 'Ne03_Hry02__HriKe_y' ).value;
+	Ko.KwiYz_l.Ne03_Hry02__HriKe_y = document.getElementById( 'Ne03_Hry02__HriKe_y' ).value;
 
+	// const Cha__YzVi_q =  document.getElementById( 'WG' ).value;
 	//const Cha__YzVi_q = 0;
-	const Cha__YzVi_q = Ko.KwiYz_l.DoWG__YzVi_q;
+	const Cha__YzVi_q = Ko.KwiYz_l.Ne03_Hry04__SmzYz_q;
 
 
 	// if different now, must redo WG
-	if( Cha__YzVi_q !== Ko.KwiYz_l.DoWG__YzVi_q )
+	if( Cha__YzVi_q !== Ko.KwiYz_l.Ne03_Hry04__SmzYz_q )
 	{
-		Ko.KwiYz_l.DoWG__YzVi_q = Cha__YzVi_q;
+		Ko.KwiYz_l.Ne03_Hry04__SmzYz_q = Cha__YzVi_q;
 
 		// Restart WG
 		const SaWG_l = Ko.SySmz_v[ SyVx.WG_qk ];
@@ -1798,7 +1784,7 @@ async function KoDz__YaFz()
 
 		, Hrz7_Kru__ChaSySmz( "Hra7_Ta", "ToMi", "Do", "STRM", SySmz__Kri_yk, { YzTi_wu: "0" } )
 		, Hrz7_Kru__ChaSySmz( "Hre1_Dru", "WaDru", "Do", "FNT", SySmz__Kri_yk, { YzTi_wu: "0" } )
-		, Hrz7_Kru__ChaSySmz( "Hry5_Smz", "WzMx", "Do", "WG", SySmz__Kri_yk, { YzVi_q: Ko.KwiYz_l.DoWG__YzVi_q } )
+		, Hrz7_Kru__ChaSySmz( "Hry5_Smz", "WzMx", "Do", "WG", SySmz__Kri_yk, { YzVi_q: Ko.KwiYz_l.Ne03_Hry04__SmzYz_q } )
 		, Hrz7_Kru__ChaSySmz( "Hry1_Brz", "KeDru", "Do", "GLF", SySmz__Kri_yk, { Gy_wu: 512 } )
 
 		, Hrz7_Kru__ChaSySmz( "Hra4_Bru", "ToDry", "Do", "NET", SySmz__Kri_yk, { YzTi_wu: "0" } )
@@ -1847,7 +1833,7 @@ async function KoDz__YaFx( )
 	const SySmz__HoKri_yk = false;
 
 	// DoXR
-	if( Ko.KwiYz_l.DoXR_y ) { Hrz7_Kru__ChaSySmz( "Hri2_Ke", "BzMe", "Do", "XR", SySmz__HoKri_yk, { YzTi_wu: "0" } ); }
+	if( Ko.KwiYz_l.Ne03_Hry02__HriKe_y ) { Hrz7_Kru__ChaSySmz( "Hri2_Ke", "BzMe", "Do", "XR", SySmz__HoKri_yk, { YzTi_wu: "0" } ); }
 
 	// DoAUD
 	//Hrz7_Kru__ChaSySmz( "Hru5_Smz", "MxPe", "Do", "AUD", SySmz__HoKri_yk, { YzTi_wu: "0" } );

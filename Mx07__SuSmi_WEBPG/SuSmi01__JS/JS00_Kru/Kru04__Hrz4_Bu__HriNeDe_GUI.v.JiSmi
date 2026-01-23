@@ -175,12 +175,12 @@ function HryMx01_KeMeKwi()
 
 	//@@@
 	// TEMPORAL[ 2 ]
-	document.getElementById( 'Ne03_Hry__MxPeHoVu' ).value = Ko.KwiYz_l.Ne03_Hry__MxPeHoVu_q;
-	document.getElementById( 'Ne03_Hry__MxPeVu' ).value = Ko.KwiYz_l.Ne03_Hry__MxPeVu_sa;
+	document.getElementById( 'Ne02_Hru00__MxPeHoVu' ).value = Ko.KwiYz_l.Ne02_Hru00__MxPeHoVu_q;
+	document.getElementById( 'Ne02_Hru00__MxPeVu' ).value = Ko.KwiYz_l.Ne02_Hru00__MxPeVu_sa;
 
 	//@@@
 	// SPATIAL[ 2 ]
-	document.getElementById( 'Ne03_Hry02__HriKe_y' ).checked = Ko.KwiYz_l.DoXR_y;
+	document.getElementById( 'Ne03_Hry02__HriKe_y' ).checked = Ko.KwiYz_l.Ne03_Hry02__HriKe_y;
 
 
 	//@@@
@@ -214,7 +214,33 @@ function HryMx02_KeMeBri()
 }
 
 //==============================================
-// LAUNCH LIFE MODE
+// TEK_TAB as SECTION
+// CHANGE VISIBLE
+//==============================================
+function Hrz4_Bu__ChyNeKu( Vx_wu )
+{
+	const HriNzVa_v = document.getElementsByClassName( "HriNzVa" );
+	const NeKuJy_v = document.getElementsByClassName( "NeKuJy" );
+	if( ( Vx_wu > HriNzVa_v.length ) || ( Vx_wu < 0 ) || ( HriNzVa_v.length !== NeKuJy_v.length )) { return;}
+
+	//@@@
+	// SELECT MENU
+	for (i = 0; i < HriNzVa_v.length; i++)
+	{
+		HriNzVa_v[i].className = ( Vx_wu === i ) ? "HriNzVa WaDru_Bz" : "HriNzVa WaDru_Bz HriNzVa_Se";
+	}
+
+	//@@@
+	// SHOW/HIDE SECTIONS
+	for (i = 0; i < NeKuJy_v.length; i++)
+	{
+		NeKuJy_v[i].style.display = ( Vx_wu === i ) ? "block" : "none";
+	}
+}
+
+//==============================================
+// RUN LIFE
+// via LAUNCH BTN
 //==============================================
 function Tra_KeMeBri()
 {
@@ -236,22 +262,23 @@ function Tra_KeMeBri()
 
 	//@@@
 	// TEMPORAL[ 2 ]
-	Ko.KwiYz_l.Ne03_Hry__MxPeHoVu_q = document.getElementById( 'Ne03_Hry__MxPeHoVu' ).value;
-	Ko.KwiYz_l.Ne03_Hry__MxPeVu_sa = document.getElementById( 'Ne03_Hry__MxPeVu' ).value;
+	Ko.KwiYz_l.Ne02_Hru00__MxPeHoVu_q = document.getElementById( 'Ne02_Hru00__MxPeHoVu' ).value;
+	Ko.KwiYz_l.Ne02_Hru00__MxPeVu_sa = document.getElementById( 'Ne02_Hru00__MxPeVu' ).value;
 
 
 	//@@@
 	// SPATIAL[ 2 ]
-	Ko.KwiYz_l.DoXR_y = document.getElementById( 'Ne03_Hry02__HriKe_y' ).value;
+	Ko.KwiYz_l.Ne03_Hry02__HriKe_y = document.getElementById( 'Ne03_Hry02__HriKe_y' ).value;
 
+	// const Cha__YzVi_q =  document.getElementById( 'WG' ).value;
 	//const Cha__YzVi_q = 0;
-	const Cha__YzVi_q = Ko.KwiYz_l.DoWG__YzVi_q;
+	const Cha__YzVi_q = Ko.KwiYz_l.Ne03_Hry04__SmzYz_q;
 
 
 	// if different now, must redo WG
-	if( Cha__YzVi_q !== Ko.KwiYz_l.DoWG__YzVi_q )
+	if( Cha__YzVi_q !== Ko.KwiYz_l.Ne03_Hry04__SmzYz_q )
 	{
-		Ko.KwiYz_l.DoWG__YzVi_q = Cha__YzVi_q;
+		Ko.KwiYz_l.Ne03_Hry04__SmzYz_q = Cha__YzVi_q;
 
 		// Restart WG
 		const SaWG_l = Ko.SySmz_v[ SyVx.WG_qk ];
