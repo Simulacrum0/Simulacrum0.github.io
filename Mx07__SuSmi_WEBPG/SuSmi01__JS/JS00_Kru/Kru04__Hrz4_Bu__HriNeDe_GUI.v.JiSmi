@@ -227,14 +227,14 @@ function Hrz4_Bu__ChyNeKu( Vx_wu )
 	// SELECT MENU
 	for (i = 0; i < HriNzVa_v.length; i++)
 	{
-		HriNzVa_v[i].className = ( Vx_wu === i ) ? "HriNzVa WaDru_Bz" : "HriNzVa WaDru_Bz HriNzVa_Se";
+		HriNzVa_v[i].className = ( Vx_wu === i ) ? "HriNzVa WaDru_Bz HriNzVa_Se" : "HriNzVa WaDru_Bz";
 	}
 
 	//@@@
 	// SHOW/HIDE SECTIONS
 	for (i = 0; i < NeKuJy_v.length; i++)
 	{
-		NeKuJy_v[i].style.display = ( Vx_wu === i ) ? "block" : "none";
+		NeKuJy_v[i].style.display = ( Vx_wu === i ) ? "grid" : "none";
 	}
 }
 

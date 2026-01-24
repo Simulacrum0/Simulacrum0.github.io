@@ -1,5 +1,5 @@
-const BriDzSa__Da_vsg = "PUB_v0.180"; 
- const BriDzSa__Da_wuk = "180"; 
+const BriDzSa__Da_vsg = "PUB_v0.181"; 
+ const BriDzSa__Da_wuk = "181"; 
  const BriDz__Mx_KuTu_vsg = "https://powerourpeople.com/"; 
 
 //==============================================
@@ -1168,14 +1168,14 @@ function Hrz4_Bu__ChyNeKu( Vx_wu )
 	// SELECT MENU
 	for (i = 0; i < HriNzVa_v.length; i++)
 	{
-		HriNzVa_v[i].className = ( Vx_wu === i ) ? "HriNzVa WaDru_Bz" : "HriNzVa WaDru_Bz HriNzVa_Se";
+		HriNzVa_v[i].className = ( Vx_wu === i ) ? "HriNzVa WaDru_Bz HriNzVa_Se" : "HriNzVa WaDru_Bz";
 	}
 
 	//@@@
 	// SHOW/HIDE SECTIONS
 	for (i = 0; i < NeKuJy_v.length; i++)
 	{
-		NeKuJy_v[i].style.display = ( Vx_wu === i ) ? "block" : "none";
+		NeKuJy_v[i].style.display = ( Vx_wu === i ) ? "grid" : "none";
 	}
 }
 

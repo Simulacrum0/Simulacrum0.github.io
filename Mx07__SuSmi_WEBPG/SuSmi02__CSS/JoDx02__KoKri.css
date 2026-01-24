@@ -147,7 +147,8 @@ PANELS
 {
 	display: grid;
 	/* 2 columns */
-	grid-template-columns: auto auto;
+	grid-template-columns: 1fr 1fr;
+	gap: 0.125em;
 	align-content: stretch;
 	justify-content: space-evenly;
 }
@@ -181,20 +182,19 @@ PANELS
 .Ku03_NeKu
 {
 	display: grid;
-	/* 3 columns */
-	grid-template-columns: auto auto auto;
+	grid-template-columns: 1fr 1fr 1fr;
 }
 
 .Kwi03_KeDru
 {
-	display: block;
-	justify-content: center;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
 }
 
-.Kwi03_KeDru
+.Kwi04_
 {
-	display: block;
-	justify-content: center;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
 }
 
 /*@@@@@@@@@@@@@@@
@@ -224,25 +224,25 @@ TEXT
 .HriNzVa
 {
 	text-align:center;
-	margin: 0.25em;
-	padding: 0.25em;
+	margin: 0.125em;
+	padding: 0.0em;
+	width: 14.28%;
 
 	color: rgb( 255, 255, 255 );
 	background-color: rgb( 64, 64, 64 );
 }
+
 .HriNzVa:hover
 {
-	margin: 1.0em;
-	padding: 1.0em;
+	color: rgb( 0, 0, 128 );
+	background-color: rgb( 255, 255, 255  );
 }
 
 /* MENU_HILITE */
 .HriNzVa_Se
 {
-	margin: 0.4em;
-	padding: 0.4em;
-	color: rgb( 255, 255, 0  );
-	background-color: rgb( 64, 64, 64 );
+	color: rgb( 0, 0, 128 );
+	background-color: rgb( 255, 255, 0  );
 }
 
 /* CHOICE_BODY */
