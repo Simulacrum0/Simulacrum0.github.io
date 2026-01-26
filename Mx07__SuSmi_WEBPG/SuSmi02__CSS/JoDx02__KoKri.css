@@ -439,10 +439,13 @@ TEXT
 	}
 }
 
+/* TEXT__ITEMS---------------------------------------------------- */
 /* TEXT__CHOICE_BODY */
 .NeKuVa
 {
 	text-align:left;
+	color: #000;
+	background-color: #FFF;
 }
 
 /* TEXT__FEATURE LABELS */
@@ -450,7 +453,8 @@ TEXT
 {
 	display: inline-flex;
 	text-align:left;
-	color: #FFF;
+	color: #000;
+	background-color: #FFF;
 }
 
 /* TEXT__LIST ELEMENTS */
@@ -458,7 +462,17 @@ TEXT
 {
 	display: inline-flex;
 	text-align:left;
+	color: #000;
+	background-color: #FFF;
+}
+
+/* TEXT__BTN ELEMENTS */
+.HriNeTra
+{
+	display: inline-flex;
+	text-align:center;
 	color: #FFF;
+	background-color: #0000;
 }
 
 /* TEXT__PGRAF HEADER */
@@ -467,6 +481,7 @@ TEXT
 	display: inline-block;
 	text-align:center;
 	color: #FFF;
+	background-color: #000F;
 }
 
 /* TEXT__PGRAF BODY */
@@ -474,7 +489,12 @@ TEXT
 {
 	display: inline-flex;
 	text-align:left;
+
+	margin: 1.0rem;
+	padding: 1.0rem;
+
 	color: #FFF;
+	background-color: #000F;
 
 	overflow-x: none;
 	overflow-y: scroll;
