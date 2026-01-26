@@ -331,7 +331,6 @@ function KoDz_GyHa()
 	Ko.em2px_wfk = Number(window.getComputedStyle(document.body).getPropertyValue('font-size').match(/\d+/)[0]);
 }
 
-
 //==============================================
 // END
 //==============================================

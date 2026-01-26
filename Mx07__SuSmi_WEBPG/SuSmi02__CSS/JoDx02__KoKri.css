@@ -1,5 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
 /* IMPORT rules must appear at the top, before any style declaration */
+/* --------------
+NOTE:
+Sides: top, right, bottom left
+Corners: top-left, top-right, bottom-right, bottom-left
+--------------
+*/
 /* @@@@@@@@@@@@@@@
 CSS BEGIN
 
@@ -11,26 +17,312 @@ MxPo_Trx
 @@@@@@@@@@@@@@@ */
 *
 {
-	box-sizing: content-box;
-
-	border-radius: 1.5em;
+	/* content-box WIDTH/HEIGHT ignore padding, margin, & border */
+	/* border-box  WIDTH/HEIGHT ignore margin only */
+	box-sizing: border-box;
+	border-radius: 1.5rem;
 	margin: 0.25em;
 	padding: 0.25em;
+
+	font-size: 1.0rem;
 }
 
 .SpoJy
 {
-	border-radius: 0.0em;
-	margin: 0.0em;
-	padding: 0.0em;
+	border-radius: 0.0rem;
+	margin: 0.0rem;
+	padding: 0.0rem;
 
 	display: block;
 	position: absolute;
 
-	font-size: 1.0em;
 	color: rgb(255, 255, 255);
-	background-color: rgb( 64, 64, 64 );
+	background-color: #4448
 }
+
+
+/*@@@@@@@@@@@@@@@
+AREA
+CANVAS
+@@@@@@@@@@@@@@@*/
+.KuJy
+{
+	left: 0dvw;
+	top:0dvh;
+	width: 100dvw;
+	height: 100dvh;
+
+	overflow: hidden;
+}
+
+.MxPo
+{
+	left: 0dvw;
+	top: 1.5rem;
+	width: 100dvw;
+	height: calc( 100dvh - 3.0rem);
+
+	overflow: hidden;
+	image-rendering: auto;
+	/* PIXEL ART*/
+	/* image-rendering: pixelated; */
+	/* HIGH CONTRAST */
+	/* image-rendering: crisp-edges; */
+	/* SMOOTH */
+}
+
+/*@@@@@@@@@@@@@@@
+STATUS BARS
+@@@@@@@@@@@@@@@ */
+.KeMe_Bz
+{
+	left: 0dvw;
+	top: 0dvh;
+	width: 100dvw;
+	height: 1.5rem;
+}
+
+.KeMe_Bo
+{
+	left: 0dvw;
+	top: calc(100dvh - 1.5rem);
+	width: 100dvw;
+	height: 1.5rem;
+}
+
+/*@@@@@@@@@@@@@@@
+PANELS
+@@@@@@@@@@@@@@@*/
+
+/* PANEL__OUTER_TOPIC */
+.Ku00__NzKwa
+{
+	display: block;
+	position: absolute;
+	z-index: 1;
+
+	left: 3rem;
+	top: 3rem;
+
+	/* INCLUDE 'DBG' BARS */
+
+	max-width: calc( 100dvw - 6rem );
+	max-height: calc( 100dvh - 6rem );
+
+	overflow-x: none;
+	overflow-y: auto;
+
+	background-color: #0008;
+	border: none;
+}
+
+/* PANEL__TITLE_BAR */
+.Ku01_GxStx_GaSta
+{
+	display: grid;
+	place-items: center;
+	align-items: center;
+}
+
+/* PANEL_GUI_TOPIC ---------------------- */
+.Ku01__HriNe
+{
+	position: relative;
+	z-index: 4;
+}
+
+/* PANEL_GUI---WIDE */
+@media (min-aspect-ratio: 1/1)
+{
+	.Ku01__HriNe
+	{
+		display: block;
+	}
+}
+
+/* PANEL_GUI---TALL */
+@media (max-aspect-ratio: 1/1)
+{
+	.Ku01__HriNe
+	{
+		/* display: block; */
+		display: grid;
+		/* 2 columns */
+		grid-template-columns: 25% 75%;
+	}
+}
+
+/* PANEL_GUI_TOPIC ---------------------- */
+.Ku02__NzKwa
+{
+	border-radius: 1.5rem;
+	border: 0.125em solid #FFF;
+	margin: 0.0rem;
+	padding: 0.0rem;
+	background-color: #0008;
+
+	/* PANEL_GUI_TOPIC--WIDE */
+	@media (min-aspect-ratio: 1/1)
+	{
+		/* TL TR BR BL */
+		border-radius: 0.0rem 0.0rem 1.5rem 1.5rem;
+
+		border-left: solid 0.125rem #FFF;
+		border-right: solid 0.125rem #FFF;
+		border-top: none;
+		border-bottom: solid 0.125rem #FFF;
+	}
+
+	/* PANEL_GUI_TOPIC--TALL */
+	@media (max-aspect-ratio: 1/1)
+	{
+		border-left:none;
+
+		/* TL TR BR BL */
+		border-radius: 0rem 1.5rem 1.5rem 0rem;
+
+		border-left: none;
+		border-right: solid 0.125rem #FFF;
+		border-top: solid 0.125rem #FFF;
+		border-bottom: solid 0.125rem #FFF;
+	}
+}
+
+/* PANEL__MENU TABS --------------------------------- */
+.Ku03__HriNzVa
+{
+	border-radius: 0.0rem;
+	padding: 0.0rem;
+	margin: 0.0rem;
+}
+/* PANEL__MENU TABS---WIDE */
+@media (min-aspect-ratio: 1/1)
+{
+	.Ku03__HriNzVa
+	{
+		display: flex;
+		flex-wrap: no-wrap;
+		align-content: space-between;
+		justify-content: space-between;
+
+		min-width: 8.0rem;
+		min-height: 4.0rem;
+
+		margin: 0.0rem 3.0rem;
+	}
+}
+
+/* PANEL__MENU TABS---TALL */
+@media (max-aspect-ratio: 1/1)
+{
+	.Ku03__HriNzVa
+	{
+		display: grid;
+		grid-template-columns: 100%;
+		grid-template-rows: 14%;
+
+		min-width: 8.0rem;
+		min-height: 16.0rem;
+	}
+}
+
+/* PANEL__TOPIC_CHOICES ----------------------------- */
+/* PANEL__TOPIC_CHOICES---WIDE */
+@media (min-aspect-ratio: 1/1)
+{
+	.Ku03_NeKu
+	{
+		display: grid;
+		grid-template-columns: 33% 33% 33%;
+	}
+}
+
+/* PANEL__TOPIC_CHOICES---TALL */
+@media (max-aspect-ratio: 1/1)
+{
+	.Ku03_NeKu
+	{
+		display: grid;
+		grid-template-columns: 25% 75%;
+	}
+}
+
+/* PANEL__TOPIC_TEXT */
+.Kwi03_KeDru
+{
+	display: block;
+}
+
+/* PANEL__TOPIC_ */
+.Kwi04_
+{
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+}
+
+/*@@@@@@@@@@@@@@@
+ICONS
+@@@@@@@@@@@@@@@*/
+.GwzHu{	zoom: 0.25;}
+.GwzHi{	zoom: 2.0;}
+
+/* B&W ICONS */
+.GwzDoVo, .GwzDo
+{
+	background: url( ../../Mx01__SuKz_MEDIA/SuKz02_JaPo__PICT/JaPo03__GwzDoVo.png);
+	background-color:transparent;
+	background-repeat:no-repeat;
+
+	margin: 0.0rem;
+	padding: 0.0rem;
+	border-radius: 0.0rem;
+
+	height: 108px;
+	width: 108px;
+}
+
+/* CLR ICONS */
+.GwzDoPo, .GwzDo:hover
+{
+	background: url( ../../Mx01__SuKz_MEDIA/SuKz02_JaPo__PICT/JaPo02__GwzDoPo.png);
+	background-color:transparent;
+	background-repeat:no-repeat;
+
+	margin: 0.0rem;
+	padding: 0.0rem;
+	border-radius: 0.0rem;
+
+	height: 108px;
+	width: 108px;
+}
+
+/* ROW 0 */
+.GwzDo_WIN, .GwzDo_WIN:hover{ background-position: 0px 0px;}
+.GwzDo_IOS, .GwzDo_IOS:hover{ background-position: -108px 0px;}
+.GwzDo_MAC, .GwzDo_MAC:hover{ background-position: -216px 0px;}
+.GwzDo_DRD, .GwzDo_DRD:hover{ background-position: -324px 0px;}
+
+.GwzDo_LNX, .GwzDo_LNX:hover{ background-position: -432px 0px;}
+.GwzDo_ESRB, .GwzDo_ESRB:hover{ background-position: -540px 0px;}
+.GwzDo_PEGI, .GwzDo_PEGI:hover{ background-position: -648px 0px;}
+.GwzDo_GDPR, .GwzDo_GDPR:hover{ background-position: -756px 0px;}
+
+/* ROW 1 */
+.GwzDo_CCPA, .GwzDo_CCPA:hover{ background-position: 0px -108px;}
+
+/* ROW 2 */
+.GwzDo_BULLET, .GwzDo_BULLET:hover{ background-position: 0px -216px;}
+
+/* ROW 3 */
+.GwzDo_NET, .GwzDo_NET:hover{ background-position: -108px -324px;}
+.GwzDo_SECURITY, .GwzDo_SECURITY:hover{ background-position: -216px -324px;}
+.GwzDo_GLOBAL, .GwzDo_GLOBAL:hover{ background-position: -324px -324px;}
+
+/* ROW 3 */
+.GwzDo_STORAGE, .GwzDo_STORAGE:hover{ background-position: -432px -324px;}
+.GwzDo_SPEED, .GwzDo_SPEED:hover{ background-position: -540px -324px;}
+.GwzDo_BATTERY, .GwzDo_BATTERY:hover{ background-position: -648px -324px;}
+.GwzDo_PLUG, .GwzDo_PLUG:hover{ background-position: -756px -324px;}
 
 /*@@@@@@@@@@@@@@@
 FONT
@@ -59,355 +351,163 @@ FONT
 }
 
 /*@@@@@@@@@@@@@@@
-ICONS
-@@@@@@@@@@@@@@@*/
-.GwzHu{	zoom: 0.5;}
-.GwzHi{	zoom: 2.0;}
-
-/* B&W ICONS */
-.GwzDoVo, .GwzDo
-{
-	background: url( ../../Mx01__SuKz_MEDIA/SuKz02_JaPo__PICT/JaPo03__GwzDoVo.png);
-	background-color:transparent;
-	background-repeat:no-repeat;
-
-	margin: 0.0em;
-	padding: 0.0em;
-	border-radius: 0.0em;
-
-	height: 108px;
-	width: 108px;
-}
-
-/* CLR ICONS */
-.GwzDoPo, .GwzDo:hover
-{
-	background: url( ../../Mx01__SuKz_MEDIA/SuKz02_JaPo__PICT/JaPo02__GwzDoPo.png);
-	background-color:transparent;
-	background-repeat:no-repeat;
-
-	margin: 0.0em;
-	padding: 0.0em;
-	border-radius: 0.0em;
-
-	height: 108px;
-	width: 108px;
-}
-
-/* ROW 0 */
-.GwzDo_WIN, .GwzDo_WIN:hover{ background-position: 0px 0px;}
-.GwzDo_IOS, .GwzDo_IOS:hover{ background-position: -108px 0px;}
-.GwzDo_MAC, .GwzDo_MAC:hover{ background-position: -216px 0px;}
-.GwzDo_DRD, .GwzDo_DRD:hover{ background-position: -324px 0px;}
-
-.GwzDo_LNX, .GwzDo_LNX:hover{ background-position: -432px 0px;}
-.GwzDo_ESRB, .GwzDo_ESRB:hover{ background-position: -540px 0px;}
-.GwzDo_PEGI, .GwzDo_PEGI:hover{ background-position: -648px 0px;}
-.GwzDo_GDPR, .GwzDo_GDPR:hover{ background-position: -756px 0px;}
-
-/* ROW 1 */
-.GwzDo_CCPA, .GwzDo_CCPA:hover{ background-position: 0px -108px;}
-.GwzDo_SPIRV, .GwzDo_SPIRV:hover{ background-position: -108px -108px;}
-.GwzDo_VK, .GwzDo_VK:hover{ background-position: -216px -108px;}
-.GwzDo_CURL, .GwzDo_CURL:hover{ background-position: -324px -108px;}
-
-
-/* ROW 2 */
-.GwzDo_BULLET, .GwzDo_BULLET:hover{ background-position: 0px -216px;}
-
-/* ROW 3 */
-.GwzDo_VIVANTE, .GwzDo_VIVANTE:hover{ background-position: 0px -324px;}
-.GwzDo_NET, .GwzDo_NET:hover{ background-position: -108px -324px;}
-.GwzDo_SECURITY, .GwzDo_SECURITY:hover{ background-position: -216px -324px;}
-.GwzDo_GLOBAL, .GwzDo_GLOBAL:hover{ background-position: -324px -324px;}
-
-.GwzDo_STORAGE, .GwzDo_STORAGE:hover{ background-position: -432px -324px;}
-.GwzDo_SPEED, .GwzDo_SPEED:hover{ background-position: -540px -324px;}
-.GwzDo_BATTERY, .GwzDo_BATTERY:hover{ background-position: -648px -324px;}
-.GwzDo_PLUG, .GwzDo_PLUG:hover{ background-position: -756px -324px;}
-
-
-/*@@@@@@@@@@@@@@@
-AREA
-CANVAS
-@@@@@@@@@@@@@@@*/
-.KuJy
-{
-	left: 0dvw;
-	top:0dvh;
-	width: 100dvw;
-	height: 100dvh;
-}
-
-.MxPo
-{
-	left: 0dvw;
-	top: 1.5em;
-	width: 100dvw;
-	height: calc( 100dvh - 3.0em);
-
-	image-rendering: auto;
-	/* PIXEL ART*/
-	/* image-rendering: pixelated; */
-	/* HIGH CONTRAST */
-	/* image-rendering: crisp-edges; */
-	/* SMOOTH */
-}
-
-/*@@@@@@@@@@@@@@@
-STATUS BARS
-@@@@@@@@@@@@@@@ */
-.KeMe_Bz
-{
-	left: 0dvw;
-	top: 0dvh;
-	width: 100dvw;
-	height: 1.5em;
-}
-
-.KeMe_Bo
-{
-	left: 0dvw;
-	top: calc(100dvh - 1.5em);
-	width: 100dvw;
-	height: 1.5em;
-}
-
-/*@@@@@@@@@@@@@@@
-DBG
-@@@@@@@@@@@@@@@*/
-.YzKeDru
-{
-	font-size: 1.5em;
-}
-
-/* DEBUG TXT */
-.TrxKz
-{
-	font-size: 1.5em;
-	text-align:center;
-}
-
-/*@@@@@@@@@@@@@@@
-PANELS
-@@@@@@@@@@@@@@@*/
-
-/* PANEL__OUTER-TOPIC */
-.Ku00__NzKwa
-{
-	display: block;
-	position: absolute;
-	z-index: 1;
-
-	left: 4em;
-	top: 4em;
-	width: calc( 100dvw - 8em );
-	height: calc( 100dvh - 8em );
-
-    overflow: auto;
-
-	border-radius: 1.5em;
-	border: 0.125em solid rgb( 255, 255, 255 );
-	background-color: rgb( 0, 0, 0, 0.5 );
-}
-
-/* PANEL__TITLE_BAR */
-.Ku01_GxStx_GaSta
-{
-	display: grid;
-	place-items: center;
-	align-items: center;
-
-}
-
-/* PANEL__INNER_TOPIC ---------------------- */
-.Ku02__NzKwa
-{
-	position: relative;
-	z-index: 4;
-
-	border-radius: 1.5em;
-	border: 0.125em solid rgb( 255, 255, 255 );
-
-	background-color: rgb( 0, 0, 0, 0.5 );
-}
-
-/* PANEL__INNER_TOPIC_WIDE */
-@media (min-aspect-ratio: 1/1)
-{
-	.Ku02__NzKwa
-	{
-		display: block;
-	}
-}
-
-/* PANEL__INNER_TOPIC_TALL */
-@media (max-aspect-ratio: 1/1)
-{
-	.Ku02__NzKwa
-	{
-		/* display: block; */
-		display: grid;
-		/* 2 columns */
-		grid-template-columns: 25% 75%;
-	}
-}
-
-/* PANEL__MENU TABS --------------------------------- */
-/* PANEL__MENU TABS WIDE */
-@media (min-aspect-ratio: 1/1)
-{
-	.Ku03__HriNzVa
-	{
-		display: flex;
-		flex-wrap: wrap;
-		align-content: stretch;
-		justify-content: space-evenly;
-	}
-}
-
-/* PANEL__MENU TABS TALL */
-@media (max-aspect-ratio: 1/1)
-{
-	.Ku03__HriNzVa
-	{
-		display: grid;
-		grid-template-columns: 100%;
-		grid-template-rows: 14%;
-
-	}
-}
-
-/* PANEL__TOPIC_CHOICES ----------------------------- */
-/* PANEL__TOPIC_CHOICES WIDE */
-@media (min-aspect-ratio: 1/1)
-{
-	.Ku03_NeKu
-	{
-		display: grid;
-		grid-template-columns: 33% 33% 33%;
-	}
-}
-
-/* PANEL__TOPIC_CHOICES TALL */
-@media (max-aspect-ratio: 1/1)
-{
-	.Ku03_NeKu
-	{
-		display: grid;
-		grid-template-columns: 25% 75%;
-	}
-}
-
-/* PANEL__TOPIC_TEXT */
-.Kwi03_KeDru
-{
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-}
-
-/* PANEL__TOPIC_ */
-.Kwi04_
-{
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-}
-
-/*@@@@@@@@@@@@@@@
 TEXT
 @@@@@@@@@@@@@@@*/
 
-/* TEXT_TITLE_BAR */
+/* TEXT__TITLE_BAR */
 .BriDzVa
 {
-	font-size: 2.0em;
+	font-size: 0.5rem;
 
 	display: inline-flex;
 	text-align:center;
 	/* PREVENT LINE WRAP */
 	white-space:nowrap;
 
-	/* DBG
-	background-color: rgb( 255, 0, 0, 1. ); */
+	/* DBG */
+	/* background-color: rgb( 255, 0, 0, 1. ); */
 }
 
-/* APP_VERSION */
+
+/* TEXT__TITLE_WORDSIZE */
+.BriDzGy
+{
+	font-size: 2.0rem;
+}
+
+/* TEXT__APP_VERSION */
 .BriDzDa
 {
 	display: block;
 	text-align:center;
-	margin: 0.0em;
-	padding: 0.0em;
+	margin: 0.0rem;
+	padding: 0.0rem;
 	color: rgb( 192, 192, 192 );
 }
 
-/* MENU_TITLE --------------------------------- */
+/* TEXT__MENU_TITLE --------------------------------- */
 .HriNzVa
 {
+	display: block;
+
+	padding: 0.0rem;
+	margin: 0.0rem;
+
 	text-align:center;
 	font-weight:bold;
+	transition: background .3s, color .3s;
 
-	color: rgb( 255, 255, 255 );
-	background-color: rgb( 64, 64, 64 );
-
-	display: block;
+	color: #AAA8;
+	background-color: #6668;
 }
 
-/* MENU_TITLE WIDE */
+/* TEXT__MENU_HOVER */
+.HriNzVa:hover
+{
+	color: #FFF;
+	background-color: #8888;
+	font-size: 1.5rem;
+}
+
+/* TEXT__MENU_SELECTED */
+.HriNzVa_Se
+{
+	color: #FFF;
+	background-color: #0008;
+	font-size: 1.25rem;
+}
+
+/* TEXT__MENU_TITLE---WIDE */
 @media (min-aspect-ratio: 1/1)
 {
 	.HriNzVa
 	{
 		width: 14.28%;
+		border-radius:1.5rem 1.5rem 0 0;
+
+		border: solid 0.125em #FFF;
+	}
+	.HriNzVa_Se
+	{
+		border-bottom:none;
 	}
 }
 
-/* MENU_TITLE TALL */
+/* TEXT__MENU_TITLE---TALL */
 @media (max-aspect-ratio: 1/1)
 {
 	.HriNzVa
 	{
 		width: 100%;
+		border-radius: 1.5rem 0 0 1.5rem;
+		border: solid 0.125em #FFF;
+	}
+	.HriNzVa_Se
+	{
+		border-right: none;
 	}
 }
 
-.HriNzVa:hover
-{
-	color: rgb( 0, 0, 128 );
-	background-color: rgb( 255, 255, 255  );
-}
 
-/* MENU_HILITE */
-.HriNzVa_Se
-{
-	color: rgb( 0, 0, 128 );
-	background-color: rgb( 255, 255, 0  );
-}
 
-/* CHOICE_BODY */
+/* TEXT__CHOICE_BODY */
 .NeKuVa
 {
 	text-align:left;
 }
 
-/* FEATURE LABELS */
+/* TEXT__FEATURE LABELS */
 .HriNeVa
 {
 	display: inline-flex;
 	text-align:left;
-
-	color: rgb(255, 255, 255 );
+	color: #FFF;
 }
 
-/* LIST ELEMENTS */
+/* TEXT__LIST ELEMENTS */
 .HriNeTi
 {
 	display: inline-flex;
 	text-align:left;
-
-	color: rgb(255, 255, 255 );
+	color: #FFF;
 }
 
+/* TEXT__PGRAF HEADER */
+.KeDruBz
+{
+	display: inline-block;
+	text-align:center;
+	color: #FFF;
+}
+
+/* TEXT__PGRAF BODY */
+.KeDruKa
+{
+	display: inline-flex;
+	text-align:left;
+	color: #FFF;
+
+	overflow-x: none;
+	overflow-y: scroll;
+
+	max-height: 12.0rem
+}
+
+/*@@@@@@@@@@@@@@@
+DBG
+@@@@@@@@@@@@@@@*/
+/* DBG STATUS */
+.YzKeDru
+{
+	font-size: 1.5rem;
+}
+
+/* DBG ERR */
+.TrxKz
+{
+	font-size: 1.5rem;
+	text-align:center;
+}
 
 /*@@@@@@@@@@@@@@@
 ELEMENTS
@@ -420,12 +520,12 @@ ELEMENTS
 	position: relative;
 	z-index: 2;
 
-	left: 0.0em;
-	width: calc( 100% - 1.0em );
-	height: 6.0em;
+	left: 0.0rem;
+	width: calc( 100% - 1.0rem );
+	height: 6.0rem;
 
-	border-radius: 1.5em;
-	border: 0.125em solid rgb( 255, 255, 255 );
+	border-radius: 1.5rem;
+	border: 0.125em solid #FFF;
 }
 
 /* BTN SUBMIT ===> LAUNCH BTN RED */
@@ -434,11 +534,11 @@ input[type=submit]
 	display: inline-flex;
 	position: relative;
 
-	width: calc( 100% - 1.0em );
-	height: 2.5em;
+	width: calc( 100% - 1.0rem );
+	height: 2.5rem;
 
-	border-radius: 1.5em;
-	border: 0.1em solid rgb( 255, 255, 255 );
+	border-radius: 1.5rem;
+	border: 0.1rem solid #FFF;
 	background-color: rgb( 192, 32, 32 );
 
 	font-size: 1.25em;
@@ -456,10 +556,10 @@ input[type=text], select
 	display: inline-flex;
 	width: 12em;
 
-	border-radius: 1.5em;
-	border: 0.125em solid rgb( 255, 255, 255 );
+	border-radius: 1.5rem;
+	border: 0.125em solid #FFF;
 
-	background-color: rgb( 0, 0, 0, 0.5 );
+	background-color: #FFF8;
 }
 
 /*@@@@@@@@@@@@@@@
@@ -471,17 +571,17 @@ TOGGLE_SWITCH
 	width: 0;
 	height: 0;
 
-	border-radius: 0.0em;
-	margin: 0.0em;
-	padding: 0.0em;
+	border-radius: 0.0rem;
+	margin: 0.0rem;
+	padding: 0.0rem;
 }
 
 .KaHyHo
 {
 	position: relative;
 	display: inline-block;
-	width: 3.0em;
-	height: 1.5em;
+	width: 3.0rem;
+	height: 1.5rem;
 }
 
 /* ELLIPSE BAR BG SHP */
@@ -494,15 +594,15 @@ TOGGLE_SWITCH
 	right: 0;
 	bottom: 0;
 
-	height: 1.5em;
+	height: 1.5rem;
 
-	border-radius: 0.0em;
-	margin: 0.0em;
-	padding: 0.0em;
+	border-radius: 0.0rem;
+	margin: 0.0rem;
+	padding: 0.0rem;
 
 	background-color: rgb( 192, 192, 192 );
 	transition: 0.5s;
-	border-radius: 1.5em;
+	border-radius: 1.5rem;
 }
 
 /* CIRCLE INDICATOR */
@@ -511,11 +611,11 @@ TOGGLE_SWITCH
 	position: absolute;
 	content: "";
 
-	width: 1.5em;
-	height: 1.5em;
+	width: 1.5rem;
+	height: 1.5rem;
 
-	left: 0.0em;
-	bottom: 0.0em;
+	left: 0.0rem;
+	bottom: 0.0rem;
 
 	background-color: white;
 	transition: 0.5s;
@@ -530,12 +630,12 @@ input:checked + .VuHyHo
 input:focus + .VuHyHo
 {
 	/* GLOW */
-	box-shadow: 0 0 1.0em rgb( 255, 255, 255 );
+	box-shadow: 0 0 1.0rem #FFF;
 }
 
 input:checked + .VuHyHo:before
 {
-	transform: translateX( 1.5em );
+	transform: translateX( 1.5rem );
 }
 
 

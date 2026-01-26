@@ -1,5 +1,5 @@
-const BriDzSa__Da_vsg = "PUB_v0.183"; 
- const BriDzSa__Da_wuk = "183"; 
+const BriDzSa__Da_vsg = "PUB_v0.184"; 
+ const BriDzSa__Da_wuk = "184"; 
  const BriDz__Mx_KuTu_vsg = "https://powerourpeople.com/"; 
 
 //==============================================
@@ -1271,7 +1271,6 @@ function KoDz_GyHa()
 	// EM SIZE
 	Ko.em2px_wfk = Number(window.getComputedStyle(document.body).getPropertyValue('font-size').match(/\d+/)[0]);
 }
-
 
 //==============================================
 // END
