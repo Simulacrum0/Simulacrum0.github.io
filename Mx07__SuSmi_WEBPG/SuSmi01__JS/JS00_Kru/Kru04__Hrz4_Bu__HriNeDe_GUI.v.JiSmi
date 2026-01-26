@@ -268,7 +268,7 @@ function Tra_KeMeBri()
 
 	//@@@
 	// SPATIAL[ 2 ]
-	Ko.KwiYz_l.Ne03_Hry02__HriKe_y = document.getElementById( 'Ne03_Hry02__HriKe_y' ).value;
+	Ko.KwiYz_l.Ne03_Hry02__HriKe_y = false; // document.getElementById( 'Ne03_Hry02__HriKe_y' ).value;
 
 	// const Cha__YzVi_q =  document.getElementById( 'WG' ).value;
 	//const Cha__YzVi_q = 0;

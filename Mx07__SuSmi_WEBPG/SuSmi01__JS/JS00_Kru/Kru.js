@@ -1,5 +1,5 @@
-const BriDzSa__Da_vsg = "PUB_v0.185"; 
- const BriDzSa__Da_wuk = "185"; 
+const BriDzSa__Da_vsg = "PUB_v0.186"; 
+ const BriDzSa__Da_wuk = "186"; 
  const BriDz__Mx_KuTu_vsg = "https://powerourpeople.com/"; 
 
 //==============================================
@@ -1209,7 +1209,7 @@ function Tra_KeMeBri()
 
 	//@@@
 	// SPATIAL[ 2 ]
-	Ko.KwiYz_l.Ne03_Hry02__HriKe_y = document.getElementById( 'Ne03_Hry02__HriKe_y' ).value;
+	Ko.KwiYz_l.Ne03_Hry02__HriKe_y = false; // document.getElementById( 'Ne03_Hry02__HriKe_y' ).value;
 
 	// const Cha__YzVi_q =  document.getElementById( 'WG' ).value;
 	//const Cha__YzVi_q = 0;
