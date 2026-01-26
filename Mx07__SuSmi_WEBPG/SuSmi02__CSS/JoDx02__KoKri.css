@@ -40,6 +40,11 @@ MxPo_Trx
 	background-color: #4448
 }
 
+.HreJy
+{
+	margin: 0.25rem;
+	padding: 0.25rem;
+}
 
 /*@@@@@@@@@@@@@@@
 AREA
@@ -49,6 +54,7 @@ CANVAS
 {
 	left: 0dvw;
 	top:0dvh;
+
 	width: 100dvw;
 	height: 100dvh;
 
@@ -105,26 +111,26 @@ PANELS
 	top: 3rem;
 
 	/* INCLUDE 'DBG' BARS */
-
-	max-width: calc( 100dvw - 6rem );
+	width: calc( 100dvw - 6rem );
 	max-height: calc( 100dvh - 6rem );
 
 	overflow-x: none;
 	overflow-y: auto;
 
-	background-color: #0008;
-	border: none;
+	background-color: #000A;
+	border: solid 0.125rem #888;
 }
 
 /* PANEL__TITLE_BAR */
-.Ku01_GxStx_GaSta
+.Ku01_BzVa_GeBre
 {
-	display: grid;
+	display: flex;
 	place-items: center;
-	align-items: center;
+	text-align: center;
+	/* background-color: #FF0; */
 }
 
-/* PANEL_GUI_TOPIC ---------------------- */
+/* PANEL_GUI ---------------------- */
 .Ku01__HriNe
 {
 	position: relative;
@@ -152,37 +158,38 @@ PANELS
 	}
 }
 
-/* PANEL_GUI_TOPIC ---------------------- */
+/* PANEL_ALL_CHOICES ---------------------- */
 .Ku02__NzKwa
 {
 	border-radius: 1.5rem;
-	border: 0.125em solid #FFF;
 	margin: 0.0rem;
-	padding: 0.0rem;
 	background-color: #0008;
 
-	/* PANEL_GUI_TOPIC--WIDE */
+	/* PANEL_ALL_CHOICES--WIDE */
 	@media (min-aspect-ratio: 1/1)
 	{
+		padding: 0.0rem -0.125rem;
 		/* TL TR BR BL */
 		border-radius: 0.0rem 0.0rem 1.5rem 1.5rem;
 
 		border-left: solid 0.125rem #FFF;
 		border-right: solid 0.125rem #FFF;
-		border-top: none;
+
+		border-top: none 0.0 rem;
 		border-bottom: solid 0.125rem #FFF;
 	}
 
-	/* PANEL_GUI_TOPIC--TALL */
+	/* PANEL_ALL_CHOICES--TALL */
 	@media (max-aspect-ratio: 1/1)
 	{
-		border-left:none;
+		padding: 0.0rem;
 
 		/* TL TR BR BL */
-		border-radius: 0rem 1.5rem 1.5rem 0rem;
+		border-radius: 0.0rem 1.5rem 1.5rem 0.0rem;
 
 		border-left: none;
 		border-right: solid 0.125rem #FFF;
+
 		border-top: solid 0.125rem #FFF;
 		border-bottom: solid 0.125rem #FFF;
 	}
@@ -191,59 +198,49 @@ PANELS
 /* PANEL__MENU TABS --------------------------------- */
 .Ku03__HriNzVa
 {
+	background-color: #0000;
 	border-radius: 0.0rem;
 	padding: 0.0rem;
 	margin: 0.0rem;
-}
-/* PANEL__MENU TABS---WIDE */
-@media (min-aspect-ratio: 1/1)
-{
-	.Ku03__HriNzVa
+
+	/* PANEL__MENU TABS---WIDE */
+	@media (min-aspect-ratio: 1/1)
 	{
 		display: flex;
-		flex-wrap: no-wrap;
-		align-content: space-between;
-		justify-content: space-between;
-
-		min-width: 8.0rem;
-		min-height: 4.0rem;
-
-		margin: 0.0rem 3.0rem;
+		flex-wrap: nowrap;
+		place-items: stretch stretch;
+		min-height: 3.0rem;
 	}
-}
 
-/* PANEL__MENU TABS---TALL */
-@media (max-aspect-ratio: 1/1)
-{
-	.Ku03__HriNzVa
+	/* PANEL__MENU TABS---TALL */
+	@media (max-aspect-ratio: 1/1)
 	{
 		display: grid;
 		grid-template-columns: 100%;
 		grid-template-rows: 14%;
 
-		min-width: 8.0rem;
-		min-height: 16.0rem;
+		min-width: 6.0rem;
+		min-height: 14.0rem;
 	}
 }
 
 /* PANEL__TOPIC_CHOICES ----------------------------- */
-/* PANEL__TOPIC_CHOICES---WIDE */
-@media (min-aspect-ratio: 1/1)
+.Ku03_NeKu
 {
-	.Ku03_NeKu
+	/* PANEL__TOPIC_CHOICES---WIDE */
+	@media (min-aspect-ratio: 1/1)
 	{
 		display: grid;
-		grid-template-columns: 33% 33% 33%;
+		grid-template-columns: 50% 50%;
+		/* grid-template-columns: 33% 33% 33%; */
 	}
-}
-
-/* PANEL__TOPIC_CHOICES---TALL */
-@media (max-aspect-ratio: 1/1)
-{
-	.Ku03_NeKu
+	/* PANEL__TOPIC_CHOICES---TALL */
+	@media (max-aspect-ratio: 1/1)
 	{
-		display: grid;
-		grid-template-columns: 25% 75%;
+		display: block;
+
+		/* display: grid;
+		grid-template-columns: 50% 50%; */
 	}
 }
 
@@ -357,15 +354,11 @@ TEXT
 /* TEXT__TITLE_BAR */
 .BriDzVa
 {
-	font-size: 0.5rem;
+	margin: 0.0rem auto;
+	padding: 0.0rem;
 
-	display: inline-flex;
-	text-align:center;
 	/* PREVENT LINE WRAP */
 	white-space:nowrap;
-
-	/* DBG */
-	/* background-color: rgb( 255, 0, 0, 1. ); */
 }
 
 
@@ -389,6 +382,7 @@ TEXT
 .HriNzVa
 {
 	display: block;
+	flex-grow: 1;
 
 	padding: 0.0rem;
 	margin: 0.0rem;
@@ -397,15 +391,13 @@ TEXT
 	font-weight:bold;
 	transition: background .3s, color .3s;
 
-	color: #AAA8;
-	background-color: #6668;
+	color: #AAA;
+	background-color: #4448;
 }
 
 /* TEXT__MENU_HOVER */
 .HriNzVa:hover
 {
-	color: #FFF;
-	background-color: #8888;
 	font-size: 1.5rem;
 }
 
@@ -424,7 +416,6 @@ TEXT
 	{
 		width: 14.28%;
 		border-radius:1.5rem 1.5rem 0 0;
-
 		border: solid 0.125em #FFF;
 	}
 	.HriNzVa_Se
@@ -447,8 +438,6 @@ TEXT
 		border-right: none;
 	}
 }
-
-
 
 /* TEXT__CHOICE_BODY */
 .NeKuVa

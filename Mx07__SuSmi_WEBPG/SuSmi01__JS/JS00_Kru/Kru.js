@@ -1,5 +1,5 @@
-const BriDzSa__Da_vsg = "PUB_v0.184"; 
- const BriDzSa__Da_wuk = "184"; 
+const BriDzSa__Da_vsg = "PUB_v0.185"; 
+ const BriDzSa__Da_wuk = "185"; 
  const BriDz__Mx_KuTu_vsg = "https://powerourpeople.com/"; 
 
 //==============================================
@@ -1742,8 +1742,10 @@ async function KoDz__YaFz()
 	Hrz4_Bu__KwiYz__Fy();
 	// CULTURE
 	Hre1_Dru__BriYa();
-	// GUI
+	// GUI VALUES
 	HryMx01_KeMeKwi();
+	// GUI SELECT
+	Hrz4_Bu__ChyNeKu( 0 );
 
 	//@@@
 	// BOOT

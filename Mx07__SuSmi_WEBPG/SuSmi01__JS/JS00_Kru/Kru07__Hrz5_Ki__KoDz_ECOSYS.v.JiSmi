@@ -100,8 +100,10 @@ async function KoDz__YaFz()
 	Hrz4_Bu__KwiYz__Fy();
 	// CULTURE
 	Hre1_Dru__BriYa();
-	// GUI
+	// GUI VALUES
 	HryMx01_KeMeKwi();
+	// GUI SELECT
+	Hrz4_Bu__ChyNeKu( 0 );
 
 	//@@@
 	// BOOT
