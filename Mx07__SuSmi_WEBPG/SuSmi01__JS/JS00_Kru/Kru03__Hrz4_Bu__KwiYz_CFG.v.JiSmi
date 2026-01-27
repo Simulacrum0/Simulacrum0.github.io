@@ -337,16 +337,16 @@ async function Hre1_Dru__BriYa()
 
 		//&&&
 		// ADD BTN
-		const Kz_v = document.createElement( 'option' );
-		Kz_v.innerText = `${Ti_v.KuGwz} ${Ti_v.Va}`;
+		const Kz_l = document.createElement( 'option' );
+		Kz_l.innerText = `${Ti_v.KuGwz} ${Ti_v.Va}`;
 
 		// let JiTra_vbg = `Hre1_Dru__ChyKeDru( '${Ti_v.Vy}' );`;
-		// Kz_v.setAttribute( "onclick", JiTra_vbg );
+		// Kz_l.setAttribute( "onclick", JiTra_vbg );
 		// Kz_z.style.width=55;
-		Kz_v.className = 'HriNeTi WaDru_Ka';
-		Kz_v.value = Ti_v.Vy;
+		Kz_l.className = 'HriNeTi WaDru_Ka';
+		Kz_l.value = Ti_v.Vy;
 
-		TaKeDru_l.appendChild( Kz_v );
+		TaKeDru_l.appendChild( Kz_l );
 	});
 
 	//@@@
@@ -437,13 +437,13 @@ function Hrz4_Bu__TaKeDy__Fy()
 
 		//&&&
 		// ADD BTN
-		const Kz_v = document.createElement( 'option' );
-		Kz_v.innerText = `${Ti_v.Gwz} ${Ti_v.Va}`;
+		const Kz_l = document.createElement( 'option' );
+		Kz_l.innerText = `${Ti_v.Gwz} ${Ti_v.Va}`;
 
-		Kz_v.className = 'HriNeTi WaDru_Ka';
-		Kz_v.value = Ti_v.Va;
+		Kz_l.className = 'HriNeTi WaDru_Ka';
+		Kz_l.value = Ti_v.Va;
 
-		TaKeDy_l.appendChild( Kz_v );
+		TaKeDy_l.appendChild( Kz_l );
 	});
 }
 

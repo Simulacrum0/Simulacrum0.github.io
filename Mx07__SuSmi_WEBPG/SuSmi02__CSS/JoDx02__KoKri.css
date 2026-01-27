@@ -21,8 +21,8 @@ MxPo_Trx
 	/* border-box  WIDTH/HEIGHT ignore margin only */
 	box-sizing: border-box;
 	border-radius: 1.5rem;
-	margin: 0.25em;
-	padding: 0.25em;
+	margin: 0.25rem;
+	padding: 0.25rem;
 
 	font-size: 1.0rem;
 }
@@ -217,7 +217,7 @@ PANELS
 	{
 		display: grid;
 		grid-template-columns: 100%;
-		grid-template-rows: 14%;
+		grid-template-rows: 16.67%;
 
 		min-width: 6.0rem;
 		min-height: 14.0rem;
@@ -414,9 +414,9 @@ TEXT
 {
 	.HriNzVa
 	{
-		width: 14.28%;
+		width: 16.67%;
 		border-radius:1.5rem 1.5rem 0 0;
-		border: solid 0.125em #FFF;
+		border: solid 0.125rem #FFF;
 	}
 	.HriNzVa_Se
 	{
@@ -431,7 +431,7 @@ TEXT
 	{
 		width: 100%;
 		border-radius: 1.5rem 0 0 1.5rem;
-		border: solid 0.125em #FFF;
+		border: solid 0.125rem #FFF;
 	}
 	.HriNzVa_Se
 	{
@@ -440,21 +440,72 @@ TEXT
 }
 
 /* TEXT__ITEMS---------------------------------------------------- */
-/* TEXT__CHOICE_BODY */
-.NeKuVa
-{
-	text-align:left;
-	color: #000;
-	background-color: #FFF;
-}
 
-/* TEXT__FEATURE LABELS */
+/* TEXT__LABELS */
 .HriNeVa
 {
 	display: inline-flex;
 	text-align:left;
+	color: #FFF;
+	background-color: #0008;
+}
+
+/* TEXT__INDEX */
+.HriNeVx
+{
+	display: inline-flex;
+	text-align:left;
+	color: #888;
+	background-color: #0008;
+	margin: 0.0rem;
+	padding: 0.0rem;
+}
+
+/* TEXT__TYPING_INPUT */
+input[type=text], select
+{
+	display: inline-flex;
+	width: 12rem;
+
+	border-radius: 1.5rem;
+	border: 0.125rem solid #FFF;
 	color: #000;
-	background-color: #FFF;
+	background-color: #FFFF;
+}
+
+/* TEXT__NO_USE */
+.HriNe_TraHo
+{
+	color: #0008;
+	background-color: #8888;
+}
+
+/* TEXT__BTN */
+.HriNe_Tra
+{
+	display: inline-flex;
+	text-align:center;
+
+	border-radius: 1.5rem;
+	border: 0.125rem solid #FFF;
+
+	margin: 0.25rem;
+	padding: 0.25rem;
+
+	color: #FFF;
+	background-color: #6668;
+}
+
+/* TEXT__LAUNCH_BTN */
+.HriNe_TraKwi
+{
+	display: inline-flex;
+	text-align:center;
+	color: #FFF;
+	background-color: #0000;
+
+	margin: 0.25rem;
+	padding: 0.25rem;
 }
 
 /* TEXT__LIST ELEMENTS */
@@ -463,31 +514,24 @@ TEXT
 	display: inline-flex;
 	text-align:left;
 	color: #000;
-	background-color: #FFF;
+	background-color: #BBB8;
 }
 
-/* TEXT__BTN ELEMENTS */
-.HriNeTra
-{
-	display: inline-flex;
-	text-align:center;
-	color: #FFF;
-	background-color: #0000;
-}
-
-/* TEXT__PGRAF HEADER */
+/* TEXT__DOCUMENT HEADER */
 .KeDruBz
 {
 	display: inline-block;
+
 	text-align:center;
+
 	color: #FFF;
 	background-color: #000F;
 }
 
-/* TEXT__PGRAF BODY */
+/* TEXT__DOCUMENT BODY */
 .KeDruKa
 {
-	display: inline-flex;
+	display: block;
 	text-align:left;
 
 	margin: 1.0rem;
@@ -534,8 +578,85 @@ ELEMENTS
 	height: 6.0rem;
 
 	border-radius: 1.5rem;
-	border: 0.125em solid #FFF;
+	border: 0.125rem solid #FFF;
 }
+
+/* EMOJI SELECTOR */
+.NiJaPo_HryKu
+{
+	display: grid;
+	grid-template-columns: 8.0rem calc( 100% - 8.0rem);
+	place-items: stretch stretch;
+
+	width: 100%;
+	height: 8.0rem;
+
+	margin: 0.0rem;
+	padding: 0.0rem;
+
+	/* border-radius: 0.0rem;
+	border: 0.125rem solid #F00; */
+}
+
+/* AVATAR CURRENT */
+.NiJaPo_Fe
+{
+	display: block;
+	place-items: center center;
+	text-align: center;
+
+	font-size: 6.0rem;
+	width: 100%;
+	height: 8.0rem;
+
+	margin: 0.0rem;
+	padding: 0.0rem;
+
+	/* background-color: rgb( 192, 192, 32 );
+	border-radius: 0.0rem;
+	border: 0.125rem solid #888; */
+}
+
+/* EMOJI SELECTOR */
+.NiJaPo_NeKu
+{
+	display: inline-flex;
+	flex-wrap: wrap;
+	/* place-items: stretch stretch; */
+
+	width: 100%;
+	height: 8.0rem;
+
+	overflow-x: none;
+	overflow-y: scroll;
+
+	margin: 0.0rem;
+	padding: 0.0rem;
+
+	/* border-radius: 0.0rem;
+	border: 0.125rem solid #00F; */
+}
+/* EMOJI LIST */
+.NiJaPo_Va
+{
+	font-size: 2.0rem;
+	margin: 0.0rem;
+	padding: 0.0rem;
+	text-align: center;
+
+	background-color: #0000;
+	filter: grayscale( 85% );
+	/* background-color: rgb( 192, 32, 32 );
+	border-radius: 0.0rem;
+	border: 0.125rem solid #0F0; */
+}
+.NiJaPo_Va:Hover
+{
+	background-color: #FFF;
+	filter: grayscale( 0% );
+	transition: 1.0s;
+}
+
 
 /* BTN SUBMIT ===> LAUNCH BTN RED */
 input[type=submit]
@@ -550,25 +671,13 @@ input[type=submit]
 	border: 0.1rem solid #FFF;
 	background-color: rgb( 192, 32, 32 );
 
-	font-size: 1.25em;
+	font-size: 1.25rem;
 	text-align: center;
 }
 /* HOVER BG Po ==> GREEN */
 input[type=submit]:hover
 {
 	background-color: rgb( 32, 160, 32 );
-}
-
-/* TYPING INPUT_TXT */
-input[type=text], select
-{
-	display: inline-flex;
-	width: 12em;
-
-	border-radius: 1.5rem;
-	border: 0.125em solid #FFF;
-
-	background-color: #FFF8;
 }
 
 /*@@@@@@@@@@@@@@@

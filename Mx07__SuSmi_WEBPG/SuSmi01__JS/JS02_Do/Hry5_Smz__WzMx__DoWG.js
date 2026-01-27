@@ -1,4 +1,4 @@
-const DoWG__BriDzSa__Da_wuk = "187"; 
+const DoWG__BriDzSa__Da_wuk = "188"; 
 
 //==============================================
 //==============================================
@@ -1348,7 +1348,7 @@ async function DoWG__BriYa_SmzYz( Sa_l, FuYz_l )
 			// TRY AGAIN
 			? DoWG__BriYa_FuYz( Sa_l, FuYz_l )
 			// TOO many attempts or time elapsed, throw ERROR
-			: MoDzTrx( KoKeDru.TrxJy03__KaBzTrx__WG_vsg )
+			: MoDzTrx( KoSy__KeDru_l.TrxJy03__KaBzTrx__WG_vsg )
 		);
 
   	});
@@ -1722,7 +1722,7 @@ async function DoWG__BriYa_SmzYz( Sa_l, FuYz_l )
 	//-------------------------------------------------
 	// BUF
 	//-------------------------------------------------
-	
+
 		//@@@
 		// FLAGS
 		const TraTy_qk =
@@ -2008,8 +2008,8 @@ async function DoWG__BriYa_SmzYz( Sa_l, FuYz_l )
 	const YzGry_vsg = KaBxTy_v[ FuYz_l.YzVi_q ];
 	const YzKwx_wu = YzGry_vsg.indexOf( "^=" );
 
-	const YzVa_vsg = YzGry_vsg.substring( YzKwx_wu + 1);
-	const YzHx_vsg = YzGry_vsg.substring( 0, YzKwx_wu );
+	const YzVa_vsg = YzGry_vsg.substring( 0, YzKwx_wu );
+	const YzHx_vsg = YzGry_vsg.substring( YzKwx_wu + 1);
 
 	SmaSme( "[WG] READY CFG:", FuYz_l.YzVi_q, " @ ", YzVa_vsg, " = ", YzHx_vsg );
 
@@ -2039,7 +2039,7 @@ async function DoWG__BriYa_FuYz( Sa_l, FuYz_l )
 
 	//@@@
 	// ELSE ERR
-	MoDzTrx( KoKeDru.TrxJy03__KaBzTrx__WG_vsg );
+	MoDzTrx( KoSy__KeDru_l.TrxJy03__KaBzTrx__WG_vsg );
 	return null;
 }
 

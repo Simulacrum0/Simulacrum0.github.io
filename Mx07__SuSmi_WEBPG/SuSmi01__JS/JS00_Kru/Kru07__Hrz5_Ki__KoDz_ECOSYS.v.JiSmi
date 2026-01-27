@@ -286,7 +286,7 @@ function KoDz__Ye( Gi )
 		let GiFe_vsg = new Date();
 		Module.Sma__KeMe_Bz
 		(
-			KoKeDru.BriDz_VaSy_vsg + " [ " + BriDzSa__Da_vsg + " ]"
+			KoSy__KeDru_l.BriDz_VaSy_vsg + " [ " + BriDzSa__Da_vsg + " ]"
 			+ " Mode: " + ( window.Ko.Hx_SyDx_vsg ? window.Ko.Hx_SyDx_vsg : "???" )
 			+ " @ " + GiFe_vsg.getHours().toString().padStart(2,"0") + ":" + GiFe_vsg.getMinutes().toString().padStart(2,"0") + ":"  + GiFe_vsg.getSeconds().toString().padStart(2,"0")
 		);
@@ -299,7 +299,7 @@ function KoDz__Ye( Gi )
 		Module.Sma__KeMe_Bo
 		(
 			" "
-			// KoKeDru.BriDz_VaSy_vsg
+			// KoSy__KeDru_l.BriDz_VaSy_vsg
 			// + " YeFo: " + Ko.YeFo_wu
 			+ " RES[ " + MxPo_Bri_l.width + "px, " + MxPo_Bri_l.height + "px ]"
 			+ " DPR: " + window.devicePixelRatio.toFixed(1)

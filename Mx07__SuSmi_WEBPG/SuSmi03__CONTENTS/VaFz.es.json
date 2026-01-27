@@ -13,13 +13,15 @@
 		, "Ne05_Grx_vsg": "📜LEGAL"
 
 
-		, "Ne00_KeDy00__NiKeDy_vsg": "👥Coger Persona"
-		, "Ne00_KeDy01__VaTre_vsg": "🗣️ Nombre"
-		, "Ne00_KeDy02__TraChe_vsg": "🛟Usa Seguridad"
-		, "Ne00_KeDy03__MaKz_vsg": "🔒Pregunta-Lock-o"
-		, "Ne00_KeDy04__SmzKz_vsg": "🗝️Contesta-Llave"
-		, "Ne00_KeDy05__ChaKeDy_vsg": "👤Dar un Persona Nuevo"
-		, "Ne00_KeDy06__Chi_vsg": "🗑️Tomar esto Persona"
+		, "Ne00_KeDy00__NiKeDru_vsg": "Coger Lengua"
+		, "Ne00_KeDy01__NiKeDy_vsg": "Coger Persona"
+		, "Ne00_KeDy02__VaTre_vsg": "Nombre"
+		, "Ne00_KeDy03__NiJaPo_vsg": "Pictura"
+		, "Ne00_KeDy04__ChaKeDy_vsg": "👤Dar un Persona Nuevo"
+		, "Ne00_KeDy05__Chi_vsg": "🗑️Tomar esto Persona"
+		, "Ne00_KeDy06__TraChe_vsg": "Usa Seguridad"
+		, "Ne00_KeDy07__MaKz_vsg": "🔒Pregunta-Lock-o"
+		, "Ne00_KeDy08__SmzKz_vsg": "🗝️Contesta-Llave"
 
 
 		, "Ne01_Ko00__YzYu": "♻️Reset ALL Settings-o"
@@ -33,7 +35,7 @@
 		, "Ne02_Hru01__MxPeVo_vsg": "🔊Speakers"
 		, "Ne02_Hru02__MzPe_vsg": "🎙️Mic-o"
 		, "Ne02_Hru03__YoHo_vsg": "♾️Always Audible-o"
-		, "Ne02_Hru04__NiSmz_vsg": "📊Method-o"
+		, "Ne02_Hru04__SmzYz_vsg": "📊Method-o"
 		, "Ne02_Hru05__GyBraHi_vsg": "📈Quality-o"
 
 

@@ -14,47 +14,52 @@
 		, "Ne05_Grx_vsg": "📜LEGAL"
 
 
-		, "Ne00_KeDy00__NiKeDy_vsg": "👥Select User"
-		, "Ne00_KeDy01__VaTre_vsg": "🗣️ Name"
-		, "Ne00_KeDy02__TraChe_vsg": "🛟Use security"
-		, "Ne00_KeDy03__MaKz_vsg": "🔒Question-Lock"
-		, "Ne00_KeDy04__SmzKz_vsg": "🗝️Answer-Key"
-		, "Ne00_KeDy05__ChaKeDy_vsg": "👤Add New User"
-		, "Ne00_KeDy06__Chi_vsg": "🗑️Remove Current User"
-		, "Ne00_KeDy07__NiKeDru_vsg": "🌐Select Language"
+		, "Ne00_KeDy00__NiKeDru_vsg": "Select Language"
+		, "Ne00_KeDy01__NiKeDy_vsg": "Select User"
+		, "Ne00_KeDy02__VaTre_vsg": " Name"
+		, "Ne00_KeDy03__NiJaPo_vsg": "Avatar"
+		, "Ne00_KeDy04__ChaKeDy_vsg": "👤Add New User"
+		, "Ne00_KeDy05__Chi_vsg": "🗑️Remove Current User"
+		, "Ne00_KeDy06__TraChe_vsg": "Use security"
+		, "Ne00_KeDy07__MaKz_vsg": "🔒Question-Lock"
+		, "Ne00_KeDy08__SmzKz_vsg": "🗝️Answer-Key"
 
 
 		, "Ne01_Ko00__YzYu": "♻️Reset ALL Settings"
 		, "Ne01_Ko01__HraBru_Tra_vsg": "🛜Network Active"
 		, "Ne01_Ko02__SpeVu_vsg": "🔋Power Use"
 		, "Ne01_Ko03__MzKu_vsg": "📍Allow GPS Location"
-		, "Ne01_Ko04__KoDz_YoHo_vsg": "♾️Always Active (Background Work)"
+		, "Ne01_Ko04__KoDz_YoHo_vsg": "Always Active (Background Work)"
 
 
-		, "Ne02_Hru00__MxPeHo_vsg": "🔇Mute"
-		, "Ne02_Hru01__MxPeVo_vsg": "🔊Speakers"
-		, "Ne02_Hru02__MzPe_vsg": "🎙️Mic"
+		, "Ne02_Hru00__MxPeHo_vsg": "Mute"
+		, "Ne02_Hru01__MxPeVo_vsg": "Speakers"
+		, "Ne02_Hru02__MzPe_vsg": "Mic"
 		, "Ne02_Hru03__YoHo_vsg": "♾️Always Audible"
-		, "Ne02_Hru04__NiSmz_vsg": "📊Method"
+		, "Ne02_Hru04__SmzYz_vsg": "📊Method"
 		, "Ne02_Hru05__GyBraHi_vsg": "📈Quality"
 
 
-		, "Ne03_Hry00__KeDruGy_vsg": "📄Legible Size"
-		, "Ne03_Hry01__MzPoGry_vsg": "🖥️Fullscreen"
-		, "Ne03_Hry02__HriKe_vsg": "🥽XR"
-		, "Ne03_Hry03__MzPo_vsg": "📷Camera"
-		, "Ne03_Hry04__SmzYz_vsg": "📊Method"
-		, "Ne03_Hry05__GyBraHi_vsg": "📈Quality"
-		, "Ne03_Hry06__TyGy_vsg": "🧱Detail"
-		, "Ne03_Hry07__PoGy_vsg": "🎨HDR"
+		, "Ne03_Hry00__KeDruGy_vsg": "Legible Size"
+		, "Ne03_Hry01__MzPoGry_vsg": "Fullscreen"
+		, "Ne03_Hry02__HriKe_vsg": "XR"
+		, "Ne03_Hry03__MzPo_vsg": "Camera"
+		, "Ne03_Hry04__SmzYz_vsg": "Method"
+		, "Ne03_Hry05__GyBraHi_vsg": "Quality"
+		, "Ne03_Hry06__TyGy_vsg": "Detail"
+		, "Ne03_Hry07__PoGy_vsg": "HDR"
 
 
 		, "Ne04_Hx00__Bz_vsg": "About MicroCosm"
-		, "Ne04_Hx01__Ka_vsg": "- EverybodyWins: No Shortage of Solutions, 100% People possible to create, use, & monetize compute powers for solutions - YourChoice: Would you Rather live in an Everyone can monetize solutions for actual 'value' or continue in our Walled Garden, Engineer-Only, Software-Failure built world.- Try_All_Tek, Model All Possibilities: Problems that more Money, more Talent, more Time, and more Code doesn’t solve.- Transfer: Migration of Solutions, Ecosystem Investments Preserved - Subjective_Truth_Has_Value: Knowledge Rep/ Meaning Coordinates => Custom, Not One Size Fits All"
+		, "Ne04_Hx01__Ka00_vsg": "EverybodyWins: No Shortage of Solutions, 100% People possible to create, use, & monetize compute powers for solutions"
+		, "Ne04_Hx01__Ka01_vsg":" YourChoice: Would you Rather live in an Everyone can monetize solutions for actual 'value' or continue in our Walled Garden, Engineer-Only, Software-Failure built world. Try_All_Tek, Model All Possibilities: Problems that more Money, more Talent, more Time, and more Code doesn’t solve."
+		, "Ne04_Hx01__Ka02_vsg": " Transfer: Migration of Solutions, Ecosystem Investments Preserved - Subjective_Truth_Has_Value: Knowledge Rep/ Meaning Coordinates => Custom, Not One Size Fits All"
 
 
-		, "Ne05_Grx00__Bz_vsg": "LEGAL"
-		, "Ne05_Grx01__Ka_vsg": "Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. "
+		, "Ne05_Grx00__Bz_vsg": "Legal, Copyrights, & Credits"
+		, "Ne05_Grx01__Ka00_vsg": "Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. "
+		, "Ne05_Grx01__Ka01_vsg": "Copyright Notices go here"
+		, "Ne05_Grx01__Ka02_vsg": "Credit Notices go here"
 
 	}
 

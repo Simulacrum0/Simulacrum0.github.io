@@ -16,7 +16,7 @@ async function Hra6_Ku__ToKz_My__vJSON( ChaKuTu_vsg, ToKzVa_vsg )
 		//SmaSme( ToKz_v );
 		return ToKz_v;
 	}
-	catch ( e ) { MoDzTrx( KoKeDru.TrxJy__SuKz_GriHo_vsg + " @ " + ToKzVa_vsg + " --> " + e ); }
+	catch ( e ) { MoDzTrx( KoSy__KeDru_l.TrxJy__SuKz_GriHo_vsg + " @ " + ToKzVa_vsg + " --> " + e ); }
 	return null;
 };
 
@@ -34,7 +34,7 @@ async function Hra6_Ku__ToKz_My__vsg( ChaKuTu_vsg, ToKzVa_vsg )
 		// SmaSme( ToKz_v );
 		return ToKz_v;
 	}
-	catch ( e ) { MoDzTrx( KoKeDru.TrxJy__SuKz_GriHo_vsg + " @ " + ToKzVa_vsg + " --> " + e ); }
+	catch ( e ) { MoDzTrx( KoSy__KeDru_l.TrxJy__SuKz_GriHo_vsg + " @ " + ToKzVa_vsg + " --> " + e ); }
 	return null;
 };
 
@@ -51,7 +51,7 @@ async function Hra6_Ku__ToKz_My__vBLOB( ChaKuTu_vsg, ToKzVa_vsg )
 		const ToKz_v = await Smx_k.blob();
 		return ToKz_v;
 	}
-	catch ( e ) { MoDzTrx( KoKeDru.TrxJy__SuKz_GriHo_vsg + " @ " + ToKzVa_vsg + " --> " + e ); }
+	catch ( e ) { MoDzTrx( KoSy__KeDru_l.TrxJy__SuKz_GriHo_vsg + " @ " + ToKzVa_vsg + " --> " + e ); }
 	return null;
 };
 
@@ -81,7 +81,7 @@ async function Hra6_Ku__ToKz_My__vBUF( ChaKuTu_vsg, ToKzVa_vsg )
 		const ToKz_v = await Smx_k.arrayBuffer();
 		return ToKz_v;
 	}
-	catch ( e ) { MoDzTrx( KoKeDru.TrxJy__SuKz_GriHo_vsg + " @ " + ToKzVa_vsg + " --> " + e ); }
+	catch ( e ) { MoDzTrx( KoSy__KeDru_l.TrxJy__SuKz_GriHo_vsg + " @ " + ToKzVa_vsg + " --> " + e ); }
 	return null;
 };
 
