@@ -117,8 +117,8 @@ function Hrz4_Bu__KwiYz__ChyDe()
 {
 	//@@@
 	// GOVERN
-	Ko.KwiYz_l.Ne01_Ko04__KoDz_YoHo_y_y = true;
-	//Ko.KwiYz_l.Ne01_Ko04__KoDz_YoHo_y_y = false;
+	Ko.KwiYz_l.Ne01_Ko04__KoDz_YoHo_y = true;
+	//Ko.KwiYz_l.Ne01_Ko04__KoDz_YoHo_y = false;
 
 
 	//@@@
@@ -127,10 +127,11 @@ function Hrz4_Bu__KwiYz__ChyDe()
 	Ko.KwiYz_l.KeDy_vsg = "Guest";
 	Ko.KwiYz_l.KeDru_vsg = navigator.language;
 
+	Ko.KwiYz_l.Ne00_KeDy06__TraChe_y = false;
 
 	//@@@
 	// TEMPORAL[ 2 ]
-	Ko.KwiYz_l.Ne02_Hru00__MxPeHoVu_q = true;
+	Ko.KwiYz_l.Ne02_Hru00__MxPeHo_y = true;
 	Ko.KwiYz_l.Ne02_Hru01__MxPeVu_sa = 1.0;
 
 	//@@@
@@ -138,12 +139,12 @@ function Hrz4_Bu__KwiYz__ChyDe()
 	Ko.KwiYz_l.Ne03_Hry02__HriKe_y = false;
 
 	// 'De'
-	Ko.KwiYz_l.Ne03_Hry04__SmzYz_q = 2;
-	Ko.KwiYz_l.Ne03_Hry05__GyBraHi_bu = 4;
+	Ko.KwiYz_l.Ne03_Hry06__SmzYz_q = 2;
+	Ko.KwiYz_l.Ne03_Hry07__GyBraHi_bu = 4;
 
-	//		, "Ne03_Hry04__SmzYz_vsg": "📊Method"
+	//		, "Ne03_Hry06__SmzYz_vsg": "📊Method"
 	//, "": "📈Quality"
-	//, "Ne03_Hry06__TyGy_vsg": "🧱Detail"
+	//, "Ne03_Hry08__TyGy_vsg": "🧱Detail"
 
 	//@@@
 	// STORE & LOG
@@ -310,12 +311,12 @@ async function Hre1_Dru__ChyKeDru( KeKuMi_vbg )
 //-------------------------------------------------
 // DETECT CHANGES in CULTURE
 //-------------------------------------------------
-function JeKeDru_JeChy()
+function Ne00_KeDy00__NiKeDru__JeChy()
 {
-	const TaKeDru_l = document.getElementById( 'TaKeDru' );
-	//SmaSme( "CHG!", TaKeDru_l );
+	const Ne00_KeDy00__NiKeDru__Ta_l_l = document.getElementById( 'Ne00_KeDy00__NiKeDru__Ta_l' );
+	//SmaSme( "CHG!", Ne00_KeDy00__NiKeDru__Ta_l_l );
 
-	Hre1_Dru__ChyKeDru( TaKeDru_l.value );
+	Hre1_Dru__ChyKeDru( Ne00_KeDy00__NiKeDru__Ta_l_l.value );
 }
 
 
@@ -326,10 +327,10 @@ async function Hre1_Dru__BriYa()
 {
 	//@@@
 	// FILL AVAIL LANG ENTRIES
-	const TaKeDru_l = document.getElementById( 'TaKeDru' );
+	const Ne00_KeDy00__NiKeDru__Ta_l_l = document.getElementById( 'Ne00_KeDy00__NiKeDru__Ta_l' );
 
 	// Clear List
-	Hri3_Ne__Ta_ChyStz( TaKeDru_l );
+	Hri3_Ne__Ta_ChyStz( Ne00_KeDy00__NiKeDru__Ta_l_l );
 	Hre1_Dru__Gra_v.forEach( function ( Ti_v, Vx_wu )
 	{
 		//
@@ -346,12 +347,12 @@ async function Hre1_Dru__BriYa()
 		Kz_l.className = 'HriNeTi WaDru_Ka';
 		Kz_l.value = Ti_v.Vy;
 
-		TaKeDru_l.appendChild( Kz_l );
+		Ne00_KeDy00__NiKeDru__Ta_l_l.appendChild( Kz_l );
 	});
 
 	//@@@
 	// SELECT DEFAULT
-	TaKeDru_l.selectedIndex = Ko.KwiYz_l.KeDru_wu;
+	Ne00_KeDy00__NiKeDru__Ta_l_l.selectedIndex = Ko.KwiYz_l.KeDru_wu;
 	Hre1_Dru__ChyKeDru( Ko.KwiYz_l.KeDru_vsg );
 }
 
@@ -362,9 +363,9 @@ async function Hre1_Dru__BriYa()
 //-------------------------------------------------
 // CHG USER
 //-------------------------------------------------
-function JeKeDy_JeChy()
+function Ne00_KeDy01__NiKeDy__JeChy()
 {
-	const TaKeDy_l = document.getElementById( 'TaKeDy' );
+	const TaKeDy_l = document.getElementById( 'Ne00_KeDy01__NiKeDy__Ta_l' );
 
 	if( TaKeDy_l.selectedIndex >= 0 )
 	{
@@ -395,17 +396,33 @@ function JeKeDy_JeChy()
 //-------------------------------------------------
 // ERASE USER LAUNCH CFGs
 //-------------------------------------------------
-function Hrz4_Bu__TaKeDy__Chi()
+function Ne00_KeDy05__Chi_Tra()
 {
 	// localStorage.removeItem(  );
 
+}
 
+//-------------------------------------------------
+// ADD USER
+//-------------------------------------------------
+function Ne00_KeDy04__Cha_Tra()
+{
+
+}
+
+//-------------------------------------------------
+// USR_AVATAR__EDIT
+//-------------------------------------------------
+function KeDy__TreSaPy( e )
+{
+	const SaPy_vksg = SaPy_vvsg[ e ];
+	document.getElementById( "Ne00_KeDy03__NiJaPo_q" ).innerText = SaPy_vksg;
 }
 
 //-------------------------------------------------
 // DEFAULTS ALL USER LAUNCH CFGs
 //-------------------------------------------------
-function Hrz4_Bu__TaKeDy__ChyDe()
+function Ne01_Ko00__YzYu_Tra()
 {
 	localStorage.clear();
 	//
@@ -420,7 +437,7 @@ function Hrz4_Bu__TaKeDy__Fy()
 
 	//@@@
 	// FILE AVAIL USER ENTRIES
-	const TaKeDy_l = document.getElementById( 'TaKeDy' );
+	const TaKeDy_l = document.getElementById( 'Ne00_KeDy01__NiKeDy__Ta_l' );
 	Hri3_Ne__Ta_ChyStz( TaKeDy_l );
 
 	SaNo__TaKeDy_l =

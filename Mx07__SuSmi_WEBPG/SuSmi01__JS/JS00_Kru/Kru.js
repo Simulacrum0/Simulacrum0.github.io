@@ -1,5 +1,5 @@
-const BriDzSa__Da_vsg = "PUB_v0.188"; 
- const BriDzSa__Da_wuk = "188"; 
+const BriDzSa__Da_vsg = "PUB_v0.189"; 
+ const BriDzSa__Da_wuk = "189"; 
  const BriDz__Mx_KuTu_vsg = "https://powerourpeople.com/"; 
 
 //==============================================
@@ -291,6 +291,23 @@ document.addEventListener('readystatechange', function()
 	if (document.readyState === 'complete')
 	{
 		SmaSme( "[LAUNCH] Web_DOM Fully_Loaded" );
+
+		//@@@
+		// AVATAR PICKER
+		const NiJaPo__Ta_l = document.getElementById("Ne00_KeDy03__NiJaPo__Ta_l");
+		Hri3_Ne__Ta_ChyStz( NiJaPo__Ta_l );
+		for( let e = 0; e< SaPy_vvsg.length; e++ )
+		{
+			//&&&
+			// ADD BTN
+
+			const Kz_l = document.createElement( 'span' );
+			Kz_l.className = 'NiJaPo_Va';
+			Kz_l.onclick = function() { KeDy__TreSaPy( e ); }
+
+			Kz_l.innerText = SaPy_vvsg[ e ];
+			NiJaPo__Ta_l.appendChild( Kz_l );
+		}
 	}
 });
 
@@ -630,8 +647,8 @@ function Hrz4_Bu__KwiYz__ChyDe()
 {
 	//@@@
 	// GOVERN
-	Ko.KwiYz_l.Ne01_Ko04__KoDz_YoHo_y_y = true;
-	//Ko.KwiYz_l.Ne01_Ko04__KoDz_YoHo_y_y = false;
+	Ko.KwiYz_l.Ne01_Ko04__KoDz_YoHo_y = true;
+	//Ko.KwiYz_l.Ne01_Ko04__KoDz_YoHo_y = false;
 
 
 	//@@@
@@ -640,10 +657,11 @@ function Hrz4_Bu__KwiYz__ChyDe()
 	Ko.KwiYz_l.KeDy_vsg = "Guest";
 	Ko.KwiYz_l.KeDru_vsg = navigator.language;
 
+	Ko.KwiYz_l.Ne00_KeDy06__TraChe_y = false;
 
 	//@@@
 	// TEMPORAL[ 2 ]
-	Ko.KwiYz_l.Ne02_Hru00__MxPeHoVu_q = true;
+	Ko.KwiYz_l.Ne02_Hru00__MxPeHo_y = true;
 	Ko.KwiYz_l.Ne02_Hru01__MxPeVu_sa = 1.0;
 
 	//@@@
@@ -651,12 +669,12 @@ function Hrz4_Bu__KwiYz__ChyDe()
 	Ko.KwiYz_l.Ne03_Hry02__HriKe_y = false;
 
 	// 'De'
-	Ko.KwiYz_l.Ne03_Hry04__SmzYz_q = 2;
-	Ko.KwiYz_l.Ne03_Hry05__GyBraHi_bu = 4;
+	Ko.KwiYz_l.Ne03_Hry06__SmzYz_q = 2;
+	Ko.KwiYz_l.Ne03_Hry07__GyBraHi_bu = 4;
 
-	//		, "Ne03_Hry04__SmzYz_vsg": "📊Method"
+	//		, "Ne03_Hry06__SmzYz_vsg": "📊Method"
 	//, "": "📈Quality"
-	//, "Ne03_Hry06__TyGy_vsg": "🧱Detail"
+	//, "Ne03_Hry08__TyGy_vsg": "🧱Detail"
 
 	//@@@
 	// STORE & LOG
@@ -823,12 +841,12 @@ async function Hre1_Dru__ChyKeDru( KeKuMi_vbg )
 //-------------------------------------------------
 // DETECT CHANGES in CULTURE
 //-------------------------------------------------
-function JeKeDru_JeChy()
+function Ne00_KeDy00__NiKeDru__JeChy()
 {
-	const TaKeDru_l = document.getElementById( 'TaKeDru' );
-	//SmaSme( "CHG!", TaKeDru_l );
+	const Ne00_KeDy00__NiKeDru__Ta_l_l = document.getElementById( 'Ne00_KeDy00__NiKeDru__Ta_l' );
+	//SmaSme( "CHG!", Ne00_KeDy00__NiKeDru__Ta_l_l );
 
-	Hre1_Dru__ChyKeDru( TaKeDru_l.value );
+	Hre1_Dru__ChyKeDru( Ne00_KeDy00__NiKeDru__Ta_l_l.value );
 }
 
 
@@ -839,10 +857,10 @@ async function Hre1_Dru__BriYa()
 {
 	//@@@
 	// FILL AVAIL LANG ENTRIES
-	const TaKeDru_l = document.getElementById( 'TaKeDru' );
+	const Ne00_KeDy00__NiKeDru__Ta_l_l = document.getElementById( 'Ne00_KeDy00__NiKeDru__Ta_l' );
 
 	// Clear List
-	Hri3_Ne__Ta_ChyStz( TaKeDru_l );
+	Hri3_Ne__Ta_ChyStz( Ne00_KeDy00__NiKeDru__Ta_l_l );
 	Hre1_Dru__Gra_v.forEach( function ( Ti_v, Vx_wu )
 	{
 		//
@@ -859,12 +877,12 @@ async function Hre1_Dru__BriYa()
 		Kz_l.className = 'HriNeTi WaDru_Ka';
 		Kz_l.value = Ti_v.Vy;
 
-		TaKeDru_l.appendChild( Kz_l );
+		Ne00_KeDy00__NiKeDru__Ta_l_l.appendChild( Kz_l );
 	});
 
 	//@@@
 	// SELECT DEFAULT
-	TaKeDru_l.selectedIndex = Ko.KwiYz_l.KeDru_wu;
+	Ne00_KeDy00__NiKeDru__Ta_l_l.selectedIndex = Ko.KwiYz_l.KeDru_wu;
 	Hre1_Dru__ChyKeDru( Ko.KwiYz_l.KeDru_vsg );
 }
 
@@ -875,9 +893,9 @@ async function Hre1_Dru__BriYa()
 //-------------------------------------------------
 // CHG USER
 //-------------------------------------------------
-function JeKeDy_JeChy()
+function Ne00_KeDy01__NiKeDy__JeChy()
 {
-	const TaKeDy_l = document.getElementById( 'TaKeDy' );
+	const TaKeDy_l = document.getElementById( 'Ne00_KeDy01__NiKeDy__Ta_l' );
 
 	if( TaKeDy_l.selectedIndex >= 0 )
 	{
@@ -908,17 +926,33 @@ function JeKeDy_JeChy()
 //-------------------------------------------------
 // ERASE USER LAUNCH CFGs
 //-------------------------------------------------
-function Hrz4_Bu__TaKeDy__Chi()
+function Ne00_KeDy05__Chi_Tra()
 {
 	// localStorage.removeItem(  );
 
+}
 
+//-------------------------------------------------
+// ADD USER
+//-------------------------------------------------
+function Ne00_KeDy04__Cha_Tra()
+{
+
+}
+
+//-------------------------------------------------
+// USR_AVATAR__EDIT
+//-------------------------------------------------
+function KeDy__TreSaPy( e )
+{
+	const SaPy_vksg = SaPy_vvsg[ e ];
+	document.getElementById( "Ne00_KeDy03__NiJaPo_q" ).innerText = SaPy_vksg;
 }
 
 //-------------------------------------------------
 // DEFAULTS ALL USER LAUNCH CFGs
 //-------------------------------------------------
-function Hrz4_Bu__TaKeDy__ChyDe()
+function Ne01_Ko00__YzYu_Tra()
 {
 	localStorage.clear();
 	//
@@ -933,7 +967,7 @@ function Hrz4_Bu__TaKeDy__Fy()
 
 	//@@@
 	// FILE AVAIL USER ENTRIES
-	const TaKeDy_l = document.getElementById( 'TaKeDy' );
+	const TaKeDy_l = document.getElementById( 'Ne00_KeDy01__NiKeDy__Ta_l' );
 	Hri3_Ne__Ta_ChyStz( TaKeDy_l );
 
 	SaNo__TaKeDy_l =
@@ -966,6 +1000,209 @@ function Hrz4_Bu__TaKeDy__Fy()
 //==============================================
 // GUI ELEMENTS
 //==============================================
+
+
+
+//==============================================
+// GUI ELEM USER UNLOCK/LOCK
+//==============================================
+function KoKwiYz_KeDy__CheChy_TraHo( Vy_vsg, TraChe_yk )
+{
+	let e = document.getElementById( Vy_vsg );
+	// SmaSme( "CheChy: ", e.className );
+	if( TraChe_yk )
+	{
+		e.disabled = true;
+		e.classList.add( "HriNe_TraHo" );
+	}
+	else
+	{
+		e.disabled = false;
+		e.classList.remove( "HriNe_TraHo" );
+	}
+}
+
+function KoKwiYz_KeDy__CheChy_HryHo( Vy_vsg, TraChe_yk )
+{
+	let e = document.getElementById( Vy_vsg );
+	// SmaSme( "CheChy: ", e.className );
+	if( TraChe_yk )
+	{
+		e.disabled = true;
+		e.classList.add( "HriNe_HryHo" );
+	}
+	else
+	{
+		e.disabled = false;
+		e.classList.remove( "HriNe_HryHo" );
+	}
+}
+
+//==============================================
+// CFG_LOAD
+// WRT_GUI_w_STOR_DATA
+//==============================================
+function KoKwiYz_My()
+{
+	//---------------------------------
+	// CFG LOAD as GUI PREFS
+	//---------------------------------
+	SmaSme( "CFG_LOAD" );
+
+	//---------------------------------
+	// Ne00__WHO
+	//---------------------------------
+
+	//@@@
+	// , "Ne00_KeDy00__NiKeDru_vsg": "Select Language"
+	// , "Ne00_KeDy01__NiKeDy_vsg": "Select User"
+	// , "Ne00_KeDy02__VaTre_vsg": " Name"
+	// , "Ne00_KeDy03__NiJaPo_vsg": "Avatar"
+
+	const TaKeDy_l = document.getElementById( "Ne00_KeDy01__NiKeDy__Ta_l" );
+	TaKeDy_l.selectedIndex = Ko.KwiYz__KeDy_wu;
+
+
+	// SET AVATAR;
+	document.getElementById( "Ne00_KeDy03__NiJaPo_q" ).innerText = SaPy_vvsg[ 41 ];
+
+	// Use security
+	const TraChe_yk = Ko.KwiYz_l.Ne00_KeDy06__TraChe_y;
+	document.getElementById( "Ne00_KeDy06__TraChe_y" ).checked = TraChe_yk;
+
+	SmaSme( "TraChe", TraChe_yk );
+
+
+	//@@@
+	// USER LOCK
+
+	KoKwiYz_KeDy__CheChy_HryHo( "BriDz02_TraKwi_vsg", TraChe_yk );
+
+	//&&&
+	// Panels
+	KoKwiYz_KeDy__CheChy_HryHo( "Ne01_Ko_vsg", TraChe_yk );
+	KoKwiYz_KeDy__CheChy_HryHo( "Ne02_Hru_vsg", TraChe_yk );
+	KoKwiYz_KeDy__CheChy_HryHo( "Ne03_Hry_vsg", TraChe_yk );
+	KoKwiYz_KeDy__CheChy_HryHo( "Ne04_Hx_vsg", TraChe_yk );
+	KoKwiYz_KeDy__CheChy_HryHo( "Ne05_Grx_vsg", TraChe_yk );
+
+	//&&&
+	// Name
+	KoKwiYz_KeDy__CheChy_TraHo( "Ne00_KeDy02__VaTre_vsg", TraChe_yk );
+	KoKwiYz_KeDy__CheChy_TraHo( "Ne00_KeDy02__VaTre_Sma_vsg", TraChe_yk );
+
+	//&&&
+	// Avatar
+	KoKwiYz_KeDy__CheChy_TraHo( "Ne00_KeDy03__NiJaPo_vsg", TraChe_yk );
+	KoKwiYz_KeDy__CheChy_TraHo( "Ne00_KeDy03__NiJaPo_q", TraChe_yk );
+	KoKwiYz_KeDy__CheChy_HryHo( "Ne00_KeDy03__NiJaPo__Ta_l", TraChe_yk );
+
+	//&&&
+	// Question-Lock
+	KoKwiYz_KeDy__CheChy_TraHo( "Ne00_KeDy07__MaKz_vsg", TraChe_yk );
+	KoKwiYz_KeDy__CheChy_TraHo( "Ne00_KeDy07__MaKz__Sma_vsg", TraChe_yk );
+
+	// Answer-Key
+	KoKwiYz_KeDy__CheChy_TraHo( "Ne00_KeDy08__SmzKz_vsg", TraChe_yk );
+	// SmaSme( "ANSER: ", document.getElementById("Ne00_KeDy08__SmzKz__Sma_vsg").value );
+
+
+	//---------------------------------
+	// Ne01__NODE
+	//---------------------------------
+	//@@@
+	// Ne01_Ko00__YzYu_vsg BTN
+	// Ne01_Ko01__HraBru_Tra_vsg
+	document.getElementById( "Ne01_Ko01__HraBru_Tra_y" ).value = Ko.KwiYz_l.Ne01_Ko01__HraBru_Tra_y;
+	// Ne01_Ko02__SpeVu_vsg
+	document.getElementById( "Ne01_Ko02__SpeVu_y" ).value = Ko.KwiYz_l.Ne01_Ko02__SpeVu_y;
+	// Ne01_Ko03__MzKu_vsg
+	document.getElementById( "Ne01_Ko03__MzKu_y" ).value = Ko.KwiYz_l.Ne01_Ko03__MzKu_y;
+	// Ne01_Ko04__KoDz_YoHo_y
+	document.getElementById( "Ne01_Ko04__KoDz_YoHo_y" ).value = Ko.KwiYz_l.Ne01_Ko04__KoDz_YoHo_y;
+
+
+	//---------------------------------
+	// Ne02__AUDIO
+	//---------------------------------
+	//@@@
+	// Ne02_Hru00__MxPeHo_y
+	document.getElementById( "Ne02_Hru00__MxPeHo_y" ).value = Ko.KwiYz_l.Ne02_Hru00__MxPeHo_y;
+	// Ne02_Hru01__MxPeVo_ba
+	document.getElementById( "Ne02_Hru01__MxPeVo_ba" ).value = Ko.KwiYz_l.Ne02_Hru01__MxPeVo_ba;
+	// , "Ne02_Hru02__MzPe_vsg": "Mic"
+	// , "Ne02_Hru03__YoHo_vsg": "♾️Always Audible"
+	// , "Ne02_Hru04__SmzYz_vsg": "📊Method"
+	// , "Ne02_Hru05__GyBraHi_vsg": "📈Quality"
+
+	//---------------------------------
+	// Ne03__VISUAL
+	//---------------------------------
+
+	//@@@
+	// , "Ne03_Hry00__KeDruGy_vsg": "Legible Size"
+	// , "Ne03_Hry01__MzPo_vsg": "Camera"
+	document.getElementById( "Ne03_Hry02__HriKe_y" ).checked = Ko.KwiYz_l.Ne03_Hry02__HriKe_y;
+	// , "Ne03_Hry03__MxPoGyHi_vsg": "Fullscreen"
+	// , "Ne03_Hry04__MxPoGry_vsg": "All Screens"
+	// , "Ne03_Hry05__PoGy_vsg": "HDR"
+	// , "Ne03_Hry06__SmzYz_vsg": "Method"
+	// , "Ne03_Hry07__GyBraHi_vsg": "Quality"
+	// , "Ne03_Hry08__TyGy_vsg": "Detail"
+
+}
+
+//==============================================
+// CFG_SAVE
+// STOR_DATA_w_GUI_CHGS
+//==============================================
+function KoKwiYz_Chy()
+{
+	//---------------------------------
+	// SAVE CFG
+	//---------------------------------
+	SmaSme( "CFG_SAVE" );
+
+
+	//@@@
+	// Ne00__WHO
+	const TaKeDy_l = document.getElementById( "Ne00_KeDy01__NiKeDy__Ta_l" );
+	Ko.KwiYz__KeDy_wu = TaKeDy_l.selectedIndex;
+	Ko.KwiYz_l.KeDy_vsg = TaKeDy_l.value;
+
+	// SECURITY
+	const Fi__TraChe_yk = Ko.KwiYz_l.Ne00_KeDy06__TraChe_y;
+
+	Ko.KwiYz_l.Ne00_KeDy06__TraChe_y = document.getElementById( "Ne00_KeDy06__TraChe_y" ).checked;
+	if( Fi__TraChe_yk != Ko.KwiYz_l.Ne00_KeDy06__TraChe_y )
+	{
+		SmaSme( "SECURITY CHANGED to ", Ko.KwiYz_l.Ne00_KeDy06__TraChe_y );
+		// Reload
+		KoKwiYz_My();
+	}
+
+
+	//@@@
+	// Ne01__NODE
+
+	Ko.KwiYz_l.Ne01_Ko04__KoDz_YoHo_y = document.getElementById( "Ne01_Ko04__KoDz_YoHo_y" ).value;
+
+
+	//@@@
+	// Ne02__AUDIO
+	Ko.KwiYz_l.Ne02_Hru00__MxPeHo_y = document.getElementById( "Ne02_Hru00__MxPeHo_y" ).value;
+	Ko.KwiYz_l.Ne02_Hru01__MxPeVo_ba = document.getElementById( "Ne02_Hru01__MxPeVo_ba" ).value;
+
+
+	//@@@
+	// Ne03__VISUAL
+	Ko.KwiYz_l.Ne03_Hry02__HriKe_y = false; // document.getElementById( "Ne03_Hry02__HriKe_y" ).value;
+
+
+	//@@@
+	// SYNC
+	Hrz4_Bu__KwiYz__FeChy();
+}
 
 
 //=====================================
@@ -1046,107 +1283,6 @@ function Hry_DriBrz( MxVa_vsg, KuPo_l, KwzPo_l, KwaPo_l )
 }
 
 //==============================================
-// USR_AVATAR__LOAD
-//==============================================
-function KeDy__MySaPy( e )
-{
-	const SaPy_vksg = SaPy_vvsg[ e ];
-	document.getElementById( "Ne00_KeDy03__NiJaPo_q" ).innerText = SaPy_vksg;
-}
-
-
-//==============================================
-// CFG_LOAD
-// WRT_GUI_w_STOR_DATA
-//==============================================
-function KoKwiYz_My()
-{
-	//---------------------------------
-	// GUI PREFS
-	//---------------------------------
-
-	//@@@
-	// Ne00__WHO
-	const TaKeDy_l = document.getElementById( 'TaKeDy' );
-	TaKeDy_l.selectedIndex = Ko.KwiYz__KeDy_wu;
-	// TaKeDy_l.value = Ko.KwiYz_l.KeDy_vsg;
-
-
-	document.getElementById("Ne00_KeDy08__SmzKz__Sma_vsg").disabled = false;
-
-	const NiJaPo__Ta_l = document.getElementById("Ne00_KeDy03__NiJaPo__Ta_l");
-	Hri3_Ne__Ta_ChyStz( NiJaPo__Ta_l );
-	for( let e = 0; e< SaPy_vvsg.length; e++ )
-	{
-		//&&&
-		// ADD BTN
-
-		const Kz_l = document.createElement( 'span' );
-		Kz_l.className = 'NiJaPo_Va';
-		Kz_l.onclick = function() { KeDy__MySaPy( e ); }
-
-		Kz_l.innerText = SaPy_vvsg[ e ];
-		NiJaPo__Ta_l.appendChild( Kz_l );
-	}
-
-	// SET AVATAR;
-	document.getElementById( "Ne00_KeDy03__NiJaPo_q" ).innerText = SaPy_vvsg[ 41 ];
-
-
-	//@@@
-	// Ne01__NODE
-	document.getElementById( 'Ne01_Ko04__KoDz_YoHo_y' ).value = Ko.KwiYz_l.Ne01_Ko04__KoDz_YoHo_y;
-
-
-	//@@@
-	// Ne02__AUDIO
-	document.getElementById( 'Ne02_Hru00__MxPeHoVu' ).value = Ko.KwiYz_l.Ne02_Hru00__MxPeHoVu_q;
-	document.getElementById( 'Ne02_Hru00__MxPeVu' ).value = Ko.KwiYz_l.Ne02_Hru00__MxPeVu_sa;
-
-	//@@@
-	// Ne03__VISUAL
-	document.getElementById( 'Ne03_Hry02__HriKe_y' ).checked = Ko.KwiYz_l.Ne03_Hry02__HriKe_y;
-
-
-}
-
-//==============================================
-// CFG_SAVE
-// STOR_DATA_w_GUI_CHGS
-//==============================================
-function KoKwiYz_Chy()
-{
-	//---------------------------------
-	// SESSION CFG
-	//---------------------------------
-
-	//@@@
-	// Ne00__WHO
-	const TaKeDy_l = document.getElementById( 'TaKeDy' );
-	Ko.KwiYz__KeDy_wu = TaKeDy_l.selectedIndex;
-	Ko.KwiYz_l.KeDy_vsg = TaKeDy_l.value;
-
-	//@@@
-	// Ne01__NODE
-	Ko.KwiYz_l.Ne01_Ko04__KoDz_YoHo_y_y = document.getElementById( 'Ne01_Ko04__KoDz_YoHo_y' ).value;
-
-	//@@@
-	// Ne02__AUDIO
-	Ko.KwiYz_l.Ne02_Hru00__MxPeHoVu_q = document.getElementById( 'Ne02_Hru00__MxPeHoVu' ).value;
-	Ko.KwiYz_l.Ne02_Hru00__MxPeVu_sa = document.getElementById( 'Ne02_Hru00__MxPeVu' ).value;
-
-
-	//@@@
-	// Ne03__VISUAL
-	Ko.KwiYz_l.Ne03_Hry02__HriKe_y = false; // document.getElementById( 'Ne03_Hry02__HriKe_y' ).value;
-
-
-	//@@@
-	// SYNC
-	Hrz4_Bu__KwiYz__FeChy();
-}
-
-//==============================================
 // RESIZE_00 FAIL
 //==============================================
 function HryMx00_KeMeTrx()
@@ -1154,24 +1290,24 @@ function HryMx00_KeMeTrx()
 	//---------------------------------
 	// VIEWS
 	//---------------------------------
-	const Ku00_k = document.getElementById('Ku00_KeMeKwi');
-	const Ku01_k = document.getElementById('Ku01_KeMeTrx');
-	const Ku02_k = document.getElementById('Ku02_KeMeBri');
+	const Ku00_k = document.getElementById("Ku00_KeMeKwi");
+	const Ku01_k = document.getElementById("Ku01_KeMeTrx");
+	const Ku02_k = document.getElementById("Ku02_KeMeBri");
 
-	Ku00_k.style.display = 'none';
-	Ku01_k.style.display = 'block';
-	Ku02_k.style.display = 'none';
+	Ku00_k.style.display = "none";
+	Ku01_k.style.display = "block";
+	Ku02_k.style.display = "none";
 
 	//---------------------------------
 	// CANVAS
 	//---------------------------------
-	Hry_DriBrz( 'MxPo_Trx',  "#FF1111", "#BB9999", "#DDBBBB" );
+	Hry_DriBrz( "MxPo_Trx",  "#FF1111", "#BB9999", "#DDBBBB" );
 
 	//---------------------------------
 	// MSG
 	//---------------------------------
-	const TrxBz_k = document.getElementById('TrxBz');
-	const TrxKa_k = document.getElementById('TrxKa');
+	const TrxBz_k = document.getElementById("TrxBz");
+	const TrxKa_k = document.getElementById("TrxKa");
 
 	TrxBz_k.innerText = KoSy__KeDru_l.BriDz_VaSy_vsg + " " + KoSy__KeDru_l.TrxBz_vsg + BriDzSa__Da_vsg;
 	TrxKa_k.innerText = Module.Trx_vsg;
@@ -1186,13 +1322,13 @@ function HryMx01_KeMeKwi()
 	//---------------------------------
 	// VIEWS
 	//---------------------------------
-	const Ku00_k = document.getElementById('Ku00_KeMeKwi');
-	const Ku01_k = document.getElementById('Ku01_KeMeTrx');
-	const Ku02_k = document.getElementById('Ku02_KeMeBri');
+	const Ku00_k = document.getElementById("Ku00_KeMeKwi");
+	const Ku01_k = document.getElementById("Ku01_KeMeTrx");
+	const Ku02_k = document.getElementById("Ku02_KeMeBri");
 
-	Ku00_k.style.display = 'block';
-	Ku01_k.style.display = 'none';
-	Ku02_k.style.display = 'none';
+	Ku00_k.style.display = "block";
+	Ku01_k.style.display = "none";
+	Ku02_k.style.display = "none";
 
 	//---------------------------------
 	// CANVAS
@@ -1221,7 +1357,7 @@ function HryMx01_KeMeKwi()
 	// INDEX[ 8 ] by 3
 	// const FePo_k = 5 * 3;
 	const FePo_k = ( BriDzSa__Da_wuk & 7 ) * 3;
-	Hry_DriBrz( 'MxPo_Kwi', TaPo_v[ FePo_k + 0 ],TaPo_v[ FePo_k + 1 ],TaPo_v[ FePo_k + 2 ] );
+	Hry_DriBrz( "MxPo_Kwi", TaPo_v[ FePo_k + 0 ],TaPo_v[ FePo_k + 1 ],TaPo_v[ FePo_k + 2 ] );
 
 	//---------------------------------
 	// SETUP GUI
@@ -1242,19 +1378,19 @@ function HryMx02_KeMeBri()
 	//---------------------------------
 	// VIEWS
 	//---------------------------------
-	const Ku00_k = document.getElementById('Ku00_KeMeKwi');
-	const Ku01_k = document.getElementById('Ku01_KeMeTrx');
-	const Ku02_k = document.getElementById('Ku02_KeMeBri');
+	const Ku00_k = document.getElementById("Ku00_KeMeKwi");
+	const Ku01_k = document.getElementById("Ku01_KeMeTrx");
+	const Ku02_k = document.getElementById("Ku02_KeMeBri");
 
-	Ku00_k.style.display = 'none';
-	Ku01_k.style.display = 'none';
-	Ku02_k.style.display = 'block';
+	Ku00_k.style.display = "none";
+	Ku01_k.style.display = "none";
+	Ku02_k.style.display = "block";
 
 	//---------------------------------
 	// CANVAS
-	// Leave to 'WG'
+	// Leave to "WG"
 	//---------------------------------
-	//const MxPo_Bri_l = document.getElementById('MxPo_Bri');
+	//const MxPo_Bri_l = document.getElementById("MxPo_Bri");
 	// if( !MxPo_Bri_l )return;
 }
 
@@ -1296,12 +1432,12 @@ function Tra_KeMeBri()
 	// if different now, must redo WG
 	//!!!
 
-	// const Cha__YzVi_q =  document.getElementById( 'WG' ).value;
+	// const Cha__YzVi_q =  document.getElementById( "WG" ).value;
 	//const Cha__YzVi_q = 0;
-	const Cha__YzVi_q = Ko.KwiYz_l.Ne03_Hry04__SmzYz_q;
-	if( Cha__YzVi_q !== Ko.KwiYz_l.Ne03_Hry04__SmzYz_q )
+	const Cha__YzVi_q = Ko.KwiYz_l.Ne03_Hry06__SmzYz_q;
+	if( Cha__YzVi_q !== Ko.KwiYz_l.Ne03_Hry06__SmzYz_q )
 	{
-		Ko.KwiYz_l.Ne03_Hry04__SmzYz_q = Cha__YzVi_q;
+		Ko.KwiYz_l.Ne03_Hry06__SmzYz_q = Cha__YzVi_q;
 
 		// Restart WG
 		const SaWG_l = Ko.SySmz_v[ SyVx.WG_qk ];
@@ -1316,16 +1452,16 @@ function Tra_KeMeBri()
 
 	//@@@
 	// ECOSYS PLAY
-	SmaSme( "[LAUNCH] User:", Ko.KwiYz_l.KeDy_vsg, " NEVER_PAUSE:", Ko.KwiYz_l.Ne01_Ko04__KoDz_YoHo_y_y );
+	SmaSme( "[LAUNCH] User:", Ko.KwiYz_l.KeDy_vsg, " NEVER_PAUSE:", Ko.KwiYz_l.Ne01_Ko04__KoDz_YoHo_y );
 	if( KoDz__YzYa_y() )
 	{
 		SmaSme( "[LAUNCH] ACTIVE via Resume" );
 
 		//&&&
-		// LAUNCH SERVICES that REQUIRE a 'click'
+		// LAUNCH SERVICES that REQUIRE a "click"
 		KoDz__YaFx();
 		//&&&
-		// PAUSE so 'RESUME' triggers
+		// PAUSE so "RESUME" triggers
 		KoDz__YzChy( BriYz.Yo_qk );
 		//&&&
 		// RESUME Update
@@ -1348,7 +1484,7 @@ function KoDz_GyHa()
 
 	//@@@
 	// EM SIZE
-	Ko.em2px_wfk = Number(window.getComputedStyle(document.body).getPropertyValue('font-size').match(/\d+/)[0]);
+	Ko.em2px_wfk = Number(window.getComputedStyle(document.body).getPropertyValue("font-size").match(/\d+/)[0]);
 }
 
 //==============================================
@@ -1864,7 +2000,7 @@ async function KoDz__YaFz()
 
 		, Hrz7_Kru__ChaSySmz( "Hra7_Ta", "ToMi", "Do", "STRM", SySmz__Kri_yk, { YzTi_wu: "0" } )
 		, Hrz7_Kru__ChaSySmz( "Hre1_Dru", "WaDru", "Do", "FNT", SySmz__Kri_yk, { YzTi_wu: "0" } )
-		, Hrz7_Kru__ChaSySmz( "Hry5_Smz", "WzMx", "Do", "WG", SySmz__Kri_yk, { YzVi_q: Ko.KwiYz_l.Ne03_Hry04__SmzYz_q } )
+		, Hrz7_Kru__ChaSySmz( "Hry5_Smz", "WzMx", "Do", "WG", SySmz__Kri_yk, { YzVi_q: Ko.KwiYz_l.Ne03_Hry06__SmzYz_q } )
 		, Hrz7_Kru__ChaSySmz( "Hry1_Brz", "KeDru", "Do", "GLF", SySmz__Kri_yk, { Gy_wu: 512 } )
 
 		, Hrz7_Kru__ChaSySmz( "Hra4_Bru", "ToDry", "Do", "NET", SySmz__Kri_yk, { YzTi_wu: "0" } )
@@ -1942,7 +2078,7 @@ function KoDz__YoChy()
 {
 	//@@@
 	// ECOSYS_GOOD
-	if( KoDz__YzTrx_y() || KoDz__YzYo_y() || Ko.KwiYz_l.Ne01_Ko04__KoDz_YoHo_y_y ) return;
+	if( KoDz__YzTrx_y() || KoDz__YzYo_y() || Ko.KwiYz_l.Ne01_Ko04__KoDz_YoHo_y ) return;
 
 	//&&&
 	// STATUS

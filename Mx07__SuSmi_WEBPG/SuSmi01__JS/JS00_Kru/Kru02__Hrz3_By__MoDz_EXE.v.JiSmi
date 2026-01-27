@@ -78,6 +78,23 @@ document.addEventListener('readystatechange', function()
 	if (document.readyState === 'complete')
 	{
 		SmaSme( "[LAUNCH] Web_DOM Fully_Loaded" );
+
+		//@@@
+		// AVATAR PICKER
+		const NiJaPo__Ta_l = document.getElementById("Ne00_KeDy03__NiJaPo__Ta_l");
+		Hri3_Ne__Ta_ChyStz( NiJaPo__Ta_l );
+		for( let e = 0; e< SaPy_vvsg.length; e++ )
+		{
+			//&&&
+			// ADD BTN
+
+			const Kz_l = document.createElement( 'span' );
+			Kz_l.className = 'NiJaPo_Va';
+			Kz_l.onclick = function() { KeDy__TreSaPy( e ); }
+
+			Kz_l.innerText = SaPy_vvsg[ e ];
+			NiJaPo__Ta_l.appendChild( Kz_l );
+		}
 	}
 });
 

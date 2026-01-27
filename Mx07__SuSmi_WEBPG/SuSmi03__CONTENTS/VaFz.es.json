@@ -5,6 +5,13 @@
 		, "BriDz01_SaSz_vsg": "🤖NUEVA --> WebGPU"
 		, "BriDz02_TraKwi_vsg": "🚀 EMPEZAR!"
 
+		, "Che00_Me_vsg": "Submit Contesto"
+		, "Che01_Chy_vsg": "Saved Contesto"
+		, "Che02_Trx_vsg": "Incorrect Contesto"
+		, "Che03_TraHo_vsg": "User Lock-o"
+		, "Che04_TraHy_vsg": "User Unlock-o"
+
+
 		, "Ne00_KeDy_vsg": "🥸 QUÍEN"
 		, "Ne01_Ko_vsg": "⚙️PERMISOS"
 		, "Ne02_Hru_vsg": "👂ESCUCHAR"
@@ -17,14 +24,14 @@
 		, "Ne00_KeDy01__NiKeDy_vsg": "Coger Persona"
 		, "Ne00_KeDy02__VaTre_vsg": "Nombre"
 		, "Ne00_KeDy03__NiJaPo_vsg": "Pictura"
-		, "Ne00_KeDy04__ChaKeDy_vsg": "👤Dar un Persona Nuevo"
+		, "Ne00_KeDy04__Cha_vsg": "👤Dar un Persona Nuevo"
 		, "Ne00_KeDy05__Chi_vsg": "🗑️Tomar esto Persona"
 		, "Ne00_KeDy06__TraChe_vsg": "Usa Seguridad"
 		, "Ne00_KeDy07__MaKz_vsg": "🔒Pregunta-Lock-o"
 		, "Ne00_KeDy08__SmzKz_vsg": "🗝️Contesta-Llave"
 
 
-		, "Ne01_Ko00__YzYu": "♻️Reset ALL Settings-o"
+		, "Ne01_Ko00__YzYu_vsg": "♻️Reset ALL Settings-o"
 		, "Ne01_Ko01__HraBru_Tra_vsg": "🛜Network Active-o"
 		, "Ne01_Ko02__SpeVu_vsg": "🔋Power Use-o"
 		, "Ne01_Ko03__MzKu_vsg": "📍Allow GPS Location-o"
@@ -39,14 +46,15 @@
 		, "Ne02_Hru05__GyBraHi_vsg": "📈Quality-o"
 
 
-		, "Ne03_Hry00__KeDruGy_vsg": "📄Legible Size-o"
-		, "Ne03_Hry01__MzPoGry_vsg": "🖥️Fullscreen-o"
-		, "Ne03_Hry02__HriKe_vsg": "🥽XR-o"
-		, "Ne03_Hry03__MzPo_vsg": "📷Camera-o"
-		, "Ne03_Hry04__SmzYz_vsg": "📊Method-o"
-		, "Ne03_Hry05__GyBraHi_vsg": "📈Quality-o"
-		, "Ne03_Hry06__TyGy_vsg": "🧱Detail-o"
-		, "Ne03_Hry07__PoGy_vsg": "🎨HDR-o"
+		, "Ne03_Hry00__KeDruGy_vsg": "Legible Size-o"
+		, "Ne03_Hry01__MzPo_vsg": "Camera-o"
+		, "Ne03_Hry02__HriKe_vsg": "XR-o"
+		, "Ne03_Hry03__MxPoGyHi_vsg": "Fullscreen-o"
+		, "Ne03_Hry04__MxPoGry_vsg": "Todos Screen-os"
+		, "Ne03_Hry05__PoGy_vsg": "HDR-o"
+		, "Ne03_Hry06__SmzYz_vsg": "Method-o"
+		, "Ne03_Hry07__GyBraHi_vsg": "Quality-o"
+		, "Ne03_Hry08__TyGy_vsg": "Detail-o"
 
 
 		, "Ne04_Hx00__Bz_vsg": "ABOUT-o"

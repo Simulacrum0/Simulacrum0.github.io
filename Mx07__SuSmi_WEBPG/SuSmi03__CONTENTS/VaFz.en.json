@@ -5,6 +5,12 @@
 		, "BriDz01_SaSz_vsg": "🤖NEW --> WebGPU ReFMT Core WG Serv"
 		, "BriDz02_TraKwi_vsg": "🚀 LAUNCH"
 
+		, "Che00_Me_vsg": "Submit Answer"
+		, "Che01_Chy_vsg": "Saved Answer"
+		, "Che02_Trx_vsg": "Incorrect Answer"
+		, "Che03_TraHo_vsg": "User Locked"
+		, "Che04_TraHy_vsg": "User Unlocked"
+
 
 		, "Ne00_KeDy_vsg": "🥸WHO"
 		, "Ne01_Ko_vsg": "⚙️NODE"
@@ -18,17 +24,16 @@
 		, "Ne00_KeDy01__NiKeDy_vsg": "Select User"
 		, "Ne00_KeDy02__VaTre_vsg": " Name"
 		, "Ne00_KeDy03__NiJaPo_vsg": "Avatar"
-		, "Ne00_KeDy04__ChaKeDy_vsg": "👤Add New User"
+		, "Ne00_KeDy04__Cha_vsg": "👤Add New User"
 		, "Ne00_KeDy05__Chi_vsg": "🗑️Remove Current User"
-		, "Ne00_KeDy06__TraChe_vsg": "Use security"
+		, "Ne00_KeDy06__TraChe_vsg": "Use Security-Lock"
 		, "Ne00_KeDy07__MaKz_vsg": "🔒Question-Lock"
 		, "Ne00_KeDy08__SmzKz_vsg": "🗝️Answer-Key"
 
-
-		, "Ne01_Ko00__YzYu": "♻️Reset ALL Settings"
-		, "Ne01_Ko01__HraBru_Tra_vsg": "🛜Network Active"
-		, "Ne01_Ko02__SpeVu_vsg": "🔋Power Use"
-		, "Ne01_Ko03__MzKu_vsg": "📍Allow GPS Location"
+		, "Ne01_Ko00__YzYu_vsg": "Reset ALL Settings"
+		, "Ne01_Ko01__HraBru_Tra_vsg": "Network Active"
+		, "Ne01_Ko02__SpeVu_vsg": "Power Use"
+		, "Ne01_Ko03__MzKu_vsg": "Allow GPS Location"
 		, "Ne01_Ko04__KoDz_YoHo_vsg": "Always Active (Background Work)"
 
 
@@ -41,13 +46,14 @@
 
 
 		, "Ne03_Hry00__KeDruGy_vsg": "Legible Size"
-		, "Ne03_Hry01__MzPoGry_vsg": "Fullscreen"
+		, "Ne03_Hry01__MzPo_vsg": "Camera"
 		, "Ne03_Hry02__HriKe_vsg": "XR"
-		, "Ne03_Hry03__MzPo_vsg": "Camera"
-		, "Ne03_Hry04__SmzYz_vsg": "Method"
-		, "Ne03_Hry05__GyBraHi_vsg": "Quality"
-		, "Ne03_Hry06__TyGy_vsg": "Detail"
-		, "Ne03_Hry07__PoGy_vsg": "HDR"
+		, "Ne03_Hry03__MxPoGyHi_vsg": "Fullscreen"
+		, "Ne03_Hry04__MxPoGry_vsg": "All Screens"
+		, "Ne03_Hry05__PoGy_vsg": "HDR"
+		, "Ne03_Hry06__SmzYz_vsg": "Method"
+		, "Ne03_Hry07__GyBraHi_vsg": "Quality"
+		, "Ne03_Hry08__TyGy_vsg": "Detail"
 
 
 		, "Ne04_Hx00__Bz_vsg": "About MicroCosm"
