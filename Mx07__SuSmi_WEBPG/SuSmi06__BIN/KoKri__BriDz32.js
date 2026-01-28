@@ -3173,58 +3173,58 @@ function checkIncomingModuleAPI() {
 }
 
 var ASM_CONSTS = {
-  73176: $0 => {
+  73208: $0 => {
     if (!window.Ko.Hx_SyDx_vsg) {
       window.Ko.Hx_SyDx_vsg = UTF8ToString($0);
     }
   },
-  73257: () => {
+  73289: () => {
     const isHidden = document.hidden;
     const hasFocus = document.hasFocus();
     (isHidden || !hasFocus) ? KoDz__YoChy() : KoDz__YuChy();
   },
-  73391: () => {
+  73423: () => {
     KoDz__YuChy();
   },
-  73410: () => {
+  73442: () => {
     KoDz__YoChy();
   },
-  73429: () => KoDz__YzYe_y(),
-  73456: () => {
-    MoDzTrx("TEST BAD BUILD as ERROR");
-  },
-  73498: () => {
-    const SaPAY_l = Ko.SySmz_v[SyVx.PAY_qk];
-    DoPAY.Mo(SaPAY_l, 0, 0);
-  },
-  73572: () => {
-    const SaSHAR_l = Ko.SySmz_v[SyVx.SHAR_qk];
-    DoSHAR.Mo(SaSHAR_l, 0, 0);
-  },
-  73650: () => {
-    location.reload();
-  },
-  73673: () => {
+  73461: () => KoDz__YzYe_y(),
+  73488: () => {
     const SaWG_l = Ko.SySmz_v[SyVx.WG_qk];
     const Brz_wuk = 0;
     DoWG.TxCho_JaKu(SaWG_l, Brz_wuk, 0, 0, 0, SaWG_l.MxPo_Bri_l.width, SaWG_l.MxPo_Bri_l.height);
   },
-  73833: () => {
+  73648: () => {
+    const SaPAY_l = Ko.SySmz_v[SyVx.PAY_qk];
+    DoPAY.Mo(SaPAY_l, 0, 0);
+  },
+  73722: () => {
+    const SaSHAR_l = Ko.SySmz_v[SyVx.SHAR_qk];
+    DoSHAR.Mo(SaSHAR_l, 0, 0);
+  },
+  73800: () => {
     location.reload();
   },
-  73856: () => {
+  73823: () => {
+    MoDzTrx("TEST BAD BUILD as ERROR");
+  },
+  73865: () => {
+    location.reload();
+  },
+  73888: () => {
     const SaWG_l = Ko.SySmz_v[SyVx.WG_qk];
     SaWG_l.KaSmz_l.destroy();
   },
-  73927: () => {},
-  73931: () => {
+  73959: () => {},
+  73963: () => {
     console.log("MC: HrySmz__BriYa");
   },
-  73971: () => {},
-  73975: () => {
+  74003: () => {},
+  74007: () => {
     const SaSTRM_l = Ko.SySmz_v[SyVx.STRM_qk];
   },
-  74024: $0 => {
+  74056: $0 => {
     const SaWG_l = Ko.SySmz_v[SyVx.WG_qk];
     const SaSTRM_l = Ko.SySmz_v[SyVx.STRM_qk];
     if (!SySmz__BriYz__Ye_y(SaWG_l) || !SySmz__BriYz__Ye_y(SaSTRM_l)) return;

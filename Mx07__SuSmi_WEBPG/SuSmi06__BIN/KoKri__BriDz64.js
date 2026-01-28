@@ -3278,58 +3278,58 @@ function checkIncomingModuleAPI() {
 }
 
 var ASM_CONSTS = {
-  8396536: $0 => {
+  8396568: $0 => {
     if (!window.Ko.Hx_SyDx_vsg) {
       window.Ko.Hx_SyDx_vsg = UTF8ToString($0);
     }
   },
-  8396617: () => {
+  8396649: () => {
     const isHidden = document.hidden;
     const hasFocus = document.hasFocus();
     (isHidden || !hasFocus) ? KoDz__YoChy() : KoDz__YuChy();
   },
-  8396751: () => {
+  8396783: () => {
     KoDz__YuChy();
   },
-  8396770: () => {
+  8396802: () => {
     KoDz__YoChy();
   },
-  8396789: () => KoDz__YzYe_y(),
-  8396816: () => {
-    MoDzTrx("TEST BAD BUILD as ERROR");
-  },
-  8396858: () => {
-    const SaPAY_l = Ko.SySmz_v[SyVx.PAY_qk];
-    DoPAY.Mo(SaPAY_l, 0, 0);
-  },
-  8396932: () => {
-    const SaSHAR_l = Ko.SySmz_v[SyVx.SHAR_qk];
-    DoSHAR.Mo(SaSHAR_l, 0, 0);
-  },
-  8397010: () => {
-    location.reload();
-  },
-  8397033: () => {
+  8396821: () => KoDz__YzYe_y(),
+  8396848: () => {
     const SaWG_l = Ko.SySmz_v[SyVx.WG_qk];
     const Brz_wuk = 0;
     DoWG.TxCho_JaKu(SaWG_l, Brz_wuk, 0, 0, 0, SaWG_l.MxPo_Bri_l.width, SaWG_l.MxPo_Bri_l.height);
   },
-  8397193: () => {
+  8397008: () => {
+    const SaPAY_l = Ko.SySmz_v[SyVx.PAY_qk];
+    DoPAY.Mo(SaPAY_l, 0, 0);
+  },
+  8397082: () => {
+    const SaSHAR_l = Ko.SySmz_v[SyVx.SHAR_qk];
+    DoSHAR.Mo(SaSHAR_l, 0, 0);
+  },
+  8397160: () => {
     location.reload();
   },
-  8397216: () => {
+  8397183: () => {
+    MoDzTrx("TEST BAD BUILD as ERROR");
+  },
+  8397225: () => {
+    location.reload();
+  },
+  8397248: () => {
     const SaWG_l = Ko.SySmz_v[SyVx.WG_qk];
     SaWG_l.KaSmz_l.destroy();
   },
-  8397287: () => {},
-  8397291: () => {
+  8397319: () => {},
+  8397323: () => {
     console.log("MC: HrySmz__BriYa");
   },
-  8397331: () => {},
-  8397335: () => {
+  8397363: () => {},
+  8397367: () => {
     const SaSTRM_l = Ko.SySmz_v[SyVx.STRM_qk];
   },
-  8397384: $0 => {
+  8397416: $0 => {
     const SaWG_l = Ko.SySmz_v[SyVx.WG_qk];
     const SaSTRM_l = Ko.SySmz_v[SyVx.STRM_qk];
     if (!SySmz__BriYz__Ye_y(SaWG_l) || !SySmz__BriYz__Ye_y(SaSTRM_l)) return;

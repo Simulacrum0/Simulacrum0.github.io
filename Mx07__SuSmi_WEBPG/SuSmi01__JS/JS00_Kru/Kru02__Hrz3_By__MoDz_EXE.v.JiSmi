@@ -201,7 +201,7 @@ function MoDzTrx( Trx_vsg )
 	// alert( Bo_vsg );
 
 	// DISPLAY ERR
-	HryMx00_KeMeTrx();
+	HryMx01_KeMeTrx();
 
 	// STOP INTERVALS
 	// if( window.Ko.Trx_GyHa  ){ clearInterval( window.Ko.Trx_GyHa ); }

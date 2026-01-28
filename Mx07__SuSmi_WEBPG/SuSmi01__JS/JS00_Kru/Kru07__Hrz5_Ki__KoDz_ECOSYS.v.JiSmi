@@ -101,7 +101,7 @@ async function KoDz__YaFz()
 	// CULTURE
 	Hre1_Dru__BriYa();
 	// GUI VALUES
-	HryMx01_KeMeKwi();
+	HryMx00_KeMeKwi();
 	// GUI SELECT
 	Hrz4_Bu__ChyNeKu( 0 );
 

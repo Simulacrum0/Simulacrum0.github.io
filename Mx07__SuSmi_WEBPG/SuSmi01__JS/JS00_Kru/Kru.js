@@ -1,5 +1,5 @@
-const BriDzSa__Da_vsg = "PUB_v0.190"; 
- const BriDzSa__Da_wuk = "190"; 
+const BriDzSa__Da_vsg = "PUB_v0.191"; 
+ const BriDzSa__Da_wuk = "191"; 
  const BriDz__Mx_KuTu_vsg = "https://powerourpeople.com/"; 
 
 //==============================================
@@ -197,13 +197,22 @@ const Hre1_Dru__Gra_v = [
 //==============================================
 const SaPy_vvsg=
 [
-	'👤'
-	,'😌','😎','😃','🤣','😉','😍','🤩','😘','🤪'
-	,'🤬','👿','💀','☠️','🤡','👹','👺','👻','👽️','👾','🤖','🗿'
-	,'⭐️','🌀','🌈','❤️‍','🎵','🎶'	,'⚽️','⚾️','🥎','🏀','🏐','🏈','🏉'
-	,'🐵','🐶','🐺','🦊','🦝','🐱','🦁','🐯','🐴','🦄','🐮','🐷','🐭','🐰','🐻','🐨','🐼','🐧'
-	,'🦉','🐸','🐍','🐲','🦖','🐳','🐬','🐟️','🦑','🦀','🦋','🐝','🐞','🦗','🕷️'
+	'👤','👻','🎰','🧑‍💻'
+	,'👽️','👾','🤖','🗿'
 
+	,'😌','😎','😃','🤣'
+	,'😉','😍','🤩','😘','🤪'
+	,'🤬','👿','💀','☠️','🤡','👹','👺'
+
+	,'🐵','🐶','🐺','🦊','🦝','🐱','🦁','🐯'
+	,'🐴','🦉','🐸','🐍','🐲','🦖','🦄'
+	,'🐮','🐷','🐭','🐰','🐻','🐨','🐼'
+	,'🐧','🐳','🐬','🐟️','🦑','🦀'
+	,'🦋','🐝','🐞','🦗','🕷️'
+
+	,'⭐️','🌀','🌈','❤️‍','🎵','🎶'
+
+	,'⚽️','⚾️','🥎','🏀','🏐','🏈','🏉'
 	,'🛐','⚛️','🕉️','✡️','☸️','☯️','✝️','☦️','☪️','☮️','🕎','🔯'
 	,'♈️','♉️','♊️','♋️','♌️','♍️','♎️','♏️','♐️','♑️','♒️','♓️','⛎'
 ];
@@ -414,7 +423,7 @@ function MoDzTrx( Trx_vsg )
 	// alert( Bo_vsg );
 
 	// DISPLAY ERR
-	HryMx00_KeMeTrx();
+	HryMx01_KeMeTrx();
 
 	// STOP INTERVALS
 	// if( window.Ko.Trx_GyHa  ){ clearInterval( window.Ko.Trx_GyHa ); }
@@ -559,7 +568,7 @@ async function Hrz3_Bz__VaDa()
 	//@@@
 	// SEARCH
 
-	// USER AGENT
+	// USR AGENT
 	const HrzByHx_vsg = navigator.userAgent;
 	//SmaSme( "[CFG] HrzByHx:", HrzByHx_vsg );
 
@@ -614,7 +623,7 @@ async function Hrz3_Bz__VaDa()
 
 
 //==============================================
-// USER LAUNCH CFG DEFAULTS
+// USR LAUNCH CFG DEFAULTS
 //==============================================
 
 //-------------------------------------------------
@@ -629,7 +638,7 @@ function Hrz4_Bu__KwiYz__FeChi()
 
 
 //-------------------------------------------------
-// WRITE CURRENT LAUNCH CFG
+// STORE CURRENT LAUNCH CFG
 //-------------------------------------------------
 function Hrz4_Bu__KwiYz__FeChy()
 {
@@ -652,10 +661,12 @@ function Hrz4_Bu__KwiYz__ChyDe()
 
 
 	//@@@
-	// USER[ 3 ]
+	// USR[ 3 ]
 	Ko.KwiYz_l.KeDru_wu = 0;
 	Ko.KwiYz_l.KeDy_vsg = "Guest";
 	Ko.KwiYz_l.KeDru_vsg = navigator.language;
+
+	Ko.KwiYz__NiJaPo_wu = 1;
 
 	Ko.KwiYz_l.Ne00_KeDy06__TraChe_y = false;
 
@@ -681,6 +692,189 @@ function Hrz4_Bu__KwiYz__ChyDe()
 	SmaSme( "[CFG] KwiYz_De:", Ko.KwiYz_l );
 	Hrz4_Bu__KwiYz__FeChy();
 }
+
+//==============================================
+// CFG_LOAD
+// GUI_w_STOR_DATA
+//==============================================
+function Hrz4_Bu__KwiYz__HriNeMy()
+{
+	//---------------------------------
+	// CFG LOAD as GUI PREFS
+	//---------------------------------
+	SmaSme( "CFG_LOAD" );
+
+	//---------------------------------
+	// Ne00__WHO
+	//---------------------------------
+
+	//@@@
+	// , "Ne00_KeDy00__NiKeDru_vsg": "Select Language"
+	// Ne00_KeDy00__NiKeDru__Ta_l
+	// , "Ne00_KeDy01__NiKeDy_vsg": "Select User"
+	// Ne00_KeDy01__NiKeDy__Ta_l
+	//
+	// , "Ne00_KeDy02__VaTre_vsg": " Name"
+	// , "Ne00_KeDy03__NiJaPo_vsg": "Avatar"
+
+	const TaKeDy_l = document.getElementById( "Ne00_KeDy01__NiKeDy__Ta_l" );
+	TaKeDy_l.selectedIndex = Ko.KwiYz__KeDy_wu;
+
+
+	// SET AVATAR;
+	document.getElementById( "Ne00_KeDy03__NiJaPo_q" ).innerText = SaPy_vvsg[ Ko.KwiYz__NiJaPo_wu ];
+
+	//@@@
+	// USE SECURITY
+	const TraChe_yk = Ko.KwiYz_l.Ne00_KeDy06__TraChe_y;
+	document.getElementById( "Ne00_KeDy06__TraChe_y" ).checked = TraChe_yk;
+
+	SmaSme( "TraChe", TraChe_yk );
+
+//	document.getElementById( "Ne00_KeDy06__CheHaKri" ).style.display = TraChe_yk ? 'block' : 'none';
+
+	HriNeDe__ChyHry( "Ne00_KeDy06__CheHaKri", TraChe_yk );
+	// HriNeDe__ChyHry( "Ku01_KeMeTrx", false );
+	// HriNeDe__ChyHry( "Ku02_KeMeBri", false );
+
+
+
+// Che01_Chy_vsg
+
+	//@@@
+	// USER LOCK
+	HriNeDe__ChyHryVoHu( "BriDz02_TraKwi_vsg", TraChe_yk );
+
+	//&&&
+	// Panels
+	HriNeDe__ChyHryVoHu( "Ne01_Ko_vsg", TraChe_yk );
+	HriNeDe__ChyHryVoHu( "Ne02_Hru_vsg", TraChe_yk );
+	HriNeDe__ChyHryVoHu( "Ne03_Hry_vsg", TraChe_yk );
+	HriNeDe__ChyHryVoHu( "Ne04_Hx_vsg", TraChe_yk );
+	HriNeDe__ChyHryVoHu( "Ne05_Grx_vsg", TraChe_yk );
+
+	//&&&
+	// Name
+	HriNeDe__ChyTraHo( "Ne00_KeDy02__VaTre_vsg", TraChe_yk );
+	HriNeDe__ChyTraHo( "Ne00_KeDy02__VaTre_Sma_vsg", TraChe_yk );
+
+	//&&&
+	// Avatar
+	HriNeDe__ChyTraHo( "Ne00_KeDy03__NiJaPo_vsg", TraChe_yk );
+	HriNeDe__ChyTraHo( "Ne00_KeDy03__NiJaPo_q", TraChe_yk );
+	HriNeDe__ChyHryVoHu( "Ne00_KeDy03__NiJaPo__Ta_l", TraChe_yk );
+
+	//&&&
+	// Question-Lock
+	HriNeDe__ChyTraHo( "Ne00_KeDy07__MaKz_vsg", TraChe_yk );
+	HriNeDe__ChyTraHo( "Ne00_KeDy07__MaKz__Sma_vsg", TraChe_yk );
+
+	// Answer-Key
+	HriNeDe__ChyTraHo( "Ne00_KeDy08__SmzKz_vsg", TraChe_yk );
+	// SmaSme( "ANSER: ", document.getElementById("Ne00_KeDy08__SmzKz__Sma_vsg").value );
+
+
+
+	//---------------------------------
+	// Ne01__NODE
+	//---------------------------------
+	//@@@
+	// Ne01_Ko00__YzYu_vsg BTN
+	// Ne01_Ko01__HraBru_Tra_vsg
+	document.getElementById( "Ne01_Ko01__HraBru_Tra_y" ).value = Ko.KwiYz_l.Ne01_Ko01__HraBru_Tra_y;
+	// Ne01_Ko02__SpeVu_vsg
+	document.getElementById( "Ne01_Ko02__SpeVu_y" ).value = Ko.KwiYz_l.Ne01_Ko02__SpeVu_y;
+	// Ne01_Ko03__MzKu_vsg
+	document.getElementById( "Ne01_Ko03__MzKu_y" ).value = Ko.KwiYz_l.Ne01_Ko03__MzKu_y;
+	// Ne01_Ko04__KoDz_YoHo_y
+	document.getElementById( "Ne01_Ko04__KoDz_YoHo_y" ).value = Ko.KwiYz_l.Ne01_Ko04__KoDz_YoHo_y;
+
+
+	//---------------------------------
+	// Ne02__AUDIO
+	//---------------------------------
+	//@@@
+	// Ne02_Hru00__MxPeHo_y
+	document.getElementById( "Ne02_Hru00__MxPeHo_y" ).value = Ko.KwiYz_l.Ne02_Hru00__MxPeHo_y;
+	// Ne02_Hru01__MxPeVo_ba
+	document.getElementById( "Ne02_Hru01__MxPeVo_ba" ).value = Ko.KwiYz_l.Ne02_Hru01__MxPeVo_ba;
+	// , "Ne02_Hru02__MzPe_vsg": "Mic"
+	// , "Ne02_Hru03__YoHo_vsg": "♾️Always Audible"
+	// , "Ne02_Hru04__SmzYz_vsg": "📊Method"
+	// , "Ne02_Hru05__GyBraHi_vsg": "📈Quality"
+
+	//---------------------------------
+	// Ne03__VISUAL
+	//---------------------------------
+
+	//@@@
+	// , "Ne03_Hry00__KeDruGy_vsg": "Legible Size"
+	// , "Ne03_Hry01__MzPo_vsg": "Camera"
+	document.getElementById( "Ne03_Hry02__HriKe_y" ).checked = Ko.KwiYz_l.Ne03_Hry02__HriKe_y;
+	// , "Ne03_Hry03__MxPoGyHi_vsg": "Fullscreen"
+	// , "Ne03_Hry04__MxPoGry_vsg": "All Screens"
+	// , "Ne03_Hry05__PoGy_vsg": "HDR"
+	// , "Ne03_Hry06__SmzYz_vsg": "Method"
+	// , "Ne03_Hry07__GyBraHi_vsg": "Quality"
+	// , "Ne03_Hry08__TyGy_vsg": "Detail"
+
+}
+
+//==============================================
+// CFG_SAVE
+// STOR_DATA_w_GUI_CHGS
+//==============================================
+function Hrz4_Bu__KwiYz__KoChy()
+{
+	//---------------------------------
+	// SAVE CFG
+	//---------------------------------
+	SmaSme( "CFG_SAVE" );
+
+
+	//@@@
+	// Ne00__WHO
+	const TaKeDy_l = document.getElementById( "Ne00_KeDy01__NiKeDy__Ta_l" );
+	Ko.KwiYz__KeDy_wu = TaKeDy_l.selectedIndex;
+	Ko.KwiYz_l.KeDy_vsg = TaKeDy_l.value;
+
+	// AVATAR
+	// Only changes via EVT
+
+	// SECURITY
+	const Fi__TraChe_yk = Ko.KwiYz_l.Ne00_KeDy06__TraChe_y;
+
+	Ko.KwiYz_l.Ne00_KeDy06__TraChe_y = document.getElementById( "Ne00_KeDy06__TraChe_y" ).checked;
+	if( Fi__TraChe_yk != Ko.KwiYz_l.Ne00_KeDy06__TraChe_y )
+	{
+		SmaSme( "SECURITY CHANGED to ", Ko.KwiYz_l.Ne00_KeDy06__TraChe_y );
+		// Reload
+		Hrz4_Bu__KwiYz__HriNeMy();
+	}
+
+
+	//@@@
+	// Ne01__NODE
+	Ko.KwiYz_l.Ne01_Ko04__KoDz_YoHo_y = document.getElementById( "Ne01_Ko04__KoDz_YoHo_y" ).value;
+
+
+	//@@@
+	// Ne02__AUDIO
+	Ko.KwiYz_l.Ne02_Hru00__MxPeHo_y = document.getElementById( "Ne02_Hru00__MxPeHo_y" ).value;
+	Ko.KwiYz_l.Ne02_Hru01__MxPeVo_ba = document.getElementById( "Ne02_Hru01__MxPeVo_ba" ).value;
+
+
+	//@@@
+	// Ne03__VISUAL
+	Ko.KwiYz_l.Ne03_Hry02__HriKe_y = false; // document.getElementById( "Ne03_Hry02__HriKe_y" ).value;
+
+
+	//@@@
+	// SYNC
+	Hrz4_Bu__KwiYz__FeChy();
+}
+
+
 
 //-------------------------------------------------
 // FIND LAUNCH CFG
@@ -891,7 +1085,7 @@ async function Hre1_Dru__BriYa()
 // USR
 //=====================================
 //-------------------------------------------------
-// CHG USER
+// CHG USR
 //-------------------------------------------------
 function Ne00_KeDy01__NiKeDy__JeChy()
 {
@@ -924,7 +1118,7 @@ function Ne00_KeDy01__NiKeDy__JeChy()
 }
 
 //-------------------------------------------------
-// ERASE USER LAUNCH CFGs
+// ERASE USR LAUNCH CFGs
 //-------------------------------------------------
 function Ne00_KeDy05__Chi_Tra()
 {
@@ -933,12 +1127,22 @@ function Ne00_KeDy05__Chi_Tra()
 }
 
 //-------------------------------------------------
-// ADD USER
+// ADD USR
 //-------------------------------------------------
 function Ne00_KeDy04__Cha_Tra()
 {
 
 }
+
+
+//-------------------------------------------------
+// SECURE_USR
+//-------------------------------------------------
+function Ne00_KeDy04__CheHa()
+{
+
+}
+
 
 //-------------------------------------------------
 // USR_AVATAR__EDIT
@@ -947,10 +1151,12 @@ function KeDy__TreSaPy( e )
 {
 	const SaPy_vksg = SaPy_vvsg[ e ];
 	document.getElementById( "Ne00_KeDy03__NiJaPo_q" ).innerText = SaPy_vksg;
+
+	Ko.KwiYz__NiJaPo_wu = e;
 }
 
 //-------------------------------------------------
-// DEFAULTS ALL USER LAUNCH CFGs
+// DEFAULTS ALL USR LAUNCH CFGs
 //-------------------------------------------------
 function Ne01_Ko00__YzYu_Tra()
 {
@@ -966,7 +1172,7 @@ function Hrz4_Bu__TaKeDy__Fy()
 	Ko.KwiYz__KeDy_wu = 0;
 
 	//@@@
-	// FILE AVAIL USER ENTRIES
+	// FILE AVAIL USR ENTRIES
 	const TaKeDy_l = document.getElementById( 'Ne00_KeDy01__NiKeDy__Ta_l' );
 	Hri3_Ne__Ta_ChyStz( TaKeDy_l );
 
@@ -999,18 +1205,50 @@ function Hrz4_Bu__TaKeDy__Fy()
 //=====================================
 //==============================================
 // GUI ELEMENTS
+/*
+- Using HTML Web PAGE to setup initial CFG ( w/o WG GUI ):
+- *However: Already loading WG, so could use GUI or ERR*
+- *Given need to invite others and limited time, am continuing HTML for now*
+
+- GUI has
+	a) Checkbox: Y or N wq
+	b) Slider: 0...to N wu
+	c) List: scrollable choices vertical or grid 0...Fo wu
+	d) Text: utf8
+	e) Buttons: run action ( show tabs, add/remove users, reset-settings, & launch )
+
+*/
+//
 //==============================================
 
 
+//==============================================
+// GUI EDIT for UNLOCK/LOCK
+// SmaSme( "CheChy: ", e.className );
+//==============================================
 
-//==============================================
-// GUI ELEM USER UNLOCK/LOCK
-//==============================================
-function KoKwiYz_KeDy__CheChy_TraHo( Vy_vsg, TraChe_yk )
+//@@@
+// SHOW/HIDE ELM
+function HriNeDe__ChyHry( Vy_vsg, Hry_yk )
 {
 	let e = document.getElementById( Vy_vsg );
-	// SmaSme( "CheChy: ", e.className );
-	if( TraChe_yk )
+	e.hidden = !Hry_yk;
+}
+
+//@@@
+// DISPLAY_BLOCK ELM
+function HriNeDe__ChyKu( Vy_vsg, Ku_yk )
+{
+	let e = document.getElementById( Vy_vsg );
+	e.style.display = Ku_yk ? "block" : "none";
+}
+
+//@@@
+// DISABLE & ACCENT ELM
+function HriNeDe__ChyTraHo( Vy_vsg, TraHo_yk )
+{
+	let e = document.getElementById( Vy_vsg );
+	if( TraHo_yk )
 	{
 		e.disabled = true;
 		e.classList.add( "HriNe_TraHo" );
@@ -1022,11 +1260,12 @@ function KoKwiYz_KeDy__CheChy_TraHo( Vy_vsg, TraChe_yk )
 	}
 }
 
-function KoKwiYz_KeDy__CheChy_HryHo( Vy_vsg, TraChe_yk )
+//@@@
+// DISABLE & DIM ELM
+function HriNeDe__ChyHryVoHu( Vy_vsg, HryVoHu_yk )
 {
 	let e = document.getElementById( Vy_vsg );
-	// SmaSme( "CheChy: ", e.className );
-	if( TraChe_yk )
+	if( HryVoHu_yk )
 	{
 		e.disabled = true;
 		e.classList.add( "HriNe_HryHo" );
@@ -1037,173 +1276,6 @@ function KoKwiYz_KeDy__CheChy_HryHo( Vy_vsg, TraChe_yk )
 		e.classList.remove( "HriNe_HryHo" );
 	}
 }
-
-//==============================================
-// CFG_LOAD
-// WRT_GUI_w_STOR_DATA
-//==============================================
-function KoKwiYz_My()
-{
-	//---------------------------------
-	// CFG LOAD as GUI PREFS
-	//---------------------------------
-	SmaSme( "CFG_LOAD" );
-
-	//---------------------------------
-	// Ne00__WHO
-	//---------------------------------
-
-	//@@@
-	// , "Ne00_KeDy00__NiKeDru_vsg": "Select Language"
-	// , "Ne00_KeDy01__NiKeDy_vsg": "Select User"
-	// , "Ne00_KeDy02__VaTre_vsg": " Name"
-	// , "Ne00_KeDy03__NiJaPo_vsg": "Avatar"
-
-	const TaKeDy_l = document.getElementById( "Ne00_KeDy01__NiKeDy__Ta_l" );
-	TaKeDy_l.selectedIndex = Ko.KwiYz__KeDy_wu;
-
-
-	// SET AVATAR;
-	document.getElementById( "Ne00_KeDy03__NiJaPo_q" ).innerText = SaPy_vvsg[ 41 ];
-
-	// Use security
-	const TraChe_yk = Ko.KwiYz_l.Ne00_KeDy06__TraChe_y;
-	document.getElementById( "Ne00_KeDy06__TraChe_y" ).checked = TraChe_yk;
-
-	SmaSme( "TraChe", TraChe_yk );
-
-
-	//@@@
-	// USER LOCK
-
-	KoKwiYz_KeDy__CheChy_HryHo( "BriDz02_TraKwi_vsg", TraChe_yk );
-
-	//&&&
-	// Panels
-	KoKwiYz_KeDy__CheChy_HryHo( "Ne01_Ko_vsg", TraChe_yk );
-	KoKwiYz_KeDy__CheChy_HryHo( "Ne02_Hru_vsg", TraChe_yk );
-	KoKwiYz_KeDy__CheChy_HryHo( "Ne03_Hry_vsg", TraChe_yk );
-	KoKwiYz_KeDy__CheChy_HryHo( "Ne04_Hx_vsg", TraChe_yk );
-	KoKwiYz_KeDy__CheChy_HryHo( "Ne05_Grx_vsg", TraChe_yk );
-
-	//&&&
-	// Name
-	KoKwiYz_KeDy__CheChy_TraHo( "Ne00_KeDy02__VaTre_vsg", TraChe_yk );
-	KoKwiYz_KeDy__CheChy_TraHo( "Ne00_KeDy02__VaTre_Sma_vsg", TraChe_yk );
-
-	//&&&
-	// Avatar
-	KoKwiYz_KeDy__CheChy_TraHo( "Ne00_KeDy03__NiJaPo_vsg", TraChe_yk );
-	KoKwiYz_KeDy__CheChy_TraHo( "Ne00_KeDy03__NiJaPo_q", TraChe_yk );
-	KoKwiYz_KeDy__CheChy_HryHo( "Ne00_KeDy03__NiJaPo__Ta_l", TraChe_yk );
-
-	//&&&
-	// Question-Lock
-	KoKwiYz_KeDy__CheChy_TraHo( "Ne00_KeDy07__MaKz_vsg", TraChe_yk );
-	KoKwiYz_KeDy__CheChy_TraHo( "Ne00_KeDy07__MaKz__Sma_vsg", TraChe_yk );
-
-	// Answer-Key
-	KoKwiYz_KeDy__CheChy_TraHo( "Ne00_KeDy08__SmzKz_vsg", TraChe_yk );
-	// SmaSme( "ANSER: ", document.getElementById("Ne00_KeDy08__SmzKz__Sma_vsg").value );
-
-
-	//---------------------------------
-	// Ne01__NODE
-	//---------------------------------
-	//@@@
-	// Ne01_Ko00__YzYu_vsg BTN
-	// Ne01_Ko01__HraBru_Tra_vsg
-	document.getElementById( "Ne01_Ko01__HraBru_Tra_y" ).value = Ko.KwiYz_l.Ne01_Ko01__HraBru_Tra_y;
-	// Ne01_Ko02__SpeVu_vsg
-	document.getElementById( "Ne01_Ko02__SpeVu_y" ).value = Ko.KwiYz_l.Ne01_Ko02__SpeVu_y;
-	// Ne01_Ko03__MzKu_vsg
-	document.getElementById( "Ne01_Ko03__MzKu_y" ).value = Ko.KwiYz_l.Ne01_Ko03__MzKu_y;
-	// Ne01_Ko04__KoDz_YoHo_y
-	document.getElementById( "Ne01_Ko04__KoDz_YoHo_y" ).value = Ko.KwiYz_l.Ne01_Ko04__KoDz_YoHo_y;
-
-
-	//---------------------------------
-	// Ne02__AUDIO
-	//---------------------------------
-	//@@@
-	// Ne02_Hru00__MxPeHo_y
-	document.getElementById( "Ne02_Hru00__MxPeHo_y" ).value = Ko.KwiYz_l.Ne02_Hru00__MxPeHo_y;
-	// Ne02_Hru01__MxPeVo_ba
-	document.getElementById( "Ne02_Hru01__MxPeVo_ba" ).value = Ko.KwiYz_l.Ne02_Hru01__MxPeVo_ba;
-	// , "Ne02_Hru02__MzPe_vsg": "Mic"
-	// , "Ne02_Hru03__YoHo_vsg": "♾️Always Audible"
-	// , "Ne02_Hru04__SmzYz_vsg": "📊Method"
-	// , "Ne02_Hru05__GyBraHi_vsg": "📈Quality"
-
-	//---------------------------------
-	// Ne03__VISUAL
-	//---------------------------------
-
-	//@@@
-	// , "Ne03_Hry00__KeDruGy_vsg": "Legible Size"
-	// , "Ne03_Hry01__MzPo_vsg": "Camera"
-	document.getElementById( "Ne03_Hry02__HriKe_y" ).checked = Ko.KwiYz_l.Ne03_Hry02__HriKe_y;
-	// , "Ne03_Hry03__MxPoGyHi_vsg": "Fullscreen"
-	// , "Ne03_Hry04__MxPoGry_vsg": "All Screens"
-	// , "Ne03_Hry05__PoGy_vsg": "HDR"
-	// , "Ne03_Hry06__SmzYz_vsg": "Method"
-	// , "Ne03_Hry07__GyBraHi_vsg": "Quality"
-	// , "Ne03_Hry08__TyGy_vsg": "Detail"
-
-}
-
-//==============================================
-// CFG_SAVE
-// STOR_DATA_w_GUI_CHGS
-//==============================================
-function KoKwiYz_Chy()
-{
-	//---------------------------------
-	// SAVE CFG
-	//---------------------------------
-	SmaSme( "CFG_SAVE" );
-
-
-	//@@@
-	// Ne00__WHO
-	const TaKeDy_l = document.getElementById( "Ne00_KeDy01__NiKeDy__Ta_l" );
-	Ko.KwiYz__KeDy_wu = TaKeDy_l.selectedIndex;
-	Ko.KwiYz_l.KeDy_vsg = TaKeDy_l.value;
-
-	// SECURITY
-	const Fi__TraChe_yk = Ko.KwiYz_l.Ne00_KeDy06__TraChe_y;
-
-	Ko.KwiYz_l.Ne00_KeDy06__TraChe_y = document.getElementById( "Ne00_KeDy06__TraChe_y" ).checked;
-	if( Fi__TraChe_yk != Ko.KwiYz_l.Ne00_KeDy06__TraChe_y )
-	{
-		SmaSme( "SECURITY CHANGED to ", Ko.KwiYz_l.Ne00_KeDy06__TraChe_y );
-		// Reload
-		KoKwiYz_My();
-	}
-
-
-	//@@@
-	// Ne01__NODE
-
-	Ko.KwiYz_l.Ne01_Ko04__KoDz_YoHo_y = document.getElementById( "Ne01_Ko04__KoDz_YoHo_y" ).value;
-
-
-	//@@@
-	// Ne02__AUDIO
-	Ko.KwiYz_l.Ne02_Hru00__MxPeHo_y = document.getElementById( "Ne02_Hru00__MxPeHo_y" ).value;
-	Ko.KwiYz_l.Ne02_Hru01__MxPeVo_ba = document.getElementById( "Ne02_Hru01__MxPeVo_ba" ).value;
-
-
-	//@@@
-	// Ne03__VISUAL
-	Ko.KwiYz_l.Ne03_Hry02__HriKe_y = false; // document.getElementById( "Ne03_Hry02__HriKe_y" ).value;
-
-
-	//@@@
-	// SYNC
-	Hrz4_Bu__KwiYz__FeChy();
-}
-
 
 //=====================================
 // DRAW_2D_PTRN
@@ -1282,53 +1354,19 @@ function Hry_DriBrz( MxVa_vsg, KuPo_l, KwzPo_l, KwaPo_l )
 
 }
 
-//==============================================
-// RESIZE_00 FAIL
-//==============================================
-function HryMx00_KeMeTrx()
+//=====================================
+// RESIZE_00 LAUNCH_CFG
+//=====================================
+function HryMx00_KeMeKwi()
 {
 	//---------------------------------
 	// VIEWS
 	//---------------------------------
-	const Ku00_k = document.getElementById("Ku00_KeMeKwi");
-	const Ku01_k = document.getElementById("Ku01_KeMeTrx");
-	const Ku02_k = document.getElementById("Ku02_KeMeBri");
+	HriNeDe__ChyKu( "Ku00_KeMeKwi", true );
+	HriNeDe__ChyKu( "Ku01_KeMeTrx", false );
+	HriNeDe__ChyKu( "Ku02_KeMeBri", false );
 
-	Ku00_k.style.display = "none";
-	Ku01_k.style.display = "block";
-	Ku02_k.style.display = "none";
-
-	//---------------------------------
-	// CANVAS
-	//---------------------------------
-	Hry_DriBrz( "MxPo_Trx",  "#FF1111", "#BB9999", "#DDBBBB" );
-
-	//---------------------------------
-	// MSG
-	//---------------------------------
-	const TrxBz_k = document.getElementById("TrxBz");
-	const TrxKa_k = document.getElementById("TrxKa");
-
-	TrxBz_k.innerText = KoSy__KeDru_l.BriDz_VaSy_vsg + " " + KoSy__KeDru_l.TrxBz_vsg + BriDzSa__Da_vsg;
-	TrxKa_k.innerText = Module.Trx_vsg;
-}
-
-
-//=====================================
-// RESIZE_01 LAUNCH_CFG
-//=====================================
-function HryMx01_KeMeKwi()
-{
-	//---------------------------------
-	// VIEWS
-	//---------------------------------
-	const Ku00_k = document.getElementById("Ku00_KeMeKwi");
-	const Ku01_k = document.getElementById("Ku01_KeMeTrx");
-	const Ku02_k = document.getElementById("Ku02_KeMeBri");
-
-	Ku00_k.style.display = "block";
-	Ku01_k.style.display = "none";
-	Ku02_k.style.display = "none";
+	HriNeDe__ChyKu( "Ku03_KeDruTre", false );
 
 	//---------------------------------
 	// CANVAS
@@ -1362,11 +1400,44 @@ function HryMx01_KeMeKwi()
 	//---------------------------------
 	// SETUP GUI
 	//---------------------------------
-	KoKwiYz_My();
+	Hrz4_Bu__KwiYz__HriNeMy();
 
 	//@@@
 	// LOG
 	SmaSme( "[GUI] KwiYz_My:", Ko.KwiYz_l );
+}
+
+
+//==============================================
+// RESIZE_01 FAIL
+//==============================================
+function HryMx01_KeMeTrx()
+{
+	//---------------------------------
+	// VIEWS
+	//---------------------------------
+	HriNeDe__ChyKu( "Ku00_KeMeKwi", false );
+	HriNeDe__ChyKu( "Ku01_KeMeTrx", true );
+	HriNeDe__ChyKu( "Ku02_KeMeBri", false );
+
+	HriNeDe__ChyKu( "Ku03_KeDruTre", false );
+
+	//---------------------------------
+	// CANVAS
+	//---------------------------------
+	Hry_DriBrz( "MxPo_Trx",  "#FF1111", "#BB9999", "#DDBBBB" );
+
+	//---------------------------------
+	// MSG
+	//---------------------------------
+	const TrxBz_k = document.getElementById("TrxBz");
+	const TrxKa_k = document.getElementById("TrxKa");
+	const TrxSma_Ta_k = document.getElementById("TrxSma_Ta");
+
+	TrxBz_k.innerText = KoSy__KeDru_l.BriDz_VaSy_vsg + " " + KoSy__KeDru_l.TrxBz_vsg + BriDzSa__Da_vsg;
+	TrxKa_k.innerText = Module.Trx_vsg;
+
+	TrxSma_Ta.innerText = "LOGGEDLY LOG LOOOOOG"
 }
 
 
@@ -1378,20 +1449,11 @@ function HryMx02_KeMeBri()
 	//---------------------------------
 	// VIEWS
 	//---------------------------------
-	const Ku00_k = document.getElementById("Ku00_KeMeKwi");
-	const Ku01_k = document.getElementById("Ku01_KeMeTrx");
-	const Ku02_k = document.getElementById("Ku02_KeMeBri");
+	HriNeDe__ChyKu( "Ku00_KeMeKwi", false );
+	HriNeDe__ChyKu( "Ku01_KeMeTrx", false );
+	HriNeDe__ChyKu( "Ku02_KeMeBri", true );
 
-	Ku00_k.style.display = "none";
-	Ku01_k.style.display = "none";
-	Ku02_k.style.display = "block";
-
-	//---------------------------------
-	// CANVAS
-	// Leave to "WG"
-	//---------------------------------
-	//const MxPo_Bri_l = document.getElementById("MxPo_Bri");
-	// if( !MxPo_Bri_l )return;
+	HriNeDe__ChyKu( "Ku03_KeDruTre", false );
 }
 
 //==============================================
@@ -1444,7 +1506,7 @@ function Tra_KeMeBri()
 		SaWG_l.KaSmz_l.destroy();
 	}
 
-	KoKwiYz_Chy();
+	Hrz4_Bu__KwiYz__KoChy();
 
 	//---------------------------------
 	// LAUNCH HERE
@@ -1480,7 +1542,7 @@ function KoDz_GyHa()
 
 	//@@@
 	// UPDATE MODE
-	( KoDz__YzYa_y() ) ? HryMx01_KeMeKwi() : ( KoDz__YzTrx_y() ? HryMx00_KeMeTrx() : HryMx02_KeMeBri() );
+	( KoDz__YzYa_y() ) ? HryMx00_KeMeKwi() : ( KoDz__YzTrx_y() ? HryMx01_KeMeTrx() : HryMx02_KeMeBri() );
 
 	//@@@
 	// EM SIZE
@@ -1958,7 +2020,7 @@ async function KoDz__YaFz()
 	// CULTURE
 	Hre1_Dru__BriYa();
 	// GUI VALUES
-	HryMx01_KeMeKwi();
+	HryMx00_KeMeKwi();
 	// GUI SELECT
 	Hrz4_Bu__ChyNeKu( 0 );
 

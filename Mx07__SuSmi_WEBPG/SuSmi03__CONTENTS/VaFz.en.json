@@ -1,15 +1,15 @@
 {
 	"LABELS":
 	{
-		"BriDz00_VaSy_vsg": "MicroCosm Test"
+		"BriDz00_VaSy_vsg": "MicroCosm DEMO"
 		, "BriDz01_SaSz_vsg": "🤖NEW --> WebGPU ReFMT Core WG Serv"
 		, "BriDz02_TraKwi_vsg": "🚀 LAUNCH"
 
-		, "Che00_Me_vsg": "Submit Answer"
-		, "Che01_Chy_vsg": "Saved Answer"
-		, "Che02_Trx_vsg": "Incorrect Answer"
-		, "Che03_TraHo_vsg": "User Locked"
-		, "Che04_TraHy_vsg": "User Unlocked"
+		, "Che00_Me_vsg": "❓Check Answer"
+		, "Che01_Chy_vsg": "✅Save Answer"
+		, "Che02_Trx_vsg": "✖️Incorrect Answer"
+		, "Che03_TraHo_vsg": "Requires Answer"
+		, "Che04_TraHy_vsg": "User Ready"
 
 
 		, "Ne00_KeDy_vsg": "🥸WHO"
@@ -26,7 +26,7 @@
 		, "Ne00_KeDy03__NiJaPo_vsg": "Avatar"
 		, "Ne00_KeDy04__Cha_vsg": "👤Add New User"
 		, "Ne00_KeDy05__Chi_vsg": "🗑️Remove Current User"
-		, "Ne00_KeDy06__TraChe_vsg": "Use Security-Lock"
+		, "Ne00_KeDy06__TraChe_vsg": "Use Question-Answer Security"
 		, "Ne00_KeDy07__MaKz_vsg": "🔒Question-Lock"
 		, "Ne00_KeDy08__SmzKz_vsg": "🗝️Answer-Key"
 
