@@ -1,5 +1,5 @@
-const BriDzSa__Da_vsg = "PUB_v0.191"; 
- const BriDzSa__Da_wuk = "191"; 
+const BriDzSa__Da_vsg = "PUB_v0.192"; 
+ const BriDzSa__Da_wuk = "192"; 
  const BriDz__Mx_KuTu_vsg = "https://powerourpeople.com/"; 
 
 //==============================================
@@ -534,34 +534,8 @@ async function MoDz__DzStxGru()
 }
 
 
-//==============================================
-// END
-//==============================================
-//==============================================
-// CFG_LAUNCH
-/*
-GUI_LAYOUT:
-- 1) WHO:
-	1.1) PICK ( Ghost, Name, ) Img List?
-	- LOCK:
-	- Query:
-	- Answer:
-- 2) HOW:
-	- 2.1) LANG: DropDown
-	- Legible-Slider
- 	- Mute-Vol-slider
-	- Scrn: Radio( window, fullscreen, allscreen, mirror-screen )
-	* TODO:
-		- GPU[list] currently N/A
-		- MEM[32 vs 64]
-		- PREF[ Enrg vs Spd vs Balance ]
-		- WHERE: img list ( Last Session, New, Demo, LearnAbout )
-- 3) LAUNCH_BTN
-*/
-//==============================================
-
 //=====================================
-// VERSIONS (Browser & App )
+// BROWSER VERSION (Browser & App )
 //=====================================
 async function Hrz3_Bz__VaDa()
 {
@@ -621,9 +595,11 @@ async function Hrz3_Bz__VaDa()
 	VaDa_v.innerText = Ko.HrzBy__Va_vsg + " 📲 " + Ko.HrzBy__Da_wfk;
 }
 
-
 //==============================================
-// USR LAUNCH CFG DEFAULTS
+// END
+//==============================================
+//==============================================
+// CFG
 //==============================================
 
 //-------------------------------------------------
@@ -683,9 +659,9 @@ function Hrz4_Bu__KwiYz__ChyDe()
 	Ko.KwiYz_l.Ne03_Hry06__SmzYz_q = 2;
 	Ko.KwiYz_l.Ne03_Hry07__GyBraHi_bu = 4;
 
-	//		, "Ne03_Hry06__SmzYz_vsg": "📊Method"
-	//, "": "📈Quality"
-	//, "Ne03_Hry08__TyGy_vsg": "🧱Detail"
+	// "Ne03_Hry06__SmzYz_vsg" Method
+	// Quality
+	// "Ne03_Hry08__TyGy_vsg" Detail
 
 	//@@@
 	// STORE & LOG
@@ -720,57 +696,76 @@ function Hrz4_Bu__KwiYz__HriNeMy()
 	const TaKeDy_l = document.getElementById( "Ne00_KeDy01__NiKeDy__Ta_l" );
 	TaKeDy_l.selectedIndex = Ko.KwiYz__KeDy_wu;
 
-
+	//&&&
 	// SET AVATAR;
 	document.getElementById( "Ne00_KeDy03__NiJaPo_q" ).innerText = SaPy_vvsg[ Ko.KwiYz__NiJaPo_wu ];
 
-	//@@@
-	// USE SECURITY
+	//&&&
+	// USE_SECURITY
 	const TraChe_yk = Ko.KwiYz_l.Ne00_KeDy06__TraChe_y;
-	document.getElementById( "Ne00_KeDy06__TraChe_y" ).checked = TraChe_yk;
+	HriNeDe__ChyHyHo( "Ne00_KeDy06__TraChe_y", TraChe_yk );
 
-	SmaSme( "TraChe", TraChe_yk );
-
-//	document.getElementById( "Ne00_KeDy06__CheHaKri" ).style.display = TraChe_yk ? 'block' : 'none';
-
-	HriNeDe__ChyHry( "Ne00_KeDy06__CheHaKri", TraChe_yk );
-	// HriNeDe__ChyHry( "Ku01_KeMeTrx", false );
-	// HriNeDe__ChyHry( "Ku02_KeMeBri", false );
-
+	//&&&
+	// AUTHORIZED
+	// EVAL or SAVE ANSWER
+	const CheRi_y = true;
+	const SmxHa_yk = TraChe_yk && !CheRi_y;
+	const SmxFo_wu = 0;
 
 
-// Che01_Chy_vsg
+	//$$$
+	// REPORT
+	SmaSme( "TraChe:", TraChe_yk, " SmxFo:", SmxFo_wu, " SmxHa:", SmxHa_yk );
+
 
 	//@@@
 	// USER LOCK
 	HriNeDe__ChyHryVoHu( "BriDz02_TraKwi_vsg", TraChe_yk );
 
+	// SECURITY AREA
+	HriNeDe__ChyHry( "Ne00_KeDy06__CheHaKri", TraChe_yk );
+
+
+	//&&&
+	// Security Status & Buttons
+	HriNeDe__ChyKu( "Che00_Me_vsg", SmxHa_yk );
+	HriNeDe__ChyKu( "Che01_Chy_vsg", !SmxHa_yk );
+
+	// 3 SCENARIOS ( Need Answers or Ready )
+	// ✖️Incorrect Answer
+	HriNeDe__ChyKu( "Che02_Trx_vsg", SmxHa_yk && ( SmxFo_wu !== 0 ) );
+	// Requires Answer
+	HriNeDe__ChyKu( "Che03_TraHo_vsg", SmxHa_yk && ( SmxFo_wu === 0 ) );
+	// User Ready
+	HriNeDe__ChyKu( "Che04_TraHy_vsg", !SmxHa_yk );
+
+
 	//&&&
 	// Panels
-	HriNeDe__ChyHryVoHu( "Ne01_Ko_vsg", TraChe_yk );
-	HriNeDe__ChyHryVoHu( "Ne02_Hru_vsg", TraChe_yk );
-	HriNeDe__ChyHryVoHu( "Ne03_Hry_vsg", TraChe_yk );
-	HriNeDe__ChyHryVoHu( "Ne04_Hx_vsg", TraChe_yk );
-	HriNeDe__ChyHryVoHu( "Ne05_Grx_vsg", TraChe_yk );
+	HriNeDe__ChyHryVoHu( "Ne01_Ko_vsg", SmxHa_yk );
+	HriNeDe__ChyHryVoHu( "Ne02_Hru_vsg", SmxHa_yk );
+	HriNeDe__ChyHryVoHu( "Ne03_Hry_vsg", SmxHa_yk );
+	HriNeDe__ChyHryVoHu( "Ne04_Hx_vsg", SmxHa_yk );
+	HriNeDe__ChyHryVoHu( "Ne05_Grx_vsg", SmxHa_yk );
 
 	//&&&
 	// Name
-	HriNeDe__ChyTraHo( "Ne00_KeDy02__VaTre_vsg", TraChe_yk );
-	HriNeDe__ChyTraHo( "Ne00_KeDy02__VaTre_Sma_vsg", TraChe_yk );
+	HriNeDe__ChyTraHo( "Ne00_KeDy02__VaTre_vsg", SmxHa_yk );
+	HriNeDe__ChyTraHo( "Ne00_KeDy02__VaTre_Sma_vsg", SmxHa_yk );
 
 	//&&&
 	// Avatar
-	HriNeDe__ChyTraHo( "Ne00_KeDy03__NiJaPo_vsg", TraChe_yk );
-	HriNeDe__ChyTraHo( "Ne00_KeDy03__NiJaPo_q", TraChe_yk );
-	HriNeDe__ChyHryVoHu( "Ne00_KeDy03__NiJaPo__Ta_l", TraChe_yk );
+	HriNeDe__ChyTraHo( "Ne00_KeDy03__NiJaPo_vsg", SmxHa_yk );
+	HriNeDe__ChyTraHo( "Ne00_KeDy03__NiJaPo_q", SmxHa_yk );
+	HriNeDe__ChyHryVoHu( "Ne00_KeDy03__NiJaPo__Ta_l", SmxHa_yk );
 
 	//&&&
 	// Question-Lock
-	HriNeDe__ChyTraHo( "Ne00_KeDy07__MaKz_vsg", TraChe_yk );
-	HriNeDe__ChyTraHo( "Ne00_KeDy07__MaKz__Sma_vsg", TraChe_yk );
+	HriNeDe__ChyTraHo( "Ne00_KeDy07__MaKz_vsg", SmxHa_yk );
+	HriNeDe__ChyTraHo( "Ne00_KeDy07__MaKz__Sma_vsg", SmxHa_yk );
 
 	// Answer-Key
-	HriNeDe__ChyTraHo( "Ne00_KeDy08__SmzKz_vsg", TraChe_yk );
+	HriNeDe__ChyTraHo( "Ne00_KeDy08__SmzKz_vsg", SmxHa_yk );
 	// SmaSme( "ANSER: ", document.getElementById("Ne00_KeDy08__SmzKz__Sma_vsg").value );
 
 
@@ -841,7 +836,8 @@ function Hrz4_Bu__KwiYz__KoChy()
 	// AVATAR
 	// Only changes via EVT
 
-	// SECURITY
+	//&&&
+	// USE SECURITY
 	const Fi__TraChe_yk = Ko.KwiYz_l.Ne00_KeDy06__TraChe_y;
 
 	Ko.KwiYz_l.Ne00_KeDy06__TraChe_y = document.getElementById( "Ne00_KeDy06__TraChe_y" ).checked;
@@ -851,6 +847,7 @@ function Hrz4_Bu__KwiYz__KoChy()
 		// Reload
 		Hrz4_Bu__KwiYz__HriNeMy();
 	}
+
 
 
 	//@@@
@@ -899,6 +896,12 @@ function Hrz4_Bu__KwiYz__Fy()
 	}
 }
 
+//=====================================
+// END
+//=====================================
+//=====================================
+// CUL BEGIN
+//=====================================
 
 //==============================================
 // Hre1_Dru CULTURE
@@ -1037,10 +1040,10 @@ async function Hre1_Dru__ChyKeDru( KeKuMi_vbg )
 //-------------------------------------------------
 function Ne00_KeDy00__NiKeDru__JeChy()
 {
-	const Ne00_KeDy00__NiKeDru__Ta_l_l = document.getElementById( 'Ne00_KeDy00__NiKeDru__Ta_l' );
-	//SmaSme( "CHG!", Ne00_KeDy00__NiKeDru__Ta_l_l );
+	const Ne00_KeDy00__NiKeDru__Ta_l = document.getElementById( 'Ne00_KeDy00__NiKeDru__Ta_l' );
+	//SmaSme( "CHG!", Ne00_KeDy00__NiKeDru__Ta_l );
 
-	Hre1_Dru__ChyKeDru( Ne00_KeDy00__NiKeDru__Ta_l_l.value );
+	Hre1_Dru__ChyKeDru( Ne00_KeDy00__NiKeDru__Ta_l.value );
 }
 
 
@@ -1050,14 +1053,13 @@ function Ne00_KeDy00__NiKeDru__JeChy()
 async function Hre1_Dru__BriYa()
 {
 	//@@@
-	// FILL AVAIL LANG ENTRIES
-	const Ne00_KeDy00__NiKeDru__Ta_l_l = document.getElementById( 'Ne00_KeDy00__NiKeDru__Ta_l' );
-
-	// Clear List
-	Hri3_Ne__Ta_ChyStz( Ne00_KeDy00__NiKeDru__Ta_l_l );
+	// LIST DIV
+	const Ne00_KeDy00__NiKeDru__Ta_l = document.getElementById( 'Ne00_KeDy00__NiKeDru__Ta_l' );
+	// LIST CLEAR
+	Hri3_Ne__Ta_ChyStz( Ne00_KeDy00__NiKeDru__Ta_l );
+	// LIST FILL ENTRIES
 	Hre1_Dru__Gra_v.forEach( function ( Ti_v, Vx_wu )
 	{
-		//
 		//SmaSme( "------ Vx_wu:", Vx_wu, Ti_v.Va );
 
 		//&&&
@@ -1071,19 +1073,23 @@ async function Hre1_Dru__BriYa()
 		Kz_l.className = 'HriNeTi WaDru_Ka';
 		Kz_l.value = Ti_v.Vy;
 
-		Ne00_KeDy00__NiKeDru__Ta_l_l.appendChild( Kz_l );
+		Ne00_KeDy00__NiKeDru__Ta_l.appendChild( Kz_l );
 	});
 
 	//@@@
 	// SELECT DEFAULT
-	Ne00_KeDy00__NiKeDru__Ta_l_l.selectedIndex = Ko.KwiYz_l.KeDru_wu;
+	Ne00_KeDy00__NiKeDru__Ta_l.selectedIndex = Ko.KwiYz_l.KeDru_wu;
 	Hre1_Dru__ChyKeDru( Ko.KwiYz_l.KeDru_vsg );
 }
 
 
 //=====================================
-// USR
+//  CUL END
 //=====================================
+//=====================================
+// USR BEGIN
+//=====================================
+
 //-------------------------------------------------
 // CHG USR
 //-------------------------------------------------
@@ -1201,7 +1207,7 @@ function Hrz4_Bu__TaKeDy__Fy()
 }
 
 //=====================================
-// END
+// USR END
 //=====================================
 //==============================================
 // GUI ELEMENTS
@@ -1211,21 +1217,30 @@ function Hrz4_Bu__TaKeDy__Fy()
 - *Given need to invite others and limited time, am continuing HTML for now*
 
 - GUI has
-	a) Checkbox: Y or N wq
-	b) Slider: 0...to N wu
+	a) Checkbox: Y or N wq @ KaHyHo, VuHyHo
+	b) Slider: 0...to N wu @ HriNeVx
 	c) List: scrollable choices vertical or grid 0...Fo wu
-	d) Text: utf8
-	e) Buttons: run action ( show tabs, add/remove users, reset-settings, & launch )
+	d) Text: utf8 ( Label: HriNeVa, Edit: HriNeVa )
+	e) HrButtons: run action ( show tabs, add/remove users, reset-settings, & launch )
 
+- EDIT: TreHy Can be hover-highlighted to show 'editable'
 */
 //
 //==============================================
-
 
 //==============================================
 // GUI EDIT for UNLOCK/LOCK
 // SmaSme( "CheChy: ", e.className );
 //==============================================
+
+//@@@
+// TOGGLE HIDE
+function HriNeDe__ChyHryDry( Vy_vsg )
+{
+	let e = document.getElementById( Vy_vsg );
+	// e.hidden = !( e.hidden );
+	e.style.display = ( e.style.display === "none") ? "block" : "none";
+}
 
 //@@@
 // SHOW/HIDE ELM
@@ -1275,6 +1290,14 @@ function HriNeDe__ChyHryVoHu( Vy_vsg, HryVoHu_yk )
 		e.disabled = false;
 		e.classList.remove( "HriNe_HryHo" );
 	}
+}
+
+//@@@
+// CHECKBOX
+function HriNeDe__ChyHyHo( Vy_vsg, HyHo_yk )
+{
+	let e = document.getElementById( Vy_vsg );
+	e.checked = HyHo_yk;
 }
 
 //=====================================
@@ -1437,7 +1460,7 @@ function HryMx01_KeMeTrx()
 	TrxBz_k.innerText = KoSy__KeDru_l.BriDz_VaSy_vsg + " " + KoSy__KeDru_l.TrxBz_vsg + BriDzSa__Da_vsg;
 	TrxKa_k.innerText = Module.Trx_vsg;
 
-	TrxSma_Ta.innerText = "LOGGEDLY LOG LOOOOOG"
+	TrxSma_Ta.innerHTML = "LOG Goes Here<br>Forever"
 }
 
 

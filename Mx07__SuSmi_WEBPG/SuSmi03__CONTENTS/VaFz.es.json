@@ -5,13 +5,13 @@
 		, "BriDz01_SaSz_vsg": "🤖NUEVA --> WebGPU"
 		, "BriDz02_TraKwi_vsg": "🚀 EMPEZAR!"
 
-		, "Che00_Me_vsg": "Submit Contesto"
-		, "Che01_Chy_vsg": "Saved Contesto"
-		, "Che02_Trx_vsg": "Incorrect Contesto"
-		, "Che03_TraHo_vsg": "User Lock-o"
-		, "Che04_TraHy_vsg": "User Unlock-o"
+		, "Che00_Me_vsg": "❓Submit Contesto"
+		, "Che01_Chy_vsg": "✅Saved Contesto"
+		, "Che02_Trx_vsg": "✖️Incorrect Contesto"
+		, "Che03_TraHo_vsg": "🔑User Lock-o"
+		, "Che04_TraHy_vsg": "🔓User Unlock-o"
 
-
+		
 		, "Ne00_KeDy_vsg": "🥸 QUÍEN"
 		, "Ne01_Ko_vsg": "⚙️PERMISOS"
 		, "Ne02_Hru_vsg": "👂ESCUCHAR"
@@ -31,19 +31,19 @@
 		, "Ne00_KeDy08__SmzKz_vsg": "🗝️Contesta-Llave"
 
 
-		, "Ne01_Ko00__YzYu_vsg": "♻️Reset ALL Settings-o"
-		, "Ne01_Ko01__HraBru_Tra_vsg": "🛜Network Active-o"
-		, "Ne01_Ko02__SpeVu_vsg": "🔋Power Use-o"
-		, "Ne01_Ko03__MzKu_vsg": "📍Allow GPS Location-o"
-		, "Ne01_Ko04__KoDz_YoHo_vsg": "♾️Always Active (Background Work)-o"
+		, "Ne01_Ko00__YzYu_vsg": "Reset ALL Settings-o"
+		, "Ne01_Ko01__HraBru_Tra_vsg": "Network Active-o"
+		, "Ne01_Ko02__SpeVu_vsg": "Power Use-o"
+		, "Ne01_Ko03__MzKu_vsg": "Allow GPS Location-o"
+		, "Ne01_Ko04__KoDz_YoHo_vsg": "Always Active (Background Work)-o"
 
 
-		, "Ne02_Hru00__MxPeHo_vsg": "🔇Mute-o"
-		, "Ne02_Hru01__MxPeVo_vsg": "🔊Speakers"
-		, "Ne02_Hru02__MzPe_vsg": "🎙️Mic-o"
-		, "Ne02_Hru03__YoHo_vsg": "♾️Always Audible-o"
-		, "Ne02_Hru04__SmzYz_vsg": "📊Method-o"
-		, "Ne02_Hru05__GyBraHi_vsg": "📈Quality-o"
+		, "Ne02_Hru00__MxPeHo_vsg": "Mute-o"
+		, "Ne02_Hru01__MxPeVo_vsg": "Speakers"
+		, "Ne02_Hru02__MzPe_vsg": "Mic-o"
+		, "Ne02_Hru03__YoHo_vsg": "Always Audible-o"
+		, "Ne02_Hru04__SmzYz_vsg": "Method-o"
+		, "Ne02_Hru05__GyBraHi_vsg": "Quality-o"
 
 
 		, "Ne03_Hry00__KeDruGy_vsg": "Legible Size-o"

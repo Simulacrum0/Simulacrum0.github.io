@@ -1,0 +1,123 @@
+//=====================================
+// USR BEGIN
+//=====================================
+
+//-------------------------------------------------
+// CHG USR
+//-------------------------------------------------
+function Ne00_KeDy01__NiKeDy__JeChy()
+{
+	const TaKeDy_l = document.getElementById( 'Ne00_KeDy01__NiKeDy__Ta_l' );
+
+	if( TaKeDy_l.selectedIndex >= 0 )
+	{
+		Ko.KwiYz__KeDy_wu = TaKeDy_l.selectedIndex;
+		Hrz4_Bu__KwiYz__Fy();
+
+		// CHG LANG
+		Hre1_Dru__ChyKeDru( Ko.KwiYz_l.KeDru_vsg );
+
+		// SELECT FEATURES
+		Hrz4_Bu__ChyNeKu( null, 0 );
+	}
+
+	SmaSme( "USR:", TaKeDy_l.value, TaKeDy_l.selectedIndex  );
+
+	//@@@
+	// NAME/PWD
+	// Turn SECURITY on/off
+	// ( TaKeDy_l.value );
+	// Check Answer to QUERY
+
+
+	//@@@
+	// SET GUI
+
+}
+
+//-------------------------------------------------
+// ERASE USR LAUNCH CFGs
+//-------------------------------------------------
+function Ne00_KeDy05__Chi_Tra()
+{
+	// localStorage.removeItem(  );
+
+}
+
+//-------------------------------------------------
+// ADD USR
+//-------------------------------------------------
+function Ne00_KeDy04__Cha_Tra()
+{
+
+}
+
+
+//-------------------------------------------------
+// SECURE_USR
+//-------------------------------------------------
+function Ne00_KeDy04__CheHa()
+{
+
+}
+
+
+//-------------------------------------------------
+// USR_AVATAR__EDIT
+//-------------------------------------------------
+function KeDy__TreSaPy( e )
+{
+	const SaPy_vksg = SaPy_vvsg[ e ];
+	document.getElementById( "Ne00_KeDy03__NiJaPo_q" ).innerText = SaPy_vksg;
+
+	Ko.KwiYz__NiJaPo_wu = e;
+}
+
+//-------------------------------------------------
+// DEFAULTS ALL USR LAUNCH CFGs
+//-------------------------------------------------
+function Ne01_Ko00__YzYu_Tra()
+{
+	localStorage.clear();
+	//
+}
+
+//-------------------------------------------------
+// LOAD USERS
+//-------------------------------------------------
+function Hrz4_Bu__TaKeDy__Fy()
+{
+	Ko.KwiYz__KeDy_wu = 0;
+
+	//@@@
+	// FILE AVAIL USR ENTRIES
+	const TaKeDy_l = document.getElementById( 'Ne00_KeDy01__NiKeDy__Ta_l' );
+	Hri3_Ne__Ta_ChyStz( TaKeDy_l );
+
+	SaNo__TaKeDy_l =
+	[
+		  { Va: "Guest", Gwz: "👤", Che: false }
+		, { Va: "Ghost", Gwz: "👻", Che: false }
+		, { Va: "Kiosk", Gwz: "🎰", Che: false }
+		, { Va: "Pro", Gwz: "🧑‍💻", Che: true }
+	];
+
+	SaNo__TaKeDy_l.forEach( function ( Ti_v, Vx_wu )
+	{
+		//SmaSme( "------ Vx_wu:", Vx_wu, Ti_v.Va );
+
+		//&&&
+		// ADD BTN
+		const Kz_l = document.createElement( 'option' );
+		Kz_l.innerText = `${Ti_v.Gwz} ${Ti_v.Va}`;
+
+		Kz_l.className = 'HriNeTi WaDru_Ka';
+		Kz_l.value = Ti_v.Va;
+
+		TaKeDy_l.appendChild( Kz_l );
+	});
+}
+
+//=====================================
+// USR END
+//=====================================

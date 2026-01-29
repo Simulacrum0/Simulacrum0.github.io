@@ -6,21 +6,30 @@
 - *Given need to invite others and limited time, am continuing HTML for now*
 
 - GUI has
-	a) Checkbox: Y or N wq
-	b) Slider: 0...to N wu
+	a) Checkbox: Y or N wq @ KaHyHo, VuHyHo
+	b) Slider: 0...to N wu @ HriNeVx
 	c) List: scrollable choices vertical or grid 0...Fo wu
-	d) Text: utf8
-	e) Buttons: run action ( show tabs, add/remove users, reset-settings, & launch )
+	d) Text: utf8 ( Label: HriNeVa, Edit: HriNeVa )
+	e) HrButtons: run action ( show tabs, add/remove users, reset-settings, & launch )
 
+- EDIT: TreHy Can be hover-highlighted to show 'editable'
 */
 //
 //==============================================
-
 
 //==============================================
 // GUI EDIT for UNLOCK/LOCK
 // SmaSme( "CheChy: ", e.className );
 //==============================================
+
+//@@@
+// TOGGLE HIDE
+function HriNeDe__ChyHryDry( Vy_vsg )
+{
+	let e = document.getElementById( Vy_vsg );
+	// e.hidden = !( e.hidden );
+	e.style.display = ( e.style.display === "none") ? "block" : "none";
+}
 
 //@@@
 // SHOW/HIDE ELM
@@ -70,6 +79,14 @@ function HriNeDe__ChyHryVoHu( Vy_vsg, HryVoHu_yk )
 		e.disabled = false;
 		e.classList.remove( "HriNe_HryHo" );
 	}
+}
+
+//@@@
+// CHECKBOX
+function HriNeDe__ChyHyHo( Vy_vsg, HyHo_yk )
+{
+	let e = document.getElementById( Vy_vsg );
+	e.checked = HyHo_yk;
 }
 
 //=====================================
@@ -232,7 +249,7 @@ function HryMx01_KeMeTrx()
 	TrxBz_k.innerText = KoSy__KeDru_l.BriDz_VaSy_vsg + " " + KoSy__KeDru_l.TrxBz_vsg + BriDzSa__Da_vsg;
 	TrxKa_k.innerText = Module.Trx_vsg;
 
-	TrxSma_Ta.innerText = "LOGGEDLY LOG LOOOOOG"
+	TrxSma_Ta.innerHTML = "LOG Goes Here<br>Forever"
 }
 
 

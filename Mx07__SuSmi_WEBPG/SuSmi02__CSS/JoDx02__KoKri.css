@@ -27,7 +27,87 @@ MxPo_Trx
 	font-size: 1.0rem;
 }
 
-.SpoJy
+
+/*@@@@@@@@@@@@@@@
+ICONS
+@@@@@@@@@@@@@@@*/
+.GwzHu{	zoom: 0.5;}
+
+/* CLR ICONS */
+.GwzDoPo
+{
+	background: url( ../../Mx01__SuKz_MEDIA/SuKz02_JaPo__PICT/JaPo02__GwzDoPo.png);
+	background-color:transparent;
+	background-repeat:no-repeat;
+
+	margin: 0.0rem;
+	padding: 0.0rem;
+	border-radius: 0.0rem;
+
+	height: 108px;
+	width: 108px;
+}
+
+/* ROW 0 */
+.GwzDo_WIN { background-position: 0px 0px;}
+.GwzDo_IOS { background-position: -108px 0px;}
+.GwzDo_MAC { background-position: -216px 0px;}
+.GwzDo_DRD { background-position: -324px 0px;}
+.GwzDo_LNX { background-position: -432px 0px;}
+
+.GwzDo_ESRB { background-position: -540px 0px;}
+.GwzDo_PEGI { background-position: -648px 0px;}
+.GwzDo_GDPR { background-position: -756px 0px;}
+.GwzDo_CCPA { background-position: 0px -108px;}
+
+.GwzDo_BULLET { background-position: 0px -216px;}
+
+.GwzDo_NET { background-position: -108px -324px;}
+.GwzDo_SECURITY { background-position: -216px -324px;}
+.GwzDo_GLOBAL { background-position: -324px -324px;}
+
+/* ROW 3 */
+.GwzDo_STORAGE { background-position: -432px -324px;}
+.GwzDo_SPEED { background-position: -540px -324px;}
+.GwzDo_BATTERY { background-position: -648px -324px;}
+.GwzDo_PLUG { background-position: -756px -324px;}
+
+/*@@@@@@@@@@@@@@@
+FONT
+@@@@@@@@@@@@@@@*/
+.WaDru_Bz
+{
+	font-family: "Raleway", sans-serif;
+	font-optical-sizing: auto;
+	font-weight: 600;
+	font-style: normal;
+}
+
+.WaDru_Ka
+{
+	font-family: "Raleway", sans-serif;
+	font-optical-sizing: auto;
+	font-weight: 400;
+	font-style: italic;
+}
+
+/*@@@@@@@@@@@@@@@
+AREA TYPES
+( Not Panels nor Status Bars )
+ ( Fullpage or Screen as Canvas spaces )
+@@@@@@@@@@@@@@@*/
+.KuJy00__Gry
+{
+	left: 0dvw;
+	top: 0dvh;
+
+	width: 100dvw;
+	height: 100dvh;
+
+	overflow: hidden;
+}
+
+.KuJy01__SpoKz
 {
 	box-sizing: content-box;
 	margin: 0.0rem;
@@ -43,32 +123,11 @@ MxPo_Trx
 	background-color: #444F
 }
 
-.HreJy
-{
-	margin: 0.25rem;
-	padding: 0.25rem;
-}
-
-/*@@@@@@@@@@@@@@@
-FULL  PAGE AREA
-SCREEN as CANVAS
-@@@@@@@@@@@@@@@*/
-.KuJy
-{
-	left: 0dvw;
-	top: 0dvh;
-
-	width: 100dvw;
-	height: 100dvh;
-
-	overflow: hidden;
-}
-
-.MxPo
+.KuJy02__MxPo
 {
 	left: 0dvw;
 	top: 1.5rem;
-	
+
 	width: 100dvw;
 	height: calc( 100dvh - 3.0rem);
 
@@ -124,7 +183,7 @@ PANELS
 	width: calc( 100dvw - 3rem );
 	max-height: calc( 100dvh - 6rem );
 
-	overflow-x: none;
+	overflow-x: auto;
 	overflow-y: auto;
 
 	background-color: #000A;
@@ -135,9 +194,15 @@ PANELS
 .Ku01_BzVa_GeBre
 {
 	display: flex;
-	place-items: center;
-	text-align: center;
-	/* background-color: #FF0; */
+
+    justify-content: center;
+    align-items: center;
+
+	box-sizing: border-box;
+	flex-wrap: wrap;
+
+	margin: 0.50rem;
+	padding: 0.25rem;
 }
 
 /* PANEL_GUI ---------------------- */
@@ -229,7 +294,7 @@ PANELS
 		grid-template-columns: 100%;
 		grid-template-rows: 16.67%;
 
-		min-width: 6.0rem;
+		/* min-width: 6.0rem; */
 		min-height: 14.0rem;
 	}
 }
@@ -237,20 +302,21 @@ PANELS
 /* PANEL__TOPIC_CHOICES ----------------------------- */
 .Ku03_NeKu
 {
+	display: grid;
+
 	/* PANEL__TOPIC_CHOICES---WIDE */
 	@media (min-aspect-ratio: 1/1)
 	{
-		display: grid;
 		grid-template-columns: 50% 50%;
-		/* grid-template-columns: 33% 33% 33%; */
+	}
+	@media (min-aspect-ratio: 9/5 )
+	{
+		grid-template-columns: 33% 33% 33%;
 	}
 	/* PANEL__TOPIC_CHOICES---TALL */
 	@media (max-aspect-ratio: 1/1)
 	{
-		display: block;
-
-		/* display: grid;
-		grid-template-columns: 50% 50%; */
+		grid-template-columns: 100%;
 	}
 }
 
@@ -260,119 +326,24 @@ PANELS
 	display: block;
 }
 
-/* PANEL__TOPIC_ */
-.Kwi04_
+/* PANEL__VERSION */
+.Kwi04_BriDzDa
 {
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-}
-
-/*@@@@@@@@@@@@@@@
-ICONS
-@@@@@@@@@@@@@@@*/
-.GwzHu{	zoom: 0.5;}
-.GwzHi{	zoom: 2.0;}
-
-/* B&W ICONS */
-.GwzDoVo, .GwzDo
-{
-	background: url( ../../Mx01__SuKz_MEDIA/SuKz02_JaPo__PICT/JaPo03__GwzDoVo.png);
-	background-color:transparent;
-	background-repeat:no-repeat;
-
-	margin: 0.0rem;
-	padding: 0.0rem;
-	border-radius: 0.0rem;
-
-	height: 108px;
-	width: 108px;
-}
-
-/* CLR ICONS */
-.GwzDoPo, .GwzDo:hover
-{
-	background: url( ../../Mx01__SuKz_MEDIA/SuKz02_JaPo__PICT/JaPo02__GwzDoPo.png);
-	background-color:transparent;
-	background-repeat:no-repeat;
-
-	margin: 0.0rem;
-	padding: 0.0rem;
-	border-radius: 0.0rem;
-
-	height: 108px;
-	width: 108px;
-}
-
-/* ROW 0 */
-.GwzDo_WIN, .GwzDo_WIN:hover{ background-position: 0px 0px;}
-.GwzDo_IOS, .GwzDo_IOS:hover{ background-position: -108px 0px;}
-.GwzDo_MAC, .GwzDo_MAC:hover{ background-position: -216px 0px;}
-.GwzDo_DRD, .GwzDo_DRD:hover{ background-position: -324px 0px;}
-.GwzDo_LNX, .GwzDo_LNX:hover{ background-position: -432px 0px;}
-
-.GwzDo_ESRB, .GwzDo_ESRB:hover{ background-position: -540px 0px;}
-.GwzDo_PEGI, .GwzDo_PEGI:hover{ background-position: -648px 0px;}
-.GwzDo_GDPR, .GwzDo_GDPR:hover{ background-position: -756px 0px;}
-.GwzDo_CCPA, .GwzDo_CCPA:hover{ background-position: 0px -108px;}
-
-.GwzDo_BULLET, .GwzDo_BULLET:hover{ background-position: 0px -216px;}
-
-.GwzDo_NET, .GwzDo_NET:hover{ background-position: -108px -324px;}
-.GwzDo_SECURITY, .GwzDo_SECURITY:hover{ background-position: -216px -324px;}
-.GwzDo_GLOBAL, .GwzDo_GLOBAL:hover{ background-position: -324px -324px;}
-
-/* ROW 3 */
-.GwzDo_STORAGE, .GwzDo_STORAGE:hover{ background-position: -432px -324px;}
-.GwzDo_SPEED, .GwzDo_SPEED:hover{ background-position: -540px -324px;}
-.GwzDo_BATTERY, .GwzDo_BATTERY:hover{ background-position: -648px -324px;}
-.GwzDo_PLUG, .GwzDo_PLUG:hover{ background-position: -756px -324px;}
-
-/*@@@@@@@@@@@@@@@
-FONT
-@@@@@@@@@@@@@@@*/
-.WaDru_Bz
-{
-	font-family: "Raleway", sans-serif;
-	font-optical-sizing: auto;
-	font-weight: 600;
-	font-style: normal;
-}
-
-.WaDru_Ka
-{
-	font-family: "Raleway", sans-serif;
-	font-optical-sizing: auto;
-	font-weight: 400;
-	font-style: italic;
-}
-
-/* INPUT TEXT CLRS */
-.KeDru_MiPo
-{
-	color: rgb(255, 160, 0 );
- 	background-color:rgb(96,96,96)
+	margin: 0.25rem;
+	padding: 0.25rem;
 }
 
 /*@@@@@@@@@@@@@@@
 TEXT
 @@@@@@@@@@@@@@@*/
 
-/* TEXT__TITLE_BAR */
-.BriDzVa
-{
-	margin: 0.0rem auto;
-	padding: 0.0rem;
-
-	/* PREVENT LINE WRAP */
-	white-space:nowrap;
-}
-
-
 /* TEXT__TITLE_WORDSIZE */
-.BriDzGy
+.BriDz_FzVa
 {
 	font-size: 2.0rem;
+	text-align: center;
 }
+
 
 /* TEXT__APP_VERSION */
 .BriDzDa
@@ -382,6 +353,17 @@ TEXT
 	margin: 0.0rem;
 	padding: 0.0rem;
 	color: rgb( 192, 192, 192 );
+	font-size: 75%;
+}
+
+/* TEXT__ICON --------------------------------------*/
+.JaPoJy
+{
+	margin: 0.0rem;
+	padding: 0.0rem;
+
+	/* PREVENT LINE WRAP */
+	white-space:nowrap;
 }
 
 /* TEXT__MENU_TITLE --------------------------------- */
@@ -405,6 +387,7 @@ TEXT
 .HriNzVa:hover
 {
 	font-size: 1.5rem;
+	box-shadow: 0 0 1.5rem #FFF;
 }
 
 /* TEXT__MENU_SELECTED */
@@ -413,6 +396,7 @@ TEXT
 	color: #FFF;
 	background-color: #0008;
 	font-size: 1.25rem;
+	box-shadow: 0 0 1.5rem #D22;
 }
 
 /* TEXT__MENU_TITLE---WIDE */
@@ -453,20 +437,28 @@ TEXT
 	display: inline-flex;
 	text-align:left;
 	color: #FFF;
+	padding: 0.25rem 1.00rem;
 	background-color: #0008;
 }
 
-/* TEXT__INDEX */
+/* TEXT__INDEX_or_SLIDER */
 .HriNeVx
 {
 	display: inline-flex;
 	text-align:left;
 	color: #888;
 	background-color: #0008;
-	margin: 0.0rem;
-	padding: 0.0rem;
+	/* SLIDER_CLR */
+	accent-color: #D22;
 
-	accent-color: #D22F;
+	margin: 0.25rem;
+	padding: 0.25rem;
+}
+
+/* TEXT_INPUT_CLRS */
+.KeDru_MiPo
+{
+	font-size: 100%;
 }
 
 /* TEXT__TYPING_INPUT */
@@ -474,7 +466,6 @@ input[type=text], select
 {
 	display: inline-flex;
 	width: 100%;
-	/* 16rem; */
 
 	margin: 0.25rem;
 	padding: 0.5rem 1.0rem;
@@ -489,8 +480,8 @@ input[type=text], select
 /* TEXT__NOT_IN_USE */
 .HriNe_TraHo
 {
-	color: #D22F;
-	background-color: #DDDF;
+	color: #000F;
+	background-color: #888F;
 }
 /* TEXT__FADED__NOT_IN_USE */
 .HriNe_HryHo
@@ -503,29 +494,28 @@ input[type=text], select
 /* TEXT__BTN */
 .HriNe_Tra
 {
-	display: inline-flex;
+	display: flex;
 	text-align:center;
 
 	border-radius: 1.5rem;
 	border: 0.125rem solid #FFF;
 
 	margin: 0.25rem;
-	padding: 0.25rem;
+	padding: 0.25rem 0.75rem;
 
 	color: #FFF;
 	background-color: #6668;
 }
 
-/* TEXT__LAUNCH_BTN */
-.HriNe_TraKwi
+/* GLOW ON HOVER */
+.TreHy:hover
 {
-	display: inline-flex;
-	text-align:center;
-	color: #FFF;
-	background-color: #0000;
-
-	margin: 0.25rem;
-	padding: 0.25rem;
+	box-shadow: 0 0 1.0rem #FFF;
+}
+.TreHy:focus
+{
+	/* GLOW */
+	box-shadow: 0 0 1.5rem #D22;
 }
 
 /* TEXT__LIST ELEMENTS */
@@ -658,25 +648,30 @@ ELEMENTS
 }
 
 /* BTN SUBMIT ===> LAUNCH BTN RED */
-input[type=submit]
+/* input[type=submit] */
+.HriNe_TraKwi
 {
-	display: inline-flex;
-	position: relative;
+	font-size: 1.5rem;
+	height: 4.0rem;
 
-	width: calc( 100% - 1.0rem );
-	height: 2.5rem;
+	min-width: 16rem;
+	width: calc( 100% - 2rem );
 
-	border-radius: 1.5rem;
+	margin: 0.50rem;
+	padding: 0.25rem;
+
+	border-radius: 2.0rem;
 	border: 0.1rem solid #FFF;
 	background-color: #D22;
-
-	font-size: 1.25rem;
-	text-align: center;
 }
-/* HOVER BG Po ==> GREEN */
-input[type=submit]:hover
+
+/* BTN SUBMIT HOVER BG Po ==> GREEN */
+/* input[type=submit]:hover */
+.HriNe_TraKwi:hover
 {
 	background-color: #2A2;
+	/* GLOW */
+	box-shadow: 0 0 1.0rem #FFF;
 }
 
 /*@@@@@@@@@@@@@@@
@@ -699,6 +694,10 @@ TOGGLE_SWITCH
 	display: inline-block;
 	width: 3.0rem;
 	height: 1.5rem;
+}
+.KaHyHo:hover
+{
+	box-shadow: 0 0 1.5rem #FFF;
 }
 
 /* ELLIPSE BAR BG SHP */
@@ -750,7 +749,7 @@ input:checked + .VuHyHo
 input:focus + .VuHyHo
 {
 	/* GLOW */
-	box-shadow: 0 0 1.0rem #FFF;
+	box-shadow: 0 0 1.0rem #D22;
 }
 
 input:checked + .VuHyHo:before

@@ -1,0 +1,187 @@
+//=====================================
+// CUL BEGIN
+//=====================================
+
+//==============================================
+// Hre1_Dru CULTURE
+//==============================================
+
+//-------------------------------------------------
+// MENU CLEAR
+//-------------------------------------------------
+function Hri3_Ne__Ta_ChyStz( Ta_v )
+{
+	while ( Ta_v.firstChild )
+	{
+		Ta_v.removeChild( Ta_v.lastChild );
+	}
+}
+
+//-------------------------------------------------
+// LOAD JSON
+//-------------------------------------------------
+async function ToKz__JSON_v( ChaKuTu_vbg, ToKzVa_vbg )
+{
+	try
+	{
+		let KuTu_vbg = `${BriDz__Mx_KuTu_vsg}Mx07__SuSmi_WEBPG/${ChaKuTu_vbg}${ToKzVa_vbg}.json`;
+		// SmaSme( `FILE seeking: ${KuTu_vbg}`);
+
+		const res = await fetch( KuTu_vbg,
+		{
+			headers:
+			{
+				Accept: 'application/json'
+			}
+		} );
+		const json = await res.json();
+		return json;
+	}
+	catch( err )
+	{
+		SmaTrx( `FileRead_Error: ${err}` );
+	}
+}
+
+//-------------------------------------------------
+// CULTURE LOAD LANG
+//-------------------------------------------------
+async function Hre1_Dru__ChyKeDru( KeKuMi_vbg )
+{
+	//-------------------------------------------------
+	// LANG/LOCALE
+	//-------------------------------------------------
+	let Fe__KeDru_vbg = 'en';
+	let Fe__KuVa_vbg = "";
+	let KeKu__ToKz_vbg = 'en';
+
+
+	//@@@
+	// LANG BASICS
+	Fe__KeKu_vbg = KeKuMi_vbg;
+	Fe__KeDru_vbg = KeKuMi_vbg.split( "-" )[ 0 ]
+	Fe__KuVa_vbg = KeKuMi_vbg.split( "-" )[ 1 ]
+
+	//&&&
+	// CHECK LOCALE
+	let KeKu_l = Hre1_Dru__Gra_v.find( ( Ti_l ) => ( Ti_l.Vy === Fe__KeKu_vbg ) );
+	// IF NOT, CHECK just LANG
+	if( !KeKu_l )
+	{
+		KeKu_l = Hre1_Dru__Gra_v.find( ( Ti_l ) => ( Ti_l.Vy === Fe__KeDru_vbg ) );
+	}
+	if( KeKu_l )
+	{
+		KeKu__ToKz_vbg = KeKu_l.ToKz;
+	}
+
+	SmaSme( "[CFG] CULTURE: " + KeKu__ToKz_vbg + " Locale: " + Fe__KeKu_vbg + " Lang: " + Fe__KeDru_vbg + " Country: " + ( Fe__KuVa_vbg ? Fe__KuVa_vbg : "Global" ) );
+
+
+	//&&&
+	// TEXT_DIR
+	// Set text direction
+	const rtlLanguages = [ 'ar', 'he', 'fa' ];
+	if ( rtlLanguages.includes( Fe__KeDru_vbg ) )
+	{
+		document.body.dir = 'rtl';
+	}
+	else
+	{
+		document.body.dir = 'ltr';
+	}
+
+	//@@@
+	// LANG_FILE
+	let KeDru_v = await ToKz__JSON_v( 'SuSmi03__CONTENTS/', `VaFz.${KeKu__ToKz_vbg}` );
+	if ( !KeDru_v && (Fe__KeDru_vbg !=='en' ))
+	{
+		SmaDre( "Cannot Find VaFz for User Lang" );
+		// Defaults to en usa
+		Hre1_Dru__ChyKeDru( 'en-us' );
+		return;
+	}
+
+	//&&&
+	// CFG SAVE
+	Ko.KwiYz_l.KeDru_vsg = KeKuMi_vbg;
+
+
+	//&&&
+	// SUBMIT BTN
+	const HriNe_KwiVu_k = document.getElementById( 'BriDz02_TraKwi_vsg' );
+	HriNe_KwiVu_k.value = KeDru_v.LABELS.BriDz02_TraKwi_vsg;
+	HriNe_KwiVu_k.focus();
+
+	//&&&
+	// UPDATE LABELS
+	// SmaDx__Kz_JSON( KeDru_v.LABELS );
+	Object.entries( KeDru_v.LABELS ).forEach
+	(
+		function ( [ Vy_vbg, Va_vbg ] )
+		{
+			let Elm_l = document.getElementById( Vy_vbg );
+			if( Elm_l )
+			{
+				//SmaSme( `--------*LABEL MATCH*: ${Vy_vbg}`, Va_vbg );
+				Elm_l.innerText = Va_vbg;
+			}
+			else
+			{
+				SmaSme( `--------*LABEL UNUSED*: ${Vy_vbg}-----------` );
+			}
+		}
+	);
+}
+
+//-------------------------------------------------
+// DETECT CHANGES in CULTURE
+//-------------------------------------------------
+function Ne00_KeDy00__NiKeDru__JeChy()
+{
+	const Ne00_KeDy00__NiKeDru__Ta_l = document.getElementById( 'Ne00_KeDy00__NiKeDru__Ta_l' );
+	//SmaSme( "CHG!", Ne00_KeDy00__NiKeDru__Ta_l );
+
+	Hre1_Dru__ChyKeDru( Ne00_KeDy00__NiKeDru__Ta_l.value );
+}
+
+
+//-------------------------------------------------
+// INIT CULTURE DEFAULTS
+//-------------------------------------------------
+async function Hre1_Dru__BriYa()
+{
+	//@@@
+	// LIST DIV
+	const Ne00_KeDy00__NiKeDru__Ta_l = document.getElementById( 'Ne00_KeDy00__NiKeDru__Ta_l' );
+	// LIST CLEAR
+	Hri3_Ne__Ta_ChyStz( Ne00_KeDy00__NiKeDru__Ta_l );
+	// LIST FILL ENTRIES
+	Hre1_Dru__Gra_v.forEach( function ( Ti_v, Vx_wu )
+	{
+		//SmaSme( "------ Vx_wu:", Vx_wu, Ti_v.Va );
+
+		//&&&
+		// ADD BTN
+		const Kz_l = document.createElement( 'option' );
+		Kz_l.innerText = `${Ti_v.KuGwz} ${Ti_v.Va}`;
+
+		// let JiTra_vbg = `Hre1_Dru__ChyKeDru( '${Ti_v.Vy}' );`;
+		// Kz_l.setAttribute( "onclick", JiTra_vbg );
+		// Kz_z.style.width=55;
+		Kz_l.className = 'HriNeTi WaDru_Ka';
+		Kz_l.value = Ti_v.Vy;
+
+		Ne00_KeDy00__NiKeDru__Ta_l.appendChild( Kz_l );
+	});
+
+	//@@@
+	// SELECT DEFAULT
+	Ne00_KeDy00__NiKeDru__Ta_l.selectedIndex = Ko.KwiYz_l.KeDru_wu;
+	Hre1_Dru__ChyKeDru( Ko.KwiYz_l.KeDru_vsg );
+}
+
+
+//=====================================
+//  CUL END
+//=====================================

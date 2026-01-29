@@ -1,0 +1,301 @@
+//==============================================
+// CFG
+//==============================================
+
+//-------------------------------------------------
+// ERASE CURRENT CFG
+//-------------------------------------------------
+function Hrz4_Bu__KwiYz__FeChi()
+{
+	const KEY_vsg = "KeDy" + Ko.KwiYz__KeDy_wu;
+	// no need to check if exists!
+	localStorage.removeItem( KEY_vsg );
+}
+
+
+//-------------------------------------------------
+// STORE CURRENT LAUNCH CFG
+//-------------------------------------------------
+function Hrz4_Bu__KwiYz__FeChy()
+{
+	const KEY_vsg = "KeDy" + Ko.KwiYz__KeDy_wu;
+	localStorage.setItem( KEY_vsg, JSON.stringify( Ko.KwiYz_l ) );
+
+	SmaSme( "[CFG] KwiYz_Chy:", Ko.KwiYz_l );
+}
+
+
+//-------------------------------------------------
+// WRITE DEFAULT LAUNCH CFG
+//-------------------------------------------------
+function Hrz4_Bu__KwiYz__ChyDe()
+{
+	//@@@
+	// GOVERN
+	Ko.KwiYz_l.Ne01_Ko04__KoDz_YoHo_y = true;
+	//Ko.KwiYz_l.Ne01_Ko04__KoDz_YoHo_y = false;
+
+
+	//@@@
+	// USR[ 3 ]
+	Ko.KwiYz_l.KeDru_wu = 0;
+	Ko.KwiYz_l.KeDy_vsg = "Guest";
+	Ko.KwiYz_l.KeDru_vsg = navigator.language;
+
+	Ko.KwiYz__NiJaPo_wu = 1;
+
+	Ko.KwiYz_l.Ne00_KeDy06__TraChe_y = false;
+
+	//@@@
+	// TEMPORAL[ 2 ]
+	Ko.KwiYz_l.Ne02_Hru00__MxPeHo_y = true;
+	Ko.KwiYz_l.Ne02_Hru01__MxPeVu_sa = 1.0;
+
+	//@@@
+	// SPATIAL[ 2 ]
+	Ko.KwiYz_l.Ne03_Hry02__HriKe_y = false;
+
+	// 'De'
+	Ko.KwiYz_l.Ne03_Hry06__SmzYz_q = 2;
+	Ko.KwiYz_l.Ne03_Hry07__GyBraHi_bu = 4;
+
+	// "Ne03_Hry06__SmzYz_vsg" Method
+	// Quality
+	// "Ne03_Hry08__TyGy_vsg" Detail
+
+	//@@@
+	// STORE & LOG
+	SmaSme( "[CFG] KwiYz_De:", Ko.KwiYz_l );
+	Hrz4_Bu__KwiYz__FeChy();
+}
+
+//==============================================
+// CFG_LOAD
+// GUI_w_STOR_DATA
+//==============================================
+function Hrz4_Bu__KwiYz__HriNeMy()
+{
+	//---------------------------------
+	// CFG LOAD as GUI PREFS
+	//---------------------------------
+	SmaSme( "CFG_LOAD" );
+
+	//---------------------------------
+	// Ne00__WHO
+	//---------------------------------
+
+	//@@@
+	// , "Ne00_KeDy00__NiKeDru_vsg": "Select Language"
+	// Ne00_KeDy00__NiKeDru__Ta_l
+	// , "Ne00_KeDy01__NiKeDy_vsg": "Select User"
+	// Ne00_KeDy01__NiKeDy__Ta_l
+	//
+	// , "Ne00_KeDy02__VaTre_vsg": " Name"
+	// , "Ne00_KeDy03__NiJaPo_vsg": "Avatar"
+
+	const TaKeDy_l = document.getElementById( "Ne00_KeDy01__NiKeDy__Ta_l" );
+	TaKeDy_l.selectedIndex = Ko.KwiYz__KeDy_wu;
+
+	//&&&
+	// SET AVATAR;
+	document.getElementById( "Ne00_KeDy03__NiJaPo_q" ).innerText = SaPy_vvsg[ Ko.KwiYz__NiJaPo_wu ];
+
+	//&&&
+	// USE_SECURITY
+	const TraChe_yk = Ko.KwiYz_l.Ne00_KeDy06__TraChe_y;
+	HriNeDe__ChyHyHo( "Ne00_KeDy06__TraChe_y", TraChe_yk );
+
+	//&&&
+	// AUTHORIZED
+	// EVAL or SAVE ANSWER
+	const CheRi_y = true;
+	const SmxHa_yk = TraChe_yk && !CheRi_y;
+	const SmxFo_wu = 0;
+
+
+	//$$$
+	// REPORT
+	SmaSme( "TraChe:", TraChe_yk, " SmxFo:", SmxFo_wu, " SmxHa:", SmxHa_yk );
+
+
+	//@@@
+	// USER LOCK
+	HriNeDe__ChyHryVoHu( "BriDz02_TraKwi_vsg", TraChe_yk );
+
+	// SECURITY AREA
+	HriNeDe__ChyHry( "Ne00_KeDy06__CheHaKri", TraChe_yk );
+
+
+	//&&&
+	// Security Status & Buttons
+	HriNeDe__ChyKu( "Che00_Me_vsg", SmxHa_yk );
+	HriNeDe__ChyKu( "Che01_Chy_vsg", !SmxHa_yk );
+
+	// 3 SCENARIOS ( Need Answers or Ready )
+	// ✖️Incorrect Answer
+	HriNeDe__ChyKu( "Che02_Trx_vsg", SmxHa_yk && ( SmxFo_wu !== 0 ) );
+	// Requires Answer
+	HriNeDe__ChyKu( "Che03_TraHo_vsg", SmxHa_yk && ( SmxFo_wu === 0 ) );
+	// User Ready
+	HriNeDe__ChyKu( "Che04_TraHy_vsg", !SmxHa_yk );
+
+
+	//&&&
+	// Panels
+	HriNeDe__ChyHryVoHu( "Ne01_Ko_vsg", SmxHa_yk );
+	HriNeDe__ChyHryVoHu( "Ne02_Hru_vsg", SmxHa_yk );
+	HriNeDe__ChyHryVoHu( "Ne03_Hry_vsg", SmxHa_yk );
+	HriNeDe__ChyHryVoHu( "Ne04_Hx_vsg", SmxHa_yk );
+	HriNeDe__ChyHryVoHu( "Ne05_Grx_vsg", SmxHa_yk );
+
+	//&&&
+	// Name
+	HriNeDe__ChyTraHo( "Ne00_KeDy02__VaTre_vsg", SmxHa_yk );
+	HriNeDe__ChyTraHo( "Ne00_KeDy02__VaTre_Sma_vsg", SmxHa_yk );
+
+	//&&&
+	// Avatar
+	HriNeDe__ChyTraHo( "Ne00_KeDy03__NiJaPo_vsg", SmxHa_yk );
+	HriNeDe__ChyTraHo( "Ne00_KeDy03__NiJaPo_q", SmxHa_yk );
+	HriNeDe__ChyHryVoHu( "Ne00_KeDy03__NiJaPo__Ta_l", SmxHa_yk );
+
+	//&&&
+	// Question-Lock
+	HriNeDe__ChyTraHo( "Ne00_KeDy07__MaKz_vsg", SmxHa_yk );
+	HriNeDe__ChyTraHo( "Ne00_KeDy07__MaKz__Sma_vsg", SmxHa_yk );
+
+	// Answer-Key
+	HriNeDe__ChyTraHo( "Ne00_KeDy08__SmzKz_vsg", SmxHa_yk );
+	// SmaSme( "ANSER: ", document.getElementById("Ne00_KeDy08__SmzKz__Sma_vsg").value );
+
+
+
+	//---------------------------------
+	// Ne01__NODE
+	//---------------------------------
+	//@@@
+	// Ne01_Ko00__YzYu_vsg BTN
+	// Ne01_Ko01__HraBru_Tra_vsg
+	document.getElementById( "Ne01_Ko01__HraBru_Tra_y" ).value = Ko.KwiYz_l.Ne01_Ko01__HraBru_Tra_y;
+	// Ne01_Ko02__SpeVu_vsg
+	document.getElementById( "Ne01_Ko02__SpeVu_y" ).value = Ko.KwiYz_l.Ne01_Ko02__SpeVu_y;
+	// Ne01_Ko03__MzKu_vsg
+	document.getElementById( "Ne01_Ko03__MzKu_y" ).value = Ko.KwiYz_l.Ne01_Ko03__MzKu_y;
+	// Ne01_Ko04__KoDz_YoHo_y
+	document.getElementById( "Ne01_Ko04__KoDz_YoHo_y" ).value = Ko.KwiYz_l.Ne01_Ko04__KoDz_YoHo_y;
+
+
+	//---------------------------------
+	// Ne02__AUDIO
+	//---------------------------------
+	//@@@
+	// Ne02_Hru00__MxPeHo_y
+	document.getElementById( "Ne02_Hru00__MxPeHo_y" ).value = Ko.KwiYz_l.Ne02_Hru00__MxPeHo_y;
+	// Ne02_Hru01__MxPeVo_ba
+	document.getElementById( "Ne02_Hru01__MxPeVo_ba" ).value = Ko.KwiYz_l.Ne02_Hru01__MxPeVo_ba;
+	// , "Ne02_Hru02__MzPe_vsg": "Mic"
+	// , "Ne02_Hru03__YoHo_vsg": "♾️Always Audible"
+	// , "Ne02_Hru04__SmzYz_vsg": "📊Method"
+	// , "Ne02_Hru05__GyBraHi_vsg": "📈Quality"
+
+	//---------------------------------
+	// Ne03__VISUAL
+	//---------------------------------
+
+	//@@@
+	// , "Ne03_Hry00__KeDruGy_vsg": "Legible Size"
+	// , "Ne03_Hry01__MzPo_vsg": "Camera"
+	document.getElementById( "Ne03_Hry02__HriKe_y" ).checked = Ko.KwiYz_l.Ne03_Hry02__HriKe_y;
+	// , "Ne03_Hry03__MxPoGyHi_vsg": "Fullscreen"
+	// , "Ne03_Hry04__MxPoGry_vsg": "All Screens"
+	// , "Ne03_Hry05__PoGy_vsg": "HDR"
+	// , "Ne03_Hry06__SmzYz_vsg": "Method"
+	// , "Ne03_Hry07__GyBraHi_vsg": "Quality"
+	// , "Ne03_Hry08__TyGy_vsg": "Detail"
+
+}
+
+//==============================================
+// CFG_SAVE
+// STOR_DATA_w_GUI_CHGS
+//==============================================
+function Hrz4_Bu__KwiYz__KoChy()
+{
+	//---------------------------------
+	// SAVE CFG
+	//---------------------------------
+	SmaSme( "CFG_SAVE" );
+
+
+	//@@@
+	// Ne00__WHO
+	const TaKeDy_l = document.getElementById( "Ne00_KeDy01__NiKeDy__Ta_l" );
+	Ko.KwiYz__KeDy_wu = TaKeDy_l.selectedIndex;
+	Ko.KwiYz_l.KeDy_vsg = TaKeDy_l.value;
+
+	// AVATAR
+	// Only changes via EVT
+
+	//&&&
+	// USE SECURITY
+	const Fi__TraChe_yk = Ko.KwiYz_l.Ne00_KeDy06__TraChe_y;
+
+	Ko.KwiYz_l.Ne00_KeDy06__TraChe_y = document.getElementById( "Ne00_KeDy06__TraChe_y" ).checked;
+	if( Fi__TraChe_yk != Ko.KwiYz_l.Ne00_KeDy06__TraChe_y )
+	{
+		SmaSme( "SECURITY CHANGED to ", Ko.KwiYz_l.Ne00_KeDy06__TraChe_y );
+		// Reload
+		Hrz4_Bu__KwiYz__HriNeMy();
+	}
+
+
+
+	//@@@
+	// Ne01__NODE
+	Ko.KwiYz_l.Ne01_Ko04__KoDz_YoHo_y = document.getElementById( "Ne01_Ko04__KoDz_YoHo_y" ).value;
+
+
+	//@@@
+	// Ne02__AUDIO
+	Ko.KwiYz_l.Ne02_Hru00__MxPeHo_y = document.getElementById( "Ne02_Hru00__MxPeHo_y" ).value;
+	Ko.KwiYz_l.Ne02_Hru01__MxPeVo_ba = document.getElementById( "Ne02_Hru01__MxPeVo_ba" ).value;
+
+
+	//@@@
+	// Ne03__VISUAL
+	Ko.KwiYz_l.Ne03_Hry02__HriKe_y = false; // document.getElementById( "Ne03_Hry02__HriKe_y" ).value;
+
+
+	//@@@
+	// SYNC
+	Hrz4_Bu__KwiYz__FeChy();
+}
+
+
+
+//-------------------------------------------------
+// FIND LAUNCH CFG
+//-------------------------------------------------
+function Hrz4_Bu__KwiYz__Fy()
+{
+	const KEY_vsg = "KeDy" + Ko.KwiYz__KeDy_wu;
+
+	//@@@
+	// FORCE DEFAULT
+//	const VAL_vsg = localStorage.getItem( KEY_vsg );
+	const VAL_vsg = false;
+
+	if( VAL_vsg )
+	{
+		Ko.KwiYz_l = JSON.parse( VAL_vsg );
+		SmaSme( "[CFG] KwiYz_Fy:", Ko.KwiYz_l );
+	}
+	else
+	{
+		Hrz4_Bu__KwiYz__ChyDe();
+	}
+}
+
+//=====================================
+// END
+//=====================================
