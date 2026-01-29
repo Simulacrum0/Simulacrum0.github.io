@@ -1,5 +1,5 @@
-const BriDzSa__Da_vsg = "PUB_v0.192"; 
- const BriDzSa__Da_wuk = "192"; 
+const BriDzSa__Da_vsg = "PUB_v0.193"; 
+ const BriDzSa__Da_wuk = "193"; 
  const BriDz__Mx_KuTu_vsg = "https://powerourpeople.com/"; 
 
 //==============================================
@@ -603,86 +603,89 @@ async function Hrz3_Bz__VaDa()
 //==============================================
 
 //-------------------------------------------------
-// ERASE CURRENT CFG
-//-------------------------------------------------
-function Hrz4_Bu__KwiYz__FeChi()
-{
-	const KEY_vsg = "KeDy" + Ko.KwiYz__KeDy_wu;
-	// no need to check if exists!
-	localStorage.removeItem( KEY_vsg );
-}
-
-
-//-------------------------------------------------
-// STORE CURRENT LAUNCH CFG
-//-------------------------------------------------
-function Hrz4_Bu__KwiYz__FeChy()
-{
-	const KEY_vsg = "KeDy" + Ko.KwiYz__KeDy_wu;
-	localStorage.setItem( KEY_vsg, JSON.stringify( Ko.KwiYz_l ) );
-
-	SmaSme( "[CFG] KwiYz_Chy:", Ko.KwiYz_l );
-}
-
-
-//-------------------------------------------------
 // WRITE DEFAULT LAUNCH CFG
 //-------------------------------------------------
-function Hrz4_Bu__KwiYz__ChyDe()
+function Hrz4_Bu__KwiYz__ChyDe( Va_vksg, NiJaPo_wuk, KeDru_wuk )
 {
+	const KwiYz_k = Ko.KwiYz_l.KeDy_v[ Ko.KwiYz_l.KeDy_wu ];
+
 	//@@@
 	// GOVERN
-	Ko.KwiYz_l.Ne01_Ko04__KoDz_YoHo_y = true;
-	//Ko.KwiYz_l.Ne01_Ko04__KoDz_YoHo_y = false;
-
+	KwiYz_k.Ne01_Ko04__KoDz_YoHo_y = true;
+	//KwiYz_k.Ne01_Ko04__KoDz_YoHo_y = false;
 
 	//@@@
 	// USR[ 3 ]
-	Ko.KwiYz_l.KeDru_wu = 0;
-	Ko.KwiYz_l.KeDy_vsg = "Guest";
-	Ko.KwiYz_l.KeDru_vsg = navigator.language;
+	KwiYz_k.KeDru_wu = KeDru_wuk;
+	KwiYz_k.KeDy_vsg = Va_vksg;
+	KwiYz_k.KeDru_vsg = navigator.language;
 
-	Ko.KwiYz__NiJaPo_wu = 1;
+	KwiYz_k.NiJaPo_wu = NiJaPo_wuk;
 
-	Ko.KwiYz_l.Ne00_KeDy06__TraChe_y = false;
+	KwiYz_k.Ne00_KeDy06__TraChe_y = false;
 
 	//@@@
 	// TEMPORAL[ 2 ]
-	Ko.KwiYz_l.Ne02_Hru00__MxPeHo_y = true;
-	Ko.KwiYz_l.Ne02_Hru01__MxPeVu_sa = 1.0;
+	KwiYz_k.Ne02_Hru00__MxPeHo_y = true;
+	KwiYz_k.Ne02_Hru01__MxPeVu_sa = 1.0;
 
 	//@@@
 	// SPATIAL[ 2 ]
-	Ko.KwiYz_l.Ne03_Hry02__HriKe_y = false;
+	KwiYz_k.Ne03_Hry02__HriKe_y = false;
 
 	// 'De'
-	Ko.KwiYz_l.Ne03_Hry06__SmzYz_q = 2;
-	Ko.KwiYz_l.Ne03_Hry07__GyBraHi_bu = 4;
+	KwiYz_k.Ne03_Hry06__SmzYz_q = 2;
+	KwiYz_k.Ne03_Hry07__GyBraHi_bu = 4;
 
 	// "Ne03_Hry06__SmzYz_vsg" Method
 	// Quality
 	// "Ne03_Hry08__TyGy_vsg" Detail
 
+	
 	//@@@
 	// STORE & LOG
-	SmaSme( "[CFG] KwiYz_De:", Ko.KwiYz_l );
-	Hrz4_Bu__KwiYz__FeChy();
+	SmaSme( "[CFG] KwiYz_De:", Ko.KwiYz_l.KeDy_v );
+	Hrz4_Bu__TaKeDy__ChyGry();
 }
+
+
 
 //==============================================
 // CFG_LOAD
 // GUI_w_STOR_DATA
 //==============================================
-function Hrz4_Bu__KwiYz__HriNeMy()
+function Hrz4_Bu__KwiYz__HriNe_MyYy()
 {
 	//---------------------------------
 	// CFG LOAD as GUI PREFS
 	//---------------------------------
 	SmaSme( "CFG_LOAD" );
+	const KwiYz_k = Ko.KwiYz_l.KeDy_v[ Ko.KwiYz_l.KeDy_wu ];
 
 	//---------------------------------
 	// Ne00__WHO
 	//---------------------------------
+
+	//@@@
+	// FILE AVAIL USR ENTRIES
+	const TaKeDy_l = document.getElementById( 'Ne00_KeDy01__NiKeDy__Ta_l' );
+	Hri3_Ne__Ta_ChyStz( TaKeDy_l );
+
+	const SaNo__TaKeDy_l = Ko.KwiYz_l.KeDy_v;
+	SaNo__TaKeDy_l.forEach( function ( Ti_v, Vx_wu )
+	{
+		SmaSme( "------ Vx_wu:", Vx_wu, Ti_v.KeDy_vsg );
+
+		//&&&
+		// ADD BTN
+		const Kz_l = document.createElement( 'option' );
+		Kz_l.className = 'HriNeTi WaDru_Ka';
+		Kz_l.innerText = `${SaPy_vvsg[ Ti_v.NiJaPo_wu ]} ${Ti_v.KeDy_vsg }`;
+		Kz_l.value = Vx_wu;
+		TaKeDy_l.appendChild( Kz_l );
+	});
+
+
 
 	//@@@
 	// , "Ne00_KeDy00__NiKeDru_vsg": "Select Language"
@@ -693,22 +696,22 @@ function Hrz4_Bu__KwiYz__HriNeMy()
 	// , "Ne00_KeDy02__VaTre_vsg": " Name"
 	// , "Ne00_KeDy03__NiJaPo_vsg": "Avatar"
 
-	const TaKeDy_l = document.getElementById( "Ne00_KeDy01__NiKeDy__Ta_l" );
-	TaKeDy_l.selectedIndex = Ko.KwiYz__KeDy_wu;
+	TaKeDy_l.selectedIndex = Ko.KwiYz_l.KeDy_wu;
 
 	//&&&
 	// SET AVATAR;
-	document.getElementById( "Ne00_KeDy03__NiJaPo_q" ).innerText = SaPy_vvsg[ Ko.KwiYz__NiJaPo_wu ];
+	document.getElementById( "Ne00_KeDy03__NiJaPo_q" ).innerText = SaPy_vvsg[ KwiYz_k.NiJaPo_wu ];
 
 	//&&&
 	// USE_SECURITY
-	const TraChe_yk = Ko.KwiYz_l.Ne00_KeDy06__TraChe_y;
+	const TraChe_yk = KwiYz_k.Ne00_KeDy06__TraChe_y;
 	HriNeDe__ChyHyHo( "Ne00_KeDy06__TraChe_y", TraChe_yk );
 
 	//&&&
 	// AUTHORIZED
 	// EVAL or SAVE ANSWER
-	const CheRi_y = true;
+	const CheRi_y = false;
+	// if Use_Security & Guard_Cool NOT, then Eval_Answer & Disable Others
 	const SmxHa_yk = TraChe_yk && !CheRi_y;
 	const SmxFo_wu = 0;
 
@@ -720,24 +723,24 @@ function Hrz4_Bu__KwiYz__HriNeMy()
 
 	//@@@
 	// USER LOCK
-	HriNeDe__ChyHryVoHu( "BriDz02_TraKwi_vsg", TraChe_yk );
+	HriNeDe__ChyHryVoHu( "BriDz02_TraKwi_vsg", SmxHa_yk );
 
 	// SECURITY AREA
-	HriNeDe__ChyHry( "Ne00_KeDy06__CheHaKri", TraChe_yk );
+	HriNeDe__ChyHry( "Ne00_KeDy06__CheHaKri", SmxHa_yk );
 
 
 	//&&&
 	// Security Status & Buttons
-	HriNeDe__ChyKu( "Che00_Me_vsg", SmxHa_yk );
-	HriNeDe__ChyKu( "Che01_Chy_vsg", !SmxHa_yk );
+	HriNeDe__ChyKuHi( "Che00_Krz_vsg", SmxHa_yk );
+	HriNeDe__ChyKuHi( "Che01_Chy_vsg", !SmxHa_yk );
 
 	// 3 SCENARIOS ( Need Answers or Ready )
 	// ✖️Incorrect Answer
-	HriNeDe__ChyKu( "Che02_Trx_vsg", SmxHa_yk && ( SmxFo_wu !== 0 ) );
+	HriNeDe__ChyKuHu( "Che02_Trx_vsg", SmxHa_yk && ( SmxFo_wu !== 0 ) );
 	// Requires Answer
-	HriNeDe__ChyKu( "Che03_TraHo_vsg", SmxHa_yk && ( SmxFo_wu === 0 ) );
+	HriNeDe__ChyKuHu( "Che03_TraHo_vsg", SmxHa_yk && ( SmxFo_wu === 0 ) );
 	// User Ready
-	HriNeDe__ChyKu( "Che04_TraHy_vsg", !SmxHa_yk );
+	HriNeDe__ChyKuHu( "Che04_TraHy_vsg", !SmxHa_yk );
 
 
 	//&&&
@@ -750,13 +753,10 @@ function Hrz4_Bu__KwiYz__HriNeMy()
 
 	//&&&
 	// Name
-	HriNeDe__ChyTraHo( "Ne00_KeDy02__VaTre_vsg", SmxHa_yk );
 	HriNeDe__ChyTraHo( "Ne00_KeDy02__VaTre_Sma_vsg", SmxHa_yk );
 
 	//&&&
 	// Avatar
-	HriNeDe__ChyTraHo( "Ne00_KeDy03__NiJaPo_vsg", SmxHa_yk );
-	HriNeDe__ChyTraHo( "Ne00_KeDy03__NiJaPo_q", SmxHa_yk );
 	HriNeDe__ChyHryVoHu( "Ne00_KeDy03__NiJaPo__Ta_l", SmxHa_yk );
 
 	//&&&
@@ -766,7 +766,7 @@ function Hrz4_Bu__KwiYz__HriNeMy()
 
 	// Answer-Key
 	HriNeDe__ChyTraHo( "Ne00_KeDy08__SmzKz_vsg", SmxHa_yk );
-	// SmaSme( "ANSER: ", document.getElementById("Ne00_KeDy08__SmzKz__Sma_vsg").value );
+	// SmaSme( "ANSWER: ", document.getElementById("Ne00_KeDy08__SmzKz__Sma_vsg").value );
 
 
 
@@ -776,13 +776,13 @@ function Hrz4_Bu__KwiYz__HriNeMy()
 	//@@@
 	// Ne01_Ko00__YzYu_vsg BTN
 	// Ne01_Ko01__HraBru_Tra_vsg
-	document.getElementById( "Ne01_Ko01__HraBru_Tra_y" ).value = Ko.KwiYz_l.Ne01_Ko01__HraBru_Tra_y;
+	document.getElementById( "Ne01_Ko01__HraBru_Tra_y" ).value = KwiYz_k.Ne01_Ko01__HraBru_Tra_y;
 	// Ne01_Ko02__SpeVu_vsg
-	document.getElementById( "Ne01_Ko02__SpeVu_y" ).value = Ko.KwiYz_l.Ne01_Ko02__SpeVu_y;
+	document.getElementById( "Ne01_Ko02__SpeVu_y" ).value = KwiYz_k.Ne01_Ko02__SpeVu_y;
 	// Ne01_Ko03__MzKu_vsg
-	document.getElementById( "Ne01_Ko03__MzKu_y" ).value = Ko.KwiYz_l.Ne01_Ko03__MzKu_y;
+	document.getElementById( "Ne01_Ko03__MzKu_y" ).value = KwiYz_k.Ne01_Ko03__MzKu_y;
 	// Ne01_Ko04__KoDz_YoHo_y
-	document.getElementById( "Ne01_Ko04__KoDz_YoHo_y" ).value = Ko.KwiYz_l.Ne01_Ko04__KoDz_YoHo_y;
+	document.getElementById( "Ne01_Ko04__KoDz_YoHo_y" ).value = KwiYz_k.Ne01_Ko04__KoDz_YoHo_y;
 
 
 	//---------------------------------
@@ -790,9 +790,9 @@ function Hrz4_Bu__KwiYz__HriNeMy()
 	//---------------------------------
 	//@@@
 	// Ne02_Hru00__MxPeHo_y
-	document.getElementById( "Ne02_Hru00__MxPeHo_y" ).value = Ko.KwiYz_l.Ne02_Hru00__MxPeHo_y;
+	document.getElementById( "Ne02_Hru00__MxPeHo_y" ).value = KwiYz_k.Ne02_Hru00__MxPeHo_y;
 	// Ne02_Hru01__MxPeVo_ba
-	document.getElementById( "Ne02_Hru01__MxPeVo_ba" ).value = Ko.KwiYz_l.Ne02_Hru01__MxPeVo_ba;
+	document.getElementById( "Ne02_Hru01__MxPeVo_ba" ).value = KwiYz_k.Ne02_Hru01__MxPeVo_ba;
 	// , "Ne02_Hru02__MzPe_vsg": "Mic"
 	// , "Ne02_Hru03__YoHo_vsg": "♾️Always Audible"
 	// , "Ne02_Hru04__SmzYz_vsg": "📊Method"
@@ -805,7 +805,7 @@ function Hrz4_Bu__KwiYz__HriNeMy()
 	//@@@
 	// , "Ne03_Hry00__KeDruGy_vsg": "Legible Size"
 	// , "Ne03_Hry01__MzPo_vsg": "Camera"
-	document.getElementById( "Ne03_Hry02__HriKe_y" ).checked = Ko.KwiYz_l.Ne03_Hry02__HriKe_y;
+	document.getElementById( "Ne03_Hry02__HriKe_y" ).checked = KwiYz_k.Ne03_Hry02__HriKe_y;
 	// , "Ne03_Hry03__MxPoGyHi_vsg": "Fullscreen"
 	// , "Ne03_Hry04__MxPoGry_vsg": "All Screens"
 	// , "Ne03_Hry05__PoGy_vsg": "HDR"
@@ -819,7 +819,7 @@ function Hrz4_Bu__KwiYz__HriNeMy()
 // CFG_SAVE
 // STOR_DATA_w_GUI_CHGS
 //==============================================
-function Hrz4_Bu__KwiYz__KoChy()
+function Hrz4_Bu__KwiYz__Ko_ChyYe()
 {
 	//---------------------------------
 	// SAVE CFG
@@ -830,71 +830,51 @@ function Hrz4_Bu__KwiYz__KoChy()
 	//@@@
 	// Ne00__WHO
 	const TaKeDy_l = document.getElementById( "Ne00_KeDy01__NiKeDy__Ta_l" );
-	Ko.KwiYz__KeDy_wu = TaKeDy_l.selectedIndex;
-	Ko.KwiYz_l.KeDy_vsg = TaKeDy_l.value;
+
+	Ko.KwiYz_l.KeDy_wu = TaKeDy_l.selectedIndex;
+
+	const KwiYz_k = Ko.KwiYz_l.KeDy_v[ Ko.KwiYz_l.KeDy_wu ];
+	KwiYz_k.KeDy_vsg = TaKeDy_l.value;
+
 
 	// AVATAR
 	// Only changes via EVT
 
 	//&&&
 	// USE SECURITY
-	const Fi__TraChe_yk = Ko.KwiYz_l.Ne00_KeDy06__TraChe_y;
+	const Fi__TraChe_yk = KwiYz_k.Ne00_KeDy06__TraChe_y;
 
-	Ko.KwiYz_l.Ne00_KeDy06__TraChe_y = document.getElementById( "Ne00_KeDy06__TraChe_y" ).checked;
-	if( Fi__TraChe_yk != Ko.KwiYz_l.Ne00_KeDy06__TraChe_y )
+	KwiYz_k.Ne00_KeDy06__TraChe_y = document.getElementById( "Ne00_KeDy06__TraChe_y" ).checked;
+	if( Fi__TraChe_yk != KwiYz_k.Ne00_KeDy06__TraChe_y )
 	{
-		SmaSme( "SECURITY CHANGED to ", Ko.KwiYz_l.Ne00_KeDy06__TraChe_y );
+		SmaSme( "SECURITY CHANGED to ", KwiYz_k.Ne00_KeDy06__TraChe_y );
 		// Reload
-		Hrz4_Bu__KwiYz__HriNeMy();
+		Hrz4_Bu__KwiYz__HriNe_MyYy();
 	}
 
 
 
 	//@@@
 	// Ne01__NODE
-	Ko.KwiYz_l.Ne01_Ko04__KoDz_YoHo_y = document.getElementById( "Ne01_Ko04__KoDz_YoHo_y" ).value;
+	KwiYz_k.Ne01_Ko04__KoDz_YoHo_y = document.getElementById( "Ne01_Ko04__KoDz_YoHo_y" ).value;
 
 
 	//@@@
 	// Ne02__AUDIO
-	Ko.KwiYz_l.Ne02_Hru00__MxPeHo_y = document.getElementById( "Ne02_Hru00__MxPeHo_y" ).value;
-	Ko.KwiYz_l.Ne02_Hru01__MxPeVo_ba = document.getElementById( "Ne02_Hru01__MxPeVo_ba" ).value;
+	KwiYz_k.Ne02_Hru00__MxPeHo_y = document.getElementById( "Ne02_Hru00__MxPeHo_y" ).value;
+	KwiYz_k.Ne02_Hru01__MxPeVo_ba = document.getElementById( "Ne02_Hru01__MxPeVo_ba" ).value;
 
 
 	//@@@
 	// Ne03__VISUAL
-	Ko.KwiYz_l.Ne03_Hry02__HriKe_y = false; // document.getElementById( "Ne03_Hry02__HriKe_y" ).value;
+	KwiYz_k.Ne03_Hry02__HriKe_y = false; // document.getElementById( "Ne03_Hry02__HriKe_y" ).value;
 
 
 	//@@@
 	// SYNC
-	Hrz4_Bu__KwiYz__FeChy();
+	Hrz4_Bu__TaKeDy__ChyGry();
 }
 
-
-
-//-------------------------------------------------
-// FIND LAUNCH CFG
-//-------------------------------------------------
-function Hrz4_Bu__KwiYz__Fy()
-{
-	const KEY_vsg = "KeDy" + Ko.KwiYz__KeDy_wu;
-
-	//@@@
-	// FORCE DEFAULT
-//	const VAL_vsg = localStorage.getItem( KEY_vsg );
-	const VAL_vsg = false;
-
-	if( VAL_vsg )
-	{
-		Ko.KwiYz_l = JSON.parse( VAL_vsg );
-		SmaSme( "[CFG] KwiYz_Fy:", Ko.KwiYz_l );
-	}
-	else
-	{
-		Hrz4_Bu__KwiYz__ChyDe();
-	}
-}
 
 //=====================================
 // END
@@ -949,6 +929,8 @@ async function ToKz__JSON_v( ChaKuTu_vbg, ToKzVa_vbg )
 //-------------------------------------------------
 async function Hre1_Dru__ChyKeDru( KeKuMi_vbg )
 {
+	const KwiYz_k = Ko.KwiYz_l.KeDy_v[ Ko.KwiYz_l.KeDy_wu ];
+
 	//-------------------------------------------------
 	// LANG/LOCALE
 	//-------------------------------------------------
@@ -1005,7 +987,7 @@ async function Hre1_Dru__ChyKeDru( KeKuMi_vbg )
 
 	//&&&
 	// CFG SAVE
-	Ko.KwiYz_l.KeDru_vsg = KeKuMi_vbg;
+	KwiYz_k.KeDru_vsg = KeKuMi_vbg;
 
 
 	//&&&
@@ -1052,6 +1034,8 @@ function Ne00_KeDy00__NiKeDru__JeChy()
 //-------------------------------------------------
 async function Hre1_Dru__BriYa()
 {
+	const KwiYz_k = Ko.KwiYz_l.KeDy_v[ Ko.KwiYz_l.KeDy_wu ];
+
 	//@@@
 	// LIST DIV
 	const Ne00_KeDy00__NiKeDru__Ta_l = document.getElementById( 'Ne00_KeDy00__NiKeDru__Ta_l' );
@@ -1078,8 +1062,8 @@ async function Hre1_Dru__BriYa()
 
 	//@@@
 	// SELECT DEFAULT
-	Ne00_KeDy00__NiKeDru__Ta_l.selectedIndex = Ko.KwiYz_l.KeDru_wu;
-	Hre1_Dru__ChyKeDru( Ko.KwiYz_l.KeDru_vsg );
+	Ne00_KeDy00__NiKeDru__Ta_l.selectedIndex = KwiYz_k.KeDru_wu;
+	Hre1_Dru__ChyKeDru( KwiYz_k.KeDru_vsg );
 }
 
 
@@ -1091,25 +1075,61 @@ async function Hre1_Dru__BriYa()
 //=====================================
 
 //-------------------------------------------------
+// ERASE USR
+//-------------------------------------------------
+function Ne00_KeDy05__Chi_Tra()
+{
+	const KeDyChi_wu = Ko.KwiYz_l.KeDy_wu;
+
+	if( Ko.KwiYz_l.KeDy_wu > 0 ){ Ko.KwiYz_l.KeDy_wu--; }
+
+	Ko.KwiYz_l.KeDy_v = Ko.KwiYz_l.KeDy_v.splice( KeDyChi_wu, 1 );
+
+	// IF NONE LEFT, ADD DEFAULTS
+	if( Ko.KwiYz_l.KeDy_v.length === 0 )
+	{
+		Hrz4_Bu__TaKeDy__FyGry();
+	}
+}
+
+//-------------------------------------------------
+// ADD USR
+//-------------------------------------------------
+function Ne00_KeDy04__Cha_Tra()
+{
+	Ko.KwiYz_l.KeDy_v.push();
+	Hrz4_Bu__KwiYz__ChyDe( "New Name", 0, 0 );
+
+	// STORE CFG
+	Hrz4_Bu__TaKeDy__ChyGry();
+	// REFRESH GUI w/ NEW USER NAMES/CFG
+	Hrz4_Bu__KwiYz__HriNe_MyYy();
+}
+
+//-------------------------------------------------
 // CHG USR
 //-------------------------------------------------
 function Ne00_KeDy01__NiKeDy__JeChy()
 {
+	//@@@
+	// VALID CHOICE
 	const TaKeDy_l = document.getElementById( 'Ne00_KeDy01__NiKeDy__Ta_l' );
+	if( TaKeDy_l.selectedIndex < 0 ) return;
 
-	if( TaKeDy_l.selectedIndex >= 0 )
-	{
-		Ko.KwiYz__KeDy_wu = TaKeDy_l.selectedIndex;
-		Hrz4_Bu__KwiYz__Fy();
+	//@@@
+	// SAVE USER
+	Ko.KwiYz_l.KeDy_wu = TaKeDy_l.selectedIndex;
 
-		// CHG LANG
-		Hre1_Dru__ChyKeDru( Ko.KwiYz_l.KeDru_vsg );
+	//@@@
+	// CHG to USR LANG
+	const KwiYz_k = Ko.KwiYz_l.KeDy_v[ Ko.KwiYz_l.KeDy_wu ];
+	Hre1_Dru__ChyKeDru( KwiYz_k.KeDru_vsg );
 
-		// SELECT FEATURES
-		Hrz4_Bu__ChyNeKu( null, 0 );
-	}
 
-	SmaSme( "USR:", TaKeDy_l.value, TaKeDy_l.selectedIndex  );
+	//@@@
+	// REFRESH GUI SETTINGS
+	Hrz4_Bu__KwiYz__HriNe_MyYy();
+
 
 	//@@@
 	// NAME/PWD
@@ -1118,33 +1138,23 @@ function Ne00_KeDy01__NiKeDy__JeChy()
 	// Check Answer to QUERY
 
 
-	//@@@
-	// SET GUI
-
+	SmaSme( "USR:", TaKeDy_l.value, TaKeDy_l.selectedIndex  );
 }
 
-//-------------------------------------------------
-// ERASE USR LAUNCH CFGs
-//-------------------------------------------------
-function Ne00_KeDy05__Chi_Tra()
-{
-	// localStorage.removeItem(  );
-
-}
 
 //-------------------------------------------------
-// ADD USR
+// SECURE_COMPARE
 //-------------------------------------------------
-function Ne00_KeDy04__Cha_Tra()
+function Hrz4_Bu__Che00_Krz__Tra()
 {
 
 }
 
 
 //-------------------------------------------------
-// SECURE_USR
+// SECURE_SAVE
 //-------------------------------------------------
-function Ne00_KeDy04__CheHa()
+function Hrz4_Bu__Che01_Chy__Tra()
 {
 
 }
@@ -1158,52 +1168,76 @@ function KeDy__TreSaPy( e )
 	const SaPy_vksg = SaPy_vvsg[ e ];
 	document.getElementById( "Ne00_KeDy03__NiJaPo_q" ).innerText = SaPy_vksg;
 
-	Ko.KwiYz__NiJaPo_wu = e;
+	const KwiYz_k = Ko.KwiYz_l.KeDy_v[ Ko.KwiYz_l.KeDy_wu ];
+	KwiYz_k.NiJaPo_wu = e;
+	Hrz4_Bu__TaKeDy__ChyDe();
 }
 
 //-------------------------------------------------
 // DEFAULTS ALL USR LAUNCH CFGs
 //-------------------------------------------------
-function Ne01_Ko00__YzYu_Tra()
+function Hrz4_Bu__TaKeDy_Chx()
 {
+	SmaDre( "[USR] CLEAR ALL LOCAL STORAGE" );
 	localStorage.clear();
-	//
+	Hrz4_Bu__TaKeDy__FyGry();
+}
+
+
+//-------------------------------------------------
+// LOAD USERS GUI
+//-------------------------------------------------
+function Hrz4_Bu__TaKeDy__ChyDe()
+{
+	const KeDy__DeFo_wuk = 4;
+	Ko.KwiYz_l.KeDy_v = new Array( KeDy__DeFo_wuk ).fill( { } );
+
+
+	Ko.KwiYz_l.KeDy_wu = 0;
+	Hrz4_Bu__KwiYz__ChyDe( "Guest", 0, 0 );
+	Ko.KwiYz_l.KeDy_wu = 1;
+	Hrz4_Bu__KwiYz__ChyDe( "Ghost", 1, 0 );
+	Ko.KwiYz_l.KeDy_wu = 2;
+	Hrz4_Bu__KwiYz__ChyDe( "Kiosk", 2, 0 );
+	Ko.KwiYz_l.KeDy_wu = 3;
+	Hrz4_Bu__KwiYz__ChyDe( "Pro", 3, 0 );
+
+	//@@@
+	// INITIAL USER
+	Ko.KwiYz_l.KeDy_wu = 0;
+
+	SmaSme( "[CFG] KwiYz_De:", Ko.KwiYz_l.KeDy_v );
 }
 
 //-------------------------------------------------
-// LOAD USERS
+// SAVE LAUNCH CFG
 //-------------------------------------------------
-function Hrz4_Bu__TaKeDy__Fy()
+function Hrz4_Bu__TaKeDy__ChyGry()
 {
-	Ko.KwiYz__KeDy_wu = 0;
+	localStorage.setItem( "KwiYz_l", JSON.stringify( Ko.KwiYz_l ) );
+	SmaSme( "[CFG] KwiYz_Chy:", Ko.KwiYz_l );
+}
 
+//-------------------------------------------------
+// LOAD LAUNCH CFG
+//-------------------------------------------------
+function Hrz4_Bu__TaKeDy__FyGry()
+{
 	//@@@
-	// FILE AVAIL USR ENTRIES
-	const TaKeDy_l = document.getElementById( 'Ne00_KeDy01__NiKeDy__Ta_l' );
-	Hri3_Ne__Ta_ChyStz( TaKeDy_l );
+	// LOAD
+	const KwiYz_vsg = localStorage.getItem( "KwiYz_l" );
 
-	SaNo__TaKeDy_l =
-	[
-		  { Va: "Guest", Gwz: "👤", Che: false }
-		, { Va: "Ghost", Gwz: "👻", Che: false }
-		, { Va: "Kiosk", Gwz: "🎰", Che: false }
-		, { Va: "Pro", Gwz: "🧑‍💻", Che: true }
-	];
-
-	SaNo__TaKeDy_l.forEach( function ( Ti_v, Vx_wu )
+	// if( KwiYz_vsg )
+	if( false )
 	{
-		//SmaSme( "------ Vx_wu:", Vx_wu, Ti_v.Va );
-
-		//&&&
-		// ADD BTN
-		const Kz_l = document.createElement( 'option' );
-		Kz_l.innerText = `${Ti_v.Gwz} ${Ti_v.Va}`;
-
-		Kz_l.className = 'HriNeTi WaDru_Ka';
-		Kz_l.value = Ti_v.Va;
-
-		TaKeDy_l.appendChild( Kz_l );
-	});
+		Ko.KwiYz_l = JSON.parse( KwiYz_vsg );
+		SmaSme( "[USERS] KwiYz_My:", Ko.KwiYz_l );
+	}
+	else
+	// FORCE DEFAULT
+	{
+		Hrz4_Bu__TaKeDy__ChyDe();
+	}
 }
 
 //=====================================
@@ -1252,10 +1286,18 @@ function HriNeDe__ChyHry( Vy_vsg, Hry_yk )
 
 //@@@
 // DISPLAY_BLOCK ELM
-function HriNeDe__ChyKu( Vy_vsg, Ku_yk )
+function HriNeDe__ChyKuHi( Vy_vsg, Ku_yk )
 {
 	let e = document.getElementById( Vy_vsg );
 	e.style.display = Ku_yk ? "block" : "none";
+}
+
+//@@@
+// DISPLAY_FLEX ELM
+function HriNeDe__ChyKuHu( Vy_vsg, Ku_yk )
+{
+	let e = document.getElementById( Vy_vsg );
+	e.style.display = Ku_yk ? "inline-flex" : "none";
 }
 
 //@@@
@@ -1385,11 +1427,11 @@ function HryMx00_KeMeKwi()
 	//---------------------------------
 	// VIEWS
 	//---------------------------------
-	HriNeDe__ChyKu( "Ku00_KeMeKwi", true );
-	HriNeDe__ChyKu( "Ku01_KeMeTrx", false );
-	HriNeDe__ChyKu( "Ku02_KeMeBri", false );
+	HriNeDe__ChyKuHi( "Ku00_KeMeKwi", true );
+	HriNeDe__ChyKuHi( "Ku01_KeMeTrx", false );
+	HriNeDe__ChyKuHi( "Ku02_KeMeBri", false );
 
-	HriNeDe__ChyKu( "Ku03_KeDruTre", false );
+	HriNeDe__ChyKuHi( "Ku03_KeDruTre", false );
 
 	//---------------------------------
 	// CANVAS
@@ -1423,11 +1465,11 @@ function HryMx00_KeMeKwi()
 	//---------------------------------
 	// SETUP GUI
 	//---------------------------------
-	Hrz4_Bu__KwiYz__HriNeMy();
+	Hrz4_Bu__KwiYz__HriNe_MyYy();
 
 	//@@@
 	// LOG
-	SmaSme( "[GUI] KwiYz_My:", Ko.KwiYz_l );
+	SmaSme( "[GUI] KwiYz_My:", Ko.KwiYz_l.KeDy_v );
 }
 
 
@@ -1439,11 +1481,11 @@ function HryMx01_KeMeTrx()
 	//---------------------------------
 	// VIEWS
 	//---------------------------------
-	HriNeDe__ChyKu( "Ku00_KeMeKwi", false );
-	HriNeDe__ChyKu( "Ku01_KeMeTrx", true );
-	HriNeDe__ChyKu( "Ku02_KeMeBri", false );
+	HriNeDe__ChyKuHi( "Ku00_KeMeKwi", false );
+	HriNeDe__ChyKuHi( "Ku01_KeMeTrx", true );
+	HriNeDe__ChyKuHi( "Ku02_KeMeBri", false );
 
-	HriNeDe__ChyKu( "Ku03_KeDruTre", false );
+	HriNeDe__ChyKuHi( "Ku03_KeDruTre", false );
 
 	//---------------------------------
 	// CANVAS
@@ -1472,11 +1514,11 @@ function HryMx02_KeMeBri()
 	//---------------------------------
 	// VIEWS
 	//---------------------------------
-	HriNeDe__ChyKu( "Ku00_KeMeKwi", false );
-	HriNeDe__ChyKu( "Ku01_KeMeTrx", false );
-	HriNeDe__ChyKu( "Ku02_KeMeBri", true );
+	HriNeDe__ChyKuHi( "Ku00_KeMeKwi", false );
+	HriNeDe__ChyKuHi( "Ku01_KeMeTrx", false );
+	HriNeDe__ChyKuHi( "Ku02_KeMeBri", true );
 
-	HriNeDe__ChyKu( "Ku03_KeDruTre", false );
+	HriNeDe__ChyKuHi( "Ku03_KeDruTre", false );
 }
 
 //==============================================
@@ -1511,6 +1553,7 @@ function Hrz4_Bu__ChyNeKu( Vx_wu )
 function Tra_KeMeBri()
 {
 	HryMx02_KeMeBri();
+	const KwiYz_k = Ko.KwiYz_l.KeDy_v[ Ko.KwiYz_l.KeDy_wu ];
 
 	//!!!
 	// VISUAL
@@ -1519,17 +1562,17 @@ function Tra_KeMeBri()
 
 	// const Cha__YzVi_q =  document.getElementById( "WG" ).value;
 	//const Cha__YzVi_q = 0;
-	const Cha__YzVi_q = Ko.KwiYz_l.Ne03_Hry06__SmzYz_q;
-	if( Cha__YzVi_q !== Ko.KwiYz_l.Ne03_Hry06__SmzYz_q )
+	const Cha__YzVi_q = KwiYz_k.Ne03_Hry06__SmzYz_q;
+	if( Cha__YzVi_q !== KwiYz_k.Ne03_Hry06__SmzYz_q )
 	{
-		Ko.KwiYz_l.Ne03_Hry06__SmzYz_q = Cha__YzVi_q;
+		KwiYz_k.Ne03_Hry06__SmzYz_q = Cha__YzVi_q;
 
 		// Restart WG
 		const SaWG_l = Ko.SySmz_v[ SyVx.WG_qk ];
 		SaWG_l.KaSmz_l.destroy();
 	}
 
-	Hrz4_Bu__KwiYz__KoChy();
+	Hrz4_Bu__KwiYz__Ko_ChyYe();
 
 	//---------------------------------
 	// LAUNCH HERE
@@ -1537,7 +1580,7 @@ function Tra_KeMeBri()
 
 	//@@@
 	// ECOSYS PLAY
-	SmaSme( "[LAUNCH] User:", Ko.KwiYz_l.KeDy_vsg, " NEVER_PAUSE:", Ko.KwiYz_l.Ne01_Ko04__KoDz_YoHo_y );
+	SmaSme( "[LAUNCH] User:", KwiYz_k.KeDy_vsg, " NEVER_PAUSE:", KwiYz_k.Ne01_Ko04__KoDz_YoHo_y );
 	if( KoDz__YzYa_y() )
 	{
 		SmaSme( "[LAUNCH] ACTIVE via Resume" );
@@ -1560,16 +1603,16 @@ function Tra_KeMeBri()
 function KoDz_GyHa()
 {
 	//@@@
-	// MxPo^SCREEN
-	SmaSme( "GyHa: ", window.innerWidth, window.innerHeight, " Legible Px/Em: ", Ko.em2px_wfk );
-
-	//@@@
 	// UPDATE MODE
 	( KoDz__YzYa_y() ) ? HryMx00_KeMeKwi() : ( KoDz__YzTrx_y() ? HryMx01_KeMeTrx() : HryMx02_KeMeBri() );
 
 	//@@@
 	// EM SIZE
 	Ko.em2px_wfk = Number(window.getComputedStyle(document.body).getPropertyValue("font-size").match(/\d+/)[0]);
+
+	//@@@
+	// MxPo^SCREEN
+	SmaSme( "GyHa: ", window.innerWidth, window.innerHeight, " Legible Px/Em: ", Ko.em2px_wfk );
 }
 
 //==============================================
@@ -2022,9 +2065,12 @@ async function KoDz__YaFz()
 
 	//@@@
 	// CLNs
+	// Configs by User
 	Ko.KwiYz_l = {};
 	// Declare 'fixed array' uses ZEROs, must fill  null
+	// Media Objects
 	Ko.SuKz_v = new Array( SuKz__GryFo_wuk ).fill( null );
+	// Service Sessions
 	Ko.SySmz_v = new Array( SyVx__GryFo_wuk ).fill( null );
 
 
@@ -2036,16 +2082,16 @@ async function KoDz__YaFz()
 	Ko.BriYa_GiDri_df = performance.now();
 	// BROWSER_VER
 	await Hrz3_Bz__VaDa();
-	// USER
-	Hrz4_Bu__TaKeDy__Fy();
-	// LAUNCH_CFG
-	Hrz4_Bu__KwiYz__Fy();
-	// CULTURE
+	// FIND USERS LAUNCH_CFG
+	Hrz4_Bu__TaKeDy__FyGry();
+	// LOAD CULTURE
 	Hre1_Dru__BriYa();
-	// GUI VALUES
+	// LOAD LAUNCH CANVAS
+	// which fills GUI VALUES
 	HryMx00_KeMeKwi();
-	// GUI SELECT
+	// GUI TOPIC_SELECT WHO
 	Hrz4_Bu__ChyNeKu( 0 );
+
 
 	//@@@
 	// BOOT
@@ -2075,6 +2121,8 @@ async function KoDz__YaFz()
 
 	//@@@
 	// SERV_REQ
+	const KwiYz_k = Ko.KwiYz_l.KeDy_v[ Ko.KwiYz_l.KeDy_wu ];
+
 	const SySmz__Kri_yk = true;
 	const Kri__SySmz_v =
 	[
@@ -2085,7 +2133,7 @@ async function KoDz__YaFz()
 
 		, Hrz7_Kru__ChaSySmz( "Hra7_Ta", "ToMi", "Do", "STRM", SySmz__Kri_yk, { YzTi_wu: "0" } )
 		, Hrz7_Kru__ChaSySmz( "Hre1_Dru", "WaDru", "Do", "FNT", SySmz__Kri_yk, { YzTi_wu: "0" } )
-		, Hrz7_Kru__ChaSySmz( "Hry5_Smz", "WzMx", "Do", "WG", SySmz__Kri_yk, { YzVi_q: Ko.KwiYz_l.Ne03_Hry06__SmzYz_q } )
+		, Hrz7_Kru__ChaSySmz( "Hry5_Smz", "WzMx", "Do", "WG", SySmz__Kri_yk, { YzVi_q: KwiYz_k.Ne03_Hry06__SmzYz_q } )
 		, Hrz7_Kru__ChaSySmz( "Hry1_Brz", "KeDru", "Do", "GLF", SySmz__Kri_yk, { Gy_wu: 512 } )
 
 		, Hrz7_Kru__ChaSySmz( "Hra4_Bru", "ToDry", "Do", "NET", SySmz__Kri_yk, { YzTi_wu: "0" } )
@@ -2132,9 +2180,10 @@ async function KoDz__YaFx( )
 	//@@@
 	// SERV_OPT
 	const SySmz__HoKri_yk = false;
+	const KwiYz_k = Ko.KwiYz_l.KeDy_v[ Ko.KwiYz_l.KeDy_wu ];
 
 	// DoXR
-	if( Ko.KwiYz_l.Ne03_Hry02__HriKe_y ) { Hrz7_Kru__ChaSySmz( "Hri2_Ke", "BzMe", "Do", "XR", SySmz__HoKri_yk, { YzTi_wu: "0" } ); }
+	if( KwiYz_k.Ne03_Hry02__HriKe_y ) { Hrz7_Kru__ChaSySmz( "Hri2_Ke", "BzMe", "Do", "XR", SySmz__HoKri_yk, { YzTi_wu: "0" } ); }
 
 	// DoAUD
 	//Hrz7_Kru__ChaSySmz( "Hru5_Smz", "MxPe", "Do", "AUD", SySmz__HoKri_yk, { YzTi_wu: "0" } );
@@ -2163,7 +2212,8 @@ function KoDz__YoChy()
 {
 	//@@@
 	// ECOSYS_GOOD
-	if( KoDz__YzTrx_y() || KoDz__YzYo_y() || Ko.KwiYz_l.Ne01_Ko04__KoDz_YoHo_y ) return;
+	const KwiYz_k = Ko.KwiYz_l.KeDy_v[ Ko.KwiYz_l.KeDy_wu ];
+	if( KoDz__YzTrx_y() || KoDz__YzYo_y() || KwiYz_k.Ne01_Ko04__KoDz_YoHo_y ) return;
 
 	//&&&
 	// STATUS

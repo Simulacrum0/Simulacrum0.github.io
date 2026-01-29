@@ -35,16 +35,13 @@
 
 			<!-- TITLE BAR w ICONS & TXT -->
 			<div class="Ku01_BzVa_GeBre">
-				<img class="BriDz_FzVa Kwi00__BriDzJaPo" src="Mx01__SuKz_MEDIA/SuKz07_DryDz__BIZ/DryDzGwz05__THINKER_512.png"></img>
+				<img class="BriDz_FzVa Kwi00__BriDzJaPo" src="Mx01__SuKz_MEDIA/SuKz07_DryDz__BIZ/DryDzGwz05__THINKER_512.png" onclick="Hrz4_Bu__TaKeDy_Chx();"></img>
 				<span  id="BriDz00_VaSy_vsg" class="BriDz_FzVa WaDru_Bz"></span>
 				<img class="BriDz_FzVa Kwi00__BriDzJaPo" src="Mx01__SuKz_MEDIA/SuKz03_TxTrz__APTIV_MADE/TxTrz01__GEMS.jpg"></img>
-				<!-- LAUNCH BTN ---------------->
-				<input id="BriDz02_TraKwi_vsg" class="BriDz_FzVa HriNe_Tra TreHy HriNe_TraKwi WaDru_Bz" tabindex=1 type="submit" onclick="Tra_KeMeBri()"/>
-
 			</div>	<!-- Ku01_BzVa_GeBre -->
 
 			<!-- GAP  -->
-			<!-- <br> -->
+			<br>
 
 			<!-- PANEL_GUI -->
 			<div class="Ku01__HriNe">
@@ -67,37 +64,33 @@
 					<div id="NeKu00" class="NeKuJy Ku03_NeKu">
 
 						<div><span class="HriNeVx">1️⃣🌐</span>
-							<label id="Ne00_KeDy00__NiKeDru_vsg" for="Ne00_KeDy00__NiKeDru__Ta_l" class="HriNeVa WaDru_Bz TreHy"></label>
+							<label id="Ne00_KeDy00__NiKeDru_vsg" for="Ne00_KeDy00__NiKeDru__Ta_l" class="HriNeVa WaDru_Bz"></label>
 							<select id="Ne00_KeDy00__NiKeDru__Ta_l" class="HriNeTi WaDru_Ka TreHy" onchange="Ne00_KeDy00__NiKeDru__JeChy()" tabindex=2 ></select>
 						</div> <!-- 1 -->
 
 						<div><span class="HriNeVx">2️⃣👥</span>
-							<label id="Ne00_KeDy01__NiKeDy_vsg" for="Ne00_KeDy01__NiKeDy__Ta_l" class="HriNeVa WaDru_Bz TreHy"  onclick="HriNeDe__ChyHryDry(  'Ne00_KeDy01__NiKeDy__Ku' );" ></label>
+							<!-- TOGGLE SECTION onclick="HriNeDe__ChyHryDry(  'Ne00_KeDy01__NiKeDy__Ku' );" -->
+							<label id="Ne00_KeDy01__NiKeDy_vsg" for="Ne00_KeDy01__NiKeDy__Ta_l" class="HriNeVa WaDru_Bz" ></label>
+							<select id="Ne00_KeDy01__NiKeDy__Ta_l" class="HriNeTi WaDru_Ka TreHy" onchange="Ne00_KeDy01__NiKeDy__JeChy()" tabindex=3 ></select>
 
 							<div id="Ne00_KeDy01__NiKeDy__Ku">
-								<select id="Ne00_KeDy01__NiKeDy__Ta_l" class="HriNeTi WaDru_Ka TreHy" onchange="Ne00_KeDy01__NiKeDy__JeChy()" tabindex=3 ></select>
-
+								<span id="Ne00_KeDy02__VaTre_vsg" class="HriNeVa WaDru_Bz TreHy"></span>
+								<input id="Ne00_KeDy02__VaTre_Sma_vsg" class="KeDru_MiPo TreHy WaDru_Ka" type="text" placeholder="???"></input>
 								<button id="Ne00_KeDy04__Cha_vsg" class="HriNe_Tra TreHy WaDru_Bz" type="button" onclick="Ne00_KeDy04__Cha_Tra()"></button>
 								<button id="Ne00_KeDy05__Chi_vsg" class="HriNe_Tra TreHy WaDru_Bz" type="button" onclick="Ne00_KeDy05__Chi_Tra()"></button>
-							</div>
+							</div> <!-- 2.1 -->
 						</div> <!-- 2 -->
 
-						<div><span class="HriNeVx">3️⃣🗣️</span>
-							<span id="Ne00_KeDy02__VaTre_vsg" class="HriNeVa WaDru_Bz TreHy" onclick="HriNeDe__ChyHryDry(  'Ne00_KeDy02__VaTre_Sma_vsg' );" ></span>
-							<input id="Ne00_KeDy02__VaTre_Sma_vsg" class="HriNeTi TreHy WaDru_Ka KeDru_MiPo TreHy" type="text" placeholder="???"></input>
-						</div> <!-- 3 -->
-
-						<div><span class="HriNeVx">4️⃣😶‍🌫️</span>
-							<span id="Ne00_KeDy03__NiJaPo_vsg" class="HriNeVa WaDru_Bz TreHy" onclick="HriNeDe__ChyHryDry(  'Ne00_KeDy03__NiJaPo__Ta_l' );" ></span>
+						<div><span class="HriNeVx">3️⃣😶‍🌫️</span>
+							<!-- AVATAR GRID -->
+							<span id="Ne00_KeDy03__NiJaPo_vsg" class="HriNeVa WaDru_Bz"></span>
 							<div class="NiJaPo_HryKu">
 								<span id="Ne00_KeDy03__NiJaPo_q" class="NiJaPo_Fe TreHy" onclick="HriNeDe__ChyHryDry(  'Ne00_KeDy03__NiJaPo__Ta_l' );" ></span>
 								<div id="Ne00_KeDy03__NiJaPo__Ta_l" class="NiJaPo_NeKu"></div>
-							</div>
+							</div> <!-- 3.1 -->
+						</div> <!-- 3 -->
 
-						</div> <!-- 4 -->
-
-						<div><span class="HriNeVx">5️⃣🔐</span>
-
+						<div><span class="HriNeVx">4️⃣🛡️</span>
 							<!-- SECURITY REPORT -->
 							<span id="Che02_Trx_vsg" class="HriNeVa WaDru_Bz"></span>
 							<span id="Che03_TraHo_vsg" class="HriNeVa WaDru_Bz"></span>
@@ -105,32 +98,32 @@
 
 							<div>
 								<span id="Ne00_KeDy06__TraChe_vsg" class="HriNeVa WaDru_Bz"></span>
-								<label class="KaHyHo WaDru_Ka"><input id="Ne00_KeDy06__TraChe_y" type="checkbox" onchange="Hrz4_Bu__KwiYz__KoChy()"><span class="VuHyHo"></span></label>
+								<label class="KaHyHo WaDru_Ka"><input id="Ne00_KeDy06__TraChe_y" type="checkbox" onchange="Hrz4_Bu__KwiYz__Ko_ChyYe()"><span class="VuHyHo"></span></label>
 							</div>
 
 							<div id="Ne00_KeDy06__CheHaKri">
 								<div>
 									<span id="Ne00_KeDy07__MaKz_vsg" class="HriNeVa WaDru_Bz" ></span>
-									<input id="Ne00_KeDy07__MaKz__Sma_vsg" class="HriNeTi TreHy WaDru_Ka KeDru_MiPo" type="text" placeholder="???"></input>
+									<input id="Ne00_KeDy07__MaKz__Sma_vsg" class="KeDru_MiPo TreHy WaDru_Ka" type="text" placeholder="???"></input>
 								</div>
 								<div>
 									<span id="Ne00_KeDy08__SmzKz_vsg" class="HriNeVa WaDru_Bz" ></span>
-									<input id="Ne00_KeDy08__SmzKz__Sma_vsg" class="HriNeTi TreHy WaDru_Ka KeDru_MiPo" type="text" placeholder="???"></input>
+									<input id="Ne00_KeDy08__SmzKz__Sma_vsg" class="KeDru_MiPo TreHy WaDru_Ka " type="text" placeholder="???"></input>
 								</div>
 								<!-- SECURITY BTNS -->
 								<div>
-									<button id="Che00_Me_vsg" class="HriNe_Tra TreHy WaDru_Bz" type="button" onclick="Ne00_KeDy04__CheHa()"></button>
-									<button id="Che01_Chy_vsg" class="HriNe_Tra TreHy WaDru_Bz" type="button" onclick="Ne00_KeDy04__CheHa()"></button>
+									<button id="Che00_Krz_vsg" class="HriNe_Tra TreHy WaDru_Bz" type="button" onclick="Hrz4_Bu__Che00_Krz__Tra()"></button>
+									<button id="Che01_Chy_vsg" class="HriNe_Tra TreHy WaDru_Bz" type="button" onclick="Hrz4_Bu__Che01_Chy__Tra()"></button>
 								</div>
 							</div>	<!-- Ne00_KeDy06__CheHaKri -->
 
-						</div> <!-- 5 -->
+						</div> <!-- 4 -->
 				</div> <!-- NeKu00 -->
 
 				<!-- Ku03_NeKu01^NODE -->
 				<div id="NeKu01" class="NeKuJy Ku03_NeKu">
 					<div><span class="HriNeVx">1️⃣♻️</span>
-						<button id="Ne01_Ko00__YzYu_vsg" class="HriNe_Tra TreHy WaDru_Bz" type="button" onclick="Ne01_Ko00__YzYu_Tra()"></button>
+						<button id="Ne01_Ko00__YzYu_vsg" class="HriNe_Tra TreHy WaDru_Bz" type="button" onclick="Hrz4_Bu__KwiYz__ChyDe( "New Name", 0, 0 );"></button>
 					</div>
 					<div><span class="HriNeVx">2️⃣🛜</span>
 						<span id="Ne01_Ko01__HraBru_Tra_vsg" class="HriNeVa WaDru_Bz"></span>
@@ -261,12 +254,16 @@
 				</div> <!-- PANEL_CHOICE Ku02__NzKwa -->
 			</div> <!-- PANEL_GUI Ku01__HriNe -->
 
+
 			<!-- DETAILS ---------------->
 			<div class="Kwi04_BriDzDa">
 				<code id="BriDzSa__Da" class="BriDzDa WaDru_Ka"></code>
 				<code id="Hrz3_By__VaDa" class="BriDzDa WaDru_Ka"></code>
 				<code id="BriDz01_SaSz_vsg" class="BriDzDa WaDru_Bz"></code>
 			</div>
+
+			<!-- LAUNCH BTN ---------------->
+			<input id="BriDz02_TraKwi_vsg" class="BriDz_FzVa HriNe_Tra TreHy HriNe_TraKwi WaDru_Bz" tabindex=1 type="submit" onclick="Tra_KeMeBri()"/>
 
 		</div> <!-- PANEL LAUNCH_CFG -->
 	</div>	<!-- Ku00__LAUNCH -->

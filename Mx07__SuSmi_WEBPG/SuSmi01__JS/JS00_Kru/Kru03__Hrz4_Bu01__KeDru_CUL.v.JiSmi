@@ -48,6 +48,8 @@ async function ToKz__JSON_v( ChaKuTu_vbg, ToKzVa_vbg )
 //-------------------------------------------------
 async function Hre1_Dru__ChyKeDru( KeKuMi_vbg )
 {
+	const KwiYz_k = Ko.KwiYz_l.KeDy_v[ Ko.KwiYz_l.KeDy_wu ];
+
 	//-------------------------------------------------
 	// LANG/LOCALE
 	//-------------------------------------------------
@@ -104,7 +106,7 @@ async function Hre1_Dru__ChyKeDru( KeKuMi_vbg )
 
 	//&&&
 	// CFG SAVE
-	Ko.KwiYz_l.KeDru_vsg = KeKuMi_vbg;
+	KwiYz_k.KeDru_vsg = KeKuMi_vbg;
 
 
 	//&&&
@@ -151,6 +153,8 @@ function Ne00_KeDy00__NiKeDru__JeChy()
 //-------------------------------------------------
 async function Hre1_Dru__BriYa()
 {
+	const KwiYz_k = Ko.KwiYz_l.KeDy_v[ Ko.KwiYz_l.KeDy_wu ];
+
 	//@@@
 	// LIST DIV
 	const Ne00_KeDy00__NiKeDru__Ta_l = document.getElementById( 'Ne00_KeDy00__NiKeDru__Ta_l' );
@@ -177,8 +181,8 @@ async function Hre1_Dru__BriYa()
 
 	//@@@
 	// SELECT DEFAULT
-	Ne00_KeDy00__NiKeDru__Ta_l.selectedIndex = Ko.KwiYz_l.KeDru_wu;
-	Hre1_Dru__ChyKeDru( Ko.KwiYz_l.KeDru_vsg );
+	Ne00_KeDy00__NiKeDru__Ta_l.selectedIndex = KwiYz_k.KeDru_wu;
+	Hre1_Dru__ChyKeDru( KwiYz_k.KeDru_vsg );
 }
 
 

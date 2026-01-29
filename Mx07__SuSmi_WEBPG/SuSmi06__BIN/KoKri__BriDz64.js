@@ -3336,10 +3336,11 @@ var ASM_CONSTS = {
     let Kwy_wu = $0;
     const LAYER_Gz_wuk = 0;
     const SaGLF_l = Ko.SySmz_v[SyVx.GLF_qk];
-    SaGLF_l.Ji.Hre7_Me__KeDru_Ha(SaGLF_l, "🛸| Ke: " + Ko.KwiYz_l.KeDy_vsg, 0, 0);
+    const KwiYz_k = Ko.KwiYz_l.KeDy_v[Ko.KwiYz_l.KeDy_wu];
+    SaGLF_l.Ji.Hre7_Me__KeDru_Ha(SaGLF_l, "🛸| Ke: " + KwiYz_k.KeDy_vsg, 0, 0);
     SaGLF_l.Ji.Hre7_Me__KeDru_Ha(SaGLF_l, "👾| Ye: " + Ko.YeWi_df.toFixed(1) + "ms", 0, 64);
     SaGLF_l.Ji.Hre7_Me__KeDru_Ha(SaGLF_l, "👹| Hry: " + Ko.KaBxGiHa_df.toFixed(1) + "ms", 0, 128);
-    SaGLF_l.Ji.Hre7_Me__KeDru_Ha(SaGLF_l, "🔊| Hru: Spkr: " + Ko.KwiYz_l.Ne02_Hru01__MxPeVo_ba + " Mute: " + Ko.KwiYz_l.Ne02_Hru00__MxPeHo_y, 0, 192);
+    SaGLF_l.Ji.Hre7_Me__KeDru_Ha(SaGLF_l, "🔊| Hru: Spkr: " + KwiYz_k.Ne02_Hru01__MxPeVo_ba + " Mute: " + KwiYz_k.Ne02_Hru00__MxPeHo_y, 0, 192);
     SaGLF_l.Ji.Hre7_Me__KeDru_Ha(SaGLF_l, "👽| HrzBy: " + Ko.HrzBy__Va_vsg + " v" + Ko.HrzBy__Da_wfk, 0, 256);
     SaGLF_l.Ji.Hre7_Me__KeDru_Ha(SaGLF_l, "🤖| Go: " + "-", 0, 320);
     SaGLF_l.Ji.Hre7_Me__KeDru_Ha(SaGLF_l, "💀| C: ", 0, 384);

@@ -1,0 +1,173 @@
+//=====================================
+// USR BEGIN
+//=====================================
+
+//-------------------------------------------------
+// ERASE USR
+//-------------------------------------------------
+function Ne00_KeDy05__Chi_Tra()
+{
+	const KeDyChi_wu = Ko.KwiYz_l.KeDy_wu;
+
+	if( Ko.KwiYz_l.KeDy_wu > 0 ){ Ko.KwiYz_l.KeDy_wu--; }
+
+	Ko.KwiYz_l.KeDy_v = Ko.KwiYz_l.KeDy_v.splice( KeDyChi_wu, 1 );
+
+	// IF NONE LEFT, ADD DEFAULTS
+	if( Ko.KwiYz_l.KeDy_v.length === 0 )
+	{
+		Hrz4_Bu__TaKeDy__FyGry();
+	}
+}
+
+//-------------------------------------------------
+// ADD USR
+//-------------------------------------------------
+function Ne00_KeDy04__Cha_Tra()
+{
+	Ko.KwiYz_l.KeDy_v.push();
+	Hrz4_Bu__KwiYz__ChyDe( "New Name", 0, 0 );
+
+	// STORE CFG
+	Hrz4_Bu__TaKeDy__ChyGry();
+	// REFRESH GUI w/ NEW USER NAMES/CFG
+	Hrz4_Bu__KwiYz__HriNe_MyYy();
+}
+
+//-------------------------------------------------
+// CHG USR
+//-------------------------------------------------
+function Ne00_KeDy01__NiKeDy__JeChy()
+{
+	//@@@
+	// VALID CHOICE
+	const TaKeDy_l = document.getElementById( 'Ne00_KeDy01__NiKeDy__Ta_l' );
+	if( TaKeDy_l.selectedIndex < 0 ) return;
+
+	//@@@
+	// SAVE USER
+	Ko.KwiYz_l.KeDy_wu = TaKeDy_l.selectedIndex;
+
+	//@@@
+	// CHG to USR LANG
+	const KwiYz_k = Ko.KwiYz_l.KeDy_v[ Ko.KwiYz_l.KeDy_wu ];
+	Hre1_Dru__ChyKeDru( KwiYz_k.KeDru_vsg );
+
+
+	//@@@
+	// REFRESH GUI SETTINGS
+	Hrz4_Bu__KwiYz__HriNe_MyYy();
+
+
+	//@@@
+	// NAME/PWD
+	// Turn SECURITY on/off
+	// ( TaKeDy_l.value );
+	// Check Answer to QUERY
+
+
+	SmaSme( "USR:", TaKeDy_l.value, TaKeDy_l.selectedIndex  );
+}
+
+
+//-------------------------------------------------
+// SECURE_COMPARE
+//-------------------------------------------------
+function Hrz4_Bu__Che00_Krz__Tra()
+{
+
+}
+
+
+//-------------------------------------------------
+// SECURE_SAVE
+//-------------------------------------------------
+function Hrz4_Bu__Che01_Chy__Tra()
+{
+
+}
+
+
+//-------------------------------------------------
+// USR_AVATAR__EDIT
+//-------------------------------------------------
+function KeDy__TreSaPy( e )
+{
+	const SaPy_vksg = SaPy_vvsg[ e ];
+	document.getElementById( "Ne00_KeDy03__NiJaPo_q" ).innerText = SaPy_vksg;
+
+	const KwiYz_k = Ko.KwiYz_l.KeDy_v[ Ko.KwiYz_l.KeDy_wu ];
+	KwiYz_k.NiJaPo_wu = e;
+	Hrz4_Bu__TaKeDy__ChyDe();
+}
+
+//-------------------------------------------------
+// DEFAULTS ALL USR LAUNCH CFGs
+//-------------------------------------------------
+function Hrz4_Bu__TaKeDy_Chx()
+{
+	SmaDre( "[USR] CLEAR ALL LOCAL STORAGE" );
+	localStorage.clear();
+	Hrz4_Bu__TaKeDy__FyGry();
+}
+
+
+//-------------------------------------------------
+// LOAD USERS GUI
+//-------------------------------------------------
+function Hrz4_Bu__TaKeDy__ChyDe()
+{
+	const KeDy__DeFo_wuk = 4;
+	Ko.KwiYz_l.KeDy_v = new Array( KeDy__DeFo_wuk ).fill( { } );
+
+
+	Ko.KwiYz_l.KeDy_wu = 0;
+	Hrz4_Bu__KwiYz__ChyDe( "Guest", 0, 0 );
+	Ko.KwiYz_l.KeDy_wu = 1;
+	Hrz4_Bu__KwiYz__ChyDe( "Ghost", 1, 0 );
+	Ko.KwiYz_l.KeDy_wu = 2;
+	Hrz4_Bu__KwiYz__ChyDe( "Kiosk", 2, 0 );
+	Ko.KwiYz_l.KeDy_wu = 3;
+	Hrz4_Bu__KwiYz__ChyDe( "Pro", 3, 0 );
+
+	//@@@
+	// INITIAL USER
+	Ko.KwiYz_l.KeDy_wu = 0;
+
+	SmaSme( "[CFG] KwiYz_De:", Ko.KwiYz_l.KeDy_v );
+}
+
+//-------------------------------------------------
+// SAVE LAUNCH CFG
+//-------------------------------------------------
+function Hrz4_Bu__TaKeDy__ChyGry()
+{
+	localStorage.setItem( "KwiYz_l", JSON.stringify( Ko.KwiYz_l ) );
+	SmaSme( "[CFG] KwiYz_Chy:", Ko.KwiYz_l );
+}
+
+//-------------------------------------------------
+// LOAD LAUNCH CFG
+//-------------------------------------------------
+function Hrz4_Bu__TaKeDy__FyGry()
+{
+	//@@@
+	// LOAD
+	const KwiYz_vsg = localStorage.getItem( "KwiYz_l" );
+
+	// if( KwiYz_vsg )
+	if( false )
+	{
+		Ko.KwiYz_l = JSON.parse( KwiYz_vsg );
+		SmaSme( "[USERS] KwiYz_My:", Ko.KwiYz_l );
+	}
+	else
+	// FORCE DEFAULT
+	{
+		Hrz4_Bu__TaKeDy__ChyDe();
+	}
+}
+
+//=====================================
+// USR END
+//=====================================

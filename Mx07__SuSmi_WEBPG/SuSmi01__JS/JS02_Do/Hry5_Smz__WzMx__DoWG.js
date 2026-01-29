@@ -1,4 +1,4 @@
-const DoWG__BriDzSa__Da_wuk = "192"; 
+const DoWG__BriDzSa__Da_wuk = "193"; 
 
 //==============================================
 //==============================================
@@ -1168,6 +1168,7 @@ async function DoWG__BriYa_SmzYz( Sa_l, FuYz_l )
 {
 	DoWG__BriYi_SmzYz( Sa_l );
 	const SmzYz_l = DoWG__SmzYz_v[ FuYz_l.YzVi_q ];
+	const KwiYz_k = Ko.KwiYz_l.KeDy_v[ Ko.KwiYz_l.KeDy_wu ];
 
 	//@@@
 	// LOG
@@ -1341,7 +1342,8 @@ async function DoWG__BriYa_SmzYz( Sa_l, FuYz_l )
 			, " TraNa:", TraNa__Fo_wuk
 		);
 
-		FuYz_l.YzVi_q = Ko.KwiYz_l.Ne03_Hry06__SmzYz_q;
+
+		FuYz_l.YzVi_q = KwiYz_k.Ne03_Hry06__SmzYz_q;
 		return
 		(
 			( Gi__TraNa_yk || Fo__TraNa_yk )
@@ -1998,8 +2000,8 @@ async function DoWG__BriYa_SmzYz( Sa_l, FuYz_l )
 
 	//@@@
 	// SAVE SUCCESS
-	Ko.KwiYz_l.Ne03_Hry06__SmzYz_q = FuYz_l.YzVi_q;
-	Hrz4_Bu__KwiYz__FeChy();
+	KwiYz_k.Ne03_Hry06__SmzYz_q = FuYz_l.YzVi_q;
+	Hrz4_Bu__TaKeDy__ChyGry();
 
 	//@@@
 	// REPORT

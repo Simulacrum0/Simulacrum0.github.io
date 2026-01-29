@@ -5,7 +5,7 @@
 		, "BriDz01_SaSz_vsg": "🤖NEW --> WebGPU ReFMT Core WG Serv"
 		, "BriDz02_TraKwi_vsg": "🚀 LAUNCH"
 
-		, "Che00_Me_vsg": "❓Check Answer"
+		, "Che00_Krz_vsg": "❓Check Answer"
 		, "Che01_Chy_vsg": "✅Save Answer"
 		, "Che02_Trx_vsg": "✖️Incorrect Answer"
 		, "Che03_TraHo_vsg": "🔑Requires Answer"
@@ -22,11 +22,11 @@
 
 		, "Ne00_KeDy00__NiKeDru_vsg": "Language"
 		, "Ne00_KeDy01__NiKeDy_vsg": "User"
-		, "Ne00_KeDy02__VaTre_vsg": " Name"
-		, "Ne00_KeDy03__NiJaPo_vsg": "Avatar"
+		, "Ne00_KeDy02__VaTre_vsg": "🗣️Edit Name"
+		, "Ne00_KeDy03__NiJaPo_vsg": "Profile"
 		, "Ne00_KeDy04__Cha_vsg": "👤Add New User"
 		, "Ne00_KeDy05__Chi_vsg": "🗑️Remove Current User"
-		, "Ne00_KeDy06__TraChe_vsg": "Use Question-Answer Security"
+		, "Ne00_KeDy06__TraChe_vsg": "🔐Use Question-Answer Security"
 		, "Ne00_KeDy07__MaKz_vsg": "🔒Question-Lock"
 		, "Ne00_KeDy08__SmzKz_vsg": "🗝️Answer-Key"
 

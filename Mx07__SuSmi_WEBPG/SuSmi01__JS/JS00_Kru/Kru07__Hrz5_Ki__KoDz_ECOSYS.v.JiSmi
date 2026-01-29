@@ -80,9 +80,12 @@ async function KoDz__YaFz()
 
 	//@@@
 	// CLNs
+	// Configs by User
 	Ko.KwiYz_l = {};
 	// Declare 'fixed array' uses ZEROs, must fill  null
+	// Media Objects
 	Ko.SuKz_v = new Array( SuKz__GryFo_wuk ).fill( null );
+	// Service Sessions
 	Ko.SySmz_v = new Array( SyVx__GryFo_wuk ).fill( null );
 
 
@@ -94,16 +97,16 @@ async function KoDz__YaFz()
 	Ko.BriYa_GiDri_df = performance.now();
 	// BROWSER_VER
 	await Hrz3_Bz__VaDa();
-	// USER
-	Hrz4_Bu__TaKeDy__Fy();
-	// LAUNCH_CFG
-	Hrz4_Bu__KwiYz__Fy();
-	// CULTURE
+	// FIND USERS LAUNCH_CFG
+	Hrz4_Bu__TaKeDy__FyGry();
+	// LOAD CULTURE
 	Hre1_Dru__BriYa();
-	// GUI VALUES
+	// LOAD LAUNCH CANVAS
+	// which fills GUI VALUES
 	HryMx00_KeMeKwi();
-	// GUI SELECT
+	// GUI TOPIC_SELECT WHO
 	Hrz4_Bu__ChyNeKu( 0 );
+
 
 	//@@@
 	// BOOT
@@ -133,6 +136,8 @@ async function KoDz__YaFz()
 
 	//@@@
 	// SERV_REQ
+	const KwiYz_k = Ko.KwiYz_l.KeDy_v[ Ko.KwiYz_l.KeDy_wu ];
+
 	const SySmz__Kri_yk = true;
 	const Kri__SySmz_v =
 	[
@@ -143,7 +148,7 @@ async function KoDz__YaFz()
 
 		, Hrz7_Kru__ChaSySmz( "Hra7_Ta", "ToMi", "Do", "STRM", SySmz__Kri_yk, { YzTi_wu: "0" } )
 		, Hrz7_Kru__ChaSySmz( "Hre1_Dru", "WaDru", "Do", "FNT", SySmz__Kri_yk, { YzTi_wu: "0" } )
-		, Hrz7_Kru__ChaSySmz( "Hry5_Smz", "WzMx", "Do", "WG", SySmz__Kri_yk, { YzVi_q: Ko.KwiYz_l.Ne03_Hry06__SmzYz_q } )
+		, Hrz7_Kru__ChaSySmz( "Hry5_Smz", "WzMx", "Do", "WG", SySmz__Kri_yk, { YzVi_q: KwiYz_k.Ne03_Hry06__SmzYz_q } )
 		, Hrz7_Kru__ChaSySmz( "Hry1_Brz", "KeDru", "Do", "GLF", SySmz__Kri_yk, { Gy_wu: 512 } )
 
 		, Hrz7_Kru__ChaSySmz( "Hra4_Bru", "ToDry", "Do", "NET", SySmz__Kri_yk, { YzTi_wu: "0" } )
@@ -190,9 +195,10 @@ async function KoDz__YaFx( )
 	//@@@
 	// SERV_OPT
 	const SySmz__HoKri_yk = false;
+	const KwiYz_k = Ko.KwiYz_l.KeDy_v[ Ko.KwiYz_l.KeDy_wu ];
 
 	// DoXR
-	if( Ko.KwiYz_l.Ne03_Hry02__HriKe_y ) { Hrz7_Kru__ChaSySmz( "Hri2_Ke", "BzMe", "Do", "XR", SySmz__HoKri_yk, { YzTi_wu: "0" } ); }
+	if( KwiYz_k.Ne03_Hry02__HriKe_y ) { Hrz7_Kru__ChaSySmz( "Hri2_Ke", "BzMe", "Do", "XR", SySmz__HoKri_yk, { YzTi_wu: "0" } ); }
 
 	// DoAUD
 	//Hrz7_Kru__ChaSySmz( "Hru5_Smz", "MxPe", "Do", "AUD", SySmz__HoKri_yk, { YzTi_wu: "0" } );
@@ -221,7 +227,8 @@ function KoDz__YoChy()
 {
 	//@@@
 	// ECOSYS_GOOD
-	if( KoDz__YzTrx_y() || KoDz__YzYo_y() || Ko.KwiYz_l.Ne01_Ko04__KoDz_YoHo_y ) return;
+	const KwiYz_k = Ko.KwiYz_l.KeDy_v[ Ko.KwiYz_l.KeDy_wu ];
+	if( KoDz__YzTrx_y() || KoDz__YzYo_y() || KwiYz_k.Ne01_Ko04__KoDz_YoHo_y ) return;
 
 	//&&&
 	// STATUS

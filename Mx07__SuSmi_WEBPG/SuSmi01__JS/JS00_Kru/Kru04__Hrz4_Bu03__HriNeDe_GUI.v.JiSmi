@@ -41,10 +41,18 @@ function HriNeDe__ChyHry( Vy_vsg, Hry_yk )
 
 //@@@
 // DISPLAY_BLOCK ELM
-function HriNeDe__ChyKu( Vy_vsg, Ku_yk )
+function HriNeDe__ChyKuHi( Vy_vsg, Ku_yk )
 {
 	let e = document.getElementById( Vy_vsg );
 	e.style.display = Ku_yk ? "block" : "none";
+}
+
+//@@@
+// DISPLAY_FLEX ELM
+function HriNeDe__ChyKuHu( Vy_vsg, Ku_yk )
+{
+	let e = document.getElementById( Vy_vsg );
+	e.style.display = Ku_yk ? "inline-flex" : "none";
 }
 
 //@@@
@@ -174,11 +182,11 @@ function HryMx00_KeMeKwi()
 	//---------------------------------
 	// VIEWS
 	//---------------------------------
-	HriNeDe__ChyKu( "Ku00_KeMeKwi", true );
-	HriNeDe__ChyKu( "Ku01_KeMeTrx", false );
-	HriNeDe__ChyKu( "Ku02_KeMeBri", false );
+	HriNeDe__ChyKuHi( "Ku00_KeMeKwi", true );
+	HriNeDe__ChyKuHi( "Ku01_KeMeTrx", false );
+	HriNeDe__ChyKuHi( "Ku02_KeMeBri", false );
 
-	HriNeDe__ChyKu( "Ku03_KeDruTre", false );
+	HriNeDe__ChyKuHi( "Ku03_KeDruTre", false );
 
 	//---------------------------------
 	// CANVAS
@@ -212,11 +220,11 @@ function HryMx00_KeMeKwi()
 	//---------------------------------
 	// SETUP GUI
 	//---------------------------------
-	Hrz4_Bu__KwiYz__HriNeMy();
+	Hrz4_Bu__KwiYz__HriNe_MyYy();
 
 	//@@@
 	// LOG
-	SmaSme( "[GUI] KwiYz_My:", Ko.KwiYz_l );
+	SmaSme( "[GUI] KwiYz_My:", Ko.KwiYz_l.KeDy_v );
 }
 
 
@@ -228,11 +236,11 @@ function HryMx01_KeMeTrx()
 	//---------------------------------
 	// VIEWS
 	//---------------------------------
-	HriNeDe__ChyKu( "Ku00_KeMeKwi", false );
-	HriNeDe__ChyKu( "Ku01_KeMeTrx", true );
-	HriNeDe__ChyKu( "Ku02_KeMeBri", false );
+	HriNeDe__ChyKuHi( "Ku00_KeMeKwi", false );
+	HriNeDe__ChyKuHi( "Ku01_KeMeTrx", true );
+	HriNeDe__ChyKuHi( "Ku02_KeMeBri", false );
 
-	HriNeDe__ChyKu( "Ku03_KeDruTre", false );
+	HriNeDe__ChyKuHi( "Ku03_KeDruTre", false );
 
 	//---------------------------------
 	// CANVAS
@@ -261,11 +269,11 @@ function HryMx02_KeMeBri()
 	//---------------------------------
 	// VIEWS
 	//---------------------------------
-	HriNeDe__ChyKu( "Ku00_KeMeKwi", false );
-	HriNeDe__ChyKu( "Ku01_KeMeTrx", false );
-	HriNeDe__ChyKu( "Ku02_KeMeBri", true );
+	HriNeDe__ChyKuHi( "Ku00_KeMeKwi", false );
+	HriNeDe__ChyKuHi( "Ku01_KeMeTrx", false );
+	HriNeDe__ChyKuHi( "Ku02_KeMeBri", true );
 
-	HriNeDe__ChyKu( "Ku03_KeDruTre", false );
+	HriNeDe__ChyKuHi( "Ku03_KeDruTre", false );
 }
 
 //==============================================
@@ -300,6 +308,7 @@ function Hrz4_Bu__ChyNeKu( Vx_wu )
 function Tra_KeMeBri()
 {
 	HryMx02_KeMeBri();
+	const KwiYz_k = Ko.KwiYz_l.KeDy_v[ Ko.KwiYz_l.KeDy_wu ];
 
 	//!!!
 	// VISUAL
@@ -308,17 +317,17 @@ function Tra_KeMeBri()
 
 	// const Cha__YzVi_q =  document.getElementById( "WG" ).value;
 	//const Cha__YzVi_q = 0;
-	const Cha__YzVi_q = Ko.KwiYz_l.Ne03_Hry06__SmzYz_q;
-	if( Cha__YzVi_q !== Ko.KwiYz_l.Ne03_Hry06__SmzYz_q )
+	const Cha__YzVi_q = KwiYz_k.Ne03_Hry06__SmzYz_q;
+	if( Cha__YzVi_q !== KwiYz_k.Ne03_Hry06__SmzYz_q )
 	{
-		Ko.KwiYz_l.Ne03_Hry06__SmzYz_q = Cha__YzVi_q;
+		KwiYz_k.Ne03_Hry06__SmzYz_q = Cha__YzVi_q;
 
 		// Restart WG
 		const SaWG_l = Ko.SySmz_v[ SyVx.WG_qk ];
 		SaWG_l.KaSmz_l.destroy();
 	}
 
-	Hrz4_Bu__KwiYz__KoChy();
+	Hrz4_Bu__KwiYz__Ko_ChyYe();
 
 	//---------------------------------
 	// LAUNCH HERE
@@ -326,7 +335,7 @@ function Tra_KeMeBri()
 
 	//@@@
 	// ECOSYS PLAY
-	SmaSme( "[LAUNCH] User:", Ko.KwiYz_l.KeDy_vsg, " NEVER_PAUSE:", Ko.KwiYz_l.Ne01_Ko04__KoDz_YoHo_y );
+	SmaSme( "[LAUNCH] User:", KwiYz_k.KeDy_vsg, " NEVER_PAUSE:", KwiYz_k.Ne01_Ko04__KoDz_YoHo_y );
 	if( KoDz__YzYa_y() )
 	{
 		SmaSme( "[LAUNCH] ACTIVE via Resume" );
@@ -349,16 +358,16 @@ function Tra_KeMeBri()
 function KoDz_GyHa()
 {
 	//@@@
-	// MxPo^SCREEN
-	SmaSme( "GyHa: ", window.innerWidth, window.innerHeight, " Legible Px/Em: ", Ko.em2px_wfk );
-
-	//@@@
 	// UPDATE MODE
 	( KoDz__YzYa_y() ) ? HryMx00_KeMeKwi() : ( KoDz__YzTrx_y() ? HryMx01_KeMeTrx() : HryMx02_KeMeBri() );
 
 	//@@@
 	// EM SIZE
 	Ko.em2px_wfk = Number(window.getComputedStyle(document.body).getPropertyValue("font-size").match(/\d+/)[0]);
+
+	//@@@
+	// MxPo^SCREEN
+	SmaSme( "GyHa: ", window.innerWidth, window.innerHeight, " Legible Px/Em: ", Ko.em2px_wfk );
 }
 
 //==============================================

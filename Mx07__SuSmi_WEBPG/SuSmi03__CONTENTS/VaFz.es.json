@@ -5,13 +5,13 @@
 		, "BriDz01_SaSz_vsg": "🤖NUEVA --> WebGPU"
 		, "BriDz02_TraKwi_vsg": "🚀 EMPEZAR!"
 
-		, "Che00_Me_vsg": "❓Submit Contesto"
+		, "Che00_Krz_vsg": "❓Submit Contesto"
 		, "Che01_Chy_vsg": "✅Saved Contesto"
 		, "Che02_Trx_vsg": "✖️Incorrect Contesto"
 		, "Che03_TraHo_vsg": "🔑User Lock-o"
 		, "Che04_TraHy_vsg": "🔓User Unlock-o"
 
-		
+
 		, "Ne00_KeDy_vsg": "🥸 QUÍEN"
 		, "Ne01_Ko_vsg": "⚙️PERMISOS"
 		, "Ne02_Hru_vsg": "👂ESCUCHAR"
@@ -22,11 +22,11 @@
 
 		, "Ne00_KeDy00__NiKeDru_vsg": "Coger Lengua"
 		, "Ne00_KeDy01__NiKeDy_vsg": "Coger Persona"
-		, "Ne00_KeDy02__VaTre_vsg": "Nombre"
+		, "Ne00_KeDy02__VaTre_vsg": "🗣️Cambiar Nombre"
 		, "Ne00_KeDy03__NiJaPo_vsg": "Pictura"
 		, "Ne00_KeDy04__Cha_vsg": "👤Dar un Persona Nuevo"
 		, "Ne00_KeDy05__Chi_vsg": "🗑️Tomar esto Persona"
-		, "Ne00_KeDy06__TraChe_vsg": "Usa Seguridad"
+		, "Ne00_KeDy06__TraChe_vsg": "🔐Usar Seguridad"
 		, "Ne00_KeDy07__MaKz_vsg": "🔒Pregunta-Lock-o"
 		, "Ne00_KeDy08__SmzKz_vsg": "🗝️Contesta-Llave"
 

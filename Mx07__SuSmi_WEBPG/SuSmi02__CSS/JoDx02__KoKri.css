@@ -293,9 +293,6 @@ PANELS
 		display: grid;
 		grid-template-columns: 100%;
 		grid-template-rows: 16.67%;
-
-		/* min-width: 6.0rem; */
-		min-height: 14.0rem;
 	}
 }
 
@@ -323,7 +320,7 @@ PANELS
 /* PANEL__TOPIC_TEXT */
 .Kwi03_KeDru
 {
-	display: block;
+	display: inline-block;
 }
 
 /* PANEL__VERSION */
@@ -344,7 +341,6 @@ TEXT
 	text-align: center;
 }
 
-
 /* TEXT__APP_VERSION */
 .BriDzDa
 {
@@ -361,9 +357,6 @@ TEXT
 {
 	margin: 0.0rem;
 	padding: 0.0rem;
-
-	/* PREVENT LINE WRAP */
-	white-space:nowrap;
 }
 
 /* TEXT__MENU_TITLE --------------------------------- */
@@ -437,7 +430,10 @@ TEXT
 	display: inline-flex;
 	text-align:left;
 	color: #FFF;
+
 	padding: 0.25rem 1.00rem;
+	margin: 0.25rem 0.0rem;
+
 	background-color: #0008;
 }
 
@@ -451,44 +447,28 @@ TEXT
 	/* SLIDER_CLR */
 	accent-color: #D22;
 
-	margin: 0.25rem;
+	margin: 0.25rem 0.0rem;
 	padding: 0.25rem;
 }
 
-/* TEXT_INPUT_CLRS */
-.KeDru_MiPo
-{
-	font-size: 100%;
-}
-
+/* TEXT__LIST_ELEMENTS */
+.HriNeTi
 /* TEXT__TYPING_INPUT */
-input[type=text], select
+, .KeDru_MiPo
 {
 	display: inline-flex;
-	width: 100%;
+	text-align:left;
 
-	margin: 0.25rem;
-	padding: 0.5rem 1.0rem;
+	margin: 0.25rem 0.125rem;
+	padding: 0.25rem 1.00rem;
+
+	/* color: #000;
+	background-color: #BBB8; */
+	color: #FFF;
+	background-color: #444F;
 
 	border-radius: 1.5rem;
 	border: 0.125rem solid #FFF;
-
-	color: #FFF;
-	background-color: #444F;
-}
-
-/* TEXT__NOT_IN_USE */
-.HriNe_TraHo
-{
-	color: #000F;
-	background-color: #888F;
-}
-/* TEXT__FADED__NOT_IN_USE */
-.HriNe_HryHo
-{
-	color: #0008;
-	background-color: #8888;
-	filter: brightness( 25% );
 }
 
 /* TEXT__BTN */
@@ -515,16 +495,7 @@ input[type=text], select
 .TreHy:focus
 {
 	/* GLOW */
-	box-shadow: 0 0 1.5rem #D22;
-}
-
-/* TEXT__LIST ELEMENTS */
-.HriNeTi
-{
-	display: inline-flex;
-	text-align:left;
-	color: #000;
-	background-color: #BBB8;
+	box-shadow: 0 0 2.0rem #FFF;
 }
 
 /* TEXT__DOCUMENT HEADER */
@@ -652,10 +623,8 @@ ELEMENTS
 .HriNe_TraKwi
 {
 	font-size: 1.5rem;
-	height: 4.0rem;
-
-	min-width: 16rem;
-	width: calc( 100% - 2rem );
+	height: 3.0rem;
+	width: calc( 100% - 1.0rem );
 
 	margin: 0.50rem;
 	padding: 0.25rem;
@@ -757,6 +726,27 @@ input:checked + .VuHyHo:before
 	transform: translateX( 1.5rem );
 }
 
+/*@@@@@@@@@@@@@@@
+ELM_FX
+@@@@@@@@@@@@@@@*/
+
+/* ELM__NOT_IN_USE */
+.HriNe_TraHo
+{
+	color: #FFFF;
+	background-color: #D22;
+}
+/* ELM__FADED__NOT_IN_USE */
+.HriNe_HryHo
+{
+	color: #0008;
+	background-color: #8888;
+
+	filter: blur( 4px );
+	/* filter: brightness( 25% ); */
+
+	transition: 0.3s
+}
 
 /* @@@@@@@@@@@@@@@
 CSS END
