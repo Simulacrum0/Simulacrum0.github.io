@@ -23,19 +23,21 @@
 		, "Ne00_KeDy00__NiKeDru_vsg": "Language"
 		, "Ne00_KeDy01__NiKeDy_vsg": "User"
 		, "Ne00_KeDy02__VaTre_vsg": "🗣️Edit Name"
-		, "Ne00_KeDy03__NiJaPo_vsg": "Profile"
-		, "Ne00_KeDy04__Cha_vsg": "👤Add New User"
-		, "Ne00_KeDy05__Chi_vsg": "🗑️Remove Current User"
-		, "Ne00_KeDy06__TraChe_vsg": "🔐Use Question-Answer Security"
+		, "Ne00_KeDy03__SaJaPo_vsg": "Profile"
+		, "Ne00_KeDy04__ChaDe_vsg": "🆕👤Add New Default User"
+		, "Ne00_KeDy05__ChaFe_vsg": "🖨️👤Copy Current User"
+		, "Ne00_KeDy06__TraChe_vsg": "Use Question-Answer Security"
 		, "Ne00_KeDy07__MaKz_vsg": "🔒Question-Lock"
 		, "Ne00_KeDy08__SmzKz_vsg": "🗝️Answer-Key"
+		, "Ne00_KeDy09__Chi_vsg": "🗑️Remove Current User"
 
 
-		, "Ne01_Ko00__YzYu_vsg": "Reset ALL Settings"
+		, "Ne01_Ko00__KwiYz_ChyDe_vsg": "Reset User's Settings to Default"
 		, "Ne01_Ko01__HraBru_Tra_vsg": "Network Active"
 		, "Ne01_Ko02__SpeVu_vsg": "Power Use"
 		, "Ne01_Ko03__MzKu_vsg": "Allow GPS Location"
 		, "Ne01_Ko04__KoDz_YoHo_vsg": "Always Active (Background Work)"
+		, "Ne01_Ko05__TaKeDy_Chx_vsg": "Clear All Users & Settings to NEW"
 
 
 		, "Ne02_Hru00__MxPeHo_vsg": "Mute"

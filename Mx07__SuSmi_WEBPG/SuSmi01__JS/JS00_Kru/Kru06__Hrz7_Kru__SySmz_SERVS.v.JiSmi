@@ -29,67 +29,60 @@ const SyVx = Object.freeze
 	//----------------------------------------------------------
 	// SERV_REQ
 	//----------------------------------------------------------
-	CFG_qk: 0
+
+	// Hrz5_Ki
+	NODE_qk: 0
 	, TAK_qk: 1
 	, FS_qk: 2
 	, TRU_qk: 3
 
-	// Hra7_Ta^FMT
-	, STRM_qk: 4
-	, FNT_qk: 5
+	// Hra0_Ko^COMPUTER
+	, ENRG_qk: 4
 
-	// Hry^VIS
-	, WG_qk: 6
-	, GLF_qk: 7
+	// Hra1_Mz^SENSORS
+	, PTR_qk: 5
+	, USB_qk: 6
+	, GPS_qk: 7
 
 	// Hra4_Bru^NET
 	, NET_qk: 8
 
 	// Hra6_Ku^GATE
-	, SHAR_qk: 9
+	, CAL_qk: 9
 	, PAY_qk: 10
-	, CAL_qk: 11
+	, SHAR_qk: 11
 
-	// Hra5_Ka^CHIP
-	, USB_qk: 12
-	, GPS_qk: 777
-
-	// Hra0_Ko^COMPUTER
-	, ENRG_qk: 777
+	// Hra7_Ta^FMT
+	, STRM_qk: 12
+	, FNT_qk: 13
 
 	// Hru^AUD
-	, WA_qk: 777
-	, HEAR_qk: 777
-	, SAY_qk: 777
+	, WA_qk: 14
+	, HEAR_qk: 15
+	, SAY_qk: 16
 
 	// Hry^VIS
-	, XR_qk: 13
-	, GLES_qk: 777
-	, SCRN_qk: 777
+	, WG_qk: 17
+	, GLF_qk: 18
+	, XR_qk: 19
+	, SCRN_qk: 20
 
 
 	//----------------------------------------------------------
 	// SERV_OPT
 	//----------------------------------------------------------
-	, LANG_qk: 777
-	, ZSTD_qk: 777
-	, AVATAR_qk: 777
-	, TONE_qk: 777
+	, LANG_qk: 21
+	, ZSTD_qk: 22
+	, WT_qk: 23
+	, TONE_qk: 24
 
-	, WT_qk: 777
-	, ML_qk: 777
-	, MPLYR_qk: 777
-	, GEN_qk: 777
+	, ML_qk: 25
+	, MPLYR_qk: 26
+	, GEN_qk: 27
 
-
-	//----------------------------------------------------------
-	// SERV_CNT
-	//----------------------------------------------------------
-	, DoFo_wuk: 9
-	, SmiFo_wuk: 0
 });
 
-const SyVx__GryFo_wuk = SyVx.DoFo_wuk + SyVx.SmiFo_wuk;
+const SyVx__GryFo_wuk = SyVx.length;
 const SuKz__GryFo_wuk = 10;
 
 //==============================================

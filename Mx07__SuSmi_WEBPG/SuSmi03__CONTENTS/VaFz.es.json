@@ -23,19 +23,21 @@
 		, "Ne00_KeDy00__NiKeDru_vsg": "Coger Lengua"
 		, "Ne00_KeDy01__NiKeDy_vsg": "Coger Persona"
 		, "Ne00_KeDy02__VaTre_vsg": "🗣️Cambiar Nombre"
-		, "Ne00_KeDy03__NiJaPo_vsg": "Pictura"
-		, "Ne00_KeDy04__Cha_vsg": "👤Dar un Persona Nuevo"
-		, "Ne00_KeDy05__Chi_vsg": "🗑️Tomar esto Persona"
+		, "Ne00_KeDy03__SaJaPo_vsg": "Pictura"
+		, "Ne00_KeDy04__ChaDe_vsg": "🆕👤Dar un Persona Nuevo Defaulto"
+		, "Ne00_KeDy05__ChaFe_vsg": "🖨️👤Copy Currente Persona"
 		, "Ne00_KeDy06__TraChe_vsg": "🔐Usar Seguridad"
 		, "Ne00_KeDy07__MaKz_vsg": "🔒Pregunta-Lock-o"
 		, "Ne00_KeDy08__SmzKz_vsg": "🗝️Contesta-Llave"
+		, "Ne00_KeDy09__Chi_vsg": "🗑️Tomar esto Persona"
 
 
-		, "Ne01_Ko00__YzYu_vsg": "Reset ALL Settings-o"
+		, "Ne01_Ko00__KwiYz_ChyDe_vsg": "Reset-o User's Settings-o a Defaulto"
 		, "Ne01_Ko01__HraBru_Tra_vsg": "Network Active-o"
 		, "Ne01_Ko02__SpeVu_vsg": "Power Use-o"
 		, "Ne01_Ko03__MzKu_vsg": "Allow GPS Location-o"
 		, "Ne01_Ko04__KoDz_YoHo_vsg": "Always Active (Background Work)-o"
+		, "Ne01_Ko05__TaKeDy_Chx_vsg": "Clear All Users & Settings to NEW"
 
 
 		, "Ne02_Hru00__MxPeHo_vsg": "Mute-o"

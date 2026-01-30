@@ -112,7 +112,7 @@ async function TzKa__Chy( Tz_wu )
 	//&&&
 	// TOPIC FILL by LANG
 	const TaNzKa_v = document.getElementById( 'TaNzKa' );
-	Hri3_Ne__Ta_ChyStz( TaNzKa_v );
+	HriNeDe__Ta_ChyStz( TaNzKa_v );
 
 	TzKa_v.TOPICS.forEach(
 		function ( Ti_v, Vx_wu )
@@ -189,7 +189,7 @@ async function NzKa__Chy( Nz_wu )
 	//&&&
 	// THOTS
 	const TaJzKa_v = document.getElementById( 'TaJzKa' );
-	Hri3_Ne__Ta_ChyStz( TaJzKa_v );
+	HriNeDe__Ta_ChyStz( TaJzKa_v );
 
 	NzKa_v.THOTS.forEach(
 		function ( Ti_v, Vx_wu )
@@ -278,7 +278,7 @@ async function JzKa__Chy( Jz_wu )
 	//&&&
 	// CONTENT_LIST
 	const JoKz_ToKro_v = document.getElementById( 'JoKz_ToKro' );
-	Hri3_Ne__Ta_ChyStz( JoKz_ToKro_v );
+	HriNeDe__Ta_ChyStz( JoKz_ToKro_v );
 
 	if ( Jz_v.CONTENT )
 	{
@@ -454,7 +454,7 @@ async function Hre1_Dru__BriYa()
 	//@@@
 	// FILL ENTRIES
 	const TaKeDru_v = document.getElementById( 'TaKeDru' );
-	Hri3_Ne__Ta_ChyStz( TaKeDru_v );
+	HriNeDe__Ta_ChyStz( TaKeDru_v );
 
 	Hre1_Dru__Gra_v.forEach(
 		function ( Ti_v, Vx_wu )
@@ -623,7 +623,7 @@ async function Hre1_Dru__ChyKeDru( KeKuMi_vbg )
 	// SUBJECTS FILL by LANG
 	//SmaDx__Ta_JSON( KeDru_v.SUBJECTS );
 	const TaTzKa_v = document.getElementById( 'TaTzKa' );
-	Hri3_Ne__Ta_ChyStz( TaTzKa_v );
+	HriNeDe__Ta_ChyStz( TaTzKa_v );
 
 	TzKa__Fo_wu = KeDru_v.SUBJECTS.length;
 	KeDru_v.SUBJECTS.forEach(
@@ -1362,7 +1362,7 @@ function SmaTrx( Trx_vbg )
 //-------------------------------------------------
 // MENU CLEAR
 //-------------------------------------------------
-function Hri3_Ne__Ta_ChyStz( Ta_v )
+function HriNeDe__Ta_ChyStz( Ta_v )
 {
 	while ( Ta_v.firstChild )
 	{

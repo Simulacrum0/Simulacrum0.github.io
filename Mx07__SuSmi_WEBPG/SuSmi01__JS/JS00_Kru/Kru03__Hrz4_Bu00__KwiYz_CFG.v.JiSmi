@@ -2,107 +2,148 @@
 // CFG
 //==============================================
 
-//-------------------------------------------------
-// WRITE DEFAULT LAUNCH CFG
-//-------------------------------------------------
+//==============================================
+// CFG_WRITE_DEFAULT for ONE USER
+//==============================================
 function Hrz4_Bu__KwiYz__ChyDe( Va_vksg, NiJaPo_wuk, KeDru_wuk )
 {
-	const KwiYz_k = Ko.KwiYz_l.KeDy_v[ Ko.KwiYz_l.KeDy_wu ];
+	const KwiYz_k = Ko.TaKeDy_l.KwiYz_v[ Ko.TaKeDy_l.KeDy_wu ];
 
-	//@@@
-	// GOVERN
-	KwiYz_k.Ne01_Ko04__KoDz_YoHo_y = true;
-	//KwiYz_k.Ne01_Ko04__KoDz_YoHo_y = false;
+	//---------------------------------
+	// Ne00__WHO
+	//---------------------------------
+	if( Va_vksg  !== null )
+		{ KwiYz_k.KeDy_vsg = Va_vksg; }
 
-	//@@@
-	// USR[ 3 ]
-	KwiYz_k.KeDru_wu = KeDru_wuk;
-	KwiYz_k.KeDy_vsg = Va_vksg;
-	KwiYz_k.KeDru_vsg = navigator.language;
+	if( KeDru_wuk === -1 )
+	{
+		KwiYz_k.KeDru_wu = Hre1_Dru__KeDru_VaFyVx_wu( navigator.language );
+	}
+	else if( KeDru_wuk !== null )
+	{
+		KwiYz_k.KeDru_wu = KeDru_wuk;
+	}
 
-	KwiYz_k.NiJaPo_wu = NiJaPo_wuk;
+	if( NiJaPo_wuk !== null )
+	{ KwiYz_k.NiJaPo_wu = NiJaPo_wuk; }
 
 	KwiYz_k.Ne00_KeDy06__TraChe_y = false;
 
-	//@@@
-	// TEMPORAL[ 2 ]
+
+	//---------------------------------
+	// Ne01__NODE
+	//---------------------------------
+
+
+	//---------------------------------
+	// Ne02__AUDIO
+	//---------------------------------
+
+	// MUTE
 	KwiYz_k.Ne02_Hru00__MxPeHo_y = true;
+	// VOLUME
 	KwiYz_k.Ne02_Hru01__MxPeVu_sa = 1.0;
 
-	//@@@
-	// SPATIAL[ 2 ]
+	//!!!
+	// METHOD
+	// MOBILE
+	if( Ko.Hrz3_By__KaGeSpu_y )
+	{
+		// KwiYz_k.Ne02_Hru0__
+	}
+	// DESKTOP
+	else
+	{
+	}
+
+
+	//---------------------------------
+	// Ne03__VISUAL
+	//---------------------------------
+
 	KwiYz_k.Ne03_Hry02__HriKe_y = false;
 
 	// 'De'
 	KwiYz_k.Ne03_Hry06__SmzYz_q = 2;
-	KwiYz_k.Ne03_Hry07__GyBraHi_bu = 4;
 
-	// "Ne03_Hry06__SmzYz_vsg" Method
-	// Quality
-	// "Ne03_Hry08__TyGy_vsg" Detail
+	//!!!
+	// METHOD
+	// MOBILE
+	if( Ko.Hrz3_By__KaGeSpu_y )
+	{
+		KwiYz_k.Ne03_Hry07__GyBraHi_bu = 4;
+	}
+	// DESKTOP
+	else
+	{
+		KwiYz_k.Ne03_Hry07__GyBraHi_bu = 3;
+		// "Ne03_Hry06__SmzYz_vsg" Method
+		// "Ne03_Hry08__TyGy_vsg" Detail
+	}
 
-	
+
 	//@@@
-	// STORE & LOG
-	SmaSme( "[CFG] KwiYz_De:", Ko.KwiYz_l.KeDy_v );
-	Hrz4_Bu__TaKeDy__ChyGry();
+	// NODE
+	KwiYz_k.Ne01_Ko04__KoDz_YoHo_y = true;
+	//KwiYz_k.Ne01_Ko04__KoDz_YoHo_y = false;
+
+
 }
 
 
-
 //==============================================
-// CFG_LOAD
-// GUI_w_STOR_DATA
+// GUI_SYNC
 //==============================================
 function Hrz4_Bu__KwiYz__HriNe_MyYy()
 {
-	//---------------------------------
-	// CFG LOAD as GUI PREFS
-	//---------------------------------
-	SmaSme( "CFG_LOAD" );
-	const KwiYz_k = Ko.KwiYz_l.KeDy_v[ Ko.KwiYz_l.KeDy_wu ];
+	SmaSme( "[CFG] GUI_SYNC" );
+	const KwiYz_k = Ko.TaKeDy_l.KwiYz_v[ Ko.TaKeDy_l.KeDy_wu ];
 
 	//---------------------------------
 	// Ne00__WHO
 	//---------------------------------
 
 	//@@@
-	// FILE AVAIL USR ENTRIES
-	const TaKeDy_l = document.getElementById( 'Ne00_KeDy01__NiKeDy__Ta_l' );
-	Hri3_Ne__Ta_ChyStz( TaKeDy_l );
+	// LANG LIST SELECTION
+	document.getElementById( "Ne00_KeDy00__NiKeDru__Ta_l" ).selectedIndex = KwiYz_k.KeDru_wu;
 
-	const SaNo__TaKeDy_l = Ko.KwiYz_l.KeDy_v;
-	SaNo__TaKeDy_l.forEach( function ( Ti_v, Vx_wu )
-	{
-		SmaSme( "------ Vx_wu:", Vx_wu, Ti_v.KeDy_vsg );
-
-		//&&&
-		// ADD BTN
-		const Kz_l = document.createElement( 'option' );
-		Kz_l.className = 'HriNeTi WaDru_Ka';
-		Kz_l.innerText = `${SaPy_vvsg[ Ti_v.NiJaPo_wu ]} ${Ti_v.KeDy_vsg }`;
-		Kz_l.value = Vx_wu;
-		TaKeDy_l.appendChild( Kz_l );
-	});
-
+	//@@@
+	// SET LANG_ICON
+	document.getElementById( "Ne00_KeDy00__NiKeDru_q" ).innerText = Hre1_Dru__Gra_v[ KwiYz_k.KeDru_wu ].KuGwz;
 
 
 	//@@@
-	// , "Ne00_KeDy00__NiKeDru_vsg": "Select Language"
-	// Ne00_KeDy00__NiKeDru__Ta_l
-	// , "Ne00_KeDy01__NiKeDy_vsg": "Select User"
-	// Ne00_KeDy01__NiKeDy__Ta_l
-	//
-	// , "Ne00_KeDy02__VaTre_vsg": " Name"
-	// , "Ne00_KeDy03__NiJaPo_vsg": "Avatar"
+	// ADD USR ENTRIES
+	{
+		const TaKeDy_l = document.getElementById( 'Ne00_KeDy01__NiKeDy__Ta_l' );
+		HriNeDe__Ta_ChyStz( TaKeDy_l );
 
-	TaKeDy_l.selectedIndex = Ko.KwiYz_l.KeDy_wu;
+		const SaNo__TaKeDy_l = Ko.TaKeDy_l.KwiYz_v;
+		SaNo__TaKeDy_l.forEach( function ( Ti_v, Vx_wu )
+		{
+			// SmaSme( "------ Vx_wu:", Vx_wu, Ti_v.KeDy_vsg );
 
-	//&&&
-	// SET AVATAR;
-	document.getElementById( "Ne00_KeDy03__NiJaPo_q" ).innerText = SaPy_vvsg[ KwiYz_k.NiJaPo_wu ];
+			//&&&
+			// ADD BTN
+			const Kz_l = document.createElement( 'option' );
+			Kz_l.className = 'HriNeTi WaDru_Ka';
+			Kz_l.innerText = `${SaPy_vvsg[ Ti_v.NiJaPo_wu ]} ${Ti_v.KeDy_vsg }` + ( Vx_wu & 1 ? "🔒":"🔓" );
+			Kz_l.value = Vx_wu;
+			TaKeDy_l.appendChild( Kz_l );
+		});
 
-	//&&&
+		TaKeDy_l.selectedIndex = Ko.TaKeDy_l.KeDy_wu;
+	}
+
+	//@@@
+	// USER NAME
+	document.getElementById( "Ne00_KeDy01__NiKeDy_vsg" ).value = "NOMBraaaaay";
+
+	//@@@
+	// SET AVATAR_ICON
+	document.getElementById( "Ne00_KeDy03__SaJaPo_q" ).innerText = SaPy_vvsg[ KwiYz_k.NiJaPo_wu ];
+
+	//@@@
 	// USE_SECURITY
 	const TraChe_yk = KwiYz_k.Ne00_KeDy06__TraChe_y;
 	HriNeDe__ChyHyHo( "Ne00_KeDy06__TraChe_y", TraChe_yk );
@@ -157,7 +198,7 @@ function Hrz4_Bu__KwiYz__HriNe_MyYy()
 
 	//&&&
 	// Avatar
-	HriNeDe__ChyHryVoHu( "Ne00_KeDy03__NiJaPo__Ta_l", SmxHa_yk );
+	HriNeDe__ChyHryVoHu( "Ne00_KeDy03__SaJaPo__TaJaPo_l", SmxHa_yk );
 
 	//&&&
 	// Question-Lock
@@ -174,7 +215,6 @@ function Hrz4_Bu__KwiYz__HriNe_MyYy()
 	// Ne01__NODE
 	//---------------------------------
 	//@@@
-	// Ne01_Ko00__YzYu_vsg BTN
 	// Ne01_Ko01__HraBru_Tra_vsg
 	document.getElementById( "Ne01_Ko01__HraBru_Tra_y" ).value = KwiYz_k.Ne01_Ko01__HraBru_Tra_y;
 	// Ne01_Ko02__SpeVu_vsg
@@ -216,27 +256,23 @@ function Hrz4_Bu__KwiYz__HriNe_MyYy()
 }
 
 //==============================================
-// CFG_SAVE
-// STOR_DATA_w_GUI_CHGS
+// SYS_UPDATE
 //==============================================
 function Hrz4_Bu__KwiYz__Ko_ChyYe()
 {
-	//---------------------------------
-	// SAVE CFG
-	//---------------------------------
-	SmaSme( "CFG_SAVE" );
+	SmaSme( "[CFG] SYS_UPDATE" );
+	const KwiYz_k = Ko.TaKeDy_l.KwiYz_v[ Ko.TaKeDy_l.KeDy_wu ];
 
-
-	//@@@
+	//---------------------------------
 	// Ne00__WHO
-	const TaKeDy_l = document.getElementById( "Ne00_KeDy01__NiKeDy__Ta_l" );
-
-	Ko.KwiYz_l.KeDy_wu = TaKeDy_l.selectedIndex;
-
-	const KwiYz_k = Ko.KwiYz_l.KeDy_v[ Ko.KwiYz_l.KeDy_wu ];
-	KwiYz_k.KeDy_vsg = TaKeDy_l.value;
+	//---------------------------------
 
 
+	// NAME
+	// KwiYz_k.KeDy_vsg = STRING.value;
+
+
+	//!!!
 	// AVATAR
 	// Only changes via EVT
 
@@ -252,27 +288,51 @@ function Hrz4_Bu__KwiYz__Ko_ChyYe()
 		Hrz4_Bu__KwiYz__HriNe_MyYy();
 	}
 
-
-
-	//@@@
+	//---------------------------------
 	// Ne01__NODE
+	//---------------------------------
 	KwiYz_k.Ne01_Ko04__KoDz_YoHo_y = document.getElementById( "Ne01_Ko04__KoDz_YoHo_y" ).value;
 
 
-	//@@@
+	//---------------------------------
 	// Ne02__AUDIO
+	//---------------------------------
 	KwiYz_k.Ne02_Hru00__MxPeHo_y = document.getElementById( "Ne02_Hru00__MxPeHo_y" ).value;
 	KwiYz_k.Ne02_Hru01__MxPeVo_ba = document.getElementById( "Ne02_Hru01__MxPeVo_ba" ).value;
 
+	//document.getElementById( "Ne02_Hru04__SmzYz_Ta_l" ).selectedIndex = KwiYz_k.KeDru_wu;
 
-	//@@@
+	//---------------------------------
 	// Ne03__VISUAL
+	//---------------------------------
+
 	KwiYz_k.Ne03_Hry02__HriKe_y = false; // document.getElementById( "Ne03_Hry02__HriKe_y" ).value;
 
+	//document.getElementById( "Ne03_Hry06__SmzYz__Ta_l" ).selectedIndex = KwiYz_k.KeDru_wu;
+
 
 	//@@@
-	// SYNC
+	// SAVE
 	Hrz4_Bu__TaKeDy__ChyGry();
+}
+
+//-------------------------------------------------
+// USR_AVATAR__EDIT
+//-------------------------------------------------
+function Hrz4_Bu__KwiYz__SaPy_ChyYe( e )
+{
+	//@@@
+	// SPECIAL UPDATE ( based on CLICK, no 'select' to read )
+	const KwiYz_k = Ko.TaKeDy_l.KwiYz_v[ Ko.TaKeDy_l.KeDy_wu ];
+	KwiYz_k.NiJaPo_wu = e;
+
+	//@@@
+	// SAVE CFG
+	Hrz4_Bu__TaKeDy__ChyGry();
+
+	//@@@
+	// GUI_SYNC
+	Hrz4_Bu__KwiYz__HriNe_MyYy();
 }
 
 

@@ -1,5 +1,5 @@
-const BriDzSa__Da_vsg = "PUB_v0.193"; 
- const BriDzSa__Da_wuk = "193"; 
+const BriDzSa__Da_vsg = "PUB_v0.194"; 
+ const BriDzSa__Da_wuk = "194"; 
  const BriDz__Mx_KuTu_vsg = "https://powerourpeople.com/"; 
 
 //==============================================
@@ -35,6 +35,12 @@ const KoSy__KeDru_l =
 };
 
 //==============================================
+// LAUNCH_CFG VERSION
+// Triggers a Reset
+//==============================================
+const KoSy__KwiYz__Da_wuk = 1;
+
+//==============================================
 // TEK_MSG_END
 //==============================================
 //==============================================
@@ -48,21 +54,37 @@ const KoSy__KeDru_l =
 // So: Reference English
 // KuGwz: Flag as Emoji
 //-------------------------------------------------
-const Hre1_Dru__Gra_v = [
-	// { "Vy": "af", "Va": "Afrikaans", "KuGwz": "🇿🇦", "So": "Afrikaans", "ToKz": "af" },
-	// { "Vy": "am", "Va": "አማርኛ", "KuGwz": "🇪🇹", "So": "Amharic", "ToKz": "am" },
-	// { "Vy": "ar", "Va": "العربية", "KuGwz": "🇸🇦", "So": "Arabic", "ToKz": "ar" },
-	// { "Vy": "az", "Va": "Azərbaycan dili", "KuGwz": "🇦🇿", "So": "Azerbaijani", "ToKz": "az" },
-	// { "Vy": "be", "Va": "Беларуская", "KuGwz": "🇧🇾", "So": "Belarusian", "ToKz": "be" },
-	// { "Vy": "bg", "Va": "Български", "KuGwz": "🇧🇬", "So": "Bulgarian", "ToKz": "bg" },
-	// { "Vy": "bn", "Va": "বাংলা", "KuGwz": "🇧🇩", "So": "Bengali", "ToKz": "bn" },
+const Hre1_Dru__Gra_v =
+[
 
-	// { "Vy": "ca", "Va": "Català", "KuGwz": "🇪🇸", "So": "Catalan", "ToKz": "ca" },
-	// { "Vy": "cs", "Va": "Čeština", "KuGwz": "🇨🇿", "So": "Czech", "ToKz": "cs" },
-	// { "Vy": "da", "Va": "Dansk", "KuGwz": "🇩🇰", "So": "Danish", "ToKz": "da" },
-	// { "Vy": "de", "Va": "Deutsch", "KuGwz": "🇩🇪", "So": "German", "ToKz": "de" },
-	// { "Vy": "el", "Va": "Ελληνικά", "So": "Greek", "KuGwz": "🇬🇷", "ToKz": "el" },
+	//=================================================================
+	// GENERIC ENGLISH
+	{
+		"Vy": "en",
+		"Va": "U.N. English",
+		"KuGwz": "🌎",
+		"So": "U.N. English",
+		"ToKz": "en"
+	},
 
+	//=================================================================
+
+	{ "Vy": "af", "Va": "Afrikaans", "KuGwz": "🇿🇦", "So": "Afrikaans", "ToKz": "af" },
+	{ "Vy": "am", "Va": "አማርኛ", "KuGwz": "🇪🇹", "So": "Amharic", "ToKz": "am" },
+	{ "Vy": "ar", "Va": "العربية", "KuGwz": "🇸🇦", "So": "Arabic", "ToKz": "ar" },
+	{ "Vy": "az", "Va": "Azərbaycan dili", "KuGwz": "🇦🇿", "So": "Azerbaijani", "ToKz": "az" },
+	{ "Vy": "be", "Va": "Беларуская", "KuGwz": "🇧🇾", "So": "Belarusian", "ToKz": "be" },
+	{ "Vy": "bg", "Va": "Български", "KuGwz": "🇧🇬", "So": "Bulgarian", "ToKz": "bg" },
+	{ "Vy": "bn", "Va": "বাংলা", "KuGwz": "🇧🇩", "So": "Bengali", "ToKz": "bn" },
+
+	{ "Vy": "ca", "Va": "Català", "KuGwz": "🇪🇸", "So": "Catalan", "ToKz": "ca" },
+	{ "Vy": "cs", "Va": "Čeština", "KuGwz": "🇨🇿", "So": "Czech", "ToKz": "cs" },
+	{ "Vy": "da", "Va": "Dansk", "KuGwz": "🇩🇰", "So": "Danish", "ToKz": "da" },
+	{ "Vy": "de", "Va": "Deutsch", "KuGwz": "🇩🇪", "So": "German", "ToKz": "de" },
+	{ "Vy": "el", "Va": "Ελληνικά", "So": "Greek", "KuGwz": "🇬🇷", "ToKz": "el" },
+
+
+	//=================================================================
 	// en
 	{
 		"Vy": "en",
@@ -93,6 +115,7 @@ const Hre1_Dru__Gra_v = [
 		"ToKz": "en"
 	},
 
+	//=================================================================
 	// es
 	{
 		"Vy": "es",
@@ -114,78 +137,81 @@ const Hre1_Dru__Gra_v = [
 		"So": "Spanish (United States)",
 		"KuGwz": "🇺🇸",
 		"ToKz": "es"
-	}
+	},
 
-	// { "Vy": "et", "Va": "Eesti", "KuGwz": "🇪🇪", "So": "Estonian", "ToKz": "et" },
-	// { "Vy": "eu", "Va": "Euskara", "KuGwz": "🇪🇸", "So": "Basque", "ToKz": "eu" },
-	// { "Vy": "fa", "Va": "فارسی", "KuGwz": "🇮🇷", "So": "Persian", "ToKz": "fa" },
-	// { "Vy": "fi", "Va": "Suomi", "KuGwz": "🇫🇮", "So": "Finnish", "ToKz": "fi" },
-	// { "Vy": "fr-CA", "Va": "Français (Canada)", "KuGwz": "🇨🇦", "So": "French", "ToKz": "fr" },
-	// { "Vy": "fr-FR", "Va": "Français (France)", "KuGwz": "🇫🇷", "So": "French", "ToKz": "fr" },
-	// { "Vy": "gl", "Va": "Galego", "KuGwz": "🇪🇸", "So": "Galician", "ToKz": "gl" },
-	// { "Vy": "gu", "Va": "ગુજરાતી", "KuGwz": "🇮🇳", "So": "Gujarati", "ToKz": "gu" },
+	//=================================================================
 
-	// { "Vy": "he", "Va": "עברית", "KuGwz": "🇮🇱", "So": "Hebrew", "ToKz": "he" },
-	// { "Vy": "hi", "Va": "हिन्दी", "KuGwz": "🇮🇳", "So": "Hindi", "ToKz": "hi" },
-	// { "Vy": "hr", "Va": "Hrvatski", "KuGwz": "🇭🇷", "So": "Croatian", "ToKz": "hr" },
-	// { "Vy": "hu", "Va": "Magyar", "KuGwz": "🇭🇺", "So": "Hungarian", "ToKz": "hu" },
-	// { "Vy": "hy", "Va": "Հայերեն", "KuGwz": "🇦🇲", "So": "Armenian", "ToKz": "hy" },
-	// { "Vy": "id", "Va": "Indonesia", "KuGwz": "🇮🇩", "So": "Indonesian", "ToKz": "id" },
-	// { "Vy": "is", "Va": "Íslenska", "KuGwz": "🇮🇸", "So": "Icelandic", "ToKz": "is" },
-	// { "Vy": "it", "Va": "Italiano", "KuGwz": "🇮🇹", "So": "Italian", "ToKz": "it" },
-	// { "Vy": "ja", "Va": "日本語", "KuGwz": "🇯🇵", "So": "Japanese", "ToKz": "ja" },
 
-	// { "Vy": "ka", "Va": "ქართული", "KuGwz": "🇬🇪", "So": "Georgian", "ToKz": "ka" },
-	// { "Vy": "kk", "Va": "Қазақ тілі", "KuGwz": "🇰🇿", "So": "Kazakh", "ToKz": "kk" },
-	// { "Vy": "km", "Va": "ខ្មែរ", "KuGwz": "🇰🇭", "So": "Khmer", "ToKz": "km" },
-	// { "Vy": "kn", "Va": "ಕನ್ನಡ", "KuGwz": "🇮🇳", "So": "Kannada", "ToKz": "kn" },
-	// { "Vy": "ko", "Va": "한국어", "KuGwz": "🇰🇷", "So": "Korean", "ToKz": "ko" },
-	// { "Vy": "ky", "Va": "Кыргызча", "KuGwz": "🇰🇬", "So": "Kyrgyz", "ToKz": "ky" },
-	// { "Vy": "lo", "Va": "ລາວ", "KuGwz": "🇱🇦", "So": "Lao", "ToKz": "lo" },
-	// { "Vy": "lt", "Va": "Lietuvių", "KuGwz": "🇱🇹", "So": "Lithuanian", "ToKz": "lt" },
-	// { "Vy": "lv", "Va": "Latviešu", "KuGwz": "🇱🇻", "So": "Latvian", "ToKz": "lv" },
+	{ "Vy": "et", "Va": "Eesti", "KuGwz": "🇪🇪", "So": "Estonian", "ToKz": "et" },
+	{ "Vy": "eu", "Va": "Euskara", "KuGwz": "🇪🇸", "So": "Basque", "ToKz": "eu" },
+	{ "Vy": "fa", "Va": "فارسی", "KuGwz": "🇮🇷", "So": "Persian", "ToKz": "fa" },
+	{ "Vy": "fi", "Va": "Suomi", "KuGwz": "🇫🇮", "So": "Finnish", "ToKz": "fi" },
+	{ "Vy": "fr-CA", "Va": "Français (Canada)", "KuGwz": "🇨🇦", "So": "French", "ToKz": "fr" },
+	{ "Vy": "fr-FR", "Va": "Français (France)", "KuGwz": "🇫🇷", "So": "French", "ToKz": "fr" },
+	{ "Vy": "gl", "Va": "Galego", "KuGwz": "🇪🇸", "So": "Galician", "ToKz": "gl" },
+	{ "Vy": "gu", "Va": "ગુજરાતી", "KuGwz": "🇮🇳", "So": "Gujarati", "ToKz": "gu" },
 
-	// { "Vy": "mk", "Va": "Македонски", "KuGwz": "🇲🇰", "So": "Macedonian", "ToKz": "mk" },
-	// { "Vy": "ml", "Va": "മലയാളം", "KuGwz": "🇮🇳", "So": "Malayalam", "ToKz": "ml" },
-	// { "Vy": "mn", "Va": "Монгол", "KuGwz": "🇲🇳", "So": "Mongolian", "ToKz": "mn" },
-	// { "Vy": "mr", "Va": "मराठी", "KuGwz": "🇮🇳", "So": "Marathi", "ToKz": "mr" },
-	// { "Vy": "ms", "Va": "Bahasa Melayu", "KuGwz": "🇲🇾", "So": "Malay", "ToKz": "ms" },
-	// { "Vy": "ms-MY", "Va": "Bahasa Melayu (Malaysia)", "KuGwz": "🇲🇾", "So": "Malay (Malaysia)", "ToKz": "ms" },
-	// { "Vy": "my", "Va": "ဗမာ", "KuGwz": "🇲🇲", "So": "Burmese", "ToKz": "my" },
-	// { "Vy": "ne", "Va": "नेपाली", "KuGwz": "🇳🇵", "So": "Nepali", "ToKz": "ne" },
-	// { "Vy": "nl", "Va": "Nederlands", "KuGwz": "🇳🇱", "So": "Dutch", "ToKz": "nl" },
-	// { "Vy": "no", "Va": "Norsk", "KuGwz": "🇳🇴", "So": "Norwegian", "ToKz": "no" },
+	{ "Vy": "he", "Va": "עברית", "KuGwz": "🇮🇱", "So": "Hebrew", "ToKz": "he" },
+	{ "Vy": "hi", "Va": "हिन्दी", "KuGwz": "🇮🇳", "So": "Hindi", "ToKz": "hi" },
+	{ "Vy": "hr", "Va": "Hrvatski", "KuGwz": "🇭🇷", "So": "Croatian", "ToKz": "hr" },
+	{ "Vy": "hu", "Va": "Magyar", "KuGwz": "🇭🇺", "So": "Hungarian", "ToKz": "hu" },
+	{ "Vy": "hy", "Va": "Հայերեն", "KuGwz": "🇦🇲", "So": "Armenian", "ToKz": "hy" },
+	{ "Vy": "id", "Va": "Indonesia", "KuGwz": "🇮🇩", "So": "Indonesian", "ToKz": "id" },
+	{ "Vy": "is", "Va": "Íslenska", "KuGwz": "🇮🇸", "So": "Icelandic", "ToKz": "is" },
+	{ "Vy": "it", "Va": "Italiano", "KuGwz": "🇮🇹", "So": "Italian", "ToKz": "it" },
+	{ "Vy": "ja", "Va": "日本語", "KuGwz": "🇯🇵", "So": "Japanese", "ToKz": "ja" },
 
-	// { "Vy": "pa", "Va": "ਪੰਜਾਬੀ", "KuGwz": "🇮🇳", "So": "Punjabi", "ToKz": "pa" },
-	// { "Vy": "pl", "Va": "Polski", "KuGwz": "🇵🇱", "So": "Polish", "ToKz": "pl" },
-	// { "Vy": "pt-BR", "Va": "Português (Brasil)", "KuGwz": "🇧🇷", "So": "Portuguese (Brazil)", "ToKz": "pt" },
-	// { "Vy": "pt-PT", "Va": "Português (Portugal)", "KuGwz": "🇵🇹", "So": "Portuguese (Portugal)", "ToKz": "pt" },
-	// { "Vy": "rm", "Va": "Rumantsch", "KuGwz": "🇨🇭", "So": "Romansh", "ToKz": "rm" },
-	// { "Vy": "ro", "Va": "Română", "KuGwz": "🇷🇴", "So": "Romanian", "ToKz": "ro" },
-	// { "Vy": "ru", "Va": "Русский", "KuGwz": "🇷🇺", "So": "Russian", "ToKz": "ru" },
+	{ "Vy": "ka", "Va": "ქართული", "KuGwz": "🇬🇪", "So": "Georgian", "ToKz": "ka" },
+	{ "Vy": "kk", "Va": "Қазақ тілі", "KuGwz": "🇰🇿", "So": "Kazakh", "ToKz": "kk" },
+	{ "Vy": "km", "Va": "ខ្មែរ", "KuGwz": "🇰🇭", "So": "Khmer", "ToKz": "km" },
+	{ "Vy": "kn", "Va": "ಕನ್ನಡ", "KuGwz": "🇮🇳", "So": "Kannada", "ToKz": "kn" },
+	{ "Vy": "ko", "Va": "한국어", "KuGwz": "🇰🇷", "So": "Korean", "ToKz": "ko" },
+	{ "Vy": "ky", "Va": "Кыргызча", "KuGwz": "🇰🇬", "So": "Kyrgyz", "ToKz": "ky" },
+	{ "Vy": "lo", "Va": "ລາວ", "KuGwz": "🇱🇦", "So": "Lao", "ToKz": "lo" },
+	{ "Vy": "lt", "Va": "Lietuvių", "KuGwz": "🇱🇹", "So": "Lithuanian", "ToKz": "lt" },
+	{ "Vy": "lv", "Va": "Latviešu", "KuGwz": "🇱🇻", "So": "Latvian", "ToKz": "lv" },
 
-	// { "Vy": "si", "Va": "සිංහල", "KuGwz": "🇱🇰", "So": "Sinhala", "ToKz": "si" },
-	// { "Vy": "sk", "Va": "Slovenčina", "KuGwz": "🇸🇰", "So": "Slovak", "ToKz": "sk" },
-	// { "Vy": "sl", "Va": "Slovenščina", "KuGwz": "🇸🇮", "So": "Slovenian", "ToKz": "sl" },
-	// { "Vy": "sq", "Va": "Shqip", "KuGwz": "🇦🇱", "So": "Albanian", "ToKz": "sq" },
-	// { "Vy": "sr", "Va": "Српски", "KuGwz": "🇷🇸", "So": "Serbian", "ToKz": "sr" },
-	// { "Vy": "sv", "Va": "Svenska", "So": "Swedish", "KuGwz": "🇸🇪", "ToKz": "sv" },
-	// { "Vy": "sw", "Va": "Kiswahili", "KuGwz": "🇹🇿", "So": "Swahili", "ToKz": "sw" },
+	{ "Vy": "mk", "Va": "Македонски", "KuGwz": "🇲🇰", "So": "Macedonian", "ToKz": "mk" },
+	{ "Vy": "ml", "Va": "മലയാളം", "KuGwz": "🇮🇳", "So": "Malayalam", "ToKz": "ml" },
+	{ "Vy": "mn", "Va": "Монгол", "KuGwz": "🇲🇳", "So": "Mongolian", "ToKz": "mn" },
+	{ "Vy": "mr", "Va": "मराठी", "KuGwz": "🇮🇳", "So": "Marathi", "ToKz": "mr" },
+	{ "Vy": "ms", "Va": "Bahasa Melayu", "KuGwz": "🇲🇾", "So": "Malay", "ToKz": "ms" },
+	{ "Vy": "ms-MY", "Va": "Bahasa Melayu (Malaysia)", "KuGwz": "🇲🇾", "So": "Malay (Malaysia)", "ToKz": "ms" },
+	{ "Vy": "my", "Va": "ဗမာ", "KuGwz": "🇲🇲", "So": "Burmese", "ToKz": "my" },
+	{ "Vy": "ne", "Va": "नेपाली", "KuGwz": "🇳🇵", "So": "Nepali", "ToKz": "ne" },
+	{ "Vy": "nl", "Va": "Nederlands", "KuGwz": "🇳🇱", "So": "Dutch", "ToKz": "nl" },
+	{ "Vy": "no", "Va": "Norsk", "KuGwz": "🇳🇴", "So": "Norwegian", "ToKz": "no" },
 
-	// { "Vy": "ta", "Va": "தமிழ்", "KuGwz": "🇮🇳", "So": "Tamil", "ToKz": "ta" },
-	// { "Vy": "te", "Va": "తెలుగు", "KuGwz": "🇮🇳", "So": "Telugu", "ToKz": "te" },
-	// { "Vy": "th", "Va": "ไทย", "KuGwz": "🇹🇭", "So": "Thai", "ToKz": "th" },
-	// { "Vy": "tl", "Va": "Filipino", "KuGwz": "🇵🇭", "So": "Filipino", "ToKz": "tl" },
-	// { "Vy": "tr", "Va": "Türkçe", "KuGwz": "🇹🇷", "So": "Turkish", "ToKz": "tr" },
+	{ "Vy": "pa", "Va": "ਪੰਜਾਬੀ", "KuGwz": "🇮🇳", "So": "Punjabi", "ToKz": "pa" },
+	{ "Vy": "pl", "Va": "Polski", "KuGwz": "🇵🇱", "So": "Polish", "ToKz": "pl" },
+	{ "Vy": "pt-BR", "Va": "Português (Brasil)", "KuGwz": "🇧🇷", "So": "Portuguese (Brazil)", "ToKz": "pt" },
+	{ "Vy": "pt-PT", "Va": "Português (Portugal)", "KuGwz": "🇵🇹", "So": "Portuguese (Portugal)", "ToKz": "pt" },
+	{ "Vy": "rm", "Va": "Rumantsch", "KuGwz": "🇨🇭", "So": "Romansh", "ToKz": "rm" },
+	{ "Vy": "ro", "Va": "Română", "KuGwz": "🇷🇴", "So": "Romanian", "ToKz": "ro" },
+	{ "Vy": "ru", "Va": "Русский", "KuGwz": "🇷🇺", "So": "Russian", "ToKz": "ru" },
 
-	// { "Vy": "uk", "Va": "Українська", "KuGwz": "🇺🇦", "So": "Ukrainian", "ToKz": "uk" },
-	// { "Vy": "ur", "Va": "اردو", "KuGwz": "🇵🇰", "So": "Urdu", "ToKz": "ur" },
-	// { "Vy": "vi", "Va": "Tiếng Việt", "KuGwz": "🇻🇳", "So": "Vietnamese", "ToKz": "vi" },
+	{ "Vy": "si", "Va": "සිංහල", "KuGwz": "🇱🇰", "So": "Sinhala", "ToKz": "si" },
+	{ "Vy": "sk", "Va": "Slovenčina", "KuGwz": "🇸🇰", "So": "Slovak", "ToKz": "sk" },
+	{ "Vy": "sl", "Va": "Slovenščina", "KuGwz": "🇸🇮", "So": "Slovenian", "ToKz": "sl" },
+	{ "Vy": "sq", "Va": "Shqip", "KuGwz": "🇦🇱", "So": "Albanian", "ToKz": "sq" },
+	{ "Vy": "sr", "Va": "Српски", "KuGwz": "🇷🇸", "So": "Serbian", "ToKz": "sr" },
+	{ "Vy": "sv", "Va": "Svenska", "So": "Swedish", "KuGwz": "🇸🇪", "ToKz": "sv" },
+	{ "Vy": "sw", "Va": "Kiswahili", "KuGwz": "🇹🇿", "So": "Swahili", "ToKz": "sw" },
 
-	// { "Vy": "zh", "Va": "中文（简体）", "KuGwz": "🇨🇳", "So": "Chinese (Simplified)", "ToKz": "zh" },
-	// { "Vy": "zh-HK", "Va": "中文（香港）", "KuGwz": "🇭🇰", "So": "Chinese (Hong Kong)", "ToKz": "zh" },
-	// { "Vy": "zh-TW", "Va": "中文（繁體）", "KuGwz": "🇹🇼", "So": "Chinese (Traditional)", "ToKz": "zh" },
-	// { "Vy": "zu", "Va": "Zulu", "KuGwz": "🇿🇦", "So": "Zulu", "ToKz": "zu" },
+	{ "Vy": "ta", "Va": "தமிழ்", "KuGwz": "🇮🇳", "So": "Tamil", "ToKz": "ta" },
+	{ "Vy": "te", "Va": "తెలుగు", "KuGwz": "🇮🇳", "So": "Telugu", "ToKz": "te" },
+	{ "Vy": "th", "Va": "ไทย", "KuGwz": "🇹🇭", "So": "Thai", "ToKz": "th" },
+	{ "Vy": "tl", "Va": "Filipino", "KuGwz": "🇵🇭", "So": "Filipino", "ToKz": "tl" },
+	{ "Vy": "tr", "Va": "Türkçe", "KuGwz": "🇹🇷", "So": "Turkish", "ToKz": "tr" },
+
+	{ "Vy": "uk", "Va": "Українська", "KuGwz": "🇺🇦", "So": "Ukrainian", "ToKz": "uk" },
+	{ "Vy": "ur", "Va": "اردو", "KuGwz": "🇵🇰", "So": "Urdu", "ToKz": "ur" },
+	{ "Vy": "vi", "Va": "Tiếng Việt", "KuGwz": "🇻🇳", "So": "Vietnamese", "ToKz": "vi" },
+
+	{ "Vy": "zh", "Va": "中文（简体）", "KuGwz": "🇨🇳", "So": "Chinese (Simplified)", "ToKz": "zh" },
+	{ "Vy": "zh-HK", "Va": "中文（香港）", "KuGwz": "🇭🇰", "So": "Chinese (Hong Kong)", "ToKz": "zh" },
+	{ "Vy": "zh-TW", "Va": "中文（繁體）", "KuGwz": "🇹🇼", "So": "Chinese (Traditional)", "ToKz": "zh" },
+	{ "Vy": "zu", "Va": "Zulu", "KuGwz": "🇿🇦", "So": "Zulu", "ToKz": "zu" }
 ];
 
 
@@ -237,6 +263,11 @@ var Ko =
 	, BriYe_GiDri_df: 0.0
 
 	//@@@
+	// NODE
+	, Hrz3_By__KaGeSpu_y: false
+
+
+	//@@@
 	// UPD
 	, YeFo_wu: 0
 	, YeWi_df: 0.0
@@ -247,9 +278,11 @@ window.Ko = Ko;
 // LOGS
 // Skipped usual 8 layers for minimal JS
 //==============================================
-function SmaSme(){ var args = Array.prototype.slice.call(arguments); console.log.apply(console, args); }
-function SmaDre(){ var args = Array.prototype.slice.call(arguments); console.warn.apply(console, args); }
-function SmaTrx(){ var args = Array.prototype.slice.call(arguments); console.error.apply(console, args); }
+// The arguments object is an Array -like object corresponding to the arguments passed to a function.
+// The expression Array.prototype.slice.call(arguments) is used to convert the arguments object, which is array-like but not a true array, into a real array:
+function SmaSme(){ var ARG_v = Array.prototype.slice.call(arguments); console.log.apply(console, ARG_v); }
+function SmaDre(){ var ARG_v = Array.prototype.slice.call(arguments); console.warn.apply(console, ARG_v); }
+function SmaTrx(){ var ARG_v = Array.prototype.slice.call(arguments); console.error.apply(console, ARG_v); }
 
 //==============================================
 // SECURITY
@@ -300,23 +333,6 @@ document.addEventListener('readystatechange', function()
 	if (document.readyState === 'complete')
 	{
 		SmaSme( "[LAUNCH] Web_DOM Fully_Loaded" );
-
-		//@@@
-		// AVATAR PICKER
-		const NiJaPo__Ta_l = document.getElementById("Ne00_KeDy03__NiJaPo__Ta_l");
-		Hri3_Ne__Ta_ChyStz( NiJaPo__Ta_l );
-		for( let e = 0; e< SaPy_vvsg.length; e++ )
-		{
-			//&&&
-			// ADD BTN
-
-			const Kz_l = document.createElement( 'span' );
-			Kz_l.className = 'NiJaPo_Va';
-			Kz_l.onclick = function() { KeDy__TreSaPy( e ); }
-
-			Kz_l.innerText = SaPy_vvsg[ e ];
-			NiJaPo__Ta_l.appendChild( Kz_l );
-		}
 	}
 });
 
@@ -526,13 +542,27 @@ async function MoDz__DzStxGru()
 			}
 		}
 		else if( PKT_k[0] == "MxVy" )
-		{
-			// SmaSme('Send Time to Test if Duplicate Tab.');
-			BCHN_l.postMessage( "KrzVy:" + Ko.MoDzYa__GiDri_duk );
+			{
+				// SmaSme('Send Time to Test if Duplicate Tab.');
+				BCHN_l.postMessage( "KrzVy:" + Ko.MoDzYa__GiDri_duk );
+			}
 		}
 	}
-}
 
+//=====================================
+// IS_MOBILE
+//=====================================
+function Hrz3_Bz__KaGeSpu_Ha()
+{
+	// INPUT first of these 3 strings in order found
+	const HrzByHx_vsg = ( navigator.userAgent  || navigator.vendor || window.opera );
+	// Check REGEX Matches
+	if (	/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows ce|xda|xiino/i.test( HrzByHx_vsg )
+		 ||
+		/1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test( HrzByHx_vsg.substr( 0, 4 ) )
+		)
+		{ Ko.Hrz3_By__KaGeSpu_y = true; }
+}
 
 //=====================================
 // BROWSER VERSION (Browser & App )
@@ -575,11 +605,11 @@ async function Hrz3_Bz__VaDa()
 
 
 	// STORE
-	Ko.HrzBy__Va_vsg = Ni_vsg[ 0 ];
-	Ko.HrzBy__Da_wfk = parseFloat( Ni_vsg[ 1 ] );
-	if( isNaN( Ko.HrzBy__Da_wfk ) ){ Ko.HrzBy__Da_wfk = 0.0; }
+	Ko.Hrz3_By__Va_vsg = Ni_vsg[ 0 ];
+	Ko.Hrz3_By__Da_wfk = parseFloat( Ni_vsg[ 1 ] );
+	if( isNaN( Ko.Hrz3_By__Da_wfk ) ){ Ko.Hrz3_By__Da_wfk = 0.0; }
 
-	SmaSme( "[CFG] HrzBy_VaDa", Ko.HrzBy__Va_vsg, "||", Ko.HrzBy__Da_wfk );
+	SmaSme( "[CFG] HrzBy_VaDa", Ko.Hrz3_By__Va_vsg, "||", Ko.Hrz3_By__Da_wfk );
 	// NOT WELL SUPPORTED 2026
 	// if( navigator.userAgentData && navigator.userAgentData.brands )
 	// { SmaSme(  "[CFG] BRAND:", navigator.userAgentData.brands ); }
@@ -592,7 +622,7 @@ async function Hrz3_Bz__VaDa()
 	//@@@
 	// SHOW
 	const VaDa_v = document.getElementById( 'Hrz3_By__VaDa' );
-	VaDa_v.innerText = Ko.HrzBy__Va_vsg + " 📲 " + Ko.HrzBy__Da_wfk;
+	VaDa_v.innerText = Ko.Hrz3_By__Va_vsg + " 📲 " + Ko.Hrz3_By__Da_wfk;
 }
 
 //==============================================
@@ -602,107 +632,148 @@ async function Hrz3_Bz__VaDa()
 // CFG
 //==============================================
 
-//-------------------------------------------------
-// WRITE DEFAULT LAUNCH CFG
-//-------------------------------------------------
+//==============================================
+// CFG_WRITE_DEFAULT for ONE USER
+//==============================================
 function Hrz4_Bu__KwiYz__ChyDe( Va_vksg, NiJaPo_wuk, KeDru_wuk )
 {
-	const KwiYz_k = Ko.KwiYz_l.KeDy_v[ Ko.KwiYz_l.KeDy_wu ];
+	const KwiYz_k = Ko.TaKeDy_l.KwiYz_v[ Ko.TaKeDy_l.KeDy_wu ];
 
-	//@@@
-	// GOVERN
-	KwiYz_k.Ne01_Ko04__KoDz_YoHo_y = true;
-	//KwiYz_k.Ne01_Ko04__KoDz_YoHo_y = false;
+	//---------------------------------
+	// Ne00__WHO
+	//---------------------------------
+	if( Va_vksg  !== null )
+		{ KwiYz_k.KeDy_vsg = Va_vksg; }
 
-	//@@@
-	// USR[ 3 ]
-	KwiYz_k.KeDru_wu = KeDru_wuk;
-	KwiYz_k.KeDy_vsg = Va_vksg;
-	KwiYz_k.KeDru_vsg = navigator.language;
+	if( KeDru_wuk === -1 )
+	{
+		KwiYz_k.KeDru_wu = Hre1_Dru__KeDru_VaFyVx_wu( navigator.language );
+	}
+	else if( KeDru_wuk !== null )
+	{
+		KwiYz_k.KeDru_wu = KeDru_wuk;
+	}
 
-	KwiYz_k.NiJaPo_wu = NiJaPo_wuk;
+	if( NiJaPo_wuk !== null )
+	{ KwiYz_k.NiJaPo_wu = NiJaPo_wuk; }
 
 	KwiYz_k.Ne00_KeDy06__TraChe_y = false;
 
-	//@@@
-	// TEMPORAL[ 2 ]
+
+	//---------------------------------
+	// Ne01__NODE
+	//---------------------------------
+
+
+	//---------------------------------
+	// Ne02__AUDIO
+	//---------------------------------
+
+	// MUTE
 	KwiYz_k.Ne02_Hru00__MxPeHo_y = true;
+	// VOLUME
 	KwiYz_k.Ne02_Hru01__MxPeVu_sa = 1.0;
 
-	//@@@
-	// SPATIAL[ 2 ]
+	//!!!
+	// METHOD
+	// MOBILE
+	if( Ko.Hrz3_By__KaGeSpu_y )
+	{
+		// KwiYz_k.Ne02_Hru0__
+	}
+	// DESKTOP
+	else
+	{
+	}
+
+
+	//---------------------------------
+	// Ne03__VISUAL
+	//---------------------------------
+
 	KwiYz_k.Ne03_Hry02__HriKe_y = false;
 
 	// 'De'
 	KwiYz_k.Ne03_Hry06__SmzYz_q = 2;
-	KwiYz_k.Ne03_Hry07__GyBraHi_bu = 4;
 
-	// "Ne03_Hry06__SmzYz_vsg" Method
-	// Quality
-	// "Ne03_Hry08__TyGy_vsg" Detail
+	//!!!
+	// METHOD
+	// MOBILE
+	if( Ko.Hrz3_By__KaGeSpu_y )
+	{
+		KwiYz_k.Ne03_Hry07__GyBraHi_bu = 4;
+	}
+	// DESKTOP
+	else
+	{
+		KwiYz_k.Ne03_Hry07__GyBraHi_bu = 3;
+		// "Ne03_Hry06__SmzYz_vsg" Method
+		// "Ne03_Hry08__TyGy_vsg" Detail
+	}
 
-	
+
 	//@@@
-	// STORE & LOG
-	SmaSme( "[CFG] KwiYz_De:", Ko.KwiYz_l.KeDy_v );
-	Hrz4_Bu__TaKeDy__ChyGry();
+	// NODE
+	KwiYz_k.Ne01_Ko04__KoDz_YoHo_y = true;
+	//KwiYz_k.Ne01_Ko04__KoDz_YoHo_y = false;
+
+
 }
 
 
-
 //==============================================
-// CFG_LOAD
-// GUI_w_STOR_DATA
+// GUI_SYNC
 //==============================================
 function Hrz4_Bu__KwiYz__HriNe_MyYy()
 {
-	//---------------------------------
-	// CFG LOAD as GUI PREFS
-	//---------------------------------
-	SmaSme( "CFG_LOAD" );
-	const KwiYz_k = Ko.KwiYz_l.KeDy_v[ Ko.KwiYz_l.KeDy_wu ];
+	SmaSme( "[CFG] GUI_SYNC" );
+	const KwiYz_k = Ko.TaKeDy_l.KwiYz_v[ Ko.TaKeDy_l.KeDy_wu ];
 
 	//---------------------------------
 	// Ne00__WHO
 	//---------------------------------
 
 	//@@@
-	// FILE AVAIL USR ENTRIES
-	const TaKeDy_l = document.getElementById( 'Ne00_KeDy01__NiKeDy__Ta_l' );
-	Hri3_Ne__Ta_ChyStz( TaKeDy_l );
+	// LANG LIST SELECTION
+	document.getElementById( "Ne00_KeDy00__NiKeDru__Ta_l" ).selectedIndex = KwiYz_k.KeDru_wu;
 
-	const SaNo__TaKeDy_l = Ko.KwiYz_l.KeDy_v;
-	SaNo__TaKeDy_l.forEach( function ( Ti_v, Vx_wu )
-	{
-		SmaSme( "------ Vx_wu:", Vx_wu, Ti_v.KeDy_vsg );
-
-		//&&&
-		// ADD BTN
-		const Kz_l = document.createElement( 'option' );
-		Kz_l.className = 'HriNeTi WaDru_Ka';
-		Kz_l.innerText = `${SaPy_vvsg[ Ti_v.NiJaPo_wu ]} ${Ti_v.KeDy_vsg }`;
-		Kz_l.value = Vx_wu;
-		TaKeDy_l.appendChild( Kz_l );
-	});
-
+	//@@@
+	// SET LANG_ICON
+	document.getElementById( "Ne00_KeDy00__NiKeDru_q" ).innerText = Hre1_Dru__Gra_v[ KwiYz_k.KeDru_wu ].KuGwz;
 
 
 	//@@@
-	// , "Ne00_KeDy00__NiKeDru_vsg": "Select Language"
-	// Ne00_KeDy00__NiKeDru__Ta_l
-	// , "Ne00_KeDy01__NiKeDy_vsg": "Select User"
-	// Ne00_KeDy01__NiKeDy__Ta_l
-	//
-	// , "Ne00_KeDy02__VaTre_vsg": " Name"
-	// , "Ne00_KeDy03__NiJaPo_vsg": "Avatar"
+	// ADD USR ENTRIES
+	{
+		const TaKeDy_l = document.getElementById( 'Ne00_KeDy01__NiKeDy__Ta_l' );
+		HriNeDe__Ta_ChyStz( TaKeDy_l );
 
-	TaKeDy_l.selectedIndex = Ko.KwiYz_l.KeDy_wu;
+		const SaNo__TaKeDy_l = Ko.TaKeDy_l.KwiYz_v;
+		SaNo__TaKeDy_l.forEach( function ( Ti_v, Vx_wu )
+		{
+			// SmaSme( "------ Vx_wu:", Vx_wu, Ti_v.KeDy_vsg );
 
-	//&&&
-	// SET AVATAR;
-	document.getElementById( "Ne00_KeDy03__NiJaPo_q" ).innerText = SaPy_vvsg[ KwiYz_k.NiJaPo_wu ];
+			//&&&
+			// ADD BTN
+			const Kz_l = document.createElement( 'option' );
+			Kz_l.className = 'HriNeTi WaDru_Ka';
+			Kz_l.innerText = `${SaPy_vvsg[ Ti_v.NiJaPo_wu ]} ${Ti_v.KeDy_vsg }` + ( Vx_wu & 1 ? "🔒":"🔓" );
+			Kz_l.value = Vx_wu;
+			TaKeDy_l.appendChild( Kz_l );
+		});
 
-	//&&&
+		TaKeDy_l.selectedIndex = Ko.TaKeDy_l.KeDy_wu;
+	}
+
+	//@@@
+	// USER NAME
+	document.getElementById( "Ne00_KeDy01__NiKeDy_vsg" ).value = "NOMBraaaaay";
+
+	//@@@
+	// SET AVATAR_ICON
+	document.getElementById( "Ne00_KeDy03__SaJaPo_q" ).innerText = SaPy_vvsg[ KwiYz_k.NiJaPo_wu ];
+
+	//@@@
 	// USE_SECURITY
 	const TraChe_yk = KwiYz_k.Ne00_KeDy06__TraChe_y;
 	HriNeDe__ChyHyHo( "Ne00_KeDy06__TraChe_y", TraChe_yk );
@@ -757,7 +828,7 @@ function Hrz4_Bu__KwiYz__HriNe_MyYy()
 
 	//&&&
 	// Avatar
-	HriNeDe__ChyHryVoHu( "Ne00_KeDy03__NiJaPo__Ta_l", SmxHa_yk );
+	HriNeDe__ChyHryVoHu( "Ne00_KeDy03__SaJaPo__TaJaPo_l", SmxHa_yk );
 
 	//&&&
 	// Question-Lock
@@ -774,7 +845,6 @@ function Hrz4_Bu__KwiYz__HriNe_MyYy()
 	// Ne01__NODE
 	//---------------------------------
 	//@@@
-	// Ne01_Ko00__YzYu_vsg BTN
 	// Ne01_Ko01__HraBru_Tra_vsg
 	document.getElementById( "Ne01_Ko01__HraBru_Tra_y" ).value = KwiYz_k.Ne01_Ko01__HraBru_Tra_y;
 	// Ne01_Ko02__SpeVu_vsg
@@ -816,27 +886,23 @@ function Hrz4_Bu__KwiYz__HriNe_MyYy()
 }
 
 //==============================================
-// CFG_SAVE
-// STOR_DATA_w_GUI_CHGS
+// SYS_UPDATE
 //==============================================
 function Hrz4_Bu__KwiYz__Ko_ChyYe()
 {
-	//---------------------------------
-	// SAVE CFG
-	//---------------------------------
-	SmaSme( "CFG_SAVE" );
+	SmaSme( "[CFG] SYS_UPDATE" );
+	const KwiYz_k = Ko.TaKeDy_l.KwiYz_v[ Ko.TaKeDy_l.KeDy_wu ];
 
-
-	//@@@
+	//---------------------------------
 	// Ne00__WHO
-	const TaKeDy_l = document.getElementById( "Ne00_KeDy01__NiKeDy__Ta_l" );
-
-	Ko.KwiYz_l.KeDy_wu = TaKeDy_l.selectedIndex;
-
-	const KwiYz_k = Ko.KwiYz_l.KeDy_v[ Ko.KwiYz_l.KeDy_wu ];
-	KwiYz_k.KeDy_vsg = TaKeDy_l.value;
+	//---------------------------------
 
 
+	// NAME
+	// KwiYz_k.KeDy_vsg = STRING.value;
+
+
+	//!!!
 	// AVATAR
 	// Only changes via EVT
 
@@ -852,27 +918,51 @@ function Hrz4_Bu__KwiYz__Ko_ChyYe()
 		Hrz4_Bu__KwiYz__HriNe_MyYy();
 	}
 
-
-
-	//@@@
+	//---------------------------------
 	// Ne01__NODE
+	//---------------------------------
 	KwiYz_k.Ne01_Ko04__KoDz_YoHo_y = document.getElementById( "Ne01_Ko04__KoDz_YoHo_y" ).value;
 
 
-	//@@@
+	//---------------------------------
 	// Ne02__AUDIO
+	//---------------------------------
 	KwiYz_k.Ne02_Hru00__MxPeHo_y = document.getElementById( "Ne02_Hru00__MxPeHo_y" ).value;
 	KwiYz_k.Ne02_Hru01__MxPeVo_ba = document.getElementById( "Ne02_Hru01__MxPeVo_ba" ).value;
 
+	//document.getElementById( "Ne02_Hru04__SmzYz_Ta_l" ).selectedIndex = KwiYz_k.KeDru_wu;
 
-	//@@@
+	//---------------------------------
 	// Ne03__VISUAL
+	//---------------------------------
+
 	KwiYz_k.Ne03_Hry02__HriKe_y = false; // document.getElementById( "Ne03_Hry02__HriKe_y" ).value;
 
+	//document.getElementById( "Ne03_Hry06__SmzYz__Ta_l" ).selectedIndex = KwiYz_k.KeDru_wu;
+
 
 	//@@@
-	// SYNC
+	// SAVE
 	Hrz4_Bu__TaKeDy__ChyGry();
+}
+
+//-------------------------------------------------
+// USR_AVATAR__EDIT
+//-------------------------------------------------
+function Hrz4_Bu__KwiYz__SaPy_ChyYe( e )
+{
+	//@@@
+	// SPECIAL UPDATE ( based on CLICK, no 'select' to read )
+	const KwiYz_k = Ko.TaKeDy_l.KwiYz_v[ Ko.TaKeDy_l.KeDy_wu ];
+	KwiYz_k.NiJaPo_wu = e;
+
+	//@@@
+	// SAVE CFG
+	Hrz4_Bu__TaKeDy__ChyGry();
+
+	//@@@
+	// GUI_SYNC
+	Hrz4_Bu__KwiYz__HriNe_MyYy();
 }
 
 
@@ -886,17 +976,6 @@ function Hrz4_Bu__KwiYz__Ko_ChyYe()
 //==============================================
 // Hre1_Dru CULTURE
 //==============================================
-
-//-------------------------------------------------
-// MENU CLEAR
-//-------------------------------------------------
-function Hri3_Ne__Ta_ChyStz( Ta_v )
-{
-	while ( Ta_v.firstChild )
-	{
-		Ta_v.removeChild( Ta_v.lastChild );
-	}
-}
 
 //-------------------------------------------------
 // LOAD JSON
@@ -915,57 +994,80 @@ async function ToKz__JSON_v( ChaKuTu_vbg, ToKzVa_vbg )
 				Accept: 'application/json'
 			}
 		} );
-		const json = await res.json();
-		return json;
+
+		try
+		{
+			const json = await res.json();
+			return json;
+		}
+		catch ( e )
+		{
+			return null;
+		}
 	}
 	catch( err )
 	{
-		SmaTrx( `FileRead_Error: ${err}` );
+		//SmaDre( `FileRead_Error: ${err}` );
+		return null;
 	}
+
+	return null;
+}
+
+
+//-------------------------------------------------
+// CULTURE MATCH LANG STRING to IDs
+//-------------------------------------------------
+function Hre1_Dru__KeDru_VaFyVx_wu( KeKuMi_vbg )
+{
+	//-------------------------------------------------
+	// LANG/LOCALE
+	//-------------------------------------------------
+	let Fe__KeDru_vksg = 'en';
+	let Fe__KuVa_vbg = "";
+
+	//@@@
+	// LANG BASICS
+	Fe__KeKu_vbg = KeKuMi_vbg;
+	Fe__KeDru_vksg = KeKuMi_vbg.split( "-" )[ 0 ]
+	Fe__KuVa_vbg = KeKuMi_vbg.split( "-" )[ 1 ]
+
+	//&&&
+	// CHECK LOCALE
+	let KeKu_wu = Hre1_Dru__Gra_v.findIndex( ( Ti_l ) => ( Ti_l.Vy === Fe__KeKu_vbg ) );
+	// IF NOT LOCALE
+	// CHECK just LANG
+	if( !KeKu_wu )
+	{
+		KeKu_wu = Hre1_Dru__Gra_v.findIndex( ( Ti_l ) => ( Ti_l.Vy === Fe__KeDru_vksg ) );
+	}
+
+	//&&&
+	if( KeKu_wu <= 0 )
+	{
+		KeKu_wu = 0;
+	}
+
+	SmaSme( "[CFG] CULTURE: " + Hre1_Dru__Gra_v[ KeKu_wu ].ToKz + " Locale: " + Fe__KeKu_vbg + " Lang: " + Fe__KeDru_vksg + " Country: " + ( Fe__KuVa_vbg ? Fe__KuVa_vbg : "Global" ) );
+
+	return KeKu_wu;
 }
 
 //-------------------------------------------------
 // CULTURE LOAD LANG
 //-------------------------------------------------
-async function Hre1_Dru__ChyKeDru( KeKuMi_vbg )
+async function Hre1_Dru__KeDru_ChyVx( KeDru_wuk )
 {
-	const KwiYz_k = Ko.KwiYz_l.KeDy_v[ Ko.KwiYz_l.KeDy_wu ];
-
-	//-------------------------------------------------
-	// LANG/LOCALE
-	//-------------------------------------------------
-	let Fe__KeDru_vbg = 'en';
-	let Fe__KuVa_vbg = "";
-	let KeKu__ToKz_vbg = 'en';
-
+	const KwiYz_k = Ko.TaKeDy_l.KwiYz_v[ Ko.TaKeDy_l.KeDy_wu ];
+	KwiYz_k.KeDru_wu = KeDru_wuk;
+	document.getElementById( "Ne00_KeDy00__NiKeDru_q" ).innerText = Hre1_Dru__Gra_v[ KwiYz_k.KeDru_wu ].KuGwz;
 
 	//@@@
-	// LANG BASICS
-	Fe__KeKu_vbg = KeKuMi_vbg;
-	Fe__KeDru_vbg = KeKuMi_vbg.split( "-" )[ 0 ]
-	Fe__KuVa_vbg = KeKuMi_vbg.split( "-" )[ 1 ]
-
-	//&&&
-	// CHECK LOCALE
-	let KeKu_l = Hre1_Dru__Gra_v.find( ( Ti_l ) => ( Ti_l.Vy === Fe__KeKu_vbg ) );
-	// IF NOT, CHECK just LANG
-	if( !KeKu_l )
-	{
-		KeKu_l = Hre1_Dru__Gra_v.find( ( Ti_l ) => ( Ti_l.Vy === Fe__KeDru_vbg ) );
-	}
-	if( KeKu_l )
-	{
-		KeKu__ToKz_vbg = KeKu_l.ToKz;
-	}
-
-	SmaSme( "[CFG] CULTURE: " + KeKu__ToKz_vbg + " Locale: " + Fe__KeKu_vbg + " Lang: " + Fe__KeDru_vbg + " Country: " + ( Fe__KuVa_vbg ? Fe__KuVa_vbg : "Global" ) );
-
-
-	//&&&
 	// TEXT_DIR
 	// Set text direction
+	const Fe__KeDru_vksg = Hre1_Dru__Gra_v[ KeDru_wuk ].ToKz;
 	const rtlLanguages = [ 'ar', 'he', 'fa' ];
-	if ( rtlLanguages.includes( Fe__KeDru_vbg ) )
+	if ( rtlLanguages.includes( Fe__KeDru_vksg ) )
 	{
 		document.body.dir = 'rtl';
 	}
@@ -976,27 +1078,27 @@ async function Hre1_Dru__ChyKeDru( KeKuMi_vbg )
 
 	//@@@
 	// LANG_FILE
-	let KeDru_v = await ToKz__JSON_v( 'SuSmi03__CONTENTS/', `VaFz.${KeKu__ToKz_vbg}` );
-	if ( !KeDru_v && (Fe__KeDru_vbg !=='en' ))
+	const KeKu__ToKz_vksg = Hre1_Dru__Gra_v[ KeDru_wuk ].ToKz;
+
+
+	let KeDru_v = await ToKz__JSON_v( 'SuSmi03__CONTENTS/', `VaFz.${KeKu__ToKz_vksg}` );
+	if( !KeDru_v )
 	{
-		SmaDre( "Cannot Find VaFz for User Lang" );
-		// Defaults to en usa
-		Hre1_Dru__ChyKeDru( 'en-us' );
-		return;
+		SmaDre( "Cannot Find VaFz for User Lang: Using Default U.N. English" );
+		//&&&
+		// TRY AGAIN 'EN' LTR
+		document.body.dir = 'ltr';
+		KeDru_v = await ToKz__JSON_v( 'SuSmi03__CONTENTS/', `VaFz.en` );
+		if( MoDzTrx__NxHo_y( "Cannot load U.N. Language File", KeDru_v )){ return; }
 	}
 
-	//&&&
-	// CFG SAVE
-	KwiYz_k.KeDru_vsg = KeKuMi_vbg;
-
-
-	//&&&
+	//@@@
 	// SUBMIT BTN
 	const HriNe_KwiVu_k = document.getElementById( 'BriDz02_TraKwi_vsg' );
 	HriNe_KwiVu_k.value = KeDru_v.LABELS.BriDz02_TraKwi_vsg;
 	HriNe_KwiVu_k.focus();
 
-	//&&&
+	//@@@
 	// UPDATE LABELS
 	// SmaDx__Kz_JSON( KeDru_v.LABELS );
 	Object.entries( KeDru_v.LABELS ).forEach
@@ -1020,50 +1122,19 @@ async function Hre1_Dru__ChyKeDru( KeKuMi_vbg )
 //-------------------------------------------------
 // DETECT CHANGES in CULTURE
 //-------------------------------------------------
-function Ne00_KeDy00__NiKeDru__JeChy()
+function Ne00_KeDy00__NiKeDru__JeChy( KeDru_wuk )
 {
 	const Ne00_KeDy00__NiKeDru__Ta_l = document.getElementById( 'Ne00_KeDy00__NiKeDru__Ta_l' );
 	//SmaSme( "CHG!", Ne00_KeDy00__NiKeDru__Ta_l );
-
-	Hre1_Dru__ChyKeDru( Ne00_KeDy00__NiKeDru__Ta_l.value );
-}
-
-
-//-------------------------------------------------
-// INIT CULTURE DEFAULTS
-//-------------------------------------------------
-async function Hre1_Dru__BriYa()
-{
-	const KwiYz_k = Ko.KwiYz_l.KeDy_v[ Ko.KwiYz_l.KeDy_wu ];
+	Hre1_Dru__KeDru_ChyVx( ( KeDru_wuk !== null )? KeDru_wuk : Ne00_KeDy00__NiKeDru__Ta_l.selectedIndex );
 
 	//@@@
-	// LIST DIV
-	const Ne00_KeDy00__NiKeDru__Ta_l = document.getElementById( 'Ne00_KeDy00__NiKeDru__Ta_l' );
-	// LIST CLEAR
-	Hri3_Ne__Ta_ChyStz( Ne00_KeDy00__NiKeDru__Ta_l );
-	// LIST FILL ENTRIES
-	Hre1_Dru__Gra_v.forEach( function ( Ti_v, Vx_wu )
-	{
-		//SmaSme( "------ Vx_wu:", Vx_wu, Ti_v.Va );
-
-		//&&&
-		// ADD BTN
-		const Kz_l = document.createElement( 'option' );
-		Kz_l.innerText = `${Ti_v.KuGwz} ${Ti_v.Va}`;
-
-		// let JiTra_vbg = `Hre1_Dru__ChyKeDru( '${Ti_v.Vy}' );`;
-		// Kz_l.setAttribute( "onclick", JiTra_vbg );
-		// Kz_z.style.width=55;
-		Kz_l.className = 'HriNeTi WaDru_Ka';
-		Kz_l.value = Ti_v.Vy;
-
-		Ne00_KeDy00__NiKeDru__Ta_l.appendChild( Kz_l );
-	});
+	// SAVE CFG
+	Hrz4_Bu__TaKeDy__ChyGry();
 
 	//@@@
-	// SELECT DEFAULT
-	Ne00_KeDy00__NiKeDru__Ta_l.selectedIndex = KwiYz_k.KeDru_wu;
-	Hre1_Dru__ChyKeDru( KwiYz_k.KeDru_vsg );
+	// GUI_SYNC
+	Hrz4_Bu__KwiYz__HriNe_MyYy();
 }
 
 
@@ -1075,18 +1146,42 @@ async function Hre1_Dru__BriYa()
 //=====================================
 
 //-------------------------------------------------
+// SECURE_COMPARE
+//-------------------------------------------------
+function Hrz4_Bu__Che00_Krz__Tra()
+{
+	SmaDre( "[ULST] SECURE COMPARE" );
+
+}
+
+
+//-------------------------------------------------
+// SECURE_SAVE
+//-------------------------------------------------
+function Hrz4_Bu__Che01_Chy__Tra()
+{
+	SmaDre( "[ULST] SECURE SAVE" );
+
+}
+
+
+//=====================================
+// USR SINGLE
+//=====================================
+
+//-------------------------------------------------
 // ERASE USR
 //-------------------------------------------------
 function Ne00_KeDy05__Chi_Tra()
 {
-	const KeDyChi_wu = Ko.KwiYz_l.KeDy_wu;
+	const KeDyChi_wu = Ko.TaKeDy_l.KeDy_wu;
 
-	if( Ko.KwiYz_l.KeDy_wu > 0 ){ Ko.KwiYz_l.KeDy_wu--; }
+	if( Ko.TaKeDy_l.KeDy_wu > 0 ){ Ko.TaKeDy_l.KeDy_wu--; }
 
-	Ko.KwiYz_l.KeDy_v = Ko.KwiYz_l.KeDy_v.splice( KeDyChi_wu, 1 );
+	Ko.TaKeDy_l.KwiYz_v = Ko.TaKeDy_l.KwiYz_v.splice( KeDyChi_wu, 1 );
 
 	// IF NONE LEFT, ADD DEFAULTS
-	if( Ko.KwiYz_l.KeDy_v.length === 0 )
+	if( Ko.TaKeDy_l.KwiYz_v.length === 0 )
 	{
 		Hrz4_Bu__TaKeDy__FyGry();
 	}
@@ -1095,14 +1190,26 @@ function Ne00_KeDy05__Chi_Tra()
 //-------------------------------------------------
 // ADD USR
 //-------------------------------------------------
-function Ne00_KeDy04__Cha_Tra()
+function Ne00_KeDy04__Cha_Tra( FeCho_yk )
 {
-	Ko.KwiYz_l.KeDy_v.push();
-	Hrz4_Bu__KwiYz__ChyDe( "New Name", 0, 0 );
+	//@@@
+	// CREATE
+	if( FeCho_yk )
+	{
+		structuredClone
+	}
+	//@@@
+	// CREATE DEFAULT
+	else
+	{
+		Ko.TaKeDy_l.KwiYz_v.push();
+		Hrz4_Bu__KwiYz__ChyDe( "New Name", 0, -1 );
+	}
 
-	// STORE CFG
+	// CFG_STOR
 	Hrz4_Bu__TaKeDy__ChyGry();
-	// REFRESH GUI w/ NEW USER NAMES/CFG
+
+	// GUI_SYNC w/ NEW USER NAMES/CFG
 	Hrz4_Bu__KwiYz__HriNe_MyYy();
 }
 
@@ -1116,18 +1223,20 @@ function Ne00_KeDy01__NiKeDy__JeChy()
 	const TaKeDy_l = document.getElementById( 'Ne00_KeDy01__NiKeDy__Ta_l' );
 	if( TaKeDy_l.selectedIndex < 0 ) return;
 
+
 	//@@@
 	// SAVE USER
-	Ko.KwiYz_l.KeDy_wu = TaKeDy_l.selectedIndex;
+	Ko.TaKeDy_l.KeDy_wu = TaKeDy_l.selectedIndex;
 
 	//@@@
 	// CHG to USR LANG
-	const KwiYz_k = Ko.KwiYz_l.KeDy_v[ Ko.KwiYz_l.KeDy_wu ];
-	Hre1_Dru__ChyKeDru( KwiYz_k.KeDru_vsg );
+	const KwiYz_k = Ko.TaKeDy_l.KwiYz_v[ Ko.TaKeDy_l.KeDy_wu ];
+
+	Hre1_Dru__KeDru_ChyVx( KwiYz_k.KeDru_wu );
 
 
 	//@@@
-	// REFRESH GUI SETTINGS
+	// GUI_SYNC w/ USER SETUP
 	Hrz4_Bu__KwiYz__HriNe_MyYy();
 
 
@@ -1138,84 +1247,72 @@ function Ne00_KeDy01__NiKeDy__JeChy()
 	// Check Answer to QUERY
 
 
-	SmaSme( "USR:", TaKeDy_l.value, TaKeDy_l.selectedIndex  );
+	SmaSme( "[ULST] Chy", TaKeDy_l.value, TaKeDy_l.selectedIndex  );
 }
 
 
+//=====================================
+// USR LIST ALL
+//=====================================
+
 //-------------------------------------------------
-// SECURE_COMPARE
+// RE-INSTALL ALL
+// WIPES OUT ALL USR LAUNCH CFGs
 //-------------------------------------------------
-function Hrz4_Bu__Che00_Krz__Tra()
+function Hrz4_Bu__TaKeDy_ChxGry()
 {
-
-}
-
-
-//-------------------------------------------------
-// SECURE_SAVE
-//-------------------------------------------------
-function Hrz4_Bu__Che01_Chy__Tra()
-{
-
-}
-
-
-//-------------------------------------------------
-// USR_AVATAR__EDIT
-//-------------------------------------------------
-function KeDy__TreSaPy( e )
-{
-	const SaPy_vksg = SaPy_vvsg[ e ];
-	document.getElementById( "Ne00_KeDy03__NiJaPo_q" ).innerText = SaPy_vksg;
-
-	const KwiYz_k = Ko.KwiYz_l.KeDy_v[ Ko.KwiYz_l.KeDy_wu ];
-	KwiYz_k.NiJaPo_wu = e;
-	Hrz4_Bu__TaKeDy__ChyDe();
-}
-
-//-------------------------------------------------
-// DEFAULTS ALL USR LAUNCH CFGs
-//-------------------------------------------------
-function Hrz4_Bu__TaKeDy_Chx()
-{
-	SmaDre( "[USR] CLEAR ALL LOCAL STORAGE" );
+	SmaDre( "[ULST] CLEAR ALL LOCAL STORAGE" );
 	localStorage.clear();
-	Hrz4_Bu__TaKeDy__FyGry();
+	Hrz4_Bu__TaKeDy__ChyTaDe();
 }
 
-
 //-------------------------------------------------
-// LOAD USERS GUI
+// LOAD USERS DEFAULT GUI
 //-------------------------------------------------
-function Hrz4_Bu__TaKeDy__ChyDe()
+function Hrz4_Bu__TaKeDy__ChyTaDe()
 {
+	// SmaSme( "[ULST] TaKeDy__ChyTaDe" );
 	const KeDy__DeFo_wuk = 4;
-	Ko.KwiYz_l.KeDy_v = new Array( KeDy__DeFo_wuk ).fill( { } );
+
+	// Creates an array of length N, with a unique empty object in each slot
+	Ko.TaKeDy_l.KwiYz_v = Array.from( { length: KeDy__DeFo_wuk }, () => ({} ) );
+
+	Ko.TaKeDy_l.Da_wu = KoSy__KwiYz__Da_wuk;
+
+	//@@@
+	// GUEST
+	Ko.TaKeDy_l.KeDy_wu = 0;
+	Hrz4_Bu__KwiYz__ChyDe( "Guest", 0, -1 );
 
 
-	Ko.KwiYz_l.KeDy_wu = 0;
-	Hrz4_Bu__KwiYz__ChyDe( "Guest", 0, 0 );
-	Ko.KwiYz_l.KeDy_wu = 1;
-	Hrz4_Bu__KwiYz__ChyDe( "Ghost", 1, 0 );
-	Ko.KwiYz_l.KeDy_wu = 2;
-	Hrz4_Bu__KwiYz__ChyDe( "Kiosk", 2, 0 );
-	Ko.KwiYz_l.KeDy_wu = 3;
-	Hrz4_Bu__KwiYz__ChyDe( "Pro", 3, 0 );
+	//@@@
+	// GHOST
+	Ko.TaKeDy_l.KeDy_wu = 1;
+	Hrz4_Bu__KwiYz__ChyDe( "Ghost", 1, -1 );
+
+
+	//@@@
+	// KIOSK
+	Ko.TaKeDy_l.KeDy_wu = 2;
+	Hrz4_Bu__KwiYz__ChyDe( "Kiosk", 2, -1 );
+
+
+	//@@@
+	// PRO
+	Ko.TaKeDy_l.KeDy_wu = 3;
+	Hrz4_Bu__KwiYz__ChyDe( "Pro", 3, -1 );
+
 
 	//@@@
 	// INITIAL USER
-	Ko.KwiYz_l.KeDy_wu = 0;
+	Ko.TaKeDy_l.KeDy_wu = 0;
 
-	SmaSme( "[CFG] KwiYz_De:", Ko.KwiYz_l.KeDy_v );
-}
+	//@@@
+	// GUI_SYNC
+	Hrz4_Bu__KwiYz__HriNe_MyYy();
 
-//-------------------------------------------------
-// SAVE LAUNCH CFG
-//-------------------------------------------------
-function Hrz4_Bu__TaKeDy__ChyGry()
-{
-	localStorage.setItem( "KwiYz_l", JSON.stringify( Ko.KwiYz_l ) );
-	SmaSme( "[CFG] KwiYz_Chy:", Ko.KwiYz_l );
+	// CFG_STORE
+	Hrz4_Bu__TaKeDy__ChyGry();
 }
 
 //-------------------------------------------------
@@ -1230,15 +1327,152 @@ function Hrz4_Bu__TaKeDy__FyGry()
 	// if( KwiYz_vsg )
 	if( false )
 	{
-		Ko.KwiYz_l = JSON.parse( KwiYz_vsg );
-		SmaSme( "[USERS] KwiYz_My:", Ko.KwiYz_l );
+		Ko.TaKeDy_l = JSON.parse( KwiYz_vsg );
+
+		// IF NO MEMBERS *OR* WRONG VERSION
+		if( ( Ko.TaKeDy_l.KwiYz_v.length === 0 ) || ( Ko.TaKeDy_l.Da_wu !== KoSy__KwiYz__Da_wuk ) )
+		{
+			// FORCE DEFAULT
+			Hrz4_Bu__TaKeDy__ChyTaDe();
+		}
+
+		SmaSme( "[ULST] TaKeDy__FyGry:", Ko.TaKeDy_l );
 	}
 	else
 	// FORCE DEFAULT
 	{
-		Hrz4_Bu__TaKeDy__ChyDe();
+		Hrz4_Bu__TaKeDy__ChyTaDe();
 	}
 }
+
+//-------------------------------------------------
+// SAVE LAUNCH CFG
+//-------------------------------------------------
+function Hrz4_Bu__TaKeDy__ChyGry()
+{
+	localStorage.setItem( "KwiYz_l", JSON.stringify( Ko.TaKeDy_l ) );
+	SmaSme( "[ULST] KwiYz_Chy:", Ko.TaKeDy_l );
+}
+
+//-------------------------------------------------
+// INIT GUI DEFAULTS
+//-------------------------------------------------
+async function Hri4_Bu__TaKeDy__ChySpo()
+{
+	const KwiYz_k = Ko.TaKeDy_l.KwiYz_v[ Ko.TaKeDy_l.KeDy_wu ];
+
+	//@@@
+	// LANG DROPDOWN LIST
+	const Ne00_KeDy00__NiKeDru__Ta_l = document.getElementById( 'Ne00_KeDy00__NiKeDru__Ta_l' );
+	// LANGUAGE PICKER
+	const KeDru__TaJaPo_l = document.getElementById("Ne00_KeDy00__KeDru_TaJaPo_l");
+
+	//&&&
+	// LIST CLEAR
+	HriNeDe__Ta_ChyStz( Ne00_KeDy00__NiKeDru__Ta_l );
+	HriNeDe__Ta_ChyStz( KeDru__TaJaPo_l );
+
+	//&&&
+	// LIST FILL ENTRIES
+	Hre1_Dru__Gra_v.forEach( function ( Ti_v, Vx_wu )
+	{
+		//SmaSme( "------ Vx_wu:", Vx_wu, Ti_v.Va );
+
+		//&&&
+		// LANG DROPDOWN ADD BTN
+		{
+			const Kz_l = document.createElement( 'option' );
+			Kz_l.className = 'HriNeTi WaDru_Py';
+
+			Kz_l.innerText = `${Ti_v.KuGwz} ${Ti_v.Va}`;
+
+			Kz_l.value = Ti_v.Vy;
+
+			Ne00_KeDy00__NiKeDru__Ta_l.appendChild( Kz_l );
+		}
+
+		//&&&
+		// LANG FLAG GRID ADD BTN
+		{
+			const Kz_l = document.createElement( 'span' );
+			Kz_l.className = 'NiJaPo_Va WaDru_Py';
+			Kz_l.onclick = function() { Ne00_KeDy00__NiKeDru__JeChy( Vx_wu ); }
+
+			Kz_l.innerText = Ti_v.KuGwz;
+			KeDru__TaJaPo_l.appendChild( Kz_l );
+		}
+
+	});
+
+	//@@@
+	// STARTING LANG
+	Ne00_KeDy00__NiKeDru__Ta_l.selectedIndex = KwiYz_k.KeDru_wu;
+	Hre1_Dru__KeDru_ChyVx( KwiYz_k.KeDru_wu );
+
+	//@@@
+	// AVATAR PICKER
+	const SaJaPo__TaJaPo_l = document.getElementById("Ne00_KeDy03__SaJaPo__TaJaPo_l");
+	HriNeDe__Ta_ChyStz( SaJaPo__TaJaPo_l );
+	for( let Vx_wu = 0; Vx_wu< SaPy_vvsg.length; Vx_wu++ )
+	{
+		//&&&
+		// ADD BTN
+
+		const Kz_l = document.createElement( 'span' );
+		Kz_l.className = 'NiJaPo_Va';
+		Kz_l.onclick = function() { Hrz4_Bu__KwiYz__SaPy_ChyYe( Vx_wu ); }
+
+		Kz_l.innerText = SaPy_vvsg[ Vx_wu ];
+		SaJaPo__TaJaPo_l.appendChild( Kz_l );
+	}
+
+	//@@@
+	// AUD_METHODS
+	{
+		const TaKeDy_l = document.getElementById( 'Ne02_Hru04__SmzYz_Ta_l' );
+		HriNeDe__Ta_ChyStz( TaKeDy_l );
+
+		const SaNo__TaKeDy_l = Ko.TaKeDy_l.KwiYz_v;
+		SaNo__TaKeDy_l.forEach( function ( Ti_v, Vx_wu )
+		{
+			// SmaSme( "------ Vx_wu:", Vx_wu, Ti_v.KeDy_vsg );
+
+			//&&&
+			// ADD BTN
+			const Kz_l = document.createElement( 'option' );
+			Kz_l.className = 'HriNeTi WaDru_Ka';
+			Kz_l.innerText = `${SaPy_vvsg[ Ti_v.NiJaPo_wu ]} ${Ti_v.KeDy_vsg }` + ( Vx_wu & 1 ? "🔒":"🔓" );
+			Kz_l.value = Vx_wu;
+			TaKeDy_l.appendChild( Kz_l );
+		});
+
+		TaKeDy_l.selectedIndex = Ko.TaKeDy_l.KeDy_wu;
+	}
+
+	//@@@
+	// VIS_METHODS
+	{
+		const TaKeDy_l = document.getElementById( 'Ne03_Hry06__SmzYz__Ta_l' );
+		HriNeDe__Ta_ChyStz( TaKeDy_l );
+
+		const SaNo__TaKeDy_l = Ko.TaKeDy_l.KwiYz_v;
+		SaNo__TaKeDy_l.forEach( function ( Ti_v, Vx_wu )
+		{
+			// SmaSme( "------ Vx_wu:", Vx_wu, Ti_v.KeDy_vsg );
+
+			//&&&
+			// ADD BTN
+			const Kz_l = document.createElement( 'option' );
+			Kz_l.className = 'HriNeTi WaDru_Ka';
+			Kz_l.innerText = `${SaPy_vvsg[ Ti_v.NiJaPo_wu ]} ${Ti_v.KeDy_vsg }` + ( Vx_wu & 1 ? "🔒":"🔓" );
+			Kz_l.value = Vx_wu;
+			TaKeDy_l.appendChild( Kz_l );
+		});
+
+		TaKeDy_l.selectedIndex = Ko.TaKeDy_l.KeDy_wu;
+	}
+}
+
 
 //=====================================
 // USR END
@@ -1266,6 +1500,16 @@ function Hrz4_Bu__TaKeDy__FyGry()
 // GUI EDIT for UNLOCK/LOCK
 // SmaSme( "CheChy: ", e.className );
 //==============================================
+
+//@@@
+// MENU CLEAR
+function HriNeDe__Ta_ChyStz( Ta_v )
+{
+	while ( Ta_v.firstChild )
+	{
+		Ta_v.removeChild( Ta_v.lastChild );
+	}
+}
 
 //@@@
 // TOGGLE HIDE
@@ -1469,7 +1713,7 @@ function HryMx00_KeMeKwi()
 
 	//@@@
 	// LOG
-	SmaSme( "[GUI] KwiYz_My:", Ko.KwiYz_l.KeDy_v );
+	SmaSme( "[GUI] KwiYz_My:", Ko.TaKeDy_l.KwiYz_v );
 }
 
 
@@ -1553,10 +1797,10 @@ function Hrz4_Bu__ChyNeKu( Vx_wu )
 function Tra_KeMeBri()
 {
 	HryMx02_KeMeBri();
-	const KwiYz_k = Ko.KwiYz_l.KeDy_v[ Ko.KwiYz_l.KeDy_wu ];
+	const KwiYz_k = Ko.TaKeDy_l.KwiYz_v[ Ko.TaKeDy_l.KeDy_wu ];
 
 	//!!!
-	// VISUAL
+	// RELOAD VISUALS
 	// if different now, must redo WG
 	//!!!
 
@@ -1839,67 +2083,60 @@ const SyVx = Object.freeze
 	//----------------------------------------------------------
 	// SERV_REQ
 	//----------------------------------------------------------
-	CFG_qk: 0
+
+	// Hrz5_Ki
+	NODE_qk: 0
 	, TAK_qk: 1
 	, FS_qk: 2
 	, TRU_qk: 3
 
-	// Hra7_Ta^FMT
-	, STRM_qk: 4
-	, FNT_qk: 5
+	// Hra0_Ko^COMPUTER
+	, ENRG_qk: 4
 
-	// Hry^VIS
-	, WG_qk: 6
-	, GLF_qk: 7
+	// Hra1_Mz^SENSORS
+	, PTR_qk: 5
+	, USB_qk: 6
+	, GPS_qk: 7
 
 	// Hra4_Bru^NET
 	, NET_qk: 8
 
 	// Hra6_Ku^GATE
-	, SHAR_qk: 9
+	, CAL_qk: 9
 	, PAY_qk: 10
-	, CAL_qk: 11
+	, SHAR_qk: 11
 
-	// Hra5_Ka^CHIP
-	, USB_qk: 12
-	, GPS_qk: 777
-
-	// Hra0_Ko^COMPUTER
-	, ENRG_qk: 777
+	// Hra7_Ta^FMT
+	, STRM_qk: 12
+	, FNT_qk: 13
 
 	// Hru^AUD
-	, WA_qk: 777
-	, HEAR_qk: 777
-	, SAY_qk: 777
+	, WA_qk: 14
+	, HEAR_qk: 15
+	, SAY_qk: 16
 
 	// Hry^VIS
-	, XR_qk: 13
-	, GLES_qk: 777
-	, SCRN_qk: 777
+	, WG_qk: 17
+	, GLF_qk: 18
+	, XR_qk: 19
+	, SCRN_qk: 20
 
 
 	//----------------------------------------------------------
 	// SERV_OPT
 	//----------------------------------------------------------
-	, LANG_qk: 777
-	, ZSTD_qk: 777
-	, AVATAR_qk: 777
-	, TONE_qk: 777
+	, LANG_qk: 21
+	, ZSTD_qk: 22
+	, WT_qk: 23
+	, TONE_qk: 24
 
-	, WT_qk: 777
-	, ML_qk: 777
-	, MPLYR_qk: 777
-	, GEN_qk: 777
+	, ML_qk: 25
+	, MPLYR_qk: 26
+	, GEN_qk: 27
 
-
-	//----------------------------------------------------------
-	// SERV_CNT
-	//----------------------------------------------------------
-	, DoFo_wuk: 9
-	, SmiFo_wuk: 0
 });
 
-const SyVx__GryFo_wuk = SyVx.DoFo_wuk + SyVx.SmiFo_wuk;
+const SyVx__GryFo_wuk = SyVx.length;
 const SuKz__GryFo_wuk = 10;
 
 //==============================================
@@ -2066,7 +2303,7 @@ async function KoDz__YaFz()
 	//@@@
 	// CLNs
 	// Configs by User
-	Ko.KwiYz_l = {};
+	Ko.TaKeDy_l = {};
 	// Declare 'fixed array' uses ZEROs, must fill  null
 	// Media Objects
 	Ko.SuKz_v = new Array( SuKz__GryFo_wuk ).fill( null );
@@ -2082,10 +2319,12 @@ async function KoDz__YaFz()
 	Ko.BriYa_GiDri_df = performance.now();
 	// BROWSER_VER
 	await Hrz3_Bz__VaDa();
+	// OS VER
+	Hrz3_Bz__KaGeSpu_Ha();
 	// FIND USERS LAUNCH_CFG
 	Hrz4_Bu__TaKeDy__FyGry();
 	// LOAD CULTURE
-	Hre1_Dru__BriYa();
+	await Hri4_Bu__TaKeDy__ChySpo();
 	// LOAD LAUNCH CANVAS
 	// which fills GUI VALUES
 	HryMx00_KeMeKwi();
@@ -2121,19 +2360,18 @@ async function KoDz__YaFz()
 
 	//@@@
 	// SERV_REQ
-	const KwiYz_k = Ko.KwiYz_l.KeDy_v[ Ko.KwiYz_l.KeDy_wu ];
+	//const KwiYz_k = Ko.TaKeDy_l.KwiYz_v[ Ko.TaKeDy_l.KeDy_wu ];
 
 	const SySmz__Kri_yk = true;
-	const Kri__SySmz_v =
+	const SyCha__Kri_v =
 	[
-		Hrz7_Kru__ChaSySmz( "Hrz4_Bu", "BriDzYz", "Do", "CFG", SySmz__Kri_yk, { YzTi_wu: "0" } )
+		Hrz7_Kru__ChaSySmz( "Hrz4_Bu", "BriDzYz", "Do", "NODE", SySmz__Kri_yk, { YzTi_wu: "0" } )
 		, Hrz7_Kru__ChaSySmz( "Hre1_Dru", "KeDruPy", "Do", "TAK", SySmz__Kri_yk, { Si_KeDru: "en" } )
 		, Hrz7_Kru__ChaSySmz( "Hra6_Ku", "KoToKz", "Do", "FS", SySmz__Kri_yk, { VaDyFy: "true" } )
 		, Hrz7_Kru__ChaSySmz( "Hrx4_Che", "MoDxGri", "Do", "TRU", SySmz__Kri_yk, { YzTi_wu: "0" } )
 
 		, Hrz7_Kru__ChaSySmz( "Hra7_Ta", "ToMi", "Do", "STRM", SySmz__Kri_yk, { YzTi_wu: "0" } )
 		, Hrz7_Kru__ChaSySmz( "Hre1_Dru", "WaDru", "Do", "FNT", SySmz__Kri_yk, { YzTi_wu: "0" } )
-		, Hrz7_Kru__ChaSySmz( "Hry5_Smz", "WzMx", "Do", "WG", SySmz__Kri_yk, { YzVi_q: KwiYz_k.Ne03_Hry06__SmzYz_q } )
 		, Hrz7_Kru__ChaSySmz( "Hry1_Brz", "KeDru", "Do", "GLF", SySmz__Kri_yk, { Gy_wu: 512 } )
 
 		, Hrz7_Kru__ChaSySmz( "Hra4_Bru", "ToDry", "Do", "NET", SySmz__Kri_yk, { YzTi_wu: "0" } )
@@ -2141,24 +2379,20 @@ async function KoDz__YaFz()
 		, Hrz7_Kru__ChaSySmz( "Hra6_Ku", "SpeDry", "Do", "PAY", SySmz__Kri_yk, { YzTi_wu: "0" } )
 		, Hrz7_Kru__ChaSySmz( "Hra6_Ku", "SaNoJe", "Do", "CAL", SySmz__Kri_yk, { YzTi_wu: "0" } )
 
-		//, Hrz7_Kru__ChaSySmz( "Hr", "", "Do", "ABC", SySmz__Kri_yk, { YzTi_wu: "0" } )
-		//, Hrz7_Kru__ChaSySmz( "Hr", "", "Do", "ABC", SySmz__Kri_yk, { YzTi_wu: "0" } )
-		//, Hrz7_Kru__ChaSySmz( "Hr", "", "Do", "ABC", SySmz__Kri_yk, { YzTi_wu: "0" } )
+		//, Hrz7_Kru__ChaSySmz( "Hra1_Mz", "MzDrx", "Do", "PTR", SySmz__Kri_yk, { YzTi_wu: "0" } )
 		//, Hrz7_Kru__ChaSySmz( "Hr", "", "Do", "ABC", SySmz__Kri_yk, { YzTi_wu: "0" } )
 
 	];
 	// SYNC_PNT
-	const Kri__SySmzCha__Smx_k = await Promise.all( Kri__SySmz_v );
-	// SmaSme( "SERV REQ", Kri__SySmzCha__Smx_k );
-	if( !Kri__SySmzCha__Smx_k ){ return; }
+	const SyCha__FyGry_yk = await Promise.all( SyCha__Kri_v );
+	// SmaSme( "SERV REQ", SyCha__FyGry_yk );
+	if( !SyCha__FyGry_yk ){ return; }
+
 
 	//@@@
 	// SERV_OPT
 	// Do NOT await Promises;
 	const SySmz__HoKri_yk = false;
-
-	// DoGLES
-	//Hrz7_Kru__ChaSySmz( "Hry5_Smz", "BzMe", "Do", "GLES", "Hry5_Smz", SySmz__HoKri_yk, { YzTi_wu: "0" } );
 
 
 	//@@@
@@ -2180,7 +2414,10 @@ async function KoDz__YaFx( )
 	//@@@
 	// SERV_OPT
 	const SySmz__HoKri_yk = false;
-	const KwiYz_k = Ko.KwiYz_l.KeDy_v[ Ko.KwiYz_l.KeDy_wu ];
+	const KwiYz_k = Ko.TaKeDy_l.KwiYz_v[ Ko.TaKeDy_l.KeDy_wu ];
+
+	const SySmz__Kri_yk = true;
+	Hrz7_Kru__ChaSySmz( "Hry5_Smz", "WzMx", "Do", "WG", SySmz__Kri_yk, { YzVi_q: KwiYz_k.Ne03_Hry06__SmzYz_q } )
 
 	// DoXR
 	if( KwiYz_k.Ne03_Hry02__HriKe_y ) { Hrz7_Kru__ChaSySmz( "Hri2_Ke", "BzMe", "Do", "XR", SySmz__HoKri_yk, { YzTi_wu: "0" } ); }
@@ -2212,7 +2449,7 @@ function KoDz__YoChy()
 {
 	//@@@
 	// ECOSYS_GOOD
-	const KwiYz_k = Ko.KwiYz_l.KeDy_v[ Ko.KwiYz_l.KeDy_wu ];
+	const KwiYz_k = Ko.TaKeDy_l.KwiYz_v[ Ko.TaKeDy_l.KeDy_wu ];
 	if( KoDz__YzTrx_y() || KoDz__YzYo_y() || KwiYz_k.Ne01_Ko04__KoDz_YoHo_y ) return;
 
 	//&&&

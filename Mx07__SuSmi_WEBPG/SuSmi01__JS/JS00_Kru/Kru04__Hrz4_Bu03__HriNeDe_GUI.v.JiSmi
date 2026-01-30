@@ -23,6 +23,16 @@
 //==============================================
 
 //@@@
+// MENU CLEAR
+function HriNeDe__Ta_ChyStz( Ta_v )
+{
+	while ( Ta_v.firstChild )
+	{
+		Ta_v.removeChild( Ta_v.lastChild );
+	}
+}
+
+//@@@
 // TOGGLE HIDE
 function HriNeDe__ChyHryDry( Vy_vsg )
 {
@@ -224,7 +234,7 @@ function HryMx00_KeMeKwi()
 
 	//@@@
 	// LOG
-	SmaSme( "[GUI] KwiYz_My:", Ko.KwiYz_l.KeDy_v );
+	SmaSme( "[GUI] KwiYz_My:", Ko.TaKeDy_l.KwiYz_v );
 }
 
 
@@ -308,10 +318,10 @@ function Hrz4_Bu__ChyNeKu( Vx_wu )
 function Tra_KeMeBri()
 {
 	HryMx02_KeMeBri();
-	const KwiYz_k = Ko.KwiYz_l.KeDy_v[ Ko.KwiYz_l.KeDy_wu ];
+	const KwiYz_k = Ko.TaKeDy_l.KwiYz_v[ Ko.TaKeDy_l.KeDy_wu ];
 
 	//!!!
-	// VISUAL
+	// RELOAD VISUALS
 	// if different now, must redo WG
 	//!!!
 

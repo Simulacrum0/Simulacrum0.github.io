@@ -1,0 +1,52 @@
+//==============================================
+//==============================================
+// XR: Ya
+//==============================================
+//==============================================
+
+
+//-------------------------------------------------
+DoXR.Mo = function( Sa_l, Jy_k, Mo_l )
+//-------------------------------------------------
+{
+	//@@@
+	// CRT ANCHOR
+	// createAnchor() Returns a Promise which resolves to a free-floating XRAnchor object.
+	/*
+	frame.createAnchor(anchorPose, referenceSpace)
+	.then( (anchor) =>
+	{
+		  // Do stuff with the anchor (assign objects that will be relative to this anchor)
+	},
+	(error) =>
+	{
+		  console.error(`Could not create anchor: ${error}`);
+		},
+	  );
+	  */
+
+	//@@@
+	// PERSIST ANCHOR
+	// Privacy Issues
+	// To create a persistent anchor, call “requestPersistentHandle” on an anchor object & Store resulting string.
+	// To restore an anchor, such as when the site is reloaded, call “restorePersistentAnchor”
+	// [META] site only create 8 persistent anchors at a time in NON-Private mode.
+
+
+	//@@@
+	// ERS ANCHOR
+	// XRAnchor.delete()
+
+
+	//@@@
+	// SHOW KEYBRD:
+	//https://developers.meta.com/horizon/documentation/web/webxr-keyboard
+
+}
+
+
+//==============================================
+//==============================================
+// XR: Yi
+//==============================================
+//==============================================

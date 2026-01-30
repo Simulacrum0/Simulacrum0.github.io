@@ -1,0 +1,397 @@
+//==============================================
+//==============================================
+// XR: Ya
+//==============================================
+//==============================================
+
+//==============================================
+// [XR_GL]
+//-----------------
+// Geometry Assets to Blit & Prog to Move Pixel Samples
+//
+// 2 Uses:
+//
+// - Create for Import Cho_MzPo Texture as SBS Eye Framebuffers
+// - Prog to Clone Cho_MzPo into XR Framebuff
+//
+// - Export XR-Created JaGz Depth Texture as SBS Eye Depthbuffers
+// - API to Clone into WG
+//
+//==============================================
+
+//----------------------------
+// XR_GL PROG_SRC
+//----------------------------
+// VS
+// Z & W REQ
+const vSrc =
+`#version 300 es
+in vec4 Ge_wf4;
+out vec2 JaGe_wf2;
+void main()
+{
+    gl_Position = vec4( Ge_wf4.xy, 0.0, 1.0 );
+    JaGe_wf2 = Ge_wf4.zw;
+}
+`;
+
+// FS
+const fSrc =
+`#version 300 es
+precision highp float;
+precision highp sampler2D;
+in vec2 JaGe_wf2;
+uniform sampler2D Cho_MzPo_smp;
+out vec4 Me_wf4;
+void main()
+{
+	// Me_wf4 = texture( Cho_MzPo_smp, JaGe_wf2 );
+
+	vec2 Vo_wf2 = vec2( -1.0 ) + 2. * JaGe_wf2;
+
+
+	Me_wf4 = vec4( 1.0, 0.2, 0.2, 3.0 * clamp( 0., 0.33, 0.33 - sqrt( Vo_wf2.x * Vo_wf2.x +  Vo_wf2.y * Vo_wf2.y ) ) );
+}
+`;
+
+
+//----------------------------
+// XR_GL BUILD_PROG
+//----------------------------
+function DoXR_GL__TroJiJa( Sa_l )
+{
+	const gl = Sa_l.gl;
+
+	function createShader( gl, type, source )
+	{
+		const sh = gl.createShader( type );
+		gl.shaderSource( sh, source );
+		gl.compileShader( sh );
+		if ( !gl.getShaderParameter( sh, gl.COMPILE_STATUS ) )
+		{
+			throw new Error( gl.getShaderInfoLog( sh ) );
+		}
+		return sh;
+	}
+
+	function createProgram( gl, vs, fs )
+	{
+		const prg = gl.createProgram();
+		gl.attachShader( prg, vs );
+		gl.attachShader( prg, fs );
+		gl.linkProgram( prg );
+		if ( !gl.getProgramParameter( prg, gl.LINK_STATUS ) )
+		{
+			throw new Error( gl.getProgramInfoLog( prg ) );
+		}
+		return prg;
+	}
+
+	const vs = createShader( gl, gl.VERTEX_SHADER, vSrc );
+	const fs = createShader( gl, gl.FRAGMENT_SHADER, fSrc );
+
+	const JiJa_v0 = createProgram( gl, vs, fs );
+	Sa_l.JiJa_v0 = JiJa_v0;
+
+	// Sa_l.SuTyTi = gl.getUniformLocation( JiJa_v0, "SuTy_wf4" );
+	Sa_l.Cho_MzPo_smpLoc = gl.getUniformLocation( JiJa_v0, "Cho_MzPo_smp" );
+	Sa_l.GeTi = gl.getAttribLocation( JiJa_v0, "Ge_wf4" );
+}
+
+//----------------------------
+// XR_GL CREATE BUF
+//----------------------------
+function DoXR_GL__ChaJxRe( Sa_l )
+{
+	const gl = Sa_l.gl;
+	function createBuffer( gl, data, type = gl.ARRAY_BUFFER )
+	{
+		const buf = gl.createBuffer();
+		gl.bindBuffer( type, buf );
+		gl.bufferData( type, data, gl.STATIC_DRAW );
+		return buf;
+	}
+
+	// ONE QUAD
+	const SiGe_wf4 = new Float32Array
+	( [
+		// INVERTING TEXTURE COORD
+		// 0
+		1.0, 1.0, 1.0, 0.0
+		// 1
+		, -1.0, 1.0, 0.0, 0.0
+		// 2
+		, -1.0, -1.0, 0.0, 1.0
+		// 3
+		, 1.0, -1.0, 1.0, 1.0
+	] );
+
+	const SiGwe_su3 = new Uint16Array
+	( [
+		0, 1, 2, 0, 2, 3
+	] );
+
+	Sa_l.TaGe_l = createBuffer( gl, SiGe_wf4 );
+	Sa_l.TaGwe_l = createBuffer( gl, SiGwe_su3, gl.ELEMENT_ARRAY_BUFFER );
+}
+
+
+//----------------------------
+// XR_GL CREATE IMG
+//----------------------------
+function DoXR_GL__ChaJaKu__Si__MzPo( Sa_l, GyGx_wuk, GyGa_wuk )
+{
+	const gl = Sa_l.gl;
+	SmaSme( "[XR] ChaJaKu: Si__MzPo", GyGx_wuk, GyGa_wuk );
+
+	Sa_l.Si__MzPo_l = gl.createTexture();
+	gl.activeTexture( gl.TEXTURE0 );
+	gl.bindTexture( gl.TEXTURE_2D, Sa_l.Si__MzPo_l );
+
+	// NEED TO SIZE TO XR GOAL
+	gl.texStorage2D
+	(
+		gl.TEXTURE_2D // topo
+		, 1 // levels
+		// fmt
+		, gl.RGBA8
+		// DIM
+		, GyGx_wuk, GyGa_wuk
+	);
+
+	gl.texParameteri( gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.NEAREST );
+	gl.texParameteri( gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.NEAREST );
+	// gl.texParameteri( gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR );
+	// gl.texParameteri( gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR );
+
+	gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+	gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+	gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_R, gl.CLAMP_TO_EDGE);
+}
+
+
+//----------------------------
+// XR_GL CLONE IMG
+//----------------------------
+function DoXR_GL__KiCho_JaTi( Sa_l, GeGx_wu, GeGa_wu, GyGx_wu, GyGa_wu, Si__JaPo_l )
+{
+	//SmaSme( "[XR_GL]" );
+	const gl = Sa_l.gl;
+
+	gl.activeTexture( gl.TEXTURE0 );
+	gl.bindTexture( gl.TEXTURE_2D, Sa_l.Si__MzPo_l );
+
+	//@@@
+	// COLR BUFFER
+	gl.texSubImage2D
+	(
+		gl.TEXTURE_2D
+
+		// MIP
+		, 0
+		// OFS
+		, GeGx_wu, GeGa_wu
+		// DIM
+		, GyGx_wu, GyGa_wu
+
+		// FMT
+		, gl.RGBA
+		, gl.UNSIGNED_BYTE
+
+		// SRC
+		, Si__JaPo_l
+	);
+
+	//@@@
+	// DEPTH BUFFER
+	// layer's depth buffer to composite?
+}
+
+
+//----------------------------
+function DoXR_GL__SmzYi_y( Sa_l )
+//----------------------------
+{
+	const gl = Sa_l.gl;
+	if( !gl ){ return; }
+
+	gl.bindBuffer( gl.ARRAY_BUFFER, null );
+	gl.deleteBuffer( Sa_l.TaGe_l );
+
+	gl.bindBuffer( gl.ELEMENT_ARRAY_BUFFER, null );
+	gl.deleteBuffer( Sa_l.TaGwe_l );
+
+	gl.deleteTexture( Sa_l.Si__MzPo_l );
+
+	gl.useProgram( null );
+	gl.deleteProgram(Sa_l.JiJa_v0 );
+}
+
+//----------------------------
+async function DoXR_GL__SmzYa_y( Sa_l )
+//----------------------------
+{
+	//@@@
+	// WebGL Ctx @ XR
+	const gl = Sa_l.Se__MzPo_l.getContext( "webgl2", { xrCompatible: true });
+	Sa_l.gl = gl;
+
+	SmaSme( "[XR_GL] CTX_Tro" );
+	await gl.makeXRCompatible();
+
+	const Smz_v = Sa_l.Smz_v;
+
+	//&&&
+	// Scale Factor
+	let FRM__Gy_wfk = XRWebGLLayer.getNativeFramebufferScaleFactor( Smz_v );
+
+	//&&&
+	// attach XR layer
+	const GL_Gwa_l = new XRWebGLLayer( Smz_v, gl,
+	{
+		framebufferScaleFactor: FRM__Gy_wfk,
+
+		alpha: true,
+		depth: false,
+		stencil: false,
+		ignoreDepthValues: true,
+
+		antialias: false,
+  	});
+	Smz_v.updateRenderState( { baseLayer: GL_Gwa_l } );
+
+	const RS_l = Smz_v.renderState;
+	// De: 0.1 10cm ...1000.0 1km
+	SmaSme( "[XR] Dpth:", RS_l.depthNear, RS_l.depthFar, "FRM__Gy", FRM__Gy_wfk );
+
+
+	//@@@
+	// CTX_LOSS
+	Smz_v.addEventListener("webglcontextlost", (e) =>
+	{
+		SmaSme( "[XR_GL] Context Lost" );
+
+		// Calling preventDefault signals to the page that you intent to handle context restoration.
+		// e.preventDefault();
+		e.canceled = true;
+
+		MoDzTrx( "[XR_GL] Context Lost. Reload this Page." );
+	});
+
+	Smz_v.addEventListener("webglcontextrestored", (e) =>
+	{
+		SmaSme( "[XR_GL] Context Restored" );
+		// Once this function is called the gl context will be restored but any graphics resources
+		// that were previously loaded will be lost, so the scene should be reloaded.
+		// loadSceneGraphics(gl);
+	});
+
+
+	//@@@
+	// Alloc Prog/Buf/Img
+	DoXR_GL__TroJiJa( Sa_l );
+	DoXR_GL__ChaJxRe( Sa_l );
+	// set to null so allopc later
+	Sa_l.Si__MzPo_l = null;
+}
+
+//----------------------------
+// XR_GL RESIZE
+//----------------------------
+function DoXR_GL__GyHa_y( Sa_l, KaMxPo_l )
+{
+	const GyGx_wfk = KaMxPo_l.clientWidth;
+	const GyGa_wfk = KaMxPo_l.clientHeight;
+
+	const RESIZ_yk = ( GyGx_wfk !== KaMxPo_l.width || GyGa_wfk !== KaMxPo_l.height );
+	if( RESIZ_yk )
+	{
+		KaMxPo_l.width = GyGx_wfk;
+		KaMxPo_l.height = GyGa_wfk;
+	}
+
+	return RESIZ_yk;
+}
+
+//----------------------------
+// XR_GL DISP CLONE
+//----------------------------
+let DBG_wu = 0;
+function DoXR_GL__Cho_MzPo( Sa_l, FRM_k, MzKz_v )
+{
+	//@@@
+	// FRAMEBUF
+	const gl = Sa_l.gl;
+	const GL_Gwa_l = Sa_l.Smz_v.renderState.baseLayer;
+	const SmzKu_vk = GL_Gwa_l.getViewport( MzKz_v );
+
+	gl.bindFramebuffer( gl.FRAMEBUFFER, GL_Gwa_l.framebuffer );
+
+	//!!!
+	// NULL DST BUF
+	if( DBG_wu < 3 )
+	{
+		SmaSme( "[XR]-------------------------:", DBG_wu );
+
+		SmaSme( "[XR] SeMzPo:", MzKz_v, GL_Gwa_l.framebuffer, FRM_k );
+		SmaSme( "[XR] EyeBox:", SmzKu_vk.x, SmzKu_vk.y, SmzKu_vk.width, SmzKu_vk.height );
+		SmaSme( "[XR] CanvasBox:", Sa_l.Se__MzPo_l.clientWidth, Sa_l.Se__MzPo_l.clientHeight, Sa_l.Se__MzPo_l.width, Sa_l.Se__MzPo_l.height,  GL_Gwa_l.framebuffer );
+
+		// FORCE RESIZE CANVAS?
+		Sa_l.Se__MzPo_l.width = 2* SmzKu_vk.width;
+		Sa_l.Se__MzPo_l.height = SmzKu_vk.height;
+
+		DBG_wu++;
+	}
+
+	//if( ( Sa_l.Se__MzPo_l.clientWidth === 0 ) || ( Sa_l.Se__MzPo_l.clientHeight === 0 )) return;
+
+
+	//@@@
+	// CHECK RESIZE
+//	if( DoXR_GL__GyHa_y( Sa_l, Sa_l.Se__MzPo_l ) || ( Sa_l.Si__MzPo_l === null ))
+	if( Sa_l.Si__MzPo_l === null )
+	{
+		// SmaSme( "[XR] CTX Se", GL_Gwa_l, GL_Gwa_l.context, Sa_l.Se__MzPo_l.clientWidth, Sa_l.Se__MzPo_l.clientHeight );
+		SmaSme( "[XR] RESIZE Se__MzPo" );
+		DoXR_GL__ChaJaKu__Si__MzPo( Sa_l, 2* SmzKu_vk.width, SmzKu_vk.height);
+	}
+
+	//@@@
+	// VIEWPORT
+	gl.viewport( SmzKu_vk.x, SmzKu_vk.y, SmzKu_vk.width, SmzKu_vk.height );
+
+
+	//&&&
+	// STATE
+	gl.disable( gl.DEPTH_TEST );
+	gl.disable( gl.CULL_FACE );
+
+	gl.disable( gl.BLEND );
+	// gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
+
+	//&&&
+	// PROG
+	gl.useProgram( Sa_l.JiJa_v0 );
+	//gl.uniform4fv( Sa_l.SuTyTi, new Float32Array( [ 1.1, 1.0, 8, -10 ] ) );
+	gl.uniform1i( Sa_l.Cho_MzPo_smpLoc, 0 );
+
+	//&&&
+	// QUAD
+	gl.bindBuffer( gl.ARRAY_BUFFER, Sa_l.TaGe_l );
+	gl.enableVertexAttribArray( Sa_l.GeTi );
+	gl.vertexAttribPointer( Sa_l.GeTi, 4, gl.FLOAT, false, 0, 0 );
+	gl.bindBuffer( gl.ELEMENT_ARRAY_BUFFER, Sa_l.TaGwe_l );
+
+	//&&&
+	// DRAW
+	gl.drawElements( gl.TRIANGLES, 2 * 3, gl.UNSIGNED_SHORT, 0 );
+
+}
+
+
+//==============================================
+//==============================================
+// XR: Yi
+//==============================================
+//==============================================

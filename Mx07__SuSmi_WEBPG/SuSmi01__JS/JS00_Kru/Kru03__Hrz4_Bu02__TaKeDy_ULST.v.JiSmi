@@ -1,0 +1,336 @@
+//=====================================
+// USR BEGIN
+//=====================================
+
+//-------------------------------------------------
+// SECURE_COMPARE
+//-------------------------------------------------
+function Hrz4_Bu__Che00_Krz__Tra()
+{
+	SmaDre( "[ULST] SECURE COMPARE" );
+
+}
+
+
+//-------------------------------------------------
+// SECURE_SAVE
+//-------------------------------------------------
+function Hrz4_Bu__Che01_Chy__Tra()
+{
+	SmaDre( "[ULST] SECURE SAVE" );
+
+}
+
+
+//=====================================
+// USR SINGLE
+//=====================================
+
+//-------------------------------------------------
+// ERASE USR
+//-------------------------------------------------
+function Ne00_KeDy05__Chi_Tra()
+{
+	const KeDyChi_wu = Ko.TaKeDy_l.KeDy_wu;
+
+	if( Ko.TaKeDy_l.KeDy_wu > 0 ){ Ko.TaKeDy_l.KeDy_wu--; }
+
+	Ko.TaKeDy_l.KwiYz_v = Ko.TaKeDy_l.KwiYz_v.splice( KeDyChi_wu, 1 );
+
+	// IF NONE LEFT, ADD DEFAULTS
+	if( Ko.TaKeDy_l.KwiYz_v.length === 0 )
+	{
+		Hrz4_Bu__TaKeDy__FyGry();
+	}
+}
+
+//-------------------------------------------------
+// ADD USR
+//-------------------------------------------------
+function Ne00_KeDy04__Cha_Tra( FeCho_yk )
+{
+	//@@@
+	// CREATE
+	if( FeCho_yk )
+	{
+		structuredClone
+	}
+	//@@@
+	// CREATE DEFAULT
+	else
+	{
+		Ko.TaKeDy_l.KwiYz_v.push();
+		Hrz4_Bu__KwiYz__ChyDe( "New Name", 0, -1 );
+	}
+
+	// CFG_STOR
+	Hrz4_Bu__TaKeDy__ChyGry();
+
+	// GUI_SYNC w/ NEW USER NAMES/CFG
+	Hrz4_Bu__KwiYz__HriNe_MyYy();
+}
+
+//-------------------------------------------------
+// CHG USR
+//-------------------------------------------------
+function Ne00_KeDy01__NiKeDy__JeChy()
+{
+	//@@@
+	// VALID CHOICE
+	const TaKeDy_l = document.getElementById( 'Ne00_KeDy01__NiKeDy__Ta_l' );
+	if( TaKeDy_l.selectedIndex < 0 ) return;
+
+
+	//@@@
+	// SAVE USER
+	Ko.TaKeDy_l.KeDy_wu = TaKeDy_l.selectedIndex;
+
+	//@@@
+	// CHG to USR LANG
+	const KwiYz_k = Ko.TaKeDy_l.KwiYz_v[ Ko.TaKeDy_l.KeDy_wu ];
+
+	Hre1_Dru__KeDru_ChyVx( KwiYz_k.KeDru_wu );
+
+
+	//@@@
+	// GUI_SYNC w/ USER SETUP
+	Hrz4_Bu__KwiYz__HriNe_MyYy();
+
+
+	//@@@
+	// NAME/PWD
+	// Turn SECURITY on/off
+	// ( TaKeDy_l.value );
+	// Check Answer to QUERY
+
+
+	SmaSme( "[ULST] Chy", TaKeDy_l.value, TaKeDy_l.selectedIndex  );
+}
+
+
+//=====================================
+// USR LIST ALL
+//=====================================
+
+//-------------------------------------------------
+// RE-INSTALL ALL
+// WIPES OUT ALL USR LAUNCH CFGs
+//-------------------------------------------------
+function Hrz4_Bu__TaKeDy_ChxGry()
+{
+	SmaDre( "[ULST] CLEAR ALL LOCAL STORAGE" );
+	localStorage.clear();
+	Hrz4_Bu__TaKeDy__ChyTaDe();
+}
+
+//-------------------------------------------------
+// LOAD USERS DEFAULT GUI
+//-------------------------------------------------
+function Hrz4_Bu__TaKeDy__ChyTaDe()
+{
+	// SmaSme( "[ULST] TaKeDy__ChyTaDe" );
+	const KeDy__DeFo_wuk = 4;
+
+	// Creates an array of length N, with a unique empty object in each slot
+	Ko.TaKeDy_l.KwiYz_v = Array.from( { length: KeDy__DeFo_wuk }, () => ({} ) );
+
+	Ko.TaKeDy_l.Da_wu = KoSy__KwiYz__Da_wuk;
+
+	//@@@
+	// GUEST
+	Ko.TaKeDy_l.KeDy_wu = 0;
+	Hrz4_Bu__KwiYz__ChyDe( "Guest", 0, -1 );
+
+
+	//@@@
+	// GHOST
+	Ko.TaKeDy_l.KeDy_wu = 1;
+	Hrz4_Bu__KwiYz__ChyDe( "Ghost", 1, -1 );
+
+
+	//@@@
+	// KIOSK
+	Ko.TaKeDy_l.KeDy_wu = 2;
+	Hrz4_Bu__KwiYz__ChyDe( "Kiosk", 2, -1 );
+
+
+	//@@@
+	// PRO
+	Ko.TaKeDy_l.KeDy_wu = 3;
+	Hrz4_Bu__KwiYz__ChyDe( "Pro", 3, -1 );
+
+
+	//@@@
+	// INITIAL USER
+	Ko.TaKeDy_l.KeDy_wu = 0;
+
+	//@@@
+	// GUI_SYNC
+	Hrz4_Bu__KwiYz__HriNe_MyYy();
+
+	// CFG_STORE
+	Hrz4_Bu__TaKeDy__ChyGry();
+}
+
+//-------------------------------------------------
+// LOAD LAUNCH CFG
+//-------------------------------------------------
+function Hrz4_Bu__TaKeDy__FyGry()
+{
+	//@@@
+	// LOAD
+	const KwiYz_vsg = localStorage.getItem( "KwiYz_l" );
+
+	// if( KwiYz_vsg )
+	if( false )
+	{
+		Ko.TaKeDy_l = JSON.parse( KwiYz_vsg );
+
+		// IF NO MEMBERS *OR* WRONG VERSION
+		if( ( Ko.TaKeDy_l.KwiYz_v.length === 0 ) || ( Ko.TaKeDy_l.Da_wu !== KoSy__KwiYz__Da_wuk ) )
+		{
+			// FORCE DEFAULT
+			Hrz4_Bu__TaKeDy__ChyTaDe();
+		}
+
+		SmaSme( "[ULST] TaKeDy__FyGry:", Ko.TaKeDy_l );
+	}
+	else
+	// FORCE DEFAULT
+	{
+		Hrz4_Bu__TaKeDy__ChyTaDe();
+	}
+}
+
+//-------------------------------------------------
+// SAVE LAUNCH CFG
+//-------------------------------------------------
+function Hrz4_Bu__TaKeDy__ChyGry()
+{
+	localStorage.setItem( "KwiYz_l", JSON.stringify( Ko.TaKeDy_l ) );
+	SmaSme( "[ULST] KwiYz_Chy:", Ko.TaKeDy_l );
+}
+
+//-------------------------------------------------
+// INIT GUI DEFAULTS
+//-------------------------------------------------
+async function Hri4_Bu__TaKeDy__ChySpo()
+{
+	const KwiYz_k = Ko.TaKeDy_l.KwiYz_v[ Ko.TaKeDy_l.KeDy_wu ];
+
+	//@@@
+	// LANG DROPDOWN LIST
+	const Ne00_KeDy00__NiKeDru__Ta_l = document.getElementById( 'Ne00_KeDy00__NiKeDru__Ta_l' );
+	// LANGUAGE PICKER
+	const KeDru__TaJaPo_l = document.getElementById("Ne00_KeDy00__KeDru_TaJaPo_l");
+
+	//&&&
+	// LIST CLEAR
+	HriNeDe__Ta_ChyStz( Ne00_KeDy00__NiKeDru__Ta_l );
+	HriNeDe__Ta_ChyStz( KeDru__TaJaPo_l );
+
+	//&&&
+	// LIST FILL ENTRIES
+	Hre1_Dru__Gra_v.forEach( function ( Ti_v, Vx_wu )
+	{
+		//SmaSme( "------ Vx_wu:", Vx_wu, Ti_v.Va );
+
+		//&&&
+		// LANG DROPDOWN ADD BTN
+		{
+			const Kz_l = document.createElement( 'option' );
+			Kz_l.className = 'HriNeTi WaDru_Py';
+
+			Kz_l.innerText = `${Ti_v.KuGwz} ${Ti_v.Va}`;
+
+			Kz_l.value = Ti_v.Vy;
+
+			Ne00_KeDy00__NiKeDru__Ta_l.appendChild( Kz_l );
+		}
+
+		//&&&
+		// LANG FLAG GRID ADD BTN
+		{
+			const Kz_l = document.createElement( 'span' );
+			Kz_l.className = 'NiJaPo_Va WaDru_Py';
+			Kz_l.onclick = function() { Ne00_KeDy00__NiKeDru__JeChy( Vx_wu ); }
+
+			Kz_l.innerText = Ti_v.KuGwz;
+			KeDru__TaJaPo_l.appendChild( Kz_l );
+		}
+
+	});
+
+	//@@@
+	// STARTING LANG
+	Ne00_KeDy00__NiKeDru__Ta_l.selectedIndex = KwiYz_k.KeDru_wu;
+	Hre1_Dru__KeDru_ChyVx( KwiYz_k.KeDru_wu );
+
+	//@@@
+	// AVATAR PICKER
+	const SaJaPo__TaJaPo_l = document.getElementById("Ne00_KeDy03__SaJaPo__TaJaPo_l");
+	HriNeDe__Ta_ChyStz( SaJaPo__TaJaPo_l );
+	for( let Vx_wu = 0; Vx_wu< SaPy_vvsg.length; Vx_wu++ )
+	{
+		//&&&
+		// ADD BTN
+
+		const Kz_l = document.createElement( 'span' );
+		Kz_l.className = 'NiJaPo_Va';
+		Kz_l.onclick = function() { Hrz4_Bu__KwiYz__SaPy_ChyYe( Vx_wu ); }
+
+		Kz_l.innerText = SaPy_vvsg[ Vx_wu ];
+		SaJaPo__TaJaPo_l.appendChild( Kz_l );
+	}
+
+	//@@@
+	// AUD_METHODS
+	{
+		const TaKeDy_l = document.getElementById( 'Ne02_Hru04__SmzYz_Ta_l' );
+		HriNeDe__Ta_ChyStz( TaKeDy_l );
+
+		const SaNo__TaKeDy_l = Ko.TaKeDy_l.KwiYz_v;
+		SaNo__TaKeDy_l.forEach( function ( Ti_v, Vx_wu )
+		{
+			// SmaSme( "------ Vx_wu:", Vx_wu, Ti_v.KeDy_vsg );
+
+			//&&&
+			// ADD BTN
+			const Kz_l = document.createElement( 'option' );
+			Kz_l.className = 'HriNeTi WaDru_Ka';
+			Kz_l.innerText = `${SaPy_vvsg[ Ti_v.NiJaPo_wu ]} ${Ti_v.KeDy_vsg }` + ( Vx_wu & 1 ? "🔒":"🔓" );
+			Kz_l.value = Vx_wu;
+			TaKeDy_l.appendChild( Kz_l );
+		});
+
+		TaKeDy_l.selectedIndex = Ko.TaKeDy_l.KeDy_wu;
+	}
+
+	//@@@
+	// VIS_METHODS
+	{
+		const TaKeDy_l = document.getElementById( 'Ne03_Hry06__SmzYz__Ta_l' );
+		HriNeDe__Ta_ChyStz( TaKeDy_l );
+
+		const SaNo__TaKeDy_l = Ko.TaKeDy_l.KwiYz_v;
+		SaNo__TaKeDy_l.forEach( function ( Ti_v, Vx_wu )
+		{
+			// SmaSme( "------ Vx_wu:", Vx_wu, Ti_v.KeDy_vsg );
+
+			//&&&
+			// ADD BTN
+			const Kz_l = document.createElement( 'option' );
+			Kz_l.className = 'HriNeTi WaDru_Ka';
+			Kz_l.innerText = `${SaPy_vvsg[ Ti_v.NiJaPo_wu ]} ${Ti_v.KeDy_vsg }` + ( Vx_wu & 1 ? "🔒":"🔓" );
+			Kz_l.value = Vx_wu;
+			TaKeDy_l.appendChild( Kz_l );
+		});
+
+		TaKeDy_l.selectedIndex = Ko.TaKeDy_l.KeDy_wu;
+	}
+}
+
+
+//=====================================
+// USR END
+//=====================================

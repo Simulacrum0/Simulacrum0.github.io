@@ -1,4 +1,4 @@
-const DoWG__BriDzSa__Da_wuk = "193"; 
+const DoWG__BriDzSa__Da_wuk = "194"; 
 
 //==============================================
 //==============================================
@@ -1168,7 +1168,7 @@ async function DoWG__BriYa_SmzYz( Sa_l, FuYz_l )
 {
 	DoWG__BriYi_SmzYz( Sa_l );
 	const SmzYz_l = DoWG__SmzYz_v[ FuYz_l.YzVi_q ];
-	const KwiYz_k = Ko.KwiYz_l.KeDy_v[ Ko.KwiYz_l.KeDy_wu ];
+	const KwiYz_k = Ko.TaKeDy_l.KwiYz_v[ Ko.TaKeDy_l.KeDy_wu ];
 
 	//@@@
 	// LOG

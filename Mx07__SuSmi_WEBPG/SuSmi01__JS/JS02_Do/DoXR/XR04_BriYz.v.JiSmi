@@ -1,0 +1,593 @@
+//==============================================
+//==============================================
+// XR: Ya
+// XR_LIFE
+//==============================================
+//==============================================
+
+//-------------------------------------------------
+DoXR.BriYi = function( Sa_l )
+//-------------------------------------------------
+{
+	DoXR_GL__SmzYi_y( Sa_l );
+	Sa_l = null;
+}
+
+//-------------------------------------------------
+DoXR.Trx = function( Sa_l, e )
+//-------------------------------------------------
+{
+	SmaTrx( "[XR] Fail:", e );
+	DoXR.BriYi( Sa_l );
+}
+
+//-------------------------------------------------
+DoXR.BriYu = async function( Sa_l )
+//-------------------------------------------------
+{
+	if( KoDz__YzTrx_y() ) return;
+	//SmaSme( "DoXR__MzPoYe: RESUME" );
+	Sa_l.Smz_v.requestAnimationFrame( DoXR__MzPoYe );
+}
+
+//-------------------------------------------------
+DoXR.BriYe = async function( Sa_l )
+//-------------------------------------------------
+{
+	if( KoDz__YzTrx_y() ) return;
+	// Sa_l.Smz_v.requestAnimationFrame( Sa_l.MzPoYe );
+}
+
+//-------------------------------------------------
+DoWG.BriYo = function( Sa_l )
+//-------------------------------------------------
+{
+	if( KoDz__YzTrx_y() ) return;
+	//SmaSme( "DoXR_BriYo: PAUSE" );
+
+	// Pause Compute Tasks?
+	// Reset Clocks?
+}
+
+//-------------------------------------------------
+DoXR.BriYa = async function( Yz_k )
+//-------------------------------------------------
+{
+	//@@@
+	// API
+	const Sa_l = SySmz__YaFz_v( DoXR );
+	if( !navigator.xr )
+	{
+		SmaSme("[XR] No WebXR Browser & Device Found!" );
+		DoXR.BriYi( Sa_l );
+		return null;
+	}
+
+	//!!!
+	// navigator.xr.addEventListener('devicechange', MyFN_CheckForXRSupport );
+
+
+	//@@@
+	// REFSPC
+	// INLINE, aka SG via screendevice, uses "viewer" AR/VR are IMMERSIVE
+	const Sa__GeGo_vksg =
+		//"viewer" //screen
+		// 'unbounded' // no position tracking, Walking Outside?
+		"local"	// Local = Limited Space, Seated/Standing in place
+		// "local-floor" // Flat floor means consistent height via groundplane Y=0
+		// "bounded-floor" // has Fixed UserSpc via XRBoundedReferenceSpace.boundsGeometry
+	;
+
+	//@@@
+	// OPT
+	const KriYz_k =
+	{
+		requiredFeatures:
+		[
+			Sa__GeGo_vksg
+		]
+
+		// META ONLY FEATURES: Chromatic, Foveation, Refresh rate
+		// Refresh rate: low-refresh-rate, high-refresh-rate
+		// Chromatic aberration correction: ca-correction
+		// Foveation: no-fixed-foveation, low-fixed-foveation-level, medium-fixed-foveation-level, high-fixed-foveation-level
+		//
+		, optionalFeatures:
+		[
+			"hand-tracking"
+
+			// META
+			// , "low-refresh-rate"
+			//, "high-refresh-rate"
+			, "no-fixed-foveation"
+
+			// UNFOUND
+			// , "ca-correction"
+
+			// DEPTH
+			, "depth-sensing"
+
+			// ANCHORS
+			, "anchors"
+		]
+
+		// DEPTH_PREF
+		, depthSensing:
+		{
+			depthTypeRequest: [ "smooth", "raw" ]
+			, matchDepthView: true
+
+			//!!!
+			// CPU returns JS BUF, GPU returns [XR_GL] TEXTURE
+			// different read API methods
+			, usagePreference: [ "cpu-optimized", "gpu-optimized" ]
+
+			//"luminance-alpha"	LA 16bit LUMINANCE_ALPHA	2 times 8 bit as Uint16Array LA chns combine
+			// "unsigned-short"	R16UI 16 bit as Uint16Array Red chn
+			// "float32"	R32F	32 bit  as Float32Array Red chn
+			, dataFormatPreference: ["luminance-alpha", "unsigned-short", "float32" ]
+		}
+
+	};
+
+	const AR_yk = await navigator.xr.isSessionSupported( "immersive-ar", KriYz_k );
+	const VR_yk = await navigator.xr.isSessionSupported( "immersive-vr", KriYz_k );
+	// SR as 'inline' is just screen blit
+	//const SR_yk = await navigator.xr.isSessionSupported( "inline", KriYz_k );
+	SmaSme( "[XR] AR: ", AR_yk, "VR:", VR_yk );
+
+	if( !AR_yk && !VR_yk )
+	{
+		SmaSme("[XR] API Missing Options. Find a Modern Compatible Browser." );
+		DoXR.BriYi( Sa_l );
+		return null;
+	}
+
+
+	//----------------------------
+	// SESSION
+	//----------------------------
+	try
+	{
+		//@@@
+		// REQ
+		const Smz_v = await navigator.xr.requestSession( AR_yk ? "immersive-ar" : ( VR_yk ? "immersive-vr" : "inline" ), KriYz_k );
+
+		// opaque, additive, alpha-blend
+		SmaSme( "[XR] Smz:", Smz_v );
+		// interactionMode: [ "world-space", "scene-space" ]
+		SmaSme( "[XR] KuBry:", Smz_v.environmentBlendMode, Smz_v.interactionMode );
+		SmaSme( "[XR] TaMoKz:", Smz_v.inputSources );
+		Sa_l.Smz_v = Smz_v;
+
+
+		//@@@
+		// CANVAS
+		// XR_Display
+		Sa_l.Se__MzPo_l = document.createElement( "canvas" );
+		const GL_yk = await DoXR_GL__SmzYa_y( Sa_l );
+
+		//@@@
+		// REF SPACE
+		// Sa_l.viewerRefSpace = await Smz_v.requestReferenceSpace('viewer');
+		// Sa_l.localRefSpace = await Smz_v.requestReferenceSpace('local');
+		// Sa_l.unboundedRefSpace = await Smz_v.requestReferenceSpace('unbounded');
+		Sa_l.Sa__GeGo_l = await Smz_v.requestReferenceSpace( Sa__GeGo_vksg );
+
+		//@@@
+		// DPTH
+		if( DoJi_yk( Smz_v, "depthActive" ))
+		{
+			SmaSme( "[XR] DEPTH = On:", Smz_v.depthActive, "Use:", Smz_v.depthUsage, "Fmt:", Smz_v.depthFormat );
+		}
+
+		//@@@
+		// LGT
+		if( false )//DoJi_yk( Smz_v, "requestLightProbe" ))
+		{
+			// srgba8 (default value) or rgba16f
+			const SpeDx_l = Smz_v.preferredReflectionFormat;
+			const SpeYz_l = { reflectionFormat: SpeDx_l };
+			Sa_l.SpeKzFy_vk = await Smz_v.requestLightProbe( SpeYz_l );
+
+			SmaSme( "[XR] Spe:", SpeDx_l );
+		}
+		else
+		{
+			Sa_l.SpeKzFy_vk = false;
+		}
+
+		//@@@
+		// HAND JOINT RADII
+		Sa_l.BeFz_Gy_vwf = new Float32Array(25);
+		Sa_l.BeZx_Gy_vwf = new Float32Array(25);
+
+
+		//----------------------------
+		// KEYBOARD
+		//----------------------------
+		/*
+		if( Smz_v.isSystemKeyboardSupported )
+		{
+			let myTextField = null; // keep a global reference to read text later
+
+			myTextField = document.createElement("input");
+			myTextField.type = "text";
+			document.body.appendChild(myTextField);
+
+			// oninput event listener can respond to any change in the text element’s value as the user is typing.
+			myTextField.oninput = function()
+			{
+				// ...
+				var textFromUser = myTextField.value;
+				SmaSme( "TYPED:", textFromUser );
+			};
+		}
+		*/
+
+		//----------------------------
+		// SESSION
+		//----------------------------
+		Smz_v.onend = ( e ) =>
+		{
+			SmaSme( "[XR] Session END" );
+			DoXR.BriYi( Sa_l );
+		}
+
+		Smz_v.onblur = ( e ) =>
+		{
+			SmaSme( "[XR] Session PAUSE" );
+		}
+
+		Smz_v.onfocus = ( e ) =>
+		{
+			SmaSme( "[XR] Session RESUME" );
+		}
+
+		//----------------------------
+		// VIEW
+		//----------------------------
+		Smz_v.onvisibilitychange = (e) =>
+		{
+			switch( e.session.visibilityState )
+			{
+				case "visible-blurred":
+				{
+					break;
+				}
+				case "visible":
+				{
+					break;
+				}
+				case "hidden":
+				{
+					break;
+				}
+			};
+
+			SmaSme( "[XR] Vis:", e.session.visibilityState );
+		};
+
+		//----------------------------
+		// SPC
+		//----------------------------
+		Smz_v.onresetpose = (event) =>
+		{
+			SmaSme( "[XR] Reset POSE", e );
+		}
+		//discontinuity, recalibration, or device reset.
+		// update position/orientation
+		Sa_l.Sa__GeGo_l.onreset = (event) =>
+		{
+			SmaSme( "[XR] Reset SPC", e );
+			// CHG Sa_l.Sa__GeGo_l
+		}
+
+		//----------------------------
+		// CONTROLLER
+		//----------------------------
+
+		//%%%
+		// INPUTCHG
+		Smz_v.oninputsourceschange = ( e ) =>
+		{
+			SmaSme( "[XR] Inputs Changed", e );
+		}
+
+		//----------------------------
+		// SQUEEZE
+		//----------------------------
+		Smz_v.onsqueezestart = ( e ) =>
+		{
+			//SmaSme( "[XR_NOTICE] Squeeze Begin", e );
+		}
+		// SUCCESS or CANCEL
+		// Smz_v.onsqueezeend = ( e ) =>
+		// {
+		// 	SmaSme( "[XR_NOTICE] Squeeze End", e );
+		// }
+		Smz_v.onsqueeze = ( e ) =>
+		{
+			SmaSme( "[XR_NOTICE] Squeezed Success", e );
+		}
+
+
+		//----------------------------
+		// SELECT
+		//----------------------------
+		Smz_v.onselectstart = ( e ) =>
+		{
+			//SmaSme( "[XR_NOTICE] Select Begin", e );
+		}
+		// SUCCESS or CANCEL
+		// Smz_v.onselectend = ( e ) =>
+		// {
+		// 	SmaSme( "[XR_NOTICE] Select End", e );
+		// }
+		Smz_v.onselect = (e) =>
+		{
+			SmaSme( "[XR_NOTICE] Selected Success ( Use Target Ray )", e );
+
+			/*
+			let source = e.inputSource;
+			let FRM_k = e.FRM_k;
+			let targetRayPose = FRM_k.getPose( source.targetRaySpace, Sa_l.Sa__GeGo_l );
+			// let targetObject = ???.findTargetUsingRay( targetRay.transform.matrix );
+			if (source.targetRayMode === "tracked-pointer")
+			{
+
+			}
+			*/
+		}
+
+
+		//----------------------------
+		// UPDATE FWD w/ 'SELF'
+		//----------------------------
+		function MzPoYe( Gi_k, FRM_k )
+		{
+			if( !KoDz__YzYe_y() ) return;
+			DoXR__MzPoYe( Sa_l, Gi_k, FRM_k );
+			Smz_v.requestAnimationFrame( MzPoYe );
+		}
+
+		// SESSION FIRST
+		Smz_v.requestAnimationFrame( MzPoYe );
+	}
+	catch (e)
+	{
+		SmaTrx( "[XR] Session Not Available", e );
+		DoXR.Trx( Sa_l, e );
+		return null;
+	}
+
+	//@@@
+	// SUCCESS
+	return SySmz__YaFx_v( Sa_l );
+}
+
+
+//==============================================
+// UPDATE
+//==============================================
+function DoXR__MzPoYe( Sa_l, Gi_k, FRM_k )
+{
+	//@@@
+	// CFG
+	const Smz_v = FRM_k.session;
+
+
+	//@@@
+	// ANCHORS
+	// trackedAnchors RO: XRAnchorSet containing all anchors still tracked in the FRM_k.
+	//for (const anchor of frame.trackedAnchors)
+	// {
+	// 	const pose = frame.getPose(anchor.anchorSpace, referenceSpace);
+	//   }
+
+
+	//@@@
+	// LGT
+	if( Sa_l.SpeKzFy_vk )
+	{
+		// Use light estimate data to light the scene
+		let lightEstimate = FRM_k.getLightEstimate( SpeKzFy_vk );
+
+		//%%%
+		// Available properties
+		lightEstimate.sphericalHarmonicsCoefficients;
+		lightEstimate.primaryLightDirection;
+		lightEstimate.primaryLightIntensity;
+	}
+
+	//@@@
+	// CTL
+	for( let Fe_wu = 0; Fe_wu < Smz_v.inputSources.length; Fe_wu++ )
+	{
+		const SiMz_k = Smz_v.inputSources[ Fe_wu ];
+
+		//&&&
+		// HANDSIDE
+		// ( "left" or "right" or "none" )
+		let HANDSIDE_vsg = DoJi_yk( SiMz_k, "handedness" ) ? SiMz_k.handedness : "none";
+
+		//&&&
+		// GRIP
+		if( SiMz_k.gripSpace )
+		{
+			const gripPose = FRM_k.getPose( SiMz_k.gripSpace, Sa_l.Sa__GeGo_l );
+			if (gripPose)
+			{
+				const invXfm = gripPose.transform.inverse;
+				//SmaSme( "[XR] Grip:", gripPose.transform.matrix, invXfm.matrix );
+			}
+		}
+
+		//&&&
+		// TGT
+		// "gaze" eye or head aim
+		// "screen" touchtap
+		// "tracked-pointer"
+		// "transient-pointer" OS made
+		let RAYMODE_vsg = DoJi_yk( SiMz_k, "targetRayMode" ) ? SiMz_k.targetRayMode : "none";
+		if( SiMz_k.targetRaySpace )
+		{
+			// wf16 matrix
+			// const targetRayPose = FRM_k.getPose(inputSource.targetRaySpace, refSpace);
+			// if (targetRayPose)
+			// {
+			// if (source.targetRayMode === "tracked-pointer") {  myRenderTargetRayAsBeam(targetRayPose);  }
+			// }
+
+			// SmaSme( "[XR] CTL:", RAYMODE_vsg, HANDSIDE_vsg, SiMz_k.targetRaySpace );
+		}// TGT RAY
+
+		//&&&
+		// GAMEPAD`
+		// NOTE: XR_Gamepad Instances @ NOT_SAME as via navigator.getGamepads() (thus Gamepad.index is -1)
+		// NOTE: Gamepad.id STRING ( expected to be empty'
+		// Gamepad.connected is true until XRSession end
+		// Gamepad.mapping => "xr-standard".
+		// - BTN 0: trigger (Required), 1: squeeze, 2: touchpad, 3: thumbstick
+		// - AXES: 0,1: touchpad, 2,3 thumbstick
+		if( SiMz_k.gamepad )
+		{
+			const gamepad = SiMz_k.gamepad;
+			// SmaSme( "GAMEPAD", gamepad );
+
+			// POSE
+			// gamepad.timestamp
+			// gamepad.pose.hasPosition: true/false
+			// --- gamepad.pose.orientation[ wf4 ]
+			// --- gamepad.pose.position[ wf4 0001 ]
+
+
+			// AXES
+			// Array of wf  (no properties )
+			for( let a = 0; a < gamepad.axes.length; a++ )
+				{
+					if( gamepad.axes[ a ] )
+						{
+							//SmaSme( "Axis", a, " = ", gamepad.axes[ a ] );
+						}
+					}
+
+			//BTNS
+			for( let b = 0; b < gamepad.buttons.length; b++ )
+			{
+				//  if touched false, then value is '0' on touchpad BTN
+				if( gamepad.buttons[ b ].value )
+				{
+					//SmaSme( "Btn", b, "=", gamepad.buttons[ b ].value );
+				}
+			}// BTNS
+		}//GAMEPAD
+
+		//&&&
+		// HAND
+		if( SiMz_k.hand )
+		{
+			const HAND_k = SiMz_k.hand;
+
+			// XRJointPose
+			const JTN_k = HAND_k.get( "index-finger-tip" );
+			FRM_k.getJointPose( JTN_k, Sa_l.Sa__GeGo_l );
+
+			//&&&
+			// FINGER_JOINTS
+			if( false ) // Left, Right, or None
+			{
+				let BeFz_v = Smz_v.inputSources[0].hand;
+				if( BeFz_v ){ FRM_k.fillJointRadii(BeFz_v.values(), Sa_l.BeFz_Gy_vwf ); }
+
+				// let BeZx_v = Smz_v.inputSources[1].hand;
+				// if( BeZx_v ){ FRM_k.fillJointRadii( BeZx_v.values(), Sa_l.BeZx_Gy_vwf ); }
+			}
+		}// HAND
+	}// CTLs
+
+	//@@@
+	// VIEW
+	// HEAD POSE & EYE ITER
+	const Kwy_v = FRM_k.getViewerPose( Sa_l.Sa__GeGo_l );
+	const TaMz_v = Kwy_v.views;
+	const Kwy__Fo_wuk = TaMz_v.length;
+
+
+	// render for each view (eye) 2 @ Lf/Rt, or 1 @ Passthru Camera
+	for(let Kwy_wu = 0; Kwy_wu < Kwy__Fo_wuk; Kwy_wu++ )
+	{
+		const MzKz_v = TaMz_v[ Kwy_wu ];
+
+		//&&&
+		// EYE DPTH
+		// getDepthInformation() method will only return a result if the depth API was configured with mode set to "cpu-optimized".
+		const CPU_Gz_yk = false;
+		if( CPU_Gz_yk ) // Smz_v.depthActive )
+		{
+			//%%%
+			// CPU_DPTH
+			const CPU_depthData = FRM_k.getDepthInformation( MzKz_v );
+			if( CPU_depthData )
+			{
+
+				//%%%
+				//------
+				// to METERS
+				// const float32Data = new Float32Array( depthData.data );
+				// const index = x + y * depthData.width;
+				// const depthInMetres = float32Data[index] * depthInfo.rawValueToMeters;
+
+				//------
+				// to NRM_Ge
+				// Xfm Depth buffer coordinates (x,y) to normalized view coordinates range [0...1]:
+				// const normDepthBufferCoordinates = [ x / depthInfo.width, y / depthInfo.height, 0.0, 1.0 ];
+				// const normViewFromNormDepthBuffer = depthInfo.normDepthBufferFromNormView.inverse.matrix;
+				//
+				// Transform to normalized view coordinates (with the origin in upper left corner of the screen) using a matrix multiplication library:
+				// const normalizedViewCoordinates = normViewFromNormDepthBuffer * normDepthBufferCoordinates;
+				//
+				// The above can also be denormalized to obtain absolute coordinates using viewport dimensions:
+				// const viewCoordinates = [normalizedViewCoordinates[0] * viewport.width, normalizedViewCoordinates[1] * viewport.height];
+			}//CPU DEPTH DATA
+		}// CPU DEPTH
+
+		//%%%
+		// GPU_DPTH
+		// if( XRWebGLBinding.getDepthInformation() )
+		{
+			// XRDepthInformation.height Read only
+			// Contains the height of the depth buffer (number of rows).
+
+			// XRDepthInformation.normDepthBufferFromNormView Read only
+			// An XRRigidTransform that needs to be applied when indexing into the depth buffer. The transformation that the matrix represents changes the coordinate system from normalized view coordinates to normalized depth buffer coordinates that can then be scaled by depth buffer's width and height to obtain the absolute depth buffer coordinates.
+
+			// XRDepthInformation.rawValueToMeters Read only
+			// Contains the scale factor by which the raw depth values must be multiplied in order to get the depths in meters.
+
+			// XRWebGLDepthInformation.texture Read only Experimental
+			// A WebGLTexture containing depth buffer information as an opaque texture.
+
+			// XRDepthInformation.width Read only
+			// Contains the width of the depth buffer (number of columns).
+		}
+
+		//&&&
+		// RENDER
+		// MzKz_v.transform
+		// MzKz_v.projectionMatrix
+
+		//&&&
+		// CPY EYE SCRN
+		DoXR_GL__Cho_MzPo( Sa_l, FRM_k, MzKz_v );
+	}
+
+}
+
+
+
+//==============================================
+//==============================================
+// XR: Yi
+//==============================================
+//==============================================
