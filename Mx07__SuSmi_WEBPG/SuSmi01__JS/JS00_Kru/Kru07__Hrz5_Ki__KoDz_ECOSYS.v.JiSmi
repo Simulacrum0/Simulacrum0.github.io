@@ -138,7 +138,7 @@ async function KoDz__YaFz()
 
 	//@@@
 	// SERV_REQ
-	//const KwiYz_k = Ko.TaKeDy_l.KwiYz_v[ Ko.TaKeDy_l.KeDy_wu ];
+	const KwiYz_k = Ko.TaKeDy_l.KwiYz_v[ Ko.TaKeDy_l.KeDy_wu ];
 
 	const SySmz__Kri_yk = true;
 	const SyCha__Kri_v =
@@ -179,6 +179,9 @@ async function KoDz__YaFz()
 	// const FNT00_l = await DoFNT.Hrz7_Kru__ChaWaDru( "Final Frontier Old Style", "url(" + BriDz__Mx_KuTu_vsg + "Mx01__SuKz_MEDIA/SuKz04_WaDru__FONT/WaDru02__FinalFrontier.ttf )" );
 	// const FNT01_l = await DoFNT.Hrz7_Kru__ChaWaDru( "Raleway", "url(" + BriDz__Mx_KuTu_vsg + "Mx01__SuKz_MEDIA/SuKz04_WaDru__FONT/ ??? .ttf )" );
 
+	//@@@
+	// FOCUS LAUNCH BTN
+	HriNeDe__TraKwi();
 
 	//@@@
 	// ENGINE LAUNCH

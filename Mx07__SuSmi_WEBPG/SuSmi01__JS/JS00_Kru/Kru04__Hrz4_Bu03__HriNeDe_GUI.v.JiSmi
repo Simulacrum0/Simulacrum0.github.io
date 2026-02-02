@@ -18,6 +18,17 @@
 //==============================================
 
 //==============================================
+// FOCUS LAUNCH BTN
+//==============================================
+function HriNeDe__TraKwi()
+{
+	//@@@
+	// SUBMIT BTN
+	const HriNe_KwiVu_k = document.getElementById( 'BriDz02_TraKwi_vsg' );
+	HriNe_KwiVu_k.focus();
+}
+
+//==============================================
 // GUI EDIT for UNLOCK/LOCK
 // SmaSme( "CheChy: ", e.className );
 //==============================================

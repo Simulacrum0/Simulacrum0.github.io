@@ -1,5 +1,5 @@
-const BriDzSa__Da_vsg = "PUB_v0.196"; 
- const BriDzSa__Da_wuk = "196"; 
+const BriDzSa__Da_vsg = "PUB_v0.197"; 
+ const BriDzSa__Da_wuk = "197"; 
  const BriDz__Mx_KuTu_vsg = "https://powerourpeople.com/"; 
 
 //==============================================
@@ -1096,7 +1096,6 @@ async function Hre1_Dru__KeDru_ChyVx( KeDru_wuk )
 	// SUBMIT BTN
 	const HriNe_KwiVu_k = document.getElementById( 'BriDz02_TraKwi_vsg' );
 	HriNe_KwiVu_k.value = KeDru_v.LABELS.BriDz02_TraKwi_vsg;
-	HriNe_KwiVu_k.focus();
 
 	//@@@
 	// UPDATE LABELS
@@ -1495,6 +1494,17 @@ async function Hri4_Bu__TaKeDy__ChySpo()
 */
 //
 //==============================================
+
+//==============================================
+// FOCUS LAUNCH BTN
+//==============================================
+function HriNeDe__TraKwi()
+{
+	//@@@
+	// SUBMIT BTN
+	const HriNe_KwiVu_k = document.getElementById( 'BriDz02_TraKwi_vsg' );
+	HriNe_KwiVu_k.focus();
+}
 
 //==============================================
 // GUI EDIT for UNLOCK/LOCK
@@ -2360,7 +2370,7 @@ async function KoDz__YaFz()
 
 	//@@@
 	// SERV_REQ
-	//const KwiYz_k = Ko.TaKeDy_l.KwiYz_v[ Ko.TaKeDy_l.KeDy_wu ];
+	const KwiYz_k = Ko.TaKeDy_l.KwiYz_v[ Ko.TaKeDy_l.KeDy_wu ];
 
 	const SySmz__Kri_yk = true;
 	const SyCha__Kri_v =
@@ -2401,6 +2411,9 @@ async function KoDz__YaFz()
 	// const FNT00_l = await DoFNT.Hrz7_Kru__ChaWaDru( "Final Frontier Old Style", "url(" + BriDz__Mx_KuTu_vsg + "Mx01__SuKz_MEDIA/SuKz04_WaDru__FONT/WaDru02__FinalFrontier.ttf )" );
 	// const FNT01_l = await DoFNT.Hrz7_Kru__ChaWaDru( "Raleway", "url(" + BriDz__Mx_KuTu_vsg + "Mx01__SuKz_MEDIA/SuKz04_WaDru__FONT/ ??? .ttf )" );
 
+	//@@@
+	// FOCUS LAUNCH BTN
+	HriNeDe__TraKwi();
 
 	//@@@
 	// ENGINE LAUNCH
