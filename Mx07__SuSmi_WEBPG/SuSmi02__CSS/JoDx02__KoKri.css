@@ -1,4 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Color+Emoji&family=Raleway:ital,wght@0,400..900;1,400..900&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400..900;1,400..900&display=swap'); */
+
+/* @import url('https://fonts.googleapis.com/css2?family=Noto+Color+Emoji&family=Raleway:ital,wght@0,400..900;1,400..900&display=swap'); */
+
 
 /* !!!!!!!!!!!!!!!!!!
 IMPORT rules must appear at the top, before any style declaration
@@ -31,6 +34,43 @@ MxPo_Trx
 	font-size: 1.0rem;
 }
 
+/*@@@@@@@@@@@@@@@
+FONT
+@@@@@@@@@@@@@@@*/
+.WaDru_SmuHi
+{
+	/* font-family: "Raleway", sans-serif; */
+	font-family: sans-serif;
+	font-optical-sizing: auto;
+	font-weight: 800;
+	font-style: normal;
+}
+
+.WaDru_Bz
+{
+	/* font-family: "Raleway", sans-serif; */
+	font-family: sans-serif;
+	font-optical-sizing: auto;
+	font-weight: 600;
+	font-style: normal;
+}
+
+.WaDru_Ka
+{
+	/* font-family: "Raleway", sans-serif; */
+	font-family: sans-serif;
+	font-optical-sizing: auto;
+	font-weight: 400;
+	font-style: italic;
+}
+
+.WaDru_Py
+{
+	/* font-family: "Noto Color Emoji", sans-serif; */
+	font-family: sans-serif;
+	font-weight: 400;
+	font-style: normal;
+}
 
 /*@@@@@@@@@@@@@@@
 ICONS
@@ -75,40 +115,6 @@ ICONS
 .GwzDo_SPEED { background-position: -540px -324px;}
 .GwzDo_BATTERY { background-position: -648px -324px;}
 .GwzDo_PLUG { background-position: -756px -324px;}
-
-/*@@@@@@@@@@@@@@@
-FONT
-@@@@@@@@@@@@@@@*/
-.WaDru_SmuHi
-{
-	font-family: "Raleway", sans-serif;
-	font-optical-sizing: auto;
-	font-weight: 800;
-	font-style: normal;
-}
-
-.WaDru_Bz
-{
-	font-family: "Raleway", sans-serif;
-	font-optical-sizing: auto;
-	font-weight: 600;
-	font-style: normal;
-}
-
-.WaDru_Ka
-{
-	font-family: "Raleway", sans-serif;
-	font-optical-sizing: auto;
-	font-weight: 400;
-	font-style: italic;
-}
-
-.WaDru_Py
-{
-	font-family: "Noto Color Emoji", sans-serif;
-	font-weight: 400;
-	font-style: normal;
-}
 
 
 /*@@@@@@@@@@@@@@@
