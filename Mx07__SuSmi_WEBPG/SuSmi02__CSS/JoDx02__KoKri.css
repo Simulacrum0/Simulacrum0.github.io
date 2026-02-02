@@ -782,6 +782,11 @@ ELM_FX
 	transition: 0.3s
 }
 
+.HriNe__SmoTy
+{
+	display:none;
+}
+
 /* @@@@@@@@@@@@@@@
 CSS END
 @@@@@@@@@@@@@@@ */

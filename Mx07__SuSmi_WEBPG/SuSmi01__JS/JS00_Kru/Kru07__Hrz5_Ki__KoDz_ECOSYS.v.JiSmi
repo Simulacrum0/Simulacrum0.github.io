@@ -144,6 +144,7 @@ async function KoDz__YaFz()
 	const SyCha__Kri_v =
 	[
 		Hrz7_Kru__ChaSySmz( "Hrz4_Bu", "BriDzYz", "Do", "NODE", SySmz__Kri_yk, { YzTi_wu: "0" } )
+		, Hrz7_Kru__ChaSySmz( "Hry5_Smz", "WzMx", "Do", "WG", SySmz__Kri_yk, { YzVi_q: KwiYz_k.Ne03_Hry06__SmzYz_q } )
 		, Hrz7_Kru__ChaSySmz( "Hre1_Dru", "KeDruPy", "Do", "TAK", SySmz__Kri_yk, { Si_KeDru: "en" } )
 		, Hrz7_Kru__ChaSySmz( "Hra6_Ku", "KoToKz", "Do", "FS", SySmz__Kri_yk, { VaDyFy: "true" } )
 		, Hrz7_Kru__ChaSySmz( "Hrx4_Che", "MoDxGri", "Do", "TRU", SySmz__Kri_yk, { YzTi_wu: "0" } )
@@ -192,10 +193,8 @@ async function KoDz__YaFx( )
 	//@@@
 	// SERV_OPT
 	const SySmz__HoKri_yk = false;
-	const KwiYz_k = Ko.TaKeDy_l.KwiYz_v[ Ko.TaKeDy_l.KeDy_wu ];
-
 	const SySmz__Kri_yk = true;
-	Hrz7_Kru__ChaSySmz( "Hry5_Smz", "WzMx", "Do", "WG", SySmz__Kri_yk, { YzVi_q: KwiYz_k.Ne03_Hry06__SmzYz_q } )
+	const KwiYz_k = Ko.TaKeDy_l.KwiYz_v[ Ko.TaKeDy_l.KeDy_wu ];
 
 	// DoXR
 	if( KwiYz_k.Ne03_Hry02__HriKe_y ) { Hrz7_Kru__ChaSySmz( "Hri2_Ke", "BzMe", "Do", "XR", SySmz__HoKri_yk, { YzTi_wu: "0" } ); }
