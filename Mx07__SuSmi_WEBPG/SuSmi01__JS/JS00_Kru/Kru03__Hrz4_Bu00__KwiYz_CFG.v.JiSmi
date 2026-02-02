@@ -64,7 +64,7 @@ function Hrz4_Bu__KwiYz__ChyDe( Va_vksg, NiJaPo_wuk, KeDru_wuk )
 	KwiYz_k.Ne03_Hry02__HriKe_y = false;
 
 	// 'De'
-	KwiYz_k.Ne03_Hry06__SmzYz_q = 2;
+	KwiYz_k.Ne03_Hry06__SmzYz_q = 1;
 
 	//!!!
 	// METHOD

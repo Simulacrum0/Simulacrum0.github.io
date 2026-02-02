@@ -52,11 +52,13 @@
 		, "Ne03_Hry01__MzPo_vsg": "Camera"
 		, "Ne03_Hry02__HriKe_vsg": "XR"
 		, "Ne03_Hry03__MxPoGyHi_vsg": "Fullscreen"
-		, "Ne03_Hry04__MxPoGry_vsg": "All Screens"
+		, "Ne03_Hry04__MxPoGry_vsg": "Use All Screens"
 		, "Ne03_Hry05__PoGy_vsg": "HDR"
 		, "Ne03_Hry06__SmzYz_vsg": "Method"
 		, "Ne03_Hry07__GyBraHi_vsg": "Quality"
 		, "Ne03_Hry08__TyGy_vsg": "Detail"
+		, "Ne03_Hry09__Ka_vsg": "Devices"
+
 
 
 		, "Ne04_Hx00__Bz_vsg": "About MicroCosm"
@@ -66,7 +68,8 @@
 
 
 		, "Ne05_Grx00__Bz_vsg": "Legal, Copyrights, & Credits"
-		, "Ne05_Grx01__Ka00_vsg": "Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. Legal Notices go here. "
+		, "Ne05_Grx01__Ka00_vsg": "Legal Notices: Copyright 2026 PowerOurPeople. Licensed under the Apache License, Version 2.0 (the 'License'); -- You may not use this file except in compliance with the License. -- You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0 Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+
 		, "Ne05_Grx01__Ka01_vsg": "Copyright Notices go here"
 		, "Ne05_Grx01__Ka02_vsg": "Credit Notices go here"
 

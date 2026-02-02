@@ -103,12 +103,6 @@ async function KoDz__YaFz()
 	Hrz4_Bu__TaKeDy__FyGry();
 	// LOAD CULTURE
 	await Hri4_Bu__TaKeDy__ChySpo();
-	// LOAD LAUNCH CANVAS
-	// which fills GUI VALUES
-	HryMx00_KeMeKwi();
-	// GUI TOPIC_SELECT WHO
-	Hrz4_Bu__ChyNeKu( 0 );
-
 
 	//@@@
 	// BOOT
@@ -161,6 +155,7 @@ async function KoDz__YaFz()
 		//, Hrz7_Kru__ChaSySmz( "Hra1_Mz", "MzDrx", "Do", "PTR", SySmz__Kri_yk, { YzTi_wu: "0" } )
 		//, Hrz7_Kru__ChaSySmz( "Hr", "", "Do", "ABC", SySmz__Kri_yk, { YzTi_wu: "0" } )
 
+
 	];
 	// SYNC_PNT
 	const SyCha__FyGry_yk = await Promise.all( SyCha__Kri_v );
@@ -176,12 +171,28 @@ async function KoDz__YaFz()
 
 	//@@@
 	// FNT
-	// const FNT00_l = await DoFNT.Hrz7_Kru__ChaWaDru( "Final Frontier Old Style", "url(" + BriDz__Mx_KuTu_vsg + "Mx01__SuKz_MEDIA/SuKz04_WaDru__FONT/WaDru02__FinalFrontier.ttf )" );
-	// const FNT01_l = await DoFNT.Hrz7_Kru__ChaWaDru( "Raleway", "url(" + BriDz__Mx_KuTu_vsg + "Mx01__SuKz_MEDIA/SuKz04_WaDru__FONT/ ??? .ttf )" );
+	const WaDru__Kri_v =
+	[
+		DoFNT.Hrz7_Kru__ChaWaDru( "Segoe UI Emoji", "url(" + BriDz__Mx_KuTu_vsg + "Mx01__SuKz_MEDIA/SuKz04_WaDru__FONT/WaDru00__Flags.ttf )" )
+		, DoFNT.Hrz7_Kru__ChaWaDru( "Roboto Condensed", "url(" + BriDz__Mx_KuTu_vsg + "Mx01__SuKz_MEDIA/SuKz04_WaDru__FONT/WaDru01__Thin.ttf )" )
+		, DoFNT.Hrz7_Kru__ChaWaDru( "Final Frontier Old Style", "url(" + BriDz__Mx_KuTu_vsg + "Mx01__SuKz_MEDIA/SuKz04_WaDru__FONT/WaDru02__FinalFrontier.ttf )" )
+	];
+
+	const WaDru__Kri_yk = await Promise.all( WaDru__Kri_v );
+	// SmaSme( "SERV REQ", SyCha__FyGry_yk );
+	if( !WaDru__Kri_yk ){ return; }
+
+	//@@@
+	// LOAD LAUNCH CANVAS
+	// which fills GUI VALUES
+	HryMx00_KeMeKwi();
+
+	// GUI TOPIC_SELECT WHO
+	Hrz4_Bu__ChyNeKu( 0 );
 
 	//@@@
 	// FOCUS LAUNCH BTN
-	HriNeDe__TraKwi();
+	//HriNeDe__TraKwi();
 
 	//@@@
 	// ENGINE LAUNCH

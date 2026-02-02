@@ -239,7 +239,7 @@ async function Hri4_Bu__TaKeDy__ChySpo()
 		// LANG DROPDOWN ADD BTN
 		{
 			const Kz_l = document.createElement( 'option' );
-			Kz_l.className = 'HriNeTi WaDru_Py';
+			Kz_l.className = 'HriNeTi WaDru_Ku';
 
 			Kz_l.innerText = `${Ti_v.KuGwz} ${Ti_v.Va}`;
 
@@ -252,8 +252,16 @@ async function Hri4_Bu__TaKeDy__ChySpo()
 		// LANG FLAG GRID ADD BTN
 		{
 			const Kz_l = document.createElement( 'span' );
-			Kz_l.className = 'NiJaPo_Va WaDru_Py';
-			Kz_l.onclick = function() { Ne00_KeDy00__NiKeDru__JeChy( Vx_wu ); }
+
+			if( Vx_wu & 4 )
+			{
+				Kz_l.className = 'NiJaPo_Va NiJaPo_VaGri WaDru_Ku';
+				Kz_l.onclick = function() { Ne00_KeDy00__NiKeDru__JeChy( Vx_wu ); }
+			}
+			else
+			{
+				Kz_l.className = 'NiJaPo_Va NiJaPo_VaRu WaDru_Ku';
+			}
 
 			Kz_l.innerText = Ti_v.KuGwz;
 			KeDru__TaJaPo_l.appendChild( Kz_l );
@@ -276,7 +284,7 @@ async function Hri4_Bu__TaKeDy__ChySpo()
 		// ADD BTN
 
 		const Kz_l = document.createElement( 'span' );
-		Kz_l.className = 'NiJaPo_Va';
+		Kz_l.className = 'NiJaPo_Va NiJaPo_VaVo';
 		Kz_l.onclick = function() { Hrz4_Bu__KwiYz__SaPy_ChyYe( Vx_wu ); }
 
 		Kz_l.innerText = SaPy_vvsg[ Vx_wu ];

@@ -1,27 +1,22 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400..900;1,400..900&display=swap'); */
-
-/* @import url('https://fonts.googleapis.com/css2?family=Noto+Color+Emoji&family=Raleway:ital,wght@0,400..900;1,400..900&display=swap'); */
-
-
 /* !!!!!!!!!!!!!!!!!!
 IMPORT rules must appear at the top, before any style declaration
+RULES MATCHED by ORDER in CSS file here, no 'class order'!
 !!!!!!!!!!!!!!!!!!!!!!!
-*/
-/* --------------
+
+@@@@@@@@@@@@@@@
+CSS BEGIN
+--------------
 NOTE:
 Sides: top, right, bottom left
 Corners: top-left, top-right, bottom-right, bottom-left
 --------------
-*/
-/* @@@@@@@@@@@@@@@
-CSS BEGIN
-
 3 DIVs as 'SCREENs'
+--------------
 MxPo_Bri
 MxPo_Kwi
 MxPo_Trx
-
 @@@@@@@@@@@@@@@ */
+
 *
 {
 	/* content-box WIDTH/HEIGHT ignore padding, margin, & border */
@@ -40,8 +35,7 @@ FONT
 .WaDru_SmuHi
 {
 	/* font-family: "Raleway", sans-serif; */
-	font-family: sans-serif;
-	font-optical-sizing: auto;
+	font-family: "Final Frontier Old Style", sans-serif;
 	font-weight: 800;
 	font-style: normal;
 }
@@ -50,24 +44,28 @@ FONT
 {
 	/* font-family: "Raleway", sans-serif; */
 	font-family: sans-serif;
-	font-optical-sizing: auto;
 	font-weight: 600;
 	font-style: normal;
 }
 
 .WaDru_Ka
 {
-	/* font-family: "Raleway", sans-serif; */
-	font-family: sans-serif;
-	font-optical-sizing: auto;
+	font-family: "Roboto Condensed", sans-serif;
 	font-weight: 400;
-	font-style: italic;
+	font-style: normal;
 }
 
 .WaDru_Py
 {
-	/* font-family: "Noto Color Emoji", sans-serif; */
 	font-family: sans-serif;
+	font-weight: 400;
+	font-style: normal;
+}
+
+.WaDru_Ku
+{
+	/* Provides FLAGS that show correctly on Win11 and don't lag on Apple */
+	font-family: "Segoe UI Emoji", sans-serif;
 	font-weight: 400;
 	font-style: normal;
 }
@@ -208,7 +206,6 @@ PANELS
 	/* CONSIDER 'DBG' BARS, only 'width' since Trx needs expand for centering */
 	width: calc( 100dvw - 3rem );
 	max-height: calc( 100dvh - 6rem );
-
 	overflow-x: auto;
 	overflow-y: auto;
 
@@ -220,15 +217,15 @@ PANELS
 .Ku01_BzVa_GeBre
 {
 	display: flex;
+	flex-wrap: wrap;
 
     justify-content: center;
     align-items: center;
 
 	box-sizing: border-box;
-	flex-wrap: wrap;
 
-	margin: 0.50rem;
-	padding: 0.25rem;
+	margin: 0.50rem 0.25rem;
+	padding: 0.125rem;
 }
 
 /* PANEL_GUI ---------------------- */
@@ -255,7 +252,7 @@ PANELS
 		/* display: block; */
 		display: grid;
 		/* 2 columns */
-		grid-template-columns: 20% 80%;
+		grid-template-columns: 12.5% 87.5%;
 	}
 }
 
@@ -275,8 +272,7 @@ PANELS
 
 		border-left: solid 0.125rem #FFF;
 		border-right: solid 0.125rem #FFF;
-
-		border-top: none 0.0 rem;
+		border-top: none;
 		border-bottom: solid 0.125rem #FFF;
 	}
 
@@ -290,7 +286,6 @@ PANELS
 
 		border-left: none;
 		border-right: solid 0.125rem #FFF;
-
 		border-top: solid 0.125rem #FFF;
 		border-bottom: solid 0.125rem #FFF;
 	}
@@ -325,21 +320,24 @@ PANELS
 /* PANEL__TOPIC_CHOICES ----------------------------- */
 .Ku03_NeKu
 {
-	display: grid;
-
 	/* PANEL__TOPIC_CHOICES---WIDE */
 	@media (min-aspect-ratio: 1/1)
 	{
+		display: grid;
 		grid-template-columns: 50% 50%;
 	}
 	@media (min-aspect-ratio: 9/5 )
 	{
+		display: grid;
 		grid-template-columns: 33% 33% 33%;
 	}
 	/* PANEL__TOPIC_CHOICES---TALL */
 	@media (max-aspect-ratio: 1/1)
 	{
-		grid-template-columns: 100%;
+		display: flex;
+		flex-wrap: wrap;
+		align-items: start;
+		justify-items: start;
 	}
 }
 
@@ -406,8 +404,19 @@ TEXT
 .HriNzVa:hover
 {
 	font-size: 1.5rem;
-	box-shadow: 0 0 1.5rem #FFF;
+
+	/* TEXT__MENU_TITLE---WIDE */
+	@media (min-aspect-ratio: 1/1)
+	{
+		box-shadow: 0 -0.5em 1.0rem #CCC;
+	}
+	/* TEXT__MENU_TITLE---TALL */
+	@media (max-aspect-ratio: 1/1)
+	{
+		box-shadow: -0.5em 0 1.0rem #CCC;
+	}
 }
+
 
 /* TEXT__MENU_SELECTED */
 .HriNzVa_Se
@@ -415,7 +424,17 @@ TEXT
 	color: #FFF;
 	background-color: #0008;
 	font-size: 1.25rem;
-	box-shadow: 0 0 1.5rem #D22;
+
+	/* TEXT__MENU_TITLE---WIDE */
+	@media (min-aspect-ratio: 1/1)
+	{
+		box-shadow: 0 -0.5em 1.0rem #AAA;
+	}
+	/* TEXT__MENU_TITLE---TALL */
+	@media (max-aspect-ratio: 1/1)
+	{
+		box-shadow: -0.5em 0 1.0rem #AAA;
+	}
 }
 
 /* TEXT__MENU_TITLE---WIDE */
@@ -450,6 +469,28 @@ TEXT
 
 /* TEXT__ITEMS---------------------------------------------------- */
 
+/* TEXT__SECTION_INDEX */
+.HriNeVx
+{
+	display: flex;
+	flex-wrap: wrap;
+
+	text-align:left;
+	color: #888;
+	background-color: #2228;
+	/* background-color: #313F; */
+
+	border-radius: 1.0rem;
+
+	border-left: none;
+	border-right: none;
+	border-top: solid 0.125rem #4448;
+	border-bottom: none;
+
+	margin: 0.50rem;
+	padding: 0.25rem;
+}
+
 /* TEXT__LABELS */
 .HriNeVa
 {
@@ -463,24 +504,11 @@ TEXT
 	background-color: #0008;
 }
 
-/* TEXT__INDEX_or_SLIDER */
-.HriNeVx
-{
-	display: inline-flex;
-	text-align:left;
-	color: #888;
-	background-color: #0008;
-	/* SLIDER_CLR */
-	accent-color: #D22;
-
-	margin: 0.25rem 0.0rem;
-	padding: 0.25rem;
-}
-
 /* TEXT__LIST_ELEMENTS */
 .HriNeTi
 /* TEXT__TYPING_INPUT */
 , .KeDru_MiPo
+, .HriNe_Tra
 {
 	display: inline-flex;
 	text-align:left;
@@ -488,40 +516,31 @@ TEXT
 	margin: 0.25rem 0.125rem;
 	padding: 0.25rem 1.00rem;
 
-	/* color: #000;
-	background-color: #BBB8; */
 	color: #FFF;
 	background-color: #444F;
 
 	border-radius: 1.5rem;
-	border: 0.125rem solid #FFF;
+	border: solid 0.125rem#FFF;
 }
 
 /* TEXT__BTN */
 .HriNe_Tra
 {
-	display: inline-flex;
 	text-align:center;
-
-	border-radius: 1.5rem;
-	border: 0.125rem solid #FFF;
-
 	margin: 0.25rem;
 	padding: 0.25rem 0.75rem;
-
-	color: #FFF;
-	background-color: #6668;
 }
 
 /* GLOW ON HOVER */
 .TreHy:hover
 {
-	box-shadow: 0 0 1.0rem #FFF;
+	box-shadow: 0.0 0 1.0rem #FFF;
 }
+
+/* GLOW FOCUS */
 .TreHy:focus
 {
-	/* GLOW */
-	box-shadow: 0 0 2.0rem #FFF;
+	box-shadow: 0 0 1.0rem #AAA;
 }
 
 /* TEXT__DOCUMENT HEADER */
@@ -563,14 +582,29 @@ TEXT
 ELEMENTS IMAGE GRID
 @@@@@@@@@@@@@@@*/
 
-/* EMOJI SELECTOR */
+/* SPRITE ZONE */
 .TaJaPo_HryKu
 {
 	display: grid;
-	place-items: stretch stretch;
+	place-items: start start;
+	grid-template-columns: 8.0rem calc( 100% - 8.0rem );
 
-	grid-template-columns: 8.0rem calc( 100% - 8.0rem);
+	width: 100%;
+	height: 8.0rem;
 
+	margin: 1.0rem 0.50rem;
+	padding: 0.0rem;
+}
+
+/* SPRITE CURRENT IMAGE */
+.NiJaPo_Fe
+{
+	display: block;
+	place-items: start start;
+	/* place-items: center center; */
+	text-align: center;
+
+	font-size: 6.0rem;
 	width: 100%;
 	height: 8.0rem;
 
@@ -578,61 +612,74 @@ ELEMENTS IMAGE GRID
 	padding: 0.0rem;
 }
 
-/* EMOJI CURRENT */
-.NiJaPo_Fe
-{
-	display: block;
-	place-items: center center;
-	text-align: center;
-
-	font-size: 6.0rem;
-	width: 100%;
-	height: 8.0rem;
-
-	margin: 0.0rem;
-	padding: 0.0rem;
-}
-
-/* EMOJI SELECTOR */
+/* SPRITE SELECTOR BOX */
 .NiJaPo_NeKu
 {
 	display: inline-flex;
 	flex-wrap: wrap;
-    /* flex-direction: column; */
 
+	border-radius: 0.0rem;
+	border: solid 0.125rem #888F;
 
-	width: 100%;
 	height: 8.0rem;
 
 	overflow-x: none;
 	overflow-y: scroll;
 
-	margin: 0.0rem;
+	margin: 0.25rem;
 	padding: 0.0rem;
-
 }
-/* EMOJI LIST */
+
+/* SPRITE LIST */
 .NiJaPo_Va
 {
-	font-size: 2.0rem;
-	margin: 0.0rem;
-	padding: 0.0rem;
+	font-size: 1.925rem;
+	margin: 0.0625rem;
+
+	border-radius: 0.25rem;
+
 	text-align: center;
-
 	background-color: #0000;
-	filter: grayscale( 85% );
-
-	/* background-color: #D22;
-	border-radius: 0.0rem;
-	border: 0.125rem solid #0F0; */
 }
-.NiJaPo_Va:Hover
+
+.NiJaPo_VaRu
+{
+	font-size: 1.75rem;
+	padding: 0.0rem;
+	filter: brightness( 25% );
+}
+
+.NiJaPo_VaRu:Hover
+{
+	filter: brightness( 85% );
+	transition: 1.0s;
+}
+
+ /* FLAG AVAILABLE */
+.NiJaPo_VaGri
+{
+	padding: 0.125rem;
+}
+
+.NiJaPo_VaGri:Hover
+{
+	background-color: #FFF;
+	transition: 1.0s;
+}
+
+ /* EMOJI to GRAYSCALE */
+.NiJaPo_VaVo
+{
+	padding: 0.0625rem;
+	filter: grayscale( 85% );
+}
+
+.NiJaPo_VaVo:Hover
 {
 	background-color: #FFF;
 	filter: grayscale( 0% );
 	transition: 1.0s;
 }
-
 
 /*@@@@@@@@@@@@@@@
 ELEMENTS MISC
@@ -649,8 +696,29 @@ ELEMENTS MISC
 	padding: 0.0rem;
 
 	border-radius: 2.0rem;
-	border: 0.125rem solid #FFFF;
+	border: solid 0.125rem #FFFF;
 }
+
+/* SLIDER */
+/* TEXT__SECTION_INDEX */
+.HriNeVo
+{
+	display: inline-flex;
+	text-align:center;
+
+	color: #FFFF;
+	background-color: #0008;
+
+	/* SLIDER_CLR */
+	accent-color: #D22;
+
+	border-radius: 0.0rem;
+	border: none;
+
+	margin: 0.0rem;
+	padding: 0.0rem;
+}
+
 
 /* BTN SUBMIT ===> LAUNCH BTN RED */
 /* input[type=submit] */
@@ -664,7 +732,7 @@ ELEMENTS MISC
 	padding: 0.25rem;
 
 	border-radius: 2.0rem;
-	border: 0.1rem solid #FFF;
+	border: solid 0.1rem#FFF;
 	background-color: #D22;
 }
 
@@ -763,6 +831,21 @@ input:checked + .VuHyHo:before
 /*@@@@@@@@@@@@@@@
 ELM_FX
 @@@@@@@@@@@@@@@*/
+
+/* SECTION LINE */
+hr
+{
+    display: block;
+	border-radius: 1.0rem;
+
+	border-left: none;
+	border-right: none;
+	border-bottom: solid 0.125rem #6668;
+	border-top: none;
+
+    margin: 0.0 rem;
+    padding: 0.0 rem;
+}
 
 /* ELM__NOT_IN_USE */
 .HriNe_TraHo
