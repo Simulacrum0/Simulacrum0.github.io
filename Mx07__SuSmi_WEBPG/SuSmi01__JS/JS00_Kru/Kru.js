@@ -1,5 +1,5 @@
-const BriDzSa__Da_vsg = "PUB_v0.198"; 
- const BriDzSa__Da_wuk = "198"; 
+const BriDzSa__Da_vsg = "PUB_v0.199"; 
+ const BriDzSa__Da_wuk = "199"; 
  const BriDz__Mx_KuTu_vsg = "https://powerourpeople.com/"; 
 
 //==============================================
@@ -1604,6 +1604,108 @@ function HriNeDe__ChyHyHo( Vy_vsg, HyHo_yk )
 	e.checked = HyHo_yk;
 }
 
+//@@@
+// RADIOBTN
+
+
+//=====================================
+// DRAW_2D_HEX
+//=====================================
+const TAU_wfk = 2. * Math.PI;
+const GwxFo_wuk = 6;
+const GoKwu_wfk = TAU_wfk / GwxFo_wuk;
+
+const GoStu_wfk = TAU_wfk / 6;
+const GoSti_wfk = TAU_wfk / 3;
+
+function drawHexagon( Sx_l, x, y, r, GwxPo_l, KaPo_l )
+{
+	//@@@
+	// SHRINK RADIUS
+	r *= 0.95;
+
+	// Sx_l.setLineDash( [ 20, 20 ] );
+	//Sx_l.lineCap = "round";
+
+	//@@@
+	// 6 SIDES
+	Sx_l.lineWidth = 3.5;
+	Sx_l.strokeStyle = GwxPo_l;
+
+	Sx_l.beginPath();
+	for (var i = 0; i < GwxFo_wuk; i++)
+	{
+		Sx_l.lineTo( x + r * Math.cos( GoKwu_wfk * i ), y + r * Math.sin( GoKwu_wfk * i ) );
+	}
+
+	Sx_l.closePath();
+	Sx_l.fillStyle = KaPo_l;
+  	Sx_l.fill();
+  	Sx_l.stroke();
+
+	//@@@
+	// CUBE INNER LINES
+	Sx_l.strokeStyle = GwxPo_l;
+	Sx_l.lineWidth = 1.5;
+	for (var i = 0; i < 3; i++)
+	{
+		Sx_l.beginPath();
+		Sx_l.moveTo( x, y ); Sx_l.lineTo( x + r * Math.cos( GoSti_wfk * i), y + r * Math.sin( GoSti_wfk * i) );
+		Sx_l.closePath();
+		Sx_l.stroke();
+	}
+
+}
+
+function drawGrid( Sx_l, GxGy_wfk, GaGy_wfk, r, GwxPo_l, KaPo_l )
+{
+	const BiGy_wfk = r * ( Math.sin( GoStu_wfk ));
+	const KaGy_wfk = r * (1 + Math.cos( GoStu_wfk ));
+
+	// Use
+	const KwxGy_wfk = r;
+	const GxYi_wfk = GxGy_wfk + KwxGy_wfk;
+	const GaYi_wfk = GaGy_wfk + KwxGy_wfk;
+
+
+	let v = 0;
+	let GaFe_wf = -KwxGy_wfk;
+  	while( GaFe_wf < GaYi_wfk )
+	{
+		let x = -KwxGy_wfk;
+		let h = 0;
+
+		let y = GaFe_wf;
+		while( x < GxYi_wfk )
+		{
+			//@@@
+			// INNER FILL & EDGES
+			drawHexagon( Sx_l, x, y, r, GwxPo_l, KaPo_l );
+
+			//@@@
+			// TEXT DBG
+			if( false )
+			{
+				Sx_l.font = "16px sans-serif";
+				Sx_l.textAlign = "center";
+
+				Sx_l.lineWidth = 2;
+				Sx_l.fillStyle = "#000000FF";
+				Sx_l.fillText( "(" + h + "," + v + ")", x, y );
+			}
+
+			//@@@
+			// NEXT HEX
+			x += KaGy_wfk;
+			y += (( -1) ** h ) * BiGy_wfk;
+			h++;
+    	}
+		v++;
+
+ 		GaFe_wf += 2. * BiGy_wfk;
+  	}
+}
+
 //=====================================
 // DRAW_2D_PTRN
 //=====================================
@@ -1615,68 +1717,94 @@ function Hry_DriBrz( MxVa_vsg, KuPo_l, KwzPo_l, KwaPo_l )
 	const Mx_l = document.getElementById( MxVa_vsg );
 	if( !Mx_l ) return;
 
-	Mx_l.width = Mx_l.clientWidth;
-	Mx_l.height = Mx_l.clientHeight;
+	const KuGy_wfk = window.devicePixelRatio;
+	Mx_l.width = KuGy_wfk * Mx_l.clientWidth;
+	Mx_l.height = KuGy_wfk * Mx_l.clientHeight;
 
+	//@@@
+	// CTX
+	// 2/4
 	const Sx_l = Mx_l.getContext("2d");
 	if( !Sx_l )return;
 
-	//@@@
-	// 2/4
-	// PRINT GRID
+	Sx_l.imageSmoothingEnabled= true;
+	Sx_l.resetTransform();
 	Sx_l.scale( 1.0, 1.0 );
+
+
+	//@@@
+	// 3/4
+	// FILL SCREEN
 	Sx_l.beginPath();
 	Sx_l.fillStyle = KuPo_l;
 	Sx_l.fillRect( 0, 0, Mx_l.width, Mx_l.height );
 
 	//@@@
-	// 3/4
+	// 4/4 PATTERN
+	const GRID4_yk = false;
+
+	//&&&
 	// INNER GRID
-	Sx_l.strokeStyle = KwzPo_l
-	Sx_l.lineWidth = 1;
-	const Kwz__TiGy_wuk = 32;
-
-	// Draw vertical lines
-	for (let x = 0; x <= Mx_l.width; x += Kwz__TiGy_wuk )
+	// 4.1
+	if( GRID4_yk )
 	{
-		Sx_l.beginPath();
-		Sx_l.moveTo(x, 0);
-		Sx_l.lineTo(x, Mx_l.height);
-		Sx_l.stroke();
+		Sx_l.strokeStyle = KwzPo_l
+		Sx_l.lineWidth = 1;
+		const Kwz__TiGy_wuk = 32;
+
+		// Draw vertical lines
+		for (let x = 0; x <= Mx_l.width; x += Kwz__TiGy_wuk )
+		{
+			Sx_l.beginPath();
+			Sx_l.moveTo(x, 0);
+			Sx_l.lineTo(x, Mx_l.height);
+			Sx_l.stroke();
+		}
+
+		// Draw horizontal lines
+		for (let y = 0; y <= Mx_l.height; y += Kwz__TiGy_wuk )
+		{
+			Sx_l.beginPath();
+			Sx_l.moveTo(0, y);
+			Sx_l.lineTo(Mx_l.width, y);
+			Sx_l.stroke();
+		}
+
+		//&&&
+		// 4.2
+		// OUTER GRID
+		Sx_l.strokeStyle = KwaPo_l;
+		Sx_l.lineWidth = 2;
+		const Kwa__TiGy_wuk = 128;
+
+		// Draw vertical lines
+		for (let x = 0; x <= Mx_l.width; x += Kwa__TiGy_wuk )
+		{
+			Sx_l.beginPath();
+			Sx_l.moveTo( x, 0 );
+			Sx_l.lineTo( x, Mx_l.height );
+			Sx_l.stroke();
+		}
+
+		// Draw horizontal lines
+		for (let y = 0; y <= Mx_l.height; y += Kwa__TiGy_wuk )
+		{
+			Sx_l.beginPath();
+			Sx_l.moveTo(0, y);
+			Sx_l.lineTo( Mx_l.width, y);
+			Sx_l.stroke();
+		}
 	}
-
-	// Draw horizontal lines
-	for (let y = 0; y <= Mx_l.height; y += Kwz__TiGy_wuk )
+	//&&&
+	// HEX
+	// 4.3
+	else
 	{
-		Sx_l.beginPath();
-		Sx_l.moveTo(0, y);
-		Sx_l.lineTo(Mx_l.width, y);
-		Sx_l.stroke();
-	}
+		drawGrid( Sx_l, Mx_l.width, Mx_l.height, 96.0, KwzPo_l, KwaPo_l );
 
-	//@@@
-	// 4/4
-	// OUTER GRID
-	Sx_l.strokeStyle = KwaPo_l;
-	Sx_l.lineWidth = 2;
-	const Kwa__TiGy_wuk = 128;
-
-	// Draw vertical lines
-	for (let x = 0; x <= Mx_l.width; x += Kwa__TiGy_wuk )
-	{
-		Sx_l.beginPath();
-		Sx_l.moveTo( x, 0 );
-		Sx_l.lineTo( x, Mx_l.height );
-		Sx_l.stroke();
-	}
-
-	// Draw horizontal lines
-	for (let y = 0; y <= Mx_l.height; y += Kwa__TiGy_wuk )
-	{
-		Sx_l.beginPath();
-		Sx_l.moveTo(0, y);
-		Sx_l.lineTo( Mx_l.width, y);
-		Sx_l.stroke();
+		// Sx_l.strokeStyle = KwaPo_l;
+		// Sx_l.lineWidth = 1;
+		// drawGrid( Sx_l, Mx_l.width, Mx_l.height, 25.0 );
 	}
 
 }
@@ -2425,10 +2553,10 @@ async function KoDz__YaFz()
 	//@@@
 	// LOAD LAUNCH CANVAS
 	// which fills GUI VALUES
-	HryMx00_KeMeKwi();
+	KoDz_GyHa();
 
 	// GUI TOPIC_SELECT WHO
-	Hrz4_Bu__ChyNeKu( 0 );
+	Hrz4_Bu__ChyNeKu( 4 );
 
 	//@@@
 	// FOCUS LAUNCH BTN

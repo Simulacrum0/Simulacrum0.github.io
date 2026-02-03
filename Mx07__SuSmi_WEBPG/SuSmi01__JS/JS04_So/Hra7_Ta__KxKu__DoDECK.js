@@ -1005,7 +1005,6 @@ function Hry5_Smz__ChyYe( Fe__GiDri_wf )
 
 	if ( MxSi.width !== MxVeGx_wu || MxSi.height !== MxVeGa_wu )
 	{
-		//console.log(  "Fr# " + MxSi__YeFo_wu + " DPR: " + window.devicePixelRatio + " ASP: " + ( MxSi.clientWidth / MxSi.clientHeight )  );
 		// console.log( "MxSi_VeFi: " + MxSi.width + ", " + MxSi.height );
 
 		MxSi.width = MxVeGx_wu;

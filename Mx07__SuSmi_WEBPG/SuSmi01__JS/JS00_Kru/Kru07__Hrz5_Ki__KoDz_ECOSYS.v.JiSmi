@@ -185,10 +185,10 @@ async function KoDz__YaFz()
 	//@@@
 	// LOAD LAUNCH CANVAS
 	// which fills GUI VALUES
-	HryMx00_KeMeKwi();
+	KoDz_GyHa();
 
 	// GUI TOPIC_SELECT WHO
-	Hrz4_Bu__ChyNeKu( 0 );
+	Hrz4_Bu__ChyNeKu( 4 );
 
 	//@@@
 	// FOCUS LAUNCH BTN
