@@ -1,5 +1,5 @@
-const BriDzSa__Da_vsg = "PUB_v0.201"; 
- const BriDzSa__Da_wuk = "201"; 
+const BriDzSa__Da_vsg = "PUB_v0.202"; 
+ const BriDzSa__Da_wuk = "202"; 
  const BriDz__Mx_KuTu_vsg = "https://powerourpeople.com/"; 
 
 //==============================================
@@ -1624,9 +1624,6 @@ function drawHexagon( Sx_l, x, y, r, KuPo_l, KwzPo_l, KwaPo_l )
 	// SHRINK RADIUS
 	r *= 0.95;
 
-	// Sx_l.setLineDash( [ 20, 20 ] );
-	//Sx_l.lineCap = "round";
-
 	//@@@
 	// 6 SIDES
 	Sx_l.lineWidth = 3.5;
@@ -1642,6 +1639,8 @@ function drawHexagon( Sx_l, x, y, r, KuPo_l, KwzPo_l, KwaPo_l )
 	Sx_l.fillStyle = KuPo_l;
   	Sx_l.fill();
   	Sx_l.stroke();
+
+
 
 	//@@@
 	// CUBE INNER LINES
@@ -1694,7 +1693,7 @@ function drawGrid( Sx_l, GxGy_wfk, GaGy_wfk, r, KuPo_l, KwzPo_l, KwaPo_l )
 
 				Sx_l.save();
 				Sx_l.translate( x, y );
-				Sx_l.rotate( TAU_wfk / 72.0 );
+				Sx_l.rotate( TAU_wfk / 54.0 );
 				// Sx_l.fillText( "(" + h.toString().padStart( 2, "0" )  + "," + v.toString().padStart( 2, "0" ) + ")", x + KeDru_GeZo_wfk, y + KeDru_GeZo_wfk );
 				Sx_l.fillText( h.toString().padStart( 2, "0" )  + "," + v.toString().padStart( 2, "0" ), KeDru_GxZo_wfk, KeDru_GaZo_wfk );
 
@@ -1836,19 +1835,19 @@ function HryMx00_KeMeKwi()
 	//---------------------------------
 	const TaPo_v =
 	[
-		// GRAFPAPER:
+		// WHITE GRAFPAPER:
 		"#EEEEFF", "#AAAAFF", "#8888FF"
 		// BLUEPRINT:
 		, "#8888BB", "#9999CC", "#BBBBEE"
-		// YELLOWGRAF
-		, "#999944", "#7777EE", "#777777"
+		// GREYGRAF
+		, "#AAAABB", "#8888BB", "#6666FF"
 		// PURPLE
 		, "#993399", "#999999", "#CCCCCC"
 
 		// PINE
 		, "#225522", "#339933", "#55BB55"
 		// ORANGE
-		, "#BB7711", "#7777EE", "#777777"
+		, "#BB7711", "#BBBBBB", "#DDDDDD"
 		// CHARCOAL
 		, "#555555", "#888888", "#AAAAAA"
 		// DARK
@@ -1888,7 +1887,7 @@ function HryMx01_KeMeTrx()
 	//---------------------------------
 	// CANVAS
 	//---------------------------------
-	Hry_DriBrz( "MxPo_Trx",  "#FF1111", "#BB9999", "#DDBBBB" );
+	Hry_DriBrz( "MxPo_Trx",  "#DD1111", "#AAAACC", "#DDDDFF" );
 
 	//---------------------------------
 	// MSG
