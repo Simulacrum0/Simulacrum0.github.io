@@ -132,7 +132,7 @@ const GoKwu_wfk = TAU_wfk / GwxFo_wuk;
 const GoStu_wfk = TAU_wfk / 6;
 const GoSti_wfk = TAU_wfk / 3;
 
-function drawHexagon( Sx_l, x, y, r, GwxPo_l, KaPo_l )
+function drawHexagon( Sx_l, x, y, r, KuPo_l, KwzPo_l, KwaPo_l )
 {
 	//@@@
 	// SHRINK RADIUS
@@ -144,7 +144,7 @@ function drawHexagon( Sx_l, x, y, r, GwxPo_l, KaPo_l )
 	//@@@
 	// 6 SIDES
 	Sx_l.lineWidth = 3.5;
-	Sx_l.strokeStyle = GwxPo_l;
+	Sx_l.strokeStyle = KwaPo_l;
 
 	Sx_l.beginPath();
 	for (var i = 0; i < GwxFo_wuk; i++)
@@ -153,13 +153,13 @@ function drawHexagon( Sx_l, x, y, r, GwxPo_l, KaPo_l )
 	}
 
 	Sx_l.closePath();
-	Sx_l.fillStyle = KaPo_l;
+	Sx_l.fillStyle = KuPo_l;
   	Sx_l.fill();
   	Sx_l.stroke();
 
 	//@@@
 	// CUBE INNER LINES
-	Sx_l.strokeStyle = GwxPo_l;
+	Sx_l.strokeStyle = KwzPo_l;
 	Sx_l.lineWidth = 1.5;
 	for (var i = 0; i < 3; i++)
 	{
@@ -171,7 +171,7 @@ function drawHexagon( Sx_l, x, y, r, GwxPo_l, KaPo_l )
 
 }
 
-function drawGrid( Sx_l, GxGy_wfk, GaGy_wfk, r, GwxPo_l, KaPo_l )
+function drawGrid( Sx_l, GxGy_wfk, GaGy_wfk, r, KuPo_l, KwzPo_l, KwaPo_l )
 {
 	const BiGy_wfk = r * ( Math.sin( GoStu_wfk ));
 	const KaGy_wfk = r * (1 + Math.cos( GoStu_wfk ));
@@ -180,6 +180,7 @@ function drawGrid( Sx_l, GxGy_wfk, GaGy_wfk, r, GwxPo_l, KaPo_l )
 	const KwxGy_wfk = r;
 	const GxYi_wfk = GxGy_wfk + KwxGy_wfk;
 	const GaYi_wfk = GaGy_wfk + KwxGy_wfk;
+	const KeDru_GeZo_wfk = r / 3.0;
 
 
 	let v = 0;
@@ -194,18 +195,24 @@ function drawGrid( Sx_l, GxGy_wfk, GaGy_wfk, r, GwxPo_l, KaPo_l )
 		{
 			//@@@
 			// INNER FILL & EDGES
-			drawHexagon( Sx_l, x, y, r, GwxPo_l, KaPo_l );
+			drawHexagon( Sx_l, x, y, r, KuPo_l, KwzPo_l, KwaPo_l );
 
 			//@@@
 			// TEXT DBG
-			if( false )
+			if( true )
 			{
 				Sx_l.font = "16px sans-serif";
 				Sx_l.textAlign = "center";
+				Sx_l.fillStyle = KwaPo_l;
 
-				Sx_l.lineWidth = 2;
-				Sx_l.fillStyle = "#000000FF";
-				Sx_l.fillText( "(" + h + "," + v + ")", x, y );
+				Sx_l.save();
+				Sx_l.translate( x, y );
+				Sx_l.rotate( TAU_wfk / 98.0 );
+				// Sx_l.fillText( "(" + h.toString().padStart( 2, "0" )  + "," + v.toString().padStart( 2, "0" ) + ")", x + KeDru_GeZo_wfk, y + KeDru_GeZo_wfk );
+				Sx_l.fillText( h.toString().padStart( 2, "0" )  + "," + v.toString().padStart( 2, "0" ), KeDru_GeZo_wfk, KeDru_GeZo_wfk * 0.67 );
+
+				// Sx_l.rotate( -GoStu_wfk );
+				Sx_l.restore();
 			}
 
 			//@@@
@@ -314,7 +321,7 @@ function Hry_DriBrz( MxVa_vsg, KuPo_l, KwzPo_l, KwaPo_l )
 	// 4.3
 	else
 	{
-		drawGrid( Sx_l, Mx_l.width, Mx_l.height, 96.0, KwzPo_l, KwaPo_l );
+		drawGrid( Sx_l, Mx_l.width, Mx_l.height, 96.0, KuPo_l, KwzPo_l, KwaPo_l );
 
 		// Sx_l.strokeStyle = KwaPo_l;
 		// Sx_l.lineWidth = 1;
