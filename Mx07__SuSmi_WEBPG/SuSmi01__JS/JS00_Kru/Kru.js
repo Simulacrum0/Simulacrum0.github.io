@@ -1,5 +1,5 @@
-const BriDzSa__Da_vsg = "PUB_v0.202"; 
- const BriDzSa__Da_wuk = "202"; 
+const BriDzSa__Da_vsg = "PUB_v0.203"; 
+ const BriDzSa__Da_wuk = "203"; 
  const BriDz__Mx_KuTu_vsg = "https://powerourpeople.com/"; 
 
 //==============================================
@@ -670,9 +670,9 @@ function Hrz4_Bu__KwiYz__ChyDe( Va_vksg, NiJaPo_wuk, KeDru_wuk )
 	//---------------------------------
 
 	// MUTE
-	KwiYz_k.Ne02_Hru00__MxPeHo_y = true;
+	KwiYz_k.Ne02_Hru__MxPeHo_y = true;
 	// VOLUME
-	KwiYz_k.Ne02_Hru01__MxPeVu_sa = 1.0;
+	KwiYz_k.Ne02_Hru__MxPeVu_sa = 1.0;
 
 	//!!!
 	// METHOD
@@ -767,7 +767,7 @@ function Hrz4_Bu__KwiYz__HriNe_MyYy()
 
 	//@@@
 	// USER NAME
-	document.getElementById( "Ne00_KeDy01__NiKeDy_vsg" ).value = "NOMBraaaaay";
+	document.getElementById( "Ne00_KeDy00__Nz00_NiKeDy_vsg" ).value = "NOMBraaaaay";
 
 	//@@@
 	// SET AVATAR_ICON
@@ -859,14 +859,14 @@ function Hrz4_Bu__KwiYz__HriNe_MyYy()
 	// Ne02__AUDIO
 	//---------------------------------
 	//@@@
-	// Ne02_Hru00__MxPeHo_y
-	document.getElementById( "Ne02_Hru00__MxPeHo_y" ).value = KwiYz_k.Ne02_Hru00__MxPeHo_y;
-	// Ne02_Hru01__MxPeVo_ba
-	document.getElementById( "Ne02_Hru01__MxPeVo_ba" ).value = KwiYz_k.Ne02_Hru01__MxPeVo_ba;
-	// , "Ne02_Hru02__MzPe_vsg": "Mic"
-	// , "Ne02_Hru03__YoHo_vsg": "♾️Always Audible"
-	// , "Ne02_Hru04__SmzYz_vsg": "📊Method"
-	// , "Ne02_Hru05__GyBraHi_vsg": "📈Quality"
+	// Ne02_Hru__MxPeHo_y
+	document.getElementById( "Ne02_Hru__MxPeHo_y" ).value = KwiYz_k.Ne02_Hru__MxPeHo_y;
+	// Ne02_Hru__MxPeVo_ba
+	document.getElementById( "Ne02_Hru__MxPeVo_ba" ).value = KwiYz_k.Ne02_Hru__MxPeVo_ba;
+	// , "Ne02_Hru__MzPe_vsg": "Mic"
+	// , "Ne02_Hru__YoHo_vsg": "♾️Always Audible"
+	// , "Ne02_Hru__SmzYz_vsg": "📊Method"
+	// , "Ne02_Hru__GyBraHi_vsg": "📈Quality"
 
 	//---------------------------------
 	// Ne03__VISUAL
@@ -927,10 +927,10 @@ function Hrz4_Bu__KwiYz__Ko_ChyYe()
 	//---------------------------------
 	// Ne02__AUDIO
 	//---------------------------------
-	KwiYz_k.Ne02_Hru00__MxPeHo_y = document.getElementById( "Ne02_Hru00__MxPeHo_y" ).value;
-	KwiYz_k.Ne02_Hru01__MxPeVo_ba = document.getElementById( "Ne02_Hru01__MxPeVo_ba" ).value;
+	KwiYz_k.Ne02_Hru__MxPeHo_y = document.getElementById( "Ne02_Hru__MxPeHo_y" ).value;
+	KwiYz_k.Ne02_Hru__MxPeVo_ba = document.getElementById( "Ne02_Hru__MxPeVo_ba" ).value;
 
-	//document.getElementById( "Ne02_Hru04__SmzYz_Ta_l" ).selectedIndex = KwiYz_k.KeDru_wu;
+	//document.getElementById( "Ne02_Hru__SmzYz_Ta_l" ).selectedIndex = KwiYz_k.KeDru_wu;
 
 	//---------------------------------
 	// Ne03__VISUAL
@@ -1436,7 +1436,7 @@ async function Hri4_Bu__TaKeDy__ChySpo()
 	//@@@
 	// AUD_METHODS
 	{
-		const TaKeDy_l = document.getElementById( 'Ne02_Hru04__SmzYz_Ta_l' );
+		const TaKeDy_l = document.getElementById( 'Ne02_Hru__SmzYz_Ta_l' );
 		HriNeDe__Ta_ChyStz( TaKeDy_l );
 
 		const SaNo__TaKeDy_l = Ko.TaKeDy_l.KwiYz_v;
@@ -1611,14 +1611,19 @@ function HriNeDe__ChyHyHo( Vy_vsg, HyHo_yk )
 //=====================================
 // DRAW_2D_HEX
 //=====================================
+
+//---------------------------------
+// HEX CONST
+//---------------------------------
 const TAU_wfk = 2. * Math.PI;
 const GwxFo_wuk = 6;
 const GoKwu_wfk = TAU_wfk / GwxFo_wuk;
+const GwxZiStaFo_wuk = 3;
+const GoSti_wfk = TAU_wfk / GwxZiStaFo_wuk;
 
-const GoStu_wfk = TAU_wfk / 6;
-const GoSti_wfk = TAU_wfk / 3;
-
-function drawHexagon( Sx_l, x, y, r, KuPo_l, KwzPo_l, KwaPo_l )
+//---------------------------------
+function HrySxDe__ChyHEX( Sx_l, x, y, r, KuPo_l, KwzPo_l, KwaPo_l, NOTCH_yk )
+//---------------------------------
 {
 	//@@@
 	// SHRINK RADIUS
@@ -1634,32 +1639,60 @@ function drawHexagon( Sx_l, x, y, r, KuPo_l, KwzPo_l, KwaPo_l )
 	{
 		Sx_l.lineTo( x + r * Math.cos( GoKwu_wfk * i ), y + r * Math.sin( GoKwu_wfk * i ) );
 	}
-
 	Sx_l.closePath();
+
 	Sx_l.fillStyle = KuPo_l;
   	Sx_l.fill();
+
   	Sx_l.stroke();
 
+	//@@@
+	// NOTCHES
+	if( NOTCH_yk )
+	{
+		const n = r * 0.9;
 
+		Sx_l.strokeStyle = KwaPo_l;
+		Sx_l.lineWidth = 1.5;
 
+		Sx_l.beginPath();
+		let i = GwxFo_wuk;
+		while( i > 0 )
+		{
+			i--;
+			const GoFz_wfk = -GoKwu_wfk * i;
+			Sx_l.moveTo( x + n * Math.cos( GoFz_wfk ), y + n * Math.sin( GoFz_wfk ) );
+
+			i--;
+			const GoFx_wfk = -GoKwu_wfk * i;
+			Sx_l.lineTo( x + n * Math.cos( GoFx_wfk ), y + n * Math.sin( GoFx_wfk ) );
+		}
+		Sx_l.closePath();
+	  	Sx_l.stroke();
+
+	}
+	else
 	//@@@
 	// CUBE INNER LINES
-	Sx_l.strokeStyle = KwzPo_l;
-	Sx_l.lineWidth = 1.5;
-	for (var i = 0; i < 3; i++)
 	{
-		Sx_l.beginPath();
-		Sx_l.moveTo( x, y ); Sx_l.lineTo( x + r * Math.cos( GoSti_wfk * i), y + r * Math.sin( GoSti_wfk * i) );
-		Sx_l.closePath();
-		Sx_l.stroke();
+		Sx_l.strokeStyle = KwzPo_l;
+		Sx_l.lineWidth = 1.5;
+		for (var i = 0; i < GwxZiStaFo_wuk; i++)
+		{
+			Sx_l.beginPath();
+			Sx_l.moveTo( x, y ); Sx_l.lineTo( x + r * Math.cos( GoSti_wfk * i), y + r * Math.sin( GoSti_wfk * i) );
+			Sx_l.closePath();
+			Sx_l.stroke();
+		}
 	}
-
 }
 
-function drawGrid( Sx_l, GxGy_wfk, GaGy_wfk, r, KuPo_l, KwzPo_l, KwaPo_l )
+//---------------------------------
+function HrySxDe__ChyHEXGRID( Sx_l, GxGy_wfk, GaGy_wfk, r, KuPo_l, KwzPo_l, KwaPo_l, NOTCH_yk )
+//---------------------------------
 {
-	const BiGy_wfk = r * ( Math.sin( GoStu_wfk ));
-	const KaGy_wfk = r * (1 + Math.cos( GoStu_wfk ));
+	const BiGy_wfk = r * ( Math.sin( GoKwu_wfk ));
+	const KaGy_wfk = r * (1 + Math.cos( GoKwu_wfk ));
 
 	// Use
 	const KwxGy_wfk = r;
@@ -1671,6 +1704,7 @@ function drawGrid( Sx_l, GxGy_wfk, GaGy_wfk, r, KuPo_l, KwzPo_l, KwaPo_l )
 
 	let v = 0;
 	let GaFe_wf = -KwxGy_wfk;
+
   	while( GaFe_wf < GaYi_wfk )
 	{
 		let x = -KwxGy_wfk;
@@ -1681,24 +1715,30 @@ function drawGrid( Sx_l, GxGy_wfk, GaGy_wfk, r, KuPo_l, KwzPo_l, KwaPo_l )
 		{
 			//@@@
 			// INNER FILL & EDGES
-			drawHexagon( Sx_l, x, y, r, KuPo_l, KwzPo_l, KwaPo_l );
+			HrySxDe__ChyHEX( Sx_l, x, y, r, KuPo_l, KwzPo_l, KwaPo_l, NOTCH_yk );
 
 			//@@@
 			// TEXT DBG
-			if( true )
+			// if( false )
 			{
 				Sx_l.font = "16px sans-serif";
 				Sx_l.textAlign = "center";
 				Sx_l.fillStyle = KwaPo_l;
 
-				Sx_l.save();
-				Sx_l.translate( x, y );
-				Sx_l.rotate( TAU_wfk / 54.0 );
-				// Sx_l.fillText( "(" + h.toString().padStart( 2, "0" )  + "," + v.toString().padStart( 2, "0" ) + ")", x + KeDru_GeZo_wfk, y + KeDru_GeZo_wfk );
-				Sx_l.fillText( h.toString().padStart( 2, "0" )  + "," + v.toString().padStart( 2, "0" ), KeDru_GxZo_wfk, KeDru_GaZo_wfk );
+				if( NOTCH_yk )
+				{
+					Sx_l.fillText( "(" + h.toString().padStart( 2, "0" )  + "," + v.toString().padStart( 2, "0" ) + ")", x, y );
+				}
+				else
+				{
+					Sx_l.save();
+					Sx_l.translate( x, y );
+					Sx_l.rotate( TAU_wfk / 54.0 );
 
-				// Sx_l.rotate( -GoStu_wfk );
-				Sx_l.restore();
+					Sx_l.fillText( h.toString().padStart( 2, "0" )  + "," + v.toString().padStart( 2, "0" ), KeDru_GxZo_wfk, KeDru_GaZo_wfk );
+
+					Sx_l.restore();
+				}
 			}
 
 			//@@@
@@ -1716,7 +1756,7 @@ function drawGrid( Sx_l, GxGy_wfk, GaGy_wfk, r, KuPo_l, KwzPo_l, KwaPo_l )
 //=====================================
 // DRAW_2D_PTRN
 //=====================================
-function Hry_DriBrz( MxVa_vsg, KuPo_l, KwzPo_l, KwaPo_l )
+function Hry_DriBrz( MxVa_vsg, GRID4_yk, KuPo_l, KwzPo_l, KwaPo_l )
 {
 	//@@@
 	// 1/4
@@ -1748,7 +1788,6 @@ function Hry_DriBrz( MxVa_vsg, KuPo_l, KwzPo_l, KwaPo_l )
 
 	//@@@
 	// 4/4 PATTERN
-	const GRID4_yk = false;
 
 	//&&&
 	// INNER GRID
@@ -1807,11 +1846,8 @@ function Hry_DriBrz( MxVa_vsg, KuPo_l, KwzPo_l, KwaPo_l )
 	// 4.3
 	else
 	{
-		drawGrid( Sx_l, Mx_l.width, Mx_l.height, 96.0, KuPo_l, KwzPo_l, KwaPo_l );
-
-		// Sx_l.strokeStyle = KwaPo_l;
-		// Sx_l.lineWidth = 1;
-		// drawGrid( Sx_l, Mx_l.width, Mx_l.height, 25.0 );
+		const NOTCH_yk = false;
+		HrySxDe__ChyHEXGRID( Sx_l, Mx_l.width, Mx_l.height, 96.0, KuPo_l, KwzPo_l, KwaPo_l, NOTCH_yk );
 	}
 
 }
@@ -1840,16 +1876,16 @@ function HryMx00_KeMeKwi()
 		// BLUEPRINT:
 		, "#8888BB", "#9999CC", "#BBBBEE"
 		// GREYGRAF
-		, "#AAAABB", "#8888BB", "#6666FF"
+		, "#EEEEFF", "#FFAAAA", "#FF8888"
 		// PURPLE
 		, "#993399", "#999999", "#CCCCCC"
 
 		// PINE
-		, "#225522", "#339933", "#55BB55"
+		, "#003300", "#669933", "#88BB55"
 		// ORANGE
 		, "#BB7711", "#BBBBBB", "#DDDDDD"
 		// CHARCOAL
-		, "#555555", "#888888", "#AAAAAA"
+		, "#555555", "#BBBBBB", "#DDDDDD"
 		// DARK
 		, "#000000", "#555555", "#888888"
 	];
@@ -1857,16 +1893,12 @@ function HryMx00_KeMeKwi()
 	// INDEX[ 8 ] by 3
 	// const FePo_k = 5 * 3;
 	const FePo_k = ( BriDzSa__Da_wuk & 7 ) * 3;
-	Hry_DriBrz( "MxPo_Kwi", TaPo_v[ FePo_k + 0 ],TaPo_v[ FePo_k + 1 ],TaPo_v[ FePo_k + 2 ] );
+	Hry_DriBrz( "MxPo_Kwi", false, TaPo_v[ FePo_k + 0 ],TaPo_v[ FePo_k + 1 ],TaPo_v[ FePo_k + 2 ] );
 
 	//---------------------------------
 	// SETUP GUI
 	//---------------------------------
 	Hrz4_Bu__KwiYz__HriNe_MyYy();
-
-	//@@@
-	// LOG
-	SmaSme( "[GUI] KwiYz_My:", Ko.TaKeDy_l.KwiYz_v );
 }
 
 
@@ -1887,7 +1919,7 @@ function HryMx01_KeMeTrx()
 	//---------------------------------
 	// CANVAS
 	//---------------------------------
-	Hry_DriBrz( "MxPo_Trx",  "#DD1111", "#AAAACC", "#DDDDFF" );
+	Hry_DriBrz( "MxPo_Trx", true, "#DD1111", "#AAAACC", "#DDDDFF" );
 
 	//---------------------------------
 	// MSG
@@ -2563,11 +2595,11 @@ async function KoDz__YaFz()
 	KoDz_GyHa();
 
 	// GUI TOPIC_SELECT WHO
-	Hrz4_Bu__ChyNeKu( 4 );
+	Hrz4_Bu__ChyNeKu( 3 );
 
 	//@@@
 	// FOCUS LAUNCH BTN
-	//HriNeDe__TraKwi();
+	HriNeDe__TraKwi();
 
 	//@@@
 	// ENGINE LAUNCH

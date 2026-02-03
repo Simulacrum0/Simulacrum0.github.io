@@ -20,13 +20,13 @@
 		, "Ne05_Grx_vsg": "📜LEGAL"
 
 
-		, "Ne00_KeDy00__NiKeDru_vsg": "Coger Lengua"
-		, "Ne00_KeDy01__NiKeDy_vsg": "Coger Persona"
+		, "Ne00_KeDy00__Nz02_NiKeDru_vsg": "Coger Lengua"
+		, "Ne00_KeDy00__Nz00_NiKeDy_vsg": "Coger Persona"
 		, "Ne00_KeDy02__VaTre_vsg": "🗣️Cambiar Nombre"
-		, "Ne00_KeDy03__SaJaPo_vsg": "Pictura"
+		, "Ne00_KeDy00__Nz03_SaJaPo_vsg": "Pictura"
 		, "Ne00_KeDy04__ChaDe_vsg": "🆕👤Dar un Persona Nuevo Defaulto"
 		, "Ne00_KeDy05__ChaFe_vsg": "🖨️👤Copy Currente Persona"
-		, "Ne00_KeDy06__TraChe_vsg": "🔐Usar Seguridad"
+		, "Ne00_KeDy00__Nz03_TraChe_vsg": "🔐Usar Seguridad"
 		, "Ne00_KeDy07__MaKz_vsg": "🔒Pregunta-Lock-o"
 		, "Ne00_KeDy08__SmzKz_vsg": "🗝️Contesta-Llave"
 		, "Ne00_KeDy09__Chi_vsg": "🗑️Tomar esto Persona"
@@ -40,12 +40,12 @@
 		, "Ne01_Ko05__TaKeDy_Chx_vsg": "Clear All Users & Settings to NEW"
 
 
-		, "Ne02_Hru00__MxPeHo_vsg": "Mute-o"
-		, "Ne02_Hru01__MxPeVo_vsg": "Speakers"
-		, "Ne02_Hru02__MzPe_vsg": "Mic-o"
-		, "Ne02_Hru03__YoHo_vsg": "Always Audible-o"
-		, "Ne02_Hru04__SmzYz_vsg": "Method-o"
-		, "Ne02_Hru05__GyBraHi_vsg": "Quality-o"
+		, "Ne02_Hru__MxPeHo_vsg": "Mute-o"
+		, "Ne02_Hru__MxPeVo_vsg": "Speakers"
+		, "Ne02_Hru__MzPe_vsg": "Mic-o"
+		, "Ne02_Hru__YoHo_vsg": "Always Audible-o"
+		, "Ne02_Hru__SmzYz_vsg": "Method-o"
+		, "Ne02_Hru__GyBraHi_vsg": "Quality-o"
 
 
 		, "Ne03_Hry00__KeDruGy_vsg": "Legible Size-o"

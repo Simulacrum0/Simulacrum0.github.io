@@ -294,7 +294,7 @@ async function Hri4_Bu__TaKeDy__ChySpo()
 	//@@@
 	// AUD_METHODS
 	{
-		const TaKeDy_l = document.getElementById( 'Ne02_Hru04__SmzYz_Ta_l' );
+		const TaKeDy_l = document.getElementById( 'Ne02_Hru__SmzYz_Ta_l' );
 		HriNeDe__Ta_ChyStz( TaKeDy_l );
 
 		const SaNo__TaKeDy_l = Ko.TaKeDy_l.KwiYz_v;

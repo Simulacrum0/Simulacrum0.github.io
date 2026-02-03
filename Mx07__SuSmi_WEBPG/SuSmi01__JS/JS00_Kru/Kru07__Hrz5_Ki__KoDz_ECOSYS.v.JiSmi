@@ -188,11 +188,11 @@ async function KoDz__YaFz()
 	KoDz_GyHa();
 
 	// GUI TOPIC_SELECT WHO
-	Hrz4_Bu__ChyNeKu( 4 );
+	Hrz4_Bu__ChyNeKu( 3 );
 
 	//@@@
 	// FOCUS LAUNCH BTN
-	//HriNeDe__TraKwi();
+	HriNeDe__TraKwi();
 
 	//@@@
 	// ENGINE LAUNCH

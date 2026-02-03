@@ -40,9 +40,9 @@ function Hrz4_Bu__KwiYz__ChyDe( Va_vksg, NiJaPo_wuk, KeDru_wuk )
 	//---------------------------------
 
 	// MUTE
-	KwiYz_k.Ne02_Hru00__MxPeHo_y = true;
+	KwiYz_k.Ne02_Hru__MxPeHo_y = true;
 	// VOLUME
-	KwiYz_k.Ne02_Hru01__MxPeVu_sa = 1.0;
+	KwiYz_k.Ne02_Hru__MxPeVu_sa = 1.0;
 
 	//!!!
 	// METHOD
@@ -137,7 +137,7 @@ function Hrz4_Bu__KwiYz__HriNe_MyYy()
 
 	//@@@
 	// USER NAME
-	document.getElementById( "Ne00_KeDy01__NiKeDy_vsg" ).value = "NOMBraaaaay";
+	document.getElementById( "Ne00_KeDy00__Nz00_NiKeDy_vsg" ).value = "NOMBraaaaay";
 
 	//@@@
 	// SET AVATAR_ICON
@@ -229,14 +229,14 @@ function Hrz4_Bu__KwiYz__HriNe_MyYy()
 	// Ne02__AUDIO
 	//---------------------------------
 	//@@@
-	// Ne02_Hru00__MxPeHo_y
-	document.getElementById( "Ne02_Hru00__MxPeHo_y" ).value = KwiYz_k.Ne02_Hru00__MxPeHo_y;
-	// Ne02_Hru01__MxPeVo_ba
-	document.getElementById( "Ne02_Hru01__MxPeVo_ba" ).value = KwiYz_k.Ne02_Hru01__MxPeVo_ba;
-	// , "Ne02_Hru02__MzPe_vsg": "Mic"
-	// , "Ne02_Hru03__YoHo_vsg": "♾️Always Audible"
-	// , "Ne02_Hru04__SmzYz_vsg": "📊Method"
-	// , "Ne02_Hru05__GyBraHi_vsg": "📈Quality"
+	// Ne02_Hru__MxPeHo_y
+	document.getElementById( "Ne02_Hru__MxPeHo_y" ).value = KwiYz_k.Ne02_Hru__MxPeHo_y;
+	// Ne02_Hru__MxPeVo_ba
+	document.getElementById( "Ne02_Hru__MxPeVo_ba" ).value = KwiYz_k.Ne02_Hru__MxPeVo_ba;
+	// , "Ne02_Hru__MzPe_vsg": "Mic"
+	// , "Ne02_Hru__YoHo_vsg": "♾️Always Audible"
+	// , "Ne02_Hru__SmzYz_vsg": "📊Method"
+	// , "Ne02_Hru__GyBraHi_vsg": "📈Quality"
 
 	//---------------------------------
 	// Ne03__VISUAL
@@ -297,10 +297,10 @@ function Hrz4_Bu__KwiYz__Ko_ChyYe()
 	//---------------------------------
 	// Ne02__AUDIO
 	//---------------------------------
-	KwiYz_k.Ne02_Hru00__MxPeHo_y = document.getElementById( "Ne02_Hru00__MxPeHo_y" ).value;
-	KwiYz_k.Ne02_Hru01__MxPeVo_ba = document.getElementById( "Ne02_Hru01__MxPeVo_ba" ).value;
+	KwiYz_k.Ne02_Hru__MxPeHo_y = document.getElementById( "Ne02_Hru__MxPeHo_y" ).value;
+	KwiYz_k.Ne02_Hru__MxPeVo_ba = document.getElementById( "Ne02_Hru__MxPeVo_ba" ).value;
 
-	//document.getElementById( "Ne02_Hru04__SmzYz_Ta_l" ).selectedIndex = KwiYz_k.KeDru_wu;
+	//document.getElementById( "Ne02_Hru__SmzYz_Ta_l" ).selectedIndex = KwiYz_k.KeDru_wu;
 
 	//---------------------------------
 	// Ne03__VISUAL

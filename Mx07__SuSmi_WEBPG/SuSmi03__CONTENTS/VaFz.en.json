@@ -11,67 +11,102 @@
 		, "Che03_TraHo_vsg": "🔑Requires Answer"
 		, "Che04_TraHy_vsg": "🔓User Ready"
 
-
 		, "Ne00_KeDy_vsg": "🥸WHO"
-		, "Ne01_Ko_vsg": "⚙️NODE"
-		, "Ne02_Hru_vsg": "👂AUDIO"
-		, "Ne03_Hry_vsg": "👀VISUAL"
-		, "Ne04_Hx_vsg": "🧩ABOUT"
-		, "Ne05_Grx_vsg": "📜LEGAL"
+		, "Ne01_Ko_vsg": "⚙️ALLOW"
+		, "Ne02_Hru_vsg": "👂HEAR"
+		, "Ne03_Hry_vsg": "👀SEE"
+		, "Ne04_Hx_vsg": "🧩LEARN"
+		, "Ne05_Grx_vsg": "📜NOTICES"
 
 
-		, "Ne00_KeDy00__NiKeDru_vsg": "Language"
-		, "Ne00_KeDy01__NiKeDy_vsg": "User"
+		, "Ne00_KeDy00__Nz00_NiKeDy_vsg": "User"
+		, "Ne00_KeDy00__Nz03_SaJaPo_vsg": "Profile"
+		, "Ne00_KeDy00__Nz02_NiKeDru_vsg": "Language"
+		, "Ne00_KeDy00__Nz03_TraChe_vsg": "Use Question-Answer Security"
+
+
 		, "Ne00_KeDy02__VaTre_vsg": "🗣️Edit Name"
-		, "Ne00_KeDy03__SaJaPo_vsg": "Profile"
 		, "Ne00_KeDy04__ChaDe_vsg": "🆕👤Add New Default User"
 		, "Ne00_KeDy05__ChaFe_vsg": "🖨️👤Copy Current User"
-		, "Ne00_KeDy06__TraChe_vsg": "Use Question-Answer Security"
 		, "Ne00_KeDy07__MaKz_vsg": "🔒Question-Lock"
 		, "Ne00_KeDy08__SmzKz_vsg": "🗝️Answer-Key"
 		, "Ne00_KeDy09__Chi_vsg": "🗑️Remove Current User"
 
 
-		, "Ne01_Ko00__KwiYz_ChyDe_vsg": "Reset User's Settings to Default"
-		, "Ne01_Ko01__HraBru_Tra_vsg": "Network Active"
-		, "Ne01_Ko02__SpeVu_vsg": "Power Use"
-		, "Ne01_Ko03__MzKu_vsg": "Allow GPS Location"
+		, "Ne01_Ko00__Nz00__vsg": "Activity"
+		, "Ne01_Ko00__Nz01__vsg": "Location"
+		, "Ne01_Ko00__Nz02__vsg": "Settings"
+
+
 		, "Ne01_Ko04__KoDz_YoHo_vsg": "Always Active (Background Work)"
+		, "Ne02_Hru__YoHo_vsg": "Always Audible (Background Sound)"
+		, "Ne01_Ko01__HraBru_Tra_vsg": "Always Network"
+		, "Ne01_Ko02__SpeVu_vsg": "Power Use"
+
+		, "Ne01_Ko03__MzKu_vsg": "Allow GPS Location (Track)"
+		, "Ne01_Ko03__MzKu01_Ge_vsg": "Allow GPS Location (Track)"
+		, "Ne01_Ko03__MzKu02_Ku_vsg": "Remember Locations Seen (Anchors)"
+		, "Ne01_Ko03__MzKu03_Gz_vsg": "Allow Distance Sensors"
+
+		, "Ne01_Ko00__KwiYz_ChyDe_vsg": "Reset User's Settings to Default"
 		, "Ne01_Ko05__TaKeDy_Chx_vsg": "Clear All Users & Settings to NEW"
 
 
-		, "Ne02_Hru00__MxPeHo_vsg": "Mute"
-		, "Ne02_Hru01__MxPeVo_vsg": "Speakers"
-		, "Ne02_Hru02__MzPe_vsg": "Mic"
-		, "Ne02_Hru03__YoHo_vsg": "Always Audible"
-		, "Ne02_Hru04__SmzYz_vsg": "Method"
-		, "Ne02_Hru05__GyBraHi_vsg": "Quality"
+		, "Ne02_Hru00__Nz00_Mo_vsg": "Control"
+		, "Ne02_Hru00__Nz01_Dx_vsg": "Style"
+
+		, "Ne02_Hru__MzPe_vsg": "Microphones"
+		, "Ne02_Hru__MxPeHo_vsg": "Speaker Mute"
+		, "Ne02_Hru__MxPeVo_vsg": "Volume"
+		, "Ne02_Hru__SmzYz_vsg": "Method"
+		, "Ne02_Hru__GyBraHi_vsg": "Quality"
+		, "Ne02_Hry06__TyGy_vsg": "Detail"
 
 
-		, "Ne03_Hry00__KeDruGy_vsg": "Legible Size"
+		, "Ne03_Hry00__Nz00_Mo_vsg": "Control"
+		, "Ne03_Hry00__Nz01_Dx_vsg": "Style"
+		, "Ne03_Hry00__Nz02_Mx_vsg": "Display"
+		, "Ne03_Hry00__Nz03_Ku_vsg": "Movement"
+
+		, "Ne03_Hry00__KeDruGy_vsg": "Legible Text Size"
 		, "Ne03_Hry01__MzPo_vsg": "Camera"
-		, "Ne03_Hry02__HriKe_vsg": "XR"
-		, "Ne03_Hry03__MxPoGyHi_vsg": "Fullscreen"
-		, "Ne03_Hry04__MxPoGry_vsg": "Use All Screens"
 		, "Ne03_Hry05__PoGy_vsg": "HDR"
+
+		, "Ne03_Hry02__HriKeGe00_vsg": "XR Space"
+		, "Ne03_Hry02__HriKeGe01_Spo_vsg": "XR Still User"
+		, "Ne03_Hry02__HriKeGe02_Bra_vsg": "XR Area Boundaries"
+		, "Ne03_Hry02__HriKeGe03_Dri_vsg": "XR Roaming"
+
 		, "Ne03_Hry06__SmzYz_vsg": "Method"
 		, "Ne03_Hry07__GyBraHi_vsg": "Quality"
 		, "Ne03_Hry08__TyGy_vsg": "Detail"
-		, "Ne03_Hry09__Ka_vsg": "Devices"
+
+		, "Ne03_Hry10__MxPoDe_vsg": "Browser Tab"
+		, "Ne03_Hry03__MxPoGyHi_vsg": "Fullscreen"
+		, "Ne03_Hry04__MxPoGry_vsg": "Use All Screens"
+		, "Ne03_Hry12__HriKeKwz_vsg": "VR ( Virtual Reality XR )"
+		, "Ne03_Hry13__HriKeKwa_vsg": "AR ( Augmented Reality XR )"
 
 
+		, "Ne04_Hx00__Bz_vsg": "Learn about MicroCosm"
+		, "Ne04_Hx00__Nz00_Stx_vsg": "Topic #1"
+		, "Ne04_Hx00__Nz01_Sta_vsg": "Topic #2"
+		, "Ne04_Hx00__Nz02_Sti_vsg": "Topic #3"
 
-		, "Ne04_Hx00__Bz_vsg": "About MicroCosm"
 		, "Ne04_Hx01__Ka00_vsg": "EverybodyWins: No Shortage of Solutions, 100% People possible to create, use, & monetize compute powers for solutions"
 		, "Ne04_Hx01__Ka01_vsg":" YourChoice: Would you Rather live in an Everyone can monetize solutions for actual 'value' or continue in our Walled Garden, Engineer-Only, Software-Failure built world. Try_All_Tek, Model All Possibilities: Problems that more Money, more Talent, more Time, and more Code doesn’t solve."
 		, "Ne04_Hx01__Ka02_vsg": " Transfer: Migration of Solutions, Ecosystem Investments Preserved - Subjective_Truth_Has_Value: Knowledge Rep/ Meaning Coordinates => Custom, Not One Size Fits All"
 
 
-		, "Ne05_Grx00__Bz_vsg": "Legal, Copyrights, & Credits"
-		, "Ne05_Grx01__Ka00_vsg": "Legal Notices: Copyright 2026 PowerOurPeople. Licensed under the Apache License, Version 2.0 (the 'License'); -- You may not use this file except in compliance with the License. -- You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0 Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+		, "Ne05_Grx00__Bz_vsg": "Notices of Importance"
+		, "Ne05_Grx00__Nz00_Grx_vsg": "License Notices"
+		, "Ne05_Grx00__Nz01_Che_vsg": "Legal Notices"
+		, "Ne05_Grx00__Nz02_So_vsg": "Credit Notices"
 
-		, "Ne05_Grx01__Ka01_vsg": "Copyright Notices go here"
-		, "Ne05_Grx01__Ka02_vsg": "Credit Notices go here"
+		, "Ne05_Grx01__Ka00_vsg": "Copyright 2026 PowerOurPeople. Licensed under the Apache License, Version 2.0 (the 'License'); -- You may not use this file except in compliance with the License. -- You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0 Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.          Copyright 2026 PowerOurPeople. Licensed under the Apache License, Version 2.0 (the 'License'); -- You may not use this file except in compliance with the License. -- You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0 Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.    Copyright 2026 PowerOurPeople. Licensed under the Apache License, Version 2.0 (the 'License'); -- You may not use this file except in compliance with the License. -- You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0 Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.   Copyright 2026 PowerOurPeople. Licensed under the Apache License, Version 2.0 (the 'License'); -- You may not use this file except in compliance with the License. -- You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0 Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.  Copyright 2026 PowerOurPeople. Licensed under the Apache License, Version 2.0 (the 'License'); -- You may not use this file except in compliance with the License. -- You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0 Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.  Copyright 2026 PowerOurPeople. Licensed under the Apache License, Version 2.0 (the 'License'); -- You may not use this file except in compliance with the License. -- You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0 Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+
+		, "Ne05_Grx01__Ka01_vsg": "Legal Compliances go here"
+		, "Ne05_Grx01__Ka02_vsg": "Credits go here"
 
 	}
 

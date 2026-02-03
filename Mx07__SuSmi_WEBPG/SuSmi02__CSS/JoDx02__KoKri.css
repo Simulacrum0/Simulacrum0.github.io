@@ -201,11 +201,11 @@ PANELS
 
 	/* Use 1.5 instead of 3 because DBG Bars */
 	left: 1.5rem;
-	top: 3rem;
+	top: 3.0rem;
 
 	/* CONSIDER 'DBG' BARS, only 'width' since Trx needs expand for centering */
-	width: calc( 100dvw - 3rem );
-	max-height: calc( 100dvh - 6rem );
+	width: calc( 100dvw - 3.0rem );
+	max-height: calc( 100dvh - 6.0rem );
 	overflow-x: auto;
 	overflow-y: auto;
 
@@ -477,14 +477,13 @@ TEXT
 
 	text-align:left;
 	color: #888;
-	background-color: #2228;
-	/* background-color: #313F; */
+	background-color: #222A;
 
 	border-radius: 1.0rem;
 
 	border-left: none;
 	border-right: none;
-	border-top: solid 0.125rem #4448;
+	border-top: solid 0.125rem #444F;
 	border-bottom: none;
 
 	margin: 0.50rem;
@@ -498,10 +497,10 @@ TEXT
 	text-align:left;
 	color: #FFF;
 
-	padding: 0.25rem 1.00rem;
+	padding: 0.25rem 1.0rem;
 	margin: 0.25rem 0.0rem;
 
-	background-color: #0008;
+	background-color: #0002;
 }
 
 /* TEXT__LIST_ELEMENTS */
@@ -546,27 +545,30 @@ TEXT
 /* TEXT__DOCUMENT HEADER */
 .KeDruBz
 {
-	display: inline-block;
-	text-align:center;
+	font-size: 1.33rem;
+}
 
-	color: #FFF;
-	background-color: #000F;
+/* TEXT__SECTION */
+.KeDruNz
+{
+	font-size: 1.20rem;
+
+	margin: 0.125rem;
+	padding: 0.125rem;
 }
 
 /* TEXT__DOCUMENT BODY */
 .KeDruKa
 {
-	display: block;
-	text-align:left;
+	font-size: 0.875rem;
 
-	margin: 1.0rem;
+	margin: 0.5rem;
 	padding: 1.0rem;
 
-	color: #FFF;
-	background-color: #000F;
+	background-color: #0008;
 
 	overflow-x: none;
-	overflow-y: scroll;
+	overflow-y: auto;
 
 	max-height: 12.0rem
 }
@@ -574,8 +576,8 @@ TEXT
 /* TEXT__DBG ERR */
 .TrxKz
 {
-	font-size: 1.5rem;
-	text-align:center;
+	font-size: 1.25rem;
+	text-align: center;
 }
 
 /*@@@@@@@@@@@@@@@
@@ -601,11 +603,23 @@ ELEMENTS IMAGE GRID
 {
 	display: block;
 	place-items: start start;
-	/* place-items: center center; */
 	text-align: center;
 
 	font-size: 6.0rem;
 	width: 100%;
+	height: 8.0rem;
+
+	margin: 0.25rem;
+	padding: 0.0rem;
+}
+
+.NiJaPo_Trx
+{
+	display: block;
+	place-items: start start;
+	text-align: center;
+
+	font-size: 6.0rem;
 	height: 8.0rem;
 
 	margin: 0.25rem;
@@ -624,7 +638,7 @@ ELEMENTS IMAGE GRID
 	height: 8.0rem;
 
 	overflow-x: none;
-	overflow-y: scroll;
+	overflow-y: auto;
 
 	margin: 0.25rem;
 	padding: 0.0rem;
@@ -746,9 +760,42 @@ ELEMENTS MISC
 }
 
 /*@@@@@@@@@@@@@@@
+RADIO GROUP
+@@@@@@@@@@@@@@@*/
+.NiGruKu
+{
+	display: inline-flex;
+	border: solid 0.125rem #8884;
+	/* border-radius: 0.0rem; */
+	margin: 0.25rem;
+	padding: 0.25rem;
+}
+
+.NiGruVa
+{
+	color: #FFFF;
+	background-color: #0002;
+
+	margin: 0.25rem;
+	padding: 0.25rem;
+}
+
+.NiGruTi
+{
+	margin: 0.25rem;
+	padding: 0.25rem;
+
+	color: #FFFF;
+	background-color: #000F;
+
+	/* RADIO_CLR */
+	accent-color: #D22;
+}
+
+/*@@@@@@@@@@@@@@@
 TOGGLE_SWITCH
 @@@@@@@@@@@@@@@*/
-.KaHyHo input
+.KaHyHo
 {
 	opacity: 0;
 	width: 0;
@@ -844,7 +891,7 @@ hr
 	border-top: none;
 
     margin: 0.0 rem;
-    padding: 0.0 rem;
+    padding: 1.0 rem;
 }
 
 /* ELM__NOT_IN_USE */
