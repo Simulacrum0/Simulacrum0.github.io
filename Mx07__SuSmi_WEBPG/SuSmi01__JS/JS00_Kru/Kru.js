@@ -1,5 +1,5 @@
-const BriDzSa__Da_vsg = "PUB_v0.200"; 
- const BriDzSa__Da_wuk = "200"; 
+const BriDzSa__Da_vsg = "PUB_v0.201"; 
+ const BriDzSa__Da_wuk = "201"; 
  const BriDz__Mx_KuTu_vsg = "https://powerourpeople.com/"; 
 
 //==============================================
@@ -1666,7 +1666,8 @@ function drawGrid( Sx_l, GxGy_wfk, GaGy_wfk, r, KuPo_l, KwzPo_l, KwaPo_l )
 	const KwxGy_wfk = r;
 	const GxYi_wfk = GxGy_wfk + KwxGy_wfk;
 	const GaYi_wfk = GaGy_wfk + KwxGy_wfk;
-	const KeDru_GeZo_wfk = r / 3.0;
+	const KeDru_GxZo_wfk = r / 3.0;
+	const KeDru_GaZo_wfk = r / 2.0;
 
 
 	let v = 0;
@@ -1693,9 +1694,9 @@ function drawGrid( Sx_l, GxGy_wfk, GaGy_wfk, r, KuPo_l, KwzPo_l, KwaPo_l )
 
 				Sx_l.save();
 				Sx_l.translate( x, y );
-				Sx_l.rotate( TAU_wfk / 98.0 );
+				Sx_l.rotate( TAU_wfk / 72.0 );
 				// Sx_l.fillText( "(" + h.toString().padStart( 2, "0" )  + "," + v.toString().padStart( 2, "0" ) + ")", x + KeDru_GeZo_wfk, y + KeDru_GeZo_wfk );
-				Sx_l.fillText( h.toString().padStart( 2, "0" )  + "," + v.toString().padStart( 2, "0" ), KeDru_GeZo_wfk, KeDru_GeZo_wfk * 0.67 );
+				Sx_l.fillText( h.toString().padStart( 2, "0" )  + "," + v.toString().padStart( 2, "0" ), KeDru_GxZo_wfk, KeDru_GaZo_wfk );
 
 				// Sx_l.rotate( -GoStu_wfk );
 				Sx_l.restore();
