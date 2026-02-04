@@ -380,7 +380,7 @@ function DoXR__MzPoYe( Sa_l, Gi_k, FRM_k )
 	//@@@
 	// ANCHORS
 	// trackedAnchors RO: XRAnchorSet containing all anchors still tracked in the FRM_k.
-	//for (const anchor of frame.trackedAnchors)
+	//for( const anchor of frame.trackedAnchors)
 	// {
 	// 	const pose = frame.getPose(anchor.anchorSpace, referenceSpace);
 	//   }

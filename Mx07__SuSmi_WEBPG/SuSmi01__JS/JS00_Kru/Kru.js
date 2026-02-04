@@ -1,5 +1,5 @@
-const BriDzSa__Da_vsg = "PUB_v0.204"; 
- const BriDzSa__Da_wuk = "204"; 
+const BriDzSa__Da_vsg = "PUB_v0.205"; 
+ const BriDzSa__Da_wuk = "205"; 
  const BriDz__Mx_KuTu_vsg = "https://powerourpeople.com/"; 
 
 //==============================================
@@ -62,7 +62,7 @@ const Hre1_Dru__Gra_v =
 	{
 		"Vy": "en",
 		"Va": "U.N. English",
-		"KuGwz": "🌎",
+		"KuGwz": "💬",
 		"So": "U.N. English",
 		"ToKz": "en"
 	},
@@ -224,23 +224,40 @@ const Hre1_Dru__Gra_v =
 const SaPy_vvsg=
 [
 	'👤','👻','🎰','🧑‍💻'
+
 	,'👽️','👾','🤖','🗿'
 
 	,'😌','😎','😃','🤣'
 	,'😉','😍','🤩','😘','🤪'
+
 	,'🤬','👿','💀','☠️','🤡','👹','👺'
 
-	,'🐵','🐶','🐺','🦊','🦝','🐱','🦁','🐯'
-	,'🐴','🦉','🐸','🐍','🐲','🦖','🦄'
-	,'🐮','🐷','🐭','🐰','🐻','🐨','🐼'
+	,'🐵','🐶','🐺','🦊','🦝','🐱','🦁','🐯','🐼'
+	,'🐮','🐷','🐭','🐰','🐻','🐨','🐴','🦉','🐸'
 	,'🐧','🐳','🐬','🐟️','🦑','🦀'
-	,'🦋','🐝','🐞','🦗','🕷️'
+
+	,'🦋','🐝','🐞','🦗','🕷️','🦇','🐍','🐛'
+
+	,'🦕','🦖','🦄','🐲'
 
 	,'⭐️','🌀','🌈','❤️‍','🎵','🎶'
 
 	,'⚽️','⚾️','🥎','🏀','🏐','🏈','🏉'
-	,'🛐','⚛️','🕉️','✡️','☸️','☯️','✝️','☦️','☪️','☮️','🕎','🔯'
+
+	,'🛐','⚛️','🕉️','✡️','☸️','☯️','✝️','☦️','☪️','☮️'
 	,'♈️','♉️','♊️','♋️','♌️','♍️','♎️','♏️','♐️','♑️','♒️','♓️','⛎'
+];
+
+//-------------------------------------------------
+// LANG/COUNTRY END
+//-------------------------------------------------
+//==============================================
+// CORE MSGS
+//==============================================
+const Kru__TaNe_v=
+[
+	{ Va: "Name", Jy: "Type", Dx: "Style" }
+
 ];
 
 //-------------------------------------------------
@@ -249,6 +266,10 @@ const SaPy_vvsg=
 //==============================================
 // STARTUP
 //==============================================
+
+// ONLY SAVE last 64 log lines
+const SmaBraHi_wuk = 64;
+const SmaViKa_wuk = ( SmaBraHi_wuk - 1 );
 
 //----------------------------
 // SYSTEM SERVICE_GOVERNOR
@@ -264,8 +285,21 @@ var Ko =
 
 	//@@@
 	// NODE
+	// MOBILE
 	, Hrz3_By__KaGeSpu_y: false
 
+	//@@@
+	// SERV
+	//@@@
+	// CLNs
+	// Configs by User
+	, TaKeDy_l: {}
+
+	//@@@
+	// LOG
+	// Sma_vvsg
+	, SmaFe_wu: 0
+	, Sma_vvsg: new Array( SmaBraHi_wuk ).fill( null )
 
 	//@@@
 	// UPD
@@ -274,15 +308,32 @@ var Ko =
 };
 window.Ko = Ko;
 
+
 //==============================================
 // LOGS
 // Skipped usual 8 layers for minimal JS
 //==============================================
-// The arguments object is an Array -like object corresponding to the arguments passed to a function.
-// The expression Array.prototype.slice.call(arguments) is used to convert the arguments object, which is array-like but not a true array, into a real array:
-function SmaSme(){ var ARG_v = Array.prototype.slice.call(arguments); console.log.apply(console, ARG_v); }
-function SmaDre(){ var ARG_v = Array.prototype.slice.call(arguments); console.warn.apply(console, ARG_v); }
-function SmaTrx(){ var ARG_v = Array.prototype.slice.call(arguments); console.error.apply(console, ARG_v); }
+// 'arguments object' is a builtin Array -like object.
+// Array.prototype.slice.call(arguments) converts *array-like* 'arguments' to a TRUE array 'ARG_v:
+// function SmaSme(){ var ARG_v = Array.prototype.slice.call(arguments); console.log.apply(console, ARG_v); }
+SmaJy_vsg = [ '💬', '⚠️', '🤯' ];
+
+function SmaTro_vsg( SmaJy_wu, ARG_v )
+{
+	// PAD '3'
+	const Me_vsg = SmaJy_vsg[ SmaJy_wu ] + Ko.SmaFe_wu.toString().padStart( 3, "0" ) + "➡️" + ARG_v.join( ' ' );
+
+	// Increment line & wrap as valid entry
+	++Ko.SmaFe_wu;
+	const SmaFe_wuk = (( Ko.SmaFe_wu ) & SmaViKa_wuk );
+
+	Ko.Sma_vvsg[ SmaFe_wuk ] = Me_vsg;
+	return Me_vsg
+}
+
+function SmaSme(){ var ARG_v = Array.prototype.slice.call(arguments); console.log( SmaTro_vsg( 0, ARG_v ) );}
+function SmaDre(){ var ARG_v = Array.prototype.slice.call(arguments); console.warn( SmaTro_vsg( 1, ARG_v ) );}
+function SmaTrx(){ var ARG_v = Array.prototype.slice.call(arguments); console.error( SmaTro_vsg( 2, ARG_v ) );}
 
 //==============================================
 // SECURITY
@@ -328,11 +379,17 @@ document.addEventListener('readystatechange', function()
 {
 	// if (document.readyState === 'interactive')
 	// {
-	// 	SmaSme( "- WebPage_DOM Interactive" );
+	// 	SmaSme( "[LAUNCH] WebPage_DOM Interactive" );
 	// }
+
 	if (document.readyState === 'complete')
 	{
 		SmaSme( "[LAUNCH] Web_DOM Fully_Loaded" );
+
+
+		// Kru__TaNe_v
+
+
 	}
 });
 
@@ -756,7 +813,7 @@ function Hrz4_Bu__KwiYz__HriNe_MyYy()
 			//&&&
 			// ADD BTN
 			const Kz_l = document.createElement( 'option' );
-			Kz_l.className = 'HriNeTi WaDru_Ka';
+			Kz_l.className = 'HriNeTi WaDru_De';
 			Kz_l.innerText = `${SaPy_vvsg[ Ti_v.NiJaPo_wu ]} ${Ti_v.KeDy_vsg }` + ( Vx_wu & 1 ? "🔒":"🔓" );
 			Kz_l.value = Vx_wu;
 			TaKeDy_l.appendChild( Kz_l );
@@ -882,6 +939,10 @@ function Hrz4_Bu__KwiYz__HriNe_MyYy()
 	// , "Ne03_Hry06__SmzYz_vsg": "Method"
 	// , "Ne03_Hry07__GyBraHi_vsg": "Quality"
 	// , "Ne03_Hry08__TyGy_vsg": "Detail"
+
+
+	document.getElementById( "Ne03_Hry02__HriKe_y" ).checked = KwiYz_k.Ne03_Hry02__HriKe_y;
+
 
 }
 
@@ -1447,7 +1508,7 @@ async function Hri4_Bu__TaKeDy__ChySpo()
 			//&&&
 			// ADD BTN
 			const Kz_l = document.createElement( 'option' );
-			Kz_l.className = 'HriNeTi WaDru_Ka';
+			Kz_l.className = 'HriNeTi WaDru_De';
 			Kz_l.innerText = `${SaPy_vvsg[ Ti_v.NiJaPo_wu ]} ${Ti_v.KeDy_vsg }` + ( Vx_wu & 1 ? "🔒":"🔓" );
 			Kz_l.value = Vx_wu;
 			TaKeDy_l.appendChild( Kz_l );
@@ -1470,7 +1531,7 @@ async function Hri4_Bu__TaKeDy__ChySpo()
 			//&&&
 			// ADD BTN
 			const Kz_l = document.createElement( 'option' );
-			Kz_l.className = 'HriNeTi WaDru_Ka';
+			Kz_l.className = 'HriNeTi WaDru_De';
 			Kz_l.innerText = `${SaPy_vvsg[ Ti_v.NiJaPo_wu ]} ${Ti_v.KeDy_vsg }` + ( Vx_wu & 1 ? "🔒":"🔓" );
 			Kz_l.value = Vx_wu;
 			TaKeDy_l.appendChild( Kz_l );
@@ -1635,7 +1696,7 @@ function HrySxDe__ChyHEX( Sx_l, x, y, r, KuPo_l, KwzPo_l, KwaPo_l, NOTCH_yk )
 	Sx_l.strokeStyle = KwaPo_l;
 
 	Sx_l.beginPath();
-	for (var i = 0; i < GwxFo_wuk; i++)
+	for( let i = 0; i < GwxFo_wuk; i++)
 	{
 		Sx_l.lineTo( x + r * Math.cos( GoKwu_wfk * i ), y + r * Math.sin( GoKwu_wfk * i ) );
 	}
@@ -1677,7 +1738,7 @@ function HrySxDe__ChyHEX( Sx_l, x, y, r, KuPo_l, KwzPo_l, KwaPo_l, NOTCH_yk )
 	{
 		Sx_l.strokeStyle = KwzPo_l;
 		Sx_l.lineWidth = 1.5;
-		for (var i = 0; i < GwxZiStaFo_wuk; i++)
+		for( let i = 0; i < GwxZiStaFo_wuk; i++)
 		{
 			Sx_l.beginPath();
 			Sx_l.moveTo( x, y ); Sx_l.lineTo( x + r * Math.cos( GoSti_wfk * i), y + r * Math.sin( GoSti_wfk * i) );
@@ -1799,7 +1860,7 @@ function Hry_DriBrz( MxVa_vsg, GRID4_yk, KuPo_l, KwzPo_l, KwaPo_l )
 		const Kwz__TiGy_wuk = 32;
 
 		// Draw vertical lines
-		for (let x = 0; x <= Mx_l.width; x += Kwz__TiGy_wuk )
+		for( let x = 0; x <= Mx_l.width; x += Kwz__TiGy_wuk )
 		{
 			Sx_l.beginPath();
 			Sx_l.moveTo(x, 0);
@@ -1808,7 +1869,7 @@ function Hry_DriBrz( MxVa_vsg, GRID4_yk, KuPo_l, KwzPo_l, KwaPo_l )
 		}
 
 		// Draw horizontal lines
-		for (let y = 0; y <= Mx_l.height; y += Kwz__TiGy_wuk )
+		for( let y = 0; y <= Mx_l.height; y += Kwz__TiGy_wuk )
 		{
 			Sx_l.beginPath();
 			Sx_l.moveTo(0, y);
@@ -1824,7 +1885,7 @@ function Hry_DriBrz( MxVa_vsg, GRID4_yk, KuPo_l, KwzPo_l, KwaPo_l )
 		const Kwa__TiGy_wuk = 128;
 
 		// Draw vertical lines
-		for (let x = 0; x <= Mx_l.width; x += Kwa__TiGy_wuk )
+		for( let x = 0; x <= Mx_l.width; x += Kwa__TiGy_wuk )
 		{
 			Sx_l.beginPath();
 			Sx_l.moveTo( x, 0 );
@@ -1833,7 +1894,7 @@ function Hry_DriBrz( MxVa_vsg, GRID4_yk, KuPo_l, KwzPo_l, KwaPo_l )
 		}
 
 		// Draw horizontal lines
-		for (let y = 0; y <= Mx_l.height; y += Kwa__TiGy_wuk )
+		for( let y = 0; y <= Mx_l.height; y += Kwa__TiGy_wuk )
 		{
 			Sx_l.beginPath();
 			Sx_l.moveTo(0, y);
@@ -1880,10 +1941,10 @@ function HryMx00_KeMeKwi()
 		// PURPLE
 		, "#993399", "#999999", "#CCCCCC"
 
-		// PINE
-		, "#003300", "#669933", "#88BB55"
-		// ORANGE
-		, "#BB7711", "#BBBBBB", "#DDDDDD"
+		// DEEP BLUE
+		, "#333355", "#9999CC", "#BBBBEE"
+		// FADE
+		, "#333333", "#666666", "#999999"
 		// CHARCOAL
 		, "#555555", "#BBBBBB", "#DDDDDD"
 		// DARK
@@ -1896,7 +1957,7 @@ function HryMx00_KeMeKwi()
 	Hry_DriBrz( "MxPo_Kwi", false, TaPo_v[ FePo_k + 0 ],TaPo_v[ FePo_k + 1 ],TaPo_v[ FePo_k + 2 ] );
 
 	//---------------------------------
-	// SETUP GUI
+	// GUI_SYNC
 	//---------------------------------
 	Hrz4_Bu__KwiYz__HriNe_MyYy();
 }
@@ -1931,7 +1992,15 @@ function HryMx01_KeMeTrx()
 	TrxBz_k.innerText = KoSy__KeDru_l.BriDz_VaSy_vsg + " " + KoSy__KeDru_l.TrxBz_vsg + BriDzSa__Da_vsg;
 	TrxKa_k.innerText = Module.Trx_vsg;
 
-	TrxSma_Ta.innerHTML = "LOG Goes Here<br>Forever"
+	const Sma_vvsg = Ko.Sma_vvsg;
+	for( let i = 0; i < SmaBraHi_wuk; i++)
+	{
+		if( Sma_vvsg[ i ] )
+		{
+			TrxSma_Ta.innerText += Sma_vvsg[ i ] + "\n";
+		}
+	}
+
 }
 
 
@@ -1962,14 +2031,14 @@ function Hrz4_Bu__ChyNeKu( Vx_wu )
 
 	//@@@
 	// SELECT MENU
-	for (i = 0; i < HriNzVa_v.length; i++)
+	for( let i = 0; i < HriNzVa_v.length; i++)
 	{
 		HriNzVa_v[i].className = ( Vx_wu === i ) ? "HriNzVa WaDru_Bz HriNzVa_Se" : "HriNzVa WaDru_Bz";
 	}
 
 	//@@@
 	// SHOW/HIDE SECTIONS
-	for (i = 0; i < NeKuJy_v.length; i++)
+	for( let i = 0; i < NeKuJy_v.length; i++)
 	{
 		NeKuJy_v[i].style.display = ( Vx_wu === i ) ? "grid" : "none";
 	}
@@ -2487,13 +2556,12 @@ async function KoDz__YaFz()
 
 	//@@@
 	// CLNs
-	// Configs by User
-	Ko.TaKeDy_l = {};
 	// Declare 'fixed array' uses ZEROs, must fill  null
 	// Media Objects
 	Ko.SuKz_v = new Array( SuKz__GryFo_wuk ).fill( null );
 	// Service Sessions
 	Ko.SySmz_v = new Array( SyVx__GryFo_wuk ).fill( null );
+
 
 
 	//@@@
@@ -2595,7 +2663,7 @@ async function KoDz__YaFz()
 	KoDz_GyHa();
 
 	// GUI TOPIC_SELECT WHO
-	Hrz4_Bu__ChyNeKu( 3 );
+	Hrz4_Bu__ChyNeKu( 0 );
 
 	//@@@
 	// FOCUS LAUNCH BTN

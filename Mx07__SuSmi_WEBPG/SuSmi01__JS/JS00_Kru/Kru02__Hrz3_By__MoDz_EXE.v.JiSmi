@@ -2,6 +2,10 @@
 // STARTUP
 //==============================================
 
+// ONLY SAVE last 64 log lines
+const SmaBraHi_wuk = 64;
+const SmaViKa_wuk = ( SmaBraHi_wuk - 1 );
+
 //----------------------------
 // SYSTEM SERVICE_GOVERNOR
 //----------------------------
@@ -16,8 +20,21 @@ var Ko =
 
 	//@@@
 	// NODE
+	// MOBILE
 	, Hrz3_By__KaGeSpu_y: false
 
+	//@@@
+	// SERV
+	//@@@
+	// CLNs
+	// Configs by User
+	, TaKeDy_l: {}
+
+	//@@@
+	// LOG
+	// Sma_vvsg
+	, SmaFe_wu: 0
+	, Sma_vvsg: new Array( SmaBraHi_wuk ).fill( null )
 
 	//@@@
 	// UPD
@@ -26,15 +43,32 @@ var Ko =
 };
 window.Ko = Ko;
 
+
 //==============================================
 // LOGS
 // Skipped usual 8 layers for minimal JS
 //==============================================
-// The arguments object is an Array -like object corresponding to the arguments passed to a function.
-// The expression Array.prototype.slice.call(arguments) is used to convert the arguments object, which is array-like but not a true array, into a real array:
-function SmaSme(){ var ARG_v = Array.prototype.slice.call(arguments); console.log.apply(console, ARG_v); }
-function SmaDre(){ var ARG_v = Array.prototype.slice.call(arguments); console.warn.apply(console, ARG_v); }
-function SmaTrx(){ var ARG_v = Array.prototype.slice.call(arguments); console.error.apply(console, ARG_v); }
+// 'arguments object' is a builtin Array -like object.
+// Array.prototype.slice.call(arguments) converts *array-like* 'arguments' to a TRUE array 'ARG_v:
+// function SmaSme(){ var ARG_v = Array.prototype.slice.call(arguments); console.log.apply(console, ARG_v); }
+SmaJy_vsg = [ '💬', '⚠️', '🤯' ];
+
+function SmaTro_vsg( SmaJy_wu, ARG_v )
+{
+	// PAD '3'
+	const Me_vsg = SmaJy_vsg[ SmaJy_wu ] + Ko.SmaFe_wu.toString().padStart( 3, "0" ) + "➡️" + ARG_v.join( ' ' );
+
+	// Increment line & wrap as valid entry
+	++Ko.SmaFe_wu;
+	const SmaFe_wuk = (( Ko.SmaFe_wu ) & SmaViKa_wuk );
+
+	Ko.Sma_vvsg[ SmaFe_wuk ] = Me_vsg;
+	return Me_vsg
+}
+
+function SmaSme(){ var ARG_v = Array.prototype.slice.call(arguments); console.log( SmaTro_vsg( 0, ARG_v ) );}
+function SmaDre(){ var ARG_v = Array.prototype.slice.call(arguments); console.warn( SmaTro_vsg( 1, ARG_v ) );}
+function SmaTrx(){ var ARG_v = Array.prototype.slice.call(arguments); console.error( SmaTro_vsg( 2, ARG_v ) );}
 
 //==============================================
 // SECURITY
@@ -80,11 +114,17 @@ document.addEventListener('readystatechange', function()
 {
 	// if (document.readyState === 'interactive')
 	// {
-	// 	SmaSme( "- WebPage_DOM Interactive" );
+	// 	SmaSme( "[LAUNCH] WebPage_DOM Interactive" );
 	// }
+
 	if (document.readyState === 'complete')
 	{
 		SmaSme( "[LAUNCH] Web_DOM Fully_Loaded" );
+
+
+		// Kru__TaNe_v
+
+
 	}
 });
 

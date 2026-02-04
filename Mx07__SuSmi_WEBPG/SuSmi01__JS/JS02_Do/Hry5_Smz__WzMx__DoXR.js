@@ -1,4 +1,4 @@
-const DoXR__BriDzSa__Da_wuk = "204"; 
+const DoXR__BriDzSa__Da_wuk = "205"; 
 
 //==============================================
 //==============================================
@@ -139,7 +139,7 @@ function DoXR_WG__Cho_MzPo( Sa_l, MzKz_v )
 
 // function onXRFrame(time, xrFrame)
 
-  for (const view in xrViewerPose.views)
+  for( const view in xrViewerPose.views)
   {
 		const subImage = xrGpuBinding.getViewSubImage(layer, view);
 		view: subImage.colorTexture.createView(subImage.getViewDescriptor()),
@@ -990,7 +990,7 @@ function DoXR__MzPoYe( Sa_l, Gi_k, FRM_k )
 	//@@@
 	// ANCHORS
 	// trackedAnchors RO: XRAnchorSet containing all anchors still tracked in the FRM_k.
-	//for (const anchor of frame.trackedAnchors)
+	//for( const anchor of frame.trackedAnchors)
 	// {
 	// 	const pose = frame.getPose(anchor.anchorSpace, referenceSpace);
 	//   }

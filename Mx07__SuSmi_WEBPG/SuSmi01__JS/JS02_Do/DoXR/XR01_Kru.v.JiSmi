@@ -73,7 +73,7 @@ function DoXR_WG__Cho_MzPo( Sa_l, MzKz_v )
 
 // function onXRFrame(time, xrFrame)
 
-  for (const view in xrViewerPose.views)
+  for( const view in xrViewerPose.views)
   {
 		const subImage = xrGpuBinding.getViewSubImage(layer, view);
 		view: subImage.colorTexture.createView(subImage.getViewDescriptor()),

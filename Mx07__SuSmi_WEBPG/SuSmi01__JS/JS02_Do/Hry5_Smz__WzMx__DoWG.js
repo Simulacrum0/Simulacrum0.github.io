@@ -1,4 +1,4 @@
-const DoWG__BriDzSa__Da_wuk = "204"; 
+const DoWG__BriDzSa__Da_wuk = "205"; 
 
 //==============================================
 //==============================================
@@ -526,7 +526,7 @@ DoWG.KiCho_JxRe = function( Sa_l )
 	// 	const view = new Float32Array(arrayBuffer);
 
 	// 	// Write directly to GPU memory
-	// 	for (let i = 0; i < 1000000; i++) {
+	// 	for( let i = 0; i < 1000000; i++) {
 	// 		view[i] = Math.sin(i * 0.01);
 	// 	}
 

@@ -80,13 +80,12 @@ async function KoDz__YaFz()
 
 	//@@@
 	// CLNs
-	// Configs by User
-	Ko.TaKeDy_l = {};
 	// Declare 'fixed array' uses ZEROs, must fill  null
 	// Media Objects
 	Ko.SuKz_v = new Array( SuKz__GryFo_wuk ).fill( null );
 	// Service Sessions
 	Ko.SySmz_v = new Array( SyVx__GryFo_wuk ).fill( null );
+
 
 
 	//@@@
@@ -188,7 +187,7 @@ async function KoDz__YaFz()
 	KoDz_GyHa();
 
 	// GUI TOPIC_SELECT WHO
-	Hrz4_Bu__ChyNeKu( 3 );
+	Hrz4_Bu__ChyNeKu( 0 );
 
 	//@@@
 	// FOCUS LAUNCH BTN

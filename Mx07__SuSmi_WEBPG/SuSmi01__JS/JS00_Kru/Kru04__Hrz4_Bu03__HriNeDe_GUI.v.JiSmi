@@ -149,7 +149,7 @@ function HrySxDe__ChyHEX( Sx_l, x, y, r, KuPo_l, KwzPo_l, KwaPo_l, NOTCH_yk )
 	Sx_l.strokeStyle = KwaPo_l;
 
 	Sx_l.beginPath();
-	for (var i = 0; i < GwxFo_wuk; i++)
+	for( let i = 0; i < GwxFo_wuk; i++)
 	{
 		Sx_l.lineTo( x + r * Math.cos( GoKwu_wfk * i ), y + r * Math.sin( GoKwu_wfk * i ) );
 	}
@@ -191,7 +191,7 @@ function HrySxDe__ChyHEX( Sx_l, x, y, r, KuPo_l, KwzPo_l, KwaPo_l, NOTCH_yk )
 	{
 		Sx_l.strokeStyle = KwzPo_l;
 		Sx_l.lineWidth = 1.5;
-		for (var i = 0; i < GwxZiStaFo_wuk; i++)
+		for( let i = 0; i < GwxZiStaFo_wuk; i++)
 		{
 			Sx_l.beginPath();
 			Sx_l.moveTo( x, y ); Sx_l.lineTo( x + r * Math.cos( GoSti_wfk * i), y + r * Math.sin( GoSti_wfk * i) );
@@ -313,7 +313,7 @@ function Hry_DriBrz( MxVa_vsg, GRID4_yk, KuPo_l, KwzPo_l, KwaPo_l )
 		const Kwz__TiGy_wuk = 32;
 
 		// Draw vertical lines
-		for (let x = 0; x <= Mx_l.width; x += Kwz__TiGy_wuk )
+		for( let x = 0; x <= Mx_l.width; x += Kwz__TiGy_wuk )
 		{
 			Sx_l.beginPath();
 			Sx_l.moveTo(x, 0);
@@ -322,7 +322,7 @@ function Hry_DriBrz( MxVa_vsg, GRID4_yk, KuPo_l, KwzPo_l, KwaPo_l )
 		}
 
 		// Draw horizontal lines
-		for (let y = 0; y <= Mx_l.height; y += Kwz__TiGy_wuk )
+		for( let y = 0; y <= Mx_l.height; y += Kwz__TiGy_wuk )
 		{
 			Sx_l.beginPath();
 			Sx_l.moveTo(0, y);
@@ -338,7 +338,7 @@ function Hry_DriBrz( MxVa_vsg, GRID4_yk, KuPo_l, KwzPo_l, KwaPo_l )
 		const Kwa__TiGy_wuk = 128;
 
 		// Draw vertical lines
-		for (let x = 0; x <= Mx_l.width; x += Kwa__TiGy_wuk )
+		for( let x = 0; x <= Mx_l.width; x += Kwa__TiGy_wuk )
 		{
 			Sx_l.beginPath();
 			Sx_l.moveTo( x, 0 );
@@ -347,7 +347,7 @@ function Hry_DriBrz( MxVa_vsg, GRID4_yk, KuPo_l, KwzPo_l, KwaPo_l )
 		}
 
 		// Draw horizontal lines
-		for (let y = 0; y <= Mx_l.height; y += Kwa__TiGy_wuk )
+		for( let y = 0; y <= Mx_l.height; y += Kwa__TiGy_wuk )
 		{
 			Sx_l.beginPath();
 			Sx_l.moveTo(0, y);
@@ -394,10 +394,10 @@ function HryMx00_KeMeKwi()
 		// PURPLE
 		, "#993399", "#999999", "#CCCCCC"
 
-		// PINE
-		, "#003300", "#669933", "#88BB55"
-		// ORANGE
-		, "#BB7711", "#BBBBBB", "#DDDDDD"
+		// DEEP BLUE
+		, "#333355", "#9999CC", "#BBBBEE"
+		// FADE
+		, "#333333", "#666666", "#999999"
 		// CHARCOAL
 		, "#555555", "#BBBBBB", "#DDDDDD"
 		// DARK
@@ -410,7 +410,7 @@ function HryMx00_KeMeKwi()
 	Hry_DriBrz( "MxPo_Kwi", false, TaPo_v[ FePo_k + 0 ],TaPo_v[ FePo_k + 1 ],TaPo_v[ FePo_k + 2 ] );
 
 	//---------------------------------
-	// SETUP GUI
+	// GUI_SYNC
 	//---------------------------------
 	Hrz4_Bu__KwiYz__HriNe_MyYy();
 }
@@ -445,7 +445,15 @@ function HryMx01_KeMeTrx()
 	TrxBz_k.innerText = KoSy__KeDru_l.BriDz_VaSy_vsg + " " + KoSy__KeDru_l.TrxBz_vsg + BriDzSa__Da_vsg;
 	TrxKa_k.innerText = Module.Trx_vsg;
 
-	TrxSma_Ta.innerHTML = "LOG Goes Here<br>Forever"
+	const Sma_vvsg = Ko.Sma_vvsg;
+	for( let i = 0; i < SmaBraHi_wuk; i++)
+	{
+		if( Sma_vvsg[ i ] )
+		{
+			TrxSma_Ta.innerText += Sma_vvsg[ i ] + "\n";
+		}
+	}
+
 }
 
 
@@ -476,14 +484,14 @@ function Hrz4_Bu__ChyNeKu( Vx_wu )
 
 	//@@@
 	// SELECT MENU
-	for (i = 0; i < HriNzVa_v.length; i++)
+	for( let i = 0; i < HriNzVa_v.length; i++)
 	{
 		HriNzVa_v[i].className = ( Vx_wu === i ) ? "HriNzVa WaDru_Bz HriNzVa_Se" : "HriNzVa WaDru_Bz";
 	}
 
 	//@@@
 	// SHOW/HIDE SECTIONS
-	for (i = 0; i < NeKuJy_v.length; i++)
+	for( let i = 0; i < NeKuJy_v.length; i++)
 	{
 		NeKuJy_v[i].style.display = ( Vx_wu === i ) ? "grid" : "none";
 	}

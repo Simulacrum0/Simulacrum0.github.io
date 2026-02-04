@@ -126,7 +126,7 @@ function Hrz4_Bu__KwiYz__HriNe_MyYy()
 			//&&&
 			// ADD BTN
 			const Kz_l = document.createElement( 'option' );
-			Kz_l.className = 'HriNeTi WaDru_Ka';
+			Kz_l.className = 'HriNeTi WaDru_De';
 			Kz_l.innerText = `${SaPy_vvsg[ Ti_v.NiJaPo_wu ]} ${Ti_v.KeDy_vsg }` + ( Vx_wu & 1 ? "🔒":"🔓" );
 			Kz_l.value = Vx_wu;
 			TaKeDy_l.appendChild( Kz_l );
@@ -252,6 +252,10 @@ function Hrz4_Bu__KwiYz__HriNe_MyYy()
 	// , "Ne03_Hry06__SmzYz_vsg": "Method"
 	// , "Ne03_Hry07__GyBraHi_vsg": "Quality"
 	// , "Ne03_Hry08__TyGy_vsg": "Detail"
+
+
+	document.getElementById( "Ne03_Hry02__HriKe_y" ).checked = KwiYz_k.Ne03_Hry02__HriKe_y;
+
 
 }
 

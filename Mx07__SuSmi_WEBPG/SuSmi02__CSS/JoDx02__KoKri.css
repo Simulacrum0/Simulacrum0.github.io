@@ -6,10 +6,20 @@ RULES MATCHED by ORDER in CSS file here, no 'class order'!
 @@@@@@@@@@@@@@@
 CSS BEGIN
 --------------
-NOTE:
+TAGS
+aria: accesibility labels
+.class comma: matches (OR)
+plus: match ADJACENT
+>: match ALL children
+A ~ B: match ALL elm w/ A AND B
+space: nested lf to rt inside
+ ::before ::after insert content before/after an element
+--------------
+ATTR:
 Sides: top, right, bottom left
 Corners: top-left, top-right, bottom-right, bottom-left
 --------------
+DESIGN:
 3 DIVs as 'SCREENs'
 --------------
 MxPo_Bri
@@ -27,6 +37,11 @@ MxPo_Trx
 	padding: 0.25rem;
 
 	font-size: 1.0rem;
+
+	color: #FFFF;
+	background-color: #0000;
+	/* SLIDER & RADIO CLR	*/
+	accent-color: #D22;
 }
 
 /*@@@@@@@@@@@@@@@
@@ -48,7 +63,7 @@ FONT
 	font-style: normal;
 }
 
-.WaDru_Ka
+.WaDru_De
 {
 	font-family: "Roboto Condensed", sans-serif;
 	font-weight: 400;
@@ -79,7 +94,6 @@ ICONS
 .GwzDoPo
 {
 	background: url( ../../Mx01__SuKz_MEDIA/SuKz02_JaPo__PICT/JaPo02__GwzDoPo.png);
-	background-color:transparent;
 	background-repeat:no-repeat;
 
 	margin: 0.0rem;
@@ -133,7 +147,6 @@ AREA TYPES
 
 .KuJy01__SpoKz
 {
-	box-sizing: content-box;
 	margin: 0.0rem;
 	padding: 0.0rem;
 
@@ -188,6 +201,55 @@ STATUS BARS
 	top: calc(100dvh - 1.5rem);
 }
 
+
+/*@@@@@@@@@@@@@@@
+TOOLTIPS
+@@@@@@@@@@@@@@@*/
+
+/* @media (pointer: coarse), (hover: none) */
+
+div[data-title]
+{
+	font-family: "Roboto Condensed", sans-serif;
+	font-weight: 400;
+	font-style: italic;
+
+	position: relative;
+	cursor: pointer;
+}
+
+div[data-title]::after
+{
+	content: attr(data-title);
+	white-space: pre-wrap;
+	position: absolute;
+	width: fit-content;
+	text-align: center;
+
+	top: 0%;
+	left: 0%;
+	padding: 0.5rem;
+
+	border: none;
+
+	opacity: 0;
+	transition: 0.5s;
+}
+
+div[data-title]:hover::after
+{
+	top: -100%;
+	font-size: 0.875rem;
+	border-radius: 1.5rem;
+
+	color: #FFF;
+	background-color: #D22E;
+	opacity: 1;
+
+	border: solid 0.125rem #FFF;
+}
+
+
 /*@@@@@@@@@@@@@@@
 PANELS
 @@@@@@@@@@@@@@@*/
@@ -221,8 +283,6 @@ PANELS
 
     justify-content: center;
     align-items: center;
-
-	box-sizing: border-box;
 
 	margin: 0.50rem 0.25rem;
 	padding: 0.125rem;
@@ -326,6 +386,7 @@ PANELS
 		display: grid;
 		grid-template-columns: 50% 50%;
 	}
+	/* PANEL__TOPIC_CHOICES---ULTRA WIDE */
 	@media (min-aspect-ratio: 9/5 )
 	{
 		display: grid;
@@ -361,7 +422,7 @@ TEXT
 /* TEXT__TITLE_WORDSIZE */
 .BriDz_FzVa
 {
-	font-size: 2.0rem;
+	font-size: 3.0rem;
 	text-align: center;
 }
 
@@ -372,7 +433,7 @@ TEXT
 	text-align:center;
 	margin: 0.0rem;
 	padding: 0.0rem;
-	color: rgb( 192, 192, 192 );
+	color: #CCC;
 	font-size: 75%;
 }
 
@@ -558,20 +619,50 @@ TEXT
 }
 
 /* TEXT__DOCUMENT BODY */
-.KeDruKa
+.KeDruKa, .KeDruBe
 {
 	font-size: 0.875rem;
+	white-space: pre-wrap;
 
-	margin: 0.5rem;
-	padding: 1.0rem;
+	margin: 0.50rem;
+	padding: 0.50rem;
 
 	background-color: #0008;
 
 	overflow-x: none;
 	overflow-y: auto;
-
-	max-height: 12.0rem
 }
+
+/* TEXT__DOCUMENT COLUMNS */
+.KeDruBe
+{
+	/* Requires BLOCK */
+	column-rule: 0.25em dotted #222F;
+	column-gap: 64px;
+	column-fill: balance;
+
+	/* PANEL__TEXT---WIDE */
+	@media (min-aspect-ratio: 1/1)
+	{
+		column-count: 3;
+	}
+	/* PANEL__TEXT---ULTRA WIDE */
+	@media (min-aspect-ratio: 9/5 )
+	{
+		column-count: 4;
+	}
+	/* PANEL__TEXT---TALL */
+	@media (max-aspect-ratio: 1/1)
+	{
+		column-count: 2;
+	}
+	/* PANEL__TEXT---TALL */
+	@media (max-aspect-ratio: 5/9)
+	{
+		column-count: 1;
+	}
+}
+
 
 /* TEXT__DBG ERR */
 .TrxKz
@@ -699,17 +790,17 @@ ELEMENTS IMAGE GRID
 ELEMENTS MISC
 @@@@@@@@@@@@@@@*/
 
-/* IMAGE LOGO */
+/* IMAGE TITLEBAR LOGOS */
 .Kwi00__BriDzJaPo
 {
 	position: relative;
 	/* z-index: 2; */
 
 	height: 4.0rem;
-	margin: 0.125rem 0.5rem;
+	margin: 0.25rem;
 	padding: 0.0rem;
 
-	border-radius: 2.0rem;
+	border-radius: 1.5rem;
 	border: solid 0.125rem #FFFF;
 }
 
@@ -723,8 +814,7 @@ ELEMENTS MISC
 	color: #FFFF;
 	background-color: #0008;
 
-	/* SLIDER_CLR */
-	accent-color: #D22;
+
 
 	border-radius: 0.0rem;
 	border: none;
@@ -735,7 +825,6 @@ ELEMENTS MISC
 
 
 /* BTN SUBMIT ===> LAUNCH BTN RED */
-/* input[type=submit] */
 .HriNe_TraKwi
 {
 	font-size: 1.5rem;
@@ -745,13 +834,12 @@ ELEMENTS MISC
 	margin: 0.50rem;
 	padding: 0.25rem;
 
-	border-radius: 2.0rem;
-	border: solid 0.1rem#FFF;
+	border-radius: 1.5rem;
+	border: solid 0.125rem#FFF;
 	background-color: #D22;
 }
 
 /* BTN SUBMIT HOVER BG Po ==> GREEN */
-/* input[type=submit]:hover */
 .HriNe_TraKwi:hover
 {
 	background-color: #2A2;
@@ -766,7 +854,7 @@ RADIO GROUP
 {
 	display: inline-flex;
 	border: solid 0.125rem #8884;
-	/* border-radius: 0.0rem; */
+
 	margin: 0.25rem;
 	padding: 0.25rem;
 }
@@ -785,33 +873,33 @@ RADIO GROUP
 	margin: 0.25rem;
 	padding: 0.25rem;
 
-	color: #FFFF;
 	background-color: #000F;
-
-	/* RADIO_CLR */
-	accent-color: #D22;
 }
 
 /*@@@@@@@@@@@@@@@
 TOGGLE_SWITCH
 @@@@@@@@@@@@@@@*/
-.KaHyHo input
+
+/* INPUT special CSS */
+.KaHyHo .MzHyHo
 {
-	opacity: 0;
 	width: 0;
 	height: 0;
 
-	border-radius: 0.0rem;
+	opacity: 0;
+
 	margin: 0.0rem;
 	padding: 0.0rem;
 }
 
+/* CHECKBOX */
 .KaHyHo
 {
-	position: relative;
-	display: inline-block;
 	width: 3.0rem;
 	height: 1.5rem;
+
+	position: relative;
+	display: inline-block;
 }
 .KaHyHo:hover
 {
@@ -823,6 +911,7 @@ TOGGLE_SWITCH
 {
 	position: absolute;
 	cursor: pointer;
+
 	top: 0;
 	left: 0;
 	right: 0;
@@ -853,24 +942,24 @@ TOGGLE_SWITCH
 	bottom: 0.0rem;
 
 	/* CHECKBOX CIRCLE  INDICATOR*/
-	background-color: #DDD;
+	background-color: #CCC;
 	transition: 0.5s;
 	border-radius: 50%;
 }
 
-input:checked + .VuHyHo
+.MzHyHo:checked + .VuHyHo
 {
 	/* CHECKBOX RED BG */
 	background-color: #D22;
 }
 
-input:focus + .VuHyHo
+.MzHyHo:focus + .VuHyHo
 {
 	/* GLOW */
 	box-shadow: 0 0 1.0rem #D22;
 }
 
-input:checked + .VuHyHo:before
+.MzHyHo:checked + .VuHyHo:before
 {
 	transform: translateX( 1.5rem );
 }
