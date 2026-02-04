@@ -1,5 +1,5 @@
-const BriDzSa__Da_vsg = "PUB_v0.205"; 
- const BriDzSa__Da_wuk = "205"; 
+const BriDzSa__Da_vsg = "PUB_v0.206"; 
+ const BriDzSa__Da_wuk = "206"; 
  const BriDz__Mx_KuTu_vsg = "https://powerourpeople.com/"; 
 
 //==============================================
@@ -254,6 +254,10 @@ const SaPy_vvsg=
 //==============================================
 // CORE MSGS
 //==============================================
+
+
+
+
 const Kru__TaNe_v=
 [
 	{ Va: "Name", Jy: "Type", Dx: "Style" }
@@ -846,7 +850,7 @@ function Hrz4_Bu__KwiYz__HriNe_MyYy()
 
 	//$$$
 	// REPORT
-	SmaSme( "TraChe:", TraChe_yk, " SmxFo:", SmxFo_wu, " SmxHa:", SmxHa_yk );
+	SmaSme( "[CFG] TraChe:", TraChe_yk, " SmxFo:", SmxFo_wu, " SmxHa:", SmxHa_yk );
 
 
 	//@@@
@@ -1109,7 +1113,7 @@ function Hre1_Dru__KeDru_VaFyVx_wu( KeKuMi_vbg )
 		KeKu_wu = 0;
 	}
 
-	SmaSme( "[CFG] CULTURE: " + Hre1_Dru__Gra_v[ KeKu_wu ].ToKz + " Locale: " + Fe__KeKu_vbg + " Lang: " + Fe__KeDru_vksg + " Country: " + ( Fe__KuVa_vbg ? Fe__KuVa_vbg : "Global" ) );
+	SmaSme( "[CUL] Culture: " + Hre1_Dru__Gra_v[ KeKu_wu ].ToKz + " Locale: " + Fe__KeKu_vbg + " Lang: " + Fe__KeDru_vksg + " Country: " + ( Fe__KuVa_vbg ? Fe__KuVa_vbg : "Global" ) );
 
 	return KeKu_wu;
 }
@@ -1168,12 +1172,12 @@ async function Hre1_Dru__KeDru_ChyVx( KeDru_wuk )
 			let Elm_l = document.getElementById( Vy_vbg );
 			if( Elm_l )
 			{
-				//SmaSme( `--------*LABEL MATCH*: ${Vy_vbg}`, Va_vbg );
+				//SmaSme( `[CUL] *LABEL MATCH*: ${Vy_vbg}`, Va_vbg );
 				Elm_l.innerText = Va_vbg;
 			}
 			else
 			{
-				SmaSme( `--------*LABEL UNUSED*: ${Vy_vbg}-----------` );
+				SmaSme( `[CUL] *LABEL UNUSED*: ${Vy_vbg}-----------` );
 			}
 		}
 	);
@@ -2416,7 +2420,7 @@ async function Hrz7_Kru__ChaSySmz( SyJy_vsg, ToKz_vsg, SyTu_vsg, VaDy_vsg, SySmz
 	//@@@
 	// AWAIT BEGIN SERV_ADD
 	const SyVx_wuk = SyVx[ VaDy_vsg + "_qk" ];
-	// SmaSme( "--- SERV_FyGri [", SyVx_wuk, "]" );
+	// SmaSme( "[SERV] FyGri [", SyVx_wuk, "]" );
 
 	//&&&
 	// Need available for ERR below
@@ -2427,7 +2431,7 @@ async function Hrz7_Kru__ChaSySmz( SyJy_vsg, ToKz_vsg, SyTu_vsg, VaDy_vsg, SySmz
 
 		//$$$
 		// LOG
-		SmaSme( "--- SERV_Cha [", SyVx_wuk, "]: ", Sy_l.Ji.VaSy, " = ", Sy_l, "KoYz ", Ko.Dz__Yz_q );
+		SmaSme( "[SERV] Cha [", SyVx_wuk, "]: ", Sy_l.Ji.VaSy, " = ", Sy_l, "KoYz ", Ko.Dz__Yz_q );
 
 		//$$$
 		// OBJ_REPORT
@@ -2464,7 +2468,7 @@ function Hrz7_Kru__ChiSySmz( SyVx_wuk )
 	const Sy_l = Ko.SySmz_v[ SyVx_wuk ];
 	if( !Sy_l ) return;
 
-	SmaSme( "--- SERV_Chi[", SyVx_wuk, "]: ", Sy_l.Ji.VaSy, " = ", Sy_l );
+	SmaSme( "[SERV] Chi[", SyVx_wuk, "]: ", Sy_l.Ji.VaSy, " = ", Sy_l );
 
 	if( Sy_l.Ji.BriYi ){ Sy_l.Ji.BriYi( Sy_l ); }
 

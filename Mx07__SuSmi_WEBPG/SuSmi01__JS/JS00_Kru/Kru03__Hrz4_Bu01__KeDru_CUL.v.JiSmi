@@ -77,7 +77,7 @@ function Hre1_Dru__KeDru_VaFyVx_wu( KeKuMi_vbg )
 		KeKu_wu = 0;
 	}
 
-	SmaSme( "[CFG] CULTURE: " + Hre1_Dru__Gra_v[ KeKu_wu ].ToKz + " Locale: " + Fe__KeKu_vbg + " Lang: " + Fe__KeDru_vksg + " Country: " + ( Fe__KuVa_vbg ? Fe__KuVa_vbg : "Global" ) );
+	SmaSme( "[CUL] Culture: " + Hre1_Dru__Gra_v[ KeKu_wu ].ToKz + " Locale: " + Fe__KeKu_vbg + " Lang: " + Fe__KeDru_vksg + " Country: " + ( Fe__KuVa_vbg ? Fe__KuVa_vbg : "Global" ) );
 
 	return KeKu_wu;
 }
@@ -136,12 +136,12 @@ async function Hre1_Dru__KeDru_ChyVx( KeDru_wuk )
 			let Elm_l = document.getElementById( Vy_vbg );
 			if( Elm_l )
 			{
-				//SmaSme( `--------*LABEL MATCH*: ${Vy_vbg}`, Va_vbg );
+				//SmaSme( `[CUL] *LABEL MATCH*: ${Vy_vbg}`, Va_vbg );
 				Elm_l.innerText = Va_vbg;
 			}
 			else
 			{
-				SmaSme( `--------*LABEL UNUSED*: ${Vy_vbg}-----------` );
+				SmaSme( `[CUL] *LABEL UNUSED*: ${Vy_vbg}-----------` );
 			}
 		}
 	);

@@ -159,7 +159,7 @@ function Hrz4_Bu__KwiYz__HriNe_MyYy()
 
 	//$$$
 	// REPORT
-	SmaSme( "TraChe:", TraChe_yk, " SmxFo:", SmxFo_wu, " SmxHa:", SmxHa_yk );
+	SmaSme( "[CFG] TraChe:", TraChe_yk, " SmxFo:", SmxFo_wu, " SmxHa:", SmxHa_yk );
 
 
 	//@@@
