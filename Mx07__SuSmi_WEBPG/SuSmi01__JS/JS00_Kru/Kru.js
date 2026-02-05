@@ -1,5 +1,5 @@
-const BriDzSa__Da_vsg = "PUB_v0.206"; 
- const BriDzSa__Da_wuk = "206"; 
+const BriDzSa__Da_vsg = "PUB_v0.207"; 
+ const BriDzSa__Da_wuk = "207"; 
  const BriDz__Mx_KuTu_vsg = "https://powerourpeople.com/"; 
 
 //==============================================
@@ -412,9 +412,9 @@ var Module =
 	//@@@
 	// EMCC NOTIFY
 	// Define how notification messages from Emscripten are displayed via Module.print attribute.
-	'print': function ( Sma_vsg ) { SmaSme( "[Sma]" + Sma_vsg ); },
-	'printErr': function ( Sma_vsg ) { SmaSme( "[Trx]" + Sma_vsg ); },
-	'onAbort': function ( Sma_vsg ) { MoDzTrx( "[BriDzYi]" + Sma_vsg ); },
+	'print': function ( Sma_vsg ) { SmaSme( "[MSG]" + Sma_vsg ); },
+	'printErr': function ( Sma_vsg ) { SmaSme( "[ERR]" + Sma_vsg ); },
+	'onAbort': function ( Sma_vsg ) { MoDzTrx( "[ABORT]" + Sma_vsg ); },
 
 
 	//@@@
@@ -1177,7 +1177,7 @@ async function Hre1_Dru__KeDru_ChyVx( KeDru_wuk )
 			}
 			else
 			{
-				SmaSme( `[CUL] *LABEL UNUSED*: ${Vy_vbg}-----------` );
+				SmaSme( `[CUL] *---------LABEL UNUSED-------------*: ${Vy_vbg}` );
 			}
 		}
 	);
@@ -2082,10 +2082,10 @@ function Tra_KeMeBri()
 
 	//@@@
 	// ECOSYS PLAY
-	SmaSme( "[LAUNCH] User:", KwiYz_k.KeDy_vsg, " NEVER_PAUSE:", KwiYz_k.Ne01_Ko04__KoDz_YoHo_y );
+	SmaSme( "[GUI] User:", KwiYz_k.KeDy_vsg, " NEVER_PAUSE:", KwiYz_k.Ne01_Ko04__KoDz_YoHo_y );
 	if( KoDz__YzYa_y() )
 	{
-		SmaSme( "[LAUNCH] ACTIVE via Resume" );
+		SmaSme( "[GUI] ACTIVE via Resume" );
 
 		//&&&
 		// LAUNCH SERVICES that REQUIRE a "click"
@@ -2114,7 +2114,7 @@ function KoDz_GyHa()
 
 	//@@@
 	// MxPo^SCREEN
-	SmaSme( "GyHa: ", window.innerWidth, window.innerHeight, " Legible Px/Em: ", Ko.em2px_wfk );
+	SmaSme( "[GUI] GyHa: ", window.innerWidth, window.innerHeight, " Legible Px/Em: ", Ko.em2px_wfk );
 }
 
 //==============================================

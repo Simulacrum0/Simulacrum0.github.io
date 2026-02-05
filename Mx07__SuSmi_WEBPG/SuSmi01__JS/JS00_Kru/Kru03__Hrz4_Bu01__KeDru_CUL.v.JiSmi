@@ -141,7 +141,7 @@ async function Hre1_Dru__KeDru_ChyVx( KeDru_wuk )
 			}
 			else
 			{
-				SmaSme( `[CUL] *LABEL UNUSED*: ${Vy_vbg}-----------` );
+				SmaSme( `[CUL] *---------LABEL UNUSED-------------*: ${Vy_vbg}` );
 			}
 		}
 	);

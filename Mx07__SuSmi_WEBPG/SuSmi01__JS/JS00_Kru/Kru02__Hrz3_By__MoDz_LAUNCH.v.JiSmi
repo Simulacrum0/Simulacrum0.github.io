@@ -143,9 +143,9 @@ var Module =
 	//@@@
 	// EMCC NOTIFY
 	// Define how notification messages from Emscripten are displayed via Module.print attribute.
-	'print': function ( Sma_vsg ) { SmaSme( "[Sma]" + Sma_vsg ); },
-	'printErr': function ( Sma_vsg ) { SmaSme( "[Trx]" + Sma_vsg ); },
-	'onAbort': function ( Sma_vsg ) { MoDzTrx( "[BriDzYi]" + Sma_vsg ); },
+	'print': function ( Sma_vsg ) { SmaSme( "[MSG]" + Sma_vsg ); },
+	'printErr': function ( Sma_vsg ) { SmaSme( "[ERR]" + Sma_vsg ); },
+	'onAbort': function ( Sma_vsg ) { MoDzTrx( "[ABORT]" + Sma_vsg ); },
 
 
 	//@@@

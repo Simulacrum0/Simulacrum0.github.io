@@ -214,8 +214,8 @@ div[data-title]
 	font-weight: 400;
 	font-style: italic;
 
-	position: relative;
 	cursor: pointer;
+	position: relative;
 }
 
 div[data-title]::after
@@ -223,30 +223,33 @@ div[data-title]::after
 	content: attr(data-title);
 	white-space: pre-wrap;
 	position: absolute;
-	width: fit-content;
 	text-align: center;
 
-	top: 0%;
-	left: 0%;
+	width: fit-content;
+	height: fit-content;
+	left: -2.0rem;
+	top: -4.0rem;
+
+	margin: 0.5rem;
 	padding: 0.5rem;
 
-	border: none;
+	opacity: 0.0;
+	border: solid 0.125rem #FFF;
+	font-size: 0.0rem;
 
-	opacity: 0;
-	transition: 0.5s;
+	transition: 0.75s;
 }
 
 div[data-title]:hover::after
 {
-	top: -100%;
 	font-size: 0.875rem;
 	border-radius: 1.5rem;
 
 	color: #FFF;
-	background-color: #D22E;
+	background-color: #444D;
 	opacity: 1;
 
-	border: solid 0.125rem #FFF;
+	border: dashed 0.125rem #FF0;
 }
 
 
