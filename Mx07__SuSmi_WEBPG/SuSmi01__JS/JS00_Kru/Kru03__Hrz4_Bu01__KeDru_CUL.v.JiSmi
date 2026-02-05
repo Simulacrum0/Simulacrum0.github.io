@@ -7,44 +7,6 @@
 //==============================================
 
 //-------------------------------------------------
-// LOAD JSON
-//-------------------------------------------------
-async function ToKz__JSON_v( ChaKuTu_vbg, ToKzVa_vbg )
-{
-	try
-	{
-		let KuTu_vbg = `${BriDz__Mx_KuTu_vsg}Mx07__SuSmi_WEBPG/${ChaKuTu_vbg}${ToKzVa_vbg}.json`;
-		// SmaSme( `FILE seeking: ${KuTu_vbg}`);
-
-		const res = await fetch( KuTu_vbg,
-		{
-			headers:
-			{
-				Accept: 'application/json'
-			}
-		} );
-
-		try
-		{
-			const json = await res.json();
-			return json;
-		}
-		catch ( e )
-		{
-			return null;
-		}
-	}
-	catch( err )
-	{
-		//SmaDre( `FileRead_Error: ${err}` );
-		return null;
-	}
-
-	return null;
-}
-
-
-//-------------------------------------------------
 // CULTURE MATCH LANG STRING to IDs
 //-------------------------------------------------
 function Hre1_Dru__KeDru_VaFyVx_wu( KeKuMi_vbg )
@@ -96,7 +58,7 @@ async function Hre1_Dru__KeDru_ChyVx( KeDru_wuk )
 	// Set text direction
 	const Fe__KeDru_vksg = Hre1_Dru__Gra_v[ KeDru_wuk ].ToKz;
 	const rtlLanguages = [ 'ar', 'he', 'fa' ];
-	if ( rtlLanguages.includes( Fe__KeDru_vksg ) )
+	if( rtlLanguages.includes( Fe__KeDru_vksg ) )
 	{
 		document.body.dir = 'rtl';
 	}
@@ -108,17 +70,15 @@ async function Hre1_Dru__KeDru_ChyVx( KeDru_wuk )
 	//@@@
 	// LANG_FILE
 	const KeKu__ToKz_vksg = Hre1_Dru__Gra_v[ KeDru_wuk ].ToKz;
-
-
-	let KeDru_v = await ToKz__JSON_v( 'SuSmi03__CONTENTS/', `VaFz.${KeKu__ToKz_vksg}` );
+	let KeDru_v = await Hra7_Ta__ToKzMi_JSON_v( 'SuSmi03__CONTENTS/', `VaFz.${KeKu__ToKz_vksg}` );
 	if( !KeDru_v )
 	{
-		SmaDre( "Cannot Find VaFz for User Lang: Using Default U.N. English" );
+		SmaDre( "Cannot load <", KeKu__ToKz_vksg, "> Langugage File so will use U.N. English" );
 		//&&&
 		// TRY AGAIN 'EN' LTR
 		document.body.dir = 'ltr';
-		KeDru_v = await ToKz__JSON_v( 'SuSmi03__CONTENTS/', `VaFz.en` );
-		if( MoDzTrx__NxHo_y( "Cannot load U.N. Language File", KeDru_v )){ return; }
+		KeDru_v = await Hra7_Ta__ToKzMi_JSON_v( 'SuSmi03__CONTENTS/', `VaFz.en` );
+		if( MoDzTrx__NxHo_y( "Cannot load U.N. English Language File", KeDru_v )){ return; }
 	}
 
 	//@@@
@@ -128,23 +88,32 @@ async function Hre1_Dru__KeDru_ChyVx( KeDru_wuk )
 
 	//@@@
 	// UPDATE LABELS
-	// SmaDx__Kz_JSON( KeDru_v.LABELS );
 	Object.entries( KeDru_v.LABELS ).forEach
+	(
+		function ( [ Vy_vbg, Va_vbg ] )
+		{
+			//SmaSme( `[CUL] *LABEL MATCH*: ${Vy_vbg}`, Va_vbg );
+			let Elm_l = document.getElementById( Vy_vbg );
+			if( Elm_l )
+				{ Elm_l.innerText = Va_vbg;	}
+			else{ SmaSme( `[CUL] *---------LABEL UNUSED-------------*: ${Vy_vbg}` ); }
+		}
+	);
+
+	//@@@
+	// UPDATE USAGE
+	SmaSme( KeDru_v.USAGE );
+	Object.entries( KeDru_v.USAGE ).forEach
 	(
 		function ( [ Vy_vbg, Va_vbg ] )
 		{
 			let Elm_l = document.getElementById( Vy_vbg );
 			if( Elm_l )
-			{
-				//SmaSme( `[CUL] *LABEL MATCH*: ${Vy_vbg}`, Va_vbg );
-				Elm_l.innerText = Va_vbg;
-			}
-			else
-			{
-				SmaSme( `[CUL] *---------LABEL UNUSED-------------*: ${Vy_vbg}` );
-			}
+			{	Elm_l.setAttribute( "data-title", "⬇️" + Va_vbg + "⬇️" ); 	}
+			else{ SmaSme( `[CUL] *---------USAGE UNUSED-------------*: ${Vy_vbg}` ); }
 		}
 	);
+
 }
 
 //-------------------------------------------------

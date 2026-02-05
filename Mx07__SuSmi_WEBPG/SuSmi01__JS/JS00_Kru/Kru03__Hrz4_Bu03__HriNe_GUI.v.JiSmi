@@ -1,0 +1,266 @@
+//==============================================
+// GUI ELEMENTS
+/*
+- Using HTML Web PAGE to setup initial CFG ( w/o WG GUI ):
+- *However: Already loading WG, so could use GUI or ERR*
+- *Given need to invite others and limited time, am continuing HTML for now*
+
+- GUI has
+	a) Checkbox: Y or N wq @ KaHyHo, VuHyHo
+	b) Slider: 0...to N wu @ HriNeVx
+	c) List: scrollable choices vertical or grid 0...Fo wu
+	d) Text: utf8 ( Label: HriNeVa, Edit: HriNeVa )
+	e) HrButtons: run action ( show tabs, add/remove users, reset-settings, & launch )
+
+- EDIT: TreHy Can be hover-highlighted to show 'editable'
+*/
+//
+//==============================================
+
+//==============================================
+// FOCUS LAUNCH BTN
+//==============================================
+function HriNeDe__TraKwi()
+{
+	//@@@
+	// SUBMIT BTN
+	const HriNe_KwiVu_k = document.getElementById( 'BriDz02_TraKwi_vsg' );
+	HriNe_KwiVu_k.focus();
+}
+
+//==============================================
+// GUI EDIT for UNLOCK/LOCK
+// SmaSme( "CheChy: ", e.className );
+//==============================================
+
+//@@@
+// MENU CLEAR
+function HriNeDe__Ta_ChyStz( Ta_v )
+{
+	while ( Ta_v.firstChild )
+	{
+		Ta_v.removeChild( Ta_v.lastChild );
+	}
+}
+
+//@@@
+// TOGGLE HIDE
+function HriNeDe__ChyHryDry( Vy_vsg )
+{
+	let e = document.getElementById( Vy_vsg );
+	// e.hidden = !( e.hidden );
+	e.style.display = ( e.style.display === "none") ? "block" : "none";
+}
+
+//@@@
+// SHOW/HIDE ELM
+function HriNeDe__ChyHry( Vy_vsg, Hry_yk )
+{
+	let e = document.getElementById( Vy_vsg );
+	e.hidden = !Hry_yk;
+}
+
+//@@@
+// DISPLAY_BLOCK ELM
+function HriNeDe__ChyKuHi( Vy_vsg, Ku_yk )
+{
+	let e = document.getElementById( Vy_vsg );
+	e.style.display = Ku_yk ? "block" : "none";
+}
+
+//@@@
+// DISPLAY_FLEX ELM
+function HriNeDe__ChyKuHu( Vy_vsg, Ku_yk )
+{
+	let e = document.getElementById( Vy_vsg );
+	e.style.display = Ku_yk ? "inline-flex" : "none";
+}
+
+//@@@
+// DISABLE & ACCENT ELM
+function HriNeDe__ChyTraHo( Vy_vsg, TraHo_yk )
+{
+	let e = document.getElementById( Vy_vsg );
+	if( TraHo_yk )
+	{
+		e.disabled = true;
+		e.classList.add( "HriNe_TraHo" );
+	}
+	else
+	{
+		e.disabled = false;
+		e.classList.remove( "HriNe_TraHo" );
+	}
+}
+
+//@@@
+// DISABLE & DIM ELM
+function HriNeDe__ChyHryVoHu( Vy_vsg, HryVoHu_yk )
+{
+	let e = document.getElementById( Vy_vsg );
+	if( HryVoHu_yk )
+	{
+		e.disabled = true;
+		e.classList.add( "HriNe_HryHo" );
+	}
+	else
+	{
+		e.disabled = false;
+		e.classList.remove( "HriNe_HryHo" );
+	}
+}
+
+//@@@
+// CHECKBOX
+// RADIOBTN
+function HriNeDe__ChyHyHo( Vy_vsg, HyHo_yk )
+{
+	let e = document.getElementById( Vy_vsg );
+	e.checked = HyHo_yk;
+}
+
+
+//=====================================
+// INIT USER GUI DEFAULTS
+//=====================================
+async function Hri4_Bu__TaKeDy__ChySpo()
+{
+	const KwiYz_k = Ko.TaKeDy_l.KwiYz_v[ Ko.TaKeDy_l.KeDy_wu ];
+
+	//-------------------------------------------------
+	// CULTURE
+	//-------------------------------------------------
+	//@@@
+	// LANG DROPDOWN LIST
+	const Ne00_KeDy00__NiKeDru__Ta_l = document.getElementById( 'Ne00_KeDy00__NiKeDru__Ta_l' );
+	// LANGUAGE PICKER
+	const KeDru__TaJaPo_l = document.getElementById("Ne00_KeDy00__KeDru_TaJaPo_l");
+
+	//&&&
+	// LIST CLEAR
+	HriNeDe__Ta_ChyStz( Ne00_KeDy00__NiKeDru__Ta_l );
+	HriNeDe__Ta_ChyStz( KeDru__TaJaPo_l );
+
+	//&&&
+	// LIST FILL ENTRIES
+	const KeDruGri_v = [ 'en', 'es' ];
+
+	Hre1_Dru__Gra_v.forEach( function ( Ti_v, Vx_wu )
+	{
+		//SmaSme( "------ Vx_wu:", Vx_wu, Ti_v.Va );
+
+		//&&&
+		// LANG DROPDOWN ADD BTN
+		{
+			const Kz_l = document.createElement( 'option' );
+			Kz_l.className = 'HriNeTi WaDru_Ku';
+
+			Kz_l.innerText = `${Ti_v.KuGwz} ${Ti_v.Va}`;
+
+			Kz_l.value = Ti_v.Vy;
+
+			Ne00_KeDy00__NiKeDru__Ta_l.appendChild( Kz_l );
+		}
+
+		//&&&
+		// LANG FLAG GRID ADD BTN
+		{
+			const Kz_l = document.createElement( 'span' );
+			// DBG: if( Vx_wu & 4 )
+			if( KeDruGri_v.includes( Ti_v.Vy ) )
+			{
+				Kz_l.className = 'NiJaPo_Va NiJaPo_VaGri WaDru_Ku';
+				Kz_l.onclick = function() { Ne00_KeDy00__NiKeDru__JeChy( Vx_wu ); }
+			}
+			else
+			{
+				Kz_l.className = 'NiJaPo_Va NiJaPo_VaRu WaDru_Ku';
+			}
+
+			Kz_l.innerText = Ti_v.KuGwz;
+			KeDru__TaJaPo_l.appendChild( Kz_l );
+		}
+
+	});
+
+	//@@@
+	// STARTING LANG
+	Ne00_KeDy00__NiKeDru__Ta_l.selectedIndex = KwiYz_k.KeDru_wu;
+	Hre1_Dru__KeDru_ChyVx( KwiYz_k.KeDru_wu );
+
+
+	//-------------------------------------------------
+	// PROFILE PICKER
+	//-------------------------------------------------
+	const SaJaPo__TaJaPo_l = document.getElementById("Ne00_KeDy03__SaJaPo__TaJaPo_l");
+	HriNeDe__Ta_ChyStz( SaJaPo__TaJaPo_l );
+
+	//@@@
+	for( let Vx_wu = 0; Vx_wu< SaPy_vvsg.length; Vx_wu++ )
+	{
+		//&&&
+		// ADD BTN
+
+		const Kz_l = document.createElement( 'span' );
+		Kz_l.className = 'NiJaPo_Va NiJaPo_VaVo';
+		Kz_l.onclick = function() { Hrz4_Bu__KwiYz__SaPy_ChyYe( Vx_wu ); }
+
+		Kz_l.innerText = SaPy_vvsg[ Vx_wu ];
+		SaJaPo__TaJaPo_l.appendChild( Kz_l );
+	}
+
+	//-------------------------------------------------
+	//-------------------------------------------------
+	// AUD_METHODS
+	{
+		const TaKeDy_l = document.getElementById( 'Ne02_Hru__SmzYz_Ta_l' );
+		HriNeDe__Ta_ChyStz( TaKeDy_l );
+
+		//@@@
+		const SaNo__TaKeDy_l = Ko.TaKeDy_l.KwiYz_v;
+		SaNo__TaKeDy_l.forEach( function ( Ti_v, Vx_wu )
+		{
+			// SmaSme( "------ Vx_wu:", Vx_wu, Ti_v.KeDy_vsg );
+
+			//&&&
+			// ADD BTN
+			const Kz_l = document.createElement( 'option' );
+			Kz_l.className = 'HriNeTi WaDru_De';
+			Kz_l.innerText = `${SaPy_vvsg[ Ti_v.NiJaPo_wu ]} ${Ti_v.KeDy_vsg }` + ( Vx_wu & 1 ? "🔒":"🔓" );
+			Kz_l.value = Vx_wu;
+			TaKeDy_l.appendChild( Kz_l );
+		});
+
+		TaKeDy_l.selectedIndex = Ko.TaKeDy_l.KeDy_wu;
+	}
+
+	//-------------------------------------------------
+	// VIS_METHODS
+	//-------------------------------------------------
+	{
+		const TaKeDy_l = document.getElementById( 'Ne03_Hry06__SmzYz__Ta_l' );
+		HriNeDe__Ta_ChyStz( TaKeDy_l );
+
+		//@@@
+		const SaNo__TaKeDy_l = Ko.TaKeDy_l.KwiYz_v;
+		SaNo__TaKeDy_l.forEach( function ( Ti_v, Vx_wu )
+		{
+			// SmaSme( "------ Vx_wu:", Vx_wu, Ti_v.KeDy_vsg );
+
+			//&&&
+			// ADD BTN
+			const Kz_l = document.createElement( 'option' );
+			Kz_l.className = 'HriNeTi WaDru_De';
+			Kz_l.innerText = `${SaPy_vvsg[ Ti_v.NiJaPo_wu ]} ${Ti_v.KeDy_vsg }` + ( Vx_wu & 1 ? "🔒":"🔓" );
+			Kz_l.value = Vx_wu;
+			TaKeDy_l.appendChild( Kz_l );
+		});
+
+		TaKeDy_l.selectedIndex = Ko.TaKeDy_l.KeDy_wu;
+	}
+}
+
+
+//=====================================
+// USR END
+//=====================================

@@ -140,7 +140,7 @@ function Hrz4_Bu__KwiYz__HriNe_MyYy()
 	document.getElementById( "Ne00_KeDy00__Nz00_NiKeDy_vsg" ).value = "NOMBraaaaay";
 
 	//@@@
-	// SET AVATAR_ICON
+	// SET PROFILE_ICON
 	document.getElementById( "Ne00_KeDy03__SaJaPo_q" ).innerText = SaPy_vvsg[ KwiYz_k.NiJaPo_wu ];
 
 	//@@@
@@ -277,7 +277,7 @@ function Hrz4_Bu__KwiYz__Ko_ChyYe()
 
 
 	//!!!
-	// AVATAR
+	// PROFILE
 	// Only changes via EVT
 
 	//&&&
@@ -321,7 +321,7 @@ function Hrz4_Bu__KwiYz__Ko_ChyYe()
 }
 
 //-------------------------------------------------
-// USR_AVATAR__EDIT
+// USR_PROFILE__EDIT
 //-------------------------------------------------
 function Hrz4_Bu__KwiYz__SaPy_ChyYe( e )
 {

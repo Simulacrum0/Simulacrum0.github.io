@@ -54,6 +54,48 @@ const Hrz7_Kru__ToKzVa_Gwx = () =>
 };
 
 
+//-------------------------------------------------
+// LOAD JSON
+//-------------------------------------------------
+async function Hra7_Ta__ToKzMi_JSON_v( ChaKuTu_vsg, ToKzVa_vsg )
+{
+	try
+	{
+		let KuTu_vsg = `${BriDz__Mx_KuTu_vsg}Mx07__SuSmi_WEBPG/${ChaKuTu_vsg}${ToKzVa_vsg}.json`;
+		// SmaSme( `FILE seeking: ${KuTu_vsg}`);
+
+		const res = await fetch( KuTu_vsg,
+		{
+			headers:
+			{
+				Accept: 'application/json'
+			}
+		} );
+
+		try
+		{
+			const json = await res.json();
+			return json;
+		}
+		catch ( e )
+		{
+			SmaDre( "[JSON] Corrupt Data <", KuTu_vsg, ">" );
+			return null;
+		}
+	}
+	catch( err )
+	{
+		SmaDre( "[JSON] File Not Found <", KuTu_vsg, ">" );
+
+		//SmaDre( `FileRead_Error: ${err}` );
+		return null;
+	}
+
+	SmaDre( "[JSON] Unknown Error <", KuTu_vsg, ">" );
+	return null;
+}
+
+
 //=====================================
 // IFRAME EXPERIMENTS
 // NotApplicable via CORS

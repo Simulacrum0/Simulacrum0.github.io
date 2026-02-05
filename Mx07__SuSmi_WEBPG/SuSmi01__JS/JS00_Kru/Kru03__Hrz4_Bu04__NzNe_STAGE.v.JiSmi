@@ -1,125 +1,6 @@
 //==============================================
-// GUI ELEMENTS
-/*
-- Using HTML Web PAGE to setup initial CFG ( w/o WG GUI ):
-- *However: Already loading WG, so could use GUI or ERR*
-- *Given need to invite others and limited time, am continuing HTML for now*
-
-- GUI has
-	a) Checkbox: Y or N wq @ KaHyHo, VuHyHo
-	b) Slider: 0...to N wu @ HriNeVx
-	c) List: scrollable choices vertical or grid 0...Fo wu
-	d) Text: utf8 ( Label: HriNeVa, Edit: HriNeVa )
-	e) HrButtons: run action ( show tabs, add/remove users, reset-settings, & launch )
-
-- EDIT: TreHy Can be hover-highlighted to show 'editable'
-*/
-//
+// STAGE
 //==============================================
-
-//==============================================
-// FOCUS LAUNCH BTN
-//==============================================
-function HriNeDe__TraKwi()
-{
-	//@@@
-	// SUBMIT BTN
-	const HriNe_KwiVu_k = document.getElementById( 'BriDz02_TraKwi_vsg' );
-	HriNe_KwiVu_k.focus();
-}
-
-//==============================================
-// GUI EDIT for UNLOCK/LOCK
-// SmaSme( "CheChy: ", e.className );
-//==============================================
-
-//@@@
-// MENU CLEAR
-function HriNeDe__Ta_ChyStz( Ta_v )
-{
-	while ( Ta_v.firstChild )
-	{
-		Ta_v.removeChild( Ta_v.lastChild );
-	}
-}
-
-//@@@
-// TOGGLE HIDE
-function HriNeDe__ChyHryDry( Vy_vsg )
-{
-	let e = document.getElementById( Vy_vsg );
-	// e.hidden = !( e.hidden );
-	e.style.display = ( e.style.display === "none") ? "block" : "none";
-}
-
-//@@@
-// SHOW/HIDE ELM
-function HriNeDe__ChyHry( Vy_vsg, Hry_yk )
-{
-	let e = document.getElementById( Vy_vsg );
-	e.hidden = !Hry_yk;
-}
-
-//@@@
-// DISPLAY_BLOCK ELM
-function HriNeDe__ChyKuHi( Vy_vsg, Ku_yk )
-{
-	let e = document.getElementById( Vy_vsg );
-	e.style.display = Ku_yk ? "block" : "none";
-}
-
-//@@@
-// DISPLAY_FLEX ELM
-function HriNeDe__ChyKuHu( Vy_vsg, Ku_yk )
-{
-	let e = document.getElementById( Vy_vsg );
-	e.style.display = Ku_yk ? "inline-flex" : "none";
-}
-
-//@@@
-// DISABLE & ACCENT ELM
-function HriNeDe__ChyTraHo( Vy_vsg, TraHo_yk )
-{
-	let e = document.getElementById( Vy_vsg );
-	if( TraHo_yk )
-	{
-		e.disabled = true;
-		e.classList.add( "HriNe_TraHo" );
-	}
-	else
-	{
-		e.disabled = false;
-		e.classList.remove( "HriNe_TraHo" );
-	}
-}
-
-//@@@
-// DISABLE & DIM ELM
-function HriNeDe__ChyHryVoHu( Vy_vsg, HryVoHu_yk )
-{
-	let e = document.getElementById( Vy_vsg );
-	if( HryVoHu_yk )
-	{
-		e.disabled = true;
-		e.classList.add( "HriNe_HryHo" );
-	}
-	else
-	{
-		e.disabled = false;
-		e.classList.remove( "HriNe_HryHo" );
-	}
-}
-
-//@@@
-// CHECKBOX
-function HriNeDe__ChyHyHo( Vy_vsg, HyHo_yk )
-{
-	let e = document.getElementById( Vy_vsg );
-	e.checked = HyHo_yk;
-}
-
-//@@@
-// RADIOBTN
 
 
 //=====================================
@@ -446,6 +327,7 @@ function HryMx01_KeMeTrx()
 	TrxKa_k.innerText = Module.Trx_vsg;
 
 	const Sma_vvsg = Ko.Sma_vvsg;
+	const SmaFo = Math.min( Ko.SmaFe_wu, SmaBraHi_wuk );
 	for( let i = 0; i < SmaBraHi_wuk; i++)
 	{
 		if( Sma_vvsg[ i ] )
@@ -493,6 +375,7 @@ function Hrz4_Bu__ChyNeKu( Vx_wu )
 	// SHOW/HIDE SECTIONS
 	for( let i = 0; i < NeKuJy_v.length; i++)
 	{
+		// SECTIONS are GRID
 		NeKuJy_v[i].style.display = ( Vx_wu === i ) ? "grid" : "none";
 	}
 }

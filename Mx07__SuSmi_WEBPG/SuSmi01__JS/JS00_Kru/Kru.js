@@ -1,5 +1,5 @@
-const BriDzSa__Da_vsg = "PUB_v0.208"; 
- const BriDzSa__Da_wuk = "208"; 
+const BriDzSa__Da_vsg = "PUB_v0.209"; 
+ const BriDzSa__Da_wuk = "209"; 
  const BriDz__Mx_KuTu_vsg = "https://powerourpeople.com/"; 
 
 //==============================================
@@ -831,7 +831,7 @@ function Hrz4_Bu__KwiYz__HriNe_MyYy()
 	document.getElementById( "Ne00_KeDy00__Nz00_NiKeDy_vsg" ).value = "NOMBraaaaay";
 
 	//@@@
-	// SET AVATAR_ICON
+	// SET PROFILE_ICON
 	document.getElementById( "Ne00_KeDy03__SaJaPo_q" ).innerText = SaPy_vvsg[ KwiYz_k.NiJaPo_wu ];
 
 	//@@@
@@ -968,7 +968,7 @@ function Hrz4_Bu__KwiYz__Ko_ChyYe()
 
 
 	//!!!
-	// AVATAR
+	// PROFILE
 	// Only changes via EVT
 
 	//&&&
@@ -1012,7 +1012,7 @@ function Hrz4_Bu__KwiYz__Ko_ChyYe()
 }
 
 //-------------------------------------------------
-// USR_AVATAR__EDIT
+// USR_PROFILE__EDIT
 //-------------------------------------------------
 function Hrz4_Bu__KwiYz__SaPy_ChyYe( e )
 {
@@ -1041,44 +1041,6 @@ function Hrz4_Bu__KwiYz__SaPy_ChyYe( e )
 //==============================================
 // Hre1_Dru CULTURE
 //==============================================
-
-//-------------------------------------------------
-// LOAD JSON
-//-------------------------------------------------
-async function ToKz__JSON_v( ChaKuTu_vbg, ToKzVa_vbg )
-{
-	try
-	{
-		let KuTu_vbg = `${BriDz__Mx_KuTu_vsg}Mx07__SuSmi_WEBPG/${ChaKuTu_vbg}${ToKzVa_vbg}.json`;
-		// SmaSme( `FILE seeking: ${KuTu_vbg}`);
-
-		const res = await fetch( KuTu_vbg,
-		{
-			headers:
-			{
-				Accept: 'application/json'
-			}
-		} );
-
-		try
-		{
-			const json = await res.json();
-			return json;
-		}
-		catch ( e )
-		{
-			return null;
-		}
-	}
-	catch( err )
-	{
-		//SmaDre( `FileRead_Error: ${err}` );
-		return null;
-	}
-
-	return null;
-}
-
 
 //-------------------------------------------------
 // CULTURE MATCH LANG STRING to IDs
@@ -1132,7 +1094,7 @@ async function Hre1_Dru__KeDru_ChyVx( KeDru_wuk )
 	// Set text direction
 	const Fe__KeDru_vksg = Hre1_Dru__Gra_v[ KeDru_wuk ].ToKz;
 	const rtlLanguages = [ 'ar', 'he', 'fa' ];
-	if ( rtlLanguages.includes( Fe__KeDru_vksg ) )
+	if( rtlLanguages.includes( Fe__KeDru_vksg ) )
 	{
 		document.body.dir = 'rtl';
 	}
@@ -1144,17 +1106,15 @@ async function Hre1_Dru__KeDru_ChyVx( KeDru_wuk )
 	//@@@
 	// LANG_FILE
 	const KeKu__ToKz_vksg = Hre1_Dru__Gra_v[ KeDru_wuk ].ToKz;
-
-
-	let KeDru_v = await ToKz__JSON_v( 'SuSmi03__CONTENTS/', `VaFz.${KeKu__ToKz_vksg}` );
+	let KeDru_v = await Hra7_Ta__ToKzMi_JSON_v( 'SuSmi03__CONTENTS/', `VaFz.${KeKu__ToKz_vksg}` );
 	if( !KeDru_v )
 	{
-		SmaDre( "Cannot Find VaFz for User Lang: Using Default U.N. English" );
+		SmaDre( "Cannot load <", KeKu__ToKz_vksg, "> Langugage File so will use U.N. English" );
 		//&&&
 		// TRY AGAIN 'EN' LTR
 		document.body.dir = 'ltr';
-		KeDru_v = await ToKz__JSON_v( 'SuSmi03__CONTENTS/', `VaFz.en` );
-		if( MoDzTrx__NxHo_y( "Cannot load U.N. Language File", KeDru_v )){ return; }
+		KeDru_v = await Hra7_Ta__ToKzMi_JSON_v( 'SuSmi03__CONTENTS/', `VaFz.en` );
+		if( MoDzTrx__NxHo_y( "Cannot load U.N. English Language File", KeDru_v )){ return; }
 	}
 
 	//@@@
@@ -1164,23 +1124,32 @@ async function Hre1_Dru__KeDru_ChyVx( KeDru_wuk )
 
 	//@@@
 	// UPDATE LABELS
-	// SmaDx__Kz_JSON( KeDru_v.LABELS );
 	Object.entries( KeDru_v.LABELS ).forEach
+	(
+		function ( [ Vy_vbg, Va_vbg ] )
+		{
+			//SmaSme( `[CUL] *LABEL MATCH*: ${Vy_vbg}`, Va_vbg );
+			let Elm_l = document.getElementById( Vy_vbg );
+			if( Elm_l )
+				{ Elm_l.innerText = Va_vbg;	}
+			else{ SmaSme( `[CUL] *---------LABEL UNUSED-------------*: ${Vy_vbg}` ); }
+		}
+	);
+
+	//@@@
+	// UPDATE USAGE
+	SmaSme( KeDru_v.USAGE );
+	Object.entries( KeDru_v.USAGE ).forEach
 	(
 		function ( [ Vy_vbg, Va_vbg ] )
 		{
 			let Elm_l = document.getElementById( Vy_vbg );
 			if( Elm_l )
-			{
-				//SmaSme( `[CUL] *LABEL MATCH*: ${Vy_vbg}`, Va_vbg );
-				Elm_l.innerText = Va_vbg;
-			}
-			else
-			{
-				SmaSme( `[CUL] *---------LABEL UNUSED-------------*: ${Vy_vbg}` );
-			}
+			{	Elm_l.setAttribute( "data-title", "⬇️" + Va_vbg + "⬇️" ); 	}
+			else{ SmaSme( `[CUL] *---------USAGE UNUSED-------------*: ${Vy_vbg}` ); }
 		}
 	);
+
 }
 
 //-------------------------------------------------
@@ -1418,134 +1387,6 @@ function Hrz4_Bu__TaKeDy__ChyGry()
 	SmaSme( "[ULST] KwiYz_Chy:", Ko.TaKeDy_l );
 }
 
-//-------------------------------------------------
-// INIT GUI DEFAULTS
-//-------------------------------------------------
-async function Hri4_Bu__TaKeDy__ChySpo()
-{
-	const KwiYz_k = Ko.TaKeDy_l.KwiYz_v[ Ko.TaKeDy_l.KeDy_wu ];
-
-	//@@@
-	// LANG DROPDOWN LIST
-	const Ne00_KeDy00__NiKeDru__Ta_l = document.getElementById( 'Ne00_KeDy00__NiKeDru__Ta_l' );
-	// LANGUAGE PICKER
-	const KeDru__TaJaPo_l = document.getElementById("Ne00_KeDy00__KeDru_TaJaPo_l");
-
-	//&&&
-	// LIST CLEAR
-	HriNeDe__Ta_ChyStz( Ne00_KeDy00__NiKeDru__Ta_l );
-	HriNeDe__Ta_ChyStz( KeDru__TaJaPo_l );
-
-	//&&&
-	// LIST FILL ENTRIES
-	Hre1_Dru__Gra_v.forEach( function ( Ti_v, Vx_wu )
-	{
-		//SmaSme( "------ Vx_wu:", Vx_wu, Ti_v.Va );
-
-		//&&&
-		// LANG DROPDOWN ADD BTN
-		{
-			const Kz_l = document.createElement( 'option' );
-			Kz_l.className = 'HriNeTi WaDru_Ku';
-
-			Kz_l.innerText = `${Ti_v.KuGwz} ${Ti_v.Va}`;
-
-			Kz_l.value = Ti_v.Vy;
-
-			Ne00_KeDy00__NiKeDru__Ta_l.appendChild( Kz_l );
-		}
-
-		//&&&
-		// LANG FLAG GRID ADD BTN
-		{
-			const Kz_l = document.createElement( 'span' );
-
-			if( Vx_wu & 4 )
-			{
-				Kz_l.className = 'NiJaPo_Va NiJaPo_VaGri WaDru_Ku';
-				Kz_l.onclick = function() { Ne00_KeDy00__NiKeDru__JeChy( Vx_wu ); }
-			}
-			else
-			{
-				Kz_l.className = 'NiJaPo_Va NiJaPo_VaRu WaDru_Ku';
-			}
-
-			Kz_l.innerText = Ti_v.KuGwz;
-			KeDru__TaJaPo_l.appendChild( Kz_l );
-		}
-
-	});
-
-	//@@@
-	// STARTING LANG
-	Ne00_KeDy00__NiKeDru__Ta_l.selectedIndex = KwiYz_k.KeDru_wu;
-	Hre1_Dru__KeDru_ChyVx( KwiYz_k.KeDru_wu );
-
-	//@@@
-	// AVATAR PICKER
-	const SaJaPo__TaJaPo_l = document.getElementById("Ne00_KeDy03__SaJaPo__TaJaPo_l");
-	HriNeDe__Ta_ChyStz( SaJaPo__TaJaPo_l );
-	for( let Vx_wu = 0; Vx_wu< SaPy_vvsg.length; Vx_wu++ )
-	{
-		//&&&
-		// ADD BTN
-
-		const Kz_l = document.createElement( 'span' );
-		Kz_l.className = 'NiJaPo_Va NiJaPo_VaVo';
-		Kz_l.onclick = function() { Hrz4_Bu__KwiYz__SaPy_ChyYe( Vx_wu ); }
-
-		Kz_l.innerText = SaPy_vvsg[ Vx_wu ];
-		SaJaPo__TaJaPo_l.appendChild( Kz_l );
-	}
-
-	//@@@
-	// AUD_METHODS
-	{
-		const TaKeDy_l = document.getElementById( 'Ne02_Hru__SmzYz_Ta_l' );
-		HriNeDe__Ta_ChyStz( TaKeDy_l );
-
-		const SaNo__TaKeDy_l = Ko.TaKeDy_l.KwiYz_v;
-		SaNo__TaKeDy_l.forEach( function ( Ti_v, Vx_wu )
-		{
-			// SmaSme( "------ Vx_wu:", Vx_wu, Ti_v.KeDy_vsg );
-
-			//&&&
-			// ADD BTN
-			const Kz_l = document.createElement( 'option' );
-			Kz_l.className = 'HriNeTi WaDru_De';
-			Kz_l.innerText = `${SaPy_vvsg[ Ti_v.NiJaPo_wu ]} ${Ti_v.KeDy_vsg }` + ( Vx_wu & 1 ? "🔒":"🔓" );
-			Kz_l.value = Vx_wu;
-			TaKeDy_l.appendChild( Kz_l );
-		});
-
-		TaKeDy_l.selectedIndex = Ko.TaKeDy_l.KeDy_wu;
-	}
-
-	//@@@
-	// VIS_METHODS
-	{
-		const TaKeDy_l = document.getElementById( 'Ne03_Hry06__SmzYz__Ta_l' );
-		HriNeDe__Ta_ChyStz( TaKeDy_l );
-
-		const SaNo__TaKeDy_l = Ko.TaKeDy_l.KwiYz_v;
-		SaNo__TaKeDy_l.forEach( function ( Ti_v, Vx_wu )
-		{
-			// SmaSme( "------ Vx_wu:", Vx_wu, Ti_v.KeDy_vsg );
-
-			//&&&
-			// ADD BTN
-			const Kz_l = document.createElement( 'option' );
-			Kz_l.className = 'HriNeTi WaDru_De';
-			Kz_l.innerText = `${SaPy_vvsg[ Ti_v.NiJaPo_wu ]} ${Ti_v.KeDy_vsg }` + ( Vx_wu & 1 ? "🔒":"🔓" );
-			Kz_l.value = Vx_wu;
-			TaKeDy_l.appendChild( Kz_l );
-		});
-
-		TaKeDy_l.selectedIndex = Ko.TaKeDy_l.KeDy_wu;
-	}
-}
-
-
 //=====================================
 // USR END
 //=====================================
@@ -1663,14 +1504,161 @@ function HriNeDe__ChyHryVoHu( Vy_vsg, HryVoHu_yk )
 
 //@@@
 // CHECKBOX
+// RADIOBTN
 function HriNeDe__ChyHyHo( Vy_vsg, HyHo_yk )
 {
 	let e = document.getElementById( Vy_vsg );
 	e.checked = HyHo_yk;
 }
 
-//@@@
-// RADIOBTN
+
+//=====================================
+// INIT USER GUI DEFAULTS
+//=====================================
+async function Hri4_Bu__TaKeDy__ChySpo()
+{
+	const KwiYz_k = Ko.TaKeDy_l.KwiYz_v[ Ko.TaKeDy_l.KeDy_wu ];
+
+	//-------------------------------------------------
+	// CULTURE
+	//-------------------------------------------------
+	//@@@
+	// LANG DROPDOWN LIST
+	const Ne00_KeDy00__NiKeDru__Ta_l = document.getElementById( 'Ne00_KeDy00__NiKeDru__Ta_l' );
+	// LANGUAGE PICKER
+	const KeDru__TaJaPo_l = document.getElementById("Ne00_KeDy00__KeDru_TaJaPo_l");
+
+	//&&&
+	// LIST CLEAR
+	HriNeDe__Ta_ChyStz( Ne00_KeDy00__NiKeDru__Ta_l );
+	HriNeDe__Ta_ChyStz( KeDru__TaJaPo_l );
+
+	//&&&
+	// LIST FILL ENTRIES
+	const KeDruGri_v = [ 'en', 'es' ];
+
+	Hre1_Dru__Gra_v.forEach( function ( Ti_v, Vx_wu )
+	{
+		//SmaSme( "------ Vx_wu:", Vx_wu, Ti_v.Va );
+
+		//&&&
+		// LANG DROPDOWN ADD BTN
+		{
+			const Kz_l = document.createElement( 'option' );
+			Kz_l.className = 'HriNeTi WaDru_Ku';
+
+			Kz_l.innerText = `${Ti_v.KuGwz} ${Ti_v.Va}`;
+
+			Kz_l.value = Ti_v.Vy;
+
+			Ne00_KeDy00__NiKeDru__Ta_l.appendChild( Kz_l );
+		}
+
+		//&&&
+		// LANG FLAG GRID ADD BTN
+		{
+			const Kz_l = document.createElement( 'span' );
+			// DBG: if( Vx_wu & 4 )
+			if( KeDruGri_v.includes( Ti_v.Vy ) )
+			{
+				Kz_l.className = 'NiJaPo_Va NiJaPo_VaGri WaDru_Ku';
+				Kz_l.onclick = function() { Ne00_KeDy00__NiKeDru__JeChy( Vx_wu ); }
+			}
+			else
+			{
+				Kz_l.className = 'NiJaPo_Va NiJaPo_VaRu WaDru_Ku';
+			}
+
+			Kz_l.innerText = Ti_v.KuGwz;
+			KeDru__TaJaPo_l.appendChild( Kz_l );
+		}
+
+	});
+
+	//@@@
+	// STARTING LANG
+	Ne00_KeDy00__NiKeDru__Ta_l.selectedIndex = KwiYz_k.KeDru_wu;
+	Hre1_Dru__KeDru_ChyVx( KwiYz_k.KeDru_wu );
+
+
+	//-------------------------------------------------
+	// PROFILE PICKER
+	//-------------------------------------------------
+	const SaJaPo__TaJaPo_l = document.getElementById("Ne00_KeDy03__SaJaPo__TaJaPo_l");
+	HriNeDe__Ta_ChyStz( SaJaPo__TaJaPo_l );
+
+	//@@@
+	for( let Vx_wu = 0; Vx_wu< SaPy_vvsg.length; Vx_wu++ )
+	{
+		//&&&
+		// ADD BTN
+
+		const Kz_l = document.createElement( 'span' );
+		Kz_l.className = 'NiJaPo_Va NiJaPo_VaVo';
+		Kz_l.onclick = function() { Hrz4_Bu__KwiYz__SaPy_ChyYe( Vx_wu ); }
+
+		Kz_l.innerText = SaPy_vvsg[ Vx_wu ];
+		SaJaPo__TaJaPo_l.appendChild( Kz_l );
+	}
+
+	//-------------------------------------------------
+	//-------------------------------------------------
+	// AUD_METHODS
+	{
+		const TaKeDy_l = document.getElementById( 'Ne02_Hru__SmzYz_Ta_l' );
+		HriNeDe__Ta_ChyStz( TaKeDy_l );
+
+		//@@@
+		const SaNo__TaKeDy_l = Ko.TaKeDy_l.KwiYz_v;
+		SaNo__TaKeDy_l.forEach( function ( Ti_v, Vx_wu )
+		{
+			// SmaSme( "------ Vx_wu:", Vx_wu, Ti_v.KeDy_vsg );
+
+			//&&&
+			// ADD BTN
+			const Kz_l = document.createElement( 'option' );
+			Kz_l.className = 'HriNeTi WaDru_De';
+			Kz_l.innerText = `${SaPy_vvsg[ Ti_v.NiJaPo_wu ]} ${Ti_v.KeDy_vsg }` + ( Vx_wu & 1 ? "🔒":"🔓" );
+			Kz_l.value = Vx_wu;
+			TaKeDy_l.appendChild( Kz_l );
+		});
+
+		TaKeDy_l.selectedIndex = Ko.TaKeDy_l.KeDy_wu;
+	}
+
+	//-------------------------------------------------
+	// VIS_METHODS
+	//-------------------------------------------------
+	{
+		const TaKeDy_l = document.getElementById( 'Ne03_Hry06__SmzYz__Ta_l' );
+		HriNeDe__Ta_ChyStz( TaKeDy_l );
+
+		//@@@
+		const SaNo__TaKeDy_l = Ko.TaKeDy_l.KwiYz_v;
+		SaNo__TaKeDy_l.forEach( function ( Ti_v, Vx_wu )
+		{
+			// SmaSme( "------ Vx_wu:", Vx_wu, Ti_v.KeDy_vsg );
+
+			//&&&
+			// ADD BTN
+			const Kz_l = document.createElement( 'option' );
+			Kz_l.className = 'HriNeTi WaDru_De';
+			Kz_l.innerText = `${SaPy_vvsg[ Ti_v.NiJaPo_wu ]} ${Ti_v.KeDy_vsg }` + ( Vx_wu & 1 ? "🔒":"🔓" );
+			Kz_l.value = Vx_wu;
+			TaKeDy_l.appendChild( Kz_l );
+		});
+
+		TaKeDy_l.selectedIndex = Ko.TaKeDy_l.KeDy_wu;
+	}
+}
+
+
+//=====================================
+// USR END
+//=====================================
+//==============================================
+// STAGE
+//==============================================
 
 
 //=====================================
@@ -1997,6 +1985,7 @@ function HryMx01_KeMeTrx()
 	TrxKa_k.innerText = Module.Trx_vsg;
 
 	const Sma_vvsg = Ko.Sma_vvsg;
+	const SmaFo = Math.min( Ko.SmaFe_wu, SmaBraHi_wuk );
 	for( let i = 0; i < SmaBraHi_wuk; i++)
 	{
 		if( Sma_vvsg[ i ] )
@@ -2044,6 +2033,7 @@ function Hrz4_Bu__ChyNeKu( Vx_wu )
 	// SHOW/HIDE SECTIONS
 	for( let i = 0; i < NeKuJy_v.length; i++)
 	{
+		// SECTIONS are GRID
 		NeKuJy_v[i].style.display = ( Vx_wu === i ) ? "grid" : "none";
 	}
 }
@@ -2650,15 +2640,15 @@ async function KoDz__YaFz()
 
 	//@@@
 	// FNT
+	// , DoFNT.Hrz7_Kru__ChaWaDru( "Roboto Condensed", "url(" + BriDz__Mx_KuTu_vsg + "Mx01__SuKz_MEDIA/SuKz04_WaDru__FONT/WaDru01__Thin.ttf )" )
 	const WaDru__Kri_v =
 	[
-		DoFNT.Hrz7_Kru__ChaWaDru( "Segoe UI Emoji", "url(" + BriDz__Mx_KuTu_vsg + "Mx01__SuKz_MEDIA/SuKz04_WaDru__FONT/WaDru00__Flags.ttf )" )
-		, DoFNT.Hrz7_Kru__ChaWaDru( "Roboto Condensed", "url(" + BriDz__Mx_KuTu_vsg + "Mx01__SuKz_MEDIA/SuKz04_WaDru__FONT/WaDru01__Thin.ttf )" )
-		, DoFNT.Hrz7_Kru__ChaWaDru( "Final Frontier Old Style", "url(" + BriDz__Mx_KuTu_vsg + "Mx01__SuKz_MEDIA/SuKz04_WaDru__FONT/WaDru02__FinalFrontier.ttf )" )
+		DoFNT.Hrz7_Kru__ChaWaDru( "Segoe UI Emoji", "url(" + BriDz__Mx_KuTu_vsg + "Mx01__SuKz_MEDIA/SuKz04_WaDru__FONT/WaDru00__Ku.ttf )" )
+		, DoFNT.Hrz7_Kru__ChaWaDru( "Final Frontier Old Style", "url(" + BriDz__Mx_KuTu_vsg + "Mx01__SuKz_MEDIA/SuKz04_WaDru__FONT/WaDru01__Bz.ttf )" )
 	];
 
 	const WaDru__Kri_yk = await Promise.all( WaDru__Kri_v );
-	// SmaSme( "SERV REQ", SyCha__FyGry_yk );
+	SmaSme( "[SERV] FONT", WaDru__Kri_yk );
 	if( !WaDru__Kri_yk ){ return; }
 
 	//@@@
@@ -2892,6 +2882,48 @@ const Hrz7_Kru__ToKzVa_Gwx = () =>
         Error.prepareStackTrace = oldStackTrace;
     }
 };
+
+
+//-------------------------------------------------
+// LOAD JSON
+//-------------------------------------------------
+async function Hra7_Ta__ToKzMi_JSON_v( ChaKuTu_vsg, ToKzVa_vsg )
+{
+	try
+	{
+		let KuTu_vsg = `${BriDz__Mx_KuTu_vsg}Mx07__SuSmi_WEBPG/${ChaKuTu_vsg}${ToKzVa_vsg}.json`;
+		// SmaSme( `FILE seeking: ${KuTu_vsg}`);
+
+		const res = await fetch( KuTu_vsg,
+		{
+			headers:
+			{
+				Accept: 'application/json'
+			}
+		} );
+
+		try
+		{
+			const json = await res.json();
+			return json;
+		}
+		catch ( e )
+		{
+			SmaDre( "[JSON] Corrupt Data <", KuTu_vsg, ">" );
+			return null;
+		}
+	}
+	catch( err )
+	{
+		SmaDre( "[JSON] File Not Found <", KuTu_vsg, ">" );
+
+		//SmaDre( `FileRead_Error: ${err}` );
+		return null;
+	}
+
+	SmaDre( "[JSON] Unknown Error <", KuTu_vsg, ">" );
+	return null;
+}
 
 
 //=====================================

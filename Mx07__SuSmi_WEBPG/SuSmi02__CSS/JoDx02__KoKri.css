@@ -46,26 +46,26 @@ MxPo_Trx
 
 /*@@@@@@@@@@@@@@@
 FONT
+font-family: "Roboto Condensed", sans-serif;
 @@@@@@@@@@@@@@@*/
+
 .WaDru_SmuHi
 {
-	/* font-family: "Raleway", sans-serif; */
 	font-family: "Final Frontier Old Style", sans-serif;
 	font-weight: 800;
-	font-style: normal;
+	font-style: bold;
 }
 
 .WaDru_Bz
 {
-	/* font-family: "Raleway", sans-serif; */
 	font-family: sans-serif;
 	font-weight: 600;
-	font-style: normal;
+	font-style: bold;
 }
 
 .WaDru_De
 {
-	font-family: "Roboto Condensed", sans-serif;
+	font-family: sans-serif;
 	font-weight: 400;
 	font-style: normal;
 }
@@ -233,8 +233,12 @@ div[data-title]::after
 	margin: 0.5rem;
 	padding: 0.5rem;
 
+	color: #FFF;
+	background-color: #444E;
+	border: dashed 0.125rem #DDD;
+	border-radius: 1.5rem;
+
 	opacity: 0.0;
-	border: solid 0.125rem #FFF;
 	font-size: 0.0rem;
 
 	transition: 0.75s;
@@ -242,14 +246,9 @@ div[data-title]::after
 
 div[data-title]:hover::after
 {
-	font-size: 0.875rem;
-	border-radius: 1.5rem;
 
-	color: #FFF;
-	background-color: #444D;
 	opacity: 1;
-
-	border: dashed 0.125rem #FF0;
+	font-size: 0.875rem;
 }
 
 
@@ -450,14 +449,20 @@ TEXT
 /* TEXT__MENU_TITLE --------------------------------- */
 .HriNzVa
 {
-	display: block;
+	display: flex;
 	flex-grow: 1;
 
-	padding: 0.0rem;
+	font-family: sans-serif;
+	font-weight: 800;
+	font-style: bold;
+
+	/* text-align:center; */
+    justify-content: center;
+    align-items: center;
+
+	padding: 0.125rem;
 	margin: 0.0rem;
 
-	text-align:center;
-	font-weight:bold;
 	transition: background .3s, color .3s;
 
 	color: #AAA;
@@ -468,6 +473,9 @@ TEXT
 .HriNzVa:hover
 {
 	font-size: 1.5rem;
+	font-family: sans-serif;
+	font-weight: 800;
+	font-style: bold;
 
 	/* TEXT__MENU_TITLE---WIDE */
 	@media (min-aspect-ratio: 1/1)
@@ -488,6 +496,10 @@ TEXT
 	color: #FFF;
 	background-color: #0008;
 	font-size: 1.25rem;
+	font-family: sans-serif;
+	font-weight: 800;
+	font-style: bold;
+
 
 	/* TEXT__MENU_TITLE---WIDE */
 	@media (min-aspect-ratio: 1/1)
@@ -622,17 +634,18 @@ TEXT
 }
 
 /* TEXT__DOCUMENT BODY */
-.KeDruKa, .KeDruBe
+.KeDruBa, .KeDruBe
 {
 	font-size: 0.875rem;
 	white-space: pre-wrap;
+	max-width: calc( 100% - 1.0rem );
 
 	margin: 0.50rem;
 	padding: 0.50rem;
 
 	background-color: #0008;
 
-	overflow-x: none;
+	overflow-x: auto;
 	overflow-y: auto;
 }
 
@@ -641,7 +654,7 @@ TEXT
 {
 	/* Requires BLOCK */
 	column-rule: 0.25em dotted #222F;
-	column-gap: 64px;
+	column-gap: 32px;
 	column-fill: balance;
 
 	/* PANEL__TEXT---WIDE */
