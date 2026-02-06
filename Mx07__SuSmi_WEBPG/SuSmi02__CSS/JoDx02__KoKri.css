@@ -46,7 +46,6 @@ MxPo_Trx
 
 /*@@@@@@@@@@@@@@@
 FONT
-font-family: "Roboto Condensed", sans-serif;
 @@@@@@@@@@@@@@@*/
 
 .WaDru_SmuHi
@@ -58,21 +57,15 @@ font-family: "Roboto Condensed", sans-serif;
 
 .WaDru_Bz
 {
-	font-family: sans-serif;
+	font-family: Arial, sans-serif;
 	font-weight: 600;
-	font-style: bold;
-}
-
-.WaDru_De
-{
-	font-family: sans-serif;
-	font-weight: 400;
 	font-style: normal;
 }
 
+.WaDru_De
 .WaDru_Py
 {
-	font-family: sans-serif;
+	font-family: Arial, sans-serif;
 	font-weight: 400;
 	font-style: normal;
 }
@@ -210,10 +203,6 @@ TOOLTIPS
 
 div[data-title]
 {
-	font-family: "Roboto Condensed", sans-serif;
-	font-weight: 400;
-	font-style: italic;
-
 	cursor: pointer;
 	position: relative;
 }
@@ -286,8 +275,8 @@ PANELS
     justify-content: center;
     align-items: center;
 
-	margin: 0.50rem 0.25rem;
-	padding: 0.125rem;
+	margin: 1.0rem 0.25rem;
+	padding: 0.25rem;
 }
 
 /* PANEL_GUI ---------------------- */
@@ -358,8 +347,8 @@ PANELS
 {
 	background-color: #0000;
 	border-radius: 0.0rem;
-	padding: 0.0rem;
-	margin: 0.0rem;
+	padding: 0.25rem;
+	margin: 0.25rem;
 
 	/* PANEL__MENU TABS---WIDE */
 	@media (min-aspect-ratio: 1/1)
@@ -433,7 +422,7 @@ TEXT
 {
 	display: block;
 	text-align:center;
-	margin: 0.0rem;
+	margin: 0.125rem;
 	padding: 0.0rem;
 	color: #CCC;
 	font-size: 75%;
@@ -452,10 +441,6 @@ TEXT
 	display: flex;
 	flex-grow: 1;
 
-	font-family: sans-serif;
-	font-weight: 800;
-	font-style: bold;
-
 	/* text-align:center; */
     justify-content: center;
     align-items: center;
@@ -467,15 +452,29 @@ TEXT
 
 	color: #AAA;
 	background-color: #4448;
+
+	/* TEXT__MENU_TITLE---WIDE */
+	@media (min-aspect-ratio: 1/1)
+	{
+		width: 16.67%;
+		border-radius:1.5rem 1.5rem 0 0;
+		border: solid 0.125rem #FFF;
+	}
+
+	/* TEXT__MENU_TITLE---TALL */
+	@media (max-aspect-ratio: 1/1)
+	{
+		width: 100%;
+		border-radius: 1.5rem 0 0 1.5rem;
+		border: solid 0.125rem #FFF;
+	}
 }
 
 /* TEXT__MENU_HOVER */
 .HriNzVa:hover
 {
-	font-size: 1.5rem;
-	font-family: sans-serif;
-	font-weight: 800;
-	font-style: bold;
+	font-size: 1.25rem;
+	font-style: italic;
 
 	/* TEXT__MENU_TITLE---WIDE */
 	@media (min-aspect-ratio: 1/1)
@@ -493,55 +492,26 @@ TEXT
 /* TEXT__MENU_SELECTED */
 .HriNzVa_Se
 {
-	color: #FFF;
-	background-color: #0008;
-	font-size: 1.25rem;
-	font-family: sans-serif;
-	font-weight: 800;
+	font-size: 1.125rem;
 	font-style: bold;
 
+	color: #FFF;
+	background-color: #0008;
 
 	/* TEXT__MENU_TITLE---WIDE */
 	@media (min-aspect-ratio: 1/1)
 	{
 		box-shadow: 0 -0.5em 1.0rem #AAA;
+		border-bottom:none;
 	}
 	/* TEXT__MENU_TITLE---TALL */
 	@media (max-aspect-ratio: 1/1)
 	{
 		box-shadow: -0.5em 0 1.0rem #AAA;
-	}
-}
-
-/* TEXT__MENU_TITLE---WIDE */
-@media (min-aspect-ratio: 1/1)
-{
-	.HriNzVa
-	{
-		width: 16.67%;
-		border-radius:1.5rem 1.5rem 0 0;
-		border: solid 0.125rem #FFF;
-	}
-	.HriNzVa_Se
-	{
-		border-bottom:none;
-	}
-}
-
-/* TEXT__MENU_TITLE---TALL */
-@media (max-aspect-ratio: 1/1)
-{
-	.HriNzVa
-	{
-		width: 100%;
-		border-radius: 1.5rem 0 0 1.5rem;
-		border: solid 0.125rem #FFF;
-	}
-	.HriNzVa_Se
-	{
 		border-right: none;
 	}
 }
+
 
 /* TEXT__ITEMS---------------------------------------------------- */
 
@@ -654,29 +624,32 @@ TEXT
 {
 	/* Requires BLOCK */
 	column-rule: 0.25em dotted #222F;
-	column-gap: 32px;
-	column-fill: balance;
+	/* column-fill: balance; */
+	column-width: 44ch;
+	column-gap: 4ch;
+
 
 	/* PANEL__TEXT---WIDE */
-	@media (min-aspect-ratio: 1/1)
+	/* @media (min-aspect-ratio: 1/1)
 	{
 		column-count: 3;
-	}
+	} */
 	/* PANEL__TEXT---ULTRA WIDE */
-	@media (min-aspect-ratio: 9/5 )
+	/* @media (min-aspect-ratio: 9/5 )
 	{
 		column-count: 4;
-	}
+	} */
 	/* PANEL__TEXT---TALL */
-	@media (max-aspect-ratio: 1/1)
+	/* @media (max-aspect-ratio: 1/1)
 	{
 		column-count: 2;
-	}
+	} */
 	/* PANEL__TEXT---TALL */
-	@media (max-aspect-ratio: 5/9)
+	/* @media (max-aspect-ratio: 5/9)
 	{
 		column-count: 1;
 	}
+	 */
 }
 
 

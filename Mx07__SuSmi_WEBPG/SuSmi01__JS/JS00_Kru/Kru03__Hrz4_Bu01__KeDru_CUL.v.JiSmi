@@ -53,19 +53,6 @@ async function Hre1_Dru__KeDru_ChyVx( KeDru_wuk )
 	KwiYz_k.KeDru_wu = KeDru_wuk;
 	document.getElementById( "Ne00_KeDy00__NiKeDru_q" ).innerText = Hre1_Dru__Gra_v[ KwiYz_k.KeDru_wu ].KuGwz;
 
-	//@@@
-	// TEXT_DIR
-	// Set text direction
-	const Fe__KeDru_vksg = Hre1_Dru__Gra_v[ KeDru_wuk ].ToKz;
-	const rtlLanguages = [ 'ar', 'he', 'fa' ];
-	if( rtlLanguages.includes( Fe__KeDru_vksg ) )
-	{
-		document.body.dir = 'rtl';
-	}
-	else
-	{
-		document.body.dir = 'ltr';
-	}
 
 	//@@@
 	// LANG_FILE
@@ -82,9 +69,28 @@ async function Hre1_Dru__KeDru_ChyVx( KeDru_wuk )
 	}
 
 	//@@@
+	// TEXT_DIR
+	// Set text direction
+	const Fe__KeDru_vksg = Hre1_Dru__Gra_v[ KeDru_wuk ].ToKz;
+	const KeDru_RTL_v = [ 'ar', 'he', 'fa' ];
+	if( KeDru_RTL_v.includes( Fe__KeDru_vksg ) )
+	{
+		document.body.dir = 'rtl';
+	}
+	else
+	{
+		document.body.dir = 'ltr';
+	}
+
+
+	//@@@
 	// SUBMIT BTN
 	const HriNe_KwiVu_k = document.getElementById( 'BriDz02_TraKwi_vsg' );
 	HriNe_KwiVu_k.value = KeDru_v.LABELS.BriDz02_TraKwi_vsg;
+
+	//@@@
+	// LOCALE TOOLTIP
+	
 
 	//@@@
 	// UPDATE LABELS
@@ -109,7 +115,7 @@ async function Hre1_Dru__KeDru_ChyVx( KeDru_wuk )
 		{
 			let Elm_l = document.getElementById( Vy_vbg );
 			if( Elm_l )
-			{	Elm_l.setAttribute( "data-title", "⬇️" + Va_vbg + "⬇️" ); 	}
+			{	Elm_l.setAttribute( "data-title", "⬇" + Va_vbg + "⬇️" ); 	}
 			else{ SmaSme( `[CUL] *---------USAGE UNUSED-------------*: ${Vy_vbg}` ); }
 		}
 	);
@@ -124,6 +130,7 @@ function Ne00_KeDy00__NiKeDru__JeChy( KeDru_wuk )
 	const Ne00_KeDy00__NiKeDru__Ta_l = document.getElementById( 'Ne00_KeDy00__NiKeDru__Ta_l' );
 	//SmaSme( "CHG!", Ne00_KeDy00__NiKeDru__Ta_l );
 	Hre1_Dru__KeDru_ChyVx( ( KeDru_wuk !== null )? KeDru_wuk : Ne00_KeDy00__NiKeDru__Ta_l.selectedIndex );
+
 
 	//@@@
 	// SAVE CFG

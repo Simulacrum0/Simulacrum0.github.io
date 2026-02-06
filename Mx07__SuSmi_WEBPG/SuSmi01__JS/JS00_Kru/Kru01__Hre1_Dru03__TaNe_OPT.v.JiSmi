@@ -2,12 +2,24 @@
 // CORE MSGS
 //==============================================
 
+//-------------------------------------------------
+// LAUNCH_PREF for GUI
+const HriNeDe = Object.freeze
+//-------------------------------------------------
+({
+	Ho_qk: 0
+	, Va_qk: 2 // Label
 
+	, Tra_qk: 1 // Btn
+	, Nu_qk: 3 // Checkbox
+	, Tra_qk: 1 // Radiobtn
+});
 
 
 const Kru__TaNe_v=
 [
 	{ Va: "Name", Jy: "Type", Dx: "Style" }
+	, { Va: "Name", Jy: HriNeDe.Tra_qk, Dx: "Style" }
 
 ];
 
