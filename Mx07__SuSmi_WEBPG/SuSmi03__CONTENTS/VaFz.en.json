@@ -123,12 +123,12 @@
 		, "Ne00_KeDy__ChaChi_vsg": "Manage User Roster"
 		, "Ne00_KeDy__X_vsg": "xyz abc def"
 
-		, "Ne00_KeDy_vsg": "Change X"
-		, "Ne01_Ko_vsg": "Change X"
-		, "Ne02_Hru_vsg": "Change X"
-		, "Ne03_Hry_vsg": "Change X"
-		, "Ne04_Hx_vsg": "Change X"
-		, "Ne05_Grx_vsg": "Change X"
+		, "Ne00_KeDy_vsg": "Select Identity, Culture & Security"
+		, "Ne01_Ko_vsg": "Decide on Access of Info"
+		, "Ne02_Hru_vsg": "Setup Audio Mic and Speakers"
+		, "Ne03_Hry_vsg": "Setup Displays, Style, and Quality"
+		, "Ne04_Hx_vsg": "Basic information about MicroCosm"
+		, "Ne05_Grx_vsg": "License, Legal, Credit, & Company Notices"
 	}
 
 	, "CREDITS":

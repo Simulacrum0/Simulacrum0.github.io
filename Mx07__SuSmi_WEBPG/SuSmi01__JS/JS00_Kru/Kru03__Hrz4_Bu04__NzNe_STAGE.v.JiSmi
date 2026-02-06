@@ -415,10 +415,10 @@ function Tra_KeMeBri()
 
 	//@@@
 	// ECOSYS PLAY
-	SmaSme( "[GUI] User:", KwiYz_k.KeDy_vsg, " NEVER_PAUSE:", KwiYz_k.Ne01_Ko04__KoDz_YoHo_y );
+	SmaJe( "[GUI] User:", KwiYz_k.KeDy_vsg, " NEVER_PAUSE:", KwiYz_k.Ne01_Ko04__KoDz_YoHo_y );
 	if( KoDz__YzYa_y() )
 	{
-		SmaSme( "[GUI] ACTIVE via Resume" );
+		SmaSy( "[GUI] ACTIVE via Resume" );
 
 		//&&&
 		// LAUNCH SERVICES that REQUIRE a "click"
@@ -447,7 +447,7 @@ function KoDz_GyHa()
 
 	//@@@
 	// MxPo^SCREEN
-	SmaSme( "[GUI] GyHa: ", window.innerWidth, window.innerHeight, " Legible Px/Em: ", Ko.em2px_wfk );
+	SmaSy( "[GUI] GyHa: ", window.innerWidth, window.innerHeight, " Legible Px/Em: ", Ko.em2px_wfk );
 }
 
 //==============================================

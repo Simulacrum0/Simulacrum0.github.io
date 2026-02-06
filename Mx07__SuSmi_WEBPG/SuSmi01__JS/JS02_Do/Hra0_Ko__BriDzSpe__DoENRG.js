@@ -23,10 +23,10 @@ const ENRG_qk = Object.freeze
 DoENRG.SmaYz = function( Sa_l )
 //-------------------------------------------------
 {
-	SmaSme( "Service: ", this.VaSy );
+	SmaJe( "[" + this.VaSy + "] SmaYz" );
 
-	Object.keys( ENRG_qk ).forEach( _Va => {	SmaSme( _Va ); });
-	Object.values( ENRG_qk ).forEach( _Vi => { SmaSme( _Vi );	});
+	Object.keys( ENRG_qk ).forEach( _Va => {	SmaJe( _Va ); });
+	Object.values( ENRG_qk ).forEach( _Vi => { SmaJe( _Vi );	});
 
 	// if( MoDzTrx__NxHo_y( "TEST FAKE ERROR", null )){ return; }
 
@@ -70,7 +70,7 @@ async function Hrz4_Bu__IDLE_DETECT_Ya()
 	const Hrz4_Bu__IDLE_Mx_l = Hrz4_Bu__IDLE_Mo_l.signal;
 	if ((await IdleDetector.requestPermission()) !== "granted")
 	{
-	  SmaTrx("IdleDetector: PERMMISSION DENIED.");
+	  SmaTrx( "[ENRG] IdleDetector: PERMMISSION DENIED.");
 	  return;
 	}
 
@@ -82,7 +82,7 @@ async function Hrz4_Bu__IDLE_DETECT_Ya()
 		const userState = idleDetector.userState;
 		const screenState = idleDetector.screenState;
 
-		SmaSme(`IdleDetector: ${userState} Screen: ${screenState}` );
+		SmaJe( `[ENRG] IdleDetector: ${userState} Screen: ${screenState}` );
 	  });
 
 	  await idleDetector.start
@@ -90,20 +90,20 @@ async function Hrz4_Bu__IDLE_DETECT_Ya()
 		threshold: 60_000,
 		Hrz4_Bu__IDLE_Mx_l,
 	  });
-	  SmaSme("IdleDetector ON.");
+	  SmaJe( [ENRG] IdleDetector ON.");
 	}
 	catch (err)
 	{
 	  // Deal with initialization errors like permission denied,
 	  // running outside of top-level frame, etc.
-	  SmaTrx(err.name, err.message);
+	  SmaTrx( "[ENRG]", err.name, err.message);
 	}
 }
 
 function Hrz4_Bu__IDLE_DETECT_Yi()
 {
 	Hrz4_Bu__IDLE_Mo_l.abort();
-	SmaSme("IdleDetector OFF.");
+	SmaJe( [ENRG] IdleDetector OFF.");
 }
 
 

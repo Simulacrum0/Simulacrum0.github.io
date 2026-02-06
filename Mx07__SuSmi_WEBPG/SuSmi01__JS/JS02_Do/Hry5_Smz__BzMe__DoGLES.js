@@ -10,7 +10,7 @@ window.DoGLES = DoGLES;
 //==============================================
 DoGLES.Trx = function( err )
 {
-	SmaSme( "DoGLES_Trx: " + err );
+	SmaJe( "DoGLES_Trx: " + err );
 }
 
 
@@ -20,11 +20,11 @@ DoGLES.Trx = function( err )
 DoGLES.SmaYz = function( Sa_l )
 {
 	// REPORT
-	SmaSme( "--------------------------------------------" );
-	SmaSme( "DoGLES_Yz" );
-	SmaSme( "--------------------------------------------" );
-	SmaSme( "GL: " + DoGLES );
-	SmaSme( "--------------------------------------------" );
+	SmaJe( "--------------------------------------------" );
+	SmaJe( "DoGLES_Yz" );
+	SmaJe( "--------------------------------------------" );
+	SmaJe( "GL: " + DoGLES );
+	SmaJe( "--------------------------------------------" );
 }
 
 
@@ -164,7 +164,7 @@ const vSrc =
 DoGLES.KiCho_SuTy = function( Sa_l )
 {
 	const gl = Sa_l.gl;
-	SmaSme( "DoGLES JiJa: CLONE PROG" );
+	SmaJe( "DoGLES JiJa: CLONE PROG" );
 
 	function createShader( gl, type, source )
 	{
@@ -208,7 +208,7 @@ DoGLES.KiCho_SuTy = function( Sa_l )
 DoGLES.KiCho_JxRe = function( Sa_l )
 {
 	const gl = Sa_l.gl;
-	SmaSme( "DoGLES_KiCho_JxRe: CLONE SEQ" );
+	SmaJe( "DoGLES_KiCho_JxRe: CLONE SEQ" );
 
 	function createBuffer( gl, data, type = gl.ARRAY_BUFFER )
 	{
@@ -249,7 +249,7 @@ DoGLES.KiCho_JxRe = function( Sa_l )
 //==============================================
 DoGLES.KiCho_JaTi = function( Sa_l, GeGx_wu, GeGa_wu, GyGx_wu, GyGa_wu, Si__JaPo_l )
 {
-	//SmaSme( "DoGLES_SyCho_JaPo: ENGINE CLONE FORM" );
+	//SmaJe( "DoGLES_SyCho_JaPo: ENGINE CLONE FORM" );
 	const gl = Sa_l.gl;
 
 	gl.activeTexture( gl.TEXTURE0 );
@@ -281,7 +281,7 @@ DoGLES.KiCho_JaTi = function( Sa_l, GeGx_wu, GeGa_wu, GyGx_wu, GyGa_wu, Si__JaPo
 //==============================================
 DoGLES.BriYe = function( Sa_l, GiDri_duk  )
 {
-	// SmaSme( "DoGLES_BriYe ", Sa_l );
+	// SmaJe( "DoGLES_BriYe ", Sa_l );
 	const gl = Sa_l.gl;
 
 	//&&&

@@ -26,7 +26,7 @@ const FS_qk = Object.freeze
 DoFS.SmaYz = function( Sa_l )
 //-------------------------------------------------
 {
-	SmaSme( "Service: ", this.VaSy );
+	SmaJe( "[" + this.VaSy + "] SmaYz" );
 }
 
 

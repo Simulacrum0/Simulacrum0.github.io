@@ -142,7 +142,7 @@ function DoXR_GL__ChaJxRe( Sa_l )
 function DoXR_GL__ChaJaKu__Si__MzPo( Sa_l, GyGx_wuk, GyGa_wuk )
 {
 	const gl = Sa_l.gl;
-	SmaSme( "[XR] ChaJaKu: Si__MzPo", GyGx_wuk, GyGa_wuk );
+	SmaJe( "[XR] ChaJaKu: Si__MzPo", GyGx_wuk, GyGa_wuk );
 
 	Sa_l.Si__MzPo_l = gl.createTexture();
 	gl.activeTexture( gl.TEXTURE0 );
@@ -175,7 +175,7 @@ function DoXR_GL__ChaJaKu__Si__MzPo( Sa_l, GyGx_wuk, GyGa_wuk )
 //----------------------------
 function DoXR_GL__KiCho_JaTi( Sa_l, GeGx_wu, GeGa_wu, GyGx_wu, GyGa_wu, Si__JaPo_l )
 {
-	//SmaSme( "[XR_GL]" );
+	//SmaJe( "[XR_GL]" );
 	const gl = Sa_l.gl;
 
 	gl.activeTexture( gl.TEXTURE0 );
@@ -236,7 +236,7 @@ async function DoXR_GL__SmzYa_y( Sa_l )
 	const gl = Sa_l.Se__MzPo_l.getContext( "webgl2", { xrCompatible: true });
 	Sa_l.gl = gl;
 
-	SmaSme( "[XR_GL] CTX_Tro" );
+	SmaJe( "[XR_GL] CTX_Tro" );
 	await gl.makeXRCompatible();
 
 	const Smz_v = Sa_l.Smz_v;
@@ -262,14 +262,14 @@ async function DoXR_GL__SmzYa_y( Sa_l )
 
 	const RS_l = Smz_v.renderState;
 	// De: 0.1 10cm ...1000.0 1km
-	SmaSme( "[XR] Dpth:", RS_l.depthNear, RS_l.depthFar, "FRM__Gy", FRM__Gy_wfk );
+	SmaJe( "[XR] Dpth:", RS_l.depthNear, RS_l.depthFar, "FRM__Gy", FRM__Gy_wfk );
 
 
 	//@@@
 	// CTX_LOSS
 	Smz_v.addEventListener("webglcontextlost", (e) =>
 	{
-		SmaSme( "[XR_GL] Context Lost" );
+		SmaJe( "[XR_GL] Context Lost" );
 
 		// Calling preventDefault signals to the page that you intent to handle context restoration.
 		// e.preventDefault();
@@ -280,7 +280,7 @@ async function DoXR_GL__SmzYa_y( Sa_l )
 
 	Smz_v.addEventListener("webglcontextrestored", (e) =>
 	{
-		SmaSme( "[XR_GL] Context Restored" );
+		SmaJe( "[XR_GL] Context Restored" );
 		// Once this function is called the gl context will be restored but any graphics resources
 		// that were previously loaded will be lost, so the scene should be reloaded.
 		// loadSceneGraphics(gl);
@@ -331,11 +331,11 @@ function DoXR_GL__Cho_MzPo( Sa_l, FRM_k, MzKz_v )
 	// NULL DST BUF
 	if( DBG_wu < 3 )
 	{
-		SmaSme( "[XR]-------------------------:", DBG_wu );
+		SmaJe( "[XR]-------------------------:", DBG_wu );
 
-		SmaSme( "[XR] SeMzPo:", MzKz_v, GL_Gwa_l.framebuffer, FRM_k );
-		SmaSme( "[XR] EyeBox:", SmzKu_vk.x, SmzKu_vk.y, SmzKu_vk.width, SmzKu_vk.height );
-		SmaSme( "[XR] CanvasBox:", Sa_l.Se__MzPo_l.clientWidth, Sa_l.Se__MzPo_l.clientHeight, Sa_l.Se__MzPo_l.width, Sa_l.Se__MzPo_l.height,  GL_Gwa_l.framebuffer );
+		SmaJe( "[XR] SeMzPo:", MzKz_v, GL_Gwa_l.framebuffer, FRM_k );
+		SmaJe( "[XR] EyeBox:", SmzKu_vk.x, SmzKu_vk.y, SmzKu_vk.width, SmzKu_vk.height );
+		SmaJe( "[XR] CanvasBox:", Sa_l.Se__MzPo_l.clientWidth, Sa_l.Se__MzPo_l.clientHeight, Sa_l.Se__MzPo_l.width, Sa_l.Se__MzPo_l.height,  GL_Gwa_l.framebuffer );
 
 		// FORCE RESIZE CANVAS?
 		Sa_l.Se__MzPo_l.width = 2* SmzKu_vk.width;
@@ -352,8 +352,8 @@ function DoXR_GL__Cho_MzPo( Sa_l, FRM_k, MzKz_v )
 //	if( DoXR_GL__GyHa_y( Sa_l, Sa_l.Se__MzPo_l ) || ( Sa_l.Si__MzPo_l === null ))
 	if( Sa_l.Si__MzPo_l === null )
 	{
-		// SmaSme( "[XR] CTX Se", GL_Gwa_l, GL_Gwa_l.context, Sa_l.Se__MzPo_l.clientWidth, Sa_l.Se__MzPo_l.clientHeight );
-		SmaSme( "[XR] RESIZE Se__MzPo" );
+		// SmaJe( "[XR] CTX Se", GL_Gwa_l, GL_Gwa_l.context, Sa_l.Se__MzPo_l.clientWidth, Sa_l.Se__MzPo_l.clientHeight );
+		SmaJe( "[XR] RESIZE Se__MzPo" );
 		DoXR_GL__ChaJaKu__Si__MzPo( Sa_l, 2* SmzKu_vk.width, SmzKu_vk.height);
 	}
 

@@ -30,10 +30,10 @@ const ViNET = Object.freeze
 DoNET.SmaYz = function( Sa_l )
 //-------------------------------------------------
 {
-	SmaSme( "Service: ", this.VaSy );
+	SmaJe( "[" + this.VaSy + "] SmaYz" );
 
-	Object.keys( ViNET_qk ).forEach( _Va => {	SmaSme( _Va ); });
-	Object.values( ViNET_qk ).forEach( _Vi => { SmaSme( _Vi );	});
+	Object.keys( ViNET_qk ).forEach( _Va => {	SmaJe( _Va ); });
+	Object.values( ViNET_qk ).forEach( _Vi => { SmaJe( _Vi );	});
 }
 
 
@@ -48,7 +48,7 @@ function DoNET_Trx(error)
 {
 	const Err_vsg = "";
 
-	SmaTrx( "NET_ERR:", Err_vsg );
+	SmaTrx( "[NET] ERR:", Err_vsg );
 }
 
 
@@ -77,15 +77,15 @@ function getNetworkInformation()
 {
 	if (!navigator.connection)
 	{
-	  SmaSme("Your device does not support the NetworkInformation API");
+	  SmaJe("Your device does not support the NetworkInformation API");
 	}
 	else
 	{
 	  let data = navigator.connection;
 
-	  SmaSme
+	  SmaJe
 	  (
-		"NETWORK:" + "\n" +
+		"[NET]" + "\n" +
 		"downlink:"+data.downlink +"\n"+
 		"effectiveType: "+data.effectiveType+"\n"+
 		"rtt: "+data.rtt+"\n"+

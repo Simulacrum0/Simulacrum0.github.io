@@ -21,10 +21,10 @@ const ViCARD = Object.freeze
 DoCARD.SmaYz = function( Sa_l )
 //-------------------------------------------------
 {
-	SmaSme( "Service: ", this.VaSy );
+	SmaJe( "[" + this.VaSy + "] SmaYz" );
 
-	Object.keys( ViCARD_qk ).forEach( _Va => {	SmaSme( _Va ); });
-	Object.values( ViCARD_qk ).forEach( _Vi => { SmaSme( _Vi );	});
+	Object.keys( ViCARD_qk ).forEach( _Va => {	SmaJe( _Va ); });
+	Object.values( ViCARD_qk ).forEach( _Vi => { SmaJe( _Vi );	});
 
 	// if( MoDzTrx__NxHo_y( "TEST FAKE ERROR", null )){ return; }
 

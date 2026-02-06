@@ -10,7 +10,7 @@ window.DoGLF = DoGLF;
 //==============================================
 DoGLF.Trx = function( err )
 {
-	SmaSme( "DoGLF_Trx: " + err );
+	SmaJe( "DoGLF_Trx: " + err );
 
 }
 
@@ -20,13 +20,13 @@ DoGLF.Trx = function( err )
 DoGLF.SmaYz = function( Sa_l )
 {
 	// REPORT
-	SmaSme( "--------------------------------------------" );
-	SmaSme( "DoGLF_Yz" );
-	SmaSme( "--------------------------------------------" );
-	SmaSme( "Canvas: " + Sa_l.WzPo_Gwa_l );
-	//SmaSme( "Fonts: " + Sa_l.WaDru_wu );
-	//SmaSme( "Words: " + Sa_l.VaFo_wu );
-	SmaSme( "--------------------------------------------" );
+	SmaJe( "--------------------------------------------" );
+	SmaJe( "DoGLF_Yz" );
+	SmaJe( "--------------------------------------------" );
+	SmaJe( "Canvas: " + Sa_l.WzPo_Gwa_l );
+	//SmaJe( "Fonts: " + Sa_l.WaDru_wu );
+	//SmaJe( "Words: " + Sa_l.VaFo_wu );
+	SmaJe( "--------------------------------------------" );
 }
 
 
@@ -145,7 +145,7 @@ DoGLF.Hre7_Me__KeDru_Ha = function( Sa_l, SiKeDru_vsg, GeGx_wu, GeGa_wu )
 	// TextMetrics.hangingBaseline
 	// TextMetrics.ideographicBaseline
 
-	//SmaSme( "TXT SIZE ", WaHa_l.GyGx_wu, WaHa_l.GyGa_wu );
+	//SmaJe( "TXT SIZE ", WaHa_l.GyGx_wu, WaHa_l.GyGa_wu );
 
 	//@@@
 	// FX
@@ -237,7 +237,7 @@ DoGLF.Mo = function( Sa_l, Jy_k, Mo_l )
 //==============================================
 DoGLF.BriYi = function( Sa_l )
 {
-	// SmaSme( this.VaSy );
+	// SmaJe( this.VaSy );
 	Sa_l.SxHry_l = null;
 	Sa_l.WzPo_Gwa_l = null;
 }

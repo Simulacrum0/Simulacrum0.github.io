@@ -42,7 +42,7 @@ const Hrz7_Kru__ToKzVa_Gwx = () =>
         // const callSite = this.stack.find( line => line.getFileName().indexOf('/logger/') < 0 );
         const callSite = this.stack[ 1 ];
 
-		// SmaSme( "CS", callSite );
+		// SmaJe( "CS", callSite );
 		if( !DoJi_yk( callSite, "getFileName" ) || !DoJi_yk( callSite, "getFunctionName" ) ){ return "-?-"; }
 
         return callSite.getFunctionName() + " @ " + callSite.getFunctionName() + ":" + callSite.getLineNumber();
@@ -62,7 +62,7 @@ async function Hra7_Ta__ToKzMi_JSON_v( ChaKuTu_vsg, ToKzVa_vsg )
 	try
 	{
 		let KuTu_vsg = `${BriDz__Mx_KuTu_vsg}Mx07__SuSmi_WEBPG/${ChaKuTu_vsg}${ToKzVa_vsg}.json`;
-		// SmaSme( `FILE seeking: ${KuTu_vsg}`);
+		// SmaJe( `FILE seeking: ${KuTu_vsg}`);
 
 		const res = await fetch( KuTu_vsg,
 		{

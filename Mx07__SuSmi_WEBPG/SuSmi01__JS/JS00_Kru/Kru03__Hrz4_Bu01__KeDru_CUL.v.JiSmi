@@ -39,7 +39,7 @@ function Hre1_Dru__KeDru_VaFyVx_wu( KeKuMi_vbg )
 		KeKu_wu = 0;
 	}
 
-	SmaSme( "[CUL] Culture: " + Hre1_Dru__Gra_v[ KeKu_wu ].ToKz + " Locale: " + Fe__KeKu_vbg + " Lang: " + Fe__KeDru_vksg + " Country: " + ( Fe__KuVa_vbg ? Fe__KuVa_vbg : "Global" ) );
+	SmaJe( "[CUL] Culture: " + Hre1_Dru__Gra_v[ KeKu_wu ].ToKz + " Locale: " + Fe__KeKu_vbg + " Lang: " + Fe__KeDru_vksg + " Country: " + ( Fe__KuVa_vbg ? Fe__KuVa_vbg : "Global" ) );
 
 	return KeKu_wu;
 }
@@ -56,10 +56,6 @@ async function Hre1_Dru__KeDru_ChyVx( KeDru_wuk )
 	//@@@
 	// NATIVE_NAMES
 	document.getElementById( "Ne00_KeDy00__NiKeDru_q" ).innerText = Dru_l.KuGwz;
-
-	// LOCALE TOOLTIP
-	// document.getElementById( "Ne00_KeDy00__NiKeDru_q" ).innerText = Dru_l.So;
-
 
 	//@@@
 	// LANG_FILE
@@ -102,25 +98,24 @@ async function Hre1_Dru__KeDru_ChyVx( KeDru_wuk )
 	(
 		function ( [ Vy_vbg, Va_vbg ] )
 		{
-			//SmaSme( `[CUL] *LABEL MATCH*: ${Vy_vbg}`, Va_vbg );
-			let Elm_l = document.getElementById( Vy_vbg );
+			//SmaJe( `[CUL] *LABEL MATCH*: ${Vy_vbg}`, Va_vbg );
+			let Kz_l = document.getElementById( Vy_vbg );
 
-			if( Elm_l ){ Elm_l.innerText = Va_vbg;	}
-			//else{ SmaSme( `[CUL] *---------LABEL UNUSED-------------*: ${Vy_vbg}` ); }
+			if( Kz_l ){ Kz_l.innerText = Va_vbg;	}
+			else{ SmaJe( `[CUL] *---------LABEL UNUSED-------------*: ${Vy_vbg}` ); }
 		}
 	);
 
 	//@@@
 	// UPDATE USAGE
-	SmaSme( KeDru_v.USAGE );
+	SmaJe( KeDru_v.USAGE );
 	Object.entries( KeDru_v.USAGE ).forEach
 	(
 		function ( [ Vy_vbg, Va_vbg ] )
 		{
-			let Elm_l = document.getElementById( Vy_vbg );
-			if( Elm_l )
-			{	Elm_l.setAttribute( "data-title", "⬇" + Va_vbg + "⬇️" ); 	}
-			else{ SmaSme( `[CUL] *---------USAGE UNUSED-------------*: ${Vy_vbg}` ); }
+			let Kz_l = document.getElementById( Vy_vbg );
+			//if( Kz_l ){ Kz_l.setAttribute( "data-title", Va_vbg ); }
+			//else{ SmaJe( `[CUL] *---------USAGE UNUSED-------------*: ${Vy_vbg}` ); }
 		}
 	);
 
@@ -132,7 +127,7 @@ async function Hre1_Dru__KeDru_ChyVx( KeDru_wuk )
 function Ne00_KeDy00__NiKeDru__JeChy( KeDru_wuk )
 {
 	const Ne00_KeDy00__NiKeDru__Ta_l = document.getElementById( 'Ne00_KeDy00__NiKeDru__Ta_l' );
-	//SmaSme( "CHG!", Ne00_KeDy00__NiKeDru__Ta_l );
+	//SmaJe( "CHG!", Ne00_KeDy00__NiKeDru__Ta_l );
 	Hre1_Dru__KeDru_ChyVx( ( KeDru_wuk !== null )? KeDru_wuk : Ne00_KeDy00__NiKeDru__Ta_l.selectedIndex );
 
 

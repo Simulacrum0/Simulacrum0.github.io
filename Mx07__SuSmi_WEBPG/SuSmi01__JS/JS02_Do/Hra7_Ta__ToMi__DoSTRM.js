@@ -30,14 +30,14 @@ DoSTRM.SmaYz = function( Sa_l )
 
 	//@@@
 	// STREAM CAPTURE DEVICES
-	SmaSme( "=================\nSTREAM CAPTURE SENSORS\n----------" );
+	SmaJe( "=================\nSTREAM CAPTURE SENSORS\n----------" );
 
 	navigator.mediaDevices.enumerateDevices().then
 	( function(devices)
 	{
 		devices.forEach( function(device)
 		{
-			SmaSme( " -[ " + device.kind + " ]: " + device.label +" id = " + device.deviceId );
+			SmaJe( " -[ " + device.kind + " ]: " + device.label +" id = " + device.deviceId );
 		});
 	});
 
@@ -140,10 +140,10 @@ DoSTRM.KiCho__JaPo = async function( Sa_l, SuKz_wuk, Si_l )
 
 			const FETCH_qk = await fetch( Si_l );
 			const BLOB_qk = await FETCH_qk.blob();
-			//SmaSme( "$$$$------- HV_BLOB", Ko.SuKz_v[ SuKz_wuk ] );
+			//SmaJe( "$$$$------- HV_BLOB", Ko.SuKz_v[ SuKz_wuk ] );
 
 			Ko.SuKz_v[ SuKz_wuk ] = await createImageBitmap( BLOB_qk, { colorSpaceConversion: 'none' });
-			//SmaSme( "$$$$-------LOADED", Ko.SuKz_v[ SuKz_wuk ], Ko.SuKz_v[ SuKz_wuk ].width, Ko.SuKz_v[ SuKz_wuk ].height );
+			//SmaJe( "$$$$-------LOADED", Ko.SuKz_v[ SuKz_wuk ], Ko.SuKz_v[ SuKz_wuk ].width, Ko.SuKz_v[ SuKz_wuk ].height );
 		}
 		catch
 		{
@@ -159,7 +159,7 @@ DoSTRM.KiCho__JaPo = async function( Sa_l, SuKz_wuk, Si_l )
 function DoSTRM_Trx( e, SuKz_wuk )
 {
 	//
-	SmaSme( "STRM_Trx: ", e, " Si:", SuKz_wuk );
+	SmaJe( "STRM_Trx: ", e, " Si:", SuKz_wuk );
 }
 
 
@@ -179,14 +179,14 @@ function PePo_Ye( PePo_l, SuKz_wuk )
 			// LOOP FRAME UPDATE
 			function DoSTRM_JeChy( GiFe_wfk, Yz_k )
 			{
-				// SmaSme( "STRM_JeChy: ", GiFe_wfk, Yz_k );
+				// SmaJe( "STRM_JeChy: ", GiFe_wfk, Yz_k );
 
 				const PePo_l = Ko.SuKz_v[ SuKz_wuk ];
 				if( PePo_l  instanceof HTMLVideoElement )
 					{
 						if( PePo_l.Kwy_wu === 0 )
 						{
-							// SmaSme( "PePo: ", PePo_l, PePo_l.videoWidth, PePo_l.videoHeight, "GiGy: ", PePo_l.duration, "Ta: ", PePo_l.textTracks, PePo_l.audioTracks, "Yz: ", PePo_l.readyState );
+							// SmaJe( "PePo: ", PePo_l, PePo_l.videoWidth, PePo_l.videoHeight, "GiGy: ", PePo_l.duration, "Ta: ", PePo_l.textTracks, PePo_l.audioTracks, "Yz: ", PePo_l.readyState );
 
 						}
 
@@ -241,20 +241,20 @@ DoSTRM.KiCho__MzPo = async function( Sa_l, SuKz_wuk, Si_l )
 				navigator.mediaDevices.getUserMedia( Yz_l )
 				.then( function ( MzPo_v )
 				{
-					// SmaSme( "CAM READY" );
+					// SmaJe( "CAM READY" );
 					PePo_l.srcObject = MzPo_v;
 					PePo_Ye( PePo_l, SuKz_wuk );
 				})
 			.catch(function (err0r)
 			{
-				SmaSme( "CAM Not Available!" );
+				SmaJe( "CAM Not Available!" );
 			});
 		}
 
-			//SmaSme( "$$$$------- HV_BLOB", Ko.SuKz_v[ SuKz_wuk ] );
+			//SmaJe( "$$$$------- HV_BLOB", Ko.SuKz_v[ SuKz_wuk ] );
 
 			//Ko.SuKz_v[ SuKz_wuk ] = await createImageBitmap( BLOB_qk, { colorSpaceConversion: 'none' });
-			//SmaSme( "$$$$-------LOADED", Ko.SuKz_v[ SuKz_wuk ], Ko.SuKz_v[ SuKz_wuk ].width, Ko.SuKz_v[ SuKz_wuk ].height );
+			//SmaJe( "$$$$-------LOADED", Ko.SuKz_v[ SuKz_wuk ], Ko.SuKz_v[ SuKz_wuk ].width, Ko.SuKz_v[ SuKz_wuk ].height );
 		}
 		catch
 		{
@@ -272,7 +272,7 @@ DoSTRM.KiCho__PePo = async function( Sa_l, SuKz_wuk, Si_l )
 	{
 		try
 		{
-			// SmaSme( "$$$$------- PePo_BEGIN", Ko.SuKz_v[ SuKz_wuk ] );
+			// SmaJe( "$$$$------- PePo_BEGIN", Ko.SuKz_v[ SuKz_wuk ] );
 			Ko.SuKz_v[ SuKz_wuk ] = BriYz.Cho_qk;
 			const PePo_l = document.createElement('video');
 

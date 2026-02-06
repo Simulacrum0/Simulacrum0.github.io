@@ -24,7 +24,7 @@ const TRU = Object.freeze
 DoTRU.SmaYz = function( Sa_l )
 //-------------------------------------------------
 {
-	SmaSme( "Service: ", this.VaSy );
+	SmaJe( "[" + this.VaSy + "] SmaYz" );
 }
 
 

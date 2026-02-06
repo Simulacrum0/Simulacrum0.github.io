@@ -21,10 +21,10 @@ const ViBT = Object.freeze
 DoBT.SmaYz = function( Sa_l )
 //-------------------------------------------------
 {
-	SmaSme( "Service: ", this.VaSy );
+	SmaJe( "[" + this.VaSy + "] SmaYz" );
 
-	Object.keys( ViBT_qk ).forEach( _Va => {	SmaSme( _Va ); });
-	Object.values( ViBT_qk ).forEach( _Vi => { SmaSme( _Vi );	});
+	Object.keys( ViBT_qk ).forEach( _Va => {	SmaJe( _Va ); });
+	Object.values( ViBT_qk ).forEach( _Vi => { SmaJe( _Vi );	});
 
 	// if( MoDzTrx__NxHo_y( "TEST FAKE ERROR", null )){ return; }
 
@@ -44,7 +44,7 @@ async function connectToBluetoothDevice(){
 	}
   }
 
-  
+
 //==============================================
 // LIFE
 //==============================================

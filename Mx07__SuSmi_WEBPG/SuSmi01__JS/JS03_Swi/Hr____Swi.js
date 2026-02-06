@@ -21,10 +21,10 @@ const ViTe = Object.freeze
 SwiTe.SmaYz = function( Sa_l )
 //-------------------------------------------------
 {
-	SmaSme( "Service: ", this.VaSy );
+	SmaJe( "[" + this.VaSy + "] SmaYz" );
 
-	Object.keys( ViTe_qk ).forEach( _Va => {	SmaSme( _Va ); });
-	Object.values( ViTe_qk ).forEach( _Vi => { SmaSme( _Vi );	});
+	Object.keys( ViTe_qk ).forEach( _Va => {	SmaJe( _Va ); });
+	Object.values( ViTe_qk ).forEach( _Vi => { SmaJe( _Vi );	});
 }
 
 

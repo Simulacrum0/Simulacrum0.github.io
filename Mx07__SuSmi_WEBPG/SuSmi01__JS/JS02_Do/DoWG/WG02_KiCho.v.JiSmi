@@ -10,7 +10,7 @@
 DoWG.KiCho_JiJa = async function( Sa_l )
 {
 	if( DoWG__KrzYeHo_y( Sa_l )){ return; }
-	SmaSme( "[WG] DoWG JiJa: CLONE PROG" );
+	SmaJe( "[WG] DoWG JiJa: CLONE PROG" );
 
 
 	// SAVE SHADER PRECOMPILED
@@ -49,7 +49,7 @@ DoWG.KiCho_JiJa = async function( Sa_l )
 DoWG.KiCho_SuTy = function( Sa_l )
 {
 	if( DoWG__KrzYeHo_y( Sa_l )){ return; }
-	SmaSme( "[WG] DoWG JiJa: CLONE CRAFT" );
+	SmaJe( "[WG] DoWG JiJa: CLONE CRAFT" );
 
 
 }
@@ -60,7 +60,7 @@ DoWG.KiCho_SuTy = function( Sa_l )
 DoWG.KiCho_JxRe = function( Sa_l )
 {
 	if( DoWG__KrzYeHo_y( Sa_l )){ return; }
-	SmaSme( "[WG] KiCho_JxRe: CLONE SEQUENCE" );
+	SmaJe( "[WG] KiCho_JxRe: CLONE SEQUENCE" );
 
 	function createBuffer( KaSmz_l, data, usage )
 	{

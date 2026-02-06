@@ -50,13 +50,23 @@ window.Ko = Ko;
 //==============================================
 // 'arguments object' is a builtin Array -like object.
 // Array.prototype.slice.call(arguments) converts *array-like* 'arguments' to a TRUE array 'ARG_v:
-// function SmaSme(){ var ARG_v = Array.prototype.slice.call(arguments); console.log.apply(console, ARG_v); }
-SmaJy_vsg = [ '💬', '⚠️', '🤯' ];
+// function SmaJe(){ var ARG_v = Array.prototype.slice.call(arguments); console.log.apply(console, ARG_v); }
+
+const SmaJy_vsg =
+[
+	'🤖', '✅', '😕','🤯'
+	// '⚙️', 'ℹ️', '⚠️', '🚫'
+];
 
 function SmaTro_vsg( SmaJy_wu, ARG_v )
 {
-	// PAD '3'
-	const Me_vsg = SmaJy_vsg[ SmaJy_wu ] + Ko.SmaFe_wu.toString().padStart( 3, "0" ) + "➡️" + ARG_v.join( ' ' );
+	//@@@
+	// FILTER by TAG before collapsing ARG into String?
+	// if( ARG_v[0] === "[CFG]" ) return;
+
+	//@@@
+	// PAD '3' digits
+	const Me_vsg = SmaJy_vsg[ SmaJy_wu ] + Ko.SmaFe_wu.toString().padStart( 3, "0" ) + " ➡️ " + ARG_v.join( ' ' );
 
 	// Increment line & wrap as valid entry
 	const SmaFe_wuk = (( Ko.SmaFe_wu ) & SmaViKa_wuk );
@@ -66,9 +76,10 @@ function SmaTro_vsg( SmaJy_wu, ARG_v )
 	return Me_vsg
 }
 
-function SmaSme(){ var ARG_v = Array.prototype.slice.call(arguments); console.log( SmaTro_vsg( 0, ARG_v ) );}
-function SmaDre(){ var ARG_v = Array.prototype.slice.call(arguments); console.warn( SmaTro_vsg( 1, ARG_v ) );}
-function SmaTrx(){ var ARG_v = Array.prototype.slice.call(arguments); console.error( SmaTro_vsg( 2, ARG_v ) );}
+function SmaSy(){ var ARG_v = Array.prototype.slice.call(arguments); console.log( SmaTro_vsg( 0, ARG_v ) );}
+function SmaJe(){ var ARG_v = Array.prototype.slice.call(arguments); console.log( SmaTro_vsg( 1, ARG_v ) );}
+function SmaDre(){ var ARG_v = Array.prototype.slice.call(arguments); console.warn( SmaTro_vsg( 2, ARG_v ) );}
+function SmaTrx(){ var ARG_v = Array.prototype.slice.call(arguments); console.error( SmaTro_vsg( 3, ARG_v ) );}
 
 //==============================================
 // SECURITY
@@ -76,7 +87,7 @@ function SmaTrx(){ var ARG_v = Array.prototype.slice.call(arguments); console.er
 
 //@@@
 // CORS must RUN FIRST
-SmaSme( "[LAUNCH] Web_Security[ CORS: " + (window.crossOriginIsolated ?  "✅😀" : "❌😞" ) + " ]" );
+SmaSy( "[LAUNCH] Web_Security[ CORS: " + (window.crossOriginIsolated ?  "✅😀" : "❌😞" ) + " ]" );
 if( !window.crossOriginIsolated )
 {
 	// MSG should display @ DOM
@@ -96,12 +107,12 @@ try
 catch(e)
 {
 	// WebAssembly is not supported at all
-	SmaTrx( 'No Web Assembly: ' + e );
+	SmaTrx( "[LAUNCH] No Web Assembly:", e );
 	MoDzTrx( KoSy__KeDru_l.TrxJy01__HrzMoHo__WASM_vsg );
 }
 
 Ko.KaBx__TiFo_wuk = navigator.hardwareConcurrency;
-SmaSme( "[LAUNCH] Web_Assembly[ " + ( Ko.WASM64_yk ? "64" : "32" ) + "bit:" + ( Ko.WASM64_yk ? "✅😀" : "🆗😐") + " ]", "CPUs:", Ko.KaBx__TiFo_wuk );
+SmaSy( "[LAUNCH] Web_Assembly[ " + ( Ko.WASM64_yk ? "64" : "32" ) + "bit:" + ( Ko.WASM64_yk ? "✅😀" : "🆗😐") + " ]", "CPUs:", Ko.KaBx__TiFo_wuk );
 
 
 //==============================================
@@ -114,12 +125,12 @@ document.addEventListener('readystatechange', function()
 {
 	// if (document.readyState === 'interactive')
 	// {
-	// 	SmaSme( "[LAUNCH] WebPage_DOM Interactive" );
+	// 	SmaSy( "[LAUNCH] WebPage_DOM Interactive" );
 	// }
 
 	if (document.readyState === 'complete')
 	{
-		SmaSme( "[LAUNCH] Web_DOM Fully_Loaded" );
+		SmaSy( "[LAUNCH] Web_DOM Fully_Loaded" );
 
 
 		// Kru__TaNe_v
@@ -143,8 +154,8 @@ var Module =
 	//@@@
 	// EMCC NOTIFY
 	// Define how notification messages from Emscripten are displayed via Module.print attribute.
-	'print': function ( Sma_vsg ) { SmaSme( "[MSG]" + Sma_vsg ); },
-	'printErr': function ( Sma_vsg ) { SmaSme( "[ERR]" + Sma_vsg ); },
+	'print': function ( Sma_vsg ) { SmaJe( "[MSG]" + Sma_vsg ); },
+	'printErr': function ( Sma_vsg ) { SmaTrx( "[ERR]" + Sma_vsg ); },
 	'onAbort': function ( Sma_vsg ) { MoDzTrx( "[ABORT]" + Sma_vsg ); },
 
 
@@ -152,7 +163,7 @@ var Module =
 	// RUN when WASM_LOADED
 	onRuntimeInitialized: function()
 	{
-        // SmaSme( "WASM module is ready" );
+        // SmaSy( "WASM module is ready" );
 		KoDz__YaFz();
 		MoDz__DzStxGru();
     },
@@ -221,8 +232,8 @@ function MoDzTrx( Trx_vsg )
 
 	//&&&
 	// DBG
-	SmaTrx( Bo_vsg );
-	SmaTrx( "*STK_TRACE:", jsStackTrace() );
+	SmaTrx( "[LAUNCH]", Bo_vsg );
+	SmaTrx( "[LAUNCH] *STK_TRACE*:", jsStackTrace() );
 
 	// POST for DBG
 	// console.error( Bo_vsg );
@@ -277,7 +288,7 @@ window.onerror = (e) =>
 //==============================================
 function MoDzTrx__NxHo_y( Va, Kri_y )
 {
-	// SmaSme( "NxHo: ---> " + Va );
+	// SmaSy( "NxHo: ---> " + Va );
 	if( !Kri_y )
 	{
 		MoDzTrx( "ERR: " + Va + " @ " + Kri_y );
@@ -295,7 +306,7 @@ async function MoDz__DzStxGru()
 {
 	if( !window.BroadcastChannel )
 	{
-		SmaSme('!!! Unknown if Duplicate Tab.');
+		SmaJe( "[LAUNCH] !!! Unknown if Duplicate Tab." );
 		return;
 	}
 
@@ -324,18 +335,18 @@ async function MoDz__DzStxGru()
 			// If Newer; Error on Self
 			if( Ko.MoDzYa__GiDri_duk > parseInt( PKT_k[1] ))
 			{
-				SmaSme( "!!! FAIL Duplicate Tab" );
+				SmaTrx( "[LAUNCH] !!! FAIL Duplicate Tab" );
 				BCHN_l = null;
 				MoDzTrx( KoSy__KeDru_l.TrxJy02__MoDzStxGru_vsg );
 			}
 			else
 			{
-				SmaSme( "[LAUNCH] First Tab" );
+				SmaTrx( "[LAUNCH] First Tab" );
 			}
 		}
 		else if( PKT_k[0] == "MxVy" )
 			{
-				// SmaSme('Send Time to Test if Duplicate Tab.');
+				// SmaSy('Send Time to Test if Duplicate Tab.');
 				BCHN_l.postMessage( "KrzVy:" + Ko.MoDzYa__GiDri_duk );
 			}
 		}
@@ -359,19 +370,19 @@ function Hrz3_Bz__KaGeSpu_Ha()
 //=====================================
 // BROWSER VERSION (Browser & App )
 //=====================================
-async function Hrz3_Bz__VaDa()
+async function Hrz3_By__VaDa()
 {
 	//@@@
 	// SEARCH
 
 	// USR AGENT
 	const HrzByHx_vsg = navigator.userAgent;
-	//SmaSme( "[CFG] HrzByHx:", HrzByHx_vsg );
+	//SmaSy( "[CFG] HrzByHx:", HrzByHx_vsg );
 
 	// /i IGNORE CASE
 	// Matches "Name/Ver", "Name", "Ver" for 3 strings in 'match-Array' result
 	let Ni_vsg = HrzByHx_vsg.match(/(chrome|safari|firefox|msie|trident(?=\/))\/?\s*(\d+\.\d+)/i) || [];
-	// SmaSme( Ni_vsg );
+	// SmaSy( Ni_vsg );
 
 	// CHILD of CHROME
 	let NiNo_vsg = HrzByHx_vsg.match(/(OPR|Edg|OculusBrowser|SamsungBrowser(?=\/))\/?\s*(\d+\.\d+)/i) || [];
@@ -401,10 +412,10 @@ async function Hrz3_Bz__VaDa()
 	Ko.Hrz3_By__Da_wfk = parseFloat( Ni_vsg[ 1 ] );
 	if( isNaN( Ko.Hrz3_By__Da_wfk ) ){ Ko.Hrz3_By__Da_wfk = 0.0; }
 
-	SmaSme( "[CFG] HrzBy_VaDa", Ko.Hrz3_By__Va_vsg, "||", Ko.Hrz3_By__Da_wfk );
+	SmaJe( "[LAUNCH] HrzBy_VaDa", Ko.Hrz3_By__Va_vsg, "||", Ko.Hrz3_By__Da_wfk );
 	// NOT WELL SUPPORTED 2026
 	// if( navigator.userAgentData && navigator.userAgentData.brands )
-	// { SmaSme(  "[CFG] BRAND:", navigator.userAgentData.brands ); }
+	// { SmaJe(  "[LAUNCH] BRAND:", navigator.userAgentData.brands ); }
 
 
 	//@@@

@@ -30,7 +30,7 @@ function HriNeDe__TraKwi()
 
 //==============================================
 // GUI EDIT for UNLOCK/LOCK
-// SmaSme( "CheChy: ", e.className );
+// SmaSy( "CheChy: ", e.className );
 //==============================================
 
 //@@@
@@ -49,7 +49,7 @@ function HriNeDe__ChyHryDry( Vy_vsg )
 {
 	let e = document.getElementById( Vy_vsg );
 	// e.hidden = !( e.hidden );
-	e.style.display = ( e.style.display === "none") ? "block" : "none";
+	e.style.display = ( e.style.display === "none") ? "inline-flex" : "none";
 }
 
 //@@@
@@ -128,6 +128,14 @@ async function Hri4_Bu__TaKeDy__ChySpo()
 	const KwiYz_k = Ko.TaKeDy_l.KwiYz_v[ Ko.TaKeDy_l.KeDy_wu ];
 
 	//-------------------------------------------------
+	// OPT
+	//-------------------------------------------------
+
+	// ARIA ROLE: https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Roles
+	// Elm.setAttribute("role", "progressbar");
+
+
+	//-------------------------------------------------
 	// CULTURE
 	//-------------------------------------------------
 	//@@@
@@ -147,16 +155,15 @@ async function Hri4_Bu__TaKeDy__ChySpo()
 
 	Hre1_Dru__Gra_v.forEach( function ( Ti_v, Vx_wu )
 	{
-		//SmaSme( "------ Vx_wu:", Vx_wu, Ti_v.Va );
+		//SmaSy( "------ Vx_wu:", Vx_wu, Ti_v.Va );
 
 		//&&&
 		// LANG DROPDOWN ADD BTN
+		if( KeDruGri_v.includes( Ti_v.ToKz ) )
 		{
 			const Kz_l = document.createElement( 'option' );
 			Kz_l.className = 'HriNeTi WaDru_Ku';
-
 			Kz_l.innerText = `${Ti_v.KuGwz} ${Ti_v.Va}`;
-
 			Kz_l.value = Ti_v.Vy;
 
 			Ne00_KeDy00__NiKeDru__Ta_l.appendChild( Kz_l );
@@ -165,8 +172,8 @@ async function Hri4_Bu__TaKeDy__ChySpo()
 		//&&&
 		// LANG FLAG GRID ADD BTN
 		{
-			const Kz_l = document.createElement( 'span' );
-			// DBG: if( Vx_wu & 4 )
+			const Kz_l = document.createElement( 'div' );
+
 			if( KeDruGri_v.includes( Ti_v.ToKz ) )
 			{
 				Kz_l.className = 'NiJaPo_Va NiJaPo_VaGri WaDru_Ku';
@@ -178,6 +185,13 @@ async function Hri4_Bu__TaKeDy__ChySpo()
 			}
 
 			Kz_l.innerText = Ti_v.KuGwz;
+
+			// LOCALE TOOLTIP
+			// const To_l = document.createElement( 'div' );
+			// To_l.className = 'NiJaPo_To WaDru_Ku';
+			// To_l.setAttribute( "data-title", Ti_v.Va + "\n" + Ti_v.So );
+			// Kz_l.appendChild( To_l );
+
 			KeDru__TaJaPo_l.appendChild( Kz_l );
 		}
 
@@ -210,8 +224,8 @@ async function Hri4_Bu__TaKeDy__ChySpo()
 	}
 
 	//-------------------------------------------------
-	//-------------------------------------------------
 	// AUD_METHODS
+	//-------------------------------------------------
 	{
 		const TaKeDy_l = document.getElementById( 'Ne02_Hru__SmzYz_Ta_l' );
 		HriNeDe__Ta_ChyStz( TaKeDy_l );
@@ -220,7 +234,7 @@ async function Hri4_Bu__TaKeDy__ChySpo()
 		const SaNo__TaKeDy_l = Ko.TaKeDy_l.KwiYz_v;
 		SaNo__TaKeDy_l.forEach( function ( Ti_v, Vx_wu )
 		{
-			// SmaSme( "------ Vx_wu:", Vx_wu, Ti_v.KeDy_vsg );
+			// SmaSy( "------ Vx_wu:", Vx_wu, Ti_v.KeDy_vsg );
 
 			//&&&
 			// ADD BTN
@@ -245,7 +259,7 @@ async function Hri4_Bu__TaKeDy__ChySpo()
 		const SaNo__TaKeDy_l = Ko.TaKeDy_l.KwiYz_v;
 		SaNo__TaKeDy_l.forEach( function ( Ti_v, Vx_wu )
 		{
-			// SmaSme( "------ Vx_wu:", Vx_wu, Ti_v.KeDy_vsg );
+			// SmaSy( "------ Vx_wu:", Vx_wu, Ti_v.KeDy_vsg );
 
 			//&&&
 			// ADD BTN

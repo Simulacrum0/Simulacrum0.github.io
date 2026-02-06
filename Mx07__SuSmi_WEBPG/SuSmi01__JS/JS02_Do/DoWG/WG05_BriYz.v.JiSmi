@@ -10,7 +10,7 @@
 DoWG.BriYo = function( Sa_l )
 {
 	if( DoWG__KrzYeHo_y( Sa_l )){ return; }
-	//SmaSme( "[WG] BriYo: WG PAUSE" );
+	//SmaSy( "[WG] BriYo: WG PAUSE" );
 
 	// Pause Compute Tasks?
 	// Reset Clocks?
@@ -71,7 +71,7 @@ function DoWG__BriYi_SmzYz( Sa_l )
 //==============================================
 DoWG.BriYi = function( Sa_l )
 {
-	SmaSme( "[WG] BriYi: " + this.VaSy );
+	SmaSy( "[WG] BriYi: " + this.VaSy );
 
 	DoWG__BriYi_SmzYz( Sa_l );
 
@@ -133,7 +133,7 @@ async function DoWG__BriYa_SmzYz( Sa_l, FuYz_l )
 
 	//@@@
 	// LOG
-	SmaSme( "[WG] TRY CFG:", FuYz_l.YzVi_q, " / ", DoWG__Yz.Ti03__ZzKri_qk, " @ ", SmzYz_l.Vi_q, " JaVe:", SmzYz_l.JaVe_wu, " JaGzFo:", SmzYz_l.JaGzFo_wu );
+	SmaJe( "[WG] TRY CFG:", FuYz_l.YzVi_q, " / ", DoWG__Yz.Ti03__ZzKri_qk, " @ ", SmzYz_l.Vi_q, " JaVe:", SmzYz_l.JaVe_wu, " JaGzFo:", SmzYz_l.JaGzFo_wu );
 
 	//-------------------------------------------------
 	// CHIP ADAPTER
@@ -183,7 +183,7 @@ async function DoWG__BriYa_SmzYz( Sa_l, FuYz_l )
 	//const KaTy__TFMT2_yk = KaKy_l.features.has( 'texture-formats-tier2' );
 	//const KaTy__RWTEX_yk = KaKy_l.features.has( 'readonly_and_readwrite_storage_textures' );
 	//const KaTy__RGB32_yk = KaKy_l.features.has( 'rg11b10ufloat-renderable' );
-	//SmaSme( "[WG] TFMT2: ", KaTy__TFMT2_yk, "RWTEX: ", KaTy__RWTEX_yk, "RGB32: ", KaTy__RGB32_yk );
+	//SmaSy( "[WG] TFMT2: ", KaTy__TFMT2_yk, "RWTEX: ", KaTy__RWTEX_yk, "RGB32: ", KaTy__RGB32_yk );
 
 
 	//@@@
@@ -249,7 +249,7 @@ async function DoWG__BriYa_SmzYz( Sa_l, FuYz_l )
 	Sa_l.KaSmz_l.pushErrorScope('validation');
 
 	const Tier_wqk = KaSmz_l.features.has('core-features-and-limits') ? 1 : 0;
-	SmaSme( "[WG] Tier: ", Tier_wqk, " LIM:", KaSmz_l.limits, " FEAT:", KaSmz_l.features, " GPU:", JiKri_l );
+	SmaJe( "[WG] Tier: ", Tier_wqk, " LIM:", KaSmz_l.limits, " FEAT:", KaSmz_l.features, " GPU:", JiKri_l );
 
 
 	//&&&
@@ -557,14 +557,14 @@ async function DoWG__BriYa_SmzYz( Sa_l, FuYz_l )
 	// Or TOLERATE some fails to iterate w/ placeholders?
 	//-------------------------------------------------
 	const TaJiHry_Smx_k = await Promise.all( Sa_l.TaJiHry_vh );
-	// allows iteration: Promise.allSettled( Sa_l.TaJiHry_vh ).then(( MSG ) => SmaSme( "[WG] PROG Load:", MSG ) );
+	// allows iteration: Promise.allSettled( Sa_l.TaJiHry_vh ).then(( MSG ) => SmaSy( "[WG] PROG Load:", MSG ) );
 	let WzGy_wuk = 8;
 
 	TaJiHry_vvsg.forEach( function( Ti_v, Vx_wu )
 	{
 		if( MoDzTrx__NxHo_y( "[WG] SRC:" + Ti_v.Va_vsg, Sa_l.TaJiHry_vh[ Vx_wu ] )){ return null; }
 
-		// SmaSme( "[WG]JiHry_#", Vx_wu, " Yz:", !! (Sa_l.TaJiHry_vh[ Vx_wu ] ), " Va:", Ti_v.Va_vsg, " SuKy:", Ti_v.JiSuKy_q, " SuTyJy:", Ti_v.SuTyJy_q );
+		// SmaSy( "[WG]JiHry_#", Vx_wu, " Yz:", !! (Sa_l.TaJiHry_vh[ Vx_wu ] ), " Va:", Ti_v.Va_vsg, " SuKy:", Ti_v.JiSuKy_q, " SuTyJy:", Ti_v.SuTyJy_q );
 	});
 
 
@@ -733,7 +733,7 @@ async function DoWG__BriYa_SmzYz( Sa_l, FuYz_l )
 		//@@@
 		// IMG
 		// LG to SM
-		SmaSme( "[WG] ASK❓Ve:", JaVe_wuk, " GzFo: ", JaGzFo_wuk, " BrzFo:", BrzFo_wuk );
+		SmaJe( "[WG] ASK❓Ve:", JaVe_wuk, " GzFo: ", JaGzFo_wuk, " BrzFo:", BrzFo_wuk );
 
 
 			//&&&
@@ -823,8 +823,8 @@ async function DoWG__BriYa_SmzYz( Sa_l, FuYz_l )
 
 			//&&&
 			// LOG RESULTS
-			//SmaSme( "[WG] RESULTS ⁉️=", TrzRi_y, " ,  " Ve:", JaGzFo_wuk );
-			//SmaSme( "[WG] RESULTS ⁉️= ", "Spy", Spy__TaGwa_l, "Spe", Spe__TaGwa_l, "Wz", Wz__TaGwa_l, " KzDy", KzDy__JxRe_l, " TxCho", TxCho__JxRe_l, " SuTy", SuTy__JxRe_l  );
+			//SmaJe( "[WG] RESULTS ⁉️=", TrzRi_y, " ,  " Ve:", JaGzFo_wuk );
+			//SmaJe( "[WG] RESULTS ⁉️= ", "Spy", Spy__TaGwa_l, "Spe", Spe__TaGwa_l, "Wz", Wz__TaGwa_l, " KzDy", KzDy__JxRe_l, " TxCho", TxCho__JxRe_l, " SuTy", SuTy__JxRe_l  );
 
 	//&&&
 	// ERR CLEAR via POP on no Mem
@@ -833,7 +833,7 @@ async function DoWG__BriYa_SmzYz( Sa_l, FuYz_l )
 	{
 		if( e )
 		{
-			// SmaSme( "[WG]: MEM_REQ Kri:", Ti__JaVe_wuk,  " #", ( JaGzFo_wuk ), e.message );
+			// SmaSy( "[WG]: MEM_REQ Kri:", Ti__JaVe_wuk,  " #", ( JaGzFo_wuk ), e.message );
 
 			Spy__TaGwa_l?.destroy();
 			Spe__TaGwa_l?.destroy();
@@ -869,13 +869,13 @@ async function DoWG__BriYa_SmzYz( Sa_l, FuYz_l )
 
 	//@@@
 	// LOG
-	// SmaSme( "[WG] Spy", Spy__TaGwa_l );
-	// SmaSme( "[WG] Spe", Spe__TaGwa_l );
-	// SmaSme( "[WG] Wz", Wz__TaGwa_l );
+	// SmaSy( "[WG] Spy", Spy__TaGwa_l );
+	// SmaSy( "[WG] Spe", Spe__TaGwa_l );
+	// SmaSy( "[WG] Wz", Wz__TaGwa_l );
 
-	// SmaSme( "[WG] KzDy", KzDy__JxRe_l );
-	// SmaSme( "[WG] TxCho", TxCho__JxRe_l );
-	// SmaSme( "[WG] SuTy", SuTy__JxRe_l );
+	// SmaSy( "[WG] KzDy", KzDy__JxRe_l );
+	// SmaSy( "[WG] TxCho", TxCho__JxRe_l );
+	// SmaSy( "[WG] SuTy", SuTy__JxRe_l );
 
 
 	//-------------------------------------------------
@@ -942,7 +942,7 @@ async function DoWG__BriYa_SmzYz( Sa_l, FuYz_l )
 	{
 		if( e )
 		{
-			SmaSme( "[WG] Validation Err:", e );
+			SmaSy( "[WG] Validation Err:", e );
 			return null;
 		}
 	});
@@ -950,7 +950,7 @@ async function DoWG__BriYa_SmzYz( Sa_l, FuYz_l )
 	{
 		if( e )
 		{
-			SmaSme( "[WG] Internal Err:", e );
+			SmaSy( "[WG] Internal Err:", e );
 			return null;
 		}
 	});
@@ -966,7 +966,7 @@ async function DoWG__BriYa_SmzYz( Sa_l, FuYz_l )
 
 	//@@@
 	// REPORT
-	SmaSme( "[WG] HDR", Sa_l.KaTy__HDR_y, "MxPo__FMT", Sa_l.MxPo__FMT_l );
+	SmaJe( "[WG] HDR", Sa_l.KaTy__HDR_y, "MxPo__FMT", Sa_l.MxPo__FMT_l );
 
 	const YzGry_vsg = KaBxTy_v[ FuYz_l.YzVi_q ];
 	const YzKwx_wu = YzGry_vsg.indexOf( "^=" );
@@ -974,7 +974,7 @@ async function DoWG__BriYa_SmzYz( Sa_l, FuYz_l )
 	const YzVa_vsg = YzGry_vsg.substring( 0, YzKwx_wu );
 	const YzHx_vsg = YzGry_vsg.substring( YzKwx_wu + 1);
 
-	SmaSme( "[WG] READY CFG:", FuYz_l.YzVi_q, " @ ", YzVa_vsg, " = ", YzHx_vsg );
+	SmaJe( "[WG] READY CFG:", FuYz_l.YzVi_q, " @ ", YzVa_vsg, " = ", YzHx_vsg );
 
 	return SySmz__YaFx_v( Sa_l );
 }

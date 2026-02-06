@@ -1,4 +1,4 @@
-const DoWG__BriDzSa__Da_wuk = "211"; 
+const DoWG__BriDzSa__Da_wuk = "212"; 
 
 //==============================================
 //==============================================
@@ -314,51 +314,51 @@ DoWG.SmaYz = function( Sa_l )
 	if( DoWG__KrzYeHo_y( Sa_l )){ return; }
 
 	// REPORT
-	SmaSme( "[WG] --------------------------------------------" );
-	SmaSme( "[WG] Yz" );
-	SmaSme( "[WG] --------------------------------------------" );
-	SmaSme( "[WG] - Chip:", Sa_l.KaKy_l.info.vendor );
-	SmaSme( "[WG] - Class:", Sa_l.KaKy_l.info.architecture );
+	SmaJe( "[WG] --------------------------------------------" );
+	SmaJe( "[WG] Yz" );
+	SmaJe( "[WG] --------------------------------------------" );
+	SmaJe( "[WG] - Chip:", Sa_l.KaKy_l.info.vendor );
+	SmaJe( "[WG] - Class:", Sa_l.KaKy_l.info.architecture );
 
-	//SmaSme( Sa_l.KaSmz_l );
+	//SmaJe( Sa_l.KaSmz_l );
 
 	// REQUIRES feature 'subgroups'
-	//SmaSme( "[WG] - SGrp_Gy:", Sa_l.KaKy_l.info.subgroupMinSize, Sa_l.KaKy_l.info.subgroupMaxSize );
+	//SmaJe( "[WG] - SGrp_Gy:", Sa_l.KaKy_l.info.subgroupMinSize, Sa_l.KaKy_l.info.subgroupMaxSize );
 
-	SmaSme( "[WG] --------WORK ----------" );
-	SmaSme( "[WG] - WrkGrp_Invoke", Sa_l.KaKy_l.limits.maxComputeInvocationsPerWorkgroup, " <T1> ", 256, "<T0>", 128 );
-	SmaSme( "[WG] - WrkGrp_X", Sa_l.KaKy_l.limits.maxComputeWorkgroupSizeX, " <T1> ", 256, "<T0>", 128 );
-	SmaSme( "[WG] - WrkGrp_Y", Sa_l.KaKy_l.limits.maxComputeWorkgroupSizeY, " <T1> ", 256, "<T0>", 128 );
-	SmaSme( "[WG] - WrkGrp_Z", Sa_l.KaKy_l.limits.maxComputeWorkgroupSizeZ, " <> ", 64 );
-	SmaSme( "[WG] - WrkGrp_Store", Sa_l.KaKy_l.limits.maxComputeWorkgroupStorageSize, " <> ", 16384 );
-	SmaSme( "[WG] - WrkGrp_MaxDim", Sa_l.KaKy_l.limits.maxComputeWorkgroupsPerDimension, " <> ", 65535 );
-
-
-	SmaSme( "[WG] ------- USED --------" );
-	// SmaSme( Sa_l.Spy__TaGwa_l );
-	SmaSme( "[WG] - Matter_Deck: Gx_", Sa_l.Spy__TaGwa_l.width, " Ga_", Sa_l.Spy__TaGwa_l.height, " Gz_", Sa_l.Spy__TaGwa_l.depthOrArrayLayers );
-	SmaSme( "[WG] - Energy_Deck: Gx_", Sa_l.Spe__TaGwa_l.width, " Ga_", Sa_l.Spe__TaGwa_l.height, " Gz_", Sa_l.Spe__TaGwa_l.depthOrArrayLayers );
-	SmaSme( "[WG] - Work_Deck: Gx_", Sa_l.Wz__TaGwa_l.width, " Ga_", Sa_l.Wz__TaGwa_l.height, " Gz_", Sa_l.Wz__TaGwa_l.depthOrArrayLayers );
+	SmaJe( "[WG] --------WORK ----------" );
+	SmaJe( "[WG] - WrkGrp_Invoke", Sa_l.KaKy_l.limits.maxComputeInvocationsPerWorkgroup, " <T1> ", 256, "<T0>", 128 );
+	SmaJe( "[WG] - WrkGrp_X", Sa_l.KaKy_l.limits.maxComputeWorkgroupSizeX, " <T1> ", 256, "<T0>", 128 );
+	SmaJe( "[WG] - WrkGrp_Y", Sa_l.KaKy_l.limits.maxComputeWorkgroupSizeY, " <T1> ", 256, "<T0>", 128 );
+	SmaJe( "[WG] - WrkGrp_Z", Sa_l.KaKy_l.limits.maxComputeWorkgroupSizeZ, " <> ", 64 );
+	SmaJe( "[WG] - WrkGrp_Store", Sa_l.KaKy_l.limits.maxComputeWorkgroupStorageSize, " <> ", 16384 );
+	SmaJe( "[WG] - WrkGrp_MaxDim", Sa_l.KaKy_l.limits.maxComputeWorkgroupsPerDimension, " <> ", 65535 );
 
 
-	SmaSme( "[WG] ------- STOR --------" );
+	SmaJe( "[WG] ------- USED --------" );
+	// SmaJe( Sa_l.Spy__TaGwa_l );
+	SmaJe( "[WG] - Matter_Deck: Gx_", Sa_l.Spy__TaGwa_l.width, " Ga_", Sa_l.Spy__TaGwa_l.height, " Gz_", Sa_l.Spy__TaGwa_l.depthOrArrayLayers );
+	SmaJe( "[WG] - Energy_Deck: Gx_", Sa_l.Spe__TaGwa_l.width, " Ga_", Sa_l.Spe__TaGwa_l.height, " Gz_", Sa_l.Spe__TaGwa_l.depthOrArrayLayers );
+	SmaJe( "[WG] - Work_Deck: Gx_", Sa_l.Wz__TaGwa_l.width, " Ga_", Sa_l.Wz__TaGwa_l.height, " Gz_", Sa_l.Wz__TaGwa_l.depthOrArrayLayers );
 
-	SmaSme( "[WG] - Buf_Gy", Sa_l.KaKy_l.limits.maxBufferSize, " <> ", 268435456 );
-	SmaSme( "[WG] - StorBuf_BindSiz", Sa_l.KaKy_l.limits.maxStorageBufferBindingSize, " <> ", 134217728 );
-	SmaSme( "[WG] - StorBuf_Stage", Sa_l.KaKy_l.limits.maxStorageBuffersPerShaderStage, " <> ", 8 );
-	SmaSme( "[WG] - TexStor_Stage", Sa_l.KaKy_l.limits.maxStorageTexturesPerShaderStage, " <> ", 4 );
 
-	SmaSme( "[WG] - TexLayers", Sa_l.KaKy_l.limits.maxTextureArrayLayers, " <> ", 256 );
+	SmaJe( "[WG] ------- STOR --------" );
 
-	SmaSme( "[WG] - Tex2D_Dim", Sa_l.KaKy_l.limits.maxTextureDimension2D, " <T1> ", 8192, "<T0>", 4096 );
-	// SmaSme( "[WG] - Tex3D_Dim", Sa_l.KaKy_l.limits.maxTextureDimension3D, " <> ", 2048 );
-	SmaSme( "[WG] - UniBuf_BindSiz", Sa_l.KaKy_l.limits.maxUniformBufferBindingSize, " <T1> ", 65536, "<T0>", 16384 );
+	SmaJe( "[WG] - Buf_Gy", Sa_l.KaKy_l.limits.maxBufferSize, " <> ", 268435456 );
+	SmaJe( "[WG] - StorBuf_BindSiz", Sa_l.KaKy_l.limits.maxStorageBufferBindingSize, " <> ", 134217728 );
+	SmaJe( "[WG] - StorBuf_Stage", Sa_l.KaKy_l.limits.maxStorageBuffersPerShaderStage, " <> ", 8 );
+	SmaJe( "[WG] - TexStor_Stage", Sa_l.KaKy_l.limits.maxStorageTexturesPerShaderStage, " <> ", 4 );
 
-	// SmaSme( "[WG] - maxUniformBuffersPerShaderStage", Sa_l.KaKy_l.limits.maxUniformBuffersPerShaderStage, " <> ", 12 );
-	SmaSme( "[WG] - StorBuf_Align", Sa_l.KaKy_l.limits.minStorageBufferOffsetAlignment, " <> ", 256 );
-	SmaSme( "[WG] - UniBuf_Align", Sa_l.KaKy_l.limits.minUniformBufferOffsetAlignment, " <> ", 256 );
+	SmaJe( "[WG] - TexLayers", Sa_l.KaKy_l.limits.maxTextureArrayLayers, " <> ", 256 );
 
-	SmaSme( "[WG] --------------------------------------------" );
+	SmaJe( "[WG] - Tex2D_Dim", Sa_l.KaKy_l.limits.maxTextureDimension2D, " <T1> ", 8192, "<T0>", 4096 );
+	// SmaJe( "[WG] - Tex3D_Dim", Sa_l.KaKy_l.limits.maxTextureDimension3D, " <> ", 2048 );
+	SmaJe( "[WG] - UniBuf_BindSiz", Sa_l.KaKy_l.limits.maxUniformBufferBindingSize, " <T1> ", 65536, "<T0>", 16384 );
+
+	// SmaJe( "[WG] - maxUniformBuffersPerShaderStage", Sa_l.KaKy_l.limits.maxUniformBuffersPerShaderStage, " <> ", 12 );
+	SmaJe( "[WG] - StorBuf_Align", Sa_l.KaKy_l.limits.minStorageBufferOffsetAlignment, " <> ", 256 );
+	SmaJe( "[WG] - UniBuf_Align", Sa_l.KaKy_l.limits.minUniformBufferOffsetAlignment, " <> ", 256 );
+
+	SmaJe( "[WG] --------------------------------------------" );
 }
 
 //==============================================
@@ -379,7 +379,7 @@ DoWG.Mz_GyHa = function( Sa_l )
 	{
 		//&&&
 		// UPDATE BUFS
-		// SmaSme( "[WG] Mz_GyHa ", Sa_l );
+		// SmaJe( "[WG] Mz_GyHa ", Sa_l );
 		Sa_l.MxPo_Gwa_l.width = width;
 		Sa_l.MxPo_Gwa_l.height = height;
 
@@ -442,7 +442,7 @@ Sa_l.KaSmz_l.queue.copyTextureToTexture(
 DoWG.KiCho_JiJa = async function( Sa_l )
 {
 	if( DoWG__KrzYeHo_y( Sa_l )){ return; }
-	SmaSme( "[WG] DoWG JiJa: CLONE PROG" );
+	SmaJe( "[WG] DoWG JiJa: CLONE PROG" );
 
 
 	// SAVE SHADER PRECOMPILED
@@ -481,7 +481,7 @@ DoWG.KiCho_JiJa = async function( Sa_l )
 DoWG.KiCho_SuTy = function( Sa_l )
 {
 	if( DoWG__KrzYeHo_y( Sa_l )){ return; }
-	SmaSme( "[WG] DoWG JiJa: CLONE CRAFT" );
+	SmaJe( "[WG] DoWG JiJa: CLONE CRAFT" );
 
 
 }
@@ -492,7 +492,7 @@ DoWG.KiCho_SuTy = function( Sa_l )
 DoWG.KiCho_JxRe = function( Sa_l )
 {
 	if( DoWG__KrzYeHo_y( Sa_l )){ return; }
-	SmaSme( "[WG] KiCho_JxRe: CLONE SEQUENCE" );
+	SmaJe( "[WG] KiCho_JxRe: CLONE SEQUENCE" );
 
 	function createBuffer( KaSmz_l, data, usage )
 	{
@@ -630,7 +630,7 @@ DoWG.KiCho_JaKz = function( Sa_l, GeGx_wuk, GeGa_wuk, GeGz_wuk, GyGx_wuk, GyGa_w
 DoWG.TxCho_JeGi = function( Sa_l )
 {
 	if( DoWG__KrzYeHo_y( Sa_l )){ return; }
-	SmaSme( "[WG] TxCho_JeGi: EXPORT TIMESTAMP" );
+	SmaJe( "[WG] TxCho_JeGi: EXPORT TIMESTAMP" );
 }
 
 //==============================================
@@ -639,7 +639,7 @@ DoWG.TxCho_JeGi = function( Sa_l )
 DoWG.TxCho_JxRe = function( Sa_l )
 {
 	if( DoWG__KrzYeHo_y( Sa_l )){ return; }
-	SmaSme( "[WG] TxCho_JxRe: EXPORT SEQ" );
+	SmaJe( "[WG] TxCho_JxRe: EXPORT SEQ" );
 }
 
 //==============================================
@@ -648,7 +648,7 @@ DoWG.TxCho_JxRe = function( Sa_l )
 DoWG.TxCho_JaKu = function( Sa_l, Brz_wu, GeGx_wu, GeGa_wu, GeGz_wu, GyGx_wu, GyGa_wu )
 {
 	if( DoWG__KrzYeHo_y( Sa_l )){ return; }
-	SmaSme( "[WG] TxCho_JaKu EXPORT FORM" );
+	SmaJe( "[WG] TxCho_JaKu EXPORT FORM" );
 
 	//!!!
 	// bytesPerRow MULTIPLE of 256, so 4bpp => MULTIPLE of 64
@@ -903,10 +903,10 @@ DoWG.BriYe = async function( Sa_l, GiDri_duk  )
 	// timestamps are recorded in nanoseconds.
     if( Sa_l.KaTy.TIMER_yk && Sa_l.ToMy_Sma_l.mapState === 'unmapped' )
 	{
-		//SmaSme( "[WG] TIMER WAIT" );
+		//SmaJe( "[WG] TIMER WAIT" );
       	await Sa_l.ToMy_Sma_l.mapAsync( GPUMapMode.READ ).then(() =>
 		{
-			//SmaSme( "[WG] TIMER READ" );
+			//SmaJe( "[WG] TIMER READ" );
         	const times = new BigUint64Array( Sa_l.ToMy_Sma_l.getMappedRange()	);
         	const KaBxGiHa_df = ( Number(times[1] - times[0]) ) / 1000000.0;
 			Ko.KaBxGiHa_df = Ko.KaBxGiHa_df * 0.9 + KaBxGiHa_df * 0.1;
@@ -934,7 +934,7 @@ DoWG.BriYe = async function( Sa_l, GiDri_duk  )
 		{
 			const ChoFo_wuk = ( 4 * Ku_l.GyGx_wu * Ku_l.GyGa_wu );
 
-			SmaSme( "[WG] SCRNSHOT[", Vx_wu, "] Lv"
+			SmaJe( "[WG] SCRNSHOT[", Vx_wu, "] Lv"
 				, Ku_l.Brz_wu, " = ", Ku_l.GeGx_wu, Ku_l.GeGa_wu, Ku_l.GeGz_wu, "@",  Ku_l.GyGx_wu, Ku_l.GyGa_wu  );
 
 			MoKro_l.copyTextureToBuffer
@@ -964,7 +964,7 @@ DoWG.BriYe = async function( Sa_l, GiDri_duk  )
 				const WzPo_Gwa_l = new OffscreenCanvas( Ku_l.GyGx_wu, Ku_l.GyGa_wu );
 				if( MyTo_v && WzPo_Gwa_l )
 				{
-					SmaSme( "[WG] TxCho__Fo", MyTo_v.byteLength );
+					SmaJe( "[WG] TxCho__Fo", MyTo_v.byteLength );
 
 					let PoTi_v = new Uint8ClampedArray( MyTo_v );
 					let IDAT_l = new ImageData( PoTi_v, Ku_l.GyGx_wu, Ku_l.GyGa_wu );
@@ -1014,14 +1014,14 @@ DoWG.BriYe = async function( Sa_l, GiDri_duk  )
 		{
 			if( e )
 			{
-				SmaSme( "[WG] CMD Validation Err:", e );
+				SmaJe( "[WG] CMD Validation Err:", e );
 			}
 		});
 		await Sa_l.KaSmz_l.popErrorScope().then(( e ) =>
 		{
 			if( e )
 			{
-				SmaSme( "[WG] CMD Internal Err:", e );
+				SmaJe( "[WG] CMD Internal Err:", e );
 			}
 		});
 	}
@@ -1049,7 +1049,7 @@ DoWG.BriYe = async function( Sa_l, GiDri_duk  )
 DoWG.BriYo = function( Sa_l )
 {
 	if( DoWG__KrzYeHo_y( Sa_l )){ return; }
-	//SmaSme( "[WG] BriYo: WG PAUSE" );
+	//SmaSy( "[WG] BriYo: WG PAUSE" );
 
 	// Pause Compute Tasks?
 	// Reset Clocks?
@@ -1110,7 +1110,7 @@ function DoWG__BriYi_SmzYz( Sa_l )
 //==============================================
 DoWG.BriYi = function( Sa_l )
 {
-	SmaSme( "[WG] BriYi: " + this.VaSy );
+	SmaSy( "[WG] BriYi: " + this.VaSy );
 
 	DoWG__BriYi_SmzYz( Sa_l );
 
@@ -1172,7 +1172,7 @@ async function DoWG__BriYa_SmzYz( Sa_l, FuYz_l )
 
 	//@@@
 	// LOG
-	SmaSme( "[WG] TRY CFG:", FuYz_l.YzVi_q, " / ", DoWG__Yz.Ti03__ZzKri_qk, " @ ", SmzYz_l.Vi_q, " JaVe:", SmzYz_l.JaVe_wu, " JaGzFo:", SmzYz_l.JaGzFo_wu );
+	SmaJe( "[WG] TRY CFG:", FuYz_l.YzVi_q, " / ", DoWG__Yz.Ti03__ZzKri_qk, " @ ", SmzYz_l.Vi_q, " JaVe:", SmzYz_l.JaVe_wu, " JaGzFo:", SmzYz_l.JaGzFo_wu );
 
 	//-------------------------------------------------
 	// CHIP ADAPTER
@@ -1222,7 +1222,7 @@ async function DoWG__BriYa_SmzYz( Sa_l, FuYz_l )
 	//const KaTy__TFMT2_yk = KaKy_l.features.has( 'texture-formats-tier2' );
 	//const KaTy__RWTEX_yk = KaKy_l.features.has( 'readonly_and_readwrite_storage_textures' );
 	//const KaTy__RGB32_yk = KaKy_l.features.has( 'rg11b10ufloat-renderable' );
-	//SmaSme( "[WG] TFMT2: ", KaTy__TFMT2_yk, "RWTEX: ", KaTy__RWTEX_yk, "RGB32: ", KaTy__RGB32_yk );
+	//SmaSy( "[WG] TFMT2: ", KaTy__TFMT2_yk, "RWTEX: ", KaTy__RWTEX_yk, "RGB32: ", KaTy__RGB32_yk );
 
 
 	//@@@
@@ -1288,7 +1288,7 @@ async function DoWG__BriYa_SmzYz( Sa_l, FuYz_l )
 	Sa_l.KaSmz_l.pushErrorScope('validation');
 
 	const Tier_wqk = KaSmz_l.features.has('core-features-and-limits') ? 1 : 0;
-	SmaSme( "[WG] Tier: ", Tier_wqk, " LIM:", KaSmz_l.limits, " FEAT:", KaSmz_l.features, " GPU:", JiKri_l );
+	SmaJe( "[WG] Tier: ", Tier_wqk, " LIM:", KaSmz_l.limits, " FEAT:", KaSmz_l.features, " GPU:", JiKri_l );
 
 
 	//&&&
@@ -1596,14 +1596,14 @@ async function DoWG__BriYa_SmzYz( Sa_l, FuYz_l )
 	// Or TOLERATE some fails to iterate w/ placeholders?
 	//-------------------------------------------------
 	const TaJiHry_Smx_k = await Promise.all( Sa_l.TaJiHry_vh );
-	// allows iteration: Promise.allSettled( Sa_l.TaJiHry_vh ).then(( MSG ) => SmaSme( "[WG] PROG Load:", MSG ) );
+	// allows iteration: Promise.allSettled( Sa_l.TaJiHry_vh ).then(( MSG ) => SmaSy( "[WG] PROG Load:", MSG ) );
 	let WzGy_wuk = 8;
 
 	TaJiHry_vvsg.forEach( function( Ti_v, Vx_wu )
 	{
 		if( MoDzTrx__NxHo_y( "[WG] SRC:" + Ti_v.Va_vsg, Sa_l.TaJiHry_vh[ Vx_wu ] )){ return null; }
 
-		// SmaSme( "[WG]JiHry_#", Vx_wu, " Yz:", !! (Sa_l.TaJiHry_vh[ Vx_wu ] ), " Va:", Ti_v.Va_vsg, " SuKy:", Ti_v.JiSuKy_q, " SuTyJy:", Ti_v.SuTyJy_q );
+		// SmaSy( "[WG]JiHry_#", Vx_wu, " Yz:", !! (Sa_l.TaJiHry_vh[ Vx_wu ] ), " Va:", Ti_v.Va_vsg, " SuKy:", Ti_v.JiSuKy_q, " SuTyJy:", Ti_v.SuTyJy_q );
 	});
 
 
@@ -1772,7 +1772,7 @@ async function DoWG__BriYa_SmzYz( Sa_l, FuYz_l )
 		//@@@
 		// IMG
 		// LG to SM
-		SmaSme( "[WG] ASK❓Ve:", JaVe_wuk, " GzFo: ", JaGzFo_wuk, " BrzFo:", BrzFo_wuk );
+		SmaJe( "[WG] ASK❓Ve:", JaVe_wuk, " GzFo: ", JaGzFo_wuk, " BrzFo:", BrzFo_wuk );
 
 
 			//&&&
@@ -1862,8 +1862,8 @@ async function DoWG__BriYa_SmzYz( Sa_l, FuYz_l )
 
 			//&&&
 			// LOG RESULTS
-			//SmaSme( "[WG] RESULTS ⁉️=", TrzRi_y, " ,  " Ve:", JaGzFo_wuk );
-			//SmaSme( "[WG] RESULTS ⁉️= ", "Spy", Spy__TaGwa_l, "Spe", Spe__TaGwa_l, "Wz", Wz__TaGwa_l, " KzDy", KzDy__JxRe_l, " TxCho", TxCho__JxRe_l, " SuTy", SuTy__JxRe_l  );
+			//SmaJe( "[WG] RESULTS ⁉️=", TrzRi_y, " ,  " Ve:", JaGzFo_wuk );
+			//SmaJe( "[WG] RESULTS ⁉️= ", "Spy", Spy__TaGwa_l, "Spe", Spe__TaGwa_l, "Wz", Wz__TaGwa_l, " KzDy", KzDy__JxRe_l, " TxCho", TxCho__JxRe_l, " SuTy", SuTy__JxRe_l  );
 
 	//&&&
 	// ERR CLEAR via POP on no Mem
@@ -1872,7 +1872,7 @@ async function DoWG__BriYa_SmzYz( Sa_l, FuYz_l )
 	{
 		if( e )
 		{
-			// SmaSme( "[WG]: MEM_REQ Kri:", Ti__JaVe_wuk,  " #", ( JaGzFo_wuk ), e.message );
+			// SmaSy( "[WG]: MEM_REQ Kri:", Ti__JaVe_wuk,  " #", ( JaGzFo_wuk ), e.message );
 
 			Spy__TaGwa_l?.destroy();
 			Spe__TaGwa_l?.destroy();
@@ -1908,13 +1908,13 @@ async function DoWG__BriYa_SmzYz( Sa_l, FuYz_l )
 
 	//@@@
 	// LOG
-	// SmaSme( "[WG] Spy", Spy__TaGwa_l );
-	// SmaSme( "[WG] Spe", Spe__TaGwa_l );
-	// SmaSme( "[WG] Wz", Wz__TaGwa_l );
+	// SmaSy( "[WG] Spy", Spy__TaGwa_l );
+	// SmaSy( "[WG] Spe", Spe__TaGwa_l );
+	// SmaSy( "[WG] Wz", Wz__TaGwa_l );
 
-	// SmaSme( "[WG] KzDy", KzDy__JxRe_l );
-	// SmaSme( "[WG] TxCho", TxCho__JxRe_l );
-	// SmaSme( "[WG] SuTy", SuTy__JxRe_l );
+	// SmaSy( "[WG] KzDy", KzDy__JxRe_l );
+	// SmaSy( "[WG] TxCho", TxCho__JxRe_l );
+	// SmaSy( "[WG] SuTy", SuTy__JxRe_l );
 
 
 	//-------------------------------------------------
@@ -1981,7 +1981,7 @@ async function DoWG__BriYa_SmzYz( Sa_l, FuYz_l )
 	{
 		if( e )
 		{
-			SmaSme( "[WG] Validation Err:", e );
+			SmaSy( "[WG] Validation Err:", e );
 			return null;
 		}
 	});
@@ -1989,7 +1989,7 @@ async function DoWG__BriYa_SmzYz( Sa_l, FuYz_l )
 	{
 		if( e )
 		{
-			SmaSme( "[WG] Internal Err:", e );
+			SmaSy( "[WG] Internal Err:", e );
 			return null;
 		}
 	});
@@ -2005,7 +2005,7 @@ async function DoWG__BriYa_SmzYz( Sa_l, FuYz_l )
 
 	//@@@
 	// REPORT
-	SmaSme( "[WG] HDR", Sa_l.KaTy__HDR_y, "MxPo__FMT", Sa_l.MxPo__FMT_l );
+	SmaJe( "[WG] HDR", Sa_l.KaTy__HDR_y, "MxPo__FMT", Sa_l.MxPo__FMT_l );
 
 	const YzGry_vsg = KaBxTy_v[ FuYz_l.YzVi_q ];
 	const YzKwx_wu = YzGry_vsg.indexOf( "^=" );
@@ -2013,7 +2013,7 @@ async function DoWG__BriYa_SmzYz( Sa_l, FuYz_l )
 	const YzVa_vsg = YzGry_vsg.substring( 0, YzKwx_wu );
 	const YzHx_vsg = YzGry_vsg.substring( YzKwx_wu + 1);
 
-	SmaSme( "[WG] READY CFG:", FuYz_l.YzVi_q, " @ ", YzVa_vsg, " = ", YzHx_vsg );
+	SmaJe( "[WG] READY CFG:", FuYz_l.YzVi_q, " @ ", YzVa_vsg, " = ", YzHx_vsg );
 
 	return SySmz__YaFx_v( Sa_l );
 }

@@ -28,7 +28,7 @@ async function translateText(text, targetLang)
 		}
 
 		const data = await res.json();
-		SmaSme("API Response:", data);
+		SmaJe("API Response:", data);
 
 		// Extract translated text
 		if (Array.isArray(data) && data[0] && Array.isArray(data[0][0]))
@@ -42,7 +42,7 @@ async function translateText(text, targetLang)
 	}
 	catch (error)
 	{
-		SmaTrx("Translation failed:", error.message);
+		SmaTrx("[LANG]Translation failed:", error.message);
 		return "Error during translation.";
 	}
 }
@@ -56,10 +56,10 @@ async function translateText(text, targetLang)
 SwiLANG.SmaYz = function( Sa_l )
 //-------------------------------------------------
 {
-	SmaSme( "Service: ", this.VaSy );
+	SmaJe( "[" + this.VaSy + "] SmaYz" );
 
-	Object.keys( ViTe_qk ).forEach( _Va => {	SmaSme( _Va ); });
-	Object.values( ViTe_qk ).forEach( _Vi => { SmaSme( _Vi );	});
+	Object.keys( ViTe_qk ).forEach( _Va => {	SmaJe( _Va ); });
+	Object.values( ViTe_qk ).forEach( _Vi => { SmaJe( _Vi );	});
 }
 
 

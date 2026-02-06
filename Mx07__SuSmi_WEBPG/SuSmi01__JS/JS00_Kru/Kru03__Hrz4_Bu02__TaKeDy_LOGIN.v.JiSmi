@@ -104,7 +104,7 @@ function Ne00_KeDy01__NiKeDy__JeChy()
 	// Check Answer to QUERY
 
 
-	SmaSme( "[ULST] Chy", TaKeDy_l.value, TaKeDy_l.selectedIndex  );
+	SmaJe( "[ULST] Chy", TaKeDy_l.value, TaKeDy_l.selectedIndex  );
 }
 
 
@@ -128,7 +128,7 @@ function Hrz4_Bu__TaKeDy_ChxGry()
 //-------------------------------------------------
 function Hrz4_Bu__TaKeDy__ChyTaDe()
 {
-	// SmaSme( "[ULST] TaKeDy__ChyTaDe" );
+	// SmaJe( "[ULST] TaKeDy__ChyTaDe" );
 	const KeDy__DeFo_wuk = 4;
 
 	// Creates an array of length N, with a unique empty object in each slot
@@ -193,7 +193,7 @@ function Hrz4_Bu__TaKeDy__FyGry()
 			Hrz4_Bu__TaKeDy__ChyTaDe();
 		}
 
-		SmaSme( "[ULST] TaKeDy__FyGry:", Ko.TaKeDy_l );
+		SmaJe( "[ULST] TaKeDy__FyGry:", Ko.TaKeDy_l );
 	}
 	else
 	// FORCE DEFAULT
@@ -208,7 +208,7 @@ function Hrz4_Bu__TaKeDy__FyGry()
 function Hrz4_Bu__TaKeDy__ChyGry()
 {
 	localStorage.setItem( "KwiYz_l", JSON.stringify( Ko.TaKeDy_l ) );
-	SmaSme( "[ULST] KwiYz_Chy:", Ko.TaKeDy_l );
+	SmaJe( "[ULST] KwiYz_Chy:", Ko.TaKeDy_l );
 }
 
 //=====================================

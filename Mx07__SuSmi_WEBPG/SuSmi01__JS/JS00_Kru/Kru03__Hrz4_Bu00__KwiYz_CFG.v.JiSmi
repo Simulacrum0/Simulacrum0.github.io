@@ -96,7 +96,7 @@ function Hrz4_Bu__KwiYz__ChyDe( Va_vksg, NiJaPo_wuk, KeDru_wuk )
 //==============================================
 function Hrz4_Bu__KwiYz__HriNe_MyYy()
 {
-	SmaSme( "[CFG] GUI_SYNC" );
+	SmaJe( "[CFG] GUI_SYNC" );
 	const KwiYz_k = Ko.TaKeDy_l.KwiYz_v[ Ko.TaKeDy_l.KeDy_wu ];
 
 	//---------------------------------
@@ -121,7 +121,7 @@ function Hrz4_Bu__KwiYz__HriNe_MyYy()
 		const SaNo__TaKeDy_l = Ko.TaKeDy_l.KwiYz_v;
 		SaNo__TaKeDy_l.forEach( function ( Ti_v, Vx_wu )
 		{
-			// SmaSme( "------ Vx_wu:", Vx_wu, Ti_v.KeDy_vsg );
+			// SmaSy( "------ Vx_wu:", Vx_wu, Ti_v.KeDy_vsg );
 
 			//&&&
 			// ADD BTN
@@ -159,7 +159,7 @@ function Hrz4_Bu__KwiYz__HriNe_MyYy()
 
 	//$$$
 	// REPORT
-	SmaSme( "[CFG] TraChe:", TraChe_yk, " SmxFo:", SmxFo_wu, " SmxHa:", SmxHa_yk );
+	SmaSy( "[CFG] TraChe:", TraChe_yk, " SmxFo:", SmxFo_wu, " SmxHa:", SmxHa_yk );
 
 
 	//@@@
@@ -207,7 +207,7 @@ function Hrz4_Bu__KwiYz__HriNe_MyYy()
 
 	// Answer-Key
 	HriNeDe__ChyTraHo( "Ne00_KeDy08__SmzKz_vsg", SmxHa_yk );
-	// SmaSme( "ANSWER: ", document.getElementById("Ne00_KeDy08__SmzKz__Sma_vsg").value );
+	// SmaSy( "ANSWER: ", document.getElementById("Ne00_KeDy08__SmzKz__Sma_vsg").value );
 
 
 
@@ -264,7 +264,7 @@ function Hrz4_Bu__KwiYz__HriNe_MyYy()
 //==============================================
 function Hrz4_Bu__KwiYz__Ko_ChyYe()
 {
-	SmaSme( "[CFG] SYS_UPDATE" );
+	SmaSy( "[CFG] SYS_UPDATE" );
 	const KwiYz_k = Ko.TaKeDy_l.KwiYz_v[ Ko.TaKeDy_l.KeDy_wu ];
 
 	//---------------------------------
@@ -287,7 +287,7 @@ function Hrz4_Bu__KwiYz__Ko_ChyYe()
 	KwiYz_k.Ne00_KeDy06__TraChe_y = document.getElementById( "Ne00_KeDy06__TraChe_y" ).checked;
 	if( Fi__TraChe_yk != KwiYz_k.Ne00_KeDy06__TraChe_y )
 	{
-		SmaSme( "SECURITY CHANGED to ", KwiYz_k.Ne00_KeDy06__TraChe_y );
+		SmaJe( "SECURITY CHANGED to ", KwiYz_k.Ne00_KeDy06__TraChe_y );
 		// Reload
 		Hrz4_Bu__KwiYz__HriNe_MyYy();
 	}

@@ -21,8 +21,8 @@ window.DoTAK = DoTAK;
 DoTAK.SmaYz = function( Sa_l )
 //-------------------------------------------------
 {
-	SmaSme( "--------------------------------------------" );
-	SmaSme( this.VaSy, Sa_l.Si_KeDru );
+	SmaJe( "--------------------------------------------" );
+	SmaJe( this.VaSy, Sa_l.Si_KeDru );
 
 }
 
@@ -35,7 +35,7 @@ DoTAK.SmaYz = function( Sa_l )
 DoTAK.BriYi = function( Sa_l )
 //-------------------------------------------------
 {
-	// SmaSme( "?" + this.VaSy );
+	// SmaJe( "?" + this.VaSy );
 
 }
 

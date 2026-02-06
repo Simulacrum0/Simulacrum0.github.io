@@ -23,10 +23,66 @@ DESIGN:
 3 MODES
 --------------
 MxPo_Kwi: Menu & Topic-GUI to edit
-MxPo_Trx: 
+MxPo_Trx:
 MxPo_Bri
 @@@@@@@@@@@@@@@ */
 
+
+/*@@@@@@@@@@@@@@@
+SHARED
+@@@@@@@@@@@@@@@*/
+:root
+{
+	/* COLOR */
+	--PoStz: var(#0000);
+	--PoStzSpo: #000F;
+	--PoKuFz: #0002;
+  	--PoKuHu: #0008;
+	--PoKuSta: #222A;
+
+	--PoKuSteVo: #444F;
+	--PoKuSteSpo: #444F;
+
+	/* Section Line */
+	--PoKuStuVo: #6668;
+	/* Toggle BG */
+	--PoKuStuSpo: #666F;
+
+	--PoTraFra: # AAA;
+	--PoTraFre: #CCC;
+
+  	--PoSi: #FFF;
+	--PoSiSpo: #FFFF;
+
+	--PoSmu: #D22;
+	--PoSmuSe: #2A2;
+
+
+  	/* SIZE */
+	--GyBe: 0.125rem;
+	--GyBo: 0.25rem;
+	--GyBi: 0.50rem;
+
+	--GyTreHu: 0.875rem;
+	--GyTreDe: 1.0rem;
+	--GyTreHi: 1.25rem;
+
+	--GyKaHu: 1.5rem;
+	--GyKaDe: 2.0rem;
+	--GyKaHi: 3.0rem;
+
+	--GyKyHu: 4.0rem;
+
+
+	/* MISC */
+	--GwxSpo: solid;
+	--GwxKwo: dotted;
+}
+
+
+/*@@@@@@@@@@@@@@@
+ANCESTOR
+@@@@@@@@@@@@@@@*/
 *
 {
 	/* content-box WIDTH/HEIGHT ignore padding, margin, & border */
@@ -38,10 +94,10 @@ MxPo_Bri
 
 	font-size: 1.0rem;
 
-	color: #FFFF;
-	background-color: #0000;
+	color: var(--PoSiSpo);
+	background-color: var(--PoStz);
 	/* SLIDER & RADIO CLR	*/
-	accent-color: #D22;
+	accent-color: var(--PoSmu);
 }
 
 /*@@@@@@@@@@@@@@@
@@ -149,8 +205,8 @@ AREA TYPES
 	border-radius: 0.0rem;
 	border: none;
 
-	color: #FFFF;
-	background-color: #444F
+	color: var(--PoSiSpo);
+	background-color: var(--PoKuSteSpo)
 }
 
 .KuJy02__MxPo
@@ -178,7 +234,7 @@ STATUS BARS
 	left: 0dvw;
 	width: 100dvw;
 	height: 1.5rem;
-	text-align: left;
+	text-align: start;
 	place-items: center center;
 
 	font-size: 1.25rem;
@@ -198,16 +254,14 @@ STATUS BARS
 /*@@@@@@@@@@@@@@@
 TOOLTIPS
 @@@@@@@@@@@@@@@*/
-
-/* @media (pointer: coarse), (hover: none) */
-
 div[data-title]
 {
 	cursor: pointer;
 	position: relative;
 }
 
-div[data-title]::after
+/* FLOAT BUBBLE TEXT */
+div[data-title]::before
 {
 	content: attr(data-title);
 	white-space: pre-wrap;
@@ -215,28 +269,55 @@ div[data-title]::after
 	text-align: center;
 
 	width: fit-content;
-	height: fit-content;
-	left: -2.0rem;
-	top: -4.0rem;
+	min-width: 8rem;
+	/* height: fit-content; */
+	height: 2.0rem;
+
+	left: 0.0rem;
+	/* top: -4.0rem; */
+	top: 0.0rem;
 
 	margin: 0.5rem;
 	padding: 0.5rem;
 
-	color: #FFF;
-	background-color: #444E;
-	border: dashed 0.125rem #DDD;
+	color: #444E;
+	background-color: #DDDE;
+
 	border-radius: 1.5rem;
+	font-size: 0.75rem;
 
 	opacity: 0.0;
-	font-size: 0.0rem;
-
-	transition: 0.75s;
+	transition: 0.5s;
 }
 
+/* TRIANGLE GUIDE */
+div[data-title]::after
+{
+	content: " ";
+	position: absolute;
+
+	left: 2.0rem;
+	/* top: -0.5rem; size + margin */
+	top: 3.5rem; /* size + margin */
+
+	padding: 0.0rem;
+	margin: 0.0rem;
+
+	/* Triangle Size */
+	border-width: 0.5rem;
+
+
+	border-style: solid;
+	border-color: #DDDE transparent transparent transparent;
+
+	opacity: 0.0;
+	transition: 0.5s;
+}
+
+div[data-title]:hover::before,
 div[data-title]:hover::after
 {
 	opacity: 1;
-	font-size: 0.875rem;
 }
 
 
@@ -299,10 +380,8 @@ PANELS
 {
 	.Ku01__HriNe
 	{
-		/* display: block; */
 		display: grid;
-		/* 2 columns */
-		grid-template-columns: 12.5% 87.5%;
+		grid-template-columns: 1fr 7fr;
 	}
 }
 
@@ -310,7 +389,7 @@ PANELS
 .Ku02__NzKwa
 {
 	border-radius: 1.5rem;
-	background-color: #0008;
+	background-color: var(--PoKuHu);
 
 	/* 0 to align with topic section */
 	margin: 0.0rem;
@@ -322,10 +401,10 @@ PANELS
 		/* TL TR BR BL */
 		border-radius: 0.0rem 0.0rem 1.5rem 1.5rem;
 
-		border-left: solid 0.125rem #FFF;
-		border-right: solid 0.125rem #FFF;
+		border-left: solid 0.125rem var(--PoSi);
+		border-right: solid 0.125rem var(--PoSi);
 		border-top: none;
-		border-bottom: solid 0.125rem #FFF;
+		border-bottom: solid 0.125rem var(--PoSi);
 	}
 
 	/* PANEL_ALL_CHOICES--TALL */
@@ -336,16 +415,16 @@ PANELS
 		border-radius: 0.0rem 1.5rem 1.5rem 0.0rem;
 
 		border-left: none;
-		border-right: solid 0.125rem #FFF;
-		border-top: solid 0.125rem #FFF;
-		border-bottom: solid 0.125rem #FFF;
+		border-right: solid 0.125rem var(--PoSi);
+		border-top: solid 0.125rem var(--PoSi);
+		border-bottom: solid 0.125rem var(--PoSi);
 	}
 }
 
 /* PANEL__MENU TABS --------------------------------- */
 .Ku03__HriNzVa
 {
-	background-color: #0000;
+	background-color: var(--PoStz);
 	border-radius: 0.0rem;
 	/* 0 to align with topic section */
 	padding: 0.0rem;
@@ -355,6 +434,7 @@ PANELS
 	@media (min-aspect-ratio: 1/1)
 	{
 		display: flex;
+		flex: auto;
 		flex-wrap: nowrap;
 		place-items: stretch stretch;
 		min-height: 3.0rem;
@@ -374,7 +454,7 @@ PANELS
 {
 	display: grid;
 	gap: 1rem;
-	grid-template-columns: repeat( auto-fill, minmax( 32ch, 1fr ));
+	grid-template-columns: repeat( auto-fill, minmax( 48ch, 1fr ));
 }
 
 /* PANEL__TOPIC_TEXT */
@@ -408,7 +488,7 @@ TEXT
 	text-align:center;
 	margin: 0.125rem;
 	padding: 0.0rem;
-	color: #CCC;
+	color: var(--PoTraFre);
 	font-size: 75%;
 }
 
@@ -423,15 +503,14 @@ TEXT
 .HriNzVa
 {
 	display: flex;
-	/* flex-grow: 1; */
 
     justify-content: center;
     align-items: center;
 	padding: 0.0rem;
 	margin: 0.0rem;
 
-	color: #AAA;
-	background-color: #4448;
+	color: var(--PoTraFra);
+	background-color: var(--PoTraSteVo);
 
 	transition: color 0.3s, background-color 0.3s;
 
@@ -440,7 +519,6 @@ TEXT
 	{
 		width: 16.67%;
 		border-radius:1.5rem 1.5rem 0 0;
-		border: solid 0.125rem #FFF;
 	}
 
 	/* TEXT__MENU_TITLE---TALL */
@@ -448,25 +526,26 @@ TEXT
 	{
 		width: 100%;
 		border-radius: 1.5rem 0 0 1.5rem;
-		border: solid 0.125rem #FFF;
 	}
+
+	border: solid 0.125rem var(--PoSi);
 }
 
 /* TEXT__MENU_HOVER */
 .HriNzVa:hover
 {
 	font-size: 1.5rem;
-	font-style: italic;
+	/* font-style: italic; */
 
 	/* TEXT__MENU_TITLE---WIDE */
 	@media (min-aspect-ratio: 1/1)
 	{
-		box-shadow: 0 -0.5em 1.0rem #CCC;
+		box-shadow: 0 -0.5em 1.0rem var(--PoTraFre);
 	}
 	/* TEXT__MENU_TITLE---TALL */
 	@media (max-aspect-ratio: 1/1)
 	{
-		box-shadow: -0.5em 0 1.0rem #CCC;
+		box-shadow: -0.5em 0 1.0rem var(--PoTraFre);
 	}
 }
 
@@ -477,19 +556,19 @@ TEXT
 	font-size: 1.25rem;
 	font-style: bold;
 
-	color: #FFF;
-	background-color: #0008;
+	color: var(--PoSi);
+	background-color: var(--PoKuHu);
 
 	/* TEXT__MENU_TITLE---WIDE */
 	@media (min-aspect-ratio: 1/1)
 	{
-		box-shadow: 0 -0.5em 1.0rem #AAA;
+		box-shadow: 0 -0.5em 1.0rem var(--PoTraFra);
 		border-bottom:none;
 	}
 	/* TEXT__MENU_TITLE---TALL */
 	@media (max-aspect-ratio: 1/1)
 	{
-		box-shadow: -0.5em 0 1.0rem #AAA;
+		box-shadow: -0.5em 0 1.0rem var(--PoTraFra);
 		border-right: none;
 	}
 }
@@ -504,15 +583,15 @@ TEXT
 	flex-wrap: wrap;
 	justify-content: space-between;
 
-	text-align:left;
+	text-align: start;
 	color: #888;
-	background-color: #222A;
+	background-color: var(--PoKuSta);
 
 	border-radius: 1.0rem;
 
 	border-left: none;
 	border-right: none;
-	border-top: solid 0.125rem #444F;
+	border-top: solid 0.125rem var(--PoKuSteSpo);
 	border-bottom: none;
 
 	margin: 0.50rem;
@@ -523,13 +602,13 @@ TEXT
 .HriNeVa
 {
 	display: inline-flex;
-	text-align:left;
-	color: #FFF;
+	text-align: start;
+	color: var(--PoSi);
 
 	padding: 0.25rem 1.0rem;
 	margin: 0.25rem 0.0rem;
 
-	background-color: #0002;
+	background-color: var(--PoKuFz);
 }
 
 /* TEXT__LIST_ELEMENTS */
@@ -539,16 +618,16 @@ TEXT
 , .HriNe_Tra
 {
 	display: inline-flex;
-	text-align:left;
+	text-align: start;
 
 	margin: 0.25rem 0.125rem;
 	padding: 0.25rem 1.00rem;
 
-	color: #FFF;
-	background-color: #444F;
+	color: var(--PoSi);
+	background-color: var(--PoKuSteSpo);
 
 	border-radius: 1.5rem;
-	border: solid 0.125rem#FFF;
+	border: solid 0.125rem var(--PoSi);
 }
 
 /* TEXT__BTN */
@@ -562,13 +641,13 @@ TEXT
 /* GLOW ON HOVER */
 .TreHy:hover
 {
-	box-shadow: 0.0 0 1.0rem #FFF;
+	box-shadow: 0.0 0 1.0rem var(--PoSi);
 }
 
 /* GLOW FOCUS */
 .TreHy:focus
 {
-	box-shadow: 0 0 1.0rem #AAA;
+	box-shadow: 0 0 1.0rem var(--PoTraFra);
 }
 
 /* TEXT__DOCUMENT HEADER */
@@ -596,7 +675,7 @@ TEXT
 	margin: 0.50rem;
 	padding: 0.50rem;
 
-	background-color: #0008;
+	background-color: var(--PoKuHu);
 
 	overflow-x: auto;
 	overflow-y: auto;
@@ -606,33 +685,9 @@ TEXT
 .KeDruBe
 {
 	/* Requires BLOCK */
-	column-rule: 0.25em dotted #222F;
-	/* column-fill: balance; */
+	column-rule: 0.25em dotted var(--PoKuSta);
 	column-width: 44ch;
 	column-gap: 4ch;
-
-
-	/* PANEL__TEXT---WIDE */
-	/* @media (min-aspect-ratio: 1/1)
-	{
-		column-count: 3;
-	} */
-	/* PANEL__TEXT---ULTRA WIDE */
-	/* @media (min-aspect-ratio: 9/5 )
-	{
-		column-count: 4;
-	} */
-	/* PANEL__TEXT---TALL */
-	/* @media (max-aspect-ratio: 1/1)
-	{
-		column-count: 2;
-	} */
-	/* PANEL__TEXT---TALL */
-	/* @media (max-aspect-ratio: 5/9)
-	{
-		column-count: 1;
-	}
-	 */
 }
 
 
@@ -650,12 +705,19 @@ ELEMENTS IMAGE GRID
 /* SPRITE ZONE */
 .TaJaPo_HryKu
 {
-	display: grid;
+	/* display: grid;
 	place-items: start start;
-	grid-template-columns: 8.0rem calc( 100% - 8.0rem );
+	grid-template-columns: 8.0rem calc( 100% - 8.0rem ); */
 
-	width: 100%;
-	height: 8.0rem;
+	/* display: grid;
+	gap: 1rem;
+	grid-template-columns: repeat( auto-fill, minmax( 32ch, 1fr )); */
+
+	display: inline-flex;
+	flex-wrap: wrap;
+
+	/* width: auto; */
+	/* height: 8.0rem; */
 
 	margin: 1.0rem 0.50rem;
 	padding: 0.0rem;
@@ -664,29 +726,30 @@ ELEMENTS IMAGE GRID
 /* SPRITE CURRENT IMAGE */
 .NiJaPo_Fe
 {
-	display: block;
-	place-items: start start;
+	display: inline-flex;
+	place-items: center center;
 	text-align: center;
 
 	font-size: 6.0rem;
-	width: 100%;
+	width: auto;
 	height: 8.0rem;
 
 	margin: 0.25rem;
-	padding: 0.0rem;
+	padding: 0.25rem;
 }
 
 .NiJaPo_Trx
 {
 	display: block;
-	place-items: start start;
+	place-items: center center;
 	text-align: center;
 
 	font-size: 6.0rem;
+	width: auto;
 	height: 8.0rem;
 
 	margin: 0.25rem;
-	padding: 0.0rem;
+	padding: 0.25rem;
 }
 
 /* SPRITE SELECTOR BOX */
@@ -711,25 +774,17 @@ ELEMENTS IMAGE GRID
 .NiJaPo_Va
 {
 	font-size: 1.925rem;
-	margin: 0.0625rem;
+	margin: 0.075rem;
+	padding: 0.0rem;
+	background-color: var(--PoStz);
 
 	border-radius: 0.25rem;
-
-	text-align: center;
-	background-color: #0000;
 }
 
+/* FLAG NOT READY */
 .NiJaPo_VaRu
 {
-	font-size: 1.75rem;
-	padding: 0.0rem;
 	filter: brightness( 25% );
-}
-
-.NiJaPo_VaRu:Hover
-{
-	filter: brightness( 85% );
-	transition: 1.0s;
 }
 
  /* FLAG AVAILABLE */
@@ -740,20 +795,34 @@ ELEMENTS IMAGE GRID
 
 .NiJaPo_VaGri:Hover
 {
-	background-color: #FFF;
+	background-color: var(--PoSi);
 	transition: 1.0s;
+}
+
+/* OVERLAY EXACT*/
+.NiJaPo_To
+{
+	position: absolute;
+	text-align: center;
+
+	margin: 0;
+	padding: 0;
+	left: 0;
+	right: 100%;
+	top: 0;
+	bottom: 100%;
 }
 
  /* EMOJI to GRAYSCALE */
 .NiJaPo_VaVo
 {
-	padding: 0.0625rem;
-	filter: grayscale( 85% );
+	padding: 0.125rem;
+	filter: grayscale( 80% );
 }
 
 .NiJaPo_VaVo:Hover
 {
-	background-color: #FFF;
+	background-color: var(--PoSi);
 	filter: grayscale( 0% );
 	transition: 1.0s;
 }
@@ -773,7 +842,7 @@ ELEMENTS MISC
 	padding: 0.0rem;
 
 	border-radius: 1.5rem;
-	border: solid 0.125rem #FFFF;
+	border: solid 0.125rem var(--PoSiSpo);
 }
 
 /* SLIDER */
@@ -783,10 +852,8 @@ ELEMENTS MISC
 	display: inline-flex;
 	text-align:center;
 
-	color: #FFFF;
-	background-color: #0008;
-
-
+	color: var(--PoSiSpo);
+	background-color: var(--PoKuHu);
 
 	border-radius: 0.0rem;
 	border: none;
@@ -794,7 +861,6 @@ ELEMENTS MISC
 	margin: 0.0rem;
 	padding: 0.0rem;
 }
-
 
 /* BTN SUBMIT ===> LAUNCH BTN RED */
 .HriNe_TraKwi
@@ -807,16 +873,16 @@ ELEMENTS MISC
 	padding: 0.25rem;
 
 	border-radius: 1.5rem;
-	border: solid 0.125rem#FFF;
-	background-color: #D22;
+	border: solid 0.125rem var(--PoSi);
+	background-color: var(--PoSmu);
 }
 
 /* BTN SUBMIT HOVER BG Po ==> GREEN */
 .HriNe_TraKwi:hover
 {
-	background-color: #2A2;
+	background-color: var(--PoSmuSe);
 	/* GLOW */
-	box-shadow: 0 0 1.0rem #FFF;
+	box-shadow: 0 0 1.0rem var(--PoSi);
 }
 
 /*@@@@@@@@@@@@@@@
@@ -833,8 +899,8 @@ RADIO GROUP
 
 .NiGruVa
 {
-	color: #FFFF;
-	background-color: #0002;
+	color: var(--PoSiSpo);
+	background-color: var(--PoKuFz);
 
 	margin: 0.25rem;
 	padding: 0.25rem;
@@ -875,14 +941,13 @@ TOGGLE_SWITCH
 }
 .KaHyHo:hover
 {
-	box-shadow: 0 0 1.5rem #FFF;
+	box-shadow: 0 0 1.5rem var(--PoSi);
 }
 
 /* ELLIPSE BAR BG SHP */
 .VuHyHo
 {
 	position: absolute;
-	cursor: pointer;
 
 	top: 0;
 	left: 0;
@@ -896,7 +961,7 @@ TOGGLE_SWITCH
 	padding: 0.0rem;
 
 	/* CHECKBOX GREY BG */
-	background-color: #666F;
+	background-color: var(--PoKuStuSpo);
 	transition: 0.5s;
 	border-radius: 1.5rem;
 }
@@ -914,7 +979,7 @@ TOGGLE_SWITCH
 	bottom: 0.0rem;
 
 	/* CHECKBOX CIRCLE  INDICATOR*/
-	background-color: #CCC;
+	background-color: var(--PoTraFre);
 	transition: 0.5s;
 	border-radius: 50%;
 }
@@ -922,13 +987,13 @@ TOGGLE_SWITCH
 .MzHyHo:checked + .VuHyHo
 {
 	/* CHECKBOX RED BG */
-	background-color: #D22;
+	background-color: var(--PoSmu);
 }
 
 .MzHyHo:focus + .VuHyHo
 {
 	/* GLOW */
-	box-shadow: 0 0 1.0rem #D22;
+	box-shadow: 0 0 1.0rem var(--PoSmu);
 }
 
 .MzHyHo:checked + .VuHyHo:before
@@ -948,7 +1013,7 @@ hr
 
 	border-left: none;
 	border-right: none;
-	border-bottom: solid 0.125rem #6668;
+	border-bottom: solid 0.125rem var(--PoKuStuVo);
 	border-top: none;
 
     margin: 0.0 rem;
@@ -958,13 +1023,13 @@ hr
 /* ELM__NOT_IN_USE */
 .HriNe_TraHo
 {
-	color: #FFFF;
-	background-color: #D22;
+	color: var(--PoSiSpo);
+	background-color: var(--PoSmu);
 }
 /* ELM__FADED__NOT_IN_USE */
 .HriNe_HryHo
 {
-	color: #0008;
+	color: var(--PoKuHu);
 	background-color: #8888;
 
 	filter: blur( 4px );

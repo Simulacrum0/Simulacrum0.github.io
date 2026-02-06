@@ -188,7 +188,7 @@ const SAY = Object.freeze
 DoSAY.SmaYz = function( Sa_l )
 //-------------------------------------------------
 {
-	SmaSme( "Service: ", this.VaSy );
+	SmaJe( "[" + this.VaSy + "] SmaYz" );
 
 }
 

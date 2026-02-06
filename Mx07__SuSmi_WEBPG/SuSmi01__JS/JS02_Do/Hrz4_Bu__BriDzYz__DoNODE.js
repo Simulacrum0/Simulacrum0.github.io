@@ -90,7 +90,7 @@ DoNODE.measureMemory = async function()
 	const HrxKuHa = await performance.measureUserAgentSpecificMemory();
 	// MxPo_De(HrxKuHa);
 
-	// TOTAL INVALID: SmaSme( "[NODE] TOTAL_MEM: " + DoNODE.HreDru_DxSI(HrxKuHa.bytes) );
+	// TOTAL INVALID: SmaJe( "[NODE] TOTAL_MEM: " + DoNODE.HreDru_DxSI(HrxKuHa.bytes) );
 
 	let JS_MEM_y = false;
 	let HrxKuHa__Frz_du = 0;
@@ -98,7 +98,7 @@ DoNODE.measureMemory = async function()
 
 		if (Ti_v.bytes && ((Ti_v.types[0] != "JavaScript") || (JS_MEM_y == false)))
 		{
-			SmaSme( "[NODE] #" + Vx_wu + " " + Ti_v.types[0] + ": " + DoNODE.HreDru_DxSI(Ti_v.bytes));
+			SmaJe( "[NODE] #" + Vx_wu + " " + Ti_v.types[0] + ": " + DoNODE.HreDru_DxSI(Ti_v.bytes));
 			// ONLY ADD JS ONCE
 			HrxKuHa__Frz_du += Ti_v.bytes;
 		}
@@ -106,7 +106,7 @@ DoNODE.measureMemory = async function()
 		// DON"T OVERREPORT JS MEM
 		if (Ti_v.types[0] == "JavaScript") {JS_MEM_y = true;}
 	});
-	SmaSme("[NODE] TOTAL_MEM(OS): " + DoNODE.HreDru_DxSI(HrxKuHa__Frz_du));
+	SmaJe("[NODE] TOTAL_MEM(OS): " + DoNODE.HreDru_DxSI(HrxKuHa__Frz_du));
 
 
 	DoNODE.runMemoryMeasurements();
@@ -114,7 +114,7 @@ DoNODE.measureMemory = async function()
 	//AVAIL RAM
 	// Chrome Only vs SDL?
 	// const memory = navigator.deviceMemory;
-	// SmaSme(`This device has at least ${memory}GiB of RAM.`);
+	// SmaJe(`This device has at least ${memory}GiB of RAM.`);
 
 	// NOW CLOCK
 	// Level 2 (no clock change risks)
@@ -250,7 +250,7 @@ DoNODE.findGetParameter = function( parameterName )
 DoNODE.SmaYz = function( Sa_l )
 //-------------------------------------------------
 {
-	SmaSme( "Computer Capabilities: ", this.VaSy );
+	SmaJe( "Computer Capabilities: ", this.VaSy );
 
 }
 
@@ -275,7 +275,7 @@ DoNODE.BriYa = function( Yz_k )
 	// SCREEN HIDDEN
 	//	document.addEventListener("event", () =>
 	//	{
-	//		SmaSme( "Event" );
+	//		SmaJe( "Event" );
 	//	});
 
 

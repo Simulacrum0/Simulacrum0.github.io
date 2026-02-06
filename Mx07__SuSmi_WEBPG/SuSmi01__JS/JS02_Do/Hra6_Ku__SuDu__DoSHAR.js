@@ -46,10 +46,10 @@ function sendSMS(phoneNumber, message)
 DoSHAR.SmaYz = function( Sa_l )
 //-------------------------------------------------
 {
-	SmaSme( "Service: ", this.VaSy );
+	SmaJe( "[" + this.VaSy + "] SmaYz" );
 
-	Object.keys( ViTe_qk ).forEach( _Va => {	SmaSme( _Va ); });
-	Object.values( ViTe_qk ).forEach( _Vi => { SmaSme( _Vi );	});
+	Object.keys( ViTe_qk ).forEach( _Va => {	SmaJe( _Va ); });
+	Object.values( ViTe_qk ).forEach( _Vi => { SmaJe( _Vi );	});
 
 	// if( MoDzTrx__NxHo_y( "TEST FAKE ERROR", null )){ return; }
 
@@ -99,7 +99,7 @@ DoSHAR.BriYa = function( Yz_k )
 	  if (canBrowserShareData(sharedDataSample))
 		{
 		// Enable the share button in the UI.
-		// SmaSme( "SHARING ALLOWED" );
+		// SmaJe( "SHARING ALLOWED" );
 	  }
 	  else
 	{
@@ -123,7 +123,7 @@ DoSHAR.Mo = async function( Sa_l, Jy_k, Mo_l )
 	  url: "A url we want to share",
 	};
 
-	SmaSme( "SHARING TEXT" );
+	SmaJe( "SHARING TEXT" );
 
 	try {
 		await navigator.share( sharedDataSample );
@@ -133,7 +133,7 @@ DoSHAR.Mo = async function( Sa_l, Jy_k, Mo_l )
 		console.error(`Error: ${e}`);
 	  }
 
-	SmaSme( "SHARING DONE" );
+	SmaJe( "SHARING DONE" );
 
 }
 

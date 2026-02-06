@@ -1,5 +1,5 @@
-const BriDzSa__Da_vsg = "PUB_v0.211"; 
- const BriDzSa__Da_wuk = "211"; 
+const BriDzSa__Da_vsg = "PUB_v0.212"; 
+ const BriDzSa__Da_wuk = "212"; 
  const BriDz__Mx_KuTu_vsg = "https://powerourpeople.com/"; 
 
 //==============================================
@@ -62,7 +62,7 @@ const Hre1_Dru__Gra_v =
 	{
 		"Vy": "en",
 		"Va": "U.N. English",
-		"KuGwz": "💬",
+		"KuGwz": "🌐",
 		"So": "U.N. English",
 		"ToKz": "en"
 	},
@@ -238,7 +238,7 @@ const SaPy_vvsg=
 
 	,'🦋','🐝','🐞','🦗','🕷️','🦇','🐍','🐛'
 
-	,'🦕','🦖','🦄','🐲'
+	,'🦠','🦕','🦖','🦄','🐲'
 
 	,'⭐️','🌀','🌈','❤️‍','🎵','🎶'
 
@@ -331,13 +331,23 @@ window.Ko = Ko;
 //==============================================
 // 'arguments object' is a builtin Array -like object.
 // Array.prototype.slice.call(arguments) converts *array-like* 'arguments' to a TRUE array 'ARG_v:
-// function SmaSme(){ var ARG_v = Array.prototype.slice.call(arguments); console.log.apply(console, ARG_v); }
-SmaJy_vsg = [ '💬', '⚠️', '🤯' ];
+// function SmaJe(){ var ARG_v = Array.prototype.slice.call(arguments); console.log.apply(console, ARG_v); }
+
+const SmaJy_vsg =
+[
+	'🤖', '✅', '😕','🤯'
+	// '⚙️', 'ℹ️', '⚠️', '🚫'
+];
 
 function SmaTro_vsg( SmaJy_wu, ARG_v )
 {
-	// PAD '3'
-	const Me_vsg = SmaJy_vsg[ SmaJy_wu ] + Ko.SmaFe_wu.toString().padStart( 3, "0" ) + "➡️" + ARG_v.join( ' ' );
+	//@@@
+	// FILTER by TAG before collapsing ARG into String?
+	// if( ARG_v[0] === "[CFG]" ) return;
+
+	//@@@
+	// PAD '3' digits
+	const Me_vsg = SmaJy_vsg[ SmaJy_wu ] + Ko.SmaFe_wu.toString().padStart( 3, "0" ) + " ➡️ " + ARG_v.join( ' ' );
 
 	// Increment line & wrap as valid entry
 	const SmaFe_wuk = (( Ko.SmaFe_wu ) & SmaViKa_wuk );
@@ -347,9 +357,10 @@ function SmaTro_vsg( SmaJy_wu, ARG_v )
 	return Me_vsg
 }
 
-function SmaSme(){ var ARG_v = Array.prototype.slice.call(arguments); console.log( SmaTro_vsg( 0, ARG_v ) );}
-function SmaDre(){ var ARG_v = Array.prototype.slice.call(arguments); console.warn( SmaTro_vsg( 1, ARG_v ) );}
-function SmaTrx(){ var ARG_v = Array.prototype.slice.call(arguments); console.error( SmaTro_vsg( 2, ARG_v ) );}
+function SmaSy(){ var ARG_v = Array.prototype.slice.call(arguments); console.log( SmaTro_vsg( 0, ARG_v ) );}
+function SmaJe(){ var ARG_v = Array.prototype.slice.call(arguments); console.log( SmaTro_vsg( 1, ARG_v ) );}
+function SmaDre(){ var ARG_v = Array.prototype.slice.call(arguments); console.warn( SmaTro_vsg( 2, ARG_v ) );}
+function SmaTrx(){ var ARG_v = Array.prototype.slice.call(arguments); console.error( SmaTro_vsg( 3, ARG_v ) );}
 
 //==============================================
 // SECURITY
@@ -357,7 +368,7 @@ function SmaTrx(){ var ARG_v = Array.prototype.slice.call(arguments); console.er
 
 //@@@
 // CORS must RUN FIRST
-SmaSme( "[LAUNCH] Web_Security[ CORS: " + (window.crossOriginIsolated ?  "✅😀" : "❌😞" ) + " ]" );
+SmaSy( "[LAUNCH] Web_Security[ CORS: " + (window.crossOriginIsolated ?  "✅😀" : "❌😞" ) + " ]" );
 if( !window.crossOriginIsolated )
 {
 	// MSG should display @ DOM
@@ -377,12 +388,12 @@ try
 catch(e)
 {
 	// WebAssembly is not supported at all
-	SmaTrx( 'No Web Assembly: ' + e );
+	SmaTrx( "[LAUNCH] No Web Assembly:", e );
 	MoDzTrx( KoSy__KeDru_l.TrxJy01__HrzMoHo__WASM_vsg );
 }
 
 Ko.KaBx__TiFo_wuk = navigator.hardwareConcurrency;
-SmaSme( "[LAUNCH] Web_Assembly[ " + ( Ko.WASM64_yk ? "64" : "32" ) + "bit:" + ( Ko.WASM64_yk ? "✅😀" : "🆗😐") + " ]", "CPUs:", Ko.KaBx__TiFo_wuk );
+SmaSy( "[LAUNCH] Web_Assembly[ " + ( Ko.WASM64_yk ? "64" : "32" ) + "bit:" + ( Ko.WASM64_yk ? "✅😀" : "🆗😐") + " ]", "CPUs:", Ko.KaBx__TiFo_wuk );
 
 
 //==============================================
@@ -395,12 +406,12 @@ document.addEventListener('readystatechange', function()
 {
 	// if (document.readyState === 'interactive')
 	// {
-	// 	SmaSme( "[LAUNCH] WebPage_DOM Interactive" );
+	// 	SmaSy( "[LAUNCH] WebPage_DOM Interactive" );
 	// }
 
 	if (document.readyState === 'complete')
 	{
-		SmaSme( "[LAUNCH] Web_DOM Fully_Loaded" );
+		SmaSy( "[LAUNCH] Web_DOM Fully_Loaded" );
 
 
 		// Kru__TaNe_v
@@ -424,8 +435,8 @@ var Module =
 	//@@@
 	// EMCC NOTIFY
 	// Define how notification messages from Emscripten are displayed via Module.print attribute.
-	'print': function ( Sma_vsg ) { SmaSme( "[MSG]" + Sma_vsg ); },
-	'printErr': function ( Sma_vsg ) { SmaSme( "[ERR]" + Sma_vsg ); },
+	'print': function ( Sma_vsg ) { SmaJe( "[MSG]" + Sma_vsg ); },
+	'printErr': function ( Sma_vsg ) { SmaTrx( "[ERR]" + Sma_vsg ); },
 	'onAbort': function ( Sma_vsg ) { MoDzTrx( "[ABORT]" + Sma_vsg ); },
 
 
@@ -433,7 +444,7 @@ var Module =
 	// RUN when WASM_LOADED
 	onRuntimeInitialized: function()
 	{
-        // SmaSme( "WASM module is ready" );
+        // SmaSy( "WASM module is ready" );
 		KoDz__YaFz();
 		MoDz__DzStxGru();
     },
@@ -502,8 +513,8 @@ function MoDzTrx( Trx_vsg )
 
 	//&&&
 	// DBG
-	SmaTrx( Bo_vsg );
-	SmaTrx( "*STK_TRACE:", jsStackTrace() );
+	SmaTrx( "[LAUNCH]", Bo_vsg );
+	SmaTrx( "[LAUNCH] *STK_TRACE*:", jsStackTrace() );
 
 	// POST for DBG
 	// console.error( Bo_vsg );
@@ -558,7 +569,7 @@ window.onerror = (e) =>
 //==============================================
 function MoDzTrx__NxHo_y( Va, Kri_y )
 {
-	// SmaSme( "NxHo: ---> " + Va );
+	// SmaSy( "NxHo: ---> " + Va );
 	if( !Kri_y )
 	{
 		MoDzTrx( "ERR: " + Va + " @ " + Kri_y );
@@ -576,7 +587,7 @@ async function MoDz__DzStxGru()
 {
 	if( !window.BroadcastChannel )
 	{
-		SmaSme('!!! Unknown if Duplicate Tab.');
+		SmaJe( "[LAUNCH] !!! Unknown if Duplicate Tab." );
 		return;
 	}
 
@@ -605,18 +616,18 @@ async function MoDz__DzStxGru()
 			// If Newer; Error on Self
 			if( Ko.MoDzYa__GiDri_duk > parseInt( PKT_k[1] ))
 			{
-				SmaSme( "!!! FAIL Duplicate Tab" );
+				SmaTrx( "[LAUNCH] !!! FAIL Duplicate Tab" );
 				BCHN_l = null;
 				MoDzTrx( KoSy__KeDru_l.TrxJy02__MoDzStxGru_vsg );
 			}
 			else
 			{
-				SmaSme( "[LAUNCH] First Tab" );
+				SmaTrx( "[LAUNCH] First Tab" );
 			}
 		}
 		else if( PKT_k[0] == "MxVy" )
 			{
-				// SmaSme('Send Time to Test if Duplicate Tab.');
+				// SmaSy('Send Time to Test if Duplicate Tab.');
 				BCHN_l.postMessage( "KrzVy:" + Ko.MoDzYa__GiDri_duk );
 			}
 		}
@@ -640,19 +651,19 @@ function Hrz3_Bz__KaGeSpu_Ha()
 //=====================================
 // BROWSER VERSION (Browser & App )
 //=====================================
-async function Hrz3_Bz__VaDa()
+async function Hrz3_By__VaDa()
 {
 	//@@@
 	// SEARCH
 
 	// USR AGENT
 	const HrzByHx_vsg = navigator.userAgent;
-	//SmaSme( "[CFG] HrzByHx:", HrzByHx_vsg );
+	//SmaSy( "[CFG] HrzByHx:", HrzByHx_vsg );
 
 	// /i IGNORE CASE
 	// Matches "Name/Ver", "Name", "Ver" for 3 strings in 'match-Array' result
 	let Ni_vsg = HrzByHx_vsg.match(/(chrome|safari|firefox|msie|trident(?=\/))\/?\s*(\d+\.\d+)/i) || [];
-	// SmaSme( Ni_vsg );
+	// SmaSy( Ni_vsg );
 
 	// CHILD of CHROME
 	let NiNo_vsg = HrzByHx_vsg.match(/(OPR|Edg|OculusBrowser|SamsungBrowser(?=\/))\/?\s*(\d+\.\d+)/i) || [];
@@ -682,10 +693,10 @@ async function Hrz3_Bz__VaDa()
 	Ko.Hrz3_By__Da_wfk = parseFloat( Ni_vsg[ 1 ] );
 	if( isNaN( Ko.Hrz3_By__Da_wfk ) ){ Ko.Hrz3_By__Da_wfk = 0.0; }
 
-	SmaSme( "[CFG] HrzBy_VaDa", Ko.Hrz3_By__Va_vsg, "||", Ko.Hrz3_By__Da_wfk );
+	SmaJe( "[LAUNCH] HrzBy_VaDa", Ko.Hrz3_By__Va_vsg, "||", Ko.Hrz3_By__Da_wfk );
 	// NOT WELL SUPPORTED 2026
 	// if( navigator.userAgentData && navigator.userAgentData.brands )
-	// { SmaSme(  "[CFG] BRAND:", navigator.userAgentData.brands ); }
+	// { SmaJe(  "[LAUNCH] BRAND:", navigator.userAgentData.brands ); }
 
 
 	//@@@
@@ -799,7 +810,7 @@ function Hrz4_Bu__KwiYz__ChyDe( Va_vksg, NiJaPo_wuk, KeDru_wuk )
 //==============================================
 function Hrz4_Bu__KwiYz__HriNe_MyYy()
 {
-	SmaSme( "[CFG] GUI_SYNC" );
+	SmaJe( "[CFG] GUI_SYNC" );
 	const KwiYz_k = Ko.TaKeDy_l.KwiYz_v[ Ko.TaKeDy_l.KeDy_wu ];
 
 	//---------------------------------
@@ -824,7 +835,7 @@ function Hrz4_Bu__KwiYz__HriNe_MyYy()
 		const SaNo__TaKeDy_l = Ko.TaKeDy_l.KwiYz_v;
 		SaNo__TaKeDy_l.forEach( function ( Ti_v, Vx_wu )
 		{
-			// SmaSme( "------ Vx_wu:", Vx_wu, Ti_v.KeDy_vsg );
+			// SmaSy( "------ Vx_wu:", Vx_wu, Ti_v.KeDy_vsg );
 
 			//&&&
 			// ADD BTN
@@ -862,7 +873,7 @@ function Hrz4_Bu__KwiYz__HriNe_MyYy()
 
 	//$$$
 	// REPORT
-	SmaSme( "[CFG] TraChe:", TraChe_yk, " SmxFo:", SmxFo_wu, " SmxHa:", SmxHa_yk );
+	SmaSy( "[CFG] TraChe:", TraChe_yk, " SmxFo:", SmxFo_wu, " SmxHa:", SmxHa_yk );
 
 
 	//@@@
@@ -910,7 +921,7 @@ function Hrz4_Bu__KwiYz__HriNe_MyYy()
 
 	// Answer-Key
 	HriNeDe__ChyTraHo( "Ne00_KeDy08__SmzKz_vsg", SmxHa_yk );
-	// SmaSme( "ANSWER: ", document.getElementById("Ne00_KeDy08__SmzKz__Sma_vsg").value );
+	// SmaSy( "ANSWER: ", document.getElementById("Ne00_KeDy08__SmzKz__Sma_vsg").value );
 
 
 
@@ -967,7 +978,7 @@ function Hrz4_Bu__KwiYz__HriNe_MyYy()
 //==============================================
 function Hrz4_Bu__KwiYz__Ko_ChyYe()
 {
-	SmaSme( "[CFG] SYS_UPDATE" );
+	SmaSy( "[CFG] SYS_UPDATE" );
 	const KwiYz_k = Ko.TaKeDy_l.KwiYz_v[ Ko.TaKeDy_l.KeDy_wu ];
 
 	//---------------------------------
@@ -990,7 +1001,7 @@ function Hrz4_Bu__KwiYz__Ko_ChyYe()
 	KwiYz_k.Ne00_KeDy06__TraChe_y = document.getElementById( "Ne00_KeDy06__TraChe_y" ).checked;
 	if( Fi__TraChe_yk != KwiYz_k.Ne00_KeDy06__TraChe_y )
 	{
-		SmaSme( "SECURITY CHANGED to ", KwiYz_k.Ne00_KeDy06__TraChe_y );
+		SmaJe( "SECURITY CHANGED to ", KwiYz_k.Ne00_KeDy06__TraChe_y );
 		// Reload
 		Hrz4_Bu__KwiYz__HriNe_MyYy();
 	}
@@ -1087,7 +1098,7 @@ function Hre1_Dru__KeDru_VaFyVx_wu( KeKuMi_vbg )
 		KeKu_wu = 0;
 	}
 
-	SmaSme( "[CUL] Culture: " + Hre1_Dru__Gra_v[ KeKu_wu ].ToKz + " Locale: " + Fe__KeKu_vbg + " Lang: " + Fe__KeDru_vksg + " Country: " + ( Fe__KuVa_vbg ? Fe__KuVa_vbg : "Global" ) );
+	SmaJe( "[CUL] Culture: " + Hre1_Dru__Gra_v[ KeKu_wu ].ToKz + " Locale: " + Fe__KeKu_vbg + " Lang: " + Fe__KeDru_vksg + " Country: " + ( Fe__KuVa_vbg ? Fe__KuVa_vbg : "Global" ) );
 
 	return KeKu_wu;
 }
@@ -1104,10 +1115,6 @@ async function Hre1_Dru__KeDru_ChyVx( KeDru_wuk )
 	//@@@
 	// NATIVE_NAMES
 	document.getElementById( "Ne00_KeDy00__NiKeDru_q" ).innerText = Dru_l.KuGwz;
-
-	// LOCALE TOOLTIP
-	// document.getElementById( "Ne00_KeDy00__NiKeDru_q" ).innerText = Dru_l.So;
-
 
 	//@@@
 	// LANG_FILE
@@ -1150,25 +1157,24 @@ async function Hre1_Dru__KeDru_ChyVx( KeDru_wuk )
 	(
 		function ( [ Vy_vbg, Va_vbg ] )
 		{
-			//SmaSme( `[CUL] *LABEL MATCH*: ${Vy_vbg}`, Va_vbg );
-			let Elm_l = document.getElementById( Vy_vbg );
+			//SmaJe( `[CUL] *LABEL MATCH*: ${Vy_vbg}`, Va_vbg );
+			let Kz_l = document.getElementById( Vy_vbg );
 
-			if( Elm_l ){ Elm_l.innerText = Va_vbg;	}
-			//else{ SmaSme( `[CUL] *---------LABEL UNUSED-------------*: ${Vy_vbg}` ); }
+			if( Kz_l ){ Kz_l.innerText = Va_vbg;	}
+			else{ SmaJe( `[CUL] *---------LABEL UNUSED-------------*: ${Vy_vbg}` ); }
 		}
 	);
 
 	//@@@
 	// UPDATE USAGE
-	SmaSme( KeDru_v.USAGE );
+	SmaJe( KeDru_v.USAGE );
 	Object.entries( KeDru_v.USAGE ).forEach
 	(
 		function ( [ Vy_vbg, Va_vbg ] )
 		{
-			let Elm_l = document.getElementById( Vy_vbg );
-			if( Elm_l )
-			{	Elm_l.setAttribute( "data-title", "⬇" + Va_vbg + "⬇️" ); 	}
-			else{ SmaSme( `[CUL] *---------USAGE UNUSED-------------*: ${Vy_vbg}` ); }
+			let Kz_l = document.getElementById( Vy_vbg );
+			//if( Kz_l ){ Kz_l.setAttribute( "data-title", Va_vbg ); }
+			//else{ SmaJe( `[CUL] *---------USAGE UNUSED-------------*: ${Vy_vbg}` ); }
 		}
 	);
 
@@ -1180,7 +1186,7 @@ async function Hre1_Dru__KeDru_ChyVx( KeDru_wuk )
 function Ne00_KeDy00__NiKeDru__JeChy( KeDru_wuk )
 {
 	const Ne00_KeDy00__NiKeDru__Ta_l = document.getElementById( 'Ne00_KeDy00__NiKeDru__Ta_l' );
-	//SmaSme( "CHG!", Ne00_KeDy00__NiKeDru__Ta_l );
+	//SmaJe( "CHG!", Ne00_KeDy00__NiKeDru__Ta_l );
 	Hre1_Dru__KeDru_ChyVx( ( KeDru_wuk !== null )? KeDru_wuk : Ne00_KeDy00__NiKeDru__Ta_l.selectedIndex );
 
 
@@ -1303,7 +1309,7 @@ function Ne00_KeDy01__NiKeDy__JeChy()
 	// Check Answer to QUERY
 
 
-	SmaSme( "[ULST] Chy", TaKeDy_l.value, TaKeDy_l.selectedIndex  );
+	SmaJe( "[ULST] Chy", TaKeDy_l.value, TaKeDy_l.selectedIndex  );
 }
 
 
@@ -1327,7 +1333,7 @@ function Hrz4_Bu__TaKeDy_ChxGry()
 //-------------------------------------------------
 function Hrz4_Bu__TaKeDy__ChyTaDe()
 {
-	// SmaSme( "[ULST] TaKeDy__ChyTaDe" );
+	// SmaJe( "[ULST] TaKeDy__ChyTaDe" );
 	const KeDy__DeFo_wuk = 4;
 
 	// Creates an array of length N, with a unique empty object in each slot
@@ -1392,7 +1398,7 @@ function Hrz4_Bu__TaKeDy__FyGry()
 			Hrz4_Bu__TaKeDy__ChyTaDe();
 		}
 
-		SmaSme( "[ULST] TaKeDy__FyGry:", Ko.TaKeDy_l );
+		SmaJe( "[ULST] TaKeDy__FyGry:", Ko.TaKeDy_l );
 	}
 	else
 	// FORCE DEFAULT
@@ -1407,7 +1413,7 @@ function Hrz4_Bu__TaKeDy__FyGry()
 function Hrz4_Bu__TaKeDy__ChyGry()
 {
 	localStorage.setItem( "KwiYz_l", JSON.stringify( Ko.TaKeDy_l ) );
-	SmaSme( "[ULST] KwiYz_Chy:", Ko.TaKeDy_l );
+	SmaJe( "[ULST] KwiYz_Chy:", Ko.TaKeDy_l );
 }
 
 //=====================================
@@ -1445,7 +1451,7 @@ function HriNeDe__TraKwi()
 
 //==============================================
 // GUI EDIT for UNLOCK/LOCK
-// SmaSme( "CheChy: ", e.className );
+// SmaSy( "CheChy: ", e.className );
 //==============================================
 
 //@@@
@@ -1464,7 +1470,7 @@ function HriNeDe__ChyHryDry( Vy_vsg )
 {
 	let e = document.getElementById( Vy_vsg );
 	// e.hidden = !( e.hidden );
-	e.style.display = ( e.style.display === "none") ? "block" : "none";
+	e.style.display = ( e.style.display === "none") ? "inline-flex" : "none";
 }
 
 //@@@
@@ -1543,6 +1549,14 @@ async function Hri4_Bu__TaKeDy__ChySpo()
 	const KwiYz_k = Ko.TaKeDy_l.KwiYz_v[ Ko.TaKeDy_l.KeDy_wu ];
 
 	//-------------------------------------------------
+	// OPT
+	//-------------------------------------------------
+
+	// ARIA ROLE: https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Roles
+	// Elm.setAttribute("role", "progressbar");
+
+
+	//-------------------------------------------------
 	// CULTURE
 	//-------------------------------------------------
 	//@@@
@@ -1562,16 +1576,15 @@ async function Hri4_Bu__TaKeDy__ChySpo()
 
 	Hre1_Dru__Gra_v.forEach( function ( Ti_v, Vx_wu )
 	{
-		//SmaSme( "------ Vx_wu:", Vx_wu, Ti_v.Va );
+		//SmaSy( "------ Vx_wu:", Vx_wu, Ti_v.Va );
 
 		//&&&
 		// LANG DROPDOWN ADD BTN
+		if( KeDruGri_v.includes( Ti_v.ToKz ) )
 		{
 			const Kz_l = document.createElement( 'option' );
 			Kz_l.className = 'HriNeTi WaDru_Ku';
-
 			Kz_l.innerText = `${Ti_v.KuGwz} ${Ti_v.Va}`;
-
 			Kz_l.value = Ti_v.Vy;
 
 			Ne00_KeDy00__NiKeDru__Ta_l.appendChild( Kz_l );
@@ -1580,8 +1593,8 @@ async function Hri4_Bu__TaKeDy__ChySpo()
 		//&&&
 		// LANG FLAG GRID ADD BTN
 		{
-			const Kz_l = document.createElement( 'span' );
-			// DBG: if( Vx_wu & 4 )
+			const Kz_l = document.createElement( 'div' );
+
 			if( KeDruGri_v.includes( Ti_v.ToKz ) )
 			{
 				Kz_l.className = 'NiJaPo_Va NiJaPo_VaGri WaDru_Ku';
@@ -1593,6 +1606,13 @@ async function Hri4_Bu__TaKeDy__ChySpo()
 			}
 
 			Kz_l.innerText = Ti_v.KuGwz;
+
+			// LOCALE TOOLTIP
+			// const To_l = document.createElement( 'div' );
+			// To_l.className = 'NiJaPo_To WaDru_Ku';
+			// To_l.setAttribute( "data-title", Ti_v.Va + "\n" + Ti_v.So );
+			// Kz_l.appendChild( To_l );
+
 			KeDru__TaJaPo_l.appendChild( Kz_l );
 		}
 
@@ -1625,8 +1645,8 @@ async function Hri4_Bu__TaKeDy__ChySpo()
 	}
 
 	//-------------------------------------------------
-	//-------------------------------------------------
 	// AUD_METHODS
+	//-------------------------------------------------
 	{
 		const TaKeDy_l = document.getElementById( 'Ne02_Hru__SmzYz_Ta_l' );
 		HriNeDe__Ta_ChyStz( TaKeDy_l );
@@ -1635,7 +1655,7 @@ async function Hri4_Bu__TaKeDy__ChySpo()
 		const SaNo__TaKeDy_l = Ko.TaKeDy_l.KwiYz_v;
 		SaNo__TaKeDy_l.forEach( function ( Ti_v, Vx_wu )
 		{
-			// SmaSme( "------ Vx_wu:", Vx_wu, Ti_v.KeDy_vsg );
+			// SmaSy( "------ Vx_wu:", Vx_wu, Ti_v.KeDy_vsg );
 
 			//&&&
 			// ADD BTN
@@ -1660,7 +1680,7 @@ async function Hri4_Bu__TaKeDy__ChySpo()
 		const SaNo__TaKeDy_l = Ko.TaKeDy_l.KwiYz_v;
 		SaNo__TaKeDy_l.forEach( function ( Ti_v, Vx_wu )
 		{
-			// SmaSme( "------ Vx_wu:", Vx_wu, Ti_v.KeDy_vsg );
+			// SmaSy( "------ Vx_wu:", Vx_wu, Ti_v.KeDy_vsg );
 
 			//&&&
 			// ADD BTN
@@ -2096,10 +2116,10 @@ function Tra_KeMeBri()
 
 	//@@@
 	// ECOSYS PLAY
-	SmaSme( "[GUI] User:", KwiYz_k.KeDy_vsg, " NEVER_PAUSE:", KwiYz_k.Ne01_Ko04__KoDz_YoHo_y );
+	SmaJe( "[GUI] User:", KwiYz_k.KeDy_vsg, " NEVER_PAUSE:", KwiYz_k.Ne01_Ko04__KoDz_YoHo_y );
 	if( KoDz__YzYa_y() )
 	{
-		SmaSme( "[GUI] ACTIVE via Resume" );
+		SmaSy( "[GUI] ACTIVE via Resume" );
 
 		//&&&
 		// LAUNCH SERVICES that REQUIRE a "click"
@@ -2128,7 +2148,7 @@ function KoDz_GyHa()
 
 	//@@@
 	// MxPo^SCREEN
-	SmaSme( "[GUI] GyHa: ", window.innerWidth, window.innerHeight, " Legible Px/Em: ", Ko.em2px_wfk );
+	SmaSy( "[GUI] GyHa: ", window.innerWidth, window.innerHeight, " Legible Px/Em: ", Ko.em2px_wfk );
 }
 
 //==============================================
@@ -2144,12 +2164,12 @@ function KoDz_GyHa()
 async function Hra6_Ku__ToKz_My__vJSON( ChaKuTu_vsg, ToKzVa_vsg )
 {
 	let KuTu_vbg = BriDz__Mx_KuTu_vsg + ChaKuTu_vsg + ToKzVa_vsg;
-	SmaSme( "FILE seeking JSON: " + KuTu_vbg );
+	SmaJe( "[USR_STOR] FILE seeking JSON: " + KuTu_vbg );
 	try
 	{
 		const Smx_k = await fetch( KuTu_vbg, { headers: { Accept: 'application/json' } } );
 		const ToKz_v = await Smx_k.json();
-		//SmaSme( ToKz_v );
+		//SmaJe( "[USR_STOR]", ToKz_v );
 		return ToKz_v;
 	}
 	catch ( e ) { MoDzTrx( KoSy__KeDru_l.TrxJy__SuKz_GriHo_vsg + " @ " + ToKzVa_vsg + " --> " + e ); }
@@ -2162,12 +2182,12 @@ async function Hra6_Ku__ToKz_My__vJSON( ChaKuTu_vsg, ToKzVa_vsg )
 async function Hra6_Ku__ToKz_My__vsg( ChaKuTu_vsg, ToKzVa_vsg )
 {
 	let KuTu_vbg = BriDz__Mx_KuTu_vsg + ChaKuTu_vsg + ToKzVa_vsg;
-	//SmaSme( "FILE seeking TEXT: " + KuTu_vbg );
+	//SmaJe( "[USR_STOR] FILE seeking TEXT: " + KuTu_vbg );
 	try
 	{
 		const Smx_k = await fetch( KuTu_vbg );
 		const ToKz_v = await Smx_k.text();
-		// SmaSme( ToKz_v );
+		// SmaJe( "[USR_STOR]", ToKz_v );
 		return ToKz_v;
 	}
 	catch ( e ) { MoDzTrx( KoSy__KeDru_l.TrxJy__SuKz_GriHo_vsg + " @ " + ToKzVa_vsg + " --> " + e ); }
@@ -2180,7 +2200,7 @@ async function Hra6_Ku__ToKz_My__vsg( ChaKuTu_vsg, ToKzVa_vsg )
 async function Hra6_Ku__ToKz_My__vBLOB( ChaKuTu_vsg, ToKzVa_vsg )
 {
 	let KuTu_vbg = BriDz__Mx_KuTu_vsg + ChaKuTu_vsg + ToKzVa_vsg;
-	SmaSme( "FILE seeking BLOB: " + KuTu_vbg );
+	SmaJe( "[USR_STOR] FILE seeking BLOB: " + KuTu_vbg );
 	try
 	{
 		const Smx_k = await fetch( KuTu_vbg );
@@ -2210,7 +2230,7 @@ async function Hra6_Ku__ToKz_ChyBLOB(blob, filename)
 async function Hra6_Ku__ToKz_My__vBUF( ChaKuTu_vsg, ToKzVa_vsg )
 {
 	let KuTu_vbg = BriDz__Mx_KuTu_vsg + ChaKuTu_vsg + ToKzVa_vsg;
-	SmaSme( "FILE seeking BUFFER: " + KuTu_vbg );
+	SmaJe( "[USR_STOR] FILE seeking BUFFER: " + KuTu_vbg );
 	try
 	{
 		const Smx_k = await fetch( KuTu_vbg );
@@ -2244,7 +2264,7 @@ const IDB_Ko_l = new Promise((resolve, reject) =>
 
 	request.onsuccess = ( e ) =>
 	{
-		// SmaSme("IDB_Good\n");
+		// SmaJe( "[USR_STOR] IDB_Good\n");
 		resolve( e.target.result );
 	};
 
@@ -2276,12 +2296,12 @@ const IDB_ToKzVy__Chy = (Va, ToKzVy) =>
 
 			request.onsuccess = () =>
 			{
-				SmaSme("IDB Handle Saved\n");
+				SmaJe( "[USR_STOR] IDB Handle Saved\n");
 				resolve();
 			}
 			request.onerror = () =>
 			{
-				SmaSme("IDB Handle Failed\n");
+				SmaJe( "[USR_STOR] IDB Handle Failed\n");
 				reject( request.error );
 			}
 		});
@@ -2307,13 +2327,13 @@ const IDB_ToKzVy__My = ( Va ) =>
 
 			request.onsuccess = ( e ) =>
 			{
-				SmaSme("IDB Handle Found\n" + e.target.result );
+				SmaJe( "[USR_STOR] IDB Handle Found\n" + e.target.result );
 				resolve( e.target.result?.handle );
 			}
 
 			request.onerror = () =>
 			{
-				SmaSme("IDB Handle UNK\n");
+				SmaJe( "[USR_STOR] IDB Handle UNK\n");
 				reject(request.error);
 			}
 		});
@@ -2428,13 +2448,13 @@ async function Hrz7_Kru__ChaSySmz( SyJy_vsg, ToKz_vsg, SyTu_vsg, VaDy_vsg, SySmz
 	if( !window[ VaSy_vsg ] )
 	{
 		const JS_k = await import( BriDz__Mx_KuTu_vsg + "Mx07__SuSmi_WEBPG/SuSmi01__JS/" + ( Do_yk ? "JS02_Do" : ( "JS03_Swi/Swi" + VaDy_vsg ) ) + "/" + SyJy_vsg + "__" + ToKz_vsg + "__" + VaSy_vsg + ".js" );
-		// SmaSme( "SERV-MODULE", JS_k );
+		// SmaJe( "SERV-MODULE", JS_k );
 	}
 
 	//@@@
 	// AWAIT BEGIN SERV_ADD
 	const SyVx_wuk = SyVx[ VaDy_vsg + "_qk" ];
-	// SmaSme( "[SERV] FyGri [", SyVx_wuk, "]" );
+	// SmaJe( "[SERV] FyGri [", SyVx_wuk, "]" );
 
 	//&&&
 	// Need available for ERR below
@@ -2445,7 +2465,7 @@ async function Hrz7_Kru__ChaSySmz( SyJy_vsg, ToKz_vsg, SyTu_vsg, VaDy_vsg, SySmz
 
 		//$$$
 		// LOG
-		SmaSme( "[SERV] Cha [", SyVx_wuk, "]: ", Sy_l.Ji.VaSy, " = ", Sy_l, "KoYz ", Ko.Dz__Yz_q );
+		SmaJe( "[SERV] Cha [", SyVx_wuk, "]: ", Sy_l.Ji.VaSy, " = ", Sy_l, "KoYz ", Ko.Dz__Yz_q );
 
 		//$$$
 		// OBJ_REPORT
@@ -2482,7 +2502,7 @@ function Hrz7_Kru__ChiSySmz( SyVx_wuk )
 	const Sy_l = Ko.SySmz_v[ SyVx_wuk ];
 	if( !Sy_l ) return;
 
-	SmaSme( "[SERV] Chi[", SyVx_wuk, "]: ", Sy_l.Ji.VaSy, " = ", Sy_l );
+	SmaJe( "[SERV] Chi[", SyVx_wuk, "]: ", Sy_l.Ji.VaSy, " = ", Sy_l );
 
 	if( Sy_l.Ji.BriYi ){ Sy_l.Ji.BriYi( Sy_l ); }
 
@@ -2534,8 +2554,8 @@ function KoDz__YzYo_y()
 //==============================================
 function KoDz__SuKz_Mi(e)
 {
-	SmaSme( "+++ DOM Content Loaded" );
-	SmaSme( e );
+	SmaJe( "+++ DOM Content Loaded" );
+	SmaJe( e );
 
 }
 
@@ -2589,7 +2609,7 @@ async function KoDz__YaFz()
 	// TIME_BEGAN
 	Ko.BriYa_GiDri_df = performance.now();
 	// BROWSER_VER
-	await Hrz3_Bz__VaDa();
+	await Hrz3_By__VaDa();
 	// OS VER
 	Hrz3_Bz__KaGeSpu_Ha();
 	// FIND USERS LAUNCH_CFG
@@ -2614,7 +2634,7 @@ async function KoDz__YaFz()
 			// folded (applies to laptop/book postures)
 			// folded-over
 			// continuous (applies to flat, tablet, or even seamless curved displays)
-			SmaSme( "[DEV] Posture:" + navigator.devicePosture.type );
+			SmaJe( "[DEV] Posture:" + navigator.devicePosture.type );
 		};
 	}
 
@@ -2652,7 +2672,7 @@ async function KoDz__YaFz()
 	];
 	// SYNC_PNT
 	const SyCha__FyGry_yk = await Promise.all( SyCha__Kri_v );
-	// SmaSme( "SERV REQ", SyCha__FyGry_yk );
+	// SmaJe( "SERV REQ", SyCha__FyGry_yk );
 	if( !SyCha__FyGry_yk ){ return; }
 
 
@@ -2672,7 +2692,7 @@ async function KoDz__YaFz()
 	];
 
 	const WaDru__Kri_yk = await Promise.all( WaDru__Kri_v );
-	SmaSme( "[SERV] FONT", WaDru__Kri_yk );
+	SmaJe( "[SERV] FONT", WaDru__Kri_yk );
 	if( !WaDru__Kri_yk ){ return; }
 
 	//@@@
@@ -2896,7 +2916,7 @@ const Hrz7_Kru__ToKzVa_Gwx = () =>
         // const callSite = this.stack.find( line => line.getFileName().indexOf('/logger/') < 0 );
         const callSite = this.stack[ 1 ];
 
-		// SmaSme( "CS", callSite );
+		// SmaJe( "CS", callSite );
 		if( !DoJi_yk( callSite, "getFileName" ) || !DoJi_yk( callSite, "getFunctionName" ) ){ return "-?-"; }
 
         return callSite.getFunctionName() + " @ " + callSite.getFunctionName() + ":" + callSite.getLineNumber();
@@ -2916,7 +2936,7 @@ async function Hra7_Ta__ToKzMi_JSON_v( ChaKuTu_vsg, ToKzVa_vsg )
 	try
 	{
 		let KuTu_vsg = `${BriDz__Mx_KuTu_vsg}Mx07__SuSmi_WEBPG/${ChaKuTu_vsg}${ToKzVa_vsg}.json`;
-		// SmaSme( `FILE seeking: ${KuTu_vsg}`);
+		// SmaJe( `FILE seeking: ${KuTu_vsg}`);
 
 		const res = await fetch( KuTu_vsg,
 		{

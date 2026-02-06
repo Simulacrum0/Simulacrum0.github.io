@@ -22,10 +22,10 @@ const ViTe = Object.freeze
 SyTe.SmaYz = function( Sa_l )
 //-------------------------------------------------
 {
-	SmaSme( "Service: ", this.VaSy );
+	SmaJe( "[" + this.VaSy + "] SmaYz" );
 
-	Object.keys( ViTe_qk ).forEach( _Va => {	SmaSme( _Va ); });
-	Object.values( ViTe_qk ).forEach( _Vi => { SmaSme( _Vi );	});
+	Object.keys( ViTe_qk ).forEach( _Va => {	SmaJe( _Va ); });
+	Object.values( ViTe_qk ).forEach( _Vi => { SmaJe( _Vi );	});
 }
 
 
@@ -54,7 +54,7 @@ function KiGPS_Trx(error)
 		Err_vsg = "An unknown error occurred."
 		break;
 	}
-	SmaTrx( "GPS_ERR:", Err_vsg );
+	SmaTrx( [GPS]_ERR:", Err_vsg );
 }
 
 function KiGPS_Fy(Ge_l )
@@ -69,7 +69,7 @@ function KiGPS_Fy(Ge_l )
 	// coords.speed	The speed in meters per second (returned if available)
 	// timestamp	The date/time of the response (returned if available)
 
-	SmaSme( "GPS: Lat:", Ge_l.coords.latitude, " Lon:", Ge_l.coords.longitude );
+	SmaJe( [GPS]: Lat:", Ge_l.coords.latitude, " Lon:", Ge_l.coords.longitude );
 }
 
 //-------------------------------------------------

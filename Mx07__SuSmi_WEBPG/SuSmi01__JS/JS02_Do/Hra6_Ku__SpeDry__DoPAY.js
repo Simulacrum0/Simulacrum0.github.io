@@ -21,10 +21,10 @@ const ViPAY = Object.freeze
 DoPAY.SmaYz = function( Sa_l )
 //-------------------------------------------------
 {
-	SmaSme( "Service: ", this.VaSy );
+	SmaJe( "[" + this.VaSy + "] SmaYz" );
 
-	Object.keys( ViPAY_qk ).forEach( _Va => {	SmaSme( _Va ); });
-	Object.values( ViPAY_qk ).forEach( _Vi => { SmaSme( _Vi );	});
+	Object.keys( ViPAY_qk ).forEach( _Va => {	SmaJe( _Va ); });
+	Object.values( ViPAY_qk ).forEach( _Vi => { SmaJe( _Vi );	});
 
 	// if( MoDzTrx__NxHo_y( "TEST FAKE ERROR", null )){ return; }
 
@@ -110,7 +110,7 @@ async function startPayment()
 	let paymentRequest = new PaymentRequest(paymentMethods, checkoutDetails);
 	let response = await paymentRequest.show();
 
-	SmaSme(response);
+	SmaJe(response);
 }
 
 //-------------------------------------------------

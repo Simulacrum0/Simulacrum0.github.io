@@ -10,7 +10,7 @@
 DoWG.TxCho_JeGi = function( Sa_l )
 {
 	if( DoWG__KrzYeHo_y( Sa_l )){ return; }
-	SmaSme( "[WG] TxCho_JeGi: EXPORT TIMESTAMP" );
+	SmaJe( "[WG] TxCho_JeGi: EXPORT TIMESTAMP" );
 }
 
 //==============================================
@@ -19,7 +19,7 @@ DoWG.TxCho_JeGi = function( Sa_l )
 DoWG.TxCho_JxRe = function( Sa_l )
 {
 	if( DoWG__KrzYeHo_y( Sa_l )){ return; }
-	SmaSme( "[WG] TxCho_JxRe: EXPORT SEQ" );
+	SmaJe( "[WG] TxCho_JxRe: EXPORT SEQ" );
 }
 
 //==============================================
@@ -28,7 +28,7 @@ DoWG.TxCho_JxRe = function( Sa_l )
 DoWG.TxCho_JaKu = function( Sa_l, Brz_wu, GeGx_wu, GeGa_wu, GeGz_wu, GyGx_wu, GyGa_wu )
 {
 	if( DoWG__KrzYeHo_y( Sa_l )){ return; }
-	SmaSme( "[WG] TxCho_JaKu EXPORT FORM" );
+	SmaJe( "[WG] TxCho_JaKu EXPORT FORM" );
 
 	//!!!
 	// bytesPerRow MULTIPLE of 256, so 4bpp => MULTIPLE of 64

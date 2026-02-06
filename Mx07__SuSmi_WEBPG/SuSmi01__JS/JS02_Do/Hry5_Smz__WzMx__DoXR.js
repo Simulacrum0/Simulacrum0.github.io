@@ -1,4 +1,4 @@
-const DoXR__BriDzSa__Da_wuk = "211"; 
+const DoXR__BriDzSa__Da_wuk = "212"; 
 
 //==============================================
 //==============================================
@@ -77,10 +77,10 @@ const BzMeKy = Object.freeze
 DoXR.SmaYz = function( Sa_l )
 //-------------------------------------------------
 {
-	SmaSme( "Service: ", this.VaSy );
+	SmaJe( "[" + this.VaSy + "] SmaYz" );
 
-	Object.keys( ViTe_qk ).forEach( _Va => {	SmaSme( _Va ); });
-	Object.values( ViTe_qk ).forEach( _Vi => { SmaSme( _Vi );	});
+	Object.keys( ViTe_qk ).forEach( _Va => {	SmaJe( _Va ); });
+	Object.values( ViTe_qk ).forEach( _Vi => { SmaJe( _Vi );	});
 }
 
 //==============================================
@@ -355,7 +355,7 @@ function DoXR_GL__ChaJxRe( Sa_l )
 function DoXR_GL__ChaJaKu__Si__MzPo( Sa_l, GyGx_wuk, GyGa_wuk )
 {
 	const gl = Sa_l.gl;
-	SmaSme( "[XR] ChaJaKu: Si__MzPo", GyGx_wuk, GyGa_wuk );
+	SmaJe( "[XR] ChaJaKu: Si__MzPo", GyGx_wuk, GyGa_wuk );
 
 	Sa_l.Si__MzPo_l = gl.createTexture();
 	gl.activeTexture( gl.TEXTURE0 );
@@ -388,7 +388,7 @@ function DoXR_GL__ChaJaKu__Si__MzPo( Sa_l, GyGx_wuk, GyGa_wuk )
 //----------------------------
 function DoXR_GL__KiCho_JaTi( Sa_l, GeGx_wu, GeGa_wu, GyGx_wu, GyGa_wu, Si__JaPo_l )
 {
-	//SmaSme( "[XR_GL]" );
+	//SmaJe( "[XR_GL]" );
 	const gl = Sa_l.gl;
 
 	gl.activeTexture( gl.TEXTURE0 );
@@ -449,7 +449,7 @@ async function DoXR_GL__SmzYa_y( Sa_l )
 	const gl = Sa_l.Se__MzPo_l.getContext( "webgl2", { xrCompatible: true });
 	Sa_l.gl = gl;
 
-	SmaSme( "[XR_GL] CTX_Tro" );
+	SmaJe( "[XR_GL] CTX_Tro" );
 	await gl.makeXRCompatible();
 
 	const Smz_v = Sa_l.Smz_v;
@@ -475,14 +475,14 @@ async function DoXR_GL__SmzYa_y( Sa_l )
 
 	const RS_l = Smz_v.renderState;
 	// De: 0.1 10cm ...1000.0 1km
-	SmaSme( "[XR] Dpth:", RS_l.depthNear, RS_l.depthFar, "FRM__Gy", FRM__Gy_wfk );
+	SmaJe( "[XR] Dpth:", RS_l.depthNear, RS_l.depthFar, "FRM__Gy", FRM__Gy_wfk );
 
 
 	//@@@
 	// CTX_LOSS
 	Smz_v.addEventListener("webglcontextlost", (e) =>
 	{
-		SmaSme( "[XR_GL] Context Lost" );
+		SmaJe( "[XR_GL] Context Lost" );
 
 		// Calling preventDefault signals to the page that you intent to handle context restoration.
 		// e.preventDefault();
@@ -493,7 +493,7 @@ async function DoXR_GL__SmzYa_y( Sa_l )
 
 	Smz_v.addEventListener("webglcontextrestored", (e) =>
 	{
-		SmaSme( "[XR_GL] Context Restored" );
+		SmaJe( "[XR_GL] Context Restored" );
 		// Once this function is called the gl context will be restored but any graphics resources
 		// that were previously loaded will be lost, so the scene should be reloaded.
 		// loadSceneGraphics(gl);
@@ -544,11 +544,11 @@ function DoXR_GL__Cho_MzPo( Sa_l, FRM_k, MzKz_v )
 	// NULL DST BUF
 	if( DBG_wu < 3 )
 	{
-		SmaSme( "[XR]-------------------------:", DBG_wu );
+		SmaJe( "[XR]-------------------------:", DBG_wu );
 
-		SmaSme( "[XR] SeMzPo:", MzKz_v, GL_Gwa_l.framebuffer, FRM_k );
-		SmaSme( "[XR] EyeBox:", SmzKu_vk.x, SmzKu_vk.y, SmzKu_vk.width, SmzKu_vk.height );
-		SmaSme( "[XR] CanvasBox:", Sa_l.Se__MzPo_l.clientWidth, Sa_l.Se__MzPo_l.clientHeight, Sa_l.Se__MzPo_l.width, Sa_l.Se__MzPo_l.height,  GL_Gwa_l.framebuffer );
+		SmaJe( "[XR] SeMzPo:", MzKz_v, GL_Gwa_l.framebuffer, FRM_k );
+		SmaJe( "[XR] EyeBox:", SmzKu_vk.x, SmzKu_vk.y, SmzKu_vk.width, SmzKu_vk.height );
+		SmaJe( "[XR] CanvasBox:", Sa_l.Se__MzPo_l.clientWidth, Sa_l.Se__MzPo_l.clientHeight, Sa_l.Se__MzPo_l.width, Sa_l.Se__MzPo_l.height,  GL_Gwa_l.framebuffer );
 
 		// FORCE RESIZE CANVAS?
 		Sa_l.Se__MzPo_l.width = 2* SmzKu_vk.width;
@@ -565,8 +565,8 @@ function DoXR_GL__Cho_MzPo( Sa_l, FRM_k, MzKz_v )
 //	if( DoXR_GL__GyHa_y( Sa_l, Sa_l.Se__MzPo_l ) || ( Sa_l.Si__MzPo_l === null ))
 	if( Sa_l.Si__MzPo_l === null )
 	{
-		// SmaSme( "[XR] CTX Se", GL_Gwa_l, GL_Gwa_l.context, Sa_l.Se__MzPo_l.clientWidth, Sa_l.Se__MzPo_l.clientHeight );
-		SmaSme( "[XR] RESIZE Se__MzPo" );
+		// SmaJe( "[XR] CTX Se", GL_Gwa_l, GL_Gwa_l.context, Sa_l.Se__MzPo_l.clientWidth, Sa_l.Se__MzPo_l.clientHeight );
+		SmaJe( "[XR] RESIZE Se__MzPo" );
 		DoXR_GL__ChaJaKu__Si__MzPo( Sa_l, 2* SmzKu_vk.width, SmzKu_vk.height);
 	}
 
@@ -636,7 +636,7 @@ DoXR.BriYu = async function( Sa_l )
 //-------------------------------------------------
 {
 	if( KoDz__YzTrx_y() ) return;
-	//SmaSme( "DoXR__MzPoYe: RESUME" );
+	//SmaJe( "DoXR__MzPoYe: RESUME" );
 	Sa_l.Smz_v.requestAnimationFrame( DoXR__MzPoYe );
 }
 
@@ -653,7 +653,7 @@ DoWG.BriYo = function( Sa_l )
 //-------------------------------------------------
 {
 	if( KoDz__YzTrx_y() ) return;
-	//SmaSme( "DoXR_BriYo: PAUSE" );
+	//SmaJe( "DoXR_BriYo: PAUSE" );
 
 	// Pause Compute Tasks?
 	// Reset Clocks?
@@ -668,7 +668,7 @@ DoXR.BriYa = async function( Yz_k )
 	const Sa_l = SySmz__YaFz_v( DoXR );
 	if( !navigator.xr )
 	{
-		SmaSme("[XR] No WebXR Browser & Device Found!" );
+		SmaJe("[XR] No WebXR Browser & Device Found!" );
 		DoXR.BriYi( Sa_l );
 		return null;
 	}
@@ -744,11 +744,11 @@ DoXR.BriYa = async function( Yz_k )
 	const VR_yk = await navigator.xr.isSessionSupported( "immersive-vr", KriYz_k );
 	// SR as 'inline' is just screen blit
 	//const SR_yk = await navigator.xr.isSessionSupported( "inline", KriYz_k );
-	SmaSme( "[XR] AR: ", AR_yk, "VR:", VR_yk );
+	SmaJe( "[XR] AR: ", AR_yk, "VR:", VR_yk );
 
 	if( !AR_yk && !VR_yk )
 	{
-		SmaSme("[XR] API Missing Options. Find a Modern Compatible Browser." );
+		SmaJe("[XR] API Missing Options. Find a Modern Compatible Browser." );
 		DoXR.BriYi( Sa_l );
 		return null;
 	}
@@ -764,10 +764,10 @@ DoXR.BriYa = async function( Yz_k )
 		const Smz_v = await navigator.xr.requestSession( AR_yk ? "immersive-ar" : ( VR_yk ? "immersive-vr" : "inline" ), KriYz_k );
 
 		// opaque, additive, alpha-blend
-		SmaSme( "[XR] Smz:", Smz_v );
+		SmaJe( "[XR] Smz:", Smz_v );
 		// interactionMode: [ "world-space", "scene-space" ]
-		SmaSme( "[XR] KuBry:", Smz_v.environmentBlendMode, Smz_v.interactionMode );
-		SmaSme( "[XR] TaMoKz:", Smz_v.inputSources );
+		SmaJe( "[XR] KuBry:", Smz_v.environmentBlendMode, Smz_v.interactionMode );
+		SmaJe( "[XR] TaMoKz:", Smz_v.inputSources );
 		Sa_l.Smz_v = Smz_v;
 
 
@@ -788,7 +788,7 @@ DoXR.BriYa = async function( Yz_k )
 		// DPTH
 		if( DoJi_yk( Smz_v, "depthActive" ))
 		{
-			SmaSme( "[XR] DEPTH = On:", Smz_v.depthActive, "Use:", Smz_v.depthUsage, "Fmt:", Smz_v.depthFormat );
+			SmaJe( "[XR] DEPTH = On:", Smz_v.depthActive, "Use:", Smz_v.depthUsage, "Fmt:", Smz_v.depthFormat );
 		}
 
 		//@@@
@@ -800,7 +800,7 @@ DoXR.BriYa = async function( Yz_k )
 			const SpeYz_l = { reflectionFormat: SpeDx_l };
 			Sa_l.SpeKzFy_vk = await Smz_v.requestLightProbe( SpeYz_l );
 
-			SmaSme( "[XR] Spe:", SpeDx_l );
+			SmaJe( "[XR] Spe:", SpeDx_l );
 		}
 		else
 		{
@@ -830,7 +830,7 @@ DoXR.BriYa = async function( Yz_k )
 			{
 				// ...
 				var textFromUser = myTextField.value;
-				SmaSme( "TYPED:", textFromUser );
+				SmaJe( "TYPED:", textFromUser );
 			};
 		}
 		*/
@@ -840,18 +840,18 @@ DoXR.BriYa = async function( Yz_k )
 		//----------------------------
 		Smz_v.onend = ( e ) =>
 		{
-			SmaSme( "[XR] Session END" );
+			SmaJe( "[XR] Session END" );
 			DoXR.BriYi( Sa_l );
 		}
 
 		Smz_v.onblur = ( e ) =>
 		{
-			SmaSme( "[XR] Session PAUSE" );
+			SmaJe( "[XR] Session PAUSE" );
 		}
 
 		Smz_v.onfocus = ( e ) =>
 		{
-			SmaSme( "[XR] Session RESUME" );
+			SmaJe( "[XR] Session RESUME" );
 		}
 
 		//----------------------------
@@ -875,7 +875,7 @@ DoXR.BriYa = async function( Yz_k )
 				}
 			};
 
-			SmaSme( "[XR] Vis:", e.session.visibilityState );
+			SmaJe( "[XR] Vis:", e.session.visibilityState );
 		};
 
 		//----------------------------
@@ -883,13 +883,13 @@ DoXR.BriYa = async function( Yz_k )
 		//----------------------------
 		Smz_v.onresetpose = (event) =>
 		{
-			SmaSme( "[XR] Reset POSE", e );
+			SmaJe( "[XR] Reset POSE", e );
 		}
 		//discontinuity, recalibration, or device reset.
 		// update position/orientation
 		Sa_l.Sa__GeGo_l.onreset = (event) =>
 		{
-			SmaSme( "[XR] Reset SPC", e );
+			SmaJe( "[XR] Reset SPC", e );
 			// CHG Sa_l.Sa__GeGo_l
 		}
 
@@ -901,7 +901,7 @@ DoXR.BriYa = async function( Yz_k )
 		// INPUTCHG
 		Smz_v.oninputsourceschange = ( e ) =>
 		{
-			SmaSme( "[XR] Inputs Changed", e );
+			SmaJe( "[XR] Inputs Changed", e );
 		}
 
 		//----------------------------
@@ -909,16 +909,16 @@ DoXR.BriYa = async function( Yz_k )
 		//----------------------------
 		Smz_v.onsqueezestart = ( e ) =>
 		{
-			//SmaSme( "[XR_NOTICE] Squeeze Begin", e );
+			//SmaJe( "[XR_NOTICE] Squeeze Begin", e );
 		}
 		// SUCCESS or CANCEL
 		// Smz_v.onsqueezeend = ( e ) =>
 		// {
-		// 	SmaSme( "[XR_NOTICE] Squeeze End", e );
+		// 	SmaJe( "[XR_NOTICE] Squeeze End", e );
 		// }
 		Smz_v.onsqueeze = ( e ) =>
 		{
-			SmaSme( "[XR_NOTICE] Squeezed Success", e );
+			SmaJe( "[XR_NOTICE] Squeezed Success", e );
 		}
 
 
@@ -927,16 +927,16 @@ DoXR.BriYa = async function( Yz_k )
 		//----------------------------
 		Smz_v.onselectstart = ( e ) =>
 		{
-			//SmaSme( "[XR_NOTICE] Select Begin", e );
+			//SmaJe( "[XR_NOTICE] Select Begin", e );
 		}
 		// SUCCESS or CANCEL
 		// Smz_v.onselectend = ( e ) =>
 		// {
-		// 	SmaSme( "[XR_NOTICE] Select End", e );
+		// 	SmaJe( "[XR_NOTICE] Select End", e );
 		// }
 		Smz_v.onselect = (e) =>
 		{
-			SmaSme( "[XR_NOTICE] Selected Success ( Use Target Ray )", e );
+			SmaJe( "[XR_NOTICE] Selected Success ( Use Target Ray )", e );
 
 			/*
 			let source = e.inputSource;
@@ -1029,7 +1029,7 @@ function DoXR__MzPoYe( Sa_l, Gi_k, FRM_k )
 			if (gripPose)
 			{
 				const invXfm = gripPose.transform.inverse;
-				//SmaSme( "[XR] Grip:", gripPose.transform.matrix, invXfm.matrix );
+				//SmaJe( "[XR] Grip:", gripPose.transform.matrix, invXfm.matrix );
 			}
 		}
 
@@ -1049,7 +1049,7 @@ function DoXR__MzPoYe( Sa_l, Gi_k, FRM_k )
 			// if (source.targetRayMode === "tracked-pointer") {  myRenderTargetRayAsBeam(targetRayPose);  }
 			// }
 
-			// SmaSme( "[XR] CTL:", RAYMODE_vsg, HANDSIDE_vsg, SiMz_k.targetRaySpace );
+			// SmaJe( "[XR] CTL:", RAYMODE_vsg, HANDSIDE_vsg, SiMz_k.targetRaySpace );
 		}// TGT RAY
 
 		//&&&
@@ -1063,7 +1063,7 @@ function DoXR__MzPoYe( Sa_l, Gi_k, FRM_k )
 		if( SiMz_k.gamepad )
 		{
 			const gamepad = SiMz_k.gamepad;
-			// SmaSme( "GAMEPAD", gamepad );
+			// SmaJe( "GAMEPAD", gamepad );
 
 			// POSE
 			// gamepad.timestamp
@@ -1078,7 +1078,7 @@ function DoXR__MzPoYe( Sa_l, Gi_k, FRM_k )
 				{
 					if( gamepad.axes[ a ] )
 						{
-							//SmaSme( "Axis", a, " = ", gamepad.axes[ a ] );
+							//SmaJe( "Axis", a, " = ", gamepad.axes[ a ] );
 						}
 					}
 
@@ -1088,7 +1088,7 @@ function DoXR__MzPoYe( Sa_l, Gi_k, FRM_k )
 				//  if touched false, then value is '0' on touchpad BTN
 				if( gamepad.buttons[ b ].value )
 				{
-					//SmaSme( "Btn", b, "=", gamepad.buttons[ b ].value );
+					//SmaJe( "Btn", b, "=", gamepad.buttons[ b ].value );
 				}
 			}// BTNS
 		}//GAMEPAD

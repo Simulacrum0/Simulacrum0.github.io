@@ -21,10 +21,10 @@ const ViUSB = Object.freeze
 DoUSB.SmaYz = function( Sa_l )
 //-------------------------------------------------
 {
-	SmaSme( "Service: ", this.VaSy );
+	SmaJe( "[" + this.VaSy + "] SmaYz" );
 
-	Object.keys( ViUSB_qk ).forEach( _Va => {	SmaSme( _Va ); });
-	Object.values( ViUSB_qk ).forEach( _Vi => { SmaSme( _Vi );	});
+	Object.keys( ViUSB_qk ).forEach( _Va => {	SmaJe( _Va ); });
+	Object.values( ViUSB_qk ).forEach( _Vi => { SmaJe( _Vi );	});
 
 	// if( MoDzTrx__NxHo_y( "TEST FAKE ERROR", null )){ return; }
 
@@ -68,7 +68,7 @@ async function connectToUSBDevice()
 {
 	if (!navigator.usb)
 	{
-		SmaSme("WebUSB API not supported in your browser");
+		SmaJe("WebUSB API not supported in your browser");
 	  return;
 	}
 	try
@@ -76,16 +76,16 @@ async function connectToUSBDevice()
 	  let device = await navigator.usb.requestDevice({ filters: [{}] });
 	  await device.open();
 
-	  SmaSme( "USB_Dev Opened" );
-	  SmaSme( "- Manufacturer: "+ device.manufacturerName );
-	  SmaSme( "- Product: "+ device.productName );
-	  SmaSme( "- Serial Number: "+ device.device.serialNumber );
+	  SmaJe( "USB_Dev Opened" );
+	  SmaJe( "- Manufacturer: "+ device.manufacturerName );
+	  SmaJe( "- Product: "+ device.productName );
+	  SmaJe( "- Serial Number: "+ device.device.serialNumber );
 
 	  device.close();
 	}
 	catch( e )
 	{
-		SmaTrx( "USB-Err:", e );
+		SmaTrx( "[USB] Error:", e );
 	}
   }
 
@@ -111,8 +111,8 @@ DoUSB.BriYa = function( Yz_k )
 		// must USR_ACTIVATE prior to calling else '0'
 		navigator.usb.getDevices().then((devices) =>
 		{
-			SmaSme( `Total USB Devices: ${devices.length}`);
-			devices.forEach((device) => { SmaSme( `Product name: ${device.productName}, serial number ${device.serialNumber}` );	});
+			SmaJe( `Total USB Devices: ${devices.length}`);
+			devices.forEach((device) => { SmaJe( `Product name: ${device.productName}, serial number ${device.serialNumber}` );	});
 		});
 	}
 

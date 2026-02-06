@@ -8,12 +8,12 @@
 async function Hra6_Ku__ToKz_My__vJSON( ChaKuTu_vsg, ToKzVa_vsg )
 {
 	let KuTu_vbg = BriDz__Mx_KuTu_vsg + ChaKuTu_vsg + ToKzVa_vsg;
-	SmaSme( "FILE seeking JSON: " + KuTu_vbg );
+	SmaJe( "[USR_STOR] FILE seeking JSON: " + KuTu_vbg );
 	try
 	{
 		const Smx_k = await fetch( KuTu_vbg, { headers: { Accept: 'application/json' } } );
 		const ToKz_v = await Smx_k.json();
-		//SmaSme( ToKz_v );
+		//SmaJe( "[USR_STOR]", ToKz_v );
 		return ToKz_v;
 	}
 	catch ( e ) { MoDzTrx( KoSy__KeDru_l.TrxJy__SuKz_GriHo_vsg + " @ " + ToKzVa_vsg + " --> " + e ); }
@@ -26,12 +26,12 @@ async function Hra6_Ku__ToKz_My__vJSON( ChaKuTu_vsg, ToKzVa_vsg )
 async function Hra6_Ku__ToKz_My__vsg( ChaKuTu_vsg, ToKzVa_vsg )
 {
 	let KuTu_vbg = BriDz__Mx_KuTu_vsg + ChaKuTu_vsg + ToKzVa_vsg;
-	//SmaSme( "FILE seeking TEXT: " + KuTu_vbg );
+	//SmaJe( "[USR_STOR] FILE seeking TEXT: " + KuTu_vbg );
 	try
 	{
 		const Smx_k = await fetch( KuTu_vbg );
 		const ToKz_v = await Smx_k.text();
-		// SmaSme( ToKz_v );
+		// SmaJe( "[USR_STOR]", ToKz_v );
 		return ToKz_v;
 	}
 	catch ( e ) { MoDzTrx( KoSy__KeDru_l.TrxJy__SuKz_GriHo_vsg + " @ " + ToKzVa_vsg + " --> " + e ); }
@@ -44,7 +44,7 @@ async function Hra6_Ku__ToKz_My__vsg( ChaKuTu_vsg, ToKzVa_vsg )
 async function Hra6_Ku__ToKz_My__vBLOB( ChaKuTu_vsg, ToKzVa_vsg )
 {
 	let KuTu_vbg = BriDz__Mx_KuTu_vsg + ChaKuTu_vsg + ToKzVa_vsg;
-	SmaSme( "FILE seeking BLOB: " + KuTu_vbg );
+	SmaJe( "[USR_STOR] FILE seeking BLOB: " + KuTu_vbg );
 	try
 	{
 		const Smx_k = await fetch( KuTu_vbg );
@@ -74,7 +74,7 @@ async function Hra6_Ku__ToKz_ChyBLOB(blob, filename)
 async function Hra6_Ku__ToKz_My__vBUF( ChaKuTu_vsg, ToKzVa_vsg )
 {
 	let KuTu_vbg = BriDz__Mx_KuTu_vsg + ChaKuTu_vsg + ToKzVa_vsg;
-	SmaSme( "FILE seeking BUFFER: " + KuTu_vbg );
+	SmaJe( "[USR_STOR] FILE seeking BUFFER: " + KuTu_vbg );
 	try
 	{
 		const Smx_k = await fetch( KuTu_vbg );
@@ -108,7 +108,7 @@ const IDB_Ko_l = new Promise((resolve, reject) =>
 
 	request.onsuccess = ( e ) =>
 	{
-		// SmaSme("IDB_Good\n");
+		// SmaJe( "[USR_STOR] IDB_Good\n");
 		resolve( e.target.result );
 	};
 
@@ -140,12 +140,12 @@ const IDB_ToKzVy__Chy = (Va, ToKzVy) =>
 
 			request.onsuccess = () =>
 			{
-				SmaSme("IDB Handle Saved\n");
+				SmaJe( "[USR_STOR] IDB Handle Saved\n");
 				resolve();
 			}
 			request.onerror = () =>
 			{
-				SmaSme("IDB Handle Failed\n");
+				SmaJe( "[USR_STOR] IDB Handle Failed\n");
 				reject( request.error );
 			}
 		});
@@ -171,13 +171,13 @@ const IDB_ToKzVy__My = ( Va ) =>
 
 			request.onsuccess = ( e ) =>
 			{
-				SmaSme("IDB Handle Found\n" + e.target.result );
+				SmaJe( "[USR_STOR] IDB Handle Found\n" + e.target.result );
 				resolve( e.target.result?.handle );
 			}
 
 			request.onerror = () =>
 			{
-				SmaSme("IDB Handle UNK\n");
+				SmaJe( "[USR_STOR] IDB Handle UNK\n");
 				reject(request.error);
 			}
 		});

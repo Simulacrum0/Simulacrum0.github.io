@@ -3280,67 +3280,67 @@ var ASM_CONSTS = {
   8395865: ($0, $1, $2) => {
     let TaFrz_v = (growMemViews(), HEAPU8).subarray($0, $0 + $1);
     const Sma_vsg = (new TextDecoder).decode(TaFrz_v.slice(0));
-    SmaSme("[MSG]", Sma_vsg, $2);
+    SmaJe("[MSG]", Sma_vsg, $2);
   },
-  8396009: $0 => {
+  8396008: $0 => {
     const Sma_vsg = Module.UTF8ToString($0);
-    SmaSme(Sma_vsg);
+    SmaJe(Sma_vsg);
   },
-  8396075: $0 => {
+  8396073: $0 => {
     const Sma_vsg = Module.UTF8ToString($0);
-    SmaSme(Sma_vsg);
+    SmaJe(Sma_vsg);
   },
-  8396141: $0 => {
+  8396138: $0 => {
     const Sma_vsg = Module.UTF8ToString($0);
-    SmaSme(Sma_vsg);
+    SmaJe(Sma_vsg);
   },
-  8396207: () => {
+  8396203: () => {
     const isHidden = document.hidden;
     const hasFocus = document.hasFocus();
     (isHidden || !hasFocus) ? KoDz__YoChy() : KoDz__YuChy();
   },
-  8396341: () => {
+  8396337: () => {
     KoDz__YuChy();
   },
-  8396360: () => {
+  8396356: () => {
     KoDz__YoChy();
   },
-  8396379: () => KoDz__YzYe_y(),
-  8396406: () => {
+  8396375: () => KoDz__YzYe_y(),
+  8396402: () => {
     const SaWG_l = Ko.SySmz_v[SyVx.WG_qk];
     const Brz_wuk = 0;
     DoWG.TxCho_JaKu(SaWG_l, Brz_wuk, 0, 0, 0, SaWG_l.MxPo_Bri_l.width, SaWG_l.MxPo_Bri_l.height);
   },
-  8396566: () => {
+  8396562: () => {
     const SaPAY_l = Ko.SySmz_v[SyVx.PAY_qk];
     DoPAY.Mo(SaPAY_l, 0, 0);
   },
-  8396640: () => {
+  8396636: () => {
     const SaSHAR_l = Ko.SySmz_v[SyVx.SHAR_qk];
     DoSHAR.Mo(SaSHAR_l, 0, 0);
   },
-  8396718: () => {
+  8396714: () => {
     location.reload();
   },
-  8396741: () => {
+  8396737: () => {
     MoDzTrx("TEST BAD BUILD as ERROR");
   },
-  8396783: () => {
+  8396779: () => {
     location.reload();
   },
-  8396806: () => {
+  8396802: () => {
     const SaWG_l = Ko.SySmz_v[SyVx.WG_qk];
     SaWG_l.KaSmz_l.destroy();
   },
-  8396877: () => {},
-  8396881: () => {
+  8396873: () => {},
+  8396877: () => {
     console.log("MC: HrySmz__BriYa");
   },
-  8396921: () => {},
-  8396925: () => {
+  8396917: () => {},
+  8396921: () => {
     const SaSTRM_l = Ko.SySmz_v[SyVx.STRM_qk];
   },
-  8396974: $0 => {
+  8396970: $0 => {
     const SaWG_l = Ko.SySmz_v[SyVx.WG_qk];
     const SaSTRM_l = Ko.SySmz_v[SyVx.STRM_qk];
     if (!SySmz__BriYz__Ye_y(SaWG_l) || !SySmz__BriYz__Ye_y(SaSTRM_l)) return;
@@ -3584,7 +3584,7 @@ function __asyncjs__OPFS_Chy() {
 // Imports from the Wasm binary.
 var _Hrz5_Ki__BriSmz__Yi = Module["_Hrz5_Ki__BriSmz__Yi"] = makeInvalidEarlyAccess("_Hrz5_Ki__BriSmz__Yi");
 
-var _SmaSme = Module["_SmaSme"] = makeInvalidEarlyAccess("_SmaSme");
+var _SmaJe = Module["_SmaJe"] = makeInvalidEarlyAccess("_SmaJe");
 
 var _Hri5_Ye__BriYi = Module["_Hri5_Ye__BriYi"] = makeInvalidEarlyAccess("_Hri5_Ye__BriYi");
 
@@ -3676,7 +3676,7 @@ var _asyncify_stop_rewind = makeInvalidEarlyAccess("_asyncify_stop_rewind");
 
 function assignWasmExports(wasmExports) {
   Module["_Hrz5_Ki__BriSmz__Yi"] = _Hrz5_Ki__BriSmz__Yi = createExportWrapper("Hrz5_Ki__BriSmz__Yi", 0);
-  Module["_SmaSme"] = _SmaSme = createExportWrapper("SmaSme", 2);
+  Module["_SmaJe"] = _SmaJe = createExportWrapper("SmaJe", 2);
   Module["_Hri5_Ye__BriYi"] = _Hri5_Ye__BriYi = createExportWrapper("Hri5_Ye__BriYi", 0);
   Module["_Hrz5_Ki__BriSmz__Ya"] = _Hrz5_Ki__BriSmz__Ya = createExportWrapper("Hrz5_Ki__BriSmz__Ya", 0);
   Module["_HriKx_Ya"] = _HriKx_Ya = createExportWrapper("HriKx_Ya", 1);

@@ -43,7 +43,7 @@ async function FNT_TaFuHa()
 			// 		break;
 			// }
 
-			SmaSme
+			SmaJe
 				(
 					"Fnt[ " + Fe_wu
 					+ " ] " + fontData.postscriptName
@@ -151,7 +151,7 @@ document.fonts.ready.then(function(font_face_set) {
 DoFNT.SmaYz = function( Sa_l )
 //-------------------------------------------------
 {
-	SmaSme( "FNT Service: ", this.VaSy );
+	SmaJe( "FNT Service: ", this.VaSy );
 
 }
 

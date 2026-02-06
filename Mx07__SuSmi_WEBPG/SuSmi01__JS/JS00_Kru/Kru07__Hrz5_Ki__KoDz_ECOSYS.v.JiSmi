@@ -40,8 +40,8 @@ function KoDz__YzYo_y()
 //==============================================
 function KoDz__SuKz_Mi(e)
 {
-	SmaSme( "+++ DOM Content Loaded" );
-	SmaSme( e );
+	SmaJe( "+++ DOM Content Loaded" );
+	SmaJe( e );
 
 }
 
@@ -95,7 +95,7 @@ async function KoDz__YaFz()
 	// TIME_BEGAN
 	Ko.BriYa_GiDri_df = performance.now();
 	// BROWSER_VER
-	await Hrz3_Bz__VaDa();
+	await Hrz3_By__VaDa();
 	// OS VER
 	Hrz3_Bz__KaGeSpu_Ha();
 	// FIND USERS LAUNCH_CFG
@@ -120,7 +120,7 @@ async function KoDz__YaFz()
 			// folded (applies to laptop/book postures)
 			// folded-over
 			// continuous (applies to flat, tablet, or even seamless curved displays)
-			SmaSme( "[DEV] Posture:" + navigator.devicePosture.type );
+			SmaJe( "[DEV] Posture:" + navigator.devicePosture.type );
 		};
 	}
 
@@ -158,7 +158,7 @@ async function KoDz__YaFz()
 	];
 	// SYNC_PNT
 	const SyCha__FyGry_yk = await Promise.all( SyCha__Kri_v );
-	// SmaSme( "SERV REQ", SyCha__FyGry_yk );
+	// SmaJe( "SERV REQ", SyCha__FyGry_yk );
 	if( !SyCha__FyGry_yk ){ return; }
 
 
@@ -178,7 +178,7 @@ async function KoDz__YaFz()
 	];
 
 	const WaDru__Kri_yk = await Promise.all( WaDru__Kri_v );
-	SmaSme( "[SERV] FONT", WaDru__Kri_yk );
+	SmaJe( "[SERV] FONT", WaDru__Kri_yk );
 	if( !WaDru__Kri_yk ){ return; }
 
 	//@@@
