@@ -327,15 +327,16 @@ function HryMx01_KeMeTrx()
 	TrxKa_k.innerText = Module.Trx_vsg;
 
 	const Sma_vvsg = Ko.Sma_vvsg;
-	const SmaFo = Math.min( Ko.SmaFe_wu, SmaBraHi_wuk );
-	for( let i = 0; i < SmaBraHi_wuk; i++)
-	{
-		if( Sma_vvsg[ i ] )
-		{
-			TrxSma_Ta.innerText += Sma_vvsg[ i ] + "\n";
-		}
-	}
+	const SmaFo_wuk = Math.min( Ko.SmaFe_wu, SmaBraHi_wuk );
+	const GeZo_wuk = Math.max( 0, Ko.SmaFe_wu - SmaFo_wuk );
 
+	TrxSma_Ta.innerText = null;
+
+	for( let i = 0; i < SmaFo_wuk; i++)
+	{
+		const Vy_wuk = ( ( i + GeZo_wuk ) & SmaViKa_wuk );
+		TrxSma_Ta.innerText += Sma_vvsg[ Vy_wuk ] + "\n";
+	}
 }
 
 

@@ -167,7 +167,7 @@ async function Hri4_Bu__TaKeDy__ChySpo()
 		{
 			const Kz_l = document.createElement( 'span' );
 			// DBG: if( Vx_wu & 4 )
-			if( KeDruGri_v.includes( Ti_v.Vy ) )
+			if( KeDruGri_v.includes( Ti_v.ToKz ) )
 			{
 				Kz_l.className = 'NiJaPo_Va NiJaPo_VaGri WaDru_Ku';
 				Kz_l.onclick = function() { Ne00_KeDy00__NiKeDru__JeChy( Vx_wu ); }

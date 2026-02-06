@@ -1,5 +1,5 @@
-const BriDzSa__Da_vsg = "PUB_v0.210"; 
- const BriDzSa__Da_wuk = "210"; 
+const BriDzSa__Da_vsg = "PUB_v0.211"; 
+ const BriDzSa__Da_wuk = "211"; 
  const BriDz__Mx_KuTu_vsg = "https://powerourpeople.com/"; 
 
 //==============================================
@@ -340,8 +340,8 @@ function SmaTro_vsg( SmaJy_wu, ARG_v )
 	const Me_vsg = SmaJy_vsg[ SmaJy_wu ] + Ko.SmaFe_wu.toString().padStart( 3, "0" ) + "➡️" + ARG_v.join( ' ' );
 
 	// Increment line & wrap as valid entry
-	++Ko.SmaFe_wu;
 	const SmaFe_wuk = (( Ko.SmaFe_wu ) & SmaViKa_wuk );
+	++Ko.SmaFe_wu;
 
 	Ko.Sma_vvsg[ SmaFe_wuk ] = Me_vsg;
 	return Me_vsg
@@ -1099,12 +1099,19 @@ async function Hre1_Dru__KeDru_ChyVx( KeDru_wuk )
 {
 	const KwiYz_k = Ko.TaKeDy_l.KwiYz_v[ Ko.TaKeDy_l.KeDy_wu ];
 	KwiYz_k.KeDru_wu = KeDru_wuk;
-	document.getElementById( "Ne00_KeDy00__NiKeDru_q" ).innerText = Hre1_Dru__Gra_v[ KwiYz_k.KeDru_wu ].KuGwz;
+	const Dru_l = Hre1_Dru__Gra_v[ KeDru_wuk ];
+
+	//@@@
+	// NATIVE_NAMES
+	document.getElementById( "Ne00_KeDy00__NiKeDru_q" ).innerText = Dru_l.KuGwz;
+
+	// LOCALE TOOLTIP
+	// document.getElementById( "Ne00_KeDy00__NiKeDru_q" ).innerText = Dru_l.So;
 
 
 	//@@@
 	// LANG_FILE
-	const KeKu__ToKz_vksg = Hre1_Dru__Gra_v[ KeDru_wuk ].ToKz;
+	const KeKu__ToKz_vksg = Dru_l.ToKz;
 	let KeDru_v = await Hra7_Ta__ToKzMi_JSON_v( 'SuSmi03__CONTENTS/', `VaFz.${KeKu__ToKz_vksg}` );
 	if( !KeDru_v )
 	{
@@ -1119,7 +1126,7 @@ async function Hre1_Dru__KeDru_ChyVx( KeDru_wuk )
 	//@@@
 	// TEXT_DIR
 	// Set text direction
-	const Fe__KeDru_vksg = Hre1_Dru__Gra_v[ KeDru_wuk ].ToKz;
+	const Fe__KeDru_vksg = Dru_l.ToKz;
 	const KeDru_RTL_v = [ 'ar', 'he', 'fa' ];
 	if( KeDru_RTL_v.includes( Fe__KeDru_vksg ) )
 	{
@@ -1136,9 +1143,6 @@ async function Hre1_Dru__KeDru_ChyVx( KeDru_wuk )
 	const HriNe_KwiVu_k = document.getElementById( 'BriDz02_TraKwi_vsg' );
 	HriNe_KwiVu_k.value = KeDru_v.LABELS.BriDz02_TraKwi_vsg;
 
-	//@@@
-	// LOCALE TOOLTIP
-	
 
 	//@@@
 	// UPDATE LABELS
@@ -1148,9 +1152,9 @@ async function Hre1_Dru__KeDru_ChyVx( KeDru_wuk )
 		{
 			//SmaSme( `[CUL] *LABEL MATCH*: ${Vy_vbg}`, Va_vbg );
 			let Elm_l = document.getElementById( Vy_vbg );
-			if( Elm_l )
-				{ Elm_l.innerText = Va_vbg;	}
-			else{ SmaSme( `[CUL] *---------LABEL UNUSED-------------*: ${Vy_vbg}` ); }
+
+			if( Elm_l ){ Elm_l.innerText = Va_vbg;	}
+			//else{ SmaSme( `[CUL] *---------LABEL UNUSED-------------*: ${Vy_vbg}` ); }
 		}
 	);
 
@@ -1578,7 +1582,7 @@ async function Hri4_Bu__TaKeDy__ChySpo()
 		{
 			const Kz_l = document.createElement( 'span' );
 			// DBG: if( Vx_wu & 4 )
-			if( KeDruGri_v.includes( Ti_v.Vy ) )
+			if( KeDruGri_v.includes( Ti_v.ToKz ) )
 			{
 				Kz_l.className = 'NiJaPo_Va NiJaPo_VaGri WaDru_Ku';
 				Kz_l.onclick = function() { Ne00_KeDy00__NiKeDru__JeChy( Vx_wu ); }
@@ -2004,15 +2008,16 @@ function HryMx01_KeMeTrx()
 	TrxKa_k.innerText = Module.Trx_vsg;
 
 	const Sma_vvsg = Ko.Sma_vvsg;
-	const SmaFo = Math.min( Ko.SmaFe_wu, SmaBraHi_wuk );
-	for( let i = 0; i < SmaBraHi_wuk; i++)
-	{
-		if( Sma_vvsg[ i ] )
-		{
-			TrxSma_Ta.innerText += Sma_vvsg[ i ] + "\n";
-		}
-	}
+	const SmaFo_wuk = Math.min( Ko.SmaFe_wu, SmaBraHi_wuk );
+	const GeZo_wuk = Math.max( 0, Ko.SmaFe_wu - SmaFo_wuk );
 
+	TrxSma_Ta.innerText = null;
+
+	for( let i = 0; i < SmaFo_wuk; i++)
+	{
+		const Vy_wuk = ( ( i + GeZo_wuk ) & SmaViKa_wuk );
+		TrxSma_Ta.innerText += Sma_vvsg[ Vy_wuk ] + "\n";
+	}
 }
 
 

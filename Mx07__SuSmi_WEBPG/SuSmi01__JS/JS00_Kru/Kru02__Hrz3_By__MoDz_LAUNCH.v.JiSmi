@@ -59,8 +59,8 @@ function SmaTro_vsg( SmaJy_wu, ARG_v )
 	const Me_vsg = SmaJy_vsg[ SmaJy_wu ] + Ko.SmaFe_wu.toString().padStart( 3, "0" ) + "➡️" + ARG_v.join( ' ' );
 
 	// Increment line & wrap as valid entry
-	++Ko.SmaFe_wu;
 	const SmaFe_wuk = (( Ko.SmaFe_wu ) & SmaViKa_wuk );
+	++Ko.SmaFe_wu;
 
 	Ko.Sma_vvsg[ SmaFe_wuk ] = Me_vsg;
 	return Me_vsg
