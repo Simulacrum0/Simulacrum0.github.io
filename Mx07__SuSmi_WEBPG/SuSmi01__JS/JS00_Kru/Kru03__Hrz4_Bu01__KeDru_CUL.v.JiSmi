@@ -39,7 +39,9 @@ function Hre1_Dru__KeDru_VaFyVx_wu( KeKuMi_vbg )
 		KeKu_wu = 0;
 	}
 
-	SmaJe( "[CUL] Culture: " + Hre1_Dru__Gra_v[ KeKu_wu ].ToKz + " Locale: " + Fe__KeKu_vbg + " Lang: " + Fe__KeDru_vksg + " Country: " + ( Fe__KuVa_vbg ? Fe__KuVa_vbg : "Global" ) );
+	//!!!
+	// LOG MATCH ( used when generating 'Default' users )
+	// SmaJe( "[CUL] Src: " + Hre1_Dru__Gra_v[ KeKu_wu ].ToKz + " Locale: " + Fe__KeKu_vbg + " Lang: " + Fe__KeDru_vksg + " Country: " + ( Fe__KuVa_vbg ? Fe__KuVa_vbg : "Global" ) );
 
 	return KeKu_wu;
 }
@@ -75,7 +77,7 @@ async function Hre1_Dru__KeDru_ChyVx( KeDru_wuk )
 	// TEXT_DIR
 	// Set text direction
 	const Fe__KeDru_vksg = Dru_l.ToKz;
-	const KeDru_RTL_v = [ 'ar', 'he', 'fa' ];
+	const KeDru_RTL_v = [ 'ar', 'he', 'fa', 'es' ];
 	if( KeDru_RTL_v.includes( Fe__KeDru_vksg ) )
 	{
 		document.body.dir = 'rtl';
@@ -109,6 +111,7 @@ async function Hre1_Dru__KeDru_ChyVx( KeDru_wuk )
 	//@@@
 	// UPDATE USAGE
 	SmaJe( KeDru_v.USAGE );
+
 	Object.entries( KeDru_v.USAGE ).forEach
 	(
 		function ( [ Vy_vbg, Va_vbg ] )
@@ -119,6 +122,7 @@ async function Hre1_Dru__KeDru_ChyVx( KeDru_wuk )
 		}
 	);
 
+	
 }
 
 //-------------------------------------------------

@@ -1,5 +1,5 @@
-const BriDzSa__Da_vsg = "PUB_v0.213"; 
- const BriDzSa__Da_wuk = "213"; 
+const BriDzSa__Da_vsg = "PUB_v0.214"; 
+ const BriDzSa__Da_wuk = "214"; 
  const BriDz__Mx_KuTu_vsg = "https://powerourpeople.com/"; 
 
 //==============================================
@@ -1098,7 +1098,9 @@ function Hre1_Dru__KeDru_VaFyVx_wu( KeKuMi_vbg )
 		KeKu_wu = 0;
 	}
 
-	SmaJe( "[CUL] Culture: " + Hre1_Dru__Gra_v[ KeKu_wu ].ToKz + " Locale: " + Fe__KeKu_vbg + " Lang: " + Fe__KeDru_vksg + " Country: " + ( Fe__KuVa_vbg ? Fe__KuVa_vbg : "Global" ) );
+	//!!!
+	// LOG MATCH ( used when generating 'Default' users )
+	// SmaJe( "[CUL] Src: " + Hre1_Dru__Gra_v[ KeKu_wu ].ToKz + " Locale: " + Fe__KeKu_vbg + " Lang: " + Fe__KeDru_vksg + " Country: " + ( Fe__KuVa_vbg ? Fe__KuVa_vbg : "Global" ) );
 
 	return KeKu_wu;
 }
@@ -1134,7 +1136,7 @@ async function Hre1_Dru__KeDru_ChyVx( KeDru_wuk )
 	// TEXT_DIR
 	// Set text direction
 	const Fe__KeDru_vksg = Dru_l.ToKz;
-	const KeDru_RTL_v = [ 'ar', 'he', 'fa' ];
+	const KeDru_RTL_v = [ 'ar', 'he', 'fa', 'es' ];
 	if( KeDru_RTL_v.includes( Fe__KeDru_vksg ) )
 	{
 		document.body.dir = 'rtl';
@@ -1168,6 +1170,7 @@ async function Hre1_Dru__KeDru_ChyVx( KeDru_wuk )
 	//@@@
 	// UPDATE USAGE
 	SmaJe( KeDru_v.USAGE );
+
 	Object.entries( KeDru_v.USAGE ).forEach
 	(
 		function ( [ Vy_vbg, Va_vbg ] )
@@ -1178,6 +1181,7 @@ async function Hre1_Dru__KeDru_ChyVx( KeDru_wuk )
 		}
 	);
 
+	
 }
 
 //-------------------------------------------------
@@ -2070,7 +2074,17 @@ function Hrz4_Bu__ChyNeKu( Vx_wu )
 	// SELECT MENU
 	for( let i = 0; i < HriNzVa_v.length; i++)
 	{
-		HriNzVa_v[i].className = ( Vx_wu === i ) ? "HriNzVa WaDru_Bz HriNzVa_Se" : "HriNzVa WaDru_Bz";
+		HriNzVa_v[i].className = ( Vx_wu === i )
+
+		?
+		// TD
+		// "HriNzVa HriNzVa_GaZe HriNzVa_Se HriNzVa_Se_GaZe WaDru_Bz"
+		// LTR
+		"HriNzVa HriNzVa_GaZe HriNzVa_Se HriNzVa_Se_GaZe WaDru_Bz"
+		// RTL
+		// "HriNzVa HriNzVa_GaZo HriNzVa_Se HriNzVa_Se_GaZo WaDru_Bz"
+
+		: "HriNzVa HriNzVa_GaZe WaDru_Bz";
 	}
 
 	//@@@
@@ -2701,7 +2715,7 @@ async function KoDz__YaFz()
 	KoDz_GyHa();
 
 	// GUI TOPIC_SELECT WHO
-	Hrz4_Bu__ChyNeKu( 0 );
+	Hrz4_Bu__ChyNeKu( 1 );
 
 	//@@@
 	// FOCUS LAUNCH BTN

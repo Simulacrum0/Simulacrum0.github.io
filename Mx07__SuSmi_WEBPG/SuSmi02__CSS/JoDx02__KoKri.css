@@ -40,7 +40,7 @@ SHARED
   	--PoKuHu: #0008;
 	--PoKuSta: #222A;
 
-	--PoKuSteVo: #444F;
+	--PoKuSteVo: #4448;
 	--PoKuSteSpo: #444F;
 
 	/* Section Line */
@@ -48,7 +48,7 @@ SHARED
 	/* Toggle BG */
 	--PoKuStuSpo: #666F;
 
-	--PoTraFra: # AAA;
+	--PoTraFra: #AAA;
 	--PoTraFre: #CCC;
 
   	--PoSi: #FFF;
@@ -59,6 +59,9 @@ SHARED
 
 
   	/* SIZE */
+	--GyGe_MoKu: 42ch;
+	--GyGe_ToKu: 96ch;
+
 	--GyBe: 0.125rem;
 	--GyBo: 0.25rem;
 	--GyBi: 0.50rem;
@@ -366,105 +369,123 @@ PANELS
 	z-index: 4;
 }
 
-/* PANEL_GUI---WIDE */
-@media (min-aspect-ratio: 1/1)
+/* PANEL_GUI---HORIZ */
+.HriNe__NeGo_GxZe
 {
-	.Ku01__HriNe
-	{
-		display: block;
-	}
+	display: block;
 }
 
-/* PANEL_GUI---TALL */
-@media (max-aspect-ratio: 1/1)
+/* PANEL_GUI---VERT */
+.HriNe__NeGo_GaZe
+, .HriNe__NeGo_GaZo
 {
-	.Ku01__HriNe
-	{
-		display: grid;
-		grid-template-columns: 1fr 7fr;
-	}
+	display: grid;
+	grid-template-columns: 1fr 7fr;
 }
 
-/* PANEL_ALL_CHOICES ---------------------- */
-.Ku02__NzKwa
-{
-	border-radius: 1.5rem;
-	background-color: var(--PoKuHu);
-
-	/* 0 to align with topic section */
-	margin: 0.0rem;
-
-	/* PANEL_ALL_CHOICES--WIDE */
-	@media (min-aspect-ratio: 1/1)
-	{
-		padding: 0.0rem -0.5rem;
-		/* TL TR BR BL */
-		border-radius: 0.0rem 0.0rem 1.5rem 1.5rem;
-
-		border-left: solid 0.125rem var(--PoSi);
-		border-right: solid 0.125rem var(--PoSi);
-		border-top: none;
-		border-bottom: solid 0.125rem var(--PoSi);
-	}
-
-	/* PANEL_ALL_CHOICES--TALL */
-	@media (max-aspect-ratio: 1/1)
-	{
-		padding: 0.0rem;
-		/* TL TR BR BL */
-		border-radius: 0.0rem 1.5rem 1.5rem 0.0rem;
-
-		border-left: none;
-		border-right: solid 0.125rem var(--PoSi);
-		border-top: solid 0.125rem var(--PoSi);
-		border-bottom: solid 0.125rem var(--PoSi);
-	}
-}
 
 /* PANEL__MENU TABS --------------------------------- */
-.Ku03__HriNzVa
+.Ku02__HriNzVa
 {
 	background-color: var(--PoStz);
 	border-radius: 0.0rem;
 	/* 0 to align with topic section */
 	padding: 0.0rem;
 	margin: 0.0rem;
-
-	/* PANEL__MENU TABS---WIDE */
-	@media (min-aspect-ratio: 1/1)
-	{
-		display: flex;
-		flex: auto;
-		flex-wrap: nowrap;
-		place-items: stretch stretch;
-		min-height: 3.0rem;
-	}
-
-	/* PANEL__MENU TABS---TALL */
-	@media (max-aspect-ratio: 1/1)
-	{
-		display: grid;
-		grid-template-columns: 100%;
-		grid-template-rows: 16.67%;
-	}
 }
 
+/* PANEL__MENU TABS---HORIZ */
+.Ku02__HriNzVa_GxZe
+{
+	display: flex;
+	flex: auto;
+	flex-wrap: nowrap;
+	place-items: stretch stretch;
+	min-height: 3.0rem;
+}
+
+/* PANEL__MENU TABS---VERT */
+.Ku02__HriNzVa_GaZe
+{
+	display: grid;
+	grid-template-columns: 100%;
+	grid-template-rows: auto;
+}
+
+.Ku02__HriNzVa_GaZo
+{
+	display: grid;
+	grid-template-columns: 100%;
+	grid-template-rows: 16.67%;
+}
+
+
+/* PANEL_ALL_CHOICES ---------------------- */
+.Ku03__NzKwa
+{
+	border-radius: 1.5rem;
+	background-color: var(--PoKuHu);
+
+	/* 0 to align with topic section */
+	margin: 0.0rem;
+}
+
+/* PANEL_ALL_CHOICES--WIDE */
+.Ku03__NzKwa_GxZe
+{
+	padding: 0.0rem -0.5rem;
+	/* TL TR BR BL */
+	border-radius: 0.0rem 0.0rem 1.5rem 1.5rem;
+
+	border-left: solid 0.125rem var(--PoSi);
+	border-right: solid 0.125rem var(--PoSi);
+	border-top: none;
+	border-bottom: solid 0.125rem var(--PoSi);
+}
+
+/* PANEL_ALL_CHOICES--TALL */
+.Ku03__NzKwa_GaZe
+{
+	padding: 0.0rem;
+	/* TL TR BR BL */
+	border-radius: 0.0rem 1.5rem 1.5rem 0.0rem;
+
+	border-left: none;
+	border-right: solid 0.125rem var(--PoSi);
+	border-top: solid 0.125rem var(--PoSi);
+	border-bottom: solid 0.125rem var(--PoSi);
+}
+
+.Ku03__NzKwa_GaZo
+{
+	padding: 0.0rem;
+	/* TL TR BR BL */
+	border-radius: 0.0rem 1.5rem 1.5rem 0.0rem;
+
+	border-left: none;
+	border-right: solid 0.125rem var(--PoSi);
+	border-top: solid 0.125rem var(--PoSi);
+	border-bottom: solid 0.125rem var(--PoSi);
+}
+
+
 /* PANEL__TOPIC_CHOICES ----------------------------- */
-.Ku03_NeKu
+.Ku04__MoKu
 {
 	display: grid;
 	gap: 1rem;
-	grid-template-columns: repeat( auto-fill, minmax( 48ch, 1fr ));
+	grid-template-columns: repeat( auto-fill, minmax( var( --GyGe_MoKu ), 1fr ));
 }
 
-/* PANEL__TOPIC_TEXT */
-.Kwi03_KeDru
+.Ku04__ToKu
 {
-	display: inline-block;
+	display: grid;
+	gap: 1rem;
+	grid-template-columns: repeat( auto-fill, minmax( var( --GyGe_ToKu ), 1fr ));
 }
 
 /* PANEL__VERSION */
-.Kwi04_BriDzDa
+.Ku05_KwiBriDzDa
 {
 	margin: 0.25rem;
 	padding: 0.25rem;
@@ -510,45 +531,54 @@ TEXT
 	margin: 0.0rem;
 
 	color: var(--PoTraFra);
-	background-color: var(--PoTraSteVo);
+	background-color: var(--PoKuSteVo);
+	border: solid 0.125rem var(--PoSi);
 
 	transition: color 0.3s, background-color 0.3s;
-
-	/* TEXT__MENU_TITLE---WIDE */
-	@media (min-aspect-ratio: 1/1)
-	{
-		width: 16.67%;
-		border-radius:1.5rem 1.5rem 0 0;
-	}
-
-	/* TEXT__MENU_TITLE---TALL */
-	@media (max-aspect-ratio: 1/1)
-	{
-		width: 100%;
-		border-radius: 1.5rem 0 0 1.5rem;
-	}
-
-	border: solid 0.125rem var(--PoSi);
 }
 
 /* TEXT__MENU_HOVER */
 .HriNzVa:hover
 {
 	font-size: 1.5rem;
-	/* font-style: italic; */
-
-	/* TEXT__MENU_TITLE---WIDE */
-	@media (min-aspect-ratio: 1/1)
-	{
-		box-shadow: 0 -0.5em 1.0rem var(--PoTraFre);
-	}
-	/* TEXT__MENU_TITLE---TALL */
-	@media (max-aspect-ratio: 1/1)
-	{
-		box-shadow: -0.5em 0 1.0rem var(--PoTraFre);
-	}
 }
 
+/* TEXT__MENU_TITLE---HORIZ */
+.HriNzVa_GxZe
+{
+	width: 16.67%;
+	border-radius:1.5rem 1.5rem 0 0;
+}
+
+/* TEXT__MENU_TITLE---VERT */
+.HriNzVa_GaZe
+{
+	width: 100%;
+	border-radius: 1.5rem 0 0 1.5rem;
+}
+
+.HriNzVa_GaZo
+{
+	width: 100%;
+	border-radius: 1.5rem 0 0 1.5rem;
+}
+
+/* TEXT__MENU_TITLE---HORIZ */
+.HriNzVa_GxZe:hover
+{
+	box-shadow: -0.5em 0 1.0rem var(--PoTraFre);
+}
+
+/* TEXT__MENU_TITLE---VERT */
+.HriNzVa_GaZe:hover
+{
+	box-shadow: -0.5em 0 1.0rem var(--PoTraFre);
+}
+
+.HriNzVa_GaZo:hover
+{
+	box-shadow: -0.5em 0 1.0rem var(--PoTraFre);
+}
 
 /* TEXT__MENU_SELECTED */
 .HriNzVa_Se
@@ -558,23 +588,29 @@ TEXT
 
 	color: var(--PoSi);
 	background-color: var(--PoKuHu);
-
-	/* TEXT__MENU_TITLE---WIDE */
-	@media (min-aspect-ratio: 1/1)
-	{
-		box-shadow: 0 -0.5em 1.0rem var(--PoTraFra);
-		border-bottom:none;
-	}
-	/* TEXT__MENU_TITLE---TALL */
-	@media (max-aspect-ratio: 1/1)
-	{
-		box-shadow: -0.5em 0 1.0rem var(--PoTraFra);
-		border-right: none;
-	}
 }
 
+/* TEXT__MENU_TITLE---HORIZ */
+.HriNzVa_Se_GxZe
+{
+	box-shadow: 0 -0.5em 1.0rem var(--PoTraFra);
+	border-bottom:none;
+}
 
-/* TEXT__ITEMS---------------------------------------------------- */
+/* TEXT__MENU_TITLE---VERT */
+.HriNzVa_Se_GaZe
+{
+	box-shadow: -0.5em 0 1.0rem var(--PoTraFra);
+	border-right: none;
+}
+
+.HriNzVa_Se_GaZo
+{
+	box-shadow: -0.5em 0 1.0rem var(--PoTraFra);
+	border-left: none;
+}
+
+/* TEXT__ITEMS--------------------------------------------- */
 
 /* TEXT__SECTION_INDEX */
 .HriNeVx
@@ -705,19 +741,8 @@ ELEMENTS IMAGE GRID
 /* SPRITE ZONE */
 .TaJaPo_HryKu
 {
-	/* display: grid;
-	place-items: start start;
-	grid-template-columns: 8.0rem calc( 100% - 8.0rem ); */
-
-	/* display: grid;
-	gap: 1rem;
-	grid-template-columns: repeat( auto-fill, minmax( 32ch, 1fr )); */
-
 	display: inline-flex;
 	flex-wrap: wrap;
-
-	/* width: auto; */
-	/* height: 8.0rem; */
 
 	margin: 1.0rem 0.50rem;
 	padding: 0.0rem;

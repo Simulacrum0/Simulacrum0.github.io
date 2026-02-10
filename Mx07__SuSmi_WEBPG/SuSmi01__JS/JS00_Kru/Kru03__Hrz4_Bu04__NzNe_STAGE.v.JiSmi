@@ -369,7 +369,17 @@ function Hrz4_Bu__ChyNeKu( Vx_wu )
 	// SELECT MENU
 	for( let i = 0; i < HriNzVa_v.length; i++)
 	{
-		HriNzVa_v[i].className = ( Vx_wu === i ) ? "HriNzVa WaDru_Bz HriNzVa_Se" : "HriNzVa WaDru_Bz";
+		HriNzVa_v[i].className = ( Vx_wu === i )
+
+		?
+		// TD
+		// "HriNzVa HriNzVa_GaZe HriNzVa_Se HriNzVa_Se_GaZe WaDru_Bz"
+		// LTR
+		"HriNzVa HriNzVa_GaZe HriNzVa_Se HriNzVa_Se_GaZe WaDru_Bz"
+		// RTL
+		// "HriNzVa HriNzVa_GaZo HriNzVa_Se HriNzVa_Se_GaZo WaDru_Bz"
+
+		: "HriNzVa HriNzVa_GaZe WaDru_Bz";
 	}
 
 	//@@@
