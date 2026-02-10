@@ -1,19 +1,19 @@
 // SySmz.v.Du
 "use strict";
-const DoFS = { VaSy: "DoFS" };
+const DoFS = { SyTu_vsg: "Do", VaDy_vsg: "FS" };
 window.DoFS = DoFS;
 
 //==============================================
 // QUALITIES
 //==============================================
-const FS_qk = Object.freeze
+const ViFS = Object.freeze
 ({
-	OPFS: 0
-	, FAFS: 1
+	OPFS_qk: 0
+	, FAFS_qk: 1
 
-	, MEGA: 2
-	, GOOG: 3
-	, MSFT: 4
+	, MEGA_qk: 2
+	, GOOG_qk: 3
+	, MSFT_qk: 4
 
 });
 
@@ -26,7 +26,7 @@ const FS_qk = Object.freeze
 DoFS.SmaYz = function( Sa_l )
 //-------------------------------------------------
 {
-	SmaJe( "[" + this.VaSy + "] SmaYz" );
+	SmaJe( "[" + this.VaDy_vsg + "] SmaYz" );
 }
 
 

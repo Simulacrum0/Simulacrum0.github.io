@@ -1,16 +1,16 @@
 // SySmz.v.Du
 "use strict";
-const SwiML = { VaSy: "SwiML" };
+const SwiML = { SyTu_vsg: "Swi", VaDy_vsg: "ML" };
 window.SwiML = SwiML;
 
 //==============================================
 // QUALITIES
 //==============================================
-const ViTe = Object.freeze
+const ViML = Object.freeze
 ({
-	ViTe0_qk: 0
-	, ViTe1_qk: 1
-	, ViTe2_qk: 2
+	Va0_qk: 0
+	, Va1_qk: 1
+	, Va2_qk: 2
 });
 
 //==============================================
@@ -21,10 +21,8 @@ const ViTe = Object.freeze
 SwiML.SmaYz = function( Sa_l )
 //-------------------------------------------------
 {
-	SmaJe( "[" + this.VaSy + "] SmaYz" );
+	SmaJe( "[" + this.VaDy_vsg + "] SmaYz" );
 
-	Object.keys( ViTe_qk ).forEach( _Va => {	SmaJe( _Va ); });
-	Object.values( ViTe_qk ).forEach( _Vi => { SmaJe( _Vi );	});
 }
 
 

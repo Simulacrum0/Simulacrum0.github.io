@@ -1,6 +1,6 @@
 // SySmz.v.Du
 "use strict";
-const DoNET = { VaSy: "DoNET" };
+const DoNET = { SyTu_vsg: "Do", VaDy_vsg: "NET" };
 window.DoNET = DoNET;
 
 //==============================================
@@ -17,9 +17,9 @@ window.DoNET = DoNET;
 //==============================================
 const ViNET = Object.freeze
 ({
-	ViNET0_qk: 0
-	, ViNET1_qk: 1
-	, ViNET2_qk: 2
+	LOCAL_qk: 0
+	, LAN_qk: 1
+	, WAN_qk: 2
 });
 
 //==============================================
@@ -30,10 +30,7 @@ const ViNET = Object.freeze
 DoNET.SmaYz = function( Sa_l )
 //-------------------------------------------------
 {
-	SmaJe( "[" + this.VaSy + "] SmaYz" );
-
-	Object.keys( ViNET_qk ).forEach( _Va => {	SmaJe( _Va ); });
-	Object.values( ViNET_qk ).forEach( _Vi => { SmaJe( _Vi );	});
+	SmaJe( "[" + this.VaDy_vsg + "] SmaYz" );
 }
 
 

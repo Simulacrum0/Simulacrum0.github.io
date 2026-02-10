@@ -1,17 +1,19 @@
 // SySmz.v.Du
 "use strict";
-const DoFNT = { VaSy: "DoFNT" };
+const DoFNT = { SyTu_vsg: "Do", VaDy_vsg: "FNT" };
 window.DoFNT = DoFNT;
 
 //==============================================
 // QUALITIES
 //==============================================
-const ViTe = Object.freeze
+const ViFNT = Object.freeze
 ({
-	ViTe0_qk: 0
-	, ViTe1_qk: 1
-	, ViTe2_qk: 2
+	TTF_qk: 0
+	, OTF_qk: 1
+	, WOFF_qk: 2
+	, SVG_qk: 3
 });
+
 //==============================================
 // FONTS AVAIL
 //==============================================
@@ -45,8 +47,8 @@ async function FNT_TaFuHa()
 
 			SmaJe
 				(
-					"Fnt[ " + Fe_wu
-					+ " ] " + fontData.postscriptName
+					"[FNT] #" + Fe_wu
+					+ " " + fontData.postscriptName
 					+ " @ " + fontData.fullName
 					+ " ( " + fontData.family
 					+ " )" + fontData.style
@@ -151,7 +153,7 @@ document.fonts.ready.then(function(font_face_set) {
 DoFNT.SmaYz = function( Sa_l )
 //-------------------------------------------------
 {
-	SmaJe( "FNT Service: ", this.VaSy );
+	SmaJe( "[" + this.VaDy_vsg + "] SmaYz" );
 
 }
 

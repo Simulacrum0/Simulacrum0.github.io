@@ -1,6 +1,6 @@
 // SySmz.v.Du
 "use strict";
-const DoCAL = { VaSy: "DoCAL" };
+const DoCAL = { SyTu_vsg: "Do", VaDy_vsg: "CAL" };
 window.DoCAL = DoCAL;
 
 //==============================================
@@ -21,13 +21,7 @@ const ViCAL = Object.freeze
 DoCAL.SmaYz = function( Sa_l )
 //-------------------------------------------------
 {
-	SmaJe( "[" + this.VaSy + "] SmaYz" );
-
-	Object.keys( ViCAL_qk ).forEach( _Va => {	SmaJe( _Va ); });
-	Object.values( ViCAL_qk ).forEach( _Vi => { SmaJe( _Vi );	});
-
-	// if( MoDzTrx__NxHo_y( "TEST FAKE ERROR", null )){ return; }
-
+	SmaJe( "[" + this.VaDy_vsg + "] SmaYz" );
 }
 
 

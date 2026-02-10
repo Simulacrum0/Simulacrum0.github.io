@@ -1,6 +1,6 @@
 // SySmz.v.Du
 "use strict";
-const DoSAY = { VaSy: "DoSAY" };
+const DoSAY = { SyTu_vsg: "Do", VaDy_vsg: "SAY" };
 window.DoSAY = DoSAY;
 
 //==============================================
@@ -188,7 +188,7 @@ const SAY = Object.freeze
 DoSAY.SmaYz = function( Sa_l )
 //-------------------------------------------------
 {
-	SmaJe( "[" + this.VaSy + "] SmaYz" );
+	SmaJe( "[" + this.VaDy_vsg + "] SmaYz" );
 
 }
 
@@ -204,7 +204,7 @@ DoSAY.BriYi = function( Sa_l )
 }
 
 //-------------------------------------------------
-DoSAY.BriYa = function( Yz )
+DoSAY.BriYa = function( Yz_k )
 //-------------------------------------------------
 {
 	const Sa_l = SySmz__YaFz_v( DoSAY );

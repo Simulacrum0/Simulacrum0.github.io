@@ -4,7 +4,117 @@
 //==============================================
 //==============================================
 
+//==============================================
+// BUF LOAD
+//==============================================
 
+
+
+//==============================================
+// LIFECYCLE
+//==============================================
+
+//-------------------------------------------------
+DoWA.BriYi = function( Sa_l )
+//-------------------------------------------------
+{
+	//( Sa_l );
+	Sa_l = null;
+}
+
+//-------------------------------------------------
+DoWA.Trx = function( Sa_l, e )
+//-------------------------------------------------
+{
+	SmaTrx( "[WA] Fail:", e );
+	DoWA.BriYi( Sa_l );
+}
+
+//-------------------------------------------------
+DoWA.BriYu = async function( Sa_l )
+//-------------------------------------------------
+{
+	if( KoDz__YzTrx_y() ) return;
+	//SmaJe( "[WA] MzPoYe: RESUME" );
+
+}
+
+//-------------------------------------------------
+DoWA.BriYe = async function( Sa_l )
+//-------------------------------------------------
+{
+	if( KoDz__YzTrx_y() ) return;
+
+}
+
+//-------------------------------------------------
+DoWG.BriYo = function( Sa_l )
+//-------------------------------------------------
+{
+	if( KoDz__YzTrx_y() ) return;
+	//SmaJe( "[WA] BriYo: PAUSE" );
+
+	// Pause Compute Tasks?
+	// Reset Clocks?
+}
+
+//-------------------------------------------------
+DoWA.BriYa = async function( Yz_k )
+//-------------------------------------------------
+{
+	//@@@
+	// API
+	const Sa_l = SySmz__YaFz_v( DoWA );
+
+	try
+	{
+		Sa_l.Sx_l = new AudioContext();
+	}
+	catch(e)
+	{
+		SmaJe("[WA] No WebWA Browser & Device Found!" );
+		DoWA.BriYi( Sa_l );
+		return null;
+	}
+
+
+	const Sx_l = Sa_l.Sx_l;
+
+	const JaPe_Ku_vsg = BriDz__Mx_KuTu_vsg + "Mx01__SuKz_MEDIA/SuKz01_JaPe__SND/";
+
+	Sa_l.bufferLoader = new BufferLoader
+	(
+		Sx_l,
+		[
+			JaPe_Ku_vsg + "JaPe00__ToMi.wav"
+			, JaPe_Ku_vsg + "JoPe04__JeMx_BEEP.opus"
+		],
+
+		finishedLoading
+	);
+
+	SmaJe( "[WA] LOAD" );
+	Sa_l.bufferLoader.load();
+
+		function finishedLoading( bufferList )
+		{
+			SmaJe( "[WA] LOAD FINISH" );
+
+			// Create two sources and play them both together.
+			var source1 = Sx_l.createBufferSource();
+
+			source1.buffer = bufferList[0];
+			source1.connect(Sx_l.destination);
+			source1.start(0);
+
+			var source2 = Sx_l.createBufferSource();
+			source2.buffer = bufferList[1];
+			source2.connect(Sx_l.destination);
+			source2.start(0);
+		}
+
+
+}
 
 //==============================================
 //==============================================

@@ -1,6 +1,6 @@
 // SySmz.v.Du
 "use strict";
-const DoPAY = { VaSy: "DoPAY" };
+const DoPAY = { SyTu_vsg: "Do", VaDy_vsg: "PAY" };
 window.DoPAY = DoPAY;
 
 //==============================================
@@ -8,9 +8,9 @@ window.DoPAY = DoPAY;
 //==============================================
 const ViPAY = Object.freeze
 ({
-	ViPAY0_qk: 0
-	, ViPAY1_qk: 1
-	, ViPAY2_qk: 2
+	UNK_qk: 0
+	, KyGOOG_qk: 1
+	, KyAPPL_qk: 2
 });
 
 //==============================================
@@ -21,13 +21,7 @@ const ViPAY = Object.freeze
 DoPAY.SmaYz = function( Sa_l )
 //-------------------------------------------------
 {
-	SmaJe( "[" + this.VaSy + "] SmaYz" );
-
-	Object.keys( ViPAY_qk ).forEach( _Va => {	SmaJe( _Va ); });
-	Object.values( ViPAY_qk ).forEach( _Vi => { SmaJe( _Vi );	});
-
-	// if( MoDzTrx__NxHo_y( "TEST FAKE ERROR", null )){ return; }
-
+	SmaJe( "[" + this.VaDy_vsg + "] SmaYz" );
 }
 
 

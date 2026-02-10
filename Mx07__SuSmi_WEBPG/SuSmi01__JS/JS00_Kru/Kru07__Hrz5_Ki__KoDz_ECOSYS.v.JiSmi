@@ -140,8 +140,8 @@ async function KoDz__YaFz()
 		, Hrz7_Kru__ChaSySmz( "Hry5_Smz", "WzMx", "Do", "WG", SySmz__Kri_yk, { YzVi_q: KwiYz_k.Ne03_Hry06__SmzYz_q } )
 		, Hrz7_Kru__ChaSySmz( "Hre1_Dru", "KeDruPy", "Do", "TAK", SySmz__Kri_yk, { Si_KeDru: "en" } )
 		, Hrz7_Kru__ChaSySmz( "Hra6_Ku", "KoToKz", "Do", "FS", SySmz__Kri_yk, { VaDyFy: "true" } )
-		, Hrz7_Kru__ChaSySmz( "Hrx4_Che", "MoDxGri", "Do", "TRU", SySmz__Kri_yk, { YzTi_wu: "0" } )
 
+		, Hrz7_Kru__ChaSySmz( "Hrx4_Che", "MoDxGri", "Do", "TRU", SySmz__Kri_yk, { YzTi_wu: "0" } )
 		, Hrz7_Kru__ChaSySmz( "Hra7_Ta", "ToMi", "Do", "STRM", SySmz__Kri_yk, { YzTi_wu: "0" } )
 		, Hrz7_Kru__ChaSySmz( "Hre1_Dru", "WaDru", "Do", "FNT", SySmz__Kri_yk, { YzTi_wu: "0" } )
 		, Hrz7_Kru__ChaSySmz( "Hry1_Brz", "KeDru", "Do", "GLF", SySmz__Kri_yk, { Gy_wu: 512 } )
@@ -178,8 +178,10 @@ async function KoDz__YaFz()
 	];
 
 	const WaDru__Kri_yk = await Promise.all( WaDru__Kri_v );
-	SmaJe( "[SERV] FONT", WaDru__Kri_yk );
+	// SmaJe( "[SERV] FONT", WaDru__Kri_yk );
 	if( !WaDru__Kri_yk ){ return; }
+
+
 
 	//@@@
 	// LOAD LAUNCH CANVAS
@@ -213,12 +215,16 @@ async function KoDz__YaFx( )
 	if( KwiYz_k.Ne03_Hry02__HriKe_y ) { Hrz7_Kru__ChaSySmz( "Hri2_Ke", "BzMe", "Do", "XR", SySmz__HoKri_yk, { YzTi_wu: "0" } ); }
 
 	// DoAUD
-	//Hrz7_Kru__ChaSySmz( "Hru5_Smz", "MxPe", "Do", "AUD", SySmz__HoKri_yk, { YzTi_wu: "0" } );
+	Hrz7_Kru__ChaSySmz( "Hru5_Smz", "WzMx", "Do", "WA", SySmz__HoKri_yk, { YzTi_wu: "0" } );
+
+	// DoHID
+	Hrz7_Kru__ChaSySmz( "Hra1_Mz", "KaMo", "Do", "HID", SySmz__HoKri_yk, { YzTi_wu: "0" } );
+
 
 	// DoCARD ( CONTACT CARDS )
 	// , Hrz7_Kru__ChaSySmz( "Hra6_Ku", "SaNoKe", "Do", "CARD", SySmz__HoKri_yk, { YzTi_wu: "0" } )
 
-	// LGTs/Humidifiers
+	// USB
 	//, Hrz7_Kru__ChaSySmz( "Hra5_Ka", "KzGwe", "Do", "USB", SySmz__HoKri_yk, { YzTi_wu: "0" } )
 
 	// BATTERY/POWER?

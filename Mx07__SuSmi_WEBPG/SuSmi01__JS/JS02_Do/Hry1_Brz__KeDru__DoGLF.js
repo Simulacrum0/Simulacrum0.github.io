@@ -2,7 +2,7 @@
 // DoGLF
 //==============================================
 "use strict";
-const DoGLF = { VaSy: "DoGLF" };
+const DoGLF = { SyTu_vsg: "Do", VaDy_vsg: "GLF" };
 window.DoGLF = DoGLF;
 
 //==============================================
@@ -10,7 +10,7 @@ window.DoGLF = DoGLF;
 //==============================================
 DoGLF.Trx = function( err )
 {
-	SmaJe( "DoGLF_Trx: " + err );
+	SmaJe( "[GLF] Trx: " + err );
 
 }
 
@@ -20,13 +20,11 @@ DoGLF.Trx = function( err )
 DoGLF.SmaYz = function( Sa_l )
 {
 	// REPORT
-	SmaJe( "--------------------------------------------" );
-	SmaJe( "DoGLF_Yz" );
-	SmaJe( "--------------------------------------------" );
-	SmaJe( "Canvas: " + Sa_l.WzPo_Gwa_l );
+	SmaJe( "[" + this.VaDy_vsg + "] SmaYz" );
+
+	// SmaJe( "Canvas: " + Sa_l.WzPo_Gwa_l );
 	//SmaJe( "Fonts: " + Sa_l.WaDru_wu );
 	//SmaJe( "Words: " + Sa_l.VaFo_wu );
-	SmaJe( "--------------------------------------------" );
 }
 
 
@@ -237,7 +235,7 @@ DoGLF.Mo = function( Sa_l, Jy_k, Mo_l )
 //==============================================
 DoGLF.BriYi = function( Sa_l )
 {
-	// SmaJe( this.VaSy );
+	// SmaJe( this.VaDy_vsg );
 	Sa_l.SxHry_l = null;
 	Sa_l.WzPo_Gwa_l = null;
 }
@@ -245,7 +243,7 @@ DoGLF.BriYi = function( Sa_l )
 //==============================================
 // DoGLF_BriYa
 //==============================================
-DoGLF.BriYa = async function( Yz_l )
+DoGLF.BriYa = async function( Yz_k )
 {
 	//@@@
 	// MAKE SESSION with Ji INTERFACE
@@ -253,11 +251,11 @@ DoGLF.BriYa = async function( Yz_l )
 
 	//@@@
 	// CANVAS
-	const WzPo_Gwa_l = new OffscreenCanvas( Yz_l.Gy_wu, Yz_l.Gy_wu );
-	if( MoDzTrx__NxHo_y( "GLF Canvas", WzPo_Gwa_l )){ return null; }
+	const WzPo_Gwa_l = new OffscreenCanvas( Yz_k.Gy_wu, Yz_k.Gy_wu );
+	if( MoDzTrx__NxHo_y( "[GLF] Canvas", WzPo_Gwa_l )){ return null; }
 
 	const SxHry_l = WzPo_Gwa_l.getContext("2d");
-	if( MoDzTrx__NxHo_y( "GLF Context", SxHry_l )){ return null; }
+	if( MoDzTrx__NxHo_y( "[GLF] Context", SxHry_l )){ return null; }
 
 	Sa_l.WzPo_Gwa_l = WzPo_Gwa_l;
 	Sa_l.SxHry_l = SxHry_l;

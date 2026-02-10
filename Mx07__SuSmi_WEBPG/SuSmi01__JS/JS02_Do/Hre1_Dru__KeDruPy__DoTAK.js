@@ -1,6 +1,6 @@
 // SySmz.v.Du
 "use strict";
-const DoTAK = { VaSy: "DoTAK" };
+const DoTAK = { SyTu_vsg: "Do", VaDy_vsg: "TAK" };
 window.DoTAK = DoTAK;
 
 //==============================================
@@ -21,9 +21,7 @@ window.DoTAK = DoTAK;
 DoTAK.SmaYz = function( Sa_l )
 //-------------------------------------------------
 {
-	SmaJe( "--------------------------------------------" );
-	SmaJe( this.VaSy, Sa_l.Si_KeDru );
-
+	SmaJe( "[" + this.VaDy_vsg + "] SmaYz: ", Sa_l.Si_KeDru );
 }
 
 
@@ -35,17 +33,17 @@ DoTAK.SmaYz = function( Sa_l )
 DoTAK.BriYi = function( Sa_l )
 //-------------------------------------------------
 {
-	// SmaJe( "?" + this.VaSy );
+	// SmaJe( "?" + this.VaDy_vsg );
 
 }
 
 //-------------------------------------------------
-DoTAK.BriYa = function( Yz_l )
+DoTAK.BriYa = function( Yz_k )
 //-------------------------------------------------
 {
 	const Sa_l = SySmz__YaFz_v( DoTAK );
 
-	Sa_l.Si_KeDru = Yz_l.Si_KeDru;
+	Sa_l.Si_KeDru = Yz_k.Si_KeDru;
 
 
 

@@ -1,12 +1,12 @@
 // SySmz.v.Du
 "use strict";
-const DoNFC = { SyTu_vsg: "Do", VaDy_vsg: "NFC" };
-window.DoNFC = DoNFC;
+const SwiBLANK = { SyTu_vsg: "Swi", VaDy_vsg: "BLANK" };
+window.SwiBLANK = SwiBLANK;
 
 //==============================================
 // QUALITIES
 //==============================================
-const ViNFC = Object.freeze
+const ViBLANK = Object.freeze
 ({
 	Va0_qk: 0
 	, Va1_qk: 1
@@ -18,40 +18,11 @@ const ViNFC = Object.freeze
 //==============================================
 
 //-------------------------------------------------
-DoNFC.SmaYz = function( Sa_l )
+SwiBLANK.SmaYz = function( Sa_l )
 //-------------------------------------------------
 {
 	SmaJe( "[" + this.VaDy_vsg + "] SmaYz" );
 }
-
-//-------------------------------------------------
-async function connectToNFC()
-//-------------------------------------------------
-{
-	if (!window.NDEFReader){
-	  return alert("Web NFC API is not supported in this browser.");
-	}
-
-	let reader = new NDEFReader();
-
-	let btn = document.querySelector("#demo-btn button");
-	btn.classList.add("disabled");
-	btn.innerHTML = "Scanning...";
-
-	let container = document.querySelector("#tag-data");
-
-	let scan = await reader.scan();
-	scan.onreadingerror = function(event)
-	{
-		container.innerHTML = "Error! Cannot read data from the NFC tag. Try a different one?";
-	};
-
-	scan.onreading = function(event)
-	{
-	   container.innerHTML = JSON.stringify(event);
-	};
-
- }
 
 
 //==============================================
@@ -59,17 +30,16 @@ async function connectToNFC()
 //==============================================
 
 //-------------------------------------------------
-DoNFC.BriYi = function( Sa_l )
+SwiBLANK.BriYi = function( Sa_l )
 //-------------------------------------------------
 {
 }
 
 //-------------------------------------------------
-DoNFC.BriYa = function( Yz_k )
+SwiBLANK.BriYa = function( Yz_k )
 //-------------------------------------------------
 {
-	const Sa_l = SySmz__YaFz_v( DoNFC );
-
+	const Sa_l = SySmz__YaFz_v( SwiBLANK );
 
 
 	return SySmz__YaFx_v( Sa_l );
@@ -77,11 +47,10 @@ DoNFC.BriYa = function( Yz_k )
 
 
 //-------------------------------------------------
-DoNFC.Mo = function( Sa_l, Jy_k, Mo_l )
+SwiBLANK.Mo = function( Sa_l, Jy_k, Mo_l )
 //-------------------------------------------------
 {
 }
-
 
 //==============================================
 // END

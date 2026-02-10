@@ -50,15 +50,21 @@ window.Ko = Ko;
 //==============================================
 // 'arguments object' is a builtin Array -like object.
 // Array.prototype.slice.call(arguments) converts *array-like* 'arguments' to a TRUE array 'ARG_v:
-// function SmaJe(){ var ARG_v = Array.prototype.slice.call(arguments); console.log.apply(console, ARG_v); }
+// function LOG(){ var ARG_v = Array.prototype.slice.call(arguments); console.log.apply(console, ARG_v); }
 
+//----------------------------------
 const SmaJy_vsg =
+//----------------------------------
 [
+	// LOG ICONS:
+	// Sy, Je Dre, Trx
 	'🤖', '✅', '😕','🤯'
 	// '⚙️', 'ℹ️', '⚠️', '🚫'
 ];
 
+//----------------------------------
 function SmaTro_vsg( SmaJy_wu, ARG_v )
+//----------------------------------
 {
 	//@@@
 	// FILTER by TAG before collapsing ARG into String?
@@ -76,10 +82,35 @@ function SmaTro_vsg( SmaJy_wu, ARG_v )
 	return Me_vsg
 }
 
+//----------------------------------
+// LOG by AUDIENCE
+//----------------------------------
 function SmaSy(){ var ARG_v = Array.prototype.slice.call(arguments); console.log( SmaTro_vsg( 0, ARG_v ) );}
 function SmaJe(){ var ARG_v = Array.prototype.slice.call(arguments); console.log( SmaTro_vsg( 1, ARG_v ) );}
 function SmaDre(){ var ARG_v = Array.prototype.slice.call(arguments); console.warn( SmaTro_vsg( 2, ARG_v ) );}
 function SmaTrx(){ var ARG_v = Array.prototype.slice.call(arguments); console.error( SmaTro_vsg( 3, ARG_v ) );}
+
+function SmaGwxHu(){ SmaJe( "[" + this.VaDy_vsg + "]----------------------------------" ); }
+function SmaGwxDe(){ SmaJe( "[" + this.VaDy_vsg + "]=============================" ); }
+function SmaGwxHi(){ SmaJe( "[" + this.VaDy_vsg + "]################################" ); }
+
+//----------------------------------
+// OBJ CONSOLE
+function SmaDBG()
+//----------------------------------
+{
+	var ARG_v = Array.prototype.slice.call(arguments);
+	console.log.apply(console, ARG_v);
+}
+
+//----------------------------------
+// OBJ LOG
+function SmaKzFu( Kz_k )
+//----------------------------------
+{
+	Object.keys( Kz_k ).forEach( _Va => { SmaJe( _Va ); });
+	Object.values( Kz_k ).forEach( _Vu => { SmaJe( _Vu ); });
+}
 
 //==============================================
 // SECURITY

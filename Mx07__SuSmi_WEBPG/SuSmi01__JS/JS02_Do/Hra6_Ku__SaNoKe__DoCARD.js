@@ -1,6 +1,6 @@
 // SySmz.v.Du
 "use strict";
-const DoCARD = { VaSy: "DoCARD" };
+const DoCARD = { SyTu_vsg: "Do", VaDy_vsg: "CARD" };
 window.DoCARD = DoCARD;
 
 //==============================================
@@ -21,19 +21,18 @@ const ViCARD = Object.freeze
 DoCARD.SmaYz = function( Sa_l )
 //-------------------------------------------------
 {
-	SmaJe( "[" + this.VaSy + "] SmaYz" );
-
-	Object.keys( ViCARD_qk ).forEach( _Va => {	SmaJe( _Va ); });
-	Object.values( ViCARD_qk ).forEach( _Vi => { SmaJe( _Vi );	});
-
-	// if( MoDzTrx__NxHo_y( "TEST FAKE ERROR", null )){ return; }
+	SmaJe( "[" + this.VaDy_vsg + "] SmaYz" );
 
 }
 
 
-async function pickContacts(){
-	if(!navigator.contacts || !window.ContactsManager) {
-	   alert("Your device does not support the Contact Picker API. Open this page on Android Chrome to give it a try!");
+//-------------------------------------------------
+async function pickContacts()
+//-------------------------------------------------
+{
+	if(!navigator.contacts || !window.ContactsManager)
+	{
+	   alert("Your device does not support the Contact Picker API");
 	}
 	else {
 		//first we ask the browser to tell us which properties the device supports
@@ -46,7 +45,8 @@ async function pickContacts(){
 	}
   }
 
-  function addContactsToTable(contacts){
+  function addContactsToTable(contacts)
+  {
 	let table = document.querySelector('.contacts-table');
 
 	contacts.forEach(function(contact){

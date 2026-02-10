@@ -1,16 +1,16 @@
 // SySmz.v.Du
 "use strict";
-const SyTe = { VaSy: "SyTe" };
-window.SyTe = SyTe;
+const DoGPS = { SyTu_vsg: "Do", VaDy_vsg: "GPS" };
+window.DoGPS = DoGPS;
 
 //==============================================
 // QUALITIES
 //==============================================
-const ViTe = Object.freeze
+const ViGPS = Object.freeze
 ({
-	ViTe0_qk: 0
-	, ViTe1_qk: 1
-	, ViTe2_qk: 2
+	Va0_qk: 0
+	, Va1_qk: 1
+	, Va2_qk: 2
 });
 
 
@@ -19,13 +19,11 @@ const ViTe = Object.freeze
 //==============================================
 
 //-------------------------------------------------
-SyTe.SmaYz = function( Sa_l )
+DoGPS.SmaYz = function( Sa_l )
 //-------------------------------------------------
 {
-	SmaJe( "[" + this.VaSy + "] SmaYz" );
+	SmaJe( "[" + this.VaDy_vsg + "] SmaYz" );
 
-	Object.keys( ViTe_qk ).forEach( _Va => {	SmaJe( _Va ); });
-	Object.values( ViTe_qk ).forEach( _Vi => { SmaJe( _Vi );	});
 }
 
 
@@ -36,7 +34,7 @@ SyTe.SmaYz = function( Sa_l )
 //==============================================
 // GPS
 //==============================================
-function KiGPS_Trx(error)
+function DoGPS_Trx(error)
 {
 	const Err_vsg = "";
 	  switch(error.code)
@@ -73,13 +71,13 @@ function KiGPS_Fy(Ge_l )
 }
 
 //-------------------------------------------------
-SyTe.BriYi = function( Sa_l )
+DoGPS.BriYi = function( Sa_l )
 //-------------------------------------------------
 {
 }
 
 //-------------------------------------------------
-SyTe.BriYa = function( Yz_k )
+DoGPS.BriYa = function( Yz_k )
 //-------------------------------------------------
 {
 	const Sa_l = SySmz__YaFz_v( DoGPS );
@@ -89,14 +87,14 @@ SyTe.BriYa = function( Yz_k )
 	// getCurrentPosition() one-shot
 	// watchPosition() - continues to return updated location as the user moves (like the GPS in a car).
 	// clearWatch() - Stops the watchPosition() method.
-	if (navigator.geolocation){ navigator.geolocation.watchPosition( KiGPS_Fy, KiGPS_Trx ); }
+	if (navigator.geolocation){ navigator.geolocation.watchPosition( KiGPS_Fy, DoGPS_Trx ); }
 	else { SmaDre( "Geolocation is not supported by this browser." ); }
 
 	return SySmz__YaFx_v( Sa_l );
 }
 
 //-------------------------------------------------
-SyTe.Mo = function( Sa_l, Jy_k, Mo_l )
+DoGPS.Mo = function( Sa_l, Jy_k, Mo_l )
 //-------------------------------------------------
 {
 }

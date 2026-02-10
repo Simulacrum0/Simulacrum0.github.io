@@ -35,7 +35,7 @@ FN^TaJiDru:
 */
 //==============================================
 "use strict";
-const DoWG = { VaSy: "DoWG" };
+const DoWG = { SyTu_vsg: "Do", VaDy_vsg: "WG" };
 window.DoWG = DoWG;
 
 //==============================================

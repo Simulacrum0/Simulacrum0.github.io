@@ -1,4 +1,4 @@
-const DoWG__BriDzSa__Da_wuk = "214"; 
+const DoWG__BriDzSa__Da_wuk = "215"; 
 
 //==============================================
 //==============================================
@@ -37,7 +37,7 @@ FN^TaJiDru:
 */
 //==============================================
 "use strict";
-const DoWG = { VaSy: "DoWG" };
+const DoWG = { SyTu_vsg: "Do", VaDy_vsg: "WG" };
 window.DoWG = DoWG;
 
 //==============================================
@@ -1110,7 +1110,7 @@ function DoWG__BriYi_SmzYz( Sa_l )
 //==============================================
 DoWG.BriYi = function( Sa_l )
 {
-	SmaSy( "[WG] BriYi: " + this.VaSy );
+	SmaSy( "[WG] BriYi: " + this.VaDy_vsg );
 
 	DoWG__BriYi_SmzYz( Sa_l );
 
@@ -1163,16 +1163,16 @@ JOB:
 
 */
 //==============================================
-async function DoWG__BriYa_SmzYz( Sa_l, FuYz_l )
+async function DoWG__BriYa_SmzYz( Sa_l, Yz_k )
 //==============================================
 {
 	DoWG__BriYi_SmzYz( Sa_l );
-	const SmzYz_l = DoWG__SmzYz_v[ FuYz_l.YzVi_q ];
+	const SmzYz_l = DoWG__SmzYz_v[ Yz_k.YzVi_q ];
 	const KwiYz_k = Ko.TaKeDy_l.KwiYz_v[ Ko.TaKeDy_l.KeDy_wu ];
 
 	//@@@
 	// LOG
-	SmaJe( "[WG] TRY CFG:", FuYz_l.YzVi_q, " / ", DoWG__Yz.Ti03__ZzKri_qk, " @ ", SmzYz_l.Vi_q, " JaVe:", SmzYz_l.JaVe_wu, " JaGzFo:", SmzYz_l.JaGzFo_wu );
+	SmaJe( "[WG] TRY CFG:", Yz_k.YzVi_q, " / ", DoWG__Yz.Ti03__ZzKri_qk, " @ ", SmzYz_l.Vi_q, " JaVe:", SmzYz_l.JaVe_wu, " JaGzFo:", SmzYz_l.JaGzFo_wu );
 
 	//-------------------------------------------------
 	// CHIP ADAPTER
@@ -1343,12 +1343,12 @@ async function DoWG__BriYa_SmzYz( Sa_l, FuYz_l )
 		);
 
 
-		FuYz_l.YzVi_q = KwiYz_k.Ne03_Hry06__SmzYz_q;
+		Yz_k.YzVi_q = KwiYz_k.Ne03_Hry06__SmzYz_q;
 		return
 		(
 			( Gi__TraNa_yk || Fo__TraNa_yk )
 			// TRY AGAIN
-			? DoWG__BriYa_FuYz( Sa_l, FuYz_l )
+			? DoWG__BriYa_FuYz( Sa_l, Yz_k )
 			// TOO many attempts or time elapsed, throw ERROR
 			: MoDzTrx( KoSy__KeDru_l.TrxJy03__KaBzTrx__WG_vsg )
 		);
@@ -1749,7 +1749,7 @@ async function DoWG__BriYa_SmzYz( Sa_l, FuYz_l )
 		//@@@
 		// LIMITS
 		const JaVe_wuk = Math.min( SmzYz_l.JaVe_wu, KaKy_l.limits.maxTextureDimension2D );
-		// const JaGzFo_wuk = SmzYz_l.JaGzFo_v[ FuYz_l.YzVi_q ];
+		// const JaGzFo_wuk = SmzYz_l.JaGzFo_v[ Yz_k.YzVi_q ];
 		const JaGzFo_wuk = Math.min( SmzYz_l.JaGzFo_wu, KaKy_l.limits.maxTextureArrayLayers );
 
 		//@@@
@@ -2000,36 +2000,36 @@ async function DoWG__BriYa_SmzYz( Sa_l, FuYz_l )
 
 	//@@@
 	// SAVE SUCCESS
-	KwiYz_k.Ne03_Hry06__SmzYz_q = FuYz_l.YzVi_q;
+	KwiYz_k.Ne03_Hry06__SmzYz_q = Yz_k.YzVi_q;
 	Hrz4_Bu__TaKeDy__ChyGry();
 
 	//@@@
 	// REPORT
 	SmaJe( "[WG] HDR", Sa_l.KaTy__HDR_y, "MxPo__FMT", Sa_l.MxPo__FMT_l );
 
-	const YzGry_vsg = KaBxTy_v[ FuYz_l.YzVi_q ];
+	const YzGry_vsg = KaBxTy_v[ Yz_k.YzVi_q ];
 	const YzKwx_wu = YzGry_vsg.indexOf( "^=" );
 
 	const YzVa_vsg = YzGry_vsg.substring( 0, YzKwx_wu );
 	const YzHx_vsg = YzGry_vsg.substring( YzKwx_wu + 1);
 
-	SmaJe( "[WG] READY CFG:", FuYz_l.YzVi_q, " @ ", YzVa_vsg, " = ", YzHx_vsg );
+	SmaJe( "[WG] READY CFG:", Yz_k.YzVi_q, " @ ", YzVa_vsg, " = ", YzHx_vsg );
 
 	return SySmz__YaFx_v( Sa_l );
 }
 
 //==============================================
-async function DoWG__BriYa_FuYz( Sa_l, FuYz_l )
+async function DoWG__BriYa_FuYz( Sa_l, Yz_k )
 //==============================================
 {
 	//@@@
 	// RETURN OBJECT ONCE
 	do
 	{
-		await DoWG__BriYa_SmzYz( Sa_l, FuYz_l );
+		await DoWG__BriYa_SmzYz( Sa_l, Yz_k );
 		if( SySmz__BriYz__Ye_y( Sa_l ) ) break;
 	}
-	while( FuYz_l.YzVi_q-- );
+	while( Yz_k.YzVi_q-- );
 
 
 	//@@@
@@ -2046,7 +2046,7 @@ async function DoWG__BriYa_FuYz( Sa_l, FuYz_l )
 }
 
 //==============================================
-DoWG.BriYa = async function( FuYz_l )
+DoWG.BriYa = async function( Yz_k )
 //==============================================
 {
 	//-------------------------------------------------
@@ -2090,7 +2090,7 @@ DoWG.BriYa = async function( FuYz_l )
 	//-------------------------------------------------
 	// CFG_FIND MATCH
 	//-------------------------------------------------
-	return await DoWG__BriYa_FuYz( Sa_l, FuYz_l );
+	return await DoWG__BriYa_FuYz( Sa_l, Yz_k );
 }
 
 //==============================================

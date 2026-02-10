@@ -1,4 +1,4 @@
-const DoXR__BriDzSa__Da_wuk = "214"; 
+const DoXR__BriDzSa__Da_wuk = "215"; 
 
 //==============================================
 //==============================================
@@ -8,13 +8,16 @@ const DoXR__BriDzSa__Da_wuk = "214";
 
 // SySmz.v.Du
 "use strict";
-const DoXR = { VaSy: "DoXR" };
+const DoXR = { SyTu_vsg: "Do", VaDy_vsg: "XR" };
 window.DoXR = DoXR;
 
 //==============================================
 // QUALITIES
 //==============================================
+//-------------------------------------------------
+// XR MODE
 const BzMeKy = Object.freeze
+//-------------------------------------------------
 ({
 	VxGru_qk: 0 // CLI
 	, MxKuSpo_qk: 1 // SG
@@ -23,11 +26,14 @@ const BzMeKy = Object.freeze
 	, GzKuSa_qk: 4 // AR + Depth
 });
 
-	const ViTe = Object.freeze
+//-------------------------------------------------
+// HAND JOINTS
+const BeTiVx = Object.freeze
+//-------------------------------------------------
 ({
-	ViTe0_qk: 0
-	, ViTe1_qk: 1
-	, ViTe2_qk: 2
+	Va0_qk: 0
+	, Va1_qk: 1
+	, Va2_qk: 2
 
 	// Hand joint	Index
 	// wrist	0
@@ -77,10 +83,7 @@ const BzMeKy = Object.freeze
 DoXR.SmaYz = function( Sa_l )
 //-------------------------------------------------
 {
-	SmaJe( "[" + this.VaSy + "] SmaYz" );
-
-	Object.keys( ViTe_qk ).forEach( _Va => {	SmaJe( _Va ); });
-	Object.values( ViTe_qk ).forEach( _Vi => { SmaJe( _Vi );	});
+	SmaJe( "[" + this.VaDy_vsg + "] SmaYz" );
 }
 
 //==============================================
@@ -636,7 +639,7 @@ DoXR.BriYu = async function( Sa_l )
 //-------------------------------------------------
 {
 	if( KoDz__YzTrx_y() ) return;
-	//SmaJe( "DoXR__MzPoYe: RESUME" );
+	//SmaJe( "[XR] MzPoYe: RESUME" );
 	Sa_l.Smz_v.requestAnimationFrame( DoXR__MzPoYe );
 }
 
@@ -653,7 +656,7 @@ DoWG.BriYo = function( Sa_l )
 //-------------------------------------------------
 {
 	if( KoDz__YzTrx_y() ) return;
-	//SmaJe( "DoXR_BriYo: PAUSE" );
+	//SmaJe( "[XR] BriYo: PAUSE" );
 
 	// Pause Compute Tasks?
 	// Reset Clocks?

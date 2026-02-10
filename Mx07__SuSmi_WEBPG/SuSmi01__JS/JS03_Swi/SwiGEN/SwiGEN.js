@@ -1,16 +1,16 @@
 // SySmz.v.Du
 "use strict";
-const SwiTe = { VaSy: "SwiTe" };
-window.SwiTe = SwiTe;
+const SwiGEN = { SyTu_vsg: "Swi", VaDy_vsg: "GEN" };
+window.SwiGEN = SwiGEN;
 
 //==============================================
 // QUALITIES
 //==============================================
-const ViTe = Object.freeze
+const ViGEN = Object.freeze
 ({
-	ViTe0_qk: 0
-	, ViTe1_qk: 1
-	, ViTe2_qk: 2
+	Va0_qk: 0
+	, Va1_qk: 1
+	, Va2_qk: 2
 });
 
 //==============================================
@@ -18,13 +18,10 @@ const ViTe = Object.freeze
 //==============================================
 
 //-------------------------------------------------
-SwiTe.SmaYz = function( Sa_l )
+SwiGEN.SmaYz = function( Sa_l )
 //-------------------------------------------------
 {
-	SmaJe( "[" + this.VaSy + "] SmaYz" );
-
-	Object.keys( ViTe_qk ).forEach( _Va => {	SmaJe( _Va ); });
-	Object.values( ViTe_qk ).forEach( _Vi => { SmaJe( _Vi );	});
+	SmaJe( "[" + this.VaDy_vsg + "] SmaYz" );
 }
 
 
@@ -33,16 +30,16 @@ SwiTe.SmaYz = function( Sa_l )
 //==============================================
 
 //-------------------------------------------------
-SwiTe.BriYi = function( Sa_l )
+SwiGEN.BriYi = function( Sa_l )
 //-------------------------------------------------
 {
 }
 
 //-------------------------------------------------
-SwiTe.BriYa = function( Yz_k )
+SwiGEN.BriYa = function( Yz_k )
 //-------------------------------------------------
 {
-	const Sa_l = SySmz__YaFz_v( SwiTe );
+	const Sa_l = SySmz__YaFz_v( SwiGEN );
 
 
 	return SySmz__YaFx_v( Sa_l );
@@ -50,7 +47,7 @@ SwiTe.BriYa = function( Yz_k )
 
 
 //-------------------------------------------------
-SwiTe.Mo = function( Sa_l, Jy_k, Mo_l )
+SwiGEN.Mo = function( Sa_l, Jy_k, Mo_l )
 //-------------------------------------------------
 {
 }

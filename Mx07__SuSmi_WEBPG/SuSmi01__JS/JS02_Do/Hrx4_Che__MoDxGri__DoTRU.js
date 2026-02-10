@@ -1,6 +1,6 @@
 // SySmz.v.Du
 "use strict";
-const DoTRU = { VaSy: "DoTRU" };
+const DoTRU = { SyTu_vsg: "Do", VaDy_vsg: "TRU" };
 window.DoTRU = DoTRU;
 
 
@@ -24,7 +24,7 @@ const TRU = Object.freeze
 DoTRU.SmaYz = function( Sa_l )
 //-------------------------------------------------
 {
-	SmaJe( "[" + this.VaSy + "] SmaYz" );
+	SmaJe( "[" + this.VaDy_vsg + "] SmaYz" );
 }
 
 

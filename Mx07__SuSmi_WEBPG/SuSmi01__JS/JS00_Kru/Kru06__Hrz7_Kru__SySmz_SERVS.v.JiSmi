@@ -41,7 +41,7 @@ const SyVx = Object.freeze
 
 	// Hra1_Mz^SENSORS
 	, PTR_qk: 5
-	, USB_qk: 6
+	, HID_qk: 6
 	, GPS_qk: 7
 
 	// Hra4_Bru^NET
@@ -76,9 +76,20 @@ const SyVx = Object.freeze
 	, WT_qk: 23
 	, TONE_qk: 24
 
-	, ML_qk: 25
-	, MPLYR_qk: 26
-	, GEN_qk: 27
+	, USB_qk: 25
+	, BT_qk: 26
+	, NFC_qk: 27
+	, MPLYR_qk: 28
+
+	, ML_qk: 29
+	, GEN_qk: 30
+	, AVATAR_qk: 31
+	, X_qk: 32
+
+	, SwiBLANK_qk: 33 // BLANK
+
+	//$$$
+	// 34 SERVS 2026/02
 
 });
 
@@ -119,11 +130,11 @@ async function Hrz7_Kru__ChaSySmz( SyJy_vsg, ToKz_vsg, SyTu_vsg, VaDy_vsg, SySmz
 
 		//$$$
 		// LOG
-		SmaJe( "[SERV] Cha [", SyVx_wuk, "]: ", Sy_l.Ji.VaSy, " = ", Sy_l, "KoYz ", Ko.Dz__Yz_q );
+		SmaJe( "[SERV] Cha #" + SyVx_wuk + ":", Sy_l.Ji.SyTu_vsg, Sy_l.Ji.VaDy_vsg );
 
 		//$$$
 		// OBJ_REPORT
-		// if( Sy_l.Ji.SmaYz ){ Sy_l.Ji.SmaYz( Sy_l ); }
+		if( Sy_l.Ji.SmaYz ){ Sy_l.Ji.SmaYz( Sy_l ); }
 	}
 
 	//!!!
@@ -156,7 +167,7 @@ function Hrz7_Kru__ChiSySmz( SyVx_wuk )
 	const Sy_l = Ko.SySmz_v[ SyVx_wuk ];
 	if( !Sy_l ) return;
 
-	SmaJe( "[SERV] Chi[", SyVx_wuk, "]: ", Sy_l.Ji.VaSy, " = ", Sy_l );
+	SmaJe( "[SERV] Chi #", SyVx_wuk, ":", Sy_l.Ji.SyTu_vsg, Sy_l.Ji.VaDy_vsg );
 
 	if( Sy_l.Ji.BriYi ){ Sy_l.Ji.BriYi( Sy_l ); }
 

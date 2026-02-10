@@ -1,16 +1,16 @@
 // SySmz.v.Du
 "use strict";
-const SwiLANG = { VaSy: "SwiLANG" };
+const SwiLANG = { SyTu_vsg: "Swi", VaDy_vsg: "LANG" };
 window.SwiLANG = SwiLANG;
 
 //==============================================
 // QUALITIES
 //==============================================
-const ViTe = Object.freeze
+const ViLANG = Object.freeze
 ({
-	ViTe0_qk: 0
-	, ViTe1_qk: 1
-	, ViTe2_qk: 2
+	Va0_qk: 0
+	, Va1_qk: 1
+	, Va2_qk: 2
 });
 
 //=====================================
@@ -56,10 +56,7 @@ async function translateText(text, targetLang)
 SwiLANG.SmaYz = function( Sa_l )
 //-------------------------------------------------
 {
-	SmaJe( "[" + this.VaSy + "] SmaYz" );
-
-	Object.keys( ViTe_qk ).forEach( _Va => {	SmaJe( _Va ); });
-	Object.values( ViTe_qk ).forEach( _Vi => { SmaJe( _Vi );	});
+	SmaJe( "[" + this.VaDy_vsg + "] SmaYz" );
 }
 
 

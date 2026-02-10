@@ -1,6 +1,6 @@
 // SySmz.v.Du
 "use strict";
-const DoNODE = { VaSy: "DoNODE" };
+const DoNODE = { SyTu_vsg: "Do", VaDy_vsg: "NODE" };
 window.DoNODE = DoNODE;
 
 //=====================================
@@ -250,7 +250,7 @@ DoNODE.findGetParameter = function( parameterName )
 DoNODE.SmaYz = function( Sa_l )
 //-------------------------------------------------
 {
-	SmaJe( "Computer Capabilities: ", this.VaSy );
+	SmaJe( "Computer Capabilities: ", this.VaDy_vsg );
 
 }
 

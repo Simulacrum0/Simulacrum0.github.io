@@ -1,6 +1,6 @@
 // SySmz.v.Du
 "use strict";
-const DoOTP = { VaSy: "DoOTP" };
+const DoOTP = { SyTu_vsg: "Do", VaDy_vsg: "OTP" };
 window.DoOTP = DoOTP;
 
 //==============================================
@@ -21,13 +21,7 @@ const ViOTP = Object.freeze
 DoOTP.SmaYz = function( Sa_l )
 //-------------------------------------------------
 {
-	SmaJe( "[" + this.VaSy + "] SmaYz" );
-
-	Object.keys( ViOTP_qk ).forEach( _Va => {	SmaJe( _Va ); });
-	Object.values( ViOTP_qk ).forEach( _Vi => { SmaJe( _Vi );	});
-
-	// if( MoDzTrx__NxHo_y( "TEST FAKE ERROR", null )){ return; }
-
+	SmaJe( "[" + this.VaDy_vsg + "] SmaYz" );
 }
 
 /*

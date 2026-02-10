@@ -1,16 +1,16 @@
 // SySmz.v.Du
 "use strict";
-const SwiAVATAR = { VaSy: "SwiAVATAR" };
+const SwiAVATAR = { SyTu_vsg: "Swi", VaDy_vsg: "AVATAR" };
 window.SwiAVATAR = SwiAVATAR;
 
 //==============================================
 // QUALITIES
 //==============================================
-const ViTe = Object.freeze
+const ViAVATAR = Object.freeze
 ({
-	ViTe0_qk: 0
-	, ViTe1_qk: 1
-	, ViTe2_qk: 2
+	Va0_qk: 0
+	, Va1_qk: 1
+	, Va2_qk: 2
 });
 
 //=====================================
@@ -49,10 +49,7 @@ async function github_Avatar( Va )
 SwiAVATAR.SmaYz = function( Sa_l )
 //-------------------------------------------------
 {
-	SmaJe( "[" + this.VaSy + "] SmaYz" );
-
-	Object.keys( ViTe_qk ).forEach( _Va => {	SmaJe( _Va ); });
-	Object.values( ViTe_qk ).forEach( _Vi => { SmaJe( _Vi );	});
+	SmaJe( "[" + this.VaDy_vsg + "] SmaYz" );
 }
 
 

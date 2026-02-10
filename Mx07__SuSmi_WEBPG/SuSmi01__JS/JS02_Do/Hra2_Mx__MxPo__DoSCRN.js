@@ -1,16 +1,16 @@
 // SySmz.v.Du
 "use strict";
-const DoSCRN = { VaSy: "DoSCRN" };
+const DoSCRN = { SyTu_vsg: "Do", VaDy_vsg: "SCRN" };
 window.DoSCRN = DoSCRN;
 
 //==============================================
 // QUALITIES
 //==============================================
-const ViTe = Object.freeze
+const ViSCRN = Object.freeze
 ({
-	ViTe0_qk: 0
-	, ViTe1_qk: 1
-	, ViTe2_qk: 2
+	Va0_qk: 0
+	, Va1_qk: 1
+	, Va2_qk: 2
 });
 
 //==============================================
@@ -21,12 +21,7 @@ const ViTe = Object.freeze
 DoSCRN.SmaYz = function( Sa_l )
 //-------------------------------------------------
 {
-	SmaJe( "[" + this.VaSy + "] SmaYz" );
-
-	Object.keys( ViTe_qk ).forEach( _Va => { SmaJe( _Va ); });
-	Object.values( ViTe_qk ).forEach( _Vi => { SmaJe( _Vi );	});
-
-	// if( MoDzTrx__NxHo_y( "TEST FAKE ERROR", null )){ return; }
+	SmaJe( "[" + this.VaDy_vsg + "] SmaYz" );
 
 }
 

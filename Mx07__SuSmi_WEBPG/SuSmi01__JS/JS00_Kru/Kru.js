@@ -1,5 +1,5 @@
-const BriDzSa__Da_vsg = "PUB_v0.214"; 
- const BriDzSa__Da_wuk = "214"; 
+const BriDzSa__Da_vsg = "PUB_v0.215"; 
+ const BriDzSa__Da_wuk = "215"; 
  const BriDz__Mx_KuTu_vsg = "https://powerourpeople.com/"; 
 
 //==============================================
@@ -331,15 +331,21 @@ window.Ko = Ko;
 //==============================================
 // 'arguments object' is a builtin Array -like object.
 // Array.prototype.slice.call(arguments) converts *array-like* 'arguments' to a TRUE array 'ARG_v:
-// function SmaJe(){ var ARG_v = Array.prototype.slice.call(arguments); console.log.apply(console, ARG_v); }
+// function LOG(){ var ARG_v = Array.prototype.slice.call(arguments); console.log.apply(console, ARG_v); }
 
+//----------------------------------
 const SmaJy_vsg =
+//----------------------------------
 [
+	// LOG ICONS:
+	// Sy, Je Dre, Trx
 	'🤖', '✅', '😕','🤯'
 	// '⚙️', 'ℹ️', '⚠️', '🚫'
 ];
 
+//----------------------------------
 function SmaTro_vsg( SmaJy_wu, ARG_v )
+//----------------------------------
 {
 	//@@@
 	// FILTER by TAG before collapsing ARG into String?
@@ -357,10 +363,35 @@ function SmaTro_vsg( SmaJy_wu, ARG_v )
 	return Me_vsg
 }
 
+//----------------------------------
+// LOG by AUDIENCE
+//----------------------------------
 function SmaSy(){ var ARG_v = Array.prototype.slice.call(arguments); console.log( SmaTro_vsg( 0, ARG_v ) );}
 function SmaJe(){ var ARG_v = Array.prototype.slice.call(arguments); console.log( SmaTro_vsg( 1, ARG_v ) );}
 function SmaDre(){ var ARG_v = Array.prototype.slice.call(arguments); console.warn( SmaTro_vsg( 2, ARG_v ) );}
 function SmaTrx(){ var ARG_v = Array.prototype.slice.call(arguments); console.error( SmaTro_vsg( 3, ARG_v ) );}
+
+function SmaGwxHu(){ SmaJe( "[" + this.VaDy_vsg + "]----------------------------------" ); }
+function SmaGwxDe(){ SmaJe( "[" + this.VaDy_vsg + "]=============================" ); }
+function SmaGwxHi(){ SmaJe( "[" + this.VaDy_vsg + "]################################" ); }
+
+//----------------------------------
+// OBJ CONSOLE
+function SmaDBG()
+//----------------------------------
+{
+	var ARG_v = Array.prototype.slice.call(arguments);
+	console.log.apply(console, ARG_v);
+}
+
+//----------------------------------
+// OBJ LOG
+function SmaKzFu( Kz_k )
+//----------------------------------
+{
+	Object.keys( Kz_k ).forEach( _Va => { SmaJe( _Va ); });
+	Object.values( Kz_k ).forEach( _Vu => { SmaJe( _Vu ); });
+}
 
 //==============================================
 // SECURITY
@@ -1216,7 +1247,7 @@ function Ne00_KeDy00__NiKeDru__JeChy( KeDru_wuk )
 //-------------------------------------------------
 function Hrz4_Bu__Che00_Krz__Tra()
 {
-	SmaDre( "[ULST] SECURE COMPARE" );
+	SmaDre( "[ROST] SECURE COMPARE" );
 
 }
 
@@ -1226,7 +1257,7 @@ function Hrz4_Bu__Che00_Krz__Tra()
 //-------------------------------------------------
 function Hrz4_Bu__Che01_Chy__Tra()
 {
-	SmaDre( "[ULST] SECURE SAVE" );
+	SmaDre( "[ROST] SECURE SAVE" );
 
 }
 
@@ -1313,7 +1344,7 @@ function Ne00_KeDy01__NiKeDy__JeChy()
 	// Check Answer to QUERY
 
 
-	SmaJe( "[ULST] Chy", TaKeDy_l.value, TaKeDy_l.selectedIndex  );
+	SmaJe( "[ROST] Chy", TaKeDy_l.value, TaKeDy_l.selectedIndex  );
 }
 
 
@@ -1327,7 +1358,7 @@ function Ne00_KeDy01__NiKeDy__JeChy()
 //-------------------------------------------------
 function Hrz4_Bu__TaKeDy_ChxGry()
 {
-	SmaDre( "[ULST] CLEAR ALL LOCAL STORAGE" );
+	SmaDre( "[ROST] CLEAR ALL LOCAL STORAGE" );
 	localStorage.clear();
 	Hrz4_Bu__TaKeDy__ChyTaDe();
 }
@@ -1337,7 +1368,7 @@ function Hrz4_Bu__TaKeDy_ChxGry()
 //-------------------------------------------------
 function Hrz4_Bu__TaKeDy__ChyTaDe()
 {
-	// SmaJe( "[ULST] TaKeDy__ChyTaDe" );
+	// SmaJe( "[ROST] TaKeDy__ChyTaDe" );
 	const KeDy__DeFo_wuk = 4;
 
 	// Creates an array of length N, with a unique empty object in each slot
@@ -1402,7 +1433,7 @@ function Hrz4_Bu__TaKeDy__FyGry()
 			Hrz4_Bu__TaKeDy__ChyTaDe();
 		}
 
-		SmaJe( "[ULST] TaKeDy__FyGry:", Ko.TaKeDy_l );
+		SmaDBG( "[ROST] TaKeDy__FyGry:", Ko.TaKeDy_l );
 	}
 	else
 	// FORCE DEFAULT
@@ -1417,7 +1448,7 @@ function Hrz4_Bu__TaKeDy__FyGry()
 function Hrz4_Bu__TaKeDy__ChyGry()
 {
 	localStorage.setItem( "KwiYz_l", JSON.stringify( Ko.TaKeDy_l ) );
-	SmaJe( "[ULST] KwiYz_Chy:", Ko.TaKeDy_l );
+	SmaDBG( "[ROST] KwiYz_Chy:", Ko.TaKeDy_l );
 }
 
 //=====================================
@@ -2401,7 +2432,7 @@ const SyVx = Object.freeze
 
 	// Hra1_Mz^SENSORS
 	, PTR_qk: 5
-	, USB_qk: 6
+	, HID_qk: 6
 	, GPS_qk: 7
 
 	// Hra4_Bru^NET
@@ -2436,9 +2467,20 @@ const SyVx = Object.freeze
 	, WT_qk: 23
 	, TONE_qk: 24
 
-	, ML_qk: 25
-	, MPLYR_qk: 26
-	, GEN_qk: 27
+	, USB_qk: 25
+	, BT_qk: 26
+	, NFC_qk: 27
+	, MPLYR_qk: 28
+
+	, ML_qk: 29
+	, GEN_qk: 30
+	, AVATAR_qk: 31
+	, X_qk: 32
+
+	, SwiBLANK_qk: 33 // BLANK
+
+	//$$$
+	// 34 SERVS 2026/02
 
 });
 
@@ -2479,11 +2521,11 @@ async function Hrz7_Kru__ChaSySmz( SyJy_vsg, ToKz_vsg, SyTu_vsg, VaDy_vsg, SySmz
 
 		//$$$
 		// LOG
-		SmaJe( "[SERV] Cha [", SyVx_wuk, "]: ", Sy_l.Ji.VaSy, " = ", Sy_l, "KoYz ", Ko.Dz__Yz_q );
+		SmaJe( "[SERV] Cha #" + SyVx_wuk + ":", Sy_l.Ji.SyTu_vsg, Sy_l.Ji.VaDy_vsg );
 
 		//$$$
 		// OBJ_REPORT
-		// if( Sy_l.Ji.SmaYz ){ Sy_l.Ji.SmaYz( Sy_l ); }
+		if( Sy_l.Ji.SmaYz ){ Sy_l.Ji.SmaYz( Sy_l ); }
 	}
 
 	//!!!
@@ -2516,7 +2558,7 @@ function Hrz7_Kru__ChiSySmz( SyVx_wuk )
 	const Sy_l = Ko.SySmz_v[ SyVx_wuk ];
 	if( !Sy_l ) return;
 
-	SmaJe( "[SERV] Chi[", SyVx_wuk, "]: ", Sy_l.Ji.VaSy, " = ", Sy_l );
+	SmaJe( "[SERV] Chi #", SyVx_wuk, ":", Sy_l.Ji.SyTu_vsg, Sy_l.Ji.VaDy_vsg );
 
 	if( Sy_l.Ji.BriYi ){ Sy_l.Ji.BriYi( Sy_l ); }
 
@@ -2668,8 +2710,8 @@ async function KoDz__YaFz()
 		, Hrz7_Kru__ChaSySmz( "Hry5_Smz", "WzMx", "Do", "WG", SySmz__Kri_yk, { YzVi_q: KwiYz_k.Ne03_Hry06__SmzYz_q } )
 		, Hrz7_Kru__ChaSySmz( "Hre1_Dru", "KeDruPy", "Do", "TAK", SySmz__Kri_yk, { Si_KeDru: "en" } )
 		, Hrz7_Kru__ChaSySmz( "Hra6_Ku", "KoToKz", "Do", "FS", SySmz__Kri_yk, { VaDyFy: "true" } )
-		, Hrz7_Kru__ChaSySmz( "Hrx4_Che", "MoDxGri", "Do", "TRU", SySmz__Kri_yk, { YzTi_wu: "0" } )
 
+		, Hrz7_Kru__ChaSySmz( "Hrx4_Che", "MoDxGri", "Do", "TRU", SySmz__Kri_yk, { YzTi_wu: "0" } )
 		, Hrz7_Kru__ChaSySmz( "Hra7_Ta", "ToMi", "Do", "STRM", SySmz__Kri_yk, { YzTi_wu: "0" } )
 		, Hrz7_Kru__ChaSySmz( "Hre1_Dru", "WaDru", "Do", "FNT", SySmz__Kri_yk, { YzTi_wu: "0" } )
 		, Hrz7_Kru__ChaSySmz( "Hry1_Brz", "KeDru", "Do", "GLF", SySmz__Kri_yk, { Gy_wu: 512 } )
@@ -2706,8 +2748,10 @@ async function KoDz__YaFz()
 	];
 
 	const WaDru__Kri_yk = await Promise.all( WaDru__Kri_v );
-	SmaJe( "[SERV] FONT", WaDru__Kri_yk );
+	// SmaJe( "[SERV] FONT", WaDru__Kri_yk );
 	if( !WaDru__Kri_yk ){ return; }
+
+
 
 	//@@@
 	// LOAD LAUNCH CANVAS
@@ -2741,12 +2785,16 @@ async function KoDz__YaFx( )
 	if( KwiYz_k.Ne03_Hry02__HriKe_y ) { Hrz7_Kru__ChaSySmz( "Hri2_Ke", "BzMe", "Do", "XR", SySmz__HoKri_yk, { YzTi_wu: "0" } ); }
 
 	// DoAUD
-	//Hrz7_Kru__ChaSySmz( "Hru5_Smz", "MxPe", "Do", "AUD", SySmz__HoKri_yk, { YzTi_wu: "0" } );
+	Hrz7_Kru__ChaSySmz( "Hru5_Smz", "WzMx", "Do", "WA", SySmz__HoKri_yk, { YzTi_wu: "0" } );
+
+	// DoHID
+	Hrz7_Kru__ChaSySmz( "Hra1_Mz", "KaMo", "Do", "HID", SySmz__HoKri_yk, { YzTi_wu: "0" } );
+
 
 	// DoCARD ( CONTACT CARDS )
 	// , Hrz7_Kru__ChaSySmz( "Hra6_Ku", "SaNoKe", "Do", "CARD", SySmz__HoKri_yk, { YzTi_wu: "0" } )
 
-	// LGTs/Humidifiers
+	// USB
 	//, Hrz7_Kru__ChaSySmz( "Hra5_Ka", "KzGwe", "Do", "USB", SySmz__HoKri_yk, { YzTi_wu: "0" } )
 
 	// BATTERY/POWER?

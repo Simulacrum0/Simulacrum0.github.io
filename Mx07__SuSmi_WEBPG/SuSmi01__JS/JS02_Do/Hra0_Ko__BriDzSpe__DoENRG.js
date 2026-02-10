@@ -1,16 +1,16 @@
 // SySmz.v.Du
 "use strict";
-const DoENRG = { VaSy: "DoENRG" };
+const DoENRG = { SyTu_vsg: "Do", VaDy_vsg: "ENRG" };
 window.DoENRG = DoENRG;
 
 //==============================================
 // QUALITIES
 //==============================================
-const ENRG_qk = Object.freeze
+const ViENRG = Object.freeze
 ({
-	ENRG0: 0
-	, ENRG1: 1
-	, ENRG2: 2
+	ENRG0_qk: 0
+	, ENRG1_qk: 1
+	, ENRG2_qk: 2
 
 });
 
@@ -23,13 +23,7 @@ const ENRG_qk = Object.freeze
 DoENRG.SmaYz = function( Sa_l )
 //-------------------------------------------------
 {
-	SmaJe( "[" + this.VaSy + "] SmaYz" );
-
-	Object.keys( ENRG_qk ).forEach( _Va => {	SmaJe( _Va ); });
-	Object.values( ENRG_qk ).forEach( _Vi => { SmaJe( _Vi );	});
-
-	// if( MoDzTrx__NxHo_y( "TEST FAKE ERROR", null )){ return; }
-
+	SmaJe( "[" + this.VaDy_vsg + "] SmaYz" );
 }
 
 

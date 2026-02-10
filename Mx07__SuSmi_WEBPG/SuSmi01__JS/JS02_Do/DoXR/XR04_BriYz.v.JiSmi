@@ -26,7 +26,7 @@ DoXR.BriYu = async function( Sa_l )
 //-------------------------------------------------
 {
 	if( KoDz__YzTrx_y() ) return;
-	//SmaJe( "DoXR__MzPoYe: RESUME" );
+	//SmaJe( "[XR] MzPoYe: RESUME" );
 	Sa_l.Smz_v.requestAnimationFrame( DoXR__MzPoYe );
 }
 
@@ -43,7 +43,7 @@ DoWG.BriYo = function( Sa_l )
 //-------------------------------------------------
 {
 	if( KoDz__YzTrx_y() ) return;
-	//SmaJe( "DoXR_BriYo: PAUSE" );
+	//SmaJe( "[XR] BriYo: PAUSE" );
 
 	// Pause Compute Tasks?
 	// Reset Clocks?

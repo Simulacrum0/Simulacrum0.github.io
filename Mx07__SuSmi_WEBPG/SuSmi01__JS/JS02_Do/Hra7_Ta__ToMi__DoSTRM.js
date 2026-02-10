@@ -1,6 +1,6 @@
 // SySmz.v.Du
 "use strict";
-const DoSTRM = { VaSy: "DoSTRM" };
+const DoSTRM = { SyTu_vsg: "Do", VaDy_vsg: "STRM" };
 window.DoSTRM = DoSTRM;
 
 //==============================================
@@ -27,30 +27,31 @@ const STRM = Object.freeze
 DoSTRM.SmaYz = function( Sa_l )
 //-------------------------------------------------
 {
+	if( !navigator.mediaDevices ) return;
 
 	//@@@
 	// STREAM CAPTURE DEVICES
-	SmaJe( "=================\nSTREAM CAPTURE SENSORS\n----------" );
+	SmaJe( "[STRM] LIST CAPTURE SENSORS" );
 
 	navigator.mediaDevices.enumerateDevices().then
-	( function(devices)
+	( function(TaKa_v)
 	{
-		devices.forEach( function(device)
+		TaKa_v.forEach( function(Ka_l)
 		{
-			SmaJe( " -[ " + device.kind + " ]: " + device.label +" id = " + device.deviceId );
+			SmaJe( "[STRM] " + Ka_l.kind + ": " + Ka_l.label +" @" + Ka_l.deviceId );
 		});
 	});
 
 	//@@@
 	// TO SELECT:
-	// camera.id = devices[z].deviceId;
+	// camera.id = TaKa_v[z].deviceId;
 	// Iterate 'Desired Resolution/Refresh' and see what you get back to 'determine what is available
 	/*
 
     let constraints = {
         audio: false,
         video: {
-            deviceId: device.id ? {exact: device.id} : undefined,
+            deviceId: Ka_l.id ? {exact: Ka_l.id} : undefined,
             width: {exact: candidate.width},    //new syntax
             height: {exact: candidate.height}   //new syntax
         }

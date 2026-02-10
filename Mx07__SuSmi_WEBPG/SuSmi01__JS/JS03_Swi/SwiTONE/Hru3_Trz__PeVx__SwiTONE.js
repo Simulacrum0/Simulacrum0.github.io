@@ -1,16 +1,16 @@
 // SySmz.v.Du
 "use strict";
-const SwiTONE = { VaSy: "SwiTONE" };
+const SwiTONE = { SyTu_vsg: "Swi", VaDy_vsg: "TONE" };
 window.SwiTONE = SwiTONE;
 
 //==============================================
 // QUALITIES
 //==============================================
-const ViTe = Object.freeze
+const ViTONE = Object.freeze
 ({
-	ViTe0_qk: 0
-	, ViTe1_qk: 1
-	, ViTe2_qk: 2
+	Va0_qk: 0
+	, Va1_qk: 1
+	, Va2_qk: 2
 });
 
 //==============================================
@@ -21,10 +21,7 @@ const ViTe = Object.freeze
 SwiTONE.SmaYz = function( Sa_l )
 //-------------------------------------------------
 {
-	SmaJe( "[" + this.VaSy + "] SmaYz" );
-
-	Object.keys( ViTe_qk ).forEach( _Va => {	SmaJe( _Va ); });
-	Object.values( ViTe_qk ).forEach( _Vi => { SmaJe( _Vi );	});
+	SmaJe( "[" + this.VaDy_vsg + "] SmaYz" );
 }
 
 
