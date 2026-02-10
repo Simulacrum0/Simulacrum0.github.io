@@ -35,9 +35,11 @@ SHARED
 {
 	/* COLOR */
 	--PoStz: var(#0000);
+	--PoStzFz: #0002;
+	--PoStzVo: #0008;
+	--PoStzDe: #000A;
 	--PoStzSpo: #000F;
-	--PoKuFz: #0002;
-  	--PoKuHu: #0008;
+
 	--PoKuSta: #222A;
 
 	--PoKuSteVo: #4448;
@@ -48,12 +50,19 @@ SHARED
 	/* Toggle BG */
 	--PoKuStuSpo: #666F;
 
+	--PoBre: #888;
+	--PoBreHu: #8884;
+	--PoBreVo: #8888;
+	--PoBreSpo: #888F;
+
 	--PoTraFra: #AAA;
+
 	--PoTraFre: #CCC;
 
-  	--PoSi: #FFF;
+	--PoSi: #FFF;
 	--PoSiSpo: #FFFF;
 
+	/* ALERT */
 	--PoSmu: #D22;
 	--PoSmuSe: #2A2;
 
@@ -95,7 +104,9 @@ ANCESTOR
 	margin: 0.25rem;
 	padding: 0.25rem;
 
+	/* content-visibility: auto; */
 	font-size: 1.0rem;
+	font-display: block;
 
 	color: var(--PoSiSpo);
 	background-color: var(--PoStz);
@@ -345,8 +356,8 @@ PANELS
 	overflow-x: auto;
 	overflow-y: auto;
 
-	background-color: #000A;
-	border: solid 0.125rem #888;
+	background-color: var(--PoStzDe);
+	border: solid 0.125rem var(--PoBre);
 }
 
 /* PANEL__TITLE_BAR */
@@ -370,14 +381,14 @@ PANELS
 }
 
 /* PANEL_GUI---HORIZ */
-.HriNe__NeGo_GxZe
+.Ku01__HriNe_GxZe
 {
 	display: block;
 }
 
 /* PANEL_GUI---VERT */
-.HriNe__NeGo_GaZe
-, .HriNe__NeGo_GaZo
+.Ku01__HriNe_GaZe
+, .Ku01__HriNe_GaZo
 {
 	display: grid;
 	grid-template-columns: 1fr 7fr;
@@ -389,8 +400,6 @@ PANELS
 {
 	background-color: var(--PoStz);
 	border-radius: 0.0rem;
-	/* 0 to align with topic section */
-	padding: 0.0rem;
 	margin: 0.0rem;
 }
 
@@ -402,21 +411,30 @@ PANELS
 	flex-wrap: nowrap;
 	place-items: stretch stretch;
 	min-height: 3.0rem;
+
+	/* 0 to align with topic section */
+	padding: 0.25rem 0.25rem 0.0rem 0.25rem;
 }
 
 /* PANEL__MENU TABS---VERT */
 .Ku02__HriNzVa_GaZe
+, .Ku02__HriNzVa_GaZo
 {
 	display: grid;
-	grid-template-columns: 100%;
-	grid-template-rows: auto;
+	grid-template-rows: 16.67%;
+	/* grid-template-columns: 100%; */
+}
+
+.Ku02__HriNzVa_GaZe
+{
+	/* 0 to align with topic section */
+	padding: 0.25rem -0.5rem 0.25rem 0.25rem;
 }
 
 .Ku02__HriNzVa_GaZo
 {
-	display: grid;
-	grid-template-columns: 100%;
-	grid-template-rows: 16.67%;
+	/* 0 to align with topic section */
+	padding: 0.25rem -0.0rem 0.0rem -0.5rem;
 }
 
 
@@ -424,7 +442,7 @@ PANELS
 .Ku03__NzKwa
 {
 	border-radius: 1.5rem;
-	background-color: var(--PoKuHu);
+	background-color: var(--PoStzVo);
 
 	/* 0 to align with topic section */
 	margin: 0.0rem;
@@ -452,6 +470,7 @@ PANELS
 
 	border-left: none;
 	border-right: solid 0.125rem var(--PoSi);
+
 	border-top: solid 0.125rem var(--PoSi);
 	border-bottom: solid 0.125rem var(--PoSi);
 }
@@ -460,10 +479,11 @@ PANELS
 {
 	padding: 0.0rem;
 	/* TL TR BR BL */
-	border-radius: 0.0rem 1.5rem 1.5rem 0.0rem;
+	border-radius: 1.5rem 0.0rem 0.0rem 1.5rem;
 
-	border-left: none;
-	border-right: solid 0.125rem var(--PoSi);
+	border-left: solid 0.125rem var(--PoSi);
+	border-right: none;
+
 	border-top: solid 0.125rem var(--PoSi);
 	border-bottom: solid 0.125rem var(--PoSi);
 }
@@ -560,13 +580,13 @@ TEXT
 .HriNzVa_GaZo
 {
 	width: 100%;
-	border-radius: 1.5rem 0 0 1.5rem;
+	border-radius: 0 1.5rem 1.5rem 0;
 }
 
 /* TEXT__MENU_TITLE---HORIZ */
 .HriNzVa_GxZe:hover
 {
-	box-shadow: -0.5em 0 1.0rem var(--PoTraFre);
+	box-shadow: 0 -0.5em 1.0rem var(--PoTraFre);
 }
 
 /* TEXT__MENU_TITLE---VERT */
@@ -577,7 +597,7 @@ TEXT
 
 .HriNzVa_GaZo:hover
 {
-	box-shadow: -0.5em 0 1.0rem var(--PoTraFre);
+	box-shadow: 0.5em 0 1.0rem var(--PoTraFre);
 }
 
 /* TEXT__MENU_SELECTED */
@@ -606,7 +626,7 @@ TEXT
 
 .HriNzVa_Se_GaZo
 {
-	box-shadow: -0.5em 0 1.0rem var(--PoTraFra);
+	box-shadow: 0.5em 0 1.0rem var(--PoTraFra);
 	border-left: none;
 }
 
@@ -620,7 +640,7 @@ TEXT
 	justify-content: space-between;
 
 	text-align: start;
-	color: #888;
+	color: var(--PoBre);
 	background-color: var(--PoKuSta);
 
 	border-radius: 1.0rem;
@@ -644,7 +664,7 @@ TEXT
 	padding: 0.25rem 1.0rem;
 	margin: 0.25rem 0.0rem;
 
-	background-color: var(--PoKuFz);
+	background-color: var(--PoStzFz);
 }
 
 /* TEXT__LIST_ELEMENTS */
@@ -784,7 +804,7 @@ ELEMENTS IMAGE GRID
 	flex-wrap: wrap;
 
 	border-radius: 0.0rem;
-	border: solid 0.125rem #888F;
+	border: solid 0.125rem var(--PoBreSpo);
 
 	height: 8.0rem;
 
@@ -916,7 +936,7 @@ RADIO GROUP
 .NiGruKu
 {
 	display: inline-flex;
-	border: solid 0.125rem #8884;
+	border: solid 0.125rem var(--PoBreHu);
 
 	margin: 0.25rem;
 	padding: 0.25rem;
@@ -925,7 +945,7 @@ RADIO GROUP
 .NiGruVa
 {
 	color: var(--PoSiSpo);
-	background-color: var(--PoKuFz);
+	background-color: var(--PoStzFz);
 
 	margin: 0.25rem;
 	padding: 0.25rem;
@@ -936,7 +956,7 @@ RADIO GROUP
 	margin: 0.25rem;
 	padding: 0.25rem;
 
-	background-color: #000F;
+	background-color: var(--PoStzSpo);
 }
 
 /*@@@@@@@@@@@@@@@
@@ -1055,7 +1075,7 @@ hr
 .HriNe_HryHo
 {
 	color: var(--PoKuHu);
-	background-color: #8888;
+	background-color: var(--PoBreVo);
 
 	filter: blur( 4px );
 	/* filter: brightness( 25% ); */

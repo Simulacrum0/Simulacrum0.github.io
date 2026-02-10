@@ -38,11 +38,9 @@ function KoDz__YzYo_y()
 //==============================================
 // CONTENT_LOAD
 //==============================================
-function KoDz__SuKz_Mi(e)
+function KoDz__SuKz_Mi( e )
 {
-	SmaJe( "+++ DOM Content Loaded" );
-	SmaJe( e );
-
+	SmaJe( "[ECOS] DOM Content Loaded", e );
 }
 
 //==============================================
@@ -151,9 +149,9 @@ async function KoDz__YaFz()
 		, Hrz7_Kru__ChaSySmz( "Hra6_Ku", "SpeDry", "Do", "PAY", SySmz__Kri_yk, { YzTi_wu: "0" } )
 		, Hrz7_Kru__ChaSySmz( "Hra6_Ku", "SaNoJe", "Do", "CAL", SySmz__Kri_yk, { YzTi_wu: "0" } )
 
-		//, Hrz7_Kru__ChaSySmz( "Hra1_Mz", "MzDrx", "Do", "PTR", SySmz__Kri_yk, { YzTi_wu: "0" } )
-		//, Hrz7_Kru__ChaSySmz( "Hr", "", "Do", "ABC", SySmz__Kri_yk, { YzTi_wu: "0" } )
+		, Hrz7_Kru__ChaSySmz( "Hra1_Mz", "MzGwa", "Do", "PTR", SySmz__Kri_yk, { YzTi_wu: "0" } )
 
+		//, Hrz7_Kru__ChaSySmz( "Hr", "", "Do", "ABC", SySmz__Kri_yk, { YzTi_wu: "0" } )
 
 	];
 	// SYNC_PNT
@@ -163,14 +161,7 @@ async function KoDz__YaFz()
 
 
 	//@@@
-	// SERV_OPT
-	// Do NOT await Promises;
-	const SySmz__HoKri_yk = false;
-
-
-	//@@@
-	// FNT
-	// , DoFNT.Hrz7_Kru__ChaWaDru( "Roboto Condensed", "url(" + BriDz__Mx_KuTu_vsg + "Mx01__SuKz_MEDIA/SuKz04_WaDru__FONT/WaDru01__Thin.ttf )" )
+	// FNT (Required, but *AFTER* FNT above )
 	const WaDru__Kri_v =
 	[
 		DoFNT.Hrz7_Kru__ChaWaDru( "Segoe UI Emoji", "url(" + BriDz__Mx_KuTu_vsg + "Mx01__SuKz_MEDIA/SuKz04_WaDru__FONT/WaDru00__Ku.ttf )" )
@@ -181,15 +172,13 @@ async function KoDz__YaFz()
 	// SmaJe( "[SERV] FONT", WaDru__Kri_yk );
 	if( !WaDru__Kri_yk ){ return; }
 
-
-
 	//@@@
 	// LOAD LAUNCH CANVAS
 	// which fills GUI VALUES
 	KoDz_GyHa();
 
-	// GUI TOPIC_SELECT WHO
-	Hrz4_Bu__ChyNeKu( 1 );
+	// GUI TOPIC_SELECT
+	Hrz4_Bu__ChyNeKu( 2 );
 
 	//@@@
 	// FOCUS LAUNCH BTN
@@ -215,10 +204,11 @@ async function KoDz__YaFx( )
 	if( KwiYz_k.Ne03_Hry02__HriKe_y ) { Hrz7_Kru__ChaSySmz( "Hri2_Ke", "BzMe", "Do", "XR", SySmz__HoKri_yk, { YzTi_wu: "0" } ); }
 
 	// DoAUD
+	// if( KwiYz_k.Ne03_Hru00__SmzGra_y )
 	Hrz7_Kru__ChaSySmz( "Hru5_Smz", "WzMx", "Do", "WA", SySmz__HoKri_yk, { YzTi_wu: "0" } );
 
 	// DoHID
-	Hrz7_Kru__ChaSySmz( "Hra1_Mz", "KaMo", "Do", "HID", SySmz__HoKri_yk, { YzTi_wu: "0" } );
+	// Hrz7_Kru__ChaSySmz( "Hra1_Mz", "KaMo", "Do", "HID", SySmz__HoKri_yk, { YzTi_wu: "0" } );
 
 
 	// DoCARD ( CONTACT CARDS )

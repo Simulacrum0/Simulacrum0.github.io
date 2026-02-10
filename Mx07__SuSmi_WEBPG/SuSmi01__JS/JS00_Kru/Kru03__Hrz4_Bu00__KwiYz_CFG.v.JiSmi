@@ -63,20 +63,20 @@ function Hrz4_Bu__KwiYz__ChyDe( Va_vksg, NiJaPo_wuk, KeDru_wuk )
 
 	KwiYz_k.Ne03_Hry02__HriKe_y = false;
 
-	// 'De'
-	KwiYz_k.Ne03_Hry06__SmzYz_q = 1;
 
 	//!!!
 	// METHOD
 	// MOBILE
 	if( Ko.Hrz3_By__KaGeSpu_y )
 	{
-		KwiYz_k.Ne03_Hry07__GyBraHi_bu = 4;
+		KwiYz_k.Ne03_Hry06__SmzYz_q = 0;
+		KwiYz_k.Ne03_Hry07__GyBraHi_bu = 0;
 	}
 	// DESKTOP
 	else
 	{
-		KwiYz_k.Ne03_Hry07__GyBraHi_bu = 3;
+		KwiYz_k.Ne03_Hry06__SmzYz_q = 1;
+		KwiYz_k.Ne03_Hry07__GyBraHi_bu = 1;
 		// "Ne03_Hry06__SmzYz_vsg" Method
 		// "Ne03_Hry08__TyGy_vsg" Detail
 	}

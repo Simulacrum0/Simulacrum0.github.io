@@ -121,7 +121,7 @@ function HriNeDe__ChyHyHo( Vy_vsg, HyHo_yk )
 
 
 //=====================================
-// INIT USER GUI DEFAULTS
+// INIT GUI DEFAULTS
 //=====================================
 async function Hri4_Bu__TaKeDy__ChySpo()
 {
@@ -133,6 +133,29 @@ async function Hri4_Bu__TaKeDy__ChySpo()
 
 	// ARIA ROLE: https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Roles
 	// Elm.setAttribute("role", "progressbar");
+
+	Kwi00__TaNe_v.forEach( function ( Ti_v, Vx_wu )
+	{
+		SmaSy( "[GUI]------ @:", Vx_wu, Ti_v.Va );
+
+
+		//@@@
+		// ELM ADD TYPE
+		switch( Ti_v.Jy )
+		{
+			case NeJy.Tra_qk:
+			{
+				break;
+			}
+
+			case NeJy.Tra_qk:
+			{
+				break;
+			}
+		};
+
+	});
+
 
 
 	//-------------------------------------------------

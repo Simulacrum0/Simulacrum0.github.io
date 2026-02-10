@@ -133,8 +133,8 @@ async function Hrz7_Kru__ChaSySmz( SyJy_vsg, ToKz_vsg, SyTu_vsg, VaDy_vsg, SySmz
 		SmaJe( "[SERV] Cha #" + SyVx_wuk + ":", Sy_l.Ji.SyTu_vsg, Sy_l.Ji.VaDy_vsg );
 
 		//$$$
-		// OBJ_REPORT
-		if( Sy_l.Ji.SmaYz ){ Sy_l.Ji.SmaYz( Sy_l ); }
+		// OBJ_REPORT_CFG
+		// if( Sy_l.Ji.SmaYz ){ Sy_l.Ji.SmaYz( Sy_l ); }
 	}
 
 	//!!!

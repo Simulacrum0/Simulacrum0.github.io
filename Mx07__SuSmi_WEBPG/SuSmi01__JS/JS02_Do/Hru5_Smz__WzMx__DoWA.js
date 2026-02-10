@@ -1,4 +1,4 @@
-const DoWA__BriDzSa__Da_wuk = "215"; 
+const DoWA__BriDzSa__Da_wuk = "216"; 
 
 //==============================================
 //==============================================
@@ -46,55 +46,79 @@ DoWA.SmaYz = function( Sa_l )
 }
 
 
+
 //==============================================
-// BUFFER LOADER
+// BUF PLAY
 //==============================================
-function BufferLoader(context, urlList, callback)
+function Try_JaPe_l( Sx_l, bufferList )
 {
-    this.context = context;
-    this.urlList = urlList;
-    this.onload = callback;
+	// SmaJe( "[WA] LOAD FINISH" );
+
+	// Create two sources and play them both together.
+	var source1 = Sx_l.createBufferSource();
+
+	source1.buffer = bufferList[0];
+	source1.connect(Sx_l.destination);
+	source1.start(0);
+
+	var source2 = Sx_l.createBufferSource();
+	source2.buffer = bufferList[1];
+	source2.connect(Sx_l.destination);
+	source2.start( 1.0 );
+}
+
+//==============================================
+// BUF LOAD
+//==============================================
+function Try_JaPe_t(Sx_l, JaPe__Va_vsg )
+{
+    this.Sx_l = Sx_l;
+    this.JaPe__Va_vsg = JaPe__Va_vsg;
+
     this.bufferList = new Array();
     this.loadCount = 0;
 }
 
-BufferLoader.prototype.loadBuffer = function(url, index)
+Try_JaPe_t.prototype.loadBuffer = function(url, index)
 {
     var request = new XMLHttpRequest();
     request.open("GET", url, true);
     request.responseType = "arraybuffer";
     var loader = this;
-    
+
 	request.onload = function()
 	{
-        loader.context.decodeAudioData(
+        loader.Sx_l.decodeAudioData
+		(
             request.response,
             function(buffer)
 			{
                 if (!buffer)
 				{
-                    alert('error decoding file data: ' + url);
+					SmaTrx( "[WA] Decode Error", url );
+
                     return;
                 }
                 loader.bufferList[index] = buffer;
-                if (++loader.loadCount == loader.urlList.length)
+                if (++loader.loadCount == loader.JaPe__Va_vsg.length)
 				{
-                    loader.onload( loader.bufferList );
+                    Try_JaPe_l( loader.Sx_l, loader.bufferList );
 				}
 
             }
         );
     }
-    request.onerror = function() {
-        alert('BufferLoader: XHR error');
+    request.onerror = function()
+	{
+        SmaTrx( "[WA] Load  XHR Error" );
     }
     request.send();
 }
 
-BufferLoader.prototype.load = function()
+Try_JaPe_t.prototype.load = function()
 {
-    for (var i = 0; i < this.urlList.length; ++i)
-        this.loadBuffer(this.urlList[i], i);
+    for (var i = 0; i < this.JaPe__Va_vsg.length; ++i)
+        this.loadBuffer(this.JaPe__Va_vsg[i], i);
 }
 
 //==============================================
@@ -135,6 +159,13 @@ BufferLoader.prototype.load = function()
 DoWA.BriYi = function( Sa_l )
 //-------------------------------------------------
 {
+	//@@@
+	// DISCONNECT GRAFS
+
+	//@@@
+	// RELEASE BUFs
+
+	//@@@
 	//( Sa_l );
 	Sa_l = null;
 }
@@ -199,36 +230,18 @@ DoWA.BriYa = async function( Yz_k )
 
 	const JaPe_Ku_vsg = BriDz__Mx_KuTu_vsg + "Mx01__SuKz_MEDIA/SuKz01_JaPe__SND/";
 
-	Sa_l.bufferLoader = new BufferLoader
+	Sa_l.Try_JaPe_l = new Try_JaPe_t
 	(
 		Sx_l,
 		[
 			JaPe_Ku_vsg + "JaPe00__ToMi.wav"
 			, JaPe_Ku_vsg + "JoPe04__JeMx_BEEP.opus"
 		],
-
-		finishedLoading
 	);
 
-	SmaJe( "[WA] LOAD" );
-	Sa_l.bufferLoader.load();
+	// SmaJe( "[WA] LOAD" );
+	Sa_l.Try_JaPe_l.load();
 
-		function finishedLoading( bufferList )
-		{
-			SmaJe( "[WA] LOAD FINISH" );
-
-			// Create two sources and play them both together.
-			var source1 = Sx_l.createBufferSource();
-
-			source1.buffer = bufferList[0];
-			source1.connect(Sx_l.destination);
-			source1.start(0);
-
-			var source2 = Sx_l.createBufferSource();
-			source2.buffer = bufferList[1];
-			source2.connect(Sx_l.destination);
-			source2.start(0);
-		}
 
 
 }

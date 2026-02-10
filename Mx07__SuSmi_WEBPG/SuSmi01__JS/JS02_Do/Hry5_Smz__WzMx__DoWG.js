@@ -1,4 +1,4 @@
-const DoWG__BriDzSa__Da_wuk = "215"; 
+const DoWG__BriDzSa__Da_wuk = "216"; 
 
 //==============================================
 //==============================================
@@ -251,17 +251,17 @@ const DoWG__SmzYz_v =
 	{
 		Vi_qk: DoWG__Yz.Ti00__TraHu_qk
 		, JaVe_wu: 2048
-		, JaGzFo_wu: 3
+		, JaGzFo_wu: 2
 	}
 	, {
 		Vi_qk: DoWG__Yz.Ti01__JiHu_qk
 		, JaVe_wu: 4096
-		, JaGzFo_wu: 3
+		, JaGzFo_wu: 2
 	}
 	, {
 		Vi_qk: DoWG__Yz.Ti02__De_qk
 		, JaVe_wu: 8192
-		, JaGzFo_wu: 3
+		, JaGzFo_wu: 2
 	}
 	, {
 		Vi_qk: DoWG__Yz.Ti03__ZzKri_qk

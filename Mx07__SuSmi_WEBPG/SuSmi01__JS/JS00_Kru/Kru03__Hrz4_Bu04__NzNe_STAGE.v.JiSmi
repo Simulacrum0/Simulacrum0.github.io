@@ -366,20 +366,35 @@ function Hrz4_Bu__ChyNeKu( Vx_wu )
 	if( ( Vx_wu > HriNzVa_v.length ) || ( Vx_wu < 0 ) || ( HriNzVa_v.length !== NeKuJy_v.length )) { return;}
 
 	//@@@
+	// RTL vs LTR vs TD
+	const HriNz__Go_wuk = 1;
+	const HriNzVa__Go_vvsg =
+	[
+		// TD
+		"_GxZe"
+		// LTR
+		, "_GaZe"
+		// RTL
+		, "_GaZo"
+	];
+	const HriNzVa__Go_vsg = HriNzVa__Go_vvsg[ HriNz__Go_wuk ];
+
+	//@@@
+	// DIVs
+	document.getElementById( "Ku01__HriNe" ).className ="Ku01__HriNe Ku01__HriNe" + HriNzVa__Go_vsg;
+	document.getElementById( "Ku03__NzKwa" ).className ="Ku03__NzKwa Ku03__NzKwa" + HriNzVa__Go_vsg;
+
+
+	//@@@
 	// SELECT MENU
+	//!!!
+	// WATCH STRING SPACES
+	const HriNzVa__FeDe_vsg = "HriNzVa WaDru_Bz HriNzVa" + HriNzVa__Go_vsg;
+	const HriNzVa__Se_vsg = HriNzVa__FeDe_vsg + " HriNzVa_Se " + "HriNzVa_Se" + HriNzVa__Go_vsg;
+
 	for( let i = 0; i < HriNzVa_v.length; i++)
 	{
-		HriNzVa_v[i].className = ( Vx_wu === i )
-
-		?
-		// TD
-		// "HriNzVa HriNzVa_GaZe HriNzVa_Se HriNzVa_Se_GaZe WaDru_Bz"
-		// LTR
-		"HriNzVa HriNzVa_GaZe HriNzVa_Se HriNzVa_Se_GaZe WaDru_Bz"
-		// RTL
-		// "HriNzVa HriNzVa_GaZo HriNzVa_Se HriNzVa_Se_GaZo WaDru_Bz"
-
-		: "HriNzVa HriNzVa_GaZe WaDru_Bz";
+		HriNzVa_v[i].className = ( Vx_wu === i ) ? HriNzVa__Se_vsg : HriNzVa__FeDe_vsg;
 	}
 
 	//@@@

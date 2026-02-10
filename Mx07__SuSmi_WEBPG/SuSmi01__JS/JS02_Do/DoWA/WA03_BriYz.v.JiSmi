@@ -18,6 +18,13 @@
 DoWA.BriYi = function( Sa_l )
 //-------------------------------------------------
 {
+	//@@@
+	// DISCONNECT GRAFS
+
+	//@@@
+	// RELEASE BUFs
+
+	//@@@
 	//( Sa_l );
 	Sa_l = null;
 }
@@ -82,36 +89,18 @@ DoWA.BriYa = async function( Yz_k )
 
 	const JaPe_Ku_vsg = BriDz__Mx_KuTu_vsg + "Mx01__SuKz_MEDIA/SuKz01_JaPe__SND/";
 
-	Sa_l.bufferLoader = new BufferLoader
+	Sa_l.Try_JaPe_l = new Try_JaPe_t
 	(
 		Sx_l,
 		[
 			JaPe_Ku_vsg + "JaPe00__ToMi.wav"
 			, JaPe_Ku_vsg + "JoPe04__JeMx_BEEP.opus"
 		],
-
-		finishedLoading
 	);
 
-	SmaJe( "[WA] LOAD" );
-	Sa_l.bufferLoader.load();
+	// SmaJe( "[WA] LOAD" );
+	Sa_l.Try_JaPe_l.load();
 
-		function finishedLoading( bufferList )
-		{
-			SmaJe( "[WA] LOAD FINISH" );
-
-			// Create two sources and play them both together.
-			var source1 = Sx_l.createBufferSource();
-
-			source1.buffer = bufferList[0];
-			source1.connect(Sx_l.destination);
-			source1.start(0);
-
-			var source2 = Sx_l.createBufferSource();
-			source2.buffer = bufferList[1];
-			source2.connect(Sx_l.destination);
-			source2.start(0);
-		}
 
 
 }

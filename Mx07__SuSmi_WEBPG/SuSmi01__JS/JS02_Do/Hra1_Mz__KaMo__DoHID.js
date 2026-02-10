@@ -1,6 +1,6 @@
 // SySmz.v.Du
 "use strict";
-const DoHID = { VaSy: "HID" };
+const DoHID = { SyTu_vsg: "Do", VaDy_vsg: "HID" };
 window.DoHID = DoHID;
 
 //==============================================
@@ -89,6 +89,7 @@ DoHID.BriYa = async function( Yz_k )
 	if( !navigator.hid ) return;
 
 	let device;
+	
 	try {
 	  const devices = await navigator.hid.requestDevice
 	  ({
@@ -99,20 +100,30 @@ DoHID.BriYa = async function( Yz_k )
 			// SPECIFICS
 			// vendorId: 0xabcd,
 			// productId: 0x1234,
+			// {
+			// 	vendorId: 0x057e, // Nintendo Co., Ltd
+			// 	productId: 0x2006, // Joy-Con Left
+			//   },
+			//   {
+			// 	vendorId: 0x057e, // Nintendo Co., Ltd
+			// 	productId: 0x2007, // Joy-Con Right
+			//   },
 
 			//@@@
 			// PAGE
 
 			// CONSUMER ( keyboards? )
-			// usagePage: 0x0c,
+			usagePage: 0x0c,
+
 			// VR (none)
 			// usagePage: 0x03,
 
 			// LED
-			usagePage: 0x08,
+			// usagePage: 0x08,
 
 			// ARCADE
 			// usagePage: 0x91,
+
 
 
 			//@@@

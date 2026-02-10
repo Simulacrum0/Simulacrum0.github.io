@@ -162,11 +162,6 @@ document.addEventListener('readystatechange', function()
 	if (document.readyState === 'complete')
 	{
 		SmaSy( "[LAUNCH] Web_DOM Fully_Loaded" );
-
-
-		// Kru__TaNe_v
-
-
 	}
 });
 
