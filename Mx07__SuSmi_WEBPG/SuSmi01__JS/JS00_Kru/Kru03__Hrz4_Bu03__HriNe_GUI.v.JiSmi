@@ -143,10 +143,33 @@ async function Hri4_Bu__TaKeDy__ChySpo()
 		// ELM ADD TYPE
 		switch( Ti_v.Jy )
 		{
-			case NeJy.Tra_qk:
+			// Domain Space
+			case NeJy.KuTz_qk:
 			{
 				break;
 			}
+
+		// , KuNz_qk: 2 // Section Space
+		// , KuNe_qk: 3 // Input Space
+
+		// , VaTz_qk: 4 // Section Heading
+		// , VaNz_qk: 5 // Topic Label
+		// , VaNe_qk: 6 // Input Label
+		// , VaTo_qk: 7 // Info Label
+
+		// , HyHo_qk: 8 // Checkbox
+		// , Tra_qk: 9 // Btn
+		// , NiHu_qk: 10 // Radiogroup
+		// , VxBra_qk: 14 // Slider
+
+		// , KeDru_qk: 11 // Text or Pwd Edit
+		// , TaVa_qk: 13 // List (selection text)
+		// , JaPo_qk: 14 // Img
+		// , TaJaPo_qk: 15 // Img Grid
+
+		// , YiKuTz_qk: 16 // End Domain
+		// , YiKuNz_qk: 17 // End Topics
+		// , YiKuNe_qk: 18 // End Input
 
 			case NeJy.Tra_qk:
 			{
