@@ -178,7 +178,7 @@ async function KoDz__YaFz()
 	KoDz_GyHa();
 
 	// GUI TOPIC_SELECT
-	Hrz4_Bu__ChyNeKu( 2 );
+	Hrz4_Bu__ChyNeKu( 0 );
 
 	//@@@
 	// FOCUS LAUNCH BTN

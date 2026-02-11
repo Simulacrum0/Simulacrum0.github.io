@@ -34,7 +34,7 @@ SHARED
 :root
 {
 	/* COLOR */
-	--PoStz: var(#0000);
+	--PoStz: #0000;
 	--PoStzFz: #0002;
 	--PoStzVo: #0008;
 	--PoStzDe: #000A;
@@ -42,6 +42,7 @@ SHARED
 
 	--PoKuSta: #222A;
 
+	--PoKuHu: #0008;
 	--PoKuSteVo: #4448;
 	--PoKuSteSpo: #444F;
 
@@ -55,9 +56,11 @@ SHARED
 	--PoBreVo: #8888;
 	--PoBreSpo: #888F;
 
-	--PoTraFra: #AAA;
+	--PoTraFra: #999;
 
 	--PoTraFre: #CCC;
+
+	--PoKuTo: #DDDE;
 
 	--PoSi: #FFF;
 	--PoSiSpo: #FFFF;
@@ -71,6 +74,7 @@ SHARED
 	--GyGe_MoKu: 42ch;
 	--GyGe_ToKu: 96ch;
 
+	--GyStz: 0.0rem;
 	--GyBe: 0.125rem;
 	--GyBo: 0.25rem;
 	--GyBi: 0.50rem;
@@ -82,15 +86,28 @@ SHARED
 	--GyKaHu: 1.5rem;
 	--GyKaDe: 2.0rem;
 	--GyKaHi: 3.0rem;
-
 	--GyKyHu: 4.0rem;
 
 
-	/* MISC */
+	/* LINES */
 	--GwxSpo: solid;
 	--GwxKwo: dotted;
+
+	/* TIMING */
+	--GiHu: 0.5s;
+	--GiDe: 1.0s;
 }
 
+
+/* SEMANTIC AREAS tight PACKING */
+header
+, nav
+, main
+, footer
+{
+	margin: 0.0rem;
+	padding: 0.0rem;
+}
 
 /*@@@@@@@@@@@@@@@
 ANCESTOR
@@ -100,18 +117,29 @@ ANCESTOR
 	/* content-box WIDTH/HEIGHT ignore padding, margin, & border */
 	/* border-box  WIDTH/HEIGHT ignore margin only */
 	box-sizing: border-box;
-	border-radius: 1.5rem;
-	margin: 0.25rem;
-	padding: 0.25rem;
+	overflow: hidden;
+
+	border-radius: 0.0rem;
+	margin: 0.0rem;
+	padding: 0.0rem;
 
 	/* content-visibility: auto; */
 	font-size: 1.0rem;
-	font-display: block;
+	/* font-display: block; */
 
 	color: var(--PoSiSpo);
 	background-color: var(--PoStz);
+
 	/* SLIDER & RADIO CLR	*/
 	accent-color: var(--PoSmu);
+}
+
+
+.Wa
+{
+	border-radius: 1.5rem;
+	margin: 0.25rem;
+	padding: 0.25rem;
 }
 
 /*@@@@@@@@@@@@@@@
@@ -122,7 +150,6 @@ FONT
 {
 	font-family: "Final Frontier Old Style", sans-serif;
 	font-weight: 800;
-	font-style: bold;
 }
 
 .WaDru_Bz
@@ -204,15 +231,10 @@ AREA TYPES
 
 	width: 100dvw;
 	height: 100dvh;
-
-	overflow: hidden;
 }
 
 .KuJy01__SpoKz
 {
-	margin: 0.0rem;
-	padding: 0.0rem;
-
 	display: block;
 	position: absolute;
 
@@ -231,7 +253,6 @@ AREA TYPES
 	width: 100dvw;
 	height: calc( 100dvh - 3.0rem);
 
-	overflow: hidden;
 	image-rendering: auto;
 	/* PIXEL ART*/
 	/* image-rendering: pixelated; */
@@ -248,10 +269,11 @@ STATUS BARS
 	left: 0dvw;
 	width: 100dvw;
 	height: 1.5rem;
-	text-align: start;
-	place-items: center center;
 
-	font-size: 1.25rem;
+	text-align: start;
+	align-items: center;
+
+	font-size: var(--GyTreHi);
 }
 
 .KeMe_Bz
@@ -268,71 +290,59 @@ STATUS BARS
 /*@@@@@@@@@@@@@@@
 TOOLTIPS
 @@@@@@@@@@@@@@@*/
-div[data-title]
+
+/* BUBBLE TEXT */
+.KeMe_To
 {
 	cursor: pointer;
 	position: relative;
-}
-
-/* FLOAT BUBBLE TEXT */
-div[data-title]::before
-{
-	content: attr(data-title);
-	white-space: pre-wrap;
-	position: absolute;
-	text-align: center;
-
-	width: fit-content;
-	min-width: 8rem;
-	/* height: fit-content; */
-	height: 2.0rem;
-
-	left: 0.0rem;
-	/* top: -4.0rem; */
-	top: 0.0rem;
 
 	margin: 0.5rem;
 	padding: 0.5rem;
 
-	color: #444E;
-	background-color: #DDDE;
+	overflow: visible;
+
+	color: var(--PoKuSteSpo);
+	background-color: var(--PoKuTo);
 
 	border-radius: 1.5rem;
-	font-size: 0.75rem;
 
-	opacity: 0.0;
-	transition: 0.5s;
+	font-size: 0.75rem;
+	white-space: pre-wrap;
+	text-align: center;
+
+	width: fit-content;
+	height: fit-content;
+	min-width: 8rem;
+
+	opacity: 1.0;
 }
 
 /* TRIANGLE GUIDE */
-div[data-title]::after
+.KeMe_To::before
 {
 	content: " ";
 	position: absolute;
 
-	left: 2.0rem;
-	/* top: -0.5rem; size + margin */
-	top: 3.5rem; /* size + margin */
-
 	padding: 0.0rem;
 	margin: 0.0rem;
 
-	/* Triangle Size */
-	border-width: 0.5rem;
-
-
+	/* use 0 for width/height to make border diagonal for triangle */
+	width: 0.0rem;
+	height: 0.0rem;
+	border-radius: 0.0rem;
 	border-style: solid;
-	border-color: #DDDE transparent transparent transparent;
 
-	opacity: 0.0;
-	transition: 0.5s;
+	/* Triangle Size & Location */
+	border-width: 0.5rem;
+	inset-inline-start: 1.5rem;
+	/* -2.0 * Self Border-Width */
+	inset-block-end: -1.0rem;
+
+	/* Top Border ONLY faces down */
+	border-color: var(--PoKuTo) transparent transparent transparent;
 }
 
-div[data-title]:hover::before,
-div[data-title]:hover::after
-{
-	opacity: 1;
-}
 
 
 /*@@@@@@@@@@@@@@@
@@ -340,7 +350,7 @@ PANELS
 @@@@@@@@@@@@@@@*/
 
 /* PANEL__OUTER_TOPIC */
-.Ku00__NzKwa
+.Ku00__KaFz
 {
 	display: block;
 	position: absolute;
@@ -349,15 +359,18 @@ PANELS
 	/* Use 1.5 instead of 3 because DBG Bars */
 	left: 1.5rem;
 	top: 3.0rem;
+	border-radius: 1.5rem;
+	padding: 1.0rem;
 
 	/* CONSIDER 'DBG' BARS, only 'width' since Trx needs expand for centering */
 	width: calc( 100dvw - 3.0rem );
 	max-height: calc( 100dvh - 6.0rem );
-	overflow-x: auto;
-	overflow-y: auto;
 
 	background-color: var(--PoStzDe);
 	border: solid 0.125rem var(--PoBre);
+
+	/* ALLSCROLL ALL TOPIC AREA*/
+	overflow: auto;
 }
 
 /* PANEL__TITLE_BAR */
@@ -391,9 +404,9 @@ PANELS
 , .Ku01__HriNe_GaZo
 {
 	display: grid;
-	grid-template-columns: 1fr 7fr;
+	gap: 0.0rem;
+	grid-template-columns: 16.0rem auto;
 }
-
 
 /* PANEL__MENU TABS --------------------------------- */
 .Ku02__HriNzVa
@@ -410,31 +423,33 @@ PANELS
 	flex: auto;
 	flex-wrap: nowrap;
 	place-items: stretch stretch;
-	min-height: 3.0rem;
+	min-height: 4.0rem;
 
-	/* 0 to align with topic section */
-	padding: 0.25rem 0.25rem 0.0rem 0.25rem;
+	/* 0 bottom to align with topic section */
+	padding: 0.5rem 0.0rem 0.0rem 0.0rem;
 }
 
 /* PANEL__MENU TABS---VERT */
 .Ku02__HriNzVa_GaZe
 , .Ku02__HriNzVa_GaZo
 {
-	display: grid;
-	grid-template-rows: 16.67%;
-	/* grid-template-columns: 100%; */
+	display: block;
+	/* grid-template-rows: 1/12; */
+
+	width: 100%;
+	/* height: 100%; */
 }
 
 .Ku02__HriNzVa_GaZe
 {
-	/* 0 to align with topic section */
-	padding: 0.25rem -0.5rem 0.25rem 0.25rem;
+	margin-bottom: 2.0rem;
+	padding: 0.0rem 0.0rem 2.0rem 0.25rem;
 }
 
 .Ku02__HriNzVa_GaZo
 {
-	/* 0 to align with topic section */
-	padding: 0.25rem -0.0rem 0.0rem -0.5rem;
+	margin-bottom: 2.0rem;
+	padding: 0.0rem 0.25rem 2.0rem 0.0rem;
 }
 
 
@@ -446,12 +461,20 @@ PANELS
 
 	/* 0 to align with topic section */
 	margin: 0.0rem;
+	padding: 0.0rem;
+
+	/* ALLSCROLL ALL TOPIC AREA*/
+	/* max-height: calc( 100dvh - 23.5rem );
+	overflow: auto; */
+
 }
 
 /* PANEL_ALL_CHOICES--WIDE */
 .Ku03__NzKwa_GxZe
 {
+	/* NEGATIVE PAD THROWS ERR */
 	padding: 0.0rem -0.5rem;
+
 	/* TL TR BR BL */
 	border-radius: 0.0rem 0.0rem 1.5rem 1.5rem;
 
@@ -459,12 +482,16 @@ PANELS
 	border-right: solid 0.125rem var(--PoSi);
 	border-top: none;
 	border-bottom: solid 0.125rem var(--PoSi);
+
+	margin-left: 0.0rem;
+	margin-right: 0.0rem;
 }
 
 /* PANEL_ALL_CHOICES--TALL */
 .Ku03__NzKwa_GaZe
 {
-	padding: 0.0rem;
+	margin-right: 1.0rem;
+
 	/* TL TR BR BL */
 	border-radius: 0.0rem 1.5rem 1.5rem 0.0rem;
 
@@ -477,7 +504,8 @@ PANELS
 
 .Ku03__NzKwa_GaZo
 {
-	padding: 0.0rem;
+	margin-left: 1.0rem;
+
 	/* TL TR BR BL */
 	border-radius: 1.5rem 0.0rem 0.0rem 1.5rem;
 
@@ -495,6 +523,8 @@ PANELS
 	display: grid;
 	gap: 1rem;
 	grid-template-columns: repeat( auto-fill, minmax( var( --GyGe_MoKu ), 1fr ));
+
+	overflow-y: auto;
 }
 
 .Ku04__ToKu
@@ -502,7 +532,10 @@ PANELS
 	display: grid;
 	gap: 1rem;
 	grid-template-columns: repeat( auto-fill, minmax( var( --GyGe_ToKu ), 1fr ));
+
+	overflow-y: auto;
 }
+
 
 /* PANEL__VERSION */
 .Ku05_KwiBriDzDa
@@ -541,7 +574,7 @@ TEXT
 }
 
 /* TEXT__MENU_TITLE --------------------------------- */
-.HriNzVa
+.NzVa
 {
 	display: flex;
 
@@ -554,77 +587,83 @@ TEXT
 	background-color: var(--PoKuSteVo);
 	border: solid 0.125rem var(--PoSi);
 
-	transition: color 0.3s, background-color 0.3s;
+	transition: color var(--GiHu), background-color var(--GiHu);
 }
 
 /* TEXT__MENU_HOVER */
-.HriNzVa:hover
+.NzVa:hover
 {
-	font-size: 1.5rem;
+	font-size: 1.25rem;
 }
 
 /* TEXT__MENU_TITLE---HORIZ */
-.HriNzVa_GxZe
+.NzVa_GxZe
 {
+	margin-top: 1.0rem;
 	width: 16.67%;
 	border-radius:1.5rem 1.5rem 0 0;
 }
 
 /* TEXT__MENU_TITLE---VERT */
-.HriNzVa_GaZe
+.NzVa_GaZe
+, .NzVa_GaZo
 {
 	width: 100%;
+	padding: 1.0rem 0.0rem;
+}
+
+.NzVa_GaZe
+{
 	border-radius: 1.5rem 0 0 1.5rem;
 }
 
-.HriNzVa_GaZo
+.NzVa_GaZo
 {
-	width: 100%;
 	border-radius: 0 1.5rem 1.5rem 0;
 }
 
 /* TEXT__MENU_TITLE---HORIZ */
-.HriNzVa_GxZe:hover
+.NzVa_GxZe:hover
 {
 	box-shadow: 0 -0.5em 1.0rem var(--PoTraFre);
 }
 
 /* TEXT__MENU_TITLE---VERT */
-.HriNzVa_GaZe:hover
+.NzVa_GaZe:hover
 {
 	box-shadow: -0.5em 0 1.0rem var(--PoTraFre);
 }
 
-.HriNzVa_GaZo:hover
+.NzVa_GaZo:hover
 {
 	box-shadow: 0.5em 0 1.0rem var(--PoTraFre);
 }
 
 /* TEXT__MENU_SELECTED */
-.HriNzVa_Se
+.NzVa_Se
 {
-	font-size: 1.25rem;
-	font-style: bold;
+	font-size: 1.125rem;
 
 	color: var(--PoSi);
 	background-color: var(--PoKuHu);
+	transition: var(--GiHu);
 }
 
 /* TEXT__MENU_TITLE---HORIZ */
-.HriNzVa_Se_GxZe
+.NzVa_Se_GxZe
 {
 	box-shadow: 0 -0.5em 1.0rem var(--PoTraFra);
 	border-bottom:none;
 }
 
 /* TEXT__MENU_TITLE---VERT */
-.HriNzVa_Se_GaZe
+.NzVa_Se_GaZe
 {
 	box-shadow: -0.5em 0 1.0rem var(--PoTraFra);
 	border-right: none;
 }
 
-.HriNzVa_Se_GaZo
+.NzVa_Se_GaZo
 {
 	box-shadow: 0.5em 0 1.0rem var(--PoTraFra);
 	border-left: none;
@@ -724,7 +763,7 @@ TEXT
 /* TEXT__DOCUMENT BODY */
 .KeDruBa, .KeDruBe
 {
-	font-size: 0.875rem;
+	font-size: var(--GyTreHu);
 	white-space: pre-wrap;
 	max-width: calc( 100% - 1.0rem );
 
@@ -733,7 +772,6 @@ TEXT
 
 	background-color: var(--PoKuHu);
 
-	overflow-x: auto;
 	overflow-y: auto;
 }
 
@@ -808,7 +846,6 @@ ELEMENTS IMAGE GRID
 
 	height: 8.0rem;
 
-	overflow-x: none;
 	overflow-y: auto;
 
 	margin: 0.25rem;
@@ -841,7 +878,7 @@ ELEMENTS IMAGE GRID
 .NiJaPo_VaGri:Hover
 {
 	background-color: var(--PoSi);
-	transition: 1.0s;
+	transition: var(--GiDe);
 }
 
 /* OVERLAY EXACT*/
@@ -869,7 +906,7 @@ ELEMENTS IMAGE GRID
 {
 	background-color: var(--PoSi);
 	filter: grayscale( 0% );
-	transition: 1.0s;
+	transition: var(--GiDe);
 }
 
 /*@@@@@@@@@@@@@@@
@@ -1007,7 +1044,7 @@ TOGGLE_SWITCH
 
 	/* CHECKBOX GREY BG */
 	background-color: var(--PoKuStuSpo);
-	transition: 0.5s;
+	transition: var(--GiHu);
 	border-radius: 1.5rem;
 }
 
@@ -1025,7 +1062,7 @@ TOGGLE_SWITCH
 
 	/* CHECKBOX CIRCLE  INDICATOR*/
 	background-color: var(--PoTraFre);
-	transition: 0.5s;
+	transition: var(--GiHu);
 	border-radius: 50%;
 }
 
@@ -1061,8 +1098,8 @@ hr
 	border-bottom: solid 0.125rem var(--PoKuStuVo);
 	border-top: none;
 
-    margin: 0.0 rem;
-    padding: 1.0 rem;
+    margin: 0.0rem;
+    padding: 1.0rem;
 }
 
 /* ELM__NOT_IN_USE */
@@ -1080,7 +1117,7 @@ hr
 	filter: blur( 4px );
 	/* filter: brightness( 25% ); */
 
-	transition: 0.3s
+	transition: var(--GiHu)
 }
 
 .HriNe__SmoTy

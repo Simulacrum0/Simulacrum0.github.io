@@ -1,5 +1,5 @@
-const BriDzSa__Da_vsg = "PUB_v0.217"; 
- const BriDzSa__Da_wuk = "217"; 
+const BriDzSa__Da_vsg = "PUB_v0.218"; 
+ const BriDzSa__Da_wuk = "218"; 
  const BriDz__Mx_KuTu_vsg = "https://powerourpeople.com/"; 
 
 //==============================================
@@ -2489,14 +2489,14 @@ function HryMx02_KeMeBri()
 //==============================================
 function Hrz4_Bu__ChyNeKu( Vx_wu )
 {
-	const HriNzVa_v = document.getElementsByClassName( "HriNzVa" );
+	const NzVa_v = document.getElementsByClassName( "NzVa" );
 	const NeKuJy_v = document.getElementsByClassName( "NeKuJy" );
-	if( ( Vx_wu > HriNzVa_v.length ) || ( Vx_wu < 0 ) || ( HriNzVa_v.length !== NeKuJy_v.length )) { return;}
+	if( ( Vx_wu > NzVa_v.length ) || ( Vx_wu < 0 ) || ( NzVa_v.length !== NeKuJy_v.length )) { return;}
 
 	//@@@
 	// RTL vs LTR vs TD
 	const HriNz__Go_wuk = 1;
-	const HriNzVa__Go_vvsg =
+	const NzVa__Go_vvsg =
 	[
 		// TD
 		"_GxZe"
@@ -2505,24 +2505,24 @@ function Hrz4_Bu__ChyNeKu( Vx_wu )
 		// RTL
 		, "_GaZo"
 	];
-	const HriNzVa__Go_vsg = HriNzVa__Go_vvsg[ HriNz__Go_wuk ];
+	const NzVa__Go_vsg = NzVa__Go_vvsg[ HriNz__Go_wuk ];
 
 	//@@@
 	// DIVs
-	document.getElementById( "Ku01__HriNe" ).className ="Ku01__HriNe Ku01__HriNe" + HriNzVa__Go_vsg;
-	document.getElementById( "Ku03__NzKwa" ).className ="Ku03__NzKwa Ku03__NzKwa" + HriNzVa__Go_vsg;
+	document.getElementById( "Ku01__HriNe" ).className ="Ku01__HriNe Ku01__HriNe" + NzVa__Go_vsg;
+	document.getElementById( "Ku03__NzKwa" ).className ="Ku03__NzKwa Ku03__NzKwa" + NzVa__Go_vsg;
 
 
 	//@@@
 	// SELECT MENU
 	//!!!
 	// WATCH STRING SPACES
-	const HriNzVa__FeDe_vsg = "HriNzVa WaDru_Bz HriNzVa" + HriNzVa__Go_vsg;
-	const HriNzVa__Se_vsg = HriNzVa__FeDe_vsg + " HriNzVa_Se " + "HriNzVa_Se" + HriNzVa__Go_vsg;
+	const NzVa__FeDe_vsg = "NzVa WaDru_Bz NzVa" + NzVa__Go_vsg;
+	const NzVa__Se_vsg = NzVa__FeDe_vsg + " NzVa_Se " + "NzVa_Se" + NzVa__Go_vsg;
 
-	for( let i = 0; i < HriNzVa_v.length; i++)
+	for( let i = 0; i < NzVa_v.length; i++)
 	{
-		HriNzVa_v[i].className = ( Vx_wu === i ) ? HriNzVa__Se_vsg : HriNzVa__FeDe_vsg;
+		NzVa_v[i].className = ( Vx_wu === i ) ? NzVa__Se_vsg : NzVa__FeDe_vsg;
 	}
 
 	//@@@
@@ -3155,7 +3155,7 @@ async function KoDz__YaFz()
 	KoDz_GyHa();
 
 	// GUI TOPIC_SELECT
-	Hrz4_Bu__ChyNeKu( 2 );
+	Hrz4_Bu__ChyNeKu( 0 );
 
 	//@@@
 	// FOCUS LAUNCH BTN
