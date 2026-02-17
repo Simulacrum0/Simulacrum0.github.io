@@ -412,8 +412,10 @@ PANELS^Ku
 /* PANEL__VERSION */
 .Ku06_KwiBriDz_ToGyHu
 {
-	margin: var(--GyBo);
-	padding: var(--GyBo);
+	display: flex;
+	flex-wrap: wrap;
+	margin: var(--GyBe);
+	padding: var(--GyBe);
 }
 
 /* PANEL__SECTION_INDEX */
@@ -656,7 +658,7 @@ TEXT
 {
 	display: block;
 	margin: var(--GyBe);
-	padding: var(--GyBo);
+	padding: var(--GyBiDe);
 
 	font-size: var(--GyBiDe);
 	text-align:start;
@@ -1010,6 +1012,7 @@ hr
 	border-top: none;
 
     margin: var(--GyStz);
+	margin-bottom: var(--GyBiHu);
     padding: var(--GyBiHu);
 }
 

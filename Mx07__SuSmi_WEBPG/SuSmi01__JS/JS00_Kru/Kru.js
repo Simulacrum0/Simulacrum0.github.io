@@ -1,5 +1,5 @@
-const BriDzSa__Da_vsg = "PUB_v0.221"; 
- const BriDzSa__Da_wuk = "221"; 
+const BriDzSa__Da_vsg = "PUB_v0.222"; 
+ const BriDzSa__Da_wuk = "222"; 
  const BriDz__Mx_KuTu_vsg = "https://powerourpeople.com/"; 
 
 //==============================================
@@ -734,6 +734,7 @@ function Hrz3_Bz__KaGeSpu_Ha()
 		{ Ko.Hrz3_By__KaGeSpu_y = true; }
 }
 
+
 //=====================================
 // BROWSER VERSION (Browser & App )
 //=====================================
@@ -784,10 +785,6 @@ async function Hrz3_By__VaDa()
 	// if( navigator.userAgentData && navigator.userAgentData.brands )
 	// { SmaJe(  "[LAUNCH] BRAND:", navigator.userAgentData.brands ); }
 
-
-	//@@@
-	// APP VERSION
-	document.getElementById( 'BriDzSa__Da' ).innerText = BriDzSa__Da_vsg;
 
 	//@@@
 	// SHOW
@@ -1537,7 +1534,7 @@ function Hrz4_Bu__TaKeDy__ChyGry()
 	d) Text: utf8 ( Label: HriNeVa, Edit: HriNeVa )
 	e) HrButtons: run action ( show tabs, add/remove users, reset-settings, & launch )
 
-- EDIT: TreHy Can be hover-highlighted to show 'editable'
+- EDIT: TreHy Can be hover-highlighted to show "editable"
 */
 //
 //==============================================
@@ -1549,7 +1546,7 @@ function HriNeDe__TraKwi()
 {
 	//@@@
 	// SUBMIT BTN
-	const HriNe_KwiVu_k = document.getElementById( 'BriDz_TraKwi_vsg' );
+	const HriNe_KwiVu_k = document.getElementById( "BriDz_TraKwi_vsg" );
 	HriNe_KwiVu_k.focus();
 }
 
@@ -1649,7 +1646,7 @@ function HriNeDe__ChyHyHo( Vy_vsg, HyHo_yk )
 //=====================================
 function Hri4_Bu__TaJo_Chy()
 {
-	const TaJo_l = document.getElementById( 'Ne00_KuNe00__NiJo__Ta_l' );
+	const TaJo_l = document.getElementById( "Ne00_KuNe00__NiJo__Ta_l" );
 	HriNeDe__Ta_ChyStz( TaJo_l );
 
 	//@@@
@@ -1660,8 +1657,8 @@ function Hri4_Bu__TaJo_Chy()
 
 		//&&&
 		// ADD BTN
-		const Kz_l = document.createElement( 'option' );
-		Kz_l.className = 'HriNeTi WaDru_De';
+		const Kz_l = document.createElement( "option" );
+		Kz_l.className = "HriNeTi WaDru_De";
 		Kz_l.innerText = `${SaPy_vvsg[ Ti_v.NiJaPo_wu ]} ${Ti_v.KeDy_vsg }`;
 		Kz_l.value = Vx_wu;
 		TaJo_l.appendChild( Kz_l );
@@ -1696,7 +1693,7 @@ function Hri4_Bu__MzBuDru_Je( e )
 			break;
 		}
 
-		case 'Cancel':
+		case "Cancel":
 		case( "Escape" ):
 		{
 			Hrz4_Bu__ChyNeKu( 0 );
@@ -1825,7 +1822,7 @@ async function Hri4_Bu__TaNeDe__ChaKri()
 
 	//-------------------------------------------------
 	// SPACETIME
-	// Changed 'per user'
+	// Changed "per user"
 	//-------------------------------------------------
 	Hri4_Bu__TaJo_Chy();
 
@@ -1834,7 +1831,7 @@ async function Hri4_Bu__TaNeDe__ChaKri()
 	//-------------------------------------------------
 	//@@@
 	// LANG DROPDOWN LIST
-	const Ne00_KuNe02__NiKeDru__Ta_l = document.getElementById( 'Ne00_KuNe02__NiKeDru__Ta_l' );
+	const Ne00_KuNe02__NiKeDru__Ta_l = document.getElementById( "Ne00_KuNe02__NiKeDru__Ta_l" );
 	// LANGUAGE PICKER
 	const KeDru__TaJaPo_l = document.getElementById("Ne00_KuNe02__KeDru_TaJaPo_l");
 
@@ -1845,7 +1842,7 @@ async function Hri4_Bu__TaNeDe__ChaKri()
 
 	//&&&
 	// LIST FILL ENTRIES
-	const KeDruGri_v = [ 'en', 'es' ];
+	const KeDruGri_v = [ "en", "es" ];
 
 	Hre1_Dru__Gra_v.forEach( function ( Ti_v, Vx_wu )
 	{
@@ -1855,8 +1852,8 @@ async function Hri4_Bu__TaNeDe__ChaKri()
 		// CHOOSE LANG DROPDOWN ADD BTNS
 		if( KeDruGri_v.includes( Ti_v.ToKz ) )
 		{
-			const Kz_l = document.createElement( 'option' );
-			Kz_l.className = 'HriNeTi WaDru_Ku';
+			const Kz_l = document.createElement( "option" );
+			Kz_l.className = "HriNeTi WaDru_Ku";
 			Kz_l.innerText = `${Ti_v.KuGwz} ${Ti_v.Va}`;
 			Kz_l.value = Ti_v.Vy;
 
@@ -1866,23 +1863,23 @@ async function Hri4_Bu__TaNeDe__ChaKri()
 		//&&&
 		// LANG FLAG GRID ADD BTN
 		{
-			const Kz_l = document.createElement( 'div' );
+			const Kz_l = document.createElement( "div" );
 
 			if( KeDruGri_v.includes( Ti_v.ToKz ) )
 			{
-				Kz_l.className = 'NiJaPo_Va NiJaPo_VaGri WaDru_Ku';
+				Kz_l.className = "NiJaPo_Va NiJaPo_VaGri WaDru_Ku";
 				Kz_l.onclick = function() { Ne00_KuNe02__NiKeDru__JeChy( Vx_wu ); }
 			}
 			else
 			{
-				Kz_l.className = 'NiJaPo_Va NiJaPo_VaRu WaDru_Ku';
+				Kz_l.className = "NiJaPo_Va NiJaPo_VaRu WaDru_Ku";
 			}
 
 			Kz_l.innerText = Ti_v.KuGwz;
 
 			// LOCALE TOOLTIP
-			// const To_l = document.createElement( 'div' );
-			// To_l.className = 'NiJaPo_To WaDru_Ku';
+			// const To_l = document.createElement( "div" );
+			// To_l.className = "NiJaPo_To WaDru_Ku";
 			// To_l.setAttribute( "data-title", Ti_v.Va + "\n" + Ti_v.So );
 			// Kz_l.appendChild( To_l );
 
@@ -1908,9 +1905,9 @@ async function Hri4_Bu__TaNeDe__ChaKri()
 		//&&&
 		// ADD BTN
 
-		const Kz_l = document.createElement( 'span' );
+		const Kz_l = document.createElement( "span" );
 
-		Kz_l.className = 'NiJaPo_Va NiJaPo_VaVo';
+		Kz_l.className = "NiJaPo_Va NiJaPo_VaVo";
 		Kz_l.onclick = function() { Hrz4_Bu__KwiYz__SaPy_ChyYe( Vx_wu ); }
 
 		Kz_l.innerText = SaPy_vvsg[ Vx_wu ];
@@ -1921,7 +1918,7 @@ async function Hri4_Bu__TaNeDe__ChaKri()
 	// AUD_METHODS
 	//-------------------------------------------------
 	{
-		const TaKeDy_l = document.getElementById( 'Ne02_Hru__SmzYz_Ta_l' );
+		const TaKeDy_l = document.getElementById( "Ne02_Hru__SmzYz_Ta_l" );
 		HriNeDe__Ta_ChyStz( TaKeDy_l );
 
 		//@@@
@@ -1932,8 +1929,8 @@ async function Hri4_Bu__TaNeDe__ChaKri()
 
 			//&&&
 			// ADD BTN
-			const Kz_l = document.createElement( 'option' );
-			Kz_l.className = 'HriNeTi WaDru_De';
+			const Kz_l = document.createElement( "option" );
+			Kz_l.className = "HriNeTi WaDru_De";
 			Kz_l.innerText = `${SaPy_vvsg[ Ti_v.NiJaPo_wu ]} ${Ti_v.KeDy_vsg }` + ( Vx_wu & 1 ? "🔒":"🔓" );
 			Kz_l.value = Vx_wu;
 			TaKeDy_l.appendChild( Kz_l );
@@ -1946,7 +1943,7 @@ async function Hri4_Bu__TaNeDe__ChaKri()
 	// VIS_METHODS
 	//-------------------------------------------------
 	{
-		const TaKeDy_l = document.getElementById( 'Ne03_Hry06__SmzYz__Ta_l' );
+		const TaKeDy_l = document.getElementById( "Ne03_Hry06__SmzYz__Ta_l" );
 		HriNeDe__Ta_ChyStz( TaKeDy_l );
 
 		//@@@
@@ -1957,8 +1954,8 @@ async function Hri4_Bu__TaNeDe__ChaKri()
 
 			//&&&
 			// ADD BTN
-			const Kz_l = document.createElement( 'option' );
-			Kz_l.className = 'HriNeTi WaDru_De';
+			const Kz_l = document.createElement( "option" );
+			Kz_l.className = "HriNeTi WaDru_De";
 			Kz_l.innerText = `${SaPy_vvsg[ Ti_v.NiJaPo_wu ]} ${Ti_v.KeDy_vsg }` + ( Vx_wu & 1 ? "🔒":"🔓" );
 			Kz_l.value = Vx_wu;
 			TaKeDy_l.appendChild( Kz_l );
@@ -1966,6 +1963,17 @@ async function Hri4_Bu__TaNeDe__ChaKri()
 
 		TaKeDy_l.selectedIndex = Ko.TaKeDy_l.KeDy_wu;
 	}
+
+	//-------------------------------------------------
+	// LABELS
+	//-------------------------------------------------
+	//@@@
+	// APP VERSION
+	document.getElementById( "BriDzSa__Da" ).innerText = BriDzSa__Da_vsg;
+
+	document.getElementById( "Hrz3_By__KoVa" ).innerText = "OS Unidentified";
+	document.getElementById( "Hrz3_By__BxVa" ).innerText = "GPU Unidentified";
+
 
 
 	//-------------------------------------------------

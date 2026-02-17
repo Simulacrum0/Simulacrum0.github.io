@@ -393,6 +393,7 @@ function Hrz3_Bz__KaGeSpu_Ha()
 		{ Ko.Hrz3_By__KaGeSpu_y = true; }
 }
 
+
 //=====================================
 // BROWSER VERSION (Browser & App )
 //=====================================
@@ -443,10 +444,6 @@ async function Hrz3_By__VaDa()
 	// if( navigator.userAgentData && navigator.userAgentData.brands )
 	// { SmaJe(  "[LAUNCH] BRAND:", navigator.userAgentData.brands ); }
 
-
-	//@@@
-	// APP VERSION
-	document.getElementById( 'BriDzSa__Da' ).innerText = BriDzSa__Da_vsg;
 
 	//@@@
 	// SHOW
