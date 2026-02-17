@@ -398,6 +398,7 @@ PANELS^Ku
 {
 	display: grid;
 	gap: var(--GyTreDe);
+
 	grid-template-columns: repeat( auto-fill, minmax( var(--GyDru_MoKu), 1fr ));
 
 	overflow-y: auto;
@@ -423,10 +424,14 @@ PANELS^Ku
 {
 	display: inline-flex;
 	flex-wrap: wrap;
+
+	justify-content:start;
+	align-items: start;
+	gap: 0;
+
 	overflow: visible;
 
 	text-align: start;
-	align-items: start;
 
 	margin: var(--GyBiHu);
 	padding: var(--GyBo);
@@ -1012,8 +1017,9 @@ hr
 	border-top: none;
 
     margin: var(--GyStz);
-	margin-bottom: var(--GyBiHu);
-    padding: var(--GyBiHu);
+    padding: var(--GyStz);
+	/* Small Pad for curve */
+    padding-bottom: var(--GyBiHu);
 }
 
 
