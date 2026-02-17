@@ -19,12 +19,26 @@ ATTR:
 Sides: top, right, bottom left
 Corners: top-left, top-right, bottom-right, bottom-left
 --------------
-DESIGN:
-3 MODES
+TYPES HERE:
+- Tz: Domain
+- Ku: Panel
+- KeMe: Notify
+- : Text (type)
+- : Text (select)
+- NiJaPo: Icon (select)
+- HriNe_TraKwi: Action (button)
+- Ka/VuHyHo: Bool (checkbox)
+- NiGru: Enum (radio)
+- HriNeVo: Number (slider)
+- Gwx: Separator (line)
+- : Hover(Ptr)
+- : Focus(Use/Key)
+- KzTy: Elm_FX(disable, fade)
 --------------
-MxPo_Kwi: Menu & Topic-GUI to edit
-MxPo_Trx:
-MxPo_Bri
+RULES:
+- glow: hilite/hover
+- dotted: focus w/ keyboard/last-used;
+
 @@@@@@@@@@@@@@@ */
 
 
@@ -33,7 +47,7 @@ SHARED
 @@@@@@@@@@@@@@@*/
 :root
 {
-	/* COLOR */
+	/* COLOR --------------------------*/
 	--PoStz: #0000;
 	--PoStzFz: #0002;
 	--PoStzVo: #0008;
@@ -55,49 +69,56 @@ SHARED
 	--PoBreSpo: #888F;
 
 	--PoTraFra: #999;
-
 	--PoTraFre: #CCC;
 
 	--PoKuTo: #DDDE;
 
 	--PoSi: #FFF;
+	--PoSiVo: #FFF8;
 	--PoSiSpo: #FFFF;
 
 	/* ALERT */
-	--PoSmu: #D22;
+	--PoSmuTra: #D22;
 	--PoSmuSe: #2A2;
+	--PoSmuSi: #DD2;
+	--PoSmuSo: #22F;
 
+	/* SIZE -------------------- */
+	--GyDru_Kwe: 4ch;
+	--GyDru_MoKu: 42ch;
 
-  	/* SIZE */
-	--GyGe_MoKu: 42ch;
-	--GyGe_ToKu: 96ch;
-
+	/* SIZE -------------------- */
 	--GyStz: 0.0rem;
-	--GyBe:0.125rem;
-	--GyBo:0.25rem;
-	--GyBi:0.50rem;
+	--GyBe: 0.125rem;
+	--GyBo: 0.25rem;
 
-	--GyTreHu:0.875rem;
-	--GyTreDe:1.0rem;
-	--GyTreHi:1.25rem;
+	--GyBiHu: 0.50rem;
+	--GyBiDe: 0.67rem;
+	--GyBiHi: 0.75rem;
 
-	--GyKaHu:1.5rem;
-	--GyKaDe:2.0rem;
-	--GyKaHi:3.0rem;
-	--GyKyHu:4.0rem;
+	--GyTreHu: 0.875rem;
+	--GyTreDe: 1.0rem;
+	--GyTreHi: 1.25rem;
+
+	--GyKaHu: 1.5rem;
+	--GyKaDe: 2.0rem;
+	--GyKaHi: 3.0rem;
+
+	--GyBzHu: 4.0rem;
+	--GyBzDe: 6.0rem;
+	--GyBzHi: 8.0rem;
 
 
-	/* LINES */
+	/* LINES-------------------- */
 	--GwxSpo: solid;
 	--GwxKwo: dotted;
 
-	/* TIMING */
-	--GiHu: 0.5s;
-	--GiDe: 1.0s;
+	/* TIMING -------------------- */
+	--GiDe: 0.5s;
 }
 
 
-/* SEMANTIC AREAS tight PACKING */
+/* SEMANTIC AREAS tight PACKING ---------------- */
 header
 , nav
 , main
@@ -122,28 +143,19 @@ ANCESTOR
 	padding: var(--GyStz);
 
 	/* content-visibility: auto; */
-	font-size: 1.0rem;
+	font-size: var(--GyTreDe);
 	/* font-display: block; */
 
 	color: var(--PoSiSpo);
 	background-color: var(--PoStz);
 
 	/* SLIDER & RADIO CLR	*/
-	accent-color: var(--PoSmu);
-}
-
-
-.Wa
-{
-	border-radius: 1.5rem;
-	margin: var(--GyBo);
-	padding: var(--GyBo);
+	accent-color: var(--PoSmuTra);
 }
 
 /*@@@@@@@@@@@@@@@
 FONT
 @@@@@@@@@@@@@@@*/
-
 .WaDru_SmuHi
 {
 	font-family: "Final Frontier Old Style", sans-serif;
@@ -196,7 +208,6 @@ cursor: wait;
 cursor: zoom-in;
 cursor: zoom-out;
 */
-
 /*@@@@@@@@@@@@@@@
 ICONS
 @@@@@@@@@@@@@@@*/
@@ -241,20 +252,29 @@ ICONS
 .GwzDo_PLUG { background-position: -756px -324px;}
 
 /*@@@@@@@@@@@@@@@
-AREA TYPES
+DOMAIN AREAS^Tz
 - Not Panels nor Status Bars
 - Fullpage or Screen as Canvas spaces
+
+- 3 DOMAIN Modes:
+MxPo_Kwi: Menu & Topic-GUI to edit
+MxPo_Trx: Errors
+MxPo_Bri: Run XP
+
 @@@@@@@@@@@@@@@*/
-.KuJy00__Gry
+.Tz00__Gry
 {
 	left: 0dvw;
 	top: 0dvh;
 
 	width: 100dvw;
 	height: 100dvh;
+
+	/* ARIA WCAG STD */
+	min-width: 320px;
 }
 
-.KuJy01__SpoKz
+.Tz01__SpoKz
 {
 	display: block;
 	position: absolute;
@@ -266,13 +286,13 @@ AREA TYPES
 	background-color: var(--PoKuSteSpo)
 }
 
-.KuJy02__MxPo
+.Tz02__MxPo
 {
 	left: 0dvw;
-	top: 1.5rem;
+	top: var(--GyKaHu);
 
 	width: 100dvw;
-	height: calc( 100dvh - 3.0rem);
+	height: calc( 100dvh - var(--GyKaHi));
 
 	image-rendering: auto;
 	/* PIXEL ART*/
@@ -283,91 +303,7 @@ AREA TYPES
 }
 
 /*@@@@@@@@@@@@@@@
-STATUS BARS
-@@@@@@@@@@@@@@@ */
-.KeMe_De
-{
-	left: 0dvw;
-	width: 100dvw;
-	height: 1.5rem;
-
-	text-align: start;
-	align-items: center;
-
-	font-size: var(--GyTreHi);
-}
-
-.KeMe_Bz
-{
-	top: 0dvh;
-}
-
-.KeMe_Bo
-{
-	top: calc(100dvh - 1.5rem);
-}
-
-
-/*@@@@@@@@@@@@@@@
-TOOLTIPS
-@@@@@@@@@@@@@@@*/
-
-/* BUBBLE TEXT */
-.KeMe_To
-{
-	cursor: pointer;
-	position: relative;
-
-	margin: 0.5rem;
-	padding: 0.5rem;
-
-	overflow: visible;
-
-	color: var(--PoKuSteSpo);
-	background-color: var(--PoKuTo);
-
-	border-radius: 1.5rem;
-
-	font-size: 0.75rem;
-	white-space: pre-wrap;
-	text-align: center;
-
-	width: fit-content;
-	height: fit-content;
-	min-width: 8rem;
-
-	opacity: 1.0;
-}
-
-/* TRIANGLE GUIDE */
-.KeMe_To::before
-{
-	content: " ";
-	position: absolute;
-
-	padding: var(--GyStz);
-	margin: var(--GyStz);
-
-	/* use 0 for width/height to make border diagonal for triangle */
-	width: var(--GyStz);
-	height: var(--GyStz);
-	border-radius: var(--GyStz);
-	border-style: solid;
-
-	/* Triangle Size & Location */
-	border-width: 0.5rem;
-	inset-inline-start: 1.5rem;
-	/* -2.0 * Self Border-Width */
-	inset-block-end: -1.0rem;
-
-	/* Top Border ONLY faces down */
-	border-color: var(--PoKuTo) transparent transparent transparent;
-}
-
-
-
-/*@@@@@@@@@@@@@@@
-PANELS
+PANELS^Ku
 @@@@@@@@@@@@@@@*/
 
 /* PANEL__OUTER_TOPIC */
@@ -378,17 +314,17 @@ PANELS
 	z-index: 1;
 
 	/* Use 1.5 instead of 3 because DBG Bars */
-	left: 1.5rem;
-	top: 3.0rem;
-	border-radius: 1.5rem;
-	padding: 1.0rem;
+	left: var(--GyKaHu);
+	top: var(--GyKaHi);
+	border-radius: var(--GyKaHu);
+	padding: var(--GyTreDe);
 
 	/* CONSIDER 'DBG' BARS, only 'width' since Trx needs expand for centering */
-	width: calc( 100dvw - 3.0rem );
-	max-height: calc( 100dvh - 6.0rem );
+	width: calc( 100dvw - var(--GyKaHi) );
+	max-height: calc( 100dvh - var(--GyBzDe) );
 
 	background-color: var(--PoStzDe);
-	border: solid var(--GyBe) var(--PoBre);
+	border: var(--GwxSpo) var(--GyBe) var(--PoBre);
 
 	/* ALLSCROLL ALL TOPIC AREA*/
 	overflow: auto;
@@ -404,7 +340,7 @@ PANELS
     align-items: center;
 
 	/* width: fit-content; */
-	margin: 1.0rem var(--GyBo);
+	margin: var(--GyTreDe) var(--GyBo);
 	padding: var(--GyBo);
 }
 
@@ -415,15 +351,12 @@ PANELS
 	z-index: 4;
 
 	display: block;
-
-	/* display: grid;
-	gap: var(--GyStz);
-	grid-template-columns: 16.0rem auto; */
 }
 
 /* PANEL__MENU TABS --------------------------------- */
 .Ku02__HriNzVa
 {
+	cursor: cell;
 	background-color: var(--PoStz);
 	border-radius: var(--GyStz);
 	margin: var(--GyStz);
@@ -433,38 +366,27 @@ PANELS
 	flex-wrap: nowrap;
 	place-items: stretch stretch;
 
-	/* min-height: 4.0rem; */
-	/* min-height: fit-content; */
-
 	/* 0 bottom to align with topic section */
-	padding: 0.5rem var(--GyStz) var(--GyStz) var(--GyStz);
+	padding: var(--GyBiHu) var(--GyStz) var(--GyStz) var(--GyStz);
 }
 
 /* PANEL_ALL_CHOICES ---------------------- */
 .Ku03__NzKwa
 {
-	border-radius: 1.5rem;
+	border-radius: var(--GyKaHu);
 	background-color: var(--PoStzVo);
 
 	/* 0 to align with topic section */
 	margin: var(--GyStz);
 	padding: var(--GyStz);
 
-	/* ALLSCROLL ALL TOPIC AREA*/
-	/* max-height: calc( 100dvh - 23.5rem );
-	overflow: auto; */
-
-	/* NEGATIVE PAD THROWS ERR */
-	/* padding: var(--GyStz) -0.5rem; */
-	padding: var(--GyStz);
-
 	/* TL TR BR BL */
-	border-radius: var(--GyStz) var(--GyStz) 1.5rem 1.5rem;
+	border-radius: var(--GyStz) var(--GyStz) var(--GyKaHu) var(--GyKaHu);
 
-	border-left: solid var(--GyBe) var(--PoSi);
-	border-right: solid var(--GyBe) var(--PoSi);
+	border-left: var(--GwxSpo) var(--GyBe) var(--PoSi);
+	border-right: var(--GwxSpo) var(--GyBe) var(--PoSi);
 	border-top: none;
-	border-bottom: solid var(--GyBe) var(--PoSi);
+	border-bottom: var(--GwxSpo) var(--GyBe) var(--PoSi);
 
 	margin-left: var(--GyStz);
 	margin-right: var(--GyStz);
@@ -475,82 +397,132 @@ PANELS
 .Ku04__MoKu
 {
 	display: grid;
-	gap: 1rem;
-	grid-template-columns: repeat( auto-fill, minmax( var( --GyGe_MoKu ), 1fr ));
+	gap: var(--GyTreDe);
+	grid-template-columns: repeat( auto-fill, minmax( var(--GyDru_MoKu), 1fr ));
 
 	overflow-y: auto;
 }
 
-.Ku04__ToKu
+.Ku05__ToKu
 {
-	display: grid;
-	gap: 1rem;
-	grid-template-columns: repeat( auto-fill, minmax( var( --GyGe_ToKu ), 1fr ));
-
+	display: inline-block;
 	overflow-y: auto;
 }
-
 
 /* PANEL__VERSION */
-.Ku05_KwiBriDz_ToGyHu
+.Ku06_KwiBriDz_ToGyHu
 {
 	margin: var(--GyBo);
 	padding: var(--GyBo);
 }
 
-/*@@@@@@@@@@@@@@@
-TEXT
-@@@@@@@@@@@@@@@*/
-
-/* TEXT__TITLE_WORDSIZE */
-.BriDz_FzVa
-{
-	font-size: 3.0rem;
-	text-align: center;
-	margin: 0rem var(--GyBo);
-}
-
-/* TEXT__INFO_SMALL */
-.BriDz_ToGyHu
-{
-	font-size: 75%;
-
-	display: block;
-	text-align:center;
-	margin: var(--GyBe);
-	padding: var(--GyStz);
-	color: var(--PoTraFre);
-}
-
-/* TEXT__DBG ERR */
-.BriDz_TrxKz
-{
-	font-size: 1.25rem;
-	text-align: center;
-}
-
-/* TEXT_GOAL__VERTICAL*/
-.BriDz_Sz
+/* PANEL__SECTION_INDEX */
+.Ku07__HriNe
 {
 	display: inline-flex;
-	font-size: 75%;
+	flex-wrap: wrap;
+	overflow: visible;
 
-	padding: var(--GyBe);
+	text-align: start;
+	align-items: start;
+
+	margin: var(--GyBiHu);
+	padding: var(--GyBo);
+
+	border-left: none;
+	border-right: none;
+	border-top: var(--GwxSpo) var(--GyBe) var(--PoKuSteSpo);
+	border-bottom: none;
+
+	color: var(--PoBre);
+	background-color: var(--PoKuSta);
+	border-radius: var(--GyTreDe);
+}
+
+/*@@@@@@@@@@@@@@@
+NOTIFY^KeMe
+@@@@@@@@@@@@@@@ */
+/* STATUS BAR */
+.KeMe_De
+{
+	cursor: help;
+	left: 0dvw;
+	width: 100dvw;
+	height: var(--GyKaHu);
+
+	text-align: start;
+	align-items: center;
+
+	font-size: var(--GyTreHi);
+}
+
+/* TOP/BOTTOM STATUS BAR PLACEMENT */
+.KeMe_Bz
+{
+	top: 0dvh;
+}
+
+.KeMe_Bo
+{
+	top: calc(100dvh - var(--GyKaHu));
+}
+
+/* TOOLTIP BUBBLE TEXT */
+.KeMe_To
+{
+	cursor: help;
+	position: relative;
+	overflow: visible;
+
+	margin: var(--GyBiHu);
+	padding: var(--GyBiHu);
+
+
+	color: var(--PoKuSteSpo);
+	background-color: var(--PoKuTo);
+
+	border-radius: var(--GyKaHu);
+
+	font-size: -var(GyTreHu);
+	white-space: pre-wrap;
+	text-align: center;
 
 	width: fit-content;
 	height: fit-content;
+	min-width: var(--GyBzHi);
 
-	writing-mode: vertical-lr;
-	/* text-orientation: upright; */
+	opacity: 1.0;
 }
 
-
-/* TEXT__ICON --------------------------------------*/
-.JaPoJy
+/* TOOLTIP TRIANGLE GUIDE */
+.KeMe_To::before
 {
-	margin: var(--GyStz);
+	content: " ";
+	position: absolute;
+
 	padding: var(--GyStz);
+	margin: var(--GyStz);
+
+	/* use 0 for width/height to make border diagonal for triangle */
+	width: var(--GyStz);
+	height: var(--GyStz);
+	border-radius: var(--GyStz);
+	border-style: var(--GwxSpo);
+
+	/* Triangle Size & Location */
+	border-width: var(--GyBiHu);
+	inset-inline-start: var(--GyKaHu);
+	/* -2.0 * Self Border-Width */
+	inset-block-end: -1.0rem;
+
+	/* Top Border ONLY faces down */
+	border-color: var(--PoKuTo) transparent transparent transparent;
 }
+
+
+/*@@@@@@@@@@@@@@@
+TEXT
+@@@@@@@@@@@@@@@*/
 
 /* TEXT__MENU_TITLE --------------------------------- */
 .NzVa
@@ -559,67 +531,36 @@ TEXT
     justify-content: center;
     align-items: center;
 
-	padding: 0.5rem;
-	margin: var(--GyStz);
-	margin-top: 1.0rem;
 	width: stretch;
+	padding: var(--GyBiHu);
+	margin: var(--GyStz);
+	margin-top: var(--GyTreDe);
 
 	color: var(--PoTraFra);
 	background-color: var(--PoKuSteVo);
-	border: solid var(--GyBe) var(--PoSi);
-	border-radius:1.5rem 1.5rem 0 0;
 
-	transition: var(--GiHu);
+	border: var(--GwxSpo) var(--GyBe) var(--PoSi);
+	border-radius: var(--GyKaHu) var(--GyKaHu) 0 0;
+
+	transition: var(--GiDe);
 }
 
-/* TEXT__MENU_TITLE---HOVER PTR  */
-.NzVa:hover
-/* TEXT__MENU_TITLE---FOCUS KEY */
-, .NzVa:focus
-{
-	font-size: 1.25rem;
-	outline: none;
-	box-shadow: 0 -0.5em 1.0rem var(--PoTraFre);
-}
 
 /* TEXT__MENU_SELECTED */
 .NzVa_Se
 {
+	font-size: 1.125rem;
 	color: var(--PoSi);
 	background-color: var(--PoKuHu);
 
-	box-shadow: 0 -0.5em 0.5rem var(--PoTraFra);
-
-	font-size: 1.125rem;
 	outline: none;
-	transition: var(--GiHu);
+	box-shadow: 0 -0.5em var(--GyBiHu) var(--PoTraFra);
+
+	transition: var(--GiDe);
 	border-bottom:none;
-
 }
 
-/* TEXT__ITEMS--------------------------------------------- */
-
-/* TEXT__SECTION_INDEX */
-.HriNeVx
-{
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-between;
-
-	text-align: start;
-	color: var(--PoBre);
-	background-color: var(--PoKuSta);
-
-	border-radius: 1.0rem;
-
-	border-left: none;
-	border-right: none;
-	border-top: solid var(--GyBe) var(--PoKuSteSpo);
-	border-bottom: none;
-
-	margin: 0.50rem;
-	padding: var(--GyBo);
-}
+/* TEXT__CHOICE_ITEMS--------------------------------------------- */
 
 /* TEXT__LABELS */
 .HriNeVa
@@ -628,11 +569,12 @@ TEXT
 	text-align: start;
 	color: var(--PoSi);
 
-	padding: var(--GyBo) 1.0rem;
+	padding: var(--GyBo) var(--GyTreDe);
 	margin: var(--GyBo) var(--GyStz);
 
 	background-color: var(--PoStzFz);
 }
+
 
 /* TEXT__LIST_ELEMENTS */
 .HriNeTi
@@ -644,33 +586,21 @@ TEXT
 	text-align: start;
 
 	margin: var(--GyBo) var(--GyBe);
-	padding: var(--GyBo) 1.00rem;
+	padding: var(--GyBo) var(--GyTreDe);
 
 	color: var(--PoSi);
 	background-color: var(--PoKuSteSpo);
 
-	border-radius: 1.5rem;
-	border: solid var(--GyBe) var(--PoSi);
+	border-radius: var(--GyKaHu);
+	border: var(--GwxSpo) var(--GyBe) var(--PoSi);
 }
 
 /* TEXT__BTN */
 .HriNe_Tra
 {
-	text-align:center;
+	text-align: center;
 	margin: var(--GyBo);
 	padding: var(--GyBo) 0.75rem;
-}
-
-/* GLOW ON HOVER */
-.TreHy:hover
-{
-	box-shadow: 0.0 0 1.0rem var(--PoSi);
-}
-
-/* GLOW FOCUS */
-.TreHy:focus
-{
-	box-shadow: 0 0 1.0rem var(--PoTraFra);
 }
 
 /* TEXT__DOCUMENT HEADER */
@@ -693,10 +623,10 @@ TEXT
 {
 	font-size: var(--GyTreHu);
 	white-space: pre-wrap;
-	max-width: calc( 100% - 1.0rem );
+	max-width: calc( 100% - var(--GyTreDe) );
 
-	margin: 0.50rem;
-	padding: 0.50rem;
+	margin: var(--GyBiHu);
+	padding: var(--GyBiHu);
 
 	background-color: var(--PoKuHu);
 
@@ -707,14 +637,83 @@ TEXT
 .KeDruBe
 {
 	/* Requires BLOCK */
-	column-rule: 0.25em dotted var(--PoKuSta);
-	column-width: 44ch;
-	column-gap: 4ch;
+	column-rule: 0.25em var(--GwxKwo) var(--PoKuSta);
+	column-width: var(--GyDru_MoKu);
+	column-gap: var(--GyDru_Kwe);
+}
+
+
+/* TEXT__TITLE_WORDSIZE */
+.BriDz_FzVa
+{
+	font-size: var(--GyKaHi);
+	text-align: center;
+	margin: var(--GyStz) var(--GyBo);
+}
+
+/* TEXT__INFO_SMALL */
+.BriDz_ToGyHu
+{
+	display: block;
+	margin: var(--GyBe);
+	padding: var(--GyBo);
+
+	font-size: var(--GyBiDe);
+	text-align:start;
+
+	color: var(--PoTraFre);
+}
+
+/* TEXT__DBG ERR */
+.BriDz_TrxKz
+{
+	font-size: var(--GyTreHi);
+	text-align: center;
+}
+
+/* TEXT_GOAL__VERTICAL*/
+.BriDz_Sz
+{
+	display: inline-flex;
+	font-size: var(--GyBiHi);
+
+	padding: var(--GyBe);
+
+	width: fit-content;
+	height: fit-content;
+
+	writing-mode: vertical-lr;
+	/* text-orientation: upright; */
 }
 
 
 /*@@@@@@@@@@@@@@@
-ELEMENTS IMAGE GRID
+ICONS
+@@@@@@@@@@@@@@@*/
+
+/* DEFAULT_ICONS --------------------------------------*/
+.JaPo__De
+{
+	margin: var(--GyStz);
+	padding: var(--GyStz);
+}
+
+/* TITLEBAR LOGOS */
+.JaPo__BriDzSo
+{
+	position: relative;
+	/* z-index: 2; */
+
+	height: var(--GyBzHu);
+	margin: var(--GyBo);
+	padding: var(--GyStz);
+
+	border-radius: var(--GyKaHu);
+	border: var(--GwxSpo) var(--GyBe) var(--PoSiSpo);
+}
+
+/*@@@@@@@@@@@@@@@
+SPRITE GRID
 @@@@@@@@@@@@@@@*/
 
 /* SPRITE ZONE */
@@ -723,7 +722,7 @@ ELEMENTS IMAGE GRID
 	display: inline-flex;
 	flex-wrap: wrap;
 
-	margin: 1.0rem 0.50rem;
+	margin: var(--GyTreDe) var(--GyBiHu);
 	padding: var(--GyStz);
 }
 
@@ -734,9 +733,9 @@ ELEMENTS IMAGE GRID
 	place-items: center center;
 	text-align: center;
 
-	font-size: 6.0rem;
+	font-size: var(--GyBzDe);
 	width: auto;
-	height: 8.0rem;
+	height: var(--GyBzHi);
 
 	margin: var(--GyBo);
 	padding: var(--GyBo);
@@ -748,9 +747,9 @@ ELEMENTS IMAGE GRID
 	place-items: center center;
 	text-align: center;
 
-	font-size: 6.0rem;
+	font-size: var(--GyBzDe);
 	width: auto;
-	height: 8.0rem;
+	height: var(--GyBzHi);
 
 	margin: var(--GyBo);
 	padding: var(--GyBo);
@@ -763,9 +762,9 @@ ELEMENTS IMAGE GRID
 	flex-wrap: wrap;
 
 	border-radius: var(--GyStz);
-	border: solid var(--GyBe) var(--PoBreSpo);
+	border: var(--GwxSpo) var(--GyBe) var(--PoBreSpo);
 
-	height: 8.0rem;
+	height: var(--GyBzHi);
 
 	overflow-y: auto;
 
@@ -808,11 +807,11 @@ ELEMENTS IMAGE GRID
 	position: absolute;
 	text-align: center;
 
-	margin: 0;
-	padding: 0;
-	left: 0;
+	margin: var(--GyStz);
+	padding: var(--GyStz);
+	left: var(--GyStz);
 	right: 100%;
-	top: 0;
+	top: var(--GyStz);
 	bottom: 100%;
 }
 
@@ -825,99 +824,144 @@ ELEMENTS IMAGE GRID
 
 .NiJaPo_VaVo:Hover
 {
-	background-color: var(--PoSi);
 	filter: grayscale( 0% );
+
+	background-color: var(--PoSi);
 	transition: var(--GiDe);
 }
 
 /*@@@@@@@@@@@@@@@
-ELEMENTS MISC
+BTN SUBMIT ===> LAUNCH BTN RED
 @@@@@@@@@@@@@@@*/
-
-/* IMAGE TITLEBAR LOGOS */
-.Kwi00__BriDzJaPo
-{
-	position: relative;
-	/* z-index: 2; */
-
-	height: 4.0rem;
-	margin: var(--GyBo);
-	padding: var(--GyStz);
-
-	border-radius: 1.5rem;
-	border: solid var(--GyBe) var(--PoSiSpo);
-}
-
-/* SLIDER */
-/* TEXT__SECTION_INDEX */
-.HriNeVo
-{
-	display: inline-flex;
-	text-align:center;
-
-	color: var(--PoSiSpo);
-	background-color: var(--PoKuHu);
-
-	border-radius: var(--GyStz);
-	border: none;
-
-	margin: var(--GyStz);
-	padding: var(--GyStz);
-}
-
-/* BTN SUBMIT ===> LAUNCH BTN RED */
 .HriNe_TraKwi
 {
-	font-size: 1.5rem;
-	/* height: 3.0rem; */
-	/* width: calc( 100% - var(--GyStz) ); */
+	font-size: var(--GyKaHu);
+	background-color: var(--PoSmuTra);
+
 	width:fit-content;
 	min-width: 16.0rem;
-
-	margin: var(--GyBo) 0.5rem;
+	margin: var(--GyBo) var(--GyBiHu);
 	padding: var(--GyBo);
 
-	border-radius: 1.5rem;
-	border: solid var(--GyBe) var(--PoSi);
-	background-color: var(--PoSmu);
+	border-radius: var(--GyKaHu);
+	border: var(--GwxSpo) var(--GyBe) var(--PoSi);
 
-	transition: var(--GiHu);
-}
-
-.HriNe_TraKwi:focus
-{
-	font-size: 2.0rem;
-	outline: none;
-	box-shadow: 0 0 1.0rem var(--PoSi);
+	transition: var(--GiDe);
 }
 
 /* BTN SUBMIT HOVER BG Po ==> GREEN */
 .HriNe_TraKwi:hover
 {
-	background-color: var(--PoSmuSe);
 	/* GLOW */
-	box-shadow: 0 0 1.0rem var(--PoSmuSe );
+	font-size: var(--GyKaDe);
+	box-shadow: 0 0 var(--GyTreDe) var(--PoSmuSe );
+	background-color: var(--PoSmuSe);
+	transition: var(--GiDe);
+}
+
+/*@@@@@@@@@@@@@@@
+TOGGLE_SWITCH
+@@@@@@@@@@@@@@@*/
+
+/* CONTAINER INPUT special CSS */
+.KaHyHo .MzHyHo
+{
+	width: var(--GyStz);
+	height: var(--GyStz);
+	opacity: var(--GyStz);
+
+	margin: var(--GyStz);
+	padding: var(--GyStz);
+}
+
+/* CHECKBOX AREA */
+.KaHyHo
+{
+	display: inline-block;
+	position: relative;
+	overflow: visible;
+
+	width: var(--GyKaHi);
+	height: var(--GyKaHu);
+
+	border-radius: var(--GyKaHu);
+	transition: var(--GiDe);
+}
+
+/* BAR PART GREY of CHECKBOX */
+.VuHyHo
+{
+	position: absolute;
+
+	top: var(--GyStz);
+	left: var(--GyStz);
+	right: var(--GyStz);
+	bottom: var(--GyStz);
+
+	height: var(--GyKaHu);
+	margin: var(--GyStz);
+	padding: var(--GyStz);
+
+	border-radius: var(--GyKaHu);
+	background-color: var(--PoKuStuVo);
+
+	transition: var(--GiDe);
+}
+
+/* CIRCLE PART (WHITE/RED) of CHECKBOX */
+.VuHyHo:before
+{
+	position: absolute;
+
+	content: "";
+
+	left: var(--GyStz);
+	bottom: var(--GyStz);
+	width: var(--GyKaHu);
+	height: var(--GyKaHu);
+
+	background-color: var(--PoTraFre);
+	border-radius: var(--GyKaHu);
+
+	transition: var(--GiDe);
+}
+
+/* CHECKBOX RED BG */
+.MzHyHo:checked + .VuHyHo
+{
+	background-color: var(--PoSmuTra);
+	transition: var(--GiDe);
+}
+
+/* FOCUS SLIDE ON/OFF */
+.MzHyHo:checked + .VuHyHo:before
+{
+	transform: translateX( var(--GyKaHu) );
+	transition: var(--GiDe);
 }
 
 /*@@@@@@@@@@@@@@@
 RADIO GROUP
 @@@@@@@@@@@@@@@*/
+
+/* FIELDSET */
 .NiGruKu
 {
-	display: inline-flex;
-	border: solid var(--GyBe) var(--PoBreHu);
-
 	margin: var(--GyBo);
 	padding: var(--GyBo);
+	border: var(--GwxSpo) var(--GyBe) var(--PoBreHu);
 }
 
 .NiGruVa
 {
-	color: var(--PoSiSpo);
-	background-color: var(--PoStzFz);
-
 	margin: var(--GyBo);
 	padding: var(--GyBo);
+
+	color: var(--PoSiSpo);
+	background-color: var(--PoStz);
+	border-radius: var(--GyTreDe);
+
+	transition: var(--GiDe);
 }
 
 .NiGruTi
@@ -925,131 +969,136 @@ RADIO GROUP
 	margin: var(--GyBo);
 	padding: var(--GyBo);
 
-	background-color: var(--PoStzSpo);
+	background-color: var(--PoStz);
+	transition: var(--GiDe);
 }
 
 /*@@@@@@@@@@@@@@@
-TOGGLE_SWITCH
+SLIDER
+@@@@@@@@@@@@@@@ */
+.HriNeVo
+{
+	display: inline-flex;
+	text-align:center;
+
+	margin: var(--GyBe);
+	padding: var(--GyBe);
+
+	border-radius: var(--GyTreDe);
+	border: none;
+
+	color: var(--PoSiSpo);
+	background-color: var(--PoStz);
+
+	transition: var(--GiDe);
+}
+
+
+/*@@@@@@@@@@@@@@@
+SECTION LINE
+@@@@@@@@@@@@@@@*/
+hr
+{
+    display: block;
+	border-radius: var(--GyTreDe);
+
+	width: 100%;
+
+	border-left: none;
+	border-right: none;
+	border-bottom: var(--GwxSpo) var(--GyBe) var(--PoKuStuVo);
+	border-top: none;
+
+    margin: var(--GyStz);
+    padding: var(--GyBiHu);
+}
+
+
+/*@@@@@@@@@@@@@@@
+HOVER GLOW
 @@@@@@@@@@@@@@@*/
 
-/* INPUT special CSS */
-.KaHyHo .MzHyHo
+.HriNeVo:hover
+, .NiGruVa:hover
 {
-	width: 0;
-	height: 0;
-
-	opacity: 0;
-
-	margin: var(--GyStz);
-	padding: var(--GyStz);
+	box-shadow: 0 0 var(--GyTreHu) var(--PoSi);
+	transition: var(--GiDe);
 }
 
-/* CHECKBOX */
-.KaHyHo
+.TreHy:hover
 {
-	width: 3.0rem;
-	height: 1.5rem;
-
-	position: relative;
-	display: inline-block;
+	box-shadow: 0.0 0 var(--GyTreDe) var(--PoSi);
+	transition: var(--GiDe);
 }
+
 .KaHyHo:hover
 {
-	box-shadow: 0 0 1.5rem var(--PoSi);
+	box-shadow: 0 0 var(--GyKaHu) var(--PoSi);
+	transition: var(--GiDe);
 }
 
-/* ELLIPSE BAR BG SHP */
-.VuHyHo
+/* TEXT__MENU_TITLE---HOVER PTR  */
+.NzVa:hover
 {
-	position: absolute;
-
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-
-	height: 1.5rem;
-
-	border-radius: var(--GyStz);
-	margin: var(--GyStz);
-	padding: var(--GyStz);
-
-	/* CHECKBOX GREY BG */
-	background-color: var(--PoKuStuVo);
-	transition: var(--GiHu);
-	border-radius: 1.5rem;
+	font-size: var(--GyTreHi);
+	outline: none;
+	box-shadow: 0 -0.5em var(--GyTreDe) var(--PoTraFre);
+	transition: var(--GiDe);
 }
 
-/* CHECKBOX CIRCLE INDICATOR */
-.VuHyHo:before
+/*@@@@@@@@@@@@@@@
+FOCUS DOTTED OUTLINE
+@@@@@@@@@@@@@@@*/
+
+  .NzVa:focus
+, .NzVa_Se:focus
+, .TreHy:focus
+, .HriNe_TraKwi:focus
+, .HriNeVo:focus
+, .NiGruVa:focus
+, .MzHyHo:focus + .VuHyHo
 {
-	position: absolute;
-	content: "";
-
-	width: 1.5rem;
-	height: 1.5rem;
-
-	left: var(--GyStz);
-	bottom: var(--GyStz);
-
-	/* CHECKBOX CIRCLE  INDICATOR*/
-	background-color: var(--PoTraFre);
-	transition: var(--GiHu);
-	border-radius: 50%;
+	outline: dotted var(--GyBe) var(--PoSi);
 }
 
-.MzHyHo:checked + .VuHyHo
+.NzVa:focus
+.NzVa_Se:focus
 {
-	/* CHECKBOX RED BG */
-	background-color: var(--PoSmu);
-}
-
-.MzHyHo:focus + .VuHyHo
-{
-	/* GLOW */
-	box-shadow: 0 0 1.0rem var(--PoSmu);
-}
-
-.MzHyHo:checked + .VuHyHo:before
-{
-	transform: translateX( 1.5rem );
+	font-size: var(--GyTreHi);
 }
 
 /*@@@@@@@@@@@@@@@
 ELM_FX
 @@@@@@@@@@@@@@@*/
 
-/* SECTION LINE */
-hr
+/* CHOICE PLAN ----------------- */
+.HriNe_Sz
 {
-    display: block;
-	border-radius: 1.0rem;
-
-	border-left: none;
-	border-right: none;
-	border-bottom: solid var(--GyBe) var(--PoKuStuVo);
-	border-top: none;
-
-    margin: var(--GyStz);
-    padding: 1.0rem;
+	display: inline-flex;
+	overflow: visible;
+	align-items: center;
 }
 
-/* ELM__NOT_IN_USE */
+/* ELM__NOT_IN_USE ------------------ */
 .HriNe_TraHo
 {
+	cursor: not-allowed;
+
 	color: var(--PoSiSpo);
-	background-color: var(--PoSmu);
+	background-color: var(--PoSmuTra);
 }
 /* ELM__FADED__NOT_IN_USE */
 .HriNe_HryHo
 {
+	cursor: not-allowed;
+
 	color: var(--PoKuHu);
 	background-color: var(--PoBreVo);
 
 	filter: blur( 4px );
 	/* filter: brightness( 25% ); */
 
-	transition: var(--GiHu)
+	transition: var(--GiDe)
 }
 
 .HriNe__SmoTy

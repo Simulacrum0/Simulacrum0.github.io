@@ -29,7 +29,7 @@ function Hrz4_Bu__Che01_Chy__Tra()
 //-------------------------------------------------
 // ERASE USR
 //-------------------------------------------------
-function Ne00_KeDy05__Chi_Tra()
+function Ne01_KeDy05__Chi_Tra()
 {
 	const KeDyChi_wu = Ko.TaKeDy_l.KeDy_wu;
 
@@ -47,7 +47,7 @@ function Ne00_KeDy05__Chi_Tra()
 //-------------------------------------------------
 // ADD USR
 //-------------------------------------------------
-function Ne00_KeDy04__Cha_Tra( FeCho_yk )
+function Ne01_KeDy04__Cha_Tra( FeCho_yk )
 {
 	//@@@
 	// CREATE
@@ -73,11 +73,11 @@ function Ne00_KeDy04__Cha_Tra( FeCho_yk )
 //-------------------------------------------------
 // CHG USR
 //-------------------------------------------------
-function Ne00_KeDy01__NiKeDy__JeChy()
+function Ne01_KeDy01__NiKeDy__JeChy()
 {
 	//@@@
 	// VALID CHOICE
-	const TaKeDy_l = document.getElementById( 'Ne00_KeDy01__NiKeDy__Ta_l' );
+	const TaKeDy_l = document.getElementById( 'Ne01_KeDy01__NiKeDy__Ta_l' );
 	if( TaKeDy_l.selectedIndex < 0 ) return;
 
 

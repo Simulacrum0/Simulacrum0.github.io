@@ -7,7 +7,7 @@
 
 - GUI has
 	a) Checkbox: Y or N wq @ KaHyHo, VuHyHo
-	b) Slider: 0...to N wu @ HriNeVx
+	b) Slider: 0...to N wu @ Ku07__HriNe
 	c) List: scrollable choices vertical or grid 0...Fo wu
 	d) Text: utf8 ( Label: HriNeVa, Edit: HriNeVa )
 	e) HrButtons: run action ( show tabs, add/remove users, reset-settings, & launch )
@@ -120,6 +120,33 @@ function HriNeDe__ChyHyHo( Vy_vsg, HyHo_yk )
 }
 
 //=====================================
+// SPACETIME FILL by USER
+//=====================================
+function Hri4_Bu__TaJo_Chy()
+{
+	const TaJo_l = document.getElementById( 'Ne00_KuNe00__NiJo__Ta_l' );
+	HriNeDe__Ta_ChyStz( TaJo_l );
+
+	//@@@
+	const SaNo__TaJo_l = Ko.TaKeDy_l.KwiYz_v;
+	SaNo__TaJo_l.forEach( function ( Ti_v, Vx_wu )
+	{
+		// SmaSy( "------ Vx_wu:", Vx_wu, Ti_v.KeDy_vsg );
+
+		//&&&
+		// ADD BTN
+		const Kz_l = document.createElement( 'option' );
+		Kz_l.className = 'HriNeTi WaDru_De';
+		Kz_l.innerText = `${SaPy_vvsg[ Ti_v.NiJaPo_wu ]} ${Ti_v.KeDy_vsg }`;
+		Kz_l.value = Vx_wu;
+		TaJo_l.appendChild( Kz_l );
+	});
+
+	TaJo_l.selectedIndex = 1;
+}
+
+
+//=====================================
 // KEY CTL
 //=====================================
 function Hri4_Bu__MzBuDru_Je( e )
@@ -154,7 +181,7 @@ function Hri4_Bu__MzBuDru_Je( e )
 		case( "ArrowRight" ):
 		{
 			SmaJe( "RT" );
-			Hrz4_Bu__ChyNeKu( 5 );
+		//	Hrz4_Bu__ChyNeKu( 5 );
 
 			break;
 		}
@@ -182,18 +209,31 @@ function Hri4_Bu__MzBuDru_Je( e )
 }
 
 //=====================================
-// INIT GUI DEFAULTS
-// STATIC ITEMS
+// REMOVE GUI ITEMS
 //=====================================
 function Hri4_Bu__TaNeDe__ChiKri()
 {
-	//@@@
-	// REMOVE ELMS
+	//-------------------------------------------------
+	// REMOVE CLNS
+	//-------------------------------------------------
+	// SPACETIME
+	HriNeDe__Ta_ChyStz( document.getElementById("Ne00_KuNe00__NiJo__Ta_l" ) );
 
+	// LANG DROPDOWN LIST
+	HriNeDe__Ta_ChyStz( document.getElementById("Ne00_KuNe02__NiKeDru__Ta_l" ) );
+	HriNeDe__Ta_ChyStz( document.getElementById("Ne00_KuNe02__KeDru_TaJaPo_l" ) );
 
+	// PROFILE
+	HriNeDe__Ta_ChyStz( document.getElementById("Ne01_KeDy03__SaJaPo__TaJaPo_l" ) );
 
-	//@@@
-	// REMOVE KEYS
+	// AUD
+	HriNeDe__Ta_ChyStz( document.getElementById("Ne02_Hru__SmzYz_Ta_l" ) );
+	// VIS
+	HriNeDe__Ta_ChyStz( document.getElementById("Ne02_Hru__SmzYz_Ta_l" ) );
+
+	//-------------------------------------------------
+	// REMOVE KEYMAPPER
+	//-------------------------------------------------
 	document.removeEventListener( "keydown", Hri4_Bu__MzBuDru_Je );
 }
 
@@ -258,19 +298,24 @@ async function Hri4_Bu__TaNeDe__ChaKri()
 	});
 
 
+	//-------------------------------------------------
+	// SPACETIME
+	// Changed 'per user'
+	//-------------------------------------------------
+	Hri4_Bu__TaJo_Chy();
 
 	//-------------------------------------------------
 	// CULTURE
 	//-------------------------------------------------
 	//@@@
 	// LANG DROPDOWN LIST
-	const Ne00_KeDy00__NiKeDru__Ta_l = document.getElementById( 'Ne00_KeDy00__NiKeDru__Ta_l' );
+	const Ne00_KuNe02__NiKeDru__Ta_l = document.getElementById( 'Ne00_KuNe02__NiKeDru__Ta_l' );
 	// LANGUAGE PICKER
-	const KeDru__TaJaPo_l = document.getElementById("Ne00_KeDy00__KeDru_TaJaPo_l");
+	const KeDru__TaJaPo_l = document.getElementById("Ne00_KuNe02__KeDru_TaJaPo_l");
 
 	//&&&
 	// LIST CLEAR
-	HriNeDe__Ta_ChyStz( Ne00_KeDy00__NiKeDru__Ta_l );
+	HriNeDe__Ta_ChyStz( Ne00_KuNe02__NiKeDru__Ta_l );
 	HriNeDe__Ta_ChyStz( KeDru__TaJaPo_l );
 
 	//&&&
@@ -290,7 +335,7 @@ async function Hri4_Bu__TaNeDe__ChaKri()
 			Kz_l.innerText = `${Ti_v.KuGwz} ${Ti_v.Va}`;
 			Kz_l.value = Ti_v.Vy;
 
-			Ne00_KeDy00__NiKeDru__Ta_l.appendChild( Kz_l );
+			Ne00_KuNe02__NiKeDru__Ta_l.appendChild( Kz_l );
 		}
 
 		//&&&
@@ -301,7 +346,7 @@ async function Hri4_Bu__TaNeDe__ChaKri()
 			if( KeDruGri_v.includes( Ti_v.ToKz ) )
 			{
 				Kz_l.className = 'NiJaPo_Va NiJaPo_VaGri WaDru_Ku';
-				Kz_l.onclick = function() { Ne00_KeDy00__NiKeDru__JeChy( Vx_wu ); }
+				Kz_l.onclick = function() { Ne00_KuNe02__NiKeDru__JeChy( Vx_wu ); }
 			}
 			else
 			{
@@ -322,14 +367,14 @@ async function Hri4_Bu__TaNeDe__ChaKri()
 
 	//@@@
 	// STARTING LANG
-	Ne00_KeDy00__NiKeDru__Ta_l.selectedIndex = KwiYz_k.KeDru_wu;
+	Ne00_KuNe02__NiKeDru__Ta_l.selectedIndex = KwiYz_k.KeDru_wu;
 	Hre1_Dru__KeDru_ChyVx( KwiYz_k.KeDru_wu );
 
 
 	//-------------------------------------------------
 	// PROFILE PICKER
 	//-------------------------------------------------
-	const SaJaPo__TaJaPo_l = document.getElementById("Ne00_KeDy03__SaJaPo__TaJaPo_l");
+	const SaJaPo__TaJaPo_l = document.getElementById("Ne01_KeDy03__SaJaPo__TaJaPo_l");
 	HriNeDe__Ta_ChyStz( SaJaPo__TaJaPo_l );
 
 	//@@@

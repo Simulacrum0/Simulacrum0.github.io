@@ -325,6 +325,16 @@ function Hrz4_Bu__ChyNeKu( Vx_wu )
 	for( let i = 0; i < NzVa_v.length; i++)
 	{
 		NzVa_v[i].className = ( Vx_wu === i ) ? NzVa__Se_vsg : NzVa__FeDe_vsg;
+		if( Vx_wu === i )
+		{
+			//&&&
+			// FOCUS on 'first' element to skip MENU tab-run
+			NzVa_v[i].focus();
+
+			//
+			// NzVa_v[i].firstElementChild.focus();
+
+		}
 	}
 
 	//@@@
@@ -370,7 +380,7 @@ function Tra_KeMeBri()
 
 	//@@@
 	// ECOSYS PLAY
-	SmaJe( "[GUI] User:", KwiYz_k.KeDy_vsg, " NEVER_PAUSE:", KwiYz_k.Ne01_Ko04__KoDz_YoHo_y );
+	SmaJe( "[GUI] User:", KwiYz_k.KeDy_vsg, " NEVER_PAUSE:", KwiYz_k.Ne04_Ko04__KoDz_YoHo_y );
 	if( KoDz__YzYa_y() )
 	{
 		SmaSy( "[GUI] ACTIVE via Resume" );

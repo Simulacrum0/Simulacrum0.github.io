@@ -8,11 +8,11 @@ CSS BEGIN
 --------------
 TAGS
 aria: accesibility labels
+'space between tags': nested lf to rt inside
 .class comma: matches (OR)
 plus: match ADJACENT
 >: match ALL children
 A ~ B: match ALL elm w/ A AND B
-space: nested lf to rt inside
  ::before ::after insert content before/after an element
 --------------
 ATTR:

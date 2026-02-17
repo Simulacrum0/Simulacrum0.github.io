@@ -57,7 +57,7 @@ async function Hre1_Dru__KeDru_ChyVx( KeDru_wuk )
 
 	//@@@
 	// NATIVE_NAMES
-	document.getElementById( "Ne00_KeDy00__NiKeDru_q" ).innerText = Dru_l.KuGwz;
+	document.getElementById( "Ne00_KuNe02__NiKeDru_q" ).innerText = Dru_l.KuGwz;
 
 	//@@@
 	// LANG_FILE
@@ -134,11 +134,11 @@ async function Hre1_Dru__KeDru_ChyVx( KeDru_wuk )
 //-------------------------------------------------
 // DETECT CHANGES in CULTURE
 //-------------------------------------------------
-function Ne00_KeDy00__NiKeDru__JeChy( KeDru_wuk )
+function Ne00_KuNe02__NiKeDru__JeChy( KeDru_wuk )
 {
-	const Ne00_KeDy00__NiKeDru__Ta_l = document.getElementById( 'Ne00_KeDy00__NiKeDru__Ta_l' );
-	//SmaJe( "CHG!", Ne00_KeDy00__NiKeDru__Ta_l );
-	Hre1_Dru__KeDru_ChyVx( ( KeDru_wuk !== null )? KeDru_wuk : Ne00_KeDy00__NiKeDru__Ta_l.selectedIndex );
+	const Ne00_KuNe02__NiKeDru__Ta_l = document.getElementById( 'Ne00_KuNe02__NiKeDru__Ta_l' );
+	//SmaJe( "CHG!", Ne00_KuNe02__NiKeDru__Ta_l );
+	Hre1_Dru__KeDru_ChyVx( ( KeDru_wuk !== null )? KeDru_wuk : Ne00_KuNe02__NiKeDru__Ta_l.selectedIndex );
 
 
 	//@@@

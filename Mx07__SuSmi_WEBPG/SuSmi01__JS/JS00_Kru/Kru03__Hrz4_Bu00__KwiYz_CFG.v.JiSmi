@@ -27,7 +27,7 @@ function Hrz4_Bu__KwiYz__ChyDe( Va_vksg, NiJaPo_wuk, KeDru_wuk )
 	if( NiJaPo_wuk !== null )
 	{ KwiYz_k.NiJaPo_wu = NiJaPo_wuk; }
 
-	KwiYz_k.Ne00_KeDy06__TraChe_y = false;
+	KwiYz_k.Ne01_KeDy06__TraChe_y = false;
 
 
 	//---------------------------------
@@ -84,12 +84,20 @@ function Hrz4_Bu__KwiYz__ChyDe( Va_vksg, NiJaPo_wuk, KeDru_wuk )
 
 	//@@@
 	// NODE
-	KwiYz_k.Ne01_Ko04__KoDz_YoHo_y = true;
-	//KwiYz_k.Ne01_Ko04__KoDz_YoHo_y = false;
+	KwiYz_k.Ne04_Ko04__KoDz_YoHo_y = true;
+	//KwiYz_k.Ne04_Ko04__KoDz_YoHo_y = false;
 
 
 }
 
+//==============================================
+// SELECT WHERE
+//==============================================
+function Hrz4_Bu__JoChy()
+{
+	//Ne00_KuNe00__NiJo__Ta_l
+	SmaJe( "[CFG] Jo:" );
+}
 
 //==============================================
 // GUI_SYNC
@@ -105,17 +113,17 @@ function Hrz4_Bu__KwiYz__HriNe_MyYy()
 
 	//@@@
 	// LANG LIST SELECTION
-	document.getElementById( "Ne00_KeDy00__NiKeDru__Ta_l" ).selectedIndex = KwiYz_k.KeDru_wu;
+	document.getElementById( "Ne00_KuNe02__NiKeDru__Ta_l" ).selectedIndex = KwiYz_k.KeDru_wu;
 
 	//@@@
 	// SET LANG_ICON
-	document.getElementById( "Ne00_KeDy00__NiKeDru_q" ).innerText = Hre1_Dru__Gra_v[ KwiYz_k.KeDru_wu ].KuGwz;
+	document.getElementById( "Ne00_KuNe02__NiKeDru_q" ).innerText = Hre1_Dru__Gra_v[ KwiYz_k.KeDru_wu ].KuGwz;
 
 
 	//@@@
 	// ADD USR ENTRIES
 	{
-		const TaKeDy_l = document.getElementById( 'Ne00_KeDy01__NiKeDy__Ta_l' );
+		const TaKeDy_l = document.getElementById( 'Ne01_KeDy01__NiKeDy__Ta_l' );
 		HriNeDe__Ta_ChyStz( TaKeDy_l );
 
 		const SaNo__TaKeDy_l = Ko.TaKeDy_l.KwiYz_v;
@@ -137,16 +145,16 @@ function Hrz4_Bu__KwiYz__HriNe_MyYy()
 
 	//@@@
 	// USER NAME
-	document.getElementById( "Ne00_KeDy00__Nz00_NiKeDy_vsg" ).value = "NOMBraaaaay";
+	document.getElementById( "Ne01_KeDy00__Nz00_NiKeDy_vsg" ).value = "NOMBraaaaay";
 
 	//@@@
 	// SET PROFILE_ICON
-	document.getElementById( "Ne00_KeDy03__SaJaPo_q" ).innerText = SaPy_vvsg[ KwiYz_k.NiJaPo_wu ];
+	document.getElementById( "Ne01_KeDy03__SaJaPo_q" ).innerText = SaPy_vvsg[ KwiYz_k.NiJaPo_wu ];
 
 	//@@@
 	// USE_SECURITY
-	const TraChe_yk = KwiYz_k.Ne00_KeDy06__TraChe_y;
-	HriNeDe__ChyHyHo( "Ne00_KeDy06__TraChe_y", TraChe_yk );
+	const TraChe_yk = KwiYz_k.Ne01_KeDy06__TraChe_y;
+	HriNeDe__ChyHyHo( "Ne01_KeDy06__TraChe_y", TraChe_yk );
 
 	//&&&
 	// AUTHORIZED
@@ -167,7 +175,7 @@ function Hrz4_Bu__KwiYz__HriNe_MyYy()
 	HriNeDe__ChyHryVoHu( "BriDz_TraKwi_vsg", SmxHa_yk );
 
 	// SECURITY AREA
-	HriNeDe__ChyHry( "Ne00_KeDy06__CheHaKri", SmxHa_yk );
+	HriNeDe__ChyHry( "Ne01_KeDy06__CheHaKri", SmxHa_yk );
 
 
 	//&&&
@@ -186,28 +194,28 @@ function Hrz4_Bu__KwiYz__HriNe_MyYy()
 
 	//&&&
 	// PANELS
-	HriNeDe__ChyHryVoHu( "Ne01_Ko_vsg", SmxHa_yk );
+	HriNeDe__ChyHryVoHu( "Ne04_Ko_vsg", SmxHa_yk );
 	HriNeDe__ChyHryVoHu( "Ne02_Hru_vsg", SmxHa_yk );
 	HriNeDe__ChyHryVoHu( "Ne03_Hry_vsg", SmxHa_yk );
-	HriNeDe__ChyHryVoHu( "Ne04_Hx_vsg", SmxHa_yk );
-	HriNeDe__ChyHryVoHu( "Ne05_Grx_vsg", SmxHa_yk );
+	HriNeDe__ChyHryVoHu( "Ne05_Hx_vsg", SmxHa_yk );
+	HriNeDe__ChyHryVoHu( "Ne06_Grx_vsg", SmxHa_yk );
 
 	//&&&
 	// Name
-	HriNeDe__ChyTraHo( "Ne00_KeDy02__VaTre_Sma_vsg", SmxHa_yk );
+	HriNeDe__ChyTraHo( "Ne01_KeDy02__VaTre_Sma_vsg", SmxHa_yk );
 
 	//&&&
 	// Avatar
-	HriNeDe__ChyHryVoHu( "Ne00_KeDy03__SaJaPo__TaJaPo_l", SmxHa_yk );
+	HriNeDe__ChyHryVoHu( "Ne01_KeDy03__SaJaPo__TaJaPo_l", SmxHa_yk );
 
 	//&&&
 	// Question-Lock
-	HriNeDe__ChyTraHo( "Ne00_KeDy07__MaKz_vsg", SmxHa_yk );
-	HriNeDe__ChyTraHo( "Ne00_KeDy07__MaKz__Sma_vsg", SmxHa_yk );
+	HriNeDe__ChyTraHo( "Ne01_KeDy07__MaKz_vsg", SmxHa_yk );
+	HriNeDe__ChyTraHo( "Ne01_KeDy07__MaKz__Sma_vsg", SmxHa_yk );
 
 	// Answer-Key
-	HriNeDe__ChyTraHo( "Ne00_KeDy08__SmzKz_vsg", SmxHa_yk );
-	// SmaSy( "ANSWER: ", document.getElementById("Ne00_KeDy08__SmzKz__Sma_vsg").value );
+	HriNeDe__ChyTraHo( "Ne01_KeDy08__SmzKz_vsg", SmxHa_yk );
+	// SmaSy( "ANSWER: ", document.getElementById("Ne01_KeDy08__SmzKz__Sma_vsg").value );
 
 
 
@@ -215,14 +223,14 @@ function Hrz4_Bu__KwiYz__HriNe_MyYy()
 	// Ne01__NODE
 	//---------------------------------
 	//@@@
-	// Ne01_Ko01__HraBru_Tra_vsg
-	document.getElementById( "Ne01_Ko01__HraBru_Tra_y" ).value = KwiYz_k.Ne01_Ko01__HraBru_Tra_y;
-	// Ne01_Ko02__SpeVu_vsg
-	document.getElementById( "Ne01_Ko02__SpeVu_y" ).value = KwiYz_k.Ne01_Ko02__SpeVu_y;
-	// Ne01_Ko03__MzKu_vsg
-	document.getElementById( "Ne01_Ko03__MzKu_y" ).value = KwiYz_k.Ne01_Ko03__MzKu_y;
-	// Ne01_Ko04__KoDz_YoHo_y
-	document.getElementById( "Ne01_Ko04__KoDz_YoHo_y" ).value = KwiYz_k.Ne01_Ko04__KoDz_YoHo_y;
+	// Ne04_Ko01__HraBru_Tra_vsg
+	document.getElementById( "Ne04_Ko01__HraBru_Tra_y" ).value = KwiYz_k.Ne04_Ko01__HraBru_Tra_y;
+	// Ne04_Ko02__SpeVu_vsg
+	document.getElementById( "Ne04_Ko02__SpeVu_y" ).value = KwiYz_k.Ne04_Ko02__SpeVu_y;
+	// Ne04_Ko03__MzKu_vsg
+	document.getElementById( "Ne04_Ko03__MzKu_y" ).value = KwiYz_k.Ne04_Ko03__MzKu_y;
+	// Ne04_Ko04__KoDz_YoHo_y
+	document.getElementById( "Ne04_Ko04__KoDz_YoHo_y" ).value = KwiYz_k.Ne04_Ko04__KoDz_YoHo_y;
 
 
 	//---------------------------------
@@ -282,12 +290,12 @@ function Hrz4_Bu__KwiYz__Ko_ChyYe()
 
 	//&&&
 	// USE SECURITY
-	const Fi__TraChe_yk = KwiYz_k.Ne00_KeDy06__TraChe_y;
+	const Fi__TraChe_yk = KwiYz_k.Ne01_KeDy06__TraChe_y;
 
-	KwiYz_k.Ne00_KeDy06__TraChe_y = document.getElementById( "Ne00_KeDy06__TraChe_y" ).checked;
-	if( Fi__TraChe_yk != KwiYz_k.Ne00_KeDy06__TraChe_y )
+	KwiYz_k.Ne01_KeDy06__TraChe_y = document.getElementById( "Ne01_KeDy06__TraChe_y" ).checked;
+	if( Fi__TraChe_yk != KwiYz_k.Ne01_KeDy06__TraChe_y )
 	{
-		SmaJe( "SECURITY CHANGED to ", KwiYz_k.Ne00_KeDy06__TraChe_y );
+		SmaJe( "SECURITY CHANGED to ", KwiYz_k.Ne01_KeDy06__TraChe_y );
 		// Reload
 		Hrz4_Bu__KwiYz__HriNe_MyYy();
 	}
@@ -295,7 +303,7 @@ function Hrz4_Bu__KwiYz__Ko_ChyYe()
 	//---------------------------------
 	// Ne01__NODE
 	//---------------------------------
-	KwiYz_k.Ne01_Ko04__KoDz_YoHo_y = document.getElementById( "Ne01_Ko04__KoDz_YoHo_y" ).value;
+	KwiYz_k.Ne04_Ko04__KoDz_YoHo_y = document.getElementById( "Ne04_Ko04__KoDz_YoHo_y" ).value;
 
 
 	//---------------------------------

@@ -1,5 +1,5 @@
-const BriDzSa__Da_vsg = "PUB_v0.220"; 
- const BriDzSa__Da_wuk = "220"; 
+const BriDzSa__Da_vsg = "PUB_v0.221"; 
+ const BriDzSa__Da_wuk = "221"; 
  const BriDz__Mx_KuTu_vsg = "https://powerourpeople.com/"; 
 
 //==============================================
@@ -331,292 +331,6 @@ const Kwi00__TaNe_v=
 
 /*
 
-	<!-- Ku04__NeKu00^WHO -->
-	<div id="NeKu00" class="NeKuJy Ku04__MoKu">
-
-		<section><div class="HriNeVx">
-			<div id="Ne00_KeDy__VaTre_vsg" data-title="TEST MY TOOLTIP and then some more about this you know? and then some more and then some more and then some more" class="WaDru_Bz">1️⃣👥
-				<label id="Ne00_KeDy00__Nz00_NiKeDy_vsg" for="Ne00_KeDy01__NiKeDy__Ta_l" class="HriNeVa WaDru_Bz" ></label>
-				<select id="Ne00_KeDy01__NiKeDy__Ta_l" class="HriNeTi WaDru_Py TreHy" onchange="Ne00_KeDy01__NiKeDy__JeChy()" tabindex=3 ></select>
-				<hr>
-			</div>
-
-			<!-- EDIT NAME -->
-			<div>
-				<span id="Ne00_KeDy02__VaTre_vsg" class="HriNeVa WaDru_Bz"></span>
-				<input id="Ne00_KeDy02__VaTre_Sma_vsg" class="KeDru_MiPo TreHy WaDru_De" type="text" placeholder="???"></input>
-			</div> <!-- 3.3 -->
-
-			<!-- MGR USERS -->
-			<div id="Ne00_KeDy__ChaChi_vsg">
-				<button id="Ne00_KeDy04__ChaDe_vsg" class="HriNe_Tra TreHy WaDru_Bz" type="button" onclick="Ne00_KeDy04__Cha_Tra( false )"></button>
-				<button id="Ne00_KeDy05__ChaFe_vsg" class="HriNe_Tra TreHy WaDru_Bz" type="button" onclick="Ne00_KeDy04__Cha_Tra( true )"></button>
-				<button id="Ne00_KeDy09__Chi_vsg" class="HriNe_Tra TreHy WaDru_Bz" type="button" onclick="Ne00_KeDy05__Chi_Tra()"></button>
-			</div> <!-- 3.2 -->
-
-		</div></section><!-- 1 -->
-
-		<!-- LANGUAGE/COUNTRY GRID -->
-		<div class="HriNeVx">
-			<span>2️⃣🌐
-				<label id="Ne00_KeDy00__Nz02_NiKeDru_vsg" for="Ne00_KeDy00__NiKeDru__Ta_l" class="HriNeVa WaDru_Bz"></label>
-				<select id="Ne00_KeDy00__NiKeDru__Ta_l" class="HriNeTi WaDru_Ku TreHy" onchange="Ne00_KeDy00__NiKeDru__JeChy( null )" tabindex=2 ></select>
-				<hr>
-			</span>
-
-			<!-- FLAG SELECT -->
-			<!-- <div class="TaJaPo_HryKu"> -->
-				<span id="Ne00_KeDy00__NiKeDru_q" class="NiJaPo_Fe WaDru_Ku TreHy" onclick="HriNeDe__ChyHryDry( 'Ne00_KeDy00__KeDru_TaJaPo_l' );" ></span>
-				<div id="Ne00_KeDy00__KeDru_TaJaPo_l" class="NiJaPo_NeKu"></div>
-
-			<!-- </div> 2.1 -->
-		</div> <!-- 2 -->
-
-
-		<div class="HriNeVx">
-			<span>3️⃣😶‍🌫️	<span id="Ne00_KeDy00__Nz03_SaJaPo_vsg" class="HriNeVa WaDru_Bz"></span><hr></span>
-
-			<!-- PROFILE PIC -->
-			<!-- <div title="ℹ️TEST PIC TIP" class="TaJaPo_HryKu WaDru_Bz"> -->
-				<span id="Ne00_KeDy03__SaJaPo_q" class="NiJaPo_Fe WaDru_Py TreHy" onclick="HriNeDe__ChyHryDry( 'Ne00_KeDy03__SaJaPo__TaJaPo_l' );" ></span>
-				<div id="Ne00_KeDy03__SaJaPo__TaJaPo_l" class="NiJaPo_NeKu WaDru_Py"></div>
-			<!-- </div> 3.1 -->
-
-		</div> <!-- 3 -->
-
-		<div class="HriNeVx">
-			<span>4️⃣🔐
-				<span id="Ne00_KeDy00__Nz03_TraChe_vsg" class="HriNeVa WaDru_Bz"></span>
-				<label class="KaHyHo WaDru_De"><input id="Ne00_KeDy06__TraChe_y" class="MzHyHo" type="checkbox" onchange="Hrz4_Bu__KwiYz__Ko_ChyYe()" ><span class="VuHyHo"></span></label>
-				<hr>
-			</span>
-
-			<div>
-				<!-- SECURITY REPORT -->
-				<span id="Che02_Trx_vsg" class="HriNeVa WaDru_Bz"></span>
-				<span id="Che03_TraHo_vsg" class="HriNeVa WaDru_Bz"></span>
-				<span id="Che04_TraHy_vsg" class="HriNeVa WaDru_Bz"></span>
-			</div>
-
-			<div id="Ne00_KeDy06__CheHaKri">
-				<div>
-					<span id="Ne00_KeDy07__MaKz_vsg" class="HriNeVa WaDru_Bz" ></span>
-					<input id="Ne00_KeDy07__MaKz__Sma_vsg" class="KeDru_MiPo TreHy WaDru_De" type="text" placeholder="???"></input>
-				</div>
-				<div>
-					<span id="Ne00_KeDy08__SmzKz_vsg" class="HriNeVa WaDru_Bz" ></span>
-					<input id="Ne00_KeDy08__SmzKz__Sma_vsg" class="KeDru_MiPo TreHy WaDru_De " type="text" placeholder="???"></input>
-				</div>
-				<!-- SECURITY BTNS 🙈🐵💭💬 -->
-				<div>
-					<button id="Che00_Krz_vsg" class="HriNe_Tra TreHy WaDru_Bz" type="button" onclick="Hrz4_Bu__Che00_Krz__Tra()"></button>
-					<button id="Che01_Chy_vsg" class="HriNe_Tra TreHy WaDru_Bz" type="button" onclick="Hrz4_Bu__Che01_Chy__Tra()"></button>
-				</div>
-			</div>	<!-- Ne00_KeDy06__CheHaKri -->
-		</div> <!-- 4 -->
-</div> <!-- NeKu00 -->
-
-
-<!-- Ku04__NeKu01^ACCESS NODE -->
-<div id="NeKu01" class="NeKuJy Ku04__MoKu">
-	<div class="HriNeVx">
-		<span>1️⃣⚙️<span id="Ne00_KeDy00__Nz03_SaJaPo_vsg" class="HriNeVa WaDru_Bz"></span><hr></span>
-
-		<span>♻️<button id="Ne01_Ko00__KwiYz_ChyDe_vsg" class="HriNe_Tra TreHy WaDru_Bz" type="button" onclick="Hrz4_Bu__KwiYz__ChyDe( null, null, null );"></button></span>
-
-		<span>🔋</span><span id="Ne01_Ko02__SpeVu_vsg" class="HriNeVa WaDru_Bz"></span>
-		<label class="KaHyHo WaDru_De"><input id="Ne01_Ko02__SpeVu_y" class="MzHyHo" type="checkbox" onchange="Hrz4_Bu__KwiYz__Ko_ChyYe()" ><span class="VuHyHo"></span></label>
-
-
-		<label class="KaHyHo WaDru_De"><input id="Ne01_Ko04__NeGo_q" class="MzHyHo" type="checkbox" onchange="Hrz4_Bu__KwiYz__Ko_ChyYe()" ><span class="VuHyHo"></span></label>
-		<span>🚮<button id="Ne01_Ko05__TaKeDy_Chx_vsg" class="HriNe_Tra TreHy WaDru_Bz" type="button" onclick="Hrz4_Bu__TaKeDy_ChxGry();"></button></span>
-
-		<span>5️⃣♾️
-			<span id="Ne01_Ko04__KoDz_YoHo_vsg" class="HriNeVa WaDru_Bz"></span>
-			<label class="KaHyHo WaDru_De"><input id="Ne01_Ko04__KoDz_YoHo_y" class="MzHyHo" type="checkbox" onchange="Hrz4_Bu__KwiYz__Ko_ChyYe()" ><span class="VuHyHo"></span></label>
-		</span>
-
-	</div>
-	<div class="HriNeVx">
-		<span>2️⃣⚙️<span id="Ne00_KeDy00__Nz03_SaJaPo_vsg" class="HriNeVa WaDru_Bz"></span><hr></span>
-		<div>
-
-			<p>📍
-				<span id="Ne01_Ko03__MzKu_vsg" class="HriNeVa WaDru_Bz"></span>
-				<label class="KaHyHo WaDru_De"><input id="Ne01_Ko03__MzKu_y" class="MzHyHo" type="checkbox" onchange="Hrz4_Bu__KwiYz__Ko_ChyYe()" ><span class="VuHyHo"></span></label>
-			</p>
-
-			<p>🛜
-				<span id="Ne01_Ko01__HraBru_Tra_vsg" class="HriNeVa WaDru_Bz"></span>
-				<label class="KaHyHo WaDru_De"><input id="Ne01_Ko01__HraBru_Tra_y" class="MzHyHo" type="checkbox" onchange="Hrz4_Bu__KwiYz__Ko_ChyYe()" ><span class="VuHyHo"></span></label>
-			</p>
-		</div>
-
-	</div>
-</div> <!-- NeKu01 -->
-
-
-<!-- Ku04__NeKu02^AUDIO -->
-<div id="NeKu02" class="NeKuJy Ku04__MoKu">
-	<div class="HriNeVx">
-			<span>1️⃣🔇</span>
-		<span id="Ne02_Hru__MxPeHo_vsg" class="HriNeVa WaDru_Bz"></span>
-		<label class="KaHyHo WaDru_De"><input id="Ne02_Hru__MxPeHo_y" class="MzHyHo" type="checkbox" onchange="Hrz4_Bu__KwiYz__Ko_ChyYe()" ><span class="VuHyHo"></span></label>
-	</div>
-	<div class="HriNeVx">
-			<span>2️⃣🔊</span>
-		<span id="Ne02_Hru__MxPeVo_vsg" class="HriNeVa WaDru_Bz"></span>
-		<input id="Ne02_Hru__MxPeVo_ba" class="HriNeVo" type="range" onchange="Hrz4_Bu__KwiYz__Ko_ChyYe()" min="0" max="100" value="50" id="volume" />
-	</div>
-	<div class="HriNeVx">
-			<span>3️⃣🎙️</span>
-		<span id="Ne02_Hru__MzPe_vsg" class="HriNeVa WaDru_Bz"></span>
-		<label class="KaHyHo WaDru_De"><input id="Ne02_Hru__MzPe_y" class="MzHyHo" type="checkbox" onchange="Hrz4_Bu__KwiYz__Ko_ChyYe()" ><span class="VuHyHo"></span></label>
-	</div>
-	<div class="HriNeVx">
-			<span>4️⃣♾️</span>
-		<span id="Ne02_Hru__YoHo_vsg" class="HriNeVa WaDru_Bz"></span>
-		<label class="KaHyHo WaDru_De"><input id="Ne02_Hru__YoHo_y" class="MzHyHo" type="checkbox" onchange="Hrz4_Bu__KwiYz__Ko_ChyYe()" ><span class="VuHyHo"></span></label>
-	</div>
-	<div class="HriNeVx">
-			<span>5️⃣📊</span>
-		<label id="Ne02_Hru__SmzYz_vsg" for="Ne02_Hru__SmzYz_Ta_l" class="HriNeVa WaDru_Bz"></label>
-		<select id="Ne02_Hru__SmzYz_Ta_l" class="HriNeTi WaDru_De" onchange="Ne03_Hry06__SmzYz__TaChy()"></select>
-	</div>
-	<div class="HriNeVx">
-			<span>6️⃣📈</span>
-		<span id="Ne02_Hru__GyBraHi_vsg" class="HriNeVa WaDru_Bz"></span>
-		<input id="Ne02_Hru__GyBraHi_su" class="HriNeVo" type="range" onchange="Hrz4_Bu__KwiYz__Ko_ChyYe()" min="0" max="7" value="3" />
-	</div>
-</div>  <!-- NeKu02 -->
-
-
-<!-- Ku04__NeKu03^VISUAL -->
-<div id="NeKu03" class="NeKuJy Ku04__MoKu">
-	<div class="HriNeVx">
-		<span>1️⃣
-			<span>📄</span><span id="Ne03_Hry00__KeDruGy_vsg" class="HriNeVa WaDru_Bz"></span>
-			<input id="Ne03_Hry00__KeDruGy_ba" class="HriNeVo" type="range" onchange="Hrz4_Bu__KwiYz__Ko_ChyYe()" min="0" max="100" value="50" />
-		</span>
-	</div>
-	<div class="HriNeVx">
-			<span>2️⃣<span id="Ne03_Hry01__MzPo_vsg" class="HriNeVa WaDru_Bz"></span>
-
-				<span>📷</span><span id="Ne03_Hry01__MzPo_vsg" class="HriNeVa WaDru_Bz"></span>
-				<label class="KaHyHo WaDru_De"><input id="Ne03_Hry01__MzPo_y" class="MzHyHo" type="checkbox" onchange="Hrz4_Bu__KwiYz__Ko_ChyYe()" ><span class="VuHyHo"></span></label>
-			</span>
-	</div>
-	<div class="HriNeVx">
-			<span>3️⃣🥽</span>
-		<span id="Ne03_Hry02__HriKe_vsg" class="HriNeVa WaDru_Bz"></span>
-		<label class="KaHyHo WaDru_De"><input id="Ne03_Hry02__HriKe_y" class="MzHyHo" type="checkbox" onchange="Hrz4_Bu__KwiYz__Ko_ChyYe()" ><span class="VuHyHo"></span></label>
-	</div>
-	<div class="HriNeVx">
-			<span>4️⃣💻</span>
-		<span id="Ne03_Hry03__MxPoGyHi_vsg" class="HriNeVa WaDru_Bz"></span>
-		<label class="KaHyHo WaDru_De"><input id="Ne03_Hry03__MxPoGyHi_y" class="MzHyHo" type="checkbox" onchange="Hrz4_Bu__KwiYz__Ko_ChyYe()" ><span class="VuHyHo"></span></label>
-	</div>
-	<div class="HriNeVx">
-			<span>5️⃣🖥️</span>
-		<span id="Ne03_Hry04__MxPoGry_vsg" class="HriNeVa WaDru_Bz"></span>
-		<label class="KaHyHo WaDru_De"><input id="Ne03_Hry05__PoGy_y" class="MzHyHo" type="checkbox" onchange="Hrz4_Bu__KwiYz__Ko_ChyYe()" ><span class="VuHyHo"></span></label>
-	</div>
-
-	<div class="HriNeVx">
-			<span>🌈</span><span id="Ne03_Hry05__PoGy_vsg" class="HriNeVa WaDru_Bz"></span>
-		<label class="KaHyHo WaDru_De"><input id="Ne03_Hry05__PoGy_y" class="MzHyHo" type="checkbox" onchange="Hrz4_Bu__KwiYz__Ko_ChyYe()" ><span class="VuHyHo"></span></label>
-	</div>
-
-	<div class="HriNeVx">
-		<span>7️⃣📊
-			<label id="Ne03_Hry06__SmzYz_vsg" for="Ne03_Hry06__SmzYz__Ta_l" class="HriNeVa WaDru_Bz"></label>
-			<select id="Ne03_Hry06__SmzYz__Ta_l" class="HriNeTi WaDru_De" onchange="Ne03_Hry06__SmzYz__TaChy()"></select>
-			<hr>
-
-			<fieldset class="NiGruKu">
-				<legend class="HriNeVa WaDru_Bz">Choose your Display</legend>
-
-				<input type="radio" id="html" class="NiGruTi WaDru_De" name="NiGru__HryMxPoJy" value="0">
-				<label class="NiGruVa WaDru_De" for="html">Browser Tab</label><br>
-
-				<input type="radio" id="css" class="NiGruTi WaDru_De" name="NiGru__HryMxPoJy" value="1">
-				<label class="NiGruVa WaDru_De" for="css">XR</label><br>
-
-				<input type="radio" id="javascript" class="NiGruTi WaDru_De" name="NiGru__HryMxPoJy" value="2">
-				<label class="NiGruVa WaDru_De" for="javascript">Allscreens</label>
-			</fieldset>
-
-
-			<div>
-				<span>📈</span><span id="Ne03_Hry07__GyBraHi_vsg" class="HriNeVa WaDru_Bz"></span>
-				<input id="Ne03_Hry07__GyBraHi_bu" class="HriNeVo" type="range" onchange="Hrz4_Bu__KwiYz__Ko_ChyYe()" min="0" max="7" value="3" />
-			</div>
-			<div>
-				<span>🧱</span><span id="Ne03_Hry08__TyGy_vsg" class="HriNeVa WaDru_Bz"></span>
-				<input id="Ne03_Hry08__TyGy_su" class="HriNeVo" type="range" onchange="Hrz4_Bu__KwiYz__Ko_ChyYe()" min="0" max="7" value="3" />
-			</div>
-		</span>
-	</div>
-</div>  <!-- NeKu03 -->
-
-<!-- Ku04__NeKu04^ABOUT -->
- <!-- TXT is either KeDruBa 1-column or KeDruBe multi-column -->
-<div id="NeKu04" class="NeKuJy Ku04__ToKu">
-	<p id="Ne04_Hx00__Bz_vsg" class="HriNeVa KeDruBz WaDru_Bz"></p>
-
-	<span class="HriNeVx">1️⃣
-		<span id="Ne04_Hx00__Nz00_vsg" class="HriNeVa KeDruNz WaDru_Bz"></span>
-		<div id="Ne04_Hx01__Ka00_vsg" class="KeDruBe WaDru_De"></div>
-		<span class="JaPoJy GwzDoPo GwzDo_GLOBAL GwzHu"></span>
-	</span>
-	<span class="HriNeVx">2️⃣
-		<span id="Ne04_Hx00__Nz01_vsg" class="HriNeVa KeDruNz WaDru_Bz"></span>
-		<div id="Ne04_Hx01__Ka01_vsg" class="KeDruBe WaDru_De"></div>
-		<span class="JaPoJy GwzDoPo GwzDo_SECURITY GwzHu"></span>
-	</span>
-	<span class="HriNeVx">3️⃣
-		<span id="Ne04_Hx00__Nz02_vsg" class="HriNeVa KeDruNz WaDru_Bz"></span>
-		<div id="Ne04_Hx01__Ka02_vsg" class="KeDruBa WaDru_De"></div>
-		<span class="JaPoJy GwzDoPo GwzDo_NET GwzHu"></span>
-	</span>
-	<span class="HriNeVx">4️⃣
-		<span id="Ne04_Hx00__Nz03_vsg" class="HriNeVa KeDruNz WaDru_Bz"></span>
-		<div id="Ne04_Hx01__Ka03_vsg" class="KeDruBe WaDru_De"></div>
-	</span>
-
-	<div class="Ku01_BzVa_GeBre">
-		<span class="JaPoJy GwzDoPo GwzDo_SPEED GwzHu"></span>
-		<span class="JaPoJy GwzDoPo GwzDo_STORAGE GwzHu"></span>
-		<span class="JaPoJy GwzDoPo GwzDo_BATTERY GwzHu"></span>
-	</div>
-</div> <!-- NeKu04 -->
-
-<!-- Ku04__NeKu05^LEGAL -->
-<div id="NeKu05" class="NeKuJy Ku04__ToKu">
-	<p id="Ne05_Grx00__Bz_vsg" class="HriNeVa KeDruBz WaDru_Bz"></p>
-
-	<span class="HriNeVx">1️⃣
-		<span id="Ne05_Grx00__Nz00_Grx_vsg" class="HriNeVa KeDruNz WaDru_Bz"></span>
-		<div id="Ne05_Grx01__Ka00_vsg" class="KeDruBa WaDru_De"></div>
-	</span>
-	<span class="HriNeVx">2️⃣
-		<span id="Ne05_Grx00__Nz01_Che_vsg" class="HriNeVa KeDruNz WaDru_Bz"></span>
-		<p id="Ne05_Grx01__Ka01_vsg" class="KeDruBa WaDru_De"></p>
-
-		<span class="JaPoJy GwzDoPo GwzDo_ESRB GwzHu"></span>
-		<span class="JaPoJy GwzDoPo GwzDo_CCPA GwzHu"></span>
-		<span class="JaPoJy GwzDoPo GwzDo_PEGI GwzHu"></span>
-		<span class="JaPoJy GwzDoPo GwzDo_GDPR GwzHu"></span>
-	</span>
-	<span class="HriNeVx">3️⃣
-		<span id="Ne05_Grx00__Nz02_So_vsg" class="HriNeVa KeDruNz WaDru_Bz"></span>
-		<p id="Ne05_Grx01__Ka02_vsg" class="KeDruBa WaDru_De"></p>
-		<span class="JaPoJy GwzDoPo GwzDo_BULLET GwzHu"></span>
-	</span>
-	<span class="HriNeVx">4️⃣
-		<span id="Ne05_Grx00__Nz03_DryKy_vsg" class="HriNeVa KeDruNz WaDru_Bz"></span>
-		<p id="Ne05_Grx01__Ka03_vsg" class="KeDruBa WaDru_De"></p>
-	</span>
 
 */
 
@@ -1113,7 +827,7 @@ function Hrz4_Bu__KwiYz__ChyDe( Va_vksg, NiJaPo_wuk, KeDru_wuk )
 	if( NiJaPo_wuk !== null )
 	{ KwiYz_k.NiJaPo_wu = NiJaPo_wuk; }
 
-	KwiYz_k.Ne00_KeDy06__TraChe_y = false;
+	KwiYz_k.Ne01_KeDy06__TraChe_y = false;
 
 
 	//---------------------------------
@@ -1170,12 +884,20 @@ function Hrz4_Bu__KwiYz__ChyDe( Va_vksg, NiJaPo_wuk, KeDru_wuk )
 
 	//@@@
 	// NODE
-	KwiYz_k.Ne01_Ko04__KoDz_YoHo_y = true;
-	//KwiYz_k.Ne01_Ko04__KoDz_YoHo_y = false;
+	KwiYz_k.Ne04_Ko04__KoDz_YoHo_y = true;
+	//KwiYz_k.Ne04_Ko04__KoDz_YoHo_y = false;
 
 
 }
 
+//==============================================
+// SELECT WHERE
+//==============================================
+function Hrz4_Bu__JoChy()
+{
+	//Ne00_KuNe00__NiJo__Ta_l
+	SmaJe( "[CFG] Jo:" );
+}
 
 //==============================================
 // GUI_SYNC
@@ -1191,17 +913,17 @@ function Hrz4_Bu__KwiYz__HriNe_MyYy()
 
 	//@@@
 	// LANG LIST SELECTION
-	document.getElementById( "Ne00_KeDy00__NiKeDru__Ta_l" ).selectedIndex = KwiYz_k.KeDru_wu;
+	document.getElementById( "Ne00_KuNe02__NiKeDru__Ta_l" ).selectedIndex = KwiYz_k.KeDru_wu;
 
 	//@@@
 	// SET LANG_ICON
-	document.getElementById( "Ne00_KeDy00__NiKeDru_q" ).innerText = Hre1_Dru__Gra_v[ KwiYz_k.KeDru_wu ].KuGwz;
+	document.getElementById( "Ne00_KuNe02__NiKeDru_q" ).innerText = Hre1_Dru__Gra_v[ KwiYz_k.KeDru_wu ].KuGwz;
 
 
 	//@@@
 	// ADD USR ENTRIES
 	{
-		const TaKeDy_l = document.getElementById( 'Ne00_KeDy01__NiKeDy__Ta_l' );
+		const TaKeDy_l = document.getElementById( 'Ne01_KeDy01__NiKeDy__Ta_l' );
 		HriNeDe__Ta_ChyStz( TaKeDy_l );
 
 		const SaNo__TaKeDy_l = Ko.TaKeDy_l.KwiYz_v;
@@ -1223,16 +945,16 @@ function Hrz4_Bu__KwiYz__HriNe_MyYy()
 
 	//@@@
 	// USER NAME
-	document.getElementById( "Ne00_KeDy00__Nz00_NiKeDy_vsg" ).value = "NOMBraaaaay";
+	document.getElementById( "Ne01_KeDy00__Nz00_NiKeDy_vsg" ).value = "NOMBraaaaay";
 
 	//@@@
 	// SET PROFILE_ICON
-	document.getElementById( "Ne00_KeDy03__SaJaPo_q" ).innerText = SaPy_vvsg[ KwiYz_k.NiJaPo_wu ];
+	document.getElementById( "Ne01_KeDy03__SaJaPo_q" ).innerText = SaPy_vvsg[ KwiYz_k.NiJaPo_wu ];
 
 	//@@@
 	// USE_SECURITY
-	const TraChe_yk = KwiYz_k.Ne00_KeDy06__TraChe_y;
-	HriNeDe__ChyHyHo( "Ne00_KeDy06__TraChe_y", TraChe_yk );
+	const TraChe_yk = KwiYz_k.Ne01_KeDy06__TraChe_y;
+	HriNeDe__ChyHyHo( "Ne01_KeDy06__TraChe_y", TraChe_yk );
 
 	//&&&
 	// AUTHORIZED
@@ -1253,7 +975,7 @@ function Hrz4_Bu__KwiYz__HriNe_MyYy()
 	HriNeDe__ChyHryVoHu( "BriDz_TraKwi_vsg", SmxHa_yk );
 
 	// SECURITY AREA
-	HriNeDe__ChyHry( "Ne00_KeDy06__CheHaKri", SmxHa_yk );
+	HriNeDe__ChyHry( "Ne01_KeDy06__CheHaKri", SmxHa_yk );
 
 
 	//&&&
@@ -1272,28 +994,28 @@ function Hrz4_Bu__KwiYz__HriNe_MyYy()
 
 	//&&&
 	// PANELS
-	HriNeDe__ChyHryVoHu( "Ne01_Ko_vsg", SmxHa_yk );
+	HriNeDe__ChyHryVoHu( "Ne04_Ko_vsg", SmxHa_yk );
 	HriNeDe__ChyHryVoHu( "Ne02_Hru_vsg", SmxHa_yk );
 	HriNeDe__ChyHryVoHu( "Ne03_Hry_vsg", SmxHa_yk );
-	HriNeDe__ChyHryVoHu( "Ne04_Hx_vsg", SmxHa_yk );
-	HriNeDe__ChyHryVoHu( "Ne05_Grx_vsg", SmxHa_yk );
+	HriNeDe__ChyHryVoHu( "Ne05_Hx_vsg", SmxHa_yk );
+	HriNeDe__ChyHryVoHu( "Ne06_Grx_vsg", SmxHa_yk );
 
 	//&&&
 	// Name
-	HriNeDe__ChyTraHo( "Ne00_KeDy02__VaTre_Sma_vsg", SmxHa_yk );
+	HriNeDe__ChyTraHo( "Ne01_KeDy02__VaTre_Sma_vsg", SmxHa_yk );
 
 	//&&&
 	// Avatar
-	HriNeDe__ChyHryVoHu( "Ne00_KeDy03__SaJaPo__TaJaPo_l", SmxHa_yk );
+	HriNeDe__ChyHryVoHu( "Ne01_KeDy03__SaJaPo__TaJaPo_l", SmxHa_yk );
 
 	//&&&
 	// Question-Lock
-	HriNeDe__ChyTraHo( "Ne00_KeDy07__MaKz_vsg", SmxHa_yk );
-	HriNeDe__ChyTraHo( "Ne00_KeDy07__MaKz__Sma_vsg", SmxHa_yk );
+	HriNeDe__ChyTraHo( "Ne01_KeDy07__MaKz_vsg", SmxHa_yk );
+	HriNeDe__ChyTraHo( "Ne01_KeDy07__MaKz__Sma_vsg", SmxHa_yk );
 
 	// Answer-Key
-	HriNeDe__ChyTraHo( "Ne00_KeDy08__SmzKz_vsg", SmxHa_yk );
-	// SmaSy( "ANSWER: ", document.getElementById("Ne00_KeDy08__SmzKz__Sma_vsg").value );
+	HriNeDe__ChyTraHo( "Ne01_KeDy08__SmzKz_vsg", SmxHa_yk );
+	// SmaSy( "ANSWER: ", document.getElementById("Ne01_KeDy08__SmzKz__Sma_vsg").value );
 
 
 
@@ -1301,14 +1023,14 @@ function Hrz4_Bu__KwiYz__HriNe_MyYy()
 	// Ne01__NODE
 	//---------------------------------
 	//@@@
-	// Ne01_Ko01__HraBru_Tra_vsg
-	document.getElementById( "Ne01_Ko01__HraBru_Tra_y" ).value = KwiYz_k.Ne01_Ko01__HraBru_Tra_y;
-	// Ne01_Ko02__SpeVu_vsg
-	document.getElementById( "Ne01_Ko02__SpeVu_y" ).value = KwiYz_k.Ne01_Ko02__SpeVu_y;
-	// Ne01_Ko03__MzKu_vsg
-	document.getElementById( "Ne01_Ko03__MzKu_y" ).value = KwiYz_k.Ne01_Ko03__MzKu_y;
-	// Ne01_Ko04__KoDz_YoHo_y
-	document.getElementById( "Ne01_Ko04__KoDz_YoHo_y" ).value = KwiYz_k.Ne01_Ko04__KoDz_YoHo_y;
+	// Ne04_Ko01__HraBru_Tra_vsg
+	document.getElementById( "Ne04_Ko01__HraBru_Tra_y" ).value = KwiYz_k.Ne04_Ko01__HraBru_Tra_y;
+	// Ne04_Ko02__SpeVu_vsg
+	document.getElementById( "Ne04_Ko02__SpeVu_y" ).value = KwiYz_k.Ne04_Ko02__SpeVu_y;
+	// Ne04_Ko03__MzKu_vsg
+	document.getElementById( "Ne04_Ko03__MzKu_y" ).value = KwiYz_k.Ne04_Ko03__MzKu_y;
+	// Ne04_Ko04__KoDz_YoHo_y
+	document.getElementById( "Ne04_Ko04__KoDz_YoHo_y" ).value = KwiYz_k.Ne04_Ko04__KoDz_YoHo_y;
 
 
 	//---------------------------------
@@ -1368,12 +1090,12 @@ function Hrz4_Bu__KwiYz__Ko_ChyYe()
 
 	//&&&
 	// USE SECURITY
-	const Fi__TraChe_yk = KwiYz_k.Ne00_KeDy06__TraChe_y;
+	const Fi__TraChe_yk = KwiYz_k.Ne01_KeDy06__TraChe_y;
 
-	KwiYz_k.Ne00_KeDy06__TraChe_y = document.getElementById( "Ne00_KeDy06__TraChe_y" ).checked;
-	if( Fi__TraChe_yk != KwiYz_k.Ne00_KeDy06__TraChe_y )
+	KwiYz_k.Ne01_KeDy06__TraChe_y = document.getElementById( "Ne01_KeDy06__TraChe_y" ).checked;
+	if( Fi__TraChe_yk != KwiYz_k.Ne01_KeDy06__TraChe_y )
 	{
-		SmaJe( "SECURITY CHANGED to ", KwiYz_k.Ne00_KeDy06__TraChe_y );
+		SmaJe( "SECURITY CHANGED to ", KwiYz_k.Ne01_KeDy06__TraChe_y );
 		// Reload
 		Hrz4_Bu__KwiYz__HriNe_MyYy();
 	}
@@ -1381,7 +1103,7 @@ function Hrz4_Bu__KwiYz__Ko_ChyYe()
 	//---------------------------------
 	// Ne01__NODE
 	//---------------------------------
-	KwiYz_k.Ne01_Ko04__KoDz_YoHo_y = document.getElementById( "Ne01_Ko04__KoDz_YoHo_y" ).value;
+	KwiYz_k.Ne04_Ko04__KoDz_YoHo_y = document.getElementById( "Ne04_Ko04__KoDz_YoHo_y" ).value;
 
 
 	//---------------------------------
@@ -1488,7 +1210,7 @@ async function Hre1_Dru__KeDru_ChyVx( KeDru_wuk )
 
 	//@@@
 	// NATIVE_NAMES
-	document.getElementById( "Ne00_KeDy00__NiKeDru_q" ).innerText = Dru_l.KuGwz;
+	document.getElementById( "Ne00_KuNe02__NiKeDru_q" ).innerText = Dru_l.KuGwz;
 
 	//@@@
 	// LANG_FILE
@@ -1565,11 +1287,11 @@ async function Hre1_Dru__KeDru_ChyVx( KeDru_wuk )
 //-------------------------------------------------
 // DETECT CHANGES in CULTURE
 //-------------------------------------------------
-function Ne00_KeDy00__NiKeDru__JeChy( KeDru_wuk )
+function Ne00_KuNe02__NiKeDru__JeChy( KeDru_wuk )
 {
-	const Ne00_KeDy00__NiKeDru__Ta_l = document.getElementById( 'Ne00_KeDy00__NiKeDru__Ta_l' );
-	//SmaJe( "CHG!", Ne00_KeDy00__NiKeDru__Ta_l );
-	Hre1_Dru__KeDru_ChyVx( ( KeDru_wuk !== null )? KeDru_wuk : Ne00_KeDy00__NiKeDru__Ta_l.selectedIndex );
+	const Ne00_KuNe02__NiKeDru__Ta_l = document.getElementById( 'Ne00_KuNe02__NiKeDru__Ta_l' );
+	//SmaJe( "CHG!", Ne00_KuNe02__NiKeDru__Ta_l );
+	Hre1_Dru__KeDru_ChyVx( ( KeDru_wuk !== null )? KeDru_wuk : Ne00_KuNe02__NiKeDru__Ta_l.selectedIndex );
 
 
 	//@@@
@@ -1616,7 +1338,7 @@ function Hrz4_Bu__Che01_Chy__Tra()
 //-------------------------------------------------
 // ERASE USR
 //-------------------------------------------------
-function Ne00_KeDy05__Chi_Tra()
+function Ne01_KeDy05__Chi_Tra()
 {
 	const KeDyChi_wu = Ko.TaKeDy_l.KeDy_wu;
 
@@ -1634,7 +1356,7 @@ function Ne00_KeDy05__Chi_Tra()
 //-------------------------------------------------
 // ADD USR
 //-------------------------------------------------
-function Ne00_KeDy04__Cha_Tra( FeCho_yk )
+function Ne01_KeDy04__Cha_Tra( FeCho_yk )
 {
 	//@@@
 	// CREATE
@@ -1660,11 +1382,11 @@ function Ne00_KeDy04__Cha_Tra( FeCho_yk )
 //-------------------------------------------------
 // CHG USR
 //-------------------------------------------------
-function Ne00_KeDy01__NiKeDy__JeChy()
+function Ne01_KeDy01__NiKeDy__JeChy()
 {
 	//@@@
 	// VALID CHOICE
-	const TaKeDy_l = document.getElementById( 'Ne00_KeDy01__NiKeDy__Ta_l' );
+	const TaKeDy_l = document.getElementById( 'Ne01_KeDy01__NiKeDy__Ta_l' );
 	if( TaKeDy_l.selectedIndex < 0 ) return;
 
 
@@ -1810,7 +1532,7 @@ function Hrz4_Bu__TaKeDy__ChyGry()
 
 - GUI has
 	a) Checkbox: Y or N wq @ KaHyHo, VuHyHo
-	b) Slider: 0...to N wu @ HriNeVx
+	b) Slider: 0...to N wu @ Ku07__HriNe
 	c) List: scrollable choices vertical or grid 0...Fo wu
 	d) Text: utf8 ( Label: HriNeVa, Edit: HriNeVa )
 	e) HrButtons: run action ( show tabs, add/remove users, reset-settings, & launch )
@@ -1923,6 +1645,33 @@ function HriNeDe__ChyHyHo( Vy_vsg, HyHo_yk )
 }
 
 //=====================================
+// SPACETIME FILL by USER
+//=====================================
+function Hri4_Bu__TaJo_Chy()
+{
+	const TaJo_l = document.getElementById( 'Ne00_KuNe00__NiJo__Ta_l' );
+	HriNeDe__Ta_ChyStz( TaJo_l );
+
+	//@@@
+	const SaNo__TaJo_l = Ko.TaKeDy_l.KwiYz_v;
+	SaNo__TaJo_l.forEach( function ( Ti_v, Vx_wu )
+	{
+		// SmaSy( "------ Vx_wu:", Vx_wu, Ti_v.KeDy_vsg );
+
+		//&&&
+		// ADD BTN
+		const Kz_l = document.createElement( 'option' );
+		Kz_l.className = 'HriNeTi WaDru_De';
+		Kz_l.innerText = `${SaPy_vvsg[ Ti_v.NiJaPo_wu ]} ${Ti_v.KeDy_vsg }`;
+		Kz_l.value = Vx_wu;
+		TaJo_l.appendChild( Kz_l );
+	});
+
+	TaJo_l.selectedIndex = 1;
+}
+
+
+//=====================================
 // KEY CTL
 //=====================================
 function Hri4_Bu__MzBuDru_Je( e )
@@ -1957,7 +1706,7 @@ function Hri4_Bu__MzBuDru_Je( e )
 		case( "ArrowRight" ):
 		{
 			SmaJe( "RT" );
-			Hrz4_Bu__ChyNeKu( 5 );
+		//	Hrz4_Bu__ChyNeKu( 5 );
 
 			break;
 		}
@@ -1985,18 +1734,31 @@ function Hri4_Bu__MzBuDru_Je( e )
 }
 
 //=====================================
-// INIT GUI DEFAULTS
-// STATIC ITEMS
+// REMOVE GUI ITEMS
 //=====================================
 function Hri4_Bu__TaNeDe__ChiKri()
 {
-	//@@@
-	// REMOVE ELMS
+	//-------------------------------------------------
+	// REMOVE CLNS
+	//-------------------------------------------------
+	// SPACETIME
+	HriNeDe__Ta_ChyStz( document.getElementById("Ne00_KuNe00__NiJo__Ta_l" ) );
 
+	// LANG DROPDOWN LIST
+	HriNeDe__Ta_ChyStz( document.getElementById("Ne00_KuNe02__NiKeDru__Ta_l" ) );
+	HriNeDe__Ta_ChyStz( document.getElementById("Ne00_KuNe02__KeDru_TaJaPo_l" ) );
 
+	// PROFILE
+	HriNeDe__Ta_ChyStz( document.getElementById("Ne01_KeDy03__SaJaPo__TaJaPo_l" ) );
 
-	//@@@
-	// REMOVE KEYS
+	// AUD
+	HriNeDe__Ta_ChyStz( document.getElementById("Ne02_Hru__SmzYz_Ta_l" ) );
+	// VIS
+	HriNeDe__Ta_ChyStz( document.getElementById("Ne02_Hru__SmzYz_Ta_l" ) );
+
+	//-------------------------------------------------
+	// REMOVE KEYMAPPER
+	//-------------------------------------------------
 	document.removeEventListener( "keydown", Hri4_Bu__MzBuDru_Je );
 }
 
@@ -2061,19 +1823,24 @@ async function Hri4_Bu__TaNeDe__ChaKri()
 	});
 
 
+	//-------------------------------------------------
+	// SPACETIME
+	// Changed 'per user'
+	//-------------------------------------------------
+	Hri4_Bu__TaJo_Chy();
 
 	//-------------------------------------------------
 	// CULTURE
 	//-------------------------------------------------
 	//@@@
 	// LANG DROPDOWN LIST
-	const Ne00_KeDy00__NiKeDru__Ta_l = document.getElementById( 'Ne00_KeDy00__NiKeDru__Ta_l' );
+	const Ne00_KuNe02__NiKeDru__Ta_l = document.getElementById( 'Ne00_KuNe02__NiKeDru__Ta_l' );
 	// LANGUAGE PICKER
-	const KeDru__TaJaPo_l = document.getElementById("Ne00_KeDy00__KeDru_TaJaPo_l");
+	const KeDru__TaJaPo_l = document.getElementById("Ne00_KuNe02__KeDru_TaJaPo_l");
 
 	//&&&
 	// LIST CLEAR
-	HriNeDe__Ta_ChyStz( Ne00_KeDy00__NiKeDru__Ta_l );
+	HriNeDe__Ta_ChyStz( Ne00_KuNe02__NiKeDru__Ta_l );
 	HriNeDe__Ta_ChyStz( KeDru__TaJaPo_l );
 
 	//&&&
@@ -2093,7 +1860,7 @@ async function Hri4_Bu__TaNeDe__ChaKri()
 			Kz_l.innerText = `${Ti_v.KuGwz} ${Ti_v.Va}`;
 			Kz_l.value = Ti_v.Vy;
 
-			Ne00_KeDy00__NiKeDru__Ta_l.appendChild( Kz_l );
+			Ne00_KuNe02__NiKeDru__Ta_l.appendChild( Kz_l );
 		}
 
 		//&&&
@@ -2104,7 +1871,7 @@ async function Hri4_Bu__TaNeDe__ChaKri()
 			if( KeDruGri_v.includes( Ti_v.ToKz ) )
 			{
 				Kz_l.className = 'NiJaPo_Va NiJaPo_VaGri WaDru_Ku';
-				Kz_l.onclick = function() { Ne00_KeDy00__NiKeDru__JeChy( Vx_wu ); }
+				Kz_l.onclick = function() { Ne00_KuNe02__NiKeDru__JeChy( Vx_wu ); }
 			}
 			else
 			{
@@ -2125,14 +1892,14 @@ async function Hri4_Bu__TaNeDe__ChaKri()
 
 	//@@@
 	// STARTING LANG
-	Ne00_KeDy00__NiKeDru__Ta_l.selectedIndex = KwiYz_k.KeDru_wu;
+	Ne00_KuNe02__NiKeDru__Ta_l.selectedIndex = KwiYz_k.KeDru_wu;
 	Hre1_Dru__KeDru_ChyVx( KwiYz_k.KeDru_wu );
 
 
 	//-------------------------------------------------
 	// PROFILE PICKER
 	//-------------------------------------------------
-	const SaJaPo__TaJaPo_l = document.getElementById("Ne00_KeDy03__SaJaPo__TaJaPo_l");
+	const SaJaPo__TaJaPo_l = document.getElementById("Ne01_KeDy03__SaJaPo__TaJaPo_l");
 	HriNeDe__Ta_ChyStz( SaJaPo__TaJaPo_l );
 
 	//@@@
@@ -2537,6 +2304,16 @@ function Hrz4_Bu__ChyNeKu( Vx_wu )
 	for( let i = 0; i < NzVa_v.length; i++)
 	{
 		NzVa_v[i].className = ( Vx_wu === i ) ? NzVa__Se_vsg : NzVa__FeDe_vsg;
+		if( Vx_wu === i )
+		{
+			//&&&
+			// FOCUS on 'first' element to skip MENU tab-run
+			NzVa_v[i].focus();
+
+			//
+			// NzVa_v[i].firstElementChild.focus();
+
+		}
 	}
 
 	//@@@
@@ -2582,7 +2359,7 @@ function Tra_KeMeBri()
 
 	//@@@
 	// ECOSYS PLAY
-	SmaJe( "[GUI] User:", KwiYz_k.KeDy_vsg, " NEVER_PAUSE:", KwiYz_k.Ne01_Ko04__KoDz_YoHo_y );
+	SmaJe( "[GUI] User:", KwiYz_k.KeDy_vsg, " NEVER_PAUSE:", KwiYz_k.Ne04_Ko04__KoDz_YoHo_y );
 	if( KoDz__YzYa_y() )
 	{
 		SmaSy( "[GUI] ACTIVE via Resume" );
@@ -3227,7 +3004,7 @@ function KoDz__YoChy()
 	//@@@
 	// ECOSYS_GOOD
 	const KwiYz_k = Ko.TaKeDy_l.KwiYz_v[ Ko.TaKeDy_l.KeDy_wu ];
-	if( KoDz__YzTrx_y() || KoDz__YzYo_y() || KwiYz_k.Ne01_Ko04__KoDz_YoHo_y ) return;
+	if( KoDz__YzTrx_y() || KoDz__YzYo_y() || KwiYz_k.Ne04_Ko04__KoDz_YoHo_y ) return;
 
 	//&&&
 	// STATUS

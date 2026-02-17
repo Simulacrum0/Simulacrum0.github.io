@@ -8,43 +8,39 @@
 
 	, "LABELS":
 	{
-		"BriDz_SaSz_vsg": "🤖NUEVA --> WebGPU"
-		, "BriDz_TraKwi_vsg": "🚀 EMPEZAR!"
+		"BriDz_TraKwi_vsg": "🚀 EMPEZAR!"
+
+		, "Ne00_KuNe_vsg": "🗺️\nDONDE"
+		, "Ne01_KeDy_vsg": "🥸\nQUÍEN"
+		, "Ne02_Hru_vsg": "👂\nOIR"
+		, "Ne03_Hry_vsg": "👀\nMIRAR"
+		, "Ne04_Ko_vsg": "⚙️\nPERMISOS"
+		, "Ne05_Hx_vsg": "🧩\nAPRENDER"
+		, "Ne06_Grx_vsg": "📜\nNOTICIAS"
+
+		, "Ne00_KuNe00__Bz_vsg": "Bienvenidos a MicroCosm"
+		, "Ne00_KuNe01__Kro_vsg": "MicroCosm es tu portal para explorar, crear y compartir 'experiencias digitales' (XP) con personas o comunidades que elijas. Al pulsar Lanzar arriba accederás a la XP seleccionada y podrás jugar, construir, conectar o simplemente entender su contenido. Para personalizar la experiencia de lanzamiento en tu navegador, selecciona las otras pestañas para que se ajusten a tus necesidades y permisos."
+
+		, "Ne00_KuNe02__SaSz01_Hx_vsg": "🤖NUEVA ELEMENTOS"
+		, "Ne00_KuNe02__SaSz01_Hx_vsg": "Use Final Template to Autogen HTML ELMs\nSupport for ARIA methods and only key navigation\nUnified spacing engine for launch page"
+
+
+		, "Ne01_KeDy00__Nz02_NiKeDru_vsg": "Coger Lengua"
+		, "Ne01_KeDy00__Nz00_NiKeDy_vsg": "Coger Persona"
+		, "Ne01_KeDy02__VaTre_vsg": "🗣️Cambiar Nombre"
+		, "Ne01_KeDy00__Nz03_SaJaPo_vsg": "Pictura"
+		, "Ne01_KeDy04__ChaDe_vsg": "🆕👤Dar un Persona Nuevo Defaulto"
+		, "Ne01_KeDy05__ChaFe_vsg": "🖨️👤Copy Currente Persona"
+		, "Ne01_KeDy00__Nz03_TraChe_vsg": "🔐Usar Seguridad"
+		, "Ne01_KeDy07__MaKz_vsg": "🔒Pregunta-Lock-o"
+		, "Ne01_KeDy08__SmzKz_vsg": "🗝️Contesta-Llave"
+		, "Ne01_KeDy09__Chi_vsg": "🗑️Tomar esto Persona"
 
 		, "Che00_Krz_vsg": "❓Submit Contesto"
 		, "Che01_Chy_vsg": "✅Saved Contesto"
 		, "Che02_Trx_vsg": "✖️Incorrect Contesto"
 		, "Che03_TraHo_vsg": "🔑User Lock-o"
 		, "Che04_TraHy_vsg": "🔓User Unlock-o"
-
-
-		, "Ne00_KeDy_vsg": "🥸 QUÍEN"
-		, "Ne01_Ko_vsg": "⚙️PERMISOS"
-		, "Ne02_Hru_vsg": "👂ESCUCHAR"
-		, "Ne03_Hry_vsg": "👀MIRAR"
-		, "Ne04_Hx_vsg": "🧩APRENDER"
-		, "Ne05_Grx_vsg": "📜NOTICIAS"
-		, "Ne06_KuNe_vsg": "🗺️\nDONDE"
-		, "Ne07_KwiFe_vsg": "🚀\nEMPEZAR"
-
-		, "Ne00_KeDy00__Nz02_NiKeDru_vsg": "Coger Lengua"
-		, "Ne00_KeDy00__Nz00_NiKeDy_vsg": "Coger Persona"
-		, "Ne00_KeDy02__VaTre_vsg": "🗣️Cambiar Nombre"
-		, "Ne00_KeDy00__Nz03_SaJaPo_vsg": "Pictura"
-		, "Ne00_KeDy04__ChaDe_vsg": "🆕👤Dar un Persona Nuevo Defaulto"
-		, "Ne00_KeDy05__ChaFe_vsg": "🖨️👤Copy Currente Persona"
-		, "Ne00_KeDy00__Nz03_TraChe_vsg": "🔐Usar Seguridad"
-		, "Ne00_KeDy07__MaKz_vsg": "🔒Pregunta-Lock-o"
-		, "Ne00_KeDy08__SmzKz_vsg": "🗝️Contesta-Llave"
-		, "Ne00_KeDy09__Chi_vsg": "🗑️Tomar esto Persona"
-
-
-		, "Ne01_Ko00__KwiYz_ChyDe_vsg": "Reset-o User's Settings-o a Defaulto"
-		, "Ne01_Ko01__HraBru_Tra_vsg": "Network Active-o"
-		, "Ne01_Ko02__SpeVu_vsg": "Power Use-o"
-		, "Ne01_Ko03__MzKu_vsg": "Allow GPS Location-o"
-		, "Ne01_Ko04__KoDz_YoHo_vsg": "Always Active (Background Work)-o"
-		, "Ne01_Ko05__TaKeDy_Chx_vsg": "Clear All Users & Settings to NEW"
 
 
 		, "Ne02_Hru__MxPeHo_vsg": "Mute-o"
@@ -57,8 +53,13 @@
 
 		, "Ne03_Hry00__KeDruGy_vsg": "Legible Size-o"
 		, "Ne03_Hry01__MzPo_vsg": "Camera-o"
-		, "Ne03_Hry02__HriKe_vsg": "XR-o"
+		, "Ne03_Hry02__HriKeGe00_vsg": "XR-o"
+		, "Ne03_Hry02__HriKeGe01_Spo_vsg": "XR Still User"
+		, "Ne03_Hry02__HriKeGe02_Bra_vsg": "XR Area Boundaries"
+		, "Ne03_Hry02__HriKeGe03_Dri_vsg": "XR Roaming"
+
 		, "Ne03_Hry03__MxPoGyHi_vsg": "Fullscreen-o"
+
 		, "Ne03_Hry04__MxPoGry_vsg": "Todos Screen-os"
 		, "Ne03_Hry05__PoGy_vsg": "HDR-o"
 		, "Ne03_Hry06__SmzYz_vsg": "Method-o"
@@ -66,26 +67,34 @@
 		, "Ne03_Hry08__TyGy_vsg": "Detail-o"
 
 
-		, "Ne04_Hx00__Bz_vsg": "ABOUT-o"
-		, "Ne04_Hx01__Ka_vsg": "About MICROCOSM details here-o"
+		, "Ne04_Ko00__KwiYz_ChyDe_vsg": "Reset-o User's Settings-o a Defaulto"
+		, "Ne04_Ko01__HraBru_Tra_vsg": "Network Active-o"
+		, "Ne04_Ko02__SpeVu_vsg": "Power Use-o"
+		, "Ne04_Ko03__MzKu_vsg": "Allow GPS Location-o"
+		, "Ne04_Ko04__KoDz_YoHo_vsg": "Always Active (Background Work)-o"
+		, "Ne04_Ko05__TaKeDy_Chx_vsg": "Clear All Users & Settings to NEW"
 
 
-		, "Ne05_Grx00__Bz_vsg": "LEGAL-o"
-		, "Ne05_Grx01__Ka_vsg": "Legal Notices go here-o"
+		, "Ne05_Hx00__Bz_vsg": "ABOUT-o"
+		, "Ne05_Hx01__Ka_vsg": "About MICROCOSM details here-o"
+
+
+		, "Ne06_Grx00__Bz_vsg": "LEGAL-o"
+		, "Ne06_Grx01__Ka_vsg": "Legal Notices go here-o"
 	}
 
 	, "USAGE":
 	{
-		"Ne00_KeDy__VaTre_vsg": "Choose from previous or defaults Users"
-		, "Ne00_KeDy__ChaChi_vsg": "Manage User Roster"
-		, "Ne00_KeDy__X_vsg": "xyz abc def"
+		"Ne01_KeDy__VaTre_vsg": "Choose from previous or defaults Users"
+		, "Ne01_KeDy__ChaChi_vsg": "Manage User Roster"
+		, "Ne01_KeDy__X_vsg": "xyz abc def"
 
-		, "Ne00_KeDy_vsg": "Select Identity, Culture & Security"
-		, "Ne01_Ko_vsg": "Decide on Access of Info"
+		, "Ne01_KeDy_vsg": "Select Identity, Culture & Security"
+		, "Ne04_Ko_vsg": "Decide on Access of Info"
 		, "Ne02_Hru_vsg": "Setup Audio Mic and Speakers"
 		, "Ne03_Hry_vsg": "Setup Displays, Style, and Quality"
-		, "Ne04_Hx_vsg": "Basic information about MicroCosm"
-		, "Ne05_Grx_vsg": "License, Legal, Credit, & Company Notices"
+		, "Ne05_Hx_vsg": "Basic information about MicroCosm"
+		, "Ne06_Grx_vsg": "License, Legal, Credit, & Company Notices"
 	}
 
 	, "ALERT":

@@ -8,58 +8,49 @@
 
 	, "LABELS":
 	{
-		"BriDz_SaSz_vsg": "🤖NEW --> Use Final Template to Autogen HTML ELMs"
-		, "BriDz_TraKwi_vsg": "🚀 LAUNCH"
+		"BriDz_TraKwi_vsg": "🚀 LAUNCH"
 
+		, "Ne00_KuNe_vsg": "🗺️\nWHERE"
+		, "Ne01_KeDy_vsg": "🥸\nWHO"
+		, "Ne02_Hru_vsg": "👂\nHEAR"
+		, "Ne03_Hry_vsg": "👀\nSEE"
+		, "Ne04_Ko_vsg": "⚙️\n ALLOW"
+		, "Ne05_Hx_vsg": "🧩\nLEARN"
+		, "Ne06_Grx_vsg": "📜\nNOTICE"
+
+
+		, "Ne00_KuNe00__Bz_vsg": "Welcome to MicroCosm"
+		, "Ne00_KuNe01__Kro_vsg": "MicroCosm is your portal to exploring, creating, & sharing 'digital experiences' (XP) with people or communities you choose. By tapping Launch above you'll enter into the selected XP and can play, build, connect or simply understand its contents. To customize the launch experience in your browser select the other tabs to fit match your needs and permissions."
+
+		, "Ne00_KuNe02__SaSz00_Va_vsg": "🤖NEW in this BUILD"
+		, "Ne00_KuNe02__SaSz01_Hx_vsg": "Use Final Template to Autogen HTML ELMs\nSupport for ARIA methods and only key navigation\nUnified spacing engine for launch page"
+
+		, "Ne00_KuNe03__NeJo_vsg": "Where to Go"
+
+		, "Ne00_KuNe04__Jo00_vsg": "Intro"
+		, "Ne00_KuNe04__Jo01_vsg": "Media-Deck"
+		, "Ne00_KuNe04__Jo02_vsg": "Mind-Mapper"
+		, "Ne00_KuNe04__Jo03_vsg": "Digital Twin"
+
+
+		, "Ne01_KeDy00__Nz00_NiKeDy_vsg": "User"
+		, "Ne01_KeDy00__Nz03_SaJaPo_vsg": "Profile"
+		, "Ne01_KeDy00__Nz02_NiKeDru_vsg": "Language"
+		, "Ne01_KeDy00__Nz03_TraChe_vsg": "Use Question-Answer Security"
+
+
+		, "Ne01_KeDy02__VaTre_vsg": "🗣️Edit Name"
+		, "Ne01_KeDy04__ChaDe_vsg": "🆕👤Add New Default User"
+		, "Ne01_KeDy05__ChaFe_vsg": "🖨️👤Copy Current User"
+		, "Ne01_KeDy07__MaKz_vsg": "🔒Question-Lock"
+		, "Ne01_KeDy08__SmzKz_vsg": "🗝️Answer-Key"
+		, "Ne01_KeDy09__Chi_vsg": "🗑️Remove Current User"
 
 		, "Che00_Krz_vsg": "❓Check Answer"
 		, "Che01_Chy_vsg": "✅Save Answer"
 		, "Che02_Trx_vsg": "✖️Incorrect Answer"
 		, "Che03_TraHo_vsg": "🔑Requires Answer"
 		, "Che04_TraHy_vsg": "🔓User Ready"
-
-		, "Ne00_KeDy_vsg": "🥸\nWHO"
-		, "Ne01_Ko_vsg": "⚙️\n ALLOW"
-		, "Ne02_Hru_vsg": "👂\nHEAR"
-		, "Ne03_Hry_vsg": "👀\nSEE"
-		, "Ne04_Hx_vsg": "🧩\nLEARN"
-		, "Ne05_Grx_vsg": "📜\nNOTICE"
-		, "Ne06_KuNe_vsg": "🗺️\nWHERE"
-		, "Ne07_KwiFe_vsg": "🚀\nLAUNCH"
-
-
-		, "Ne00_KeDy00__Nz00_NiKeDy_vsg": "User"
-		, "Ne00_KeDy00__Nz03_SaJaPo_vsg": "Profile"
-		, "Ne00_KeDy00__Nz02_NiKeDru_vsg": "Language"
-		, "Ne00_KeDy00__Nz03_TraChe_vsg": "Use Question-Answer Security"
-
-
-		, "Ne00_KeDy02__VaTre_vsg": "🗣️Edit Name"
-		, "Ne00_KeDy04__ChaDe_vsg": "🆕👤Add New Default User"
-		, "Ne00_KeDy05__ChaFe_vsg": "🖨️👤Copy Current User"
-		, "Ne00_KeDy07__MaKz_vsg": "🔒Question-Lock"
-		, "Ne00_KeDy08__SmzKz_vsg": "🗝️Answer-Key"
-		, "Ne00_KeDy09__Chi_vsg": "🗑️Remove Current User"
-
-
-		, "Ne01_Ko00__Nz00__vsg": "Activity"
-		, "Ne01_Ko00__Nz01__vsg": "Location"
-		, "Ne01_Ko00__Nz02__vsg": "Settings"
-
-
-		, "Ne01_Ko04__KoDz_YoHo_vsg": "Always Active (Background Work)"
-		, "Ne02_Hru__YoHo_vsg": "Always Audible (Background Sound)"
-		, "Ne01_Ko01__HraBru_Tra_vsg": "Always Network"
-		, "Ne01_Ko02__SpeVu_vsg": "Power Use"
-
-		, "Ne01_Ko03__MzKu_vsg": "Allow GPS Location (Track)"
-		, "Ne01_Ko03__MzKu01_Ge_vsg": "Allow GPS Location (Track)"
-		, "Ne01_Ko03__MzKu02_Ku_vsg": "Remember Locations Seen (Anchors)"
-		, "Ne01_Ko03__MzKu03_Gz_vsg": "Allow Distance Sensors"
-
-		, "Ne01_Ko00__KwiYz_ChyDe_vsg": "Reset User's Settings to Default"
-		, "Ne01_Ko05__TaKeDy_Chx_vsg": "Clear All Users & Settings to NEW"
-
 
 		, "Ne02_Hru00__Nz00_Mo_vsg": "Control"
 		, "Ne02_Hru00__Nz01_Dx_vsg": "Style"
@@ -97,48 +88,68 @@
 		, "Ne03_Hry13__HriKeKwa_vsg": "AR ( Augmented Reality XR )"
 
 
-		, "Ne04_Hx00__Bz_vsg": "Learn about MicroCosm"
-		, "Ne04_Hx00__Nz00_vsg": "Why MicroCosm?"
-		, "Ne04_Hx01__Ka00_vsg": "EverybodyWins: No Shortage of Solutions, 100% People possible to create, use, & monetize compute powers for solutions\n\nYourChoice: Would you Rather live in an Everyone can monetize solutions for actual 'value' or continue in our Walled Garden, Engineer-Only, Software-Failure built world. Try_All_Tek, Model All Possibilities: Problems that more Money, more Talent, more Time, and more Code doesn’t solve.\n\nTransfer: Migration of Solutions, Ecosystem Investments Preserved - Subjective_Truth_Has_Value: Knowledge Rep/ Meaning Coordinates => Custom, Not One Size Fits All"
-
-		, "Ne04_Hx00__Nz01_vsg": "Topic #2"
-		, "Ne04_Hx01__Ka01_vsg": "COMPUTER_IS_BICYCLE_FOR_OUR_MINDS: I think one of the things that really separates us from the high primates is that we’re tool builders. I read a study that measured the efficiency of locomotion for various species on the planet. The condor used the least energy to move a kilometer. Humans came in with a rather unimpressive showing about a third of the way down the list. It was not too proud a showing for the crown of creation. So, that didn’t look so good. But then, somebody at Scientific American had the insight to test the efficiency of locomotion for a man on a bicycle. And, a man on a bicycle, a human on a bicycle, blew the condor away, completely off the top of the charts. And that’s what a computer is to me. What a computer is to me is it’s the most remarkable tool that we’ve ever come up with. It’s the equivalent of a bicycle for our minds. — Steve Jobs (1980)"
+		, "Ne04_Ko00__Nz00__vsg": "Activity"
+		, "Ne04_Ko00__Nz01__vsg": "Location"
+		, "Ne04_Ko00__Nz02__vsg": "Settings"
 
 
-		, "Ne04_Hx00__Nz02_vsg": "FIVE_QUESTIONS:"
-		, "Ne04_Hx01__Ka02_vsg": "- Trust: Is wantware real/viable? Does it do what is claimed.\n- Scope: Can it scale globally? Evidence it can reach intended clients as desired solutions.\n- Success: wantware Competition, IP-Protection and Market Lockout? Industry interest and value to existing stakeholders.\n- Risk: How ready and stable are we today and our roadmap? Timing and resources required to meet milestones.\n- Value: Is it worth it? Does empowering all humans to have personalized dialogs that create machine behaviors, shareable solutions, carry a global market value? Does it affect AI, Automation, and near-term economics?"
+		, "Ne04_Ko04__KoDz_YoHo_vsg": "Always Active (Background Work)"
+		, "Ne02_Hru__YoHo_vsg": "Always Audible (Background Sound)"
+		, "Ne04_Ko01__HraBru_Tra_vsg": "Always Network"
+		, "Ne04_Ko02__SpeVu_vsg": "Power Use"
 
-		, "Ne04_Hx00__Nz03_vsg": "Topic #3"
-		, "Ne04_Hx01__Ka03_vsg": "WHAT: wantware is a Meta-Computer as it functions to talk 'About' computing and reconfigure itself for all its task needs by regenerating its machine instructions and transforming its data structures & streams towards performance or wattage or other optimization goals. It handles the user specified needs by exposing all of its potential capabilities ( 'what it can do' ) and current activities ( 'why and what its doing now' ) to an interactive dialog in the user's language and style.\n\nJUUL_QUOTE: I realized that the change we were seeking would not come from waiting for people or governments to do “the right thing” with respect to communities, sustainability, and justice. It required too much “zoom out” thinking— seeing the bigger picture, when most people were just trying to get by and raise their families. I saw creating wantware as means of opening up at least one sector of the economy to all people with an idea. To enable users to innovate in their own areas of expertise, solve problems from their unique perspective, own and control those creations, and monetize, trade, or give those creations in a truly free economic ecosystem. The image I always came back to was from the end of the 80’s movie, Solarbabies. One group controls all the water and thus has all the power. The solar babies release the water in such a way that it cannot be easily captured again. The power structure falls.\n\nWHAT: wantware is a Meta-Computer as it functions to talk 'About' computing and reconfigure itself for all its task needs by regenerating its machine instructions and transforming its data structures & streams towards performance or wattage or other optimization goals. It handles the user specified needs by exposing all of its potential capabilities ( 'what it can do' ) and current activities ( 'why and what its doing now' ) to an interactive dialog in the user's language and style.\n\nJUUL_QUOTE: I realized that the change we were seeking would not come from waiting for people or governments to do “the right thing” with respect to communities, sustainability, and justice. It required too much “zoom out” thinking— seeing the bigger picture, when most people were just trying to get by and raise their families. I saw creating wantware as means of opening up at least one sector of the economy to all people with an idea. To enable users to innovate in their own areas of expertise, solve problems from their unique perspective, own and control those creations, and monetize, trade, or give those creations in a truly free economic ecosystem. The image I always came back to was from the end of the 80’s movie, Solarbabies. One group controls all the water and thus has all the power. The solar babies release the water in such a way that it cannot be easily captured again. The power structure falls.\n\nWHAT: wantware is a Meta-Computer as it functions to talk 'About' computing and reconfigure itself for all its task needs by regenerating its machine instructions and transforming its data structures & streams towards performance or wattage or other optimization goals. It handles the user specified needs by exposing all of its potential capabilities ( 'what it can do' ) and current activities ( 'why and what its doing now' ) to an interactive dialog in the user's language and style.\n\nJUUL_QUOTE: I realized that the change we were seeking would not come from waiting for people or governments to do “the right thing” with respect to communities, sustainability, and justice. It required too much “zoom out” thinking— seeing the bigger picture, when most people were just trying to get by and raise their families. I saw creating wantware as means of opening up at least one sector of the economy to all people with an idea. To enable users to innovate in their own areas of expertise, solve problems from their unique perspective, own and control those creations, and monetize, trade, or give those creations in a truly free economic ecosystem. The image I always came back to was from the end of the 80’s movie, Solarbabies. One group controls all the water and thus has all the power. The solar babies release the water in such a way that it cannot be easily captured again. The power structure falls.\n\nWHAT: wantware is a Meta-Computer as it functions to talk 'About' computing and reconfigure itself for all its task needs by regenerating its machine instructions and transforming its data structures & streams towards performance or wattage or other optimization goals. It handles the user specified needs by exposing all of its potential capabilities ( 'what it can do' ) and current activities ( 'why and what its doing now' ) to an interactive dialog in the user's language and style.\n\nJUUL_QUOTE: I realized that the change we were seeking would not come from waiting for people or governments to do “the right thing” with respect to communities, sustainability, and justice. It required too much “zoom out” thinking— seeing the bigger picture, when most people were just trying to get by and raise their families. I saw creating wantware as means of opening up at least one sector of the economy to all people with an idea. To enable users to innovate in their own areas of expertise, solve problems from their unique perspective, own and control those creations, and monetize, trade, or give those creations in a truly free economic ecosystem. The image I always came back to was from the end of the 80’s movie, Solarbabies. One group controls all the water and thus has all the power. The solar babies release the water in such a way that it cannot be easily captured again. The power structure falls."
+		, "Ne04_Ko03__MzKu_vsg": "Allow GPS Location (Track)"
+		, "Ne04_Ko03__MzKu01_Ge_vsg": "Allow GPS Location (Track)"
+		, "Ne04_Ko03__MzKu02_Ku_vsg": "Remember Locations Seen (Anchors)"
+		, "Ne04_Ko03__MzKu03_Gz_vsg": "Allow Distance Sensors"
+
+		, "Ne04_Ko00__KwiYz_ChyDe_vsg": "Reset User's Settings to Default"
+		, "Ne04_Ko05__TaKeDy_Chx_vsg": "Clear All Users & Settings to NEW"
 
 
 
-		, "Ne05_Grx00__Bz_vsg": "Notices of Importance"
-		, "Ne05_Grx00__Nz00_Grx_vsg": "License Notices"
-		, "Ne05_Grx00__Nz01_Che_vsg": "Legal Notices"
-		, "Ne05_Grx00__Nz02_So_vsg": "Credit Notices"
-		, "Ne05_Grx00__Nz03_DryKy_vsg": "Company Notices"
+		, "Ne05_Hx00__Bz_vsg": "Learn about MicroCosm"
+		, "Ne05_Hx00__Nz00_vsg": "Why MicroCosm?"
+		, "Ne05_Hx01__Ka00_vsg": "EverybodyWins: No Shortage of Solutions, 100% People possible to create, use, & monetize compute powers for solutions\n\nYourChoice: Would you Rather live in an Everyone can monetize solutions for actual 'value' or continue in our Walled Garden, Engineer-Only, Software-Failure built world. Try_All_Tek, Model All Possibilities: Problems that more Money, more Talent, more Time, and more Code doesn’t solve.\n\nTransfer: Migration of Solutions, Ecosystem Investments Preserved - Subjective_Truth_Has_Value: Knowledge Rep/ Meaning Coordinates => Custom, Not One Size Fits All"
 
-		, "Ne05_Grx01__Ka00_vsg": "Copyright 2026 PowerOurPeople.\nLicensed under the Apache License, Version 2.0 (the 'License');\n-- You may not use this file except in compliance with the License.\n-- You may obtain a copy of the License at\n\nhttp://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+		, "Ne05_Hx00__Nz01_vsg": "Topic #2"
+		, "Ne05_Hx01__Ka01_vsg": "COMPUTER_IS_BICYCLE_FOR_OUR_MINDS: I think one of the things that really separates us from the high primates is that we’re tool builders. I read a study that measured the efficiency of locomotion for various species on the planet. The condor used the least energy to move a kilometer. Humans came in with a rather unimpressive showing about a third of the way down the list. It was not too proud a showing for the crown of creation. So, that didn’t look so good. But then, somebody at Scientific American had the insight to test the efficiency of locomotion for a man on a bicycle. And, a man on a bicycle, a human on a bicycle, blew the condor away, completely off the top of the charts. And that’s what a computer is to me. What a computer is to me is it’s the most remarkable tool that we’ve ever come up with. It’s the equivalent of a bicycle for our minds. — Steve Jobs (1980)"
 
-		, "Ne05_Grx01__Ka01_vsg": "Legal Compliances go here"
-		, "Ne05_Grx01__Ka02_vsg": "Credits go here"
-		, "Ne05_Grx01__Ka03_vsg": "Company info goes here"
+
+		, "Ne05_Hx00__Nz02_vsg": "FIVE_QUESTIONS:"
+		, "Ne05_Hx01__Ka02_vsg": "- Trust: Is wantware real/viable? Does it do what is claimed.\n- Scope: Can it scale globally? Evidence it can reach intended clients as desired solutions.\n- Success: wantware Competition, IP-Protection and Market Lockout? Industry interest and value to existing stakeholders.\n- Risk: How ready and stable are we today and our roadmap? Timing and resources required to meet milestones.\n- Value: Is it worth it? Does empowering all humans to have personalized dialogs that create machine behaviors, shareable solutions, carry a global market value? Does it affect AI, Automation, and near-term economics?"
+
+		, "Ne05_Hx00__Nz03_vsg": "Topic #3"
+		, "Ne05_Hx01__Ka03_vsg": "WHAT: wantware is a Meta-Computer as it functions to talk 'About' computing and reconfigure itself for all its task needs by regenerating its machine instructions and transforming its data structures & streams towards performance or wattage or other optimization goals. It handles the user specified needs by exposing all of its potential capabilities ( 'what it can do' ) and current activities ( 'why and what its doing now' ) to an interactive dialog in the user's language and style.\n\nJUUL_QUOTE: I realized that the change we were seeking would not come from waiting for people or governments to do “the right thing” with respect to communities, sustainability, and justice. It required too much “zoom out” thinking— seeing the bigger picture, when most people were just trying to get by and raise their families. I saw creating wantware as means of opening up at least one sector of the economy to all people with an idea. To enable users to innovate in their own areas of expertise, solve problems from their unique perspective, own and control those creations, and monetize, trade, or give those creations in a truly free economic ecosystem. The image I always came back to was from the end of the 80’s movie, Solarbabies. One group controls all the water and thus has all the power. The solar babies release the water in such a way that it cannot be easily captured again. The power structure falls.\n\nWHAT: wantware is a Meta-Computer as it functions to talk 'About' computing and reconfigure itself for all its task needs by regenerating its machine instructions and transforming its data structures & streams towards performance or wattage or other optimization goals. It handles the user specified needs by exposing all of its potential capabilities ( 'what it can do' ) and current activities ( 'why and what its doing now' ) to an interactive dialog in the user's language and style.\n\nJUUL_QUOTE: I realized that the change we were seeking would not come from waiting for people or governments to do “the right thing” with respect to communities, sustainability, and justice. It required too much “zoom out” thinking— seeing the bigger picture, when most people were just trying to get by and raise their families. I saw creating wantware as means of opening up at least one sector of the economy to all people with an idea. To enable users to innovate in their own areas of expertise, solve problems from their unique perspective, own and control those creations, and monetize, trade, or give those creations in a truly free economic ecosystem. The image I always came back to was from the end of the 80’s movie, Solarbabies. One group controls all the water and thus has all the power. The solar babies release the water in such a way that it cannot be easily captured again. The power structure falls.\n\nWHAT: wantware is a Meta-Computer as it functions to talk 'About' computing and reconfigure itself for all its task needs by regenerating its machine instructions and transforming its data structures & streams towards performance or wattage or other optimization goals. It handles the user specified needs by exposing all of its potential capabilities ( 'what it can do' ) and current activities ( 'why and what its doing now' ) to an interactive dialog in the user's language and style.\n\nJUUL_QUOTE: I realized that the change we were seeking would not come from waiting for people or governments to do “the right thing” with respect to communities, sustainability, and justice. It required too much “zoom out” thinking— seeing the bigger picture, when most people were just trying to get by and raise their families. I saw creating wantware as means of opening up at least one sector of the economy to all people with an idea. To enable users to innovate in their own areas of expertise, solve problems from their unique perspective, own and control those creations, and monetize, trade, or give those creations in a truly free economic ecosystem. The image I always came back to was from the end of the 80’s movie, Solarbabies. One group controls all the water and thus has all the power. The solar babies release the water in such a way that it cannot be easily captured again. The power structure falls.\n\nWHAT: wantware is a Meta-Computer as it functions to talk 'About' computing and reconfigure itself for all its task needs by regenerating its machine instructions and transforming its data structures & streams towards performance or wattage or other optimization goals. It handles the user specified needs by exposing all of its potential capabilities ( 'what it can do' ) and current activities ( 'why and what its doing now' ) to an interactive dialog in the user's language and style.\n\nJUUL_QUOTE: I realized that the change we were seeking would not come from waiting for people or governments to do “the right thing” with respect to communities, sustainability, and justice. It required too much “zoom out” thinking— seeing the bigger picture, when most people were just trying to get by and raise their families. I saw creating wantware as means of opening up at least one sector of the economy to all people with an idea. To enable users to innovate in their own areas of expertise, solve problems from their unique perspective, own and control those creations, and monetize, trade, or give those creations in a truly free economic ecosystem. The image I always came back to was from the end of the 80’s movie, Solarbabies. One group controls all the water and thus has all the power. The solar babies release the water in such a way that it cannot be easily captured again. The power structure falls."
+
+
+
+		, "Ne06_Grx00__Bz_vsg": "Notices of Importance"
+		, "Ne06_Grx00__Nz00_Grx_vsg": "License Notices"
+		, "Ne06_Grx00__Nz01_Che_vsg": "Legal Notices"
+		, "Ne06_Grx00__Nz02_So_vsg": "Credit Notices"
+		, "Ne06_Grx00__Nz03_DryKy_vsg": "Company Notices"
+
+		, "Ne06_Grx01__Ka00_vsg": "Copyright 2026 PowerOurPeople.\nLicensed under the Apache License, Version 2.0 (the 'License');\n-- You may not use this file except in compliance with the License.\n-- You may obtain a copy of the License at\n\nhttp://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+
+		, "Ne06_Grx01__Ka01_vsg": "Legal Compliances go here"
+		, "Ne06_Grx01__Ka02_vsg": "Credits go here"
+		, "Ne06_Grx01__Ka03_vsg": "Company info goes here"
 	}
 
 
 	, "USAGE":
 	{
-		"Ne00_KeDy__VaTre_vsg": "Choose from previous or defaults Users"
-		, "Ne00_KeDy__ChaChi_vsg": "Manage User Roster"
-		, "Ne00_KeDy__X_vsg": "xyz abc def"
+		"Ne01_KeDy__VaTre_vsg": "Choose from previous or defaults Users"
+		, "Ne01_KeDy__ChaChi_vsg": "Manage User Roster"
+		, "Ne01_KeDy__X_vsg": "xyz abc def"
 
-		, "Ne00_KeDy_vsg": "Select Identity, Culture & Security"
-		, "Ne01_Ko_vsg": "Decide on Access of Info"
+		, "Ne01_KeDy_vsg": "Select Identity, Culture & Security"
+		, "Ne04_Ko_vsg": "Decide on Access of Info"
 		, "Ne02_Hru_vsg": "Setup Audio Mic and Speakers"
 		, "Ne03_Hry_vsg": "Setup Displays, Style, and Quality"
-		, "Ne04_Hx_vsg": "Basic information about MicroCosm"
-		, "Ne05_Grx_vsg": "License, Legal, Credit, & Company Notices"
+		, "Ne05_Hx_vsg": "Basic information about MicroCosm"
+		, "Ne06_Grx_vsg": "License, Legal, Credit, & Company Notices"
 
 		, "KroTra_vsg": "Tab: Moves between top-level menu items.\nEnter or Space: Opens submenu.\nEsc: Closes current submenu and returns focus to the trigger.\nArrow Keys: Navigate between submenu items."
 

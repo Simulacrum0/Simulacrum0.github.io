@@ -236,7 +236,7 @@ function KoDz__YoChy()
 	//@@@
 	// ECOSYS_GOOD
 	const KwiYz_k = Ko.TaKeDy_l.KwiYz_v[ Ko.TaKeDy_l.KeDy_wu ];
-	if( KoDz__YzTrx_y() || KoDz__YzYo_y() || KwiYz_k.Ne01_Ko04__KoDz_YoHo_y ) return;
+	if( KoDz__YzTrx_y() || KoDz__YzYo_y() || KwiYz_k.Ne04_Ko04__KoDz_YoHo_y ) return;
 
 	//&&&
 	// STATUS
