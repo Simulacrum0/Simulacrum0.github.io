@@ -1,9 +1,16 @@
 {
-	"LABELS":
+	"LAUNCH":
 	{
-		"BriDz00_VaSy_vsg": "MicroCosm DEMO"
-		, "BriDz01_SaSz_vsg": "🤖NEW --> Fix iOS WG load; Flag Select; Borders"
-		, "BriDz02_TraKwi_vsg": "🚀 LAUNCH"
+		"BriDz_VaSy_vsg": "MicroCosm"
+		, "TrxBz_vsg": "Tech FAIL: "
+		, "TrxKrx_vsg": "Please try a different Browser or Device"
+	}
+
+	, "LABELS":
+	{
+		"BriDz_SaSz_vsg": "🤖NEW --> Use Final Template to Autogen HTML ELMs"
+		, "BriDz_TraKwi_vsg": "🚀 LAUNCH"
+
 
 		, "Che00_Krz_vsg": "❓Check Answer"
 		, "Che01_Chy_vsg": "✅Save Answer"
@@ -11,12 +18,14 @@
 		, "Che03_TraHo_vsg": "🔑Requires Answer"
 		, "Che04_TraHy_vsg": "🔓User Ready"
 
-		, "Ne00_KeDy_vsg": "🥸 WHO"
-		, "Ne01_Ko_vsg": "⚙️ ALLOW"
-		, "Ne02_Hru_vsg": "👂 HEAR"
-		, "Ne03_Hry_vsg": "👀 SEE"
-		, "Ne04_Hx_vsg": "🧩 LEARN"
-		, "Ne05_Grx_vsg": "📜 NOTICES"
+		, "Ne00_KeDy_vsg": "🥸\nWHO"
+		, "Ne01_Ko_vsg": "⚙️\n ALLOW"
+		, "Ne02_Hru_vsg": "👂\nHEAR"
+		, "Ne03_Hry_vsg": "👀\nSEE"
+		, "Ne04_Hx_vsg": "🧩\nLEARN"
+		, "Ne05_Grx_vsg": "📜\nNOTICE"
+		, "Ne06_KuNe_vsg": "🗺️\nWHERE"
+		, "Ne07_KwiFe_vsg": "🚀\nLAUNCH"
 
 
 		, "Ne00_KeDy00__Nz00_NiKeDy_vsg": "User"
@@ -117,6 +126,7 @@
 		, "Ne05_Grx01__Ka03_vsg": "Company info goes here"
 	}
 
+
 	, "USAGE":
 	{
 		"Ne00_KeDy__VaTre_vsg": "Choose from previous or defaults Users"
@@ -129,7 +139,20 @@
 		, "Ne03_Hry_vsg": "Setup Displays, Style, and Quality"
 		, "Ne04_Hx_vsg": "Basic information about MicroCosm"
 		, "Ne05_Grx_vsg": "License, Legal, Credit, & Company Notices"
+
+		, "KroTra_vsg": "Tab: Moves between top-level menu items.\nEnter or Space: Opens submenu.\nEsc: Closes current submenu and returns focus to the trigger.\nArrow Keys: Navigate between submenu items."
+
 	}
+
+	, "ALERT":
+	{
+		"Dre__SySmz_GriHo_vsg": "Optional Service Fail: "
+
+		, "TrxJy__KaBzTrx__WG_vsg": "GPU Not Available or Capable: Try Restarting Browser or Machine"
+		, "TrxJy__SySmz_GriHo_vsg": "Required Service Fail:"
+		, "TrxJy__SuKz_GriHo_vsg": "Required Content Fail:"
+	}
+
 
 	, "CREDITS":
 	[

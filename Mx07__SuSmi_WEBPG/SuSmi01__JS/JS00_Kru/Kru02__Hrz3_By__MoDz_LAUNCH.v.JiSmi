@@ -34,7 +34,7 @@ var Ko =
 	// LOG
 	// Sma_vvsg
 	, SmaFe_wu: 0
-	, Sma_vvsg: new Array( SmaBraHi_wuk ).fill( null )
+	, Sma_vvsg: [ SmaBraHi_wuk ].fill( null )
 
 	//@@@
 	// UPD
@@ -122,7 +122,7 @@ SmaSy( "[LAUNCH] Web_Security[ CORS: " + (window.crossOriginIsolated ?  "✅😀
 if( !window.crossOriginIsolated )
 {
 	// MSG should display @ DOM
-	MoDzTrx( KoSy__KeDru_l.TrxJy00__HrxCheHo__CORS_vsg );
+	MoDzTrx( KoSy__KwiGru_KeDru_l.TrxJy00__HrxCheHo__CORS_vsg );
 }
 
 
@@ -139,7 +139,7 @@ catch(e)
 {
 	// WebAssembly is not supported at all
 	SmaTrx( "[LAUNCH] No Web Assembly:", e );
-	MoDzTrx( KoSy__KeDru_l.TrxJy01__HrzMoHo__WASM_vsg );
+	MoDzTrx( KoSy__KwiGru_KeDru_l.TrxJy01__HrzMoHo__WASM_vsg );
 }
 
 Ko.KaBx__TiFo_wuk = navigator.hardwareConcurrency;
@@ -216,7 +216,7 @@ var Module =
 	{
 		// NO NEED TO REPORT CURRENTLY
 		this.totalDependencies = Math.max(this.totalDependencies, left);
-		Module.Sma__KeMe_Bo( left ? ( KoSy__KeDru_l.BriDz_KiMiFe_vsg + ' (' + (this.totalDependencies - left) + '/' + this.totalDependencies + ')') : " " );
+		Module.Sma__KeMe_Bo( left ? ( KoSy__KwiGru_KeDru_l.BriDz_KiMiFe_vsg + ' (' + (this.totalDependencies - left) + '/' + this.totalDependencies + ')') : " " );
 
 	},
 
@@ -246,13 +246,13 @@ function MoDzTrx( Trx_vsg )
 	//&&&
 	// HEADER (Fixed)
 	// Err Alert, Build Version,
-	var Bz_vsg = KoSy__KeDru_l.TrxBz_vsg + " [" + ( window.Ko.Hx_SyDx_vsg ? window.Ko.Hx_SyDx_vsg : "???" ) + " " + BriDzSa__Da_vsg + "] ";
+	var Bz_vsg = KoSy__KwiGru_KeDru_l.TrxBz_vsg + " [" + ( window.Ko.Hx_SyDx_vsg ? window.Ko.Hx_SyDx_vsg : "???" ) + " " + BriDzSa__Da_vsg + "] ";
 	Module.Sma__KeMe_Bz( Bz_vsg );
 
 	//&&&
 	// FOOTER (Dynamic)
 	// Please Quit + Err Msg
-	var Bo_vsg = KoSy__KeDru_l.TrxKrx_vsg + " " + Trx_vsg;
+	var Bo_vsg = KoSy__KwiGru_KeDru_l.TrxKrx_vsg + " " + Trx_vsg;
 	Module.Sma__KeMe_Bo( Bo_vsg );
 
 
@@ -363,7 +363,7 @@ async function MoDz__DzStxGru()
 			{
 				SmaTrx( "[LAUNCH] !!! FAIL Duplicate Tab" );
 				BCHN_l = null;
-				MoDzTrx( KoSy__KeDru_l.TrxJy02__MoDzStxGru_vsg );
+				MoDzTrx( KoSy__KwiGru_KeDru_l.TrxJy02__MoDzStxGru_vsg );
 			}
 			else
 			{

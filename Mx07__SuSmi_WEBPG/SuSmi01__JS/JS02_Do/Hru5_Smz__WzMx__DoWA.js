@@ -1,4 +1,4 @@
-const DoWA__BriDzSa__Da_wuk = "219"; 
+const DoWA__BriDzSa__Da_wuk = "220"; 
 
 //==============================================
 //==============================================
@@ -75,7 +75,7 @@ function Try_JaPe_t(Sx_l, JaPe__Va_vsg )
     this.Sx_l = Sx_l;
     this.JaPe__Va_vsg = JaPe__Va_vsg;
 
-    this.bufferList = new Array();
+    this.bufferList = [];
     this.loadCount = 0;
 }
 

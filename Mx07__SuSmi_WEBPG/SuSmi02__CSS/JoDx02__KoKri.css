@@ -48,8 +48,6 @@ SHARED
 
 	/* Section Line */
 	--PoKuStuVo: #6668;
-	/* Toggle BG */
-	--PoKuStuSpo: #666F;
 
 	--PoBre: #888;
 	--PoBreHu: #8884;
@@ -75,18 +73,18 @@ SHARED
 	--GyGe_ToKu: 96ch;
 
 	--GyStz: 0.0rem;
-	--GyBe: 0.125rem;
-	--GyBo: 0.25rem;
-	--GyBi: 0.50rem;
+	--GyBe:0.125rem;
+	--GyBo:0.25rem;
+	--GyBi:0.50rem;
 
-	--GyTreHu: 0.875rem;
-	--GyTreDe: 1.0rem;
-	--GyTreHi: 1.25rem;
+	--GyTreHu:0.875rem;
+	--GyTreDe:1.0rem;
+	--GyTreHi:1.25rem;
 
-	--GyKaHu: 1.5rem;
-	--GyKaDe: 2.0rem;
-	--GyKaHi: 3.0rem;
-	--GyKyHu: 4.0rem;
+	--GyKaHu:1.5rem;
+	--GyKaDe:2.0rem;
+	--GyKaHi:3.0rem;
+	--GyKyHu:4.0rem;
 
 
 	/* LINES */
@@ -105,8 +103,8 @@ header
 , main
 , footer
 {
-	margin: 0.0rem;
-	padding: 0.0rem;
+	margin: var(--GyStz);
+	padding: var(--GyStz);
 }
 
 /*@@@@@@@@@@@@@@@
@@ -119,9 +117,9 @@ ANCESTOR
 	box-sizing: border-box;
 	overflow: hidden;
 
-	border-radius: 0.0rem;
-	margin: 0.0rem;
-	padding: 0.0rem;
+	border-radius: var(--GyStz);
+	margin: var(--GyStz);
+	padding: var(--GyStz);
 
 	/* content-visibility: auto; */
 	font-size: 1.0rem;
@@ -138,8 +136,8 @@ ANCESTOR
 .Wa
 {
 	border-radius: 1.5rem;
-	margin: 0.25rem;
-	padding: 0.25rem;
+	margin: var(--GyBo);
+	padding: var(--GyBo);
 }
 
 /*@@@@@@@@@@@@@@@
@@ -149,7 +147,6 @@ FONT
 .WaDru_SmuHi
 {
 	font-family: "Final Frontier Old Style", sans-serif;
-	font-weight: 800;
 }
 
 .WaDru_Bz
@@ -176,6 +173,31 @@ FONT
 }
 
 /*@@@@@@@@@@@@@@@
+CURSOR TYPES
+@@@@@@@@@@@@@@@*/
+/*
+cursor: all-scroll;
+cursor: cell;
+cursor: copy;
+cursor: crosshair;
+
+cursor: default;
+cursor: grab;
+cursor: help;
+cursor: move;
+
+cursor: no-drop;
+cursor: none;
+cursor: not-allowed;
+cursor: pointer;
+
+cursor: text;
+cursor: wait;
+cursor: zoom-in;
+cursor: zoom-out;
+*/
+
+/*@@@@@@@@@@@@@@@
 ICONS
 @@@@@@@@@@@@@@@*/
 .GwzHu{	zoom: 0.5;}
@@ -186,9 +208,9 @@ ICONS
 	background: url( ../../Mx01__SuKz_MEDIA/SuKz02_JaPo__PICT/JaPo02__GwzDoPo.png);
 	background-repeat:no-repeat;
 
-	margin: 0.0rem;
-	padding: 0.0rem;
-	border-radius: 0.0rem;
+	margin: var(--GyStz);
+	padding: var(--GyStz);
+	border-radius: var(--GyStz);
 
 	height: 108px;
 	width: 108px;
@@ -218,11 +240,10 @@ ICONS
 .GwzDo_BATTERY { background-position: -648px -324px;}
 .GwzDo_PLUG { background-position: -756px -324px;}
 
-
 /*@@@@@@@@@@@@@@@
 AREA TYPES
-( Not Panels nor Status Bars )
- ( Fullpage or Screen as Canvas spaces )
+- Not Panels nor Status Bars
+- Fullpage or Screen as Canvas spaces
 @@@@@@@@@@@@@@@*/
 .KuJy00__Gry
 {
@@ -238,7 +259,7 @@ AREA TYPES
 	display: block;
 	position: absolute;
 
-	border-radius: 0.0rem;
+	border-radius: var(--GyStz);
 	border: none;
 
 	color: var(--PoSiSpo);
@@ -324,13 +345,13 @@ TOOLTIPS
 	content: " ";
 	position: absolute;
 
-	padding: 0.0rem;
-	margin: 0.0rem;
+	padding: var(--GyStz);
+	margin: var(--GyStz);
 
 	/* use 0 for width/height to make border diagonal for triangle */
-	width: 0.0rem;
-	height: 0.0rem;
-	border-radius: 0.0rem;
+	width: var(--GyStz);
+	height: var(--GyStz);
+	border-radius: var(--GyStz);
 	border-style: solid;
 
 	/* Triangle Size & Location */
@@ -367,7 +388,7 @@ PANELS
 	max-height: calc( 100dvh - 6.0rem );
 
 	background-color: var(--PoStzDe);
-	border: solid 0.125rem var(--PoBre);
+	border: solid var(--GyBe) var(--PoBre);
 
 	/* ALLSCROLL ALL TOPIC AREA*/
 	overflow: auto;
@@ -382,8 +403,9 @@ PANELS
     justify-content: center;
     align-items: center;
 
-	margin: 1.0rem 0.25rem;
-	padding: 0.25rem;
+	/* width: fit-content; */
+	margin: 1.0rem var(--GyBo);
+	padding: var(--GyBo);
 }
 
 /* PANEL_GUI ---------------------- */
@@ -391,67 +413,32 @@ PANELS
 {
 	position: relative;
 	z-index: 4;
-}
 
-/* PANEL_GUI---HORIZ */
-.Ku01__HriNe_GxZe
-{
 	display: block;
-}
 
-/* PANEL_GUI---VERT */
-.Ku01__HriNe_GaZe
-, .Ku01__HriNe_GaZo
-{
-	display: grid;
-	gap: 0.0rem;
-	grid-template-columns: 16.0rem auto;
+	/* display: grid;
+	gap: var(--GyStz);
+	grid-template-columns: 16.0rem auto; */
 }
 
 /* PANEL__MENU TABS --------------------------------- */
 .Ku02__HriNzVa
 {
 	background-color: var(--PoStz);
-	border-radius: 0.0rem;
-	margin: 0.0rem;
-}
+	border-radius: var(--GyStz);
+	margin: var(--GyStz);
 
-/* PANEL__MENU TABS---HORIZ */
-.Ku02__HriNzVa_GxZe
-{
 	display: flex;
 	flex: auto;
 	flex-wrap: nowrap;
 	place-items: stretch stretch;
-	min-height: 4.0rem;
+
+	/* min-height: 4.0rem; */
+	/* min-height: fit-content; */
 
 	/* 0 bottom to align with topic section */
-	padding: 0.5rem 0.0rem 0.0rem 0.0rem;
+	padding: 0.5rem var(--GyStz) var(--GyStz) var(--GyStz);
 }
-
-/* PANEL__MENU TABS---VERT */
-.Ku02__HriNzVa_GaZe
-, .Ku02__HriNzVa_GaZo
-{
-	display: block;
-	/* grid-template-rows: 1/12; */
-
-	width: 100%;
-	/* height: 100%; */
-}
-
-.Ku02__HriNzVa_GaZe
-{
-	margin-bottom: 2.0rem;
-	padding: 0.0rem 0.0rem 2.0rem 0.25rem;
-}
-
-.Ku02__HriNzVa_GaZo
-{
-	margin-bottom: 2.0rem;
-	padding: 0.0rem 0.25rem 2.0rem 0.0rem;
-}
-
 
 /* PANEL_ALL_CHOICES ---------------------- */
 .Ku03__NzKwa
@@ -460,60 +447,27 @@ PANELS
 	background-color: var(--PoStzVo);
 
 	/* 0 to align with topic section */
-	margin: 0.0rem;
-	padding: 0.0rem;
+	margin: var(--GyStz);
+	padding: var(--GyStz);
 
 	/* ALLSCROLL ALL TOPIC AREA*/
 	/* max-height: calc( 100dvh - 23.5rem );
 	overflow: auto; */
 
-}
-
-/* PANEL_ALL_CHOICES--WIDE */
-.Ku03__NzKwa_GxZe
-{
 	/* NEGATIVE PAD THROWS ERR */
-	padding: 0.0rem -0.5rem;
+	/* padding: var(--GyStz) -0.5rem; */
+	padding: var(--GyStz);
 
 	/* TL TR BR BL */
-	border-radius: 0.0rem 0.0rem 1.5rem 1.5rem;
+	border-radius: var(--GyStz) var(--GyStz) 1.5rem 1.5rem;
 
-	border-left: solid 0.125rem var(--PoSi);
-	border-right: solid 0.125rem var(--PoSi);
+	border-left: solid var(--GyBe) var(--PoSi);
+	border-right: solid var(--GyBe) var(--PoSi);
 	border-top: none;
-	border-bottom: solid 0.125rem var(--PoSi);
+	border-bottom: solid var(--GyBe) var(--PoSi);
 
-	margin-left: 0.0rem;
-	margin-right: 0.0rem;
-}
-
-/* PANEL_ALL_CHOICES--TALL */
-.Ku03__NzKwa_GaZe
-{
-	margin-right: 1.0rem;
-
-	/* TL TR BR BL */
-	border-radius: 0.0rem 1.5rem 1.5rem 0.0rem;
-
-	border-left: none;
-	border-right: solid 0.125rem var(--PoSi);
-
-	border-top: solid 0.125rem var(--PoSi);
-	border-bottom: solid 0.125rem var(--PoSi);
-}
-
-.Ku03__NzKwa_GaZo
-{
-	margin-left: 1.0rem;
-
-	/* TL TR BR BL */
-	border-radius: 1.5rem 0.0rem 0.0rem 1.5rem;
-
-	border-left: solid 0.125rem var(--PoSi);
-	border-right: none;
-
-	border-top: solid 0.125rem var(--PoSi);
-	border-bottom: solid 0.125rem var(--PoSi);
+	margin-left: var(--GyStz);
+	margin-right: var(--GyStz);
 }
 
 
@@ -538,10 +492,10 @@ PANELS
 
 
 /* PANEL__VERSION */
-.Ku05_KwiBriDzDa
+.Ku05_KwiBriDz_ToGyHu
 {
-	margin: 0.25rem;
-	padding: 0.25rem;
+	margin: var(--GyBo);
+	padding: var(--GyBo);
 }
 
 /*@@@@@@@@@@@@@@@
@@ -553,120 +507,94 @@ TEXT
 {
 	font-size: 3.0rem;
 	text-align: center;
+	margin: 0rem var(--GyBo);
 }
 
-/* TEXT__APP_VERSION */
-.BriDzDa
+/* TEXT__INFO_SMALL */
+.BriDz_ToGyHu
 {
+	font-size: 75%;
+
 	display: block;
 	text-align:center;
-	margin: 0.125rem;
-	padding: 0.0rem;
+	margin: var(--GyBe);
+	padding: var(--GyStz);
 	color: var(--PoTraFre);
-	font-size: 75%;
 }
+
+/* TEXT__DBG ERR */
+.BriDz_TrxKz
+{
+	font-size: 1.25rem;
+	text-align: center;
+}
+
+/* TEXT_GOAL__VERTICAL*/
+.BriDz_Sz
+{
+	display: inline-flex;
+	font-size: 75%;
+
+	padding: var(--GyBe);
+
+	width: fit-content;
+	height: fit-content;
+
+	writing-mode: vertical-lr;
+	/* text-orientation: upright; */
+}
+
 
 /* TEXT__ICON --------------------------------------*/
 .JaPoJy
 {
-	margin: 0.0rem;
-	padding: 0.0rem;
+	margin: var(--GyStz);
+	padding: var(--GyStz);
 }
 
 /* TEXT__MENU_TITLE --------------------------------- */
 .NzVa
 {
 	display: flex;
-
     justify-content: center;
     align-items: center;
-	padding: 0.0rem;
-	margin: 0.0rem;
+
+	padding: 0.5rem;
+	margin: var(--GyStz);
+	margin-top: 1.0rem;
+	width: stretch;
 
 	color: var(--PoTraFra);
 	background-color: var(--PoKuSteVo);
-	border: solid 0.125rem var(--PoSi);
+	border: solid var(--GyBe) var(--PoSi);
+	border-radius:1.5rem 1.5rem 0 0;
 
-	transition: color var(--GiHu), background-color var(--GiHu);
+	transition: var(--GiHu);
 }
 
-/* TEXT__MENU_HOVER */
+/* TEXT__MENU_TITLE---HOVER PTR  */
 .NzVa:hover
+/* TEXT__MENU_TITLE---FOCUS KEY */
+, .NzVa:focus
 {
 	font-size: 1.25rem;
-}
-
-/* TEXT__MENU_TITLE---HORIZ */
-.NzVa_GxZe
-{
-	margin-top: 1.0rem;
-	width: 16.67%;
-	border-radius:1.5rem 1.5rem 0 0;
-}
-
-/* TEXT__MENU_TITLE---VERT */
-.NzVa_GaZe
-, .NzVa_GaZo
-{
-	width: 100%;
-	padding: 1.0rem 0.0rem;
-}
-
-.NzVa_GaZe
-{
-	border-radius: 1.5rem 0 0 1.5rem;
-}
-
-.NzVa_GaZo
-{
-	border-radius: 0 1.5rem 1.5rem 0;
-}
-
-/* TEXT__MENU_TITLE---HORIZ */
-.NzVa_GxZe:hover
-{
+	outline: none;
 	box-shadow: 0 -0.5em 1.0rem var(--PoTraFre);
-}
-
-/* TEXT__MENU_TITLE---VERT */
-.NzVa_GaZe:hover
-{
-	box-shadow: -0.5em 0 1.0rem var(--PoTraFre);
-}
-
-.NzVa_GaZo:hover
-{
-	box-shadow: 0.5em 0 1.0rem var(--PoTraFre);
 }
 
 /* TEXT__MENU_SELECTED */
 .NzVa_Se
 {
-	font-size: 1.125rem;
-
 	color: var(--PoSi);
 	background-color: var(--PoKuHu);
+
+	box-shadow: 0 -0.5em 0.5rem var(--PoTraFra);
+
+	font-size: 1.125rem;
+	outline: none;
 	transition: var(--GiHu);
-}
-
-/* TEXT__MENU_TITLE---HORIZ */
-.NzVa_Se_GxZe
-{
-	box-shadow: 0 -0.5em 1.0rem var(--PoTraFra);
 	border-bottom:none;
-}
 
-/* TEXT__MENU_TITLE---VERT */
-.NzVa_Se_GaZe
-{
-	box-shadow: -0.5em 0 1.0rem var(--PoTraFra);
-	border-right: none;
-}
-
-.NzVa_Se_GaZo
-{
-	box-shadow: 0.5em 0 1.0rem var(--PoTraFra);
-	border-left: none;
 }
 
 /* TEXT__ITEMS--------------------------------------------- */
@@ -686,11 +614,11 @@ TEXT
 
 	border-left: none;
 	border-right: none;
-	border-top: solid 0.125rem var(--PoKuSteSpo);
+	border-top: solid var(--GyBe) var(--PoKuSteSpo);
 	border-bottom: none;
 
 	margin: 0.50rem;
-	padding: 0.25rem;
+	padding: var(--GyBo);
 }
 
 /* TEXT__LABELS */
@@ -700,8 +628,8 @@ TEXT
 	text-align: start;
 	color: var(--PoSi);
 
-	padding: 0.25rem 1.0rem;
-	margin: 0.25rem 0.0rem;
+	padding: var(--GyBo) 1.0rem;
+	margin: var(--GyBo) var(--GyStz);
 
 	background-color: var(--PoStzFz);
 }
@@ -715,22 +643,22 @@ TEXT
 	display: inline-flex;
 	text-align: start;
 
-	margin: 0.25rem 0.125rem;
-	padding: 0.25rem 1.00rem;
+	margin: var(--GyBo) var(--GyBe);
+	padding: var(--GyBo) 1.00rem;
 
 	color: var(--PoSi);
 	background-color: var(--PoKuSteSpo);
 
 	border-radius: 1.5rem;
-	border: solid 0.125rem var(--PoSi);
+	border: solid var(--GyBe) var(--PoSi);
 }
 
 /* TEXT__BTN */
 .HriNe_Tra
 {
 	text-align:center;
-	margin: 0.25rem;
-	padding: 0.25rem 0.75rem;
+	margin: var(--GyBo);
+	padding: var(--GyBo) 0.75rem;
 }
 
 /* GLOW ON HOVER */
@@ -756,8 +684,8 @@ TEXT
 {
 	font-size: 1.20rem;
 
-	margin: 0.125rem;
-	padding: 0.125rem;
+	margin: var(--GyBe);
+	padding: var(--GyBe);
 }
 
 /* TEXT__DOCUMENT BODY */
@@ -785,13 +713,6 @@ TEXT
 }
 
 
-/* TEXT__DBG ERR */
-.TrxKz
-{
-	font-size: 1.25rem;
-	text-align: center;
-}
-
 /*@@@@@@@@@@@@@@@
 ELEMENTS IMAGE GRID
 @@@@@@@@@@@@@@@*/
@@ -803,7 +724,7 @@ ELEMENTS IMAGE GRID
 	flex-wrap: wrap;
 
 	margin: 1.0rem 0.50rem;
-	padding: 0.0rem;
+	padding: var(--GyStz);
 }
 
 /* SPRITE CURRENT IMAGE */
@@ -817,8 +738,8 @@ ELEMENTS IMAGE GRID
 	width: auto;
 	height: 8.0rem;
 
-	margin: 0.25rem;
-	padding: 0.25rem;
+	margin: var(--GyBo);
+	padding: var(--GyBo);
 }
 
 .NiJaPo_Trx
@@ -831,8 +752,8 @@ ELEMENTS IMAGE GRID
 	width: auto;
 	height: 8.0rem;
 
-	margin: 0.25rem;
-	padding: 0.25rem;
+	margin: var(--GyBo);
+	padding: var(--GyBo);
 }
 
 /* SPRITE SELECTOR BOX */
@@ -841,15 +762,15 @@ ELEMENTS IMAGE GRID
 	display: inline-flex;
 	flex-wrap: wrap;
 
-	border-radius: 0.0rem;
-	border: solid 0.125rem var(--PoBreSpo);
+	border-radius: var(--GyStz);
+	border: solid var(--GyBe) var(--PoBreSpo);
 
 	height: 8.0rem;
 
 	overflow-y: auto;
 
-	margin: 0.25rem;
-	padding: 0.0rem;
+	margin: var(--GyBo);
+	padding: var(--GyStz);
 }
 
 /* SPRITE LIST */
@@ -857,10 +778,10 @@ ELEMENTS IMAGE GRID
 {
 	font-size: 1.925rem;
 	margin: 0.075rem;
-	padding: 0.0rem;
+	padding: var(--GyStz);
 	background-color: var(--PoStz);
 
-	border-radius: 0.25rem;
+	border-radius: var(--GyBo);
 }
 
 /* FLAG NOT READY */
@@ -872,7 +793,7 @@ ELEMENTS IMAGE GRID
  /* FLAG AVAILABLE */
 .NiJaPo_VaGri
 {
-	padding: 0.125rem;
+	padding: var(--GyBe);
 }
 
 .NiJaPo_VaGri:Hover
@@ -898,7 +819,7 @@ ELEMENTS IMAGE GRID
  /* EMOJI to GRAYSCALE */
 .NiJaPo_VaVo
 {
-	padding: 0.125rem;
+	padding: var(--GyBe);
 	filter: grayscale( 80% );
 }
 
@@ -920,11 +841,11 @@ ELEMENTS MISC
 	/* z-index: 2; */
 
 	height: 4.0rem;
-	margin: 0.25rem;
-	padding: 0.0rem;
+	margin: var(--GyBo);
+	padding: var(--GyStz);
 
 	border-radius: 1.5rem;
-	border: solid 0.125rem var(--PoSiSpo);
+	border: solid var(--GyBe) var(--PoSiSpo);
 }
 
 /* SLIDER */
@@ -937,26 +858,37 @@ ELEMENTS MISC
 	color: var(--PoSiSpo);
 	background-color: var(--PoKuHu);
 
-	border-radius: 0.0rem;
+	border-radius: var(--GyStz);
 	border: none;
 
-	margin: 0.0rem;
-	padding: 0.0rem;
+	margin: var(--GyStz);
+	padding: var(--GyStz);
 }
 
 /* BTN SUBMIT ===> LAUNCH BTN RED */
 .HriNe_TraKwi
 {
 	font-size: 1.5rem;
-	height: 3.0rem;
-	width: calc( 100% - 1.0rem );
+	/* height: 3.0rem; */
+	/* width: calc( 100% - var(--GyStz) ); */
+	width:fit-content;
+	min-width: 16.0rem;
 
-	margin: 0.50rem;
-	padding: 0.25rem;
+	margin: var(--GyBo) 0.5rem;
+	padding: var(--GyBo);
 
 	border-radius: 1.5rem;
-	border: solid 0.125rem var(--PoSi);
+	border: solid var(--GyBe) var(--PoSi);
 	background-color: var(--PoSmu);
+
+	transition: var(--GiHu);
+}
+
+.HriNe_TraKwi:focus
+{
+	font-size: 2.0rem;
+	outline: none;
+	box-shadow: 0 0 1.0rem var(--PoSi);
 }
 
 /* BTN SUBMIT HOVER BG Po ==> GREEN */
@@ -964,7 +896,7 @@ ELEMENTS MISC
 {
 	background-color: var(--PoSmuSe);
 	/* GLOW */
-	box-shadow: 0 0 1.0rem var(--PoSi);
+	box-shadow: 0 0 1.0rem var(--PoSmuSe );
 }
 
 /*@@@@@@@@@@@@@@@
@@ -973,10 +905,10 @@ RADIO GROUP
 .NiGruKu
 {
 	display: inline-flex;
-	border: solid 0.125rem var(--PoBreHu);
+	border: solid var(--GyBe) var(--PoBreHu);
 
-	margin: 0.25rem;
-	padding: 0.25rem;
+	margin: var(--GyBo);
+	padding: var(--GyBo);
 }
 
 .NiGruVa
@@ -984,14 +916,14 @@ RADIO GROUP
 	color: var(--PoSiSpo);
 	background-color: var(--PoStzFz);
 
-	margin: 0.25rem;
-	padding: 0.25rem;
+	margin: var(--GyBo);
+	padding: var(--GyBo);
 }
 
 .NiGruTi
 {
-	margin: 0.25rem;
-	padding: 0.25rem;
+	margin: var(--GyBo);
+	padding: var(--GyBo);
 
 	background-color: var(--PoStzSpo);
 }
@@ -1008,8 +940,8 @@ TOGGLE_SWITCH
 
 	opacity: 0;
 
-	margin: 0.0rem;
-	padding: 0.0rem;
+	margin: var(--GyStz);
+	padding: var(--GyStz);
 }
 
 /* CHECKBOX */
@@ -1038,12 +970,12 @@ TOGGLE_SWITCH
 
 	height: 1.5rem;
 
-	border-radius: 0.0rem;
-	margin: 0.0rem;
-	padding: 0.0rem;
+	border-radius: var(--GyStz);
+	margin: var(--GyStz);
+	padding: var(--GyStz);
 
 	/* CHECKBOX GREY BG */
-	background-color: var(--PoKuStuSpo);
+	background-color: var(--PoKuStuVo);
 	transition: var(--GiHu);
 	border-radius: 1.5rem;
 }
@@ -1057,8 +989,8 @@ TOGGLE_SWITCH
 	width: 1.5rem;
 	height: 1.5rem;
 
-	left: 0.0rem;
-	bottom: 0.0rem;
+	left: var(--GyStz);
+	bottom: var(--GyStz);
 
 	/* CHECKBOX CIRCLE  INDICATOR*/
 	background-color: var(--PoTraFre);
@@ -1095,10 +1027,10 @@ hr
 
 	border-left: none;
 	border-right: none;
-	border-bottom: solid 0.125rem var(--PoKuStuVo);
+	border-bottom: solid var(--GyBe) var(--PoKuStuVo);
 	border-top: none;
 
-    margin: 0.0rem;
+    margin: var(--GyStz);
     padding: 1.0rem;
 }
 

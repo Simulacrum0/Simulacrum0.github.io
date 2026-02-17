@@ -80,9 +80,9 @@ async function KoDz__YaFz()
 	// CLNs
 	// Declare 'fixed array' uses ZEROs, must fill  null
 	// Media Objects
-	Ko.SuKz_v = new Array( SuKz__GryFo_wuk ).fill( null );
+	Ko.SuKz_v = [ SuKz__GryFo_wuk ].fill( null );
 	// Service Sessions
-	Ko.SySmz_v = new Array( SyVx__GryFo_wuk ).fill( null );
+	Ko.SySmz_v = [ SyVx__GryFo_wuk ].fill( null );
 
 
 
@@ -98,8 +98,8 @@ async function KoDz__YaFz()
 	Hrz3_Bz__KaGeSpu_Ha();
 	// FIND USERS LAUNCH_CFG
 	Hrz4_Bu__TaKeDy__FyGry();
-	// LOAD CULTURE
-	await Hri4_Bu__TaKeDy__ChySpo();
+	// LOAD REQUIRED CUL & GUI
+	await Hri4_Bu__TaNeDe__ChaKri();
 
 	//@@@
 	// BOOT
@@ -173,7 +173,7 @@ async function KoDz__YaFz()
 	if( !WaDru__Kri_yk ){ return; }
 
 	//@@@
-	// LOAD LAUNCH CANVAS
+	// DISPLAY LAUNCH CANVAS
 	// which fills GUI VALUES
 	KoDz_GyHa();
 
@@ -290,7 +290,7 @@ function KoDz__Ye( Gi )
 	//@@@
 	// TIMER UPDATE 1sec
 	const Gry__GiDri_dfk = ( performance.now() - Ko.BriYa_GiDri_df );
-	if( Ko.YeFo_wu % 60 == 0 )
+	if( Ko.YeFo_wu % 60 == 1 )
 	{
 		const MxPo_Bri_l = document.getElementById("MxPo_Bri");
 		Ko.YeWi_df = ( Gry__GiDri_dfk - Ko.BriYe_GiDri_df ) / 60.0;
@@ -301,7 +301,7 @@ function KoDz__Ye( Gi )
 		let GiFe_vsg = new Date();
 		Module.Sma__KeMe_Bz
 		(
-			KoSy__KeDru_l.BriDz_VaSy_vsg + " [ " + BriDzSa__Da_vsg + " ]"
+			Ko.KeDru_l.ALERT.BriDz_VaSy_vsg + " [ " + BriDzSa__Da_vsg + " ]"
 			+ " Mode: " + ( window.Ko.Hx_SyDx_vsg ? window.Ko.Hx_SyDx_vsg : "???" )
 			+ " @ " + GiFe_vsg.getHours().toString().padStart(2,"0") + ":" + GiFe_vsg.getMinutes().toString().padStart(2,"0") + ":"  + GiFe_vsg.getSeconds().toString().padStart(2,"0")
 		);
@@ -314,7 +314,6 @@ function KoDz__Ye( Gi )
 		Module.Sma__KeMe_Bo
 		(
 			" "
-			// KoSy__KeDru_l.BriDz_VaSy_vsg
 			// + " YeFo: " + Ko.YeFo_wu
 			+ " RES[ " + MxPo_Bri_l.width + "px, " + MxPo_Bri_l.height + "px ]"
 			+ " DPR: " + window.devicePixelRatio.toFixed(1)

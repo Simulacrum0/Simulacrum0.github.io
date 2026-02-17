@@ -36,7 +36,7 @@
 			<!-- TITLE BAR w ICONS & TXT -->
 			<header><div class="Ku01_BzVa_GeBre">
 				<img class="BriDz_FzVa Kwi00__BriDzJaPo" src="Mx01__SuKz_MEDIA/SuKz07_DryDz__BIZ/DryDzGwz05__THINKER_512.png"></img>
-				<span  id="BriDz00_VaSy_vsg" class="BriDz_FzVa WaDru_SmuHi"></span>
+				<span  id="BriDz_VaSy_vsg" class="BriDz_FzVa WaDru_SmuHi"></span>
 				<img class="BriDz_FzVa Kwi00__BriDzJaPo" src="Mx01__SuKz_MEDIA/SuKz03_TxTrz__APTIV_MADE/TxTrz01__GEMS.jpg"></img>
 			</div></header>	<!-- Ku01_BzVa_GeBre -->
 
@@ -355,7 +355,7 @@
 				<div class="Ku05_KwiBriDzDa">
 					<code id="BriDzSa__Da" class="BriDzDa WaDru_De"></code>
 					<code id="Hrz3_By__VaDa" class="BriDzDa WaDru_De"></code>
-					<code id="BriDz01_SaSz_vsg" class="BriDzDa WaDru_Bz"></code>
+					<code id="BriDz_SaSz_vsg" class="BriDzDa WaDru_Bz"></code>
 				</div>
 				<!-- LAUNCH BTN ---------------->
 				<input id="BriDz02_TraKwi_vsg" class="BriDz_FzVa HriNe_Tra TreHy HriNe_TraKwi WaDru_SmuHi" tabindex=1 type="submit" onclick="Tra_KeMeBri()"/>

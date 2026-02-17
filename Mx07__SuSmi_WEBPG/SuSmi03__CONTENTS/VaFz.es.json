@@ -1,9 +1,15 @@
 {
-	"LABELS":
+	"LAUNCH":
 	{
-		"BriDz00_VaSy_vsg": "MicroCosm Testo"
-		, "BriDz01_SaSz_vsg": "🤖NUEVA --> WebGPU"
-		, "BriDz02_TraKwi_vsg": "🚀 EMPEZAR!"
+		"BriDz_VaSy_vsg": "MicroCosm"
+		, "TrxBz_vsg": "Tech FAIL: "
+		, "TrxKrx_vsg": "Please try a different Browser or Device"
+	}
+
+	, "LABELS":
+	{
+		"BriDz_SaSz_vsg": "🤖NUEVA --> WebGPU"
+		, "BriDz_TraKwi_vsg": "🚀 EMPEZAR!"
 
 		, "Che00_Krz_vsg": "❓Submit Contesto"
 		, "Che01_Chy_vsg": "✅Saved Contesto"
@@ -17,8 +23,9 @@
 		, "Ne02_Hru_vsg": "👂ESCUCHAR"
 		, "Ne03_Hry_vsg": "👀MIRAR"
 		, "Ne04_Hx_vsg": "🧩APRENDER"
-		, "Ne05_Grx_vsg": "📜LEGAL"
-
+		, "Ne05_Grx_vsg": "📜NOTICIAS"
+		, "Ne06_KuNe_vsg": "🗺️\nDONDE"
+		, "Ne07_KwiFe_vsg": "🚀\nEMPEZAR"
 
 		, "Ne00_KeDy00__Nz02_NiKeDru_vsg": "Coger Lengua"
 		, "Ne00_KeDy00__Nz00_NiKeDy_vsg": "Coger Persona"
@@ -65,8 +72,35 @@
 
 		, "Ne05_Grx00__Bz_vsg": "LEGAL-o"
 		, "Ne05_Grx01__Ka_vsg": "Legal Notices go here-o"
-
 	}
+
+	, "USAGE":
+	{
+		"Ne00_KeDy__VaTre_vsg": "Choose from previous or defaults Users"
+		, "Ne00_KeDy__ChaChi_vsg": "Manage User Roster"
+		, "Ne00_KeDy__X_vsg": "xyz abc def"
+
+		, "Ne00_KeDy_vsg": "Select Identity, Culture & Security"
+		, "Ne01_Ko_vsg": "Decide on Access of Info"
+		, "Ne02_Hru_vsg": "Setup Audio Mic and Speakers"
+		, "Ne03_Hry_vsg": "Setup Displays, Style, and Quality"
+		, "Ne04_Hx_vsg": "Basic information about MicroCosm"
+		, "Ne05_Grx_vsg": "License, Legal, Credit, & Company Notices"
+	}
+
+	, "ALERT":
+	{
+		"Dre__SySmz_GriHo_vsg": "Optional Service Fail: "
+
+		, "TrxBz_vsg": "Tech FAIL: "
+		, "TrxKrx_vsg": "Please try a different Browser or Device"
+
+		, "TrxJy__KaBzTrx__WG_vsg": "GPU Not Available or Capable: Try Restarting Browser or Machine"
+
+		, "TrxJy__SySmz_GriHo_vsg": "Required Service Fail:"
+		, "TrxJy__SuKz_GriHo_vsg": "Required Content Fail:"
+	}
+
 
 	, "CREDITS":
 	[

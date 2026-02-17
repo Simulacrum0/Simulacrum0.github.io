@@ -14,13 +14,13 @@ function Hre1_Dru__KeDru_VaFyVx_wu( KeKuMi_vbg )
 	//-------------------------------------------------
 	// LANG/LOCALE
 	//-------------------------------------------------
-	let Fe__KeDru_vksg = 'en';
+	let Fe__KeDru_lksg = 'en';
 	let Fe__KuVa_vbg = "";
 
 	//@@@
 	// LANG BASICS
 	Fe__KeKu_vbg = KeKuMi_vbg;
-	Fe__KeDru_vksg = KeKuMi_vbg.split( "-" )[ 0 ]
+	Fe__KeDru_lksg = KeKuMi_vbg.split( "-" )[ 0 ]
 	Fe__KuVa_vbg = KeKuMi_vbg.split( "-" )[ 1 ]
 
 	//&&&
@@ -30,7 +30,7 @@ function Hre1_Dru__KeDru_VaFyVx_wu( KeKuMi_vbg )
 	// CHECK just LANG
 	if( !KeKu_wu )
 	{
-		KeKu_wu = Hre1_Dru__Gra_v.findIndex( ( Ti_l ) => ( Ti_l.Vy === Fe__KeDru_vksg ) );
+		KeKu_wu = Hre1_Dru__Gra_v.findIndex( ( Ti_l ) => ( Ti_l.Vy === Fe__KeDru_lksg ) );
 	}
 
 	//&&&
@@ -41,7 +41,7 @@ function Hre1_Dru__KeDru_VaFyVx_wu( KeKuMi_vbg )
 
 	//!!!
 	// LOG MATCH ( used when generating 'Default' users )
-	// SmaJe( "[CUL] Src: " + Hre1_Dru__Gra_v[ KeKu_wu ].ToKz + " Locale: " + Fe__KeKu_vbg + " Lang: " + Fe__KeDru_vksg + " Country: " + ( Fe__KuVa_vbg ? Fe__KuVa_vbg : "Global" ) );
+	// SmaJe( "[CUL] Src: " + Hre1_Dru__Gra_v[ KeKu_wu ].ToKz + " Locale: " + Fe__KeKu_vbg + " Lang: " + Fe__KeDru_lksg + " Country: " + ( Fe__KuVa_vbg ? Fe__KuVa_vbg : "Global" ) );
 
 	return KeKu_wu;
 }
@@ -62,23 +62,24 @@ async function Hre1_Dru__KeDru_ChyVx( KeDru_wuk )
 	//@@@
 	// LANG_FILE
 	const KeKu__ToKz_vksg = Dru_l.ToKz;
-	let KeDru_v = await Hra7_Ta__ToKzMi_JSON_v( 'SuSmi03__CONTENTS/', `VaFz.${KeKu__ToKz_vksg}` );
-	if( !KeDru_v )
+	let KeDru_l = await Hra7_Ta__ToKzMi_JSON_v( 'SuSmi03__CONTENTS/', `VaFz.${KeKu__ToKz_vksg}` );
+	if( !KeDru_l )
 	{
 		SmaDre( "Cannot load <", KeKu__ToKz_vksg, "> Langugage File so will use U.N. English" );
 		//&&&
 		// TRY AGAIN 'EN' LTR
 		document.body.dir = 'ltr';
-		KeDru_v = await Hra7_Ta__ToKzMi_JSON_v( 'SuSmi03__CONTENTS/', `VaFz.en` );
-		if( MoDzTrx__NxHo_y( "Cannot load U.N. English Language File", KeDru_v )){ return; }
+		KeDru_l = await Hra7_Ta__ToKzMi_JSON_v( 'SuSmi03__CONTENTS/', `VaFz.en` );
+		if( MoDzTrx__NxHo_y( "Cannot load U.N. English Language File", KeDru_l )){ return; }
 	}
+	Ko.KeDru_l = KeDru_l;
 
 	//@@@
 	// TEXT_DIR
 	// Set text direction
-	const Fe__KeDru_vksg = Dru_l.ToKz;
-	const KeDru_RTL_v = [ 'ar', 'he', 'fa' ];
-	if( KeDru_RTL_v.includes( Fe__KeDru_vksg ) )
+	const Fe__KeDru_lksg = Dru_l.ToKz;
+	const KeDru_RTL_v = [ 'ar', 'he', 'fa', 'es' ];
+	if( KeDru_RTL_v.includes( Fe__KeDru_lksg ) )
 	{
 		document.body.dir = 'rtl';
 	}
@@ -87,16 +88,22 @@ async function Hre1_Dru__KeDru_ChyVx( KeDru_wuk )
 		document.body.dir = 'ltr';
 	}
 
+	//@@@
+	// REPLACE CORE LAUNCH-ERR MSGS
+	KoSy__KwiGru_KeDru_l.BriDz_VaSy_vsg = KeDru_l.LAUNCH.BriDz_VaSy_vsg;
+	KoSy__KwiGru_KeDru_l.TrxBz_vsg = KeDru_l.LAUNCH.TrxBz_vsg;
+	KoSy__KwiGru_KeDru_l.TrxKrx_vsg = KeDru_l.LAUNCH.TrxKrx_vsg;
+
 
 	//@@@
 	// SUBMIT BTN
-	const HriNe_KwiVu_k = document.getElementById( 'BriDz02_TraKwi_vsg' );
-	HriNe_KwiVu_k.value = KeDru_v.LABELS.BriDz02_TraKwi_vsg;
+	const HriNe_KwiVu_k = document.getElementById( 'BriDz_TraKwi_vsg' );
+	HriNe_KwiVu_k.value = KeDru_l.LABELS.BriDz_TraKwi_vsg;
 
 
 	//@@@
 	// UPDATE LABELS
-	Object.entries( KeDru_v.LABELS ).forEach
+	Object.entries( KeDru_l.LABELS ).forEach
 	(
 		function ( [ Vy_vbg, Va_vbg ] )
 		{
@@ -110,9 +117,8 @@ async function Hre1_Dru__KeDru_ChyVx( KeDru_wuk )
 
 	//@@@
 	// UPDATE USAGE
-	SmaJe( KeDru_v.USAGE );
-
-	Object.entries( KeDru_v.USAGE ).forEach
+	SmaJe( KeDru_l.USAGE );
+	Object.entries( KeDru_l.USAGE ).forEach
 	(
 		function ( [ Vy_vbg, Va_vbg ] )
 		{

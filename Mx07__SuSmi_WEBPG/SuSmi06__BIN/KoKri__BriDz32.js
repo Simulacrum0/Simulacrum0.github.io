@@ -3168,75 +3168,72 @@ function checkIncomingModuleAPI() {
 }
 
 var ASM_CONSTS = {
-  72392: $0 => {
+  72360: $0 => {
     if (!window.Ko.Hx_SyDx_vsg) {
       window.Ko.Hx_SyDx_vsg = UTF8ToString($0);
     }
   },
-  72473: ($0, $1, $2) => {
+  72441: ($0, $1, $2) => {
     let TaFrz_v = (growMemViews(), HEAPU8).subarray($0, $0 + $1);
     const Sma_vsg = (new TextDecoder).decode(TaFrz_v.slice(0));
     SmaJe("[MSG]", Sma_vsg, $2);
   },
-  72616: $0 => {
+  72584: $0 => {
     const Sma_vsg = Module.UTF8ToString($0);
     SmaJe(Sma_vsg);
   },
-  72681: $0 => {
+  72649: $0 => {
     const Sma_vsg = Module.UTF8ToString($0);
     SmaJe(Sma_vsg);
   },
-  72746: $0 => {
+  72714: $0 => {
     const Sma_vsg = Module.UTF8ToString($0);
     SmaJe(Sma_vsg);
   },
-  72811: () => {
+  72779: () => {
     const isHidden = document.hidden;
     const hasFocus = document.hasFocus();
     (isHidden || !hasFocus) ? KoDz__YoChy() : KoDz__YuChy();
   },
-  72945: () => {
+  72913: () => {
     KoDz__YuChy();
   },
-  72964: () => {
+  72932: () => {
     KoDz__YoChy();
   },
-  72983: () => KoDz__YzYe_y(),
-  73010: () => {
+  72951: () => KoDz__YzYe_y(),
+  72978: () => {
     const SaWG_l = Ko.SySmz_v[SyVx.WG_qk];
     const Brz_wuk = 0;
     DoWG.TxCho_JaKu(SaWG_l, Brz_wuk, 0, 0, 0, SaWG_l.MxPo_Bri_l.width, SaWG_l.MxPo_Bri_l.height);
   },
-  73170: () => {
-    const SaPAY_l = Ko.SySmz_v[SyVx.PAY_qk];
-    DoPAY.Mo(SaPAY_l, 0, 0);
+  73138: () => {
+    MoDzTrx("Fake Error as TEST");
   },
-  73244: () => {
-    const SaSHAR_l = Ko.SySmz_v[SyVx.SHAR_qk];
-    DoSHAR.Mo(SaSHAR_l, 0, 0);
-  },
-  73322: () => {
-    location.reload();
-  },
-  73345: () => {
-    MoDzTrx("TEST BAD BUILD as ERROR");
-  },
-  73387: () => {
-    location.reload();
-  },
-  73410: () => {
+  73175: () => {
     const SaWG_l = Ko.SySmz_v[SyVx.WG_qk];
     SaWG_l.KaSmz_l.destroy();
   },
-  73481: () => {},
-  73485: () => {
+  73246: () => {
+    const SaPAY_l = Ko.SySmz_v[SyVx.PAY_qk];
+    DoPAY.Mo(SaPAY_l, 0, 0);
+  },
+  73320: () => {
+    location.reload();
+  },
+  73343: () => {
+    const SaSHAR_l = Ko.SySmz_v[SyVx.SHAR_qk];
+    DoSHAR.Mo(SaSHAR_l, 0, 0);
+  },
+  73421: () => {},
+  73425: () => {
     console.log("MC: HrySmz__BriYa");
   },
-  73525: () => {},
-  73529: () => {
+  73465: () => {},
+  73469: () => {
     const SaSTRM_l = Ko.SySmz_v[SyVx.STRM_qk];
   },
-  73578: $0 => {
+  73518: $0 => {
     const SaWG_l = Ko.SySmz_v[SyVx.WG_qk];
     const SaSTRM_l = Ko.SySmz_v[SyVx.STRM_qk];
     if (!SySmz__BriYz__Ye_y(SaWG_l) || !SySmz__BriYz__Ye_y(SaSTRM_l)) return;

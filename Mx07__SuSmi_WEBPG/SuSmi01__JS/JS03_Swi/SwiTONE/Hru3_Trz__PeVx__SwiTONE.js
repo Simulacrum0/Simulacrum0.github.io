@@ -81,7 +81,7 @@ SwiTONE.Mo = function( Sa_l, Jy_k, Mo_l )
 
 	}
 
-	async function ClikClam()
+	async function TONE_ClikClam()
 	{
 		const synth = new Tone.Synth().toDestination();
 		synth.triggerAttackRelease("C4", "8n");

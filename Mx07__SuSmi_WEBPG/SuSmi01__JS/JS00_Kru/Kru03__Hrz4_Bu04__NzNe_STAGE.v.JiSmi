@@ -151,7 +151,7 @@ function HrySxDe__ChyHEXGRID( Sx_l, GxGy_wfk, GaGy_wfk, r, KuPo_l, KwzPo_l, KwaP
 //=====================================
 // DRAW_2D_PTRN
 //=====================================
-function Hry_DriBrz( MxVa_vsg, GRID4_yk, KuPo_l, KwzPo_l, KwaPo_l )
+function Hry_DriBrz( MxVa_vsg, NOTCH_yk, KuPo_l, KwzPo_l, KwaPo_l )
 {
 	//@@@
 	// 1/4
@@ -183,68 +183,7 @@ function Hry_DriBrz( MxVa_vsg, GRID4_yk, KuPo_l, KwzPo_l, KwaPo_l )
 
 	//@@@
 	// 4/4 PATTERN
-
-	//&&&
-	// INNER GRID
-	// 4.1
-	if( GRID4_yk )
-	{
-		Sx_l.strokeStyle = KwzPo_l
-		Sx_l.lineWidth = 1;
-		const Kwz__TiGy_wuk = 32;
-
-		// Draw vertical lines
-		for( let x = 0; x <= Mx_l.width; x += Kwz__TiGy_wuk )
-		{
-			Sx_l.beginPath();
-			Sx_l.moveTo(x, 0);
-			Sx_l.lineTo(x, Mx_l.height);
-			Sx_l.stroke();
-		}
-
-		// Draw horizontal lines
-		for( let y = 0; y <= Mx_l.height; y += Kwz__TiGy_wuk )
-		{
-			Sx_l.beginPath();
-			Sx_l.moveTo(0, y);
-			Sx_l.lineTo(Mx_l.width, y);
-			Sx_l.stroke();
-		}
-
-		//&&&
-		// 4.2
-		// OUTER GRID
-		Sx_l.strokeStyle = KwaPo_l;
-		Sx_l.lineWidth = 2;
-		const Kwa__TiGy_wuk = 128;
-
-		// Draw vertical lines
-		for( let x = 0; x <= Mx_l.width; x += Kwa__TiGy_wuk )
-		{
-			Sx_l.beginPath();
-			Sx_l.moveTo( x, 0 );
-			Sx_l.lineTo( x, Mx_l.height );
-			Sx_l.stroke();
-		}
-
-		// Draw horizontal lines
-		for( let y = 0; y <= Mx_l.height; y += Kwa__TiGy_wuk )
-		{
-			Sx_l.beginPath();
-			Sx_l.moveTo(0, y);
-			Sx_l.lineTo( Mx_l.width, y);
-			Sx_l.stroke();
-		}
-	}
-	//&&&
-	// HEX
-	// 4.3
-	else
-	{
-		const NOTCH_yk = false;
-		HrySxDe__ChyHEXGRID( Sx_l, Mx_l.width, Mx_l.height, 96.0, KuPo_l, KwzPo_l, KwaPo_l, NOTCH_yk );
-	}
-
+	HrySxDe__ChyHEXGRID( Sx_l, Mx_l.width, Mx_l.height, 80.0, KuPo_l, KwzPo_l, KwaPo_l, NOTCH_yk );
 }
 
 //=====================================
@@ -305,6 +244,8 @@ function HryMx01_KeMeTrx()
 	//---------------------------------
 	// VIEWS
 	//---------------------------------
+	Hri4_Bu__TaNeDe__ChiKri();
+
 	HriNeDe__ChyKuHi( "Ku00_KeMeKwi", false );
 	HriNeDe__ChyKuHi( "Ku01_KeMeTrx", true );
 	HriNeDe__ChyKuHi( "Ku02_KeMeBri", false );
@@ -323,9 +264,12 @@ function HryMx01_KeMeTrx()
 	const TrxKa_k = document.getElementById("TrxKa");
 	const TrxSma_Ta_k = document.getElementById("TrxSma_Ta");
 
-	TrxBz_k.innerText = KoSy__KeDru_l.BriDz_VaSy_vsg + " " + KoSy__KeDru_l.TrxBz_vsg + BriDzSa__Da_vsg;
+	TrxBz_k.innerText = KoSy__KwiGru_KeDru_l.BriDz_VaSy_vsg + " " + KoSy__KwiGru_KeDru_l.TrxBz_vsg + BriDzSa__Da_vsg;
+
 	TrxKa_k.innerText = Module.Trx_vsg;
 
+	//@@@
+	// LOG
 	const Sma_vvsg = Ko.Sma_vvsg;
 	const SmaFo_wuk = Math.min( Ko.SmaFe_wu, SmaBraHi_wuk );
 	const GeZo_wuk = Math.max( 0, Ko.SmaFe_wu - SmaFo_wuk );
@@ -345,6 +289,8 @@ function HryMx01_KeMeTrx()
 //==============================================
 function HryMx02_KeMeBri()
 {
+	Hri4_Bu__TaNeDe__ChiKri();
+
 	//---------------------------------
 	// VIEWS
 	//---------------------------------
@@ -353,6 +299,7 @@ function HryMx02_KeMeBri()
 	HriNeDe__ChyKuHi( "Ku02_KeMeBri", true );
 
 	HriNeDe__ChyKuHi( "Ku03_KeDruTre", false );
+
 }
 
 //==============================================
@@ -361,36 +308,19 @@ function HryMx02_KeMeBri()
 //==============================================
 function Hrz4_Bu__ChyNeKu( Vx_wu )
 {
+	//@@@
+	// SAFE CLASS CLNs
 	const NzVa_v = document.getElementsByClassName( "NzVa" );
 	const NeKuJy_v = document.getElementsByClassName( "NeKuJy" );
 	if( ( Vx_wu > NzVa_v.length ) || ( Vx_wu < 0 ) || ( NzVa_v.length !== NeKuJy_v.length )) { return;}
 
 	//@@@
-	// RTL vs LTR vs TD
-	const HriNz__Go_wuk = 1;
-	const NzVa__Go_vvsg =
-	[
-		// TD
-		"_GxZe"
-		// LTR
-		, "_GaZe"
-		// RTL
-		, "_GaZo"
-	];
-	const NzVa__Go_vsg = NzVa__Go_vvsg[ HriNz__Go_wuk ];
-
-	//@@@
-	// DIVs
-	document.getElementById( "Ku01__HriNe" ).className ="Ku01__HriNe Ku01__HriNe" + NzVa__Go_vsg;
-	document.getElementById( "Ku03__NzKwa" ).className ="Ku03__NzKwa Ku03__NzKwa" + NzVa__Go_vsg;
-
-
-	//@@@
 	// SELECT MENU
+
 	//!!!
 	// WATCH STRING SPACES
-	const NzVa__FeDe_vsg = "NzVa WaDru_Bz NzVa" + NzVa__Go_vsg;
-	const NzVa__Se_vsg = NzVa__FeDe_vsg + " NzVa_Se " + "NzVa_Se" + NzVa__Go_vsg;
+	const NzVa__FeDe_vsg = "NzVa WaDru_Bz NzVa";
+	const NzVa__Se_vsg = NzVa__FeDe_vsg + " NzVa_Se " + "NzVa_Se";
 
 	for( let i = 0; i < NzVa_v.length; i++)
 	{

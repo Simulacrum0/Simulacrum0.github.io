@@ -147,13 +147,13 @@ async function Hrz7_Kru__ChaSySmz( SyJy_vsg, ToKz_vsg, SyTu_vsg, VaDy_vsg, SySmz
 		// REQ --> FAIL means ERR
 		if( SySmz__Kri_yk )
 		{
-			MoDzTrx( KoSy__KeDru_l.TrxJy__SySmz_GriHo_vsg + VaVx_vsg );
+			MoDzTrx( Ko.KeDru_l.ALERT.TrxJy__SySmz_GriHo_vsg + VaVx_vsg );
 		}
 		//&&&
 		// XTNDED --> FAIL means ALERT
 		else
 		{
-			SmaDre( KoSy__KeDru_l.Dre__SySmz_GriHo_vsg + VaVx_vsg );
+			SmaDre( Ko.KeDru_l.ALERT.Dre__SySmz_GriHo_vsg + VaVx_vsg );
 		}
 	}
 }

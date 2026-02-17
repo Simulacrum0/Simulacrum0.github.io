@@ -24,7 +24,7 @@ function HriNeDe__TraKwi()
 {
 	//@@@
 	// SUBMIT BTN
-	const HriNe_KwiVu_k = document.getElementById( 'BriDz02_TraKwi_vsg' );
+	const HriNe_KwiVu_k = document.getElementById( 'BriDz_TraKwi_vsg' );
 	HriNe_KwiVu_k.focus();
 }
 
@@ -119,11 +119,89 @@ function HriNeDe__ChyHyHo( Vy_vsg, HyHo_yk )
 	e.checked = HyHo_yk;
 }
 
+//=====================================
+// KEY CTL
+//=====================================
+function Hri4_Bu__MzBuDru_Je( e )
+{
+	//@@@
+	// ELM ID & TYPE
+	const Kz_l = document.activeElement;
+	if( Kz_l )
+	{
+		// SmaJe( "ELM", Kz_l?.id );
+
+	}
+
+	//@@@
+	// NAVI
+	switch( e.key )
+	{
+		case( "Enter" ):
+	 	case( " " ):
+		{
+			SmaJe( "IN" );
+			break;
+		}
+
+		case 'Cancel':
+		case( "Escape" ):
+		{
+			Hrz4_Bu__ChyNeKu( 0 );
+			break;
+		}
+
+		case( "ArrowRight" ):
+		{
+			SmaJe( "RT" );
+			Hrz4_Bu__ChyNeKu( 5 );
+
+			break;
+		}
+		case( "ArrowLeft" ):
+		{
+			SmaJe( "LF" );
+			break;
+		}
+
+		case( "0" ):
+		case( "1" ):
+		case( "2" ):
+		case( "3" ):
+		case( "4" ):
+		case( "5" ):
+		case( "6" ):
+		case( "7" ):
+		case( "8" ):
+		case( "9" ):
+		{
+			SmaJe( "#" + e.key );
+			break;
+		}
+	}// End Switch Key
+}
 
 //=====================================
 // INIT GUI DEFAULTS
+// STATIC ITEMS
 //=====================================
-async function Hri4_Bu__TaKeDy__ChySpo()
+function Hri4_Bu__TaNeDe__ChiKri()
+{
+	//@@@
+	// REMOVE ELMS
+
+
+
+	//@@@
+	// REMOVE KEYS
+	document.removeEventListener( "keydown", Hri4_Bu__MzBuDru_Je );
+}
+
+//=====================================
+// INIT GUI DEFAULTS
+// STATIC ITEMS
+//=====================================
+async function Hri4_Bu__TaNeDe__ChaKri()
 {
 	const KwiYz_k = Ko.TaKeDy_l.KwiYz_v[ Ko.TaKeDy_l.KeDy_wu ];
 
@@ -204,7 +282,7 @@ async function Hri4_Bu__TaKeDy__ChySpo()
 		//SmaSy( "------ Vx_wu:", Vx_wu, Ti_v.Va );
 
 		//&&&
-		// LANG DROPDOWN ADD BTN
+		// CHOOSE LANG DROPDOWN ADD BTNS
 		if( KeDruGri_v.includes( Ti_v.ToKz ) )
 		{
 			const Kz_l = document.createElement( 'option' );
@@ -240,7 +318,6 @@ async function Hri4_Bu__TaKeDy__ChySpo()
 
 			KeDru__TaJaPo_l.appendChild( Kz_l );
 		}
-
 	});
 
 	//@@@
@@ -262,6 +339,7 @@ async function Hri4_Bu__TaKeDy__ChySpo()
 		// ADD BTN
 
 		const Kz_l = document.createElement( 'span' );
+
 		Kz_l.className = 'NiJaPo_Va NiJaPo_VaVo';
 		Kz_l.onclick = function() { Hrz4_Bu__KwiYz__SaPy_ChyYe( Vx_wu ); }
 
@@ -318,8 +396,13 @@ async function Hri4_Bu__TaKeDy__ChySpo()
 
 		TaKeDy_l.selectedIndex = Ko.TaKeDy_l.KeDy_wu;
 	}
-}
 
+
+	//-------------------------------------------------
+	// KEY CTLS
+	//-------------------------------------------------
+	document.addEventListener( "keydown", Hri4_Bu__MzBuDru_Je );
+}
 
 //=====================================
 // USR END
