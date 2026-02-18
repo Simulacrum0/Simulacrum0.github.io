@@ -254,7 +254,7 @@ async function Hri4_Bu__TaNeDe__ChaKri()
 
 	Kwi00__TaNe_v.forEach( function ( Ti_v, Vx_wu )
 	{
-		SmaSy( "[GUI]------ @:", Vx_wu, Ti_v.Va );
+		SmaSy( "[GUI]----[OPT]----@:", Vx_wu, Ti_v.Va );
 
 
 		//@@@

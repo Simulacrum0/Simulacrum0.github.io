@@ -1,5 +1,5 @@
-const BriDzSa__Da_vsg = "PUB_v0.223"; 
- const BriDzSa__Da_wuk = "223"; 
+const BriDzSa__Da_vsg = "PUB_v0.224"; 
+ const BriDzSa__Da_wuk = "224"; 
  const BriDz__Mx_KuTu_vsg = "https://powerourpeople.com/"; 
 
 //==============================================
@@ -1776,7 +1776,7 @@ async function Hri4_Bu__TaNeDe__ChaKri()
 
 	Kwi00__TaNe_v.forEach( function ( Ti_v, Vx_wu )
 	{
-		SmaSy( "[GUI]------ @:", Vx_wu, Ti_v.Va );
+		SmaSy( "[GUI]----[OPT]----@:", Vx_wu, Ti_v.Va );
 
 
 		//@@@
@@ -2979,9 +2979,16 @@ async function KoDz__YaFx( )
 	// DoXR
 	if( KwiYz_k.Ne03_Hry02__HriKe_y ) { Hrz7_Kru__ChaSySmz( "Hri2_Ke", "BzMe", "Do", "XR", SySmz__HoKri_yk, { YzTi_wu: "0" } ); }
 
-	// DoAUD
+	// DoWA
 	// if( KwiYz_k.Ne03_Hru00__SmzGra_y )
 	Hrz7_Kru__ChaSySmz( "Hru5_Smz", "WzMx", "Do", "WA", SySmz__HoKri_yk, { YzTi_wu: "0" } );
+
+	// DoNN
+	// if( KwiYz_k.Ne03_Hru00__SmzGra_y )
+	if( true )
+	{
+		Hrz7_Kru__ChaSySmz( "Hro5_Smz", "BryKrx", "Do", "NN", SySmz__HoKri_yk, { YzTi_wu: "0" } );
+	}
 
 	// DoHID
 	// Hrz7_Kru__ChaSySmz( "Hra1_Mz", "KaMo", "Do", "HID", SySmz__HoKri_yk, { YzTi_wu: "0" } );
@@ -2999,7 +3006,7 @@ async function KoDz__YaFx( )
 	// TRACK LOCALE
 	//, Hrz7_Kru__ChaSySmz( "Hra1_Mz", "GeFy", "Do", "GPS", SySmz__HoKri_yk, { YzTi_wu: "0" } )
 
-	//
+	// _TTe
 	//, Hrz7_Kru__ChaSySmz( "Hr", "", "Do", "ABC", SySmz__HoKri_yk, { YzTi_wu: "0" } )
 
 }
