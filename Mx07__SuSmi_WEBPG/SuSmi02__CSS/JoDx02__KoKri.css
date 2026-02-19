@@ -585,7 +585,6 @@ TEXT
 	transition: var(--GiDe);
 }
 
-
 /* TEXT__MENU_SELECTED */
 .NzVa_Se_TraKz
 {
@@ -715,16 +714,15 @@ TEXT
 /* TEXT_GOAL__VERTICAL*/
 .BriDz_Sz
 {
-	display: inline-flex;
+	display: flex;
 	font-size: var(--GyBiHi);
-
 	padding: var(--GyBe);
 
 	width: fit-content;
 	height: fit-content;
 
-	writing-mode: vertical-lr;
-	/* text-orientation: upright; */
+	writing-mode: sideways-lr;
+	text-orientation: sideways;
 }
 
 

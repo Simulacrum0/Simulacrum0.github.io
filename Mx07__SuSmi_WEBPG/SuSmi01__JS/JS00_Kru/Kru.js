@@ -1,5 +1,5 @@
-const BriDzSa__Da_vsg = "PUB_v0.225"; 
- const BriDzSa__Da_wuk = "225"; 
+const BriDzSa__Da_vsg = "PUB_v0.226"; 
+ const BriDzSa__Da_wuk = "226"; 
  const BriDz__Mx_KuTu_vsg = "https://powerourpeople.com/"; 
 
 //==============================================
