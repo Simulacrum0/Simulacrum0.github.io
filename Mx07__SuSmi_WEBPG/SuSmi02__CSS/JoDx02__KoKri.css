@@ -211,7 +211,9 @@ cursor: zoom-out;
 /*@@@@@@@@@@@@@@@
 ICONS
 @@@@@@@@@@@@@@@*/
-.GwzHu{	zoom: 0.5;}
+.GwzKeDru{	zoom: 0.33; }
+.GwzHu{	zoom: 0.5; }
+.GwzDe{ font-size: var(--GyKaDe); }
 
 /* CLR ICONS */
 .GwzDoPo
@@ -237,19 +239,49 @@ ICONS
 .GwzDo_ESRB { background-position: -540px 0px;}
 .GwzDo_PEGI { background-position: -648px 0px;}
 .GwzDo_GDPR { background-position: -756px 0px;}
+
+/* ROW 1 */
 .GwzDo_CCPA { background-position: 0px -108px;}
+.GwzDo_C{ background-position: -648px -108px;}
 
+/* ROW 2 */
 .GwzDo_BULLET { background-position: 0px -216px;}
+.GwzDo_INTEL { background-position: -108px -216px;}
+.GwzDo_AMD { background-position: -216px -216px;}
+.GwzDo_ARM { background-position: -324px -216px;}
 
+.GwzDo_RISCV { background-position: -432px -216px;}
+.GwzDo_NVIDIA { background-position: -540px -216px;}
+.GwzDo_QUALCOMM { background-position: -648px -216px;}
+.GwzDo_BROADCOM { background-position: -756px -216px;}
+
+
+/* ROW 3 */
+.GwzDo_VIVANTE { background-position: 0px -324px;}
 .GwzDo_NET { background-position: -108px -324px;}
 .GwzDo_SECURITY { background-position: -216px -324px;}
 .GwzDo_GLOBAL { background-position: -324px -324px;}
 
-/* ROW 3 */
 .GwzDo_STORAGE { background-position: -432px -324px;}
 .GwzDo_SPEED { background-position: -540px -324px;}
 .GwzDo_BATTERY { background-position: -648px -324px;}
 .GwzDo_PLUG { background-position: -756px -324px;}
+
+/* ROW 4 */
+.GwzDo_ROCKET { background-position: 0px -432px;}
+.GwzDo_NODE { background-position: -108px -432px;}
+
+/* ROW 5 */
+.GwzDo_BEGIN { background-position: 0px -540px;}
+.GwzDo_REWIND { background-position: -108px -540px;}
+.GwzDo_PLAY { background-position: -216px -540px;}
+.GwzDo_PAUSE { background-position: -324px -540px;}
+
+.GwzDo_REC { background-position: -432px -540px;}
+.GwzDo_FF { background-position: -540px -540px;}
+.GwzDo_END { background-position: -648px -540px;}
+.GwzDo_CHECK { background-position: -756px -540px;}
+
 
 /*@@@@@@@@@@@@@@@
 DOMAIN AREAS^Tz
@@ -398,7 +430,6 @@ PANELS^Ku
 {
 	display: grid;
 	gap: var(--GyTreDe);
-
 	grid-template-columns: repeat( auto-fill, minmax( var(--GyDru_MoKu), 1fr ));
 
 	overflow-y: auto;
@@ -415,6 +446,7 @@ PANELS^Ku
 {
 	display: flex;
 	flex-wrap: wrap;
+
 	margin: var(--GyBe);
 	padding: var(--GyBe);
 }
@@ -424,21 +456,20 @@ PANELS^Ku
 {
 	display: inline-flex;
 	flex-wrap: wrap;
-
-	justify-content:start;
-	align-items: start;
-	gap: 0;
-
-	overflow: visible;
+	vertical-align: top;
 
 	text-align: start;
+	justify-content: start;
+	align-items: start;
+	overflow-y: auto;
 
+	gap: 0;
 	margin: var(--GyBiHu);
 	padding: var(--GyBo);
 
 	border-left: none;
 	border-right: none;
-	border-top: var(--GwxSpo) var(--GyBe) var(--PoKuSteSpo);
+	border-top:  var(--GyBe) var(--GwxSpo)var(--PoKuSteSpo);
 	border-bottom: none;
 
 	color: var(--PoBre);
@@ -458,6 +489,7 @@ NOTIFY^KeMe
 	height: var(--GyKaHu);
 
 	text-align: start;
+	justify-content: start;
 	align-items: center;
 
 	font-size: var(--GyTreHi);
@@ -532,11 +564,12 @@ TEXT
 @@@@@@@@@@@@@@@*/
 
 /* TEXT__MENU_TITLE --------------------------------- */
-.NzVa
+.NzVa_TraKz
 {
 	display: flex;
     justify-content: center;
     align-items: center;
+	white-space: pre-wrap;
 
 	width: stretch;
 	padding: var(--GyBiHu);
@@ -554,7 +587,7 @@ TEXT
 
 
 /* TEXT__MENU_SELECTED */
-.NzVa_Se
+.NzVa_Se_TraKz
 {
 	font-size: 1.125rem;
 	color: var(--PoSi);
@@ -626,7 +659,7 @@ TEXT
 }
 
 /* TEXT__DOCUMENT BODY */
-.KeDruBa, .KeDruBe
+.KeDruBa, .KeDruSkx
 {
 	font-size: var(--GyTreHu);
 	white-space: pre-wrap;
@@ -640,8 +673,9 @@ TEXT
 	overflow-y: auto;
 }
 
+
 /* TEXT__DOCUMENT COLUMNS */
-.KeDruBe
+.KeDruSkx
 {
 	/* Requires BLOCK */
 	column-rule: 0.25em var(--GwxKwo) var(--PoKuSta);
@@ -1047,7 +1081,7 @@ HOVER GLOW
 }
 
 /* TEXT__MENU_TITLE---HOVER PTR  */
-.NzVa:hover
+.NzVa_TraKz:hover
 {
 	font-size: var(--GyTreHi);
 	outline: none;
@@ -1059,8 +1093,8 @@ HOVER GLOW
 FOCUS DOTTED OUTLINE
 @@@@@@@@@@@@@@@*/
 
-  .NzVa:focus
-, .NzVa_Se:focus
+  .NzVa_TraKz:focus
+, .NzVa_Se_TraKz:focus
 , .TreHy:focus
 , .HriNe_TraKwi:focus
 , .HriNeVo:focus
@@ -1070,8 +1104,8 @@ FOCUS DOTTED OUTLINE
 	outline: dotted var(--GyBe) var(--PoSi);
 }
 
-.NzVa:focus
-.NzVa_Se:focus
+.NzVa_TraKz:focus
+.NzVa_Se_TraKz:focus
 {
 	font-size: var(--GyTreHi);
 }

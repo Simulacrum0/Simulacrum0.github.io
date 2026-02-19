@@ -34,7 +34,7 @@ function HriNeDe__TraKwi()
 //==============================================
 
 //@@@
-// MENU CLEAR
+// CLN CLEAR
 function HriNeDe__Ta_ChyStz( Ta_v )
 {
 	while ( Ta_v.firstChild )
@@ -44,10 +44,17 @@ function HriNeDe__Ta_ChyStz( Ta_v )
 }
 
 //@@@
+// INNERT_TEXT
+function HriNeDe__ChyVaSy( Vy_vsg, KeDru_vksg )
+{
+	document.getElementById( Vy_vsg ).innerText = KeDru_vksg;
+}
+
+//@@@
 // TOGGLE HIDE
 function HriNeDe__ChyHryDry( Vy_vsg )
 {
-	let e = document.getElementById( Vy_vsg );
+	const e = document.getElementById( Vy_vsg );
 	// e.hidden = !( e.hidden );
 	e.style.display = ( e.style.display === "none") ? "inline-flex" : "none";
 }
@@ -56,7 +63,7 @@ function HriNeDe__ChyHryDry( Vy_vsg )
 // SHOW/HIDE ELM
 function HriNeDe__ChyHry( Vy_vsg, Hry_yk )
 {
-	let e = document.getElementById( Vy_vsg );
+	const e = document.getElementById( Vy_vsg );
 	e.hidden = !Hry_yk;
 }
 
@@ -64,7 +71,7 @@ function HriNeDe__ChyHry( Vy_vsg, Hry_yk )
 // DISPLAY_BLOCK ELM
 function HriNeDe__ChyKuHi( Vy_vsg, Ku_yk )
 {
-	let e = document.getElementById( Vy_vsg );
+	const e = document.getElementById( Vy_vsg );
 	e.style.display = Ku_yk ? "block" : "none";
 }
 
@@ -72,7 +79,7 @@ function HriNeDe__ChyKuHi( Vy_vsg, Ku_yk )
 // DISPLAY_FLEX ELM
 function HriNeDe__ChyKuHu( Vy_vsg, Ku_yk )
 {
-	let e = document.getElementById( Vy_vsg );
+	const e = document.getElementById( Vy_vsg );
 	e.style.display = Ku_yk ? "inline-flex" : "none";
 }
 
@@ -80,7 +87,7 @@ function HriNeDe__ChyKuHu( Vy_vsg, Ku_yk )
 // DISABLE & ACCENT ELM
 function HriNeDe__ChyTraHo( Vy_vsg, TraHo_yk )
 {
-	let e = document.getElementById( Vy_vsg );
+	const e = document.getElementById( Vy_vsg );
 	if( TraHo_yk )
 	{
 		e.disabled = true;
@@ -97,7 +104,7 @@ function HriNeDe__ChyTraHo( Vy_vsg, TraHo_yk )
 // DISABLE & DIM ELM
 function HriNeDe__ChyHryVoHu( Vy_vsg, HryVoHu_yk )
 {
-	let e = document.getElementById( Vy_vsg );
+	const e = document.getElementById( Vy_vsg );
 	if( HryVoHu_yk )
 	{
 		e.disabled = true;
@@ -115,7 +122,7 @@ function HriNeDe__ChyHryVoHu( Vy_vsg, HryVoHu_yk )
 // RADIOBTN
 function HriNeDe__ChyHyHo( Vy_vsg, HyHo_yk )
 {
-	let e = document.getElementById( Vy_vsg );
+	const e = document.getElementById( Vy_vsg );
 	e.checked = HyHo_yk;
 }
 
@@ -445,13 +452,21 @@ async function Hri4_Bu__TaNeDe__ChaKri()
 	//-------------------------------------------------
 	// LABELS
 	//-------------------------------------------------
+
 	//@@@
 	// APP VERSION
-	document.getElementById( "BriDzSa__Da" ).innerText = BriDzSa__Da_vsg;
+	HriNeDe__ChyVaSy( "BriDzSa__Da", BriDzSa__Da_vsg );
 
-	document.getElementById( "Hrz3_By__KoVa" ).innerText = "OS Unidentified";
-	document.getElementById( "Hrz3_By__BxVa" ).innerText = "GPU Unidentified";
+	HriNeDe__ChyVaSy( "Hrz3_By__VaDe", Ko.Hrz3_By__VaDe_vsg + ( Ko.Hrz3_By__KaGeSpu_y ? " Mobile" : " Stationary" ) );
+	HriNeDe__ChyVaSy( "Hrz4_Bu__VaDe", Ko.Hrz4_Bu__VaDe_vsg + " 📲 " + Ko.Hrz4_Bu__Da_wfk );
 
+	document.getElementById( "Hrz3_By__Gwz" ).className = "JaPo__De GwzDoPo GwzKeDru GwzDo_" + Ko.Hrz3_By__Gwz_vsg;
+
+	//@@@
+	// SHOW
+	HriNeDe__ChyVaSy( "Hrz3_By__BzVa", Ko.KaBz__VaDe_vsg );
+	HriNeDe__ChyVaSy( "Hrz3_By__BxVa", Ko.KaBx__VaDe_vsg );
+	HriNeDe__ChyVaSy( "Hrz3_By__BaVa", Ko.KaBa__VaDe_vsg );
 
 
 	//-------------------------------------------------

@@ -531,28 +531,33 @@ body
 .GwzDo_SPEED, .GwzDo_SPEED:hover{ background-position: -540px -324px;}
 .GwzDo_BATTERY, .GwzDo_BATTERY:hover{ background-position: -648px -324px;}
 .GwzDo_PLUG, .GwzDo_PLUG:hover{ background-position: -756px -324px;}
+
 /* ROW 4 */
-.GwzDo_BEGIN, .GwzDo_BEGIN:hover{ background-position: 0px -432px;}
-.GwzDo_REWIND, .GwzDo_REWIND:hover{ background-position: -108px -216px;}
-.GwzDo_PLAY, .GwzDo_PLAY:hover{ background-position: -216px -432px;}
-.GwzDo_PAUSE, .GwzDo_PAUSE:hover{ background-position: -324px -432px;}
-
-.GwzDo_REC, .GwzDo_REC:hover{ background-position: -432px -432px;}
-.GwzDo_FF, .GwzDo_FF:hover{ background-position: -540px -432px;}
-.GwzDo_END, .GwzDo_END:hover{ background-position: -648px -432px;}
-.GwzDo_CHECK, .GwzDo_CHECK:hover{ background-position: -756px -432px;}
-
+.GwzDo_ROCKET, .GwzDo_ROCKET:hover{ background-position: 0px -540px;}
+.GwzDo_NODE, .GwzDo_NODE:hover{ background-position: -108px -540px;}
 
 /* ROW 5 */
-.GwzDo_CANCEL, .GwzDo_CANCEL:hover{ background-position: 0px -540px;}
-/* .GwzDo_?, .GwzDo_?:hover{ background-position: -108px -540px;}
-.GwzDo_?, .GwzDo_?:hover{ background-position: -216px -540px;}
-.GwzDo_?, .GwzDo_?:hover{ background-position: -324px -540px;}
+.GwzDo_BEGIN, .GwzDo_BEGIN:hover{ background-position: 0px -540px;}
+.GwzDo_REWIND, .GwzDo_REWIND:hover{ background-position: -108px -540px;}
+.GwzDo_PLAY, .GwzDo_PLAY:hover{ background-position: -216px -540px;}
+.GwzDo_PAUSE, .GwzDo_PAUSE:hover{ background-position: -324px -540px;}
 
-.GwzDo_?, .GwzDo_?:hover{ background-position: -432px -540px;}
-.GwzDo_?, .GwzDo_?:hover{ background-position: -540px -540px;}
-.GwzDo_?, .GwzDo_?:hover{ background-position: -648px -540px;}
-.GwzDo_?, .GwzDo_?:hover{ background-position: -756px -540px;} */
+.GwzDo_REC, .GwzDo_REC:hover{ background-position: -432px -540px;}
+.GwzDo_FF, .GwzDo_FF:hover{ background-position: -540px -540px;}
+.GwzDo_END, .GwzDo_END:hover{ background-position: -648px -540px;}
+.GwzDo_CHECK, .GwzDo_CHECK:hover{ background-position: -756px -540px;}
+
+
+/* ROW 6 */
+.GwzDo_CANCEL, .GwzDo_CANCEL:hover{ background-position: 0px -648px;}
+/* .GwzDo_?, .GwzDo_?:hover{ background-position: -108px -648px;}
+.GwzDo_?, .GwzDo_?:hover{ background-position: -216px -648px;}
+.GwzDo_?, .GwzDo_?:hover{ background-position: -324px -648px;}
+
+.GwzDo_?, .GwzDo_?:hover{ background-position: -432px -648px;}
+.GwzDo_?, .GwzDo_?:hover{ background-position: -540px -648px;}
+.GwzDo_?, .GwzDo_?:hover{ background-position: -648px -648px;}
+.GwzDo_?, .GwzDo_?:hover{ background-position: -756px -648px;} */
 
 
 /* ROW 6 */

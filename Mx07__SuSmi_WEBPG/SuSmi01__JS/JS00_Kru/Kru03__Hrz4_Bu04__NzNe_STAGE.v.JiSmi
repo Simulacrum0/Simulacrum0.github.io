@@ -310,7 +310,7 @@ function Hrz4_Bu__ChyNeKu( Vx_wu )
 {
 	//@@@
 	// SAFE CLASS CLNs
-	const NzVa_v = document.getElementsByClassName( "NzVa" );
+	const NzVa_v = document.getElementsByClassName( "NzVa_TraKz" );
 	const NeKuJy_v = document.getElementsByClassName( "NeKuJy" );
 	if( ( Vx_wu > NzVa_v.length ) || ( Vx_wu < 0 ) || ( NzVa_v.length !== NeKuJy_v.length )) { return;}
 
@@ -319,8 +319,8 @@ function Hrz4_Bu__ChyNeKu( Vx_wu )
 
 	//!!!
 	// WATCH STRING SPACES
-	const NzVa__FeDe_vsg = "NzVa WaDru_Bz NzVa";
-	const NzVa__Se_vsg = NzVa__FeDe_vsg + " NzVa_Se " + "NzVa_Se";
+	const NzVa__FeDe_vsg = "NzVa_TraKz WaDru_Bz";
+	const NzVa__Se_vsg = NzVa__FeDe_vsg + " NzVa_Se_TraKz";
 
 	for( let i = 0; i < NzVa_v.length; i++)
 	{

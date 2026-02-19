@@ -92,10 +92,10 @@ async function KoDz__YaFz()
 
 	// TIME_BEGAN
 	Ko.BriYa_GiDri_df = performance.now();
-	// BROWSER_VER
-	await Hrz3_By__VaDa();
-	// OS VER
-	Hrz3_Bz__KaGeSpu_Ha();
+	// OS, CPU, BROWSER, & VER
+	Hrz3_By__FyTo();
+	await Hrz4_Bu__FyTo();
+
 	// FIND USERS LAUNCH_CFG
 	Hrz4_Bu__TaKeDy__FyGry();
 	// LOAD REQUIRED CUL & GUI
@@ -209,7 +209,7 @@ async function KoDz__YaFx( )
 
 	// DoNN
 	// if( KwiYz_k.Ne03_Hru00__SmzGra_y )
-	if( true )
+	if( false )
 	{
 		Hrz7_Kru__ChaSySmz( "Hro5_Smz", "BryKrx", "Do", "NN", SySmz__HoKri_yk, { YzTi_wu: "0" } );
 	}

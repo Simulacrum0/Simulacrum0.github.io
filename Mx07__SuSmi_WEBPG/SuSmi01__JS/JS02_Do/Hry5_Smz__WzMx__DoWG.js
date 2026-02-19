@@ -1,4 +1,4 @@
-const DoWG__BriDzSa__Da_wuk = "224"; 
+const DoWG__BriDzSa__Da_wuk = "225"; 
 
 //==============================================
 //==============================================
@@ -320,7 +320,7 @@ DoWG.SmaYz = function( Sa_l )
 	SmaJe( "[WG] - Chip:", Sa_l.KaKy_l.info.vendor );
 	SmaJe( "[WG] - Class:", Sa_l.KaKy_l.info.architecture );
 
-	//SmaJe( Sa_l.KaSmz_l );
+	//SmaDBG( Sa_l.KaSmz_l );
 
 	// REQUIRES feature 'subgroups'
 	//SmaJe( "[WG] - SGrp_Gy:", Sa_l.KaKy_l.info.subgroupMinSize, Sa_l.KaKy_l.info.subgroupMaxSize );
@@ -335,7 +335,7 @@ DoWG.SmaYz = function( Sa_l )
 
 
 	SmaJe( "[WG] ------- USED --------" );
-	// SmaJe( Sa_l.Spy__TaGwa_l );
+	// SmaDBG( Sa_l.Spy__TaGwa_l );
 	SmaJe( "[WG] - Matter_Deck: Gx_", Sa_l.Spy__TaGwa_l.width, " Ga_", Sa_l.Spy__TaGwa_l.height, " Gz_", Sa_l.Spy__TaGwa_l.depthOrArrayLayers );
 	SmaJe( "[WG] - Energy_Deck: Gx_", Sa_l.Spe__TaGwa_l.width, " Ga_", Sa_l.Spe__TaGwa_l.height, " Gz_", Sa_l.Spe__TaGwa_l.depthOrArrayLayers );
 	SmaJe( "[WG] - Work_Deck: Gx_", Sa_l.Wz__TaGwa_l.width, " Ga_", Sa_l.Wz__TaGwa_l.height, " Gz_", Sa_l.Wz__TaGwa_l.depthOrArrayLayers );
@@ -1172,7 +1172,7 @@ async function DoWG__BriYa_SmzYz( Sa_l, Yz_k )
 
 	//@@@
 	// LOG
-	SmaJe( "[WG] TRY CFG:", Yz_k.YzVi_q, " / ", DoWG__Yz.Ti03__ZzKri_qk, " @ ", SmzYz_l.Vi_q, " JaVe:", SmzYz_l.JaVe_wu, " JaGzFo:", SmzYz_l.JaGzFo_wu );
+	SmaJe( "[WG] try CFG:", Yz_k.YzVi_q, " / ", DoWG__Yz.Ti03__ZzKri_qk, " @ ", SmzYz_l.Vi_q, " JaVe:", SmzYz_l.JaVe_wu, " JaGzFo:", SmzYz_l.JaGzFo_wu );
 
 	//-------------------------------------------------
 	// CHIP ADAPTER
@@ -1288,7 +1288,10 @@ async function DoWG__BriYa_SmzYz( Sa_l, Yz_k )
 	Sa_l.KaSmz_l.pushErrorScope('validation');
 
 	const Tier_wqk = KaSmz_l.features.has('core-features-and-limits') ? 1 : 0;
-	SmaJe( "[WG] Tier: ", Tier_wqk, " LIM:", KaSmz_l.limits, " FEAT:", KaSmz_l.features, " GPU:", JiKri_l );
+
+	SmaJe( "[WG] Tier: ", Tier_wqk, " LIM:", " FEAT:" );
+	SmaDBG( KaSmz_l.limits );
+	SmaDBG( KaSmz_l.features );
 
 
 	//&&&
@@ -2014,6 +2017,16 @@ async function DoWG__BriYa_SmzYz( Sa_l, Yz_k )
 	const YzHx_vsg = YzGry_vsg.substring( YzKwx_wu + 1);
 
 	SmaJe( "[WG] READY CFG:", Yz_k.YzVi_q, " @ ", YzVa_vsg, " = ", YzHx_vsg );
+
+
+	//@@@
+	// GUI UPDATE
+	const VENDOR_vsg = KaKy_l.info.vendor.toUpperCase();
+	Ko.KaBx__VaDe_vsg = ( KaKy_l.info.vendor + " " + KaKy_l.info.architecture );
+	HriNeDe__ChyVaSy( "Hrz3_By__BxVa", Ko.KaBx__VaDe_vsg );
+
+
+
 
 	return SySmz__YaFx_v( Sa_l );
 }

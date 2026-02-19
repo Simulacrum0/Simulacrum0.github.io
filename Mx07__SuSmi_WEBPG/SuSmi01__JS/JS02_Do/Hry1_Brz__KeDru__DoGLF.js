@@ -235,7 +235,6 @@ DoGLF.Mo = function( Sa_l, Jy_k, Mo_l )
 //==============================================
 DoGLF.BriYi = function( Sa_l )
 {
-	// SmaJe( this.VaDy_vsg );
 	Sa_l.SxHry_l = null;
 	Sa_l.WzPo_Gwa_l = null;
 }

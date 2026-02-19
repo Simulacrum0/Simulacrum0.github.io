@@ -133,7 +133,7 @@ async function DoWG__BriYa_SmzYz( Sa_l, Yz_k )
 
 	//@@@
 	// LOG
-	SmaJe( "[WG] TRY CFG:", Yz_k.YzVi_q, " / ", DoWG__Yz.Ti03__ZzKri_qk, " @ ", SmzYz_l.Vi_q, " JaVe:", SmzYz_l.JaVe_wu, " JaGzFo:", SmzYz_l.JaGzFo_wu );
+	SmaJe( "[WG] try CFG:", Yz_k.YzVi_q, " / ", DoWG__Yz.Ti03__ZzKri_qk, " @ ", SmzYz_l.Vi_q, " JaVe:", SmzYz_l.JaVe_wu, " JaGzFo:", SmzYz_l.JaGzFo_wu );
 
 	//-------------------------------------------------
 	// CHIP ADAPTER
@@ -249,7 +249,10 @@ async function DoWG__BriYa_SmzYz( Sa_l, Yz_k )
 	Sa_l.KaSmz_l.pushErrorScope('validation');
 
 	const Tier_wqk = KaSmz_l.features.has('core-features-and-limits') ? 1 : 0;
-	SmaJe( "[WG] Tier: ", Tier_wqk, " LIM:", KaSmz_l.limits, " FEAT:", KaSmz_l.features, " GPU:", JiKri_l );
+
+	SmaJe( "[WG] Tier: ", Tier_wqk, " LIM:", " FEAT:" );
+	SmaDBG( KaSmz_l.limits );
+	SmaDBG( KaSmz_l.features );
 
 
 	//&&&
@@ -975,6 +978,16 @@ async function DoWG__BriYa_SmzYz( Sa_l, Yz_k )
 	const YzHx_vsg = YzGry_vsg.substring( YzKwx_wu + 1);
 
 	SmaJe( "[WG] READY CFG:", Yz_k.YzVi_q, " @ ", YzVa_vsg, " = ", YzHx_vsg );
+
+
+	//@@@
+	// GUI UPDATE
+	const VENDOR_vsg = KaKy_l.info.vendor.toUpperCase();
+	Ko.KaBx__VaDe_vsg = ( KaKy_l.info.vendor + " " + KaKy_l.info.architecture );
+	HriNeDe__ChyVaSy( "Hrz3_By__BxVa", Ko.KaBx__VaDe_vsg );
+
+
+
 
 	return SySmz__YaFx_v( Sa_l );
 }

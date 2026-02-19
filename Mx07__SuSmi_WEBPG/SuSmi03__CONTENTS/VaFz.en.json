@@ -14,7 +14,7 @@
 		, "Ne01_KeDy_vsg": "🥸\nWHO"
 		, "Ne02_Hru_vsg": "👂\nHEAR"
 		, "Ne03_Hry_vsg": "👀\nSEE"
-		, "Ne04_Ko_vsg": "⚙️\n ALLOW"
+		, "Ne04_Ko_vsg": "👍\n ALLOW"
 		, "Ne05_Hx_vsg": "🧩\nLEARN"
 		, "Ne06_Grx_vsg": "📜\nNOTICE"
 
@@ -22,15 +22,25 @@
 		, "Ne00_KuNe00__Bz_vsg": "Welcome to MicroCosm"
 		, "Ne00_KuNe01__Kro_vsg": "MicroCosm is your portal to exploring, creating, & sharing 'digital experiences' (XP) with people or communities you choose. By tapping Launch above you'll enter into the selected XP and can play, build, connect or simply understand its contents. To customize the launch experience in your browser select the other tabs to fit match your needs and permissions."
 
-		, "Ne00_KuNe02__SaSz00_Va_vsg": "🤖NEW in this BUILD"
-		, "Ne00_KuNe02__SaSz01_Hx_vsg": "Use Final Template to Autogen HTML ELMs\nSupport for ARIA methods and only key navigation\nUnified spacing engine for launch page"
+		, "Ne00_KuNe02__SaSz00_Va_vsg": "About this Version"
+		, "Ne00_KuNe02__SaSz01_Hx_vsg": "HTML, Javascript & CSS for launching should be done for User Profiles.\nLanguages are not yet supported but the behavior works as expected for English and intentionally-overriden Right to Left Spanish."
+		, "Ne00_KuNe02__SaSz02_Ha_vsg": "Check if the OS, Browser & Chips seem 'correct'.\nTest 7 Menus and verify formatting looks mvp-ok\n"
+		, "Ne00_KuNe02__SaSz03_vsg": "Build:"
 
+		, "Ne00_KuNe03__VaBz_vsg": "Experience (XP) to Enter"
 		, "Ne00_KuNe03__NeJo_vsg": "Where to Go"
 
 		, "Ne00_KuNe04__Jo00_vsg": "Intro"
 		, "Ne00_KuNe04__Jo01_vsg": "Media-Deck"
 		, "Ne00_KuNe04__Jo02_vsg": "Mind-Mapper"
 		, "Ne00_KuNe04__Jo03_vsg": "Digital Twin"
+
+		, "Ne00_KuNe05__KoTo00_Va_vsg": "Your Machine"
+		, "Ne00_KuNe05__KoTo01_vsg": "Browser:"
+		, "Ne00_KuNe05__KoTo02_vsg": "OS:"
+		, "Ne00_KuNe05__KoTo03_vsg": "CPU:"
+		, "Ne00_KuNe05__KoTo04_vsg": "GPU:"
+		, "Ne00_KuNe05__KoTo05_vsg": "NPU:"
 
 
 		, "Ne01_KeDy00__Nz00_NiKeDy_vsg": "User"

@@ -20,7 +20,7 @@ DoWG.SmaYz = function( Sa_l )
 	SmaJe( "[WG] - Chip:", Sa_l.KaKy_l.info.vendor );
 	SmaJe( "[WG] - Class:", Sa_l.KaKy_l.info.architecture );
 
-	//SmaJe( Sa_l.KaSmz_l );
+	//SmaDBG( Sa_l.KaSmz_l );
 
 	// REQUIRES feature 'subgroups'
 	//SmaJe( "[WG] - SGrp_Gy:", Sa_l.KaKy_l.info.subgroupMinSize, Sa_l.KaKy_l.info.subgroupMaxSize );
@@ -35,7 +35,7 @@ DoWG.SmaYz = function( Sa_l )
 
 
 	SmaJe( "[WG] ------- USED --------" );
-	// SmaJe( Sa_l.Spy__TaGwa_l );
+	// SmaDBG( Sa_l.Spy__TaGwa_l );
 	SmaJe( "[WG] - Matter_Deck: Gx_", Sa_l.Spy__TaGwa_l.width, " Ga_", Sa_l.Spy__TaGwa_l.height, " Gz_", Sa_l.Spy__TaGwa_l.depthOrArrayLayers );
 	SmaJe( "[WG] - Energy_Deck: Gx_", Sa_l.Spe__TaGwa_l.width, " Ga_", Sa_l.Spe__TaGwa_l.height, " Gz_", Sa_l.Spe__TaGwa_l.depthOrArrayLayers );
 	SmaJe( "[WG] - Work_Deck: Gx_", Sa_l.Wz__TaGwa_l.width, " Ga_", Sa_l.Wz__TaGwa_l.height, " Gz_", Sa_l.Wz__TaGwa_l.depthOrArrayLayers );
