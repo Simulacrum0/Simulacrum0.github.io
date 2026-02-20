@@ -18,9 +18,10 @@ const KoSy__KwiGru_KeDru_l =
 	// POSSIBLE USE ONLY ON STARTUP
 	// No need to replace later
 	, BriDz_KiMiFe_vsg: "Tech Loading"
+	
 	, TrxJy00__HrxCheHo__CORS_vsg: "Security Fail: No HTTPS CORS Found to run Security Policies."
-	, TrxJy01__HrzMoHo__WASM_vsg: "Web Assembly not Supported: Try a Modern Browser"
-	, TrxJy02__MoDzStxGru_vsg: "Only *1* Webpage Allowed"
+	, TrxJy01__HrzMoHo__WASM_vsg: "Web Assembly not Supported: Try a different Browser"
+	, TrxJy02__MoDzStxGru_vsg: "Only *1* Webpage Allowed at a time"
 };
 
 

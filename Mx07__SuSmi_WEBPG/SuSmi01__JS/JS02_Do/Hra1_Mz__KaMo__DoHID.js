@@ -89,7 +89,7 @@ DoHID.BriYa = async function( Yz_k )
 	if( !navigator.hid ) return;
 
 	let device;
-	
+
 	try {
 	  const devices = await navigator.hid.requestDevice
 	  ({
@@ -155,7 +155,7 @@ DoHID.BriYa = async function( Yz_k )
 
 
 //-------------------------------------------------
-DoHID.Mo = function( Sa_l, Jy_k, Mo_l )
+DoHID.Mo = async function( Sa_l, Jy_k, Mo_l )
 //-------------------------------------------------
 {
 }

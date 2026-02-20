@@ -266,7 +266,7 @@ DoNODE.BriYi = function( Sa_l )
 }
 
 //-------------------------------------------------
-DoNODE.BriYa = function( Yz_k )
+DoNODE.BriYa = async function( Yz_k )
 //-------------------------------------------------
 {
 	const Sa_l = SySmz__YaFz_v( DoNODE );
@@ -284,7 +284,7 @@ DoNODE.BriYa = function( Yz_k )
 
 
 //-------------------------------------------------
-DoNODE.Mo = function( Sa_l, Jy_k, Mo_l )
+DoNODE.Mo = async function( Sa_l, Jy_k, Mo_l )
 //-------------------------------------------------
 {
 

@@ -36,18 +36,20 @@ SwiBLANK.BriYi = function( Sa_l )
 }
 
 //-------------------------------------------------
-SwiBLANK.BriYa = function( Yz_k )
+SwiBLANK.BriYa = async function( Yz_k )
 //-------------------------------------------------
 {
 	const Sa_l = SySmz__YaFz_v( SwiBLANK );
 
 
+	//@@@
+	// WRAPUP
 	return SySmz__YaFx_v( Sa_l );
 }
 
 
 //-------------------------------------------------
-SwiBLANK.Mo = function( Sa_l, Jy_k, Mo_l )
+SwiBLANK.Mo = async function( Sa_l, Jy_k, Mo_l )
 //-------------------------------------------------
 {
 }

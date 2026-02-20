@@ -223,7 +223,7 @@ DoGLF.Hre7_Me__KeDru_Ha = function( Sa_l, SiKeDru_vsg, GeGx_wu, GeGa_wu )
 // GLF CMDS
 //==============================================
 //-------------------------------------------------
-DoGLF.Mo = function( Sa_l, Jy_k, Mo_l )
+DoGLF.Mo = async function( Sa_l, Jy_k, Mo_l )
 //-------------------------------------------------
 {
 

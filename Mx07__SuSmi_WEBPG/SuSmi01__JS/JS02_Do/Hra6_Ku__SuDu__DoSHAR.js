@@ -73,7 +73,7 @@ function canBrowserShareData(data)
   }
 
 //-------------------------------------------------
-DoSHAR.BriYa = function( Yz_k )
+DoSHAR.BriYa = async function( Yz_k )
 //-------------------------------------------------
 {
 	const Sa_l = SySmz__YaFz_v( DoSHAR );

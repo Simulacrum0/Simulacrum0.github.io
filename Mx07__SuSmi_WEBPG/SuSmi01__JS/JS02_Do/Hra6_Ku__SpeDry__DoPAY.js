@@ -36,7 +36,7 @@ DoPAY.BriYi = function( Sa_l )
 }
 
 //-------------------------------------------------
-DoPAY.BriYa = function( Yz_k )
+DoPAY.BriYa = async function( Yz_k )
 //-------------------------------------------------
 {
 	const Sa_l = SySmz__YaFz_v( DoPAY );

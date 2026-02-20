@@ -110,7 +110,7 @@ DoSTRM.BriYi = function( Sa_l )
 }
 
 //-------------------------------------------------
-DoSTRM.BriYa = function( Yz_k )
+DoSTRM.BriYa = async function( Yz_k )
 //-------------------------------------------------
 {
 	const Sa_l = SySmz__YaFz_v( DoSTRM );

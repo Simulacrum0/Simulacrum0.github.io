@@ -73,7 +73,7 @@ DoCARD.BriYi = function( Sa_l )
 }
 
 //-------------------------------------------------
-DoCARD.BriYa = function( Yz_k )
+DoCARD.BriYa = async function( Yz_k )
 //-------------------------------------------------
 {
 	const Sa_l = SySmz__YaFz_v( DoCARD );
@@ -85,7 +85,7 @@ DoCARD.BriYa = function( Yz_k )
 
 
 //-------------------------------------------------
-DoCARD.Mo = function( Sa_l, Jy_k, Mo_l )
+DoCARD.Mo = async function( Sa_l, Jy_k, Mo_l )
 //-------------------------------------------------
 {
 }

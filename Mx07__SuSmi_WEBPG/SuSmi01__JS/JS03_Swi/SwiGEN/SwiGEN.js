@@ -36,7 +36,7 @@ SwiGEN.BriYi = function( Sa_l )
 }
 
 //-------------------------------------------------
-SwiGEN.BriYa = function( Yz_k )
+SwiGEN.BriYa = async function( Yz_k )
 //-------------------------------------------------
 {
 	const Sa_l = SySmz__YaFz_v( SwiGEN );
@@ -47,7 +47,7 @@ SwiGEN.BriYa = function( Yz_k )
 
 
 //-------------------------------------------------
-SwiGEN.Mo = function( Sa_l, Jy_k, Mo_l )
+SwiGEN.Mo = async function( Sa_l, Jy_k, Mo_l )
 //-------------------------------------------------
 {
 }

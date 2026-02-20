@@ -95,7 +95,7 @@ function getNetworkInformation()
 }
 
 //-------------------------------------------------
-DoNET.BriYa = function( Yz_k )
+DoNET.BriYa = async function( Yz_k )
 //-------------------------------------------------
 {
 	const Sa_l = SySmz__YaFz_v( DoNET );
@@ -111,7 +111,7 @@ DoNET.BriYa = function( Yz_k )
 }
 
 //-------------------------------------------------
-DoNET.Mo = function( Sa_l, Jy_k, Mo_l )
+DoNET.Mo = async function( Sa_l, Jy_k, Mo_l )
 //-------------------------------------------------
 {
 	getNetworkInformation();

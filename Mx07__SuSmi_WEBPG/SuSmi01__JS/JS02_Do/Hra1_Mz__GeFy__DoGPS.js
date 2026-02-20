@@ -77,7 +77,7 @@ DoGPS.BriYi = function( Sa_l )
 }
 
 //-------------------------------------------------
-DoGPS.BriYa = function( Yz_k )
+DoGPS.BriYa = async function( Yz_k )
 //-------------------------------------------------
 {
 	const Sa_l = SySmz__YaFz_v( DoGPS );
@@ -94,7 +94,7 @@ DoGPS.BriYa = function( Yz_k )
 }
 
 //-------------------------------------------------
-DoGPS.Mo = function( Sa_l, Jy_k, Mo_l )
+DoGPS.Mo = async function( Sa_l, Jy_k, Mo_l )
 //-------------------------------------------------
 {
 }

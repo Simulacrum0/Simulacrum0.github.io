@@ -1,4 +1,4 @@
-const DoNN__BriDzSa__Da_wuk = "227"; 
+const DoNN__BriDzSa__Da_wuk = "228"; 
 
 //==============================================
 //==============================================
@@ -256,6 +256,10 @@ DoNN.BriYa = async function( Yz_k )
 	SmaJe( "[NN] Output value: " + new Float32Array(results) );
 	SmaJe( "[NN] Goal value: 2.25,2.25,2.25,2.25,2.25,2.25,2.25,2.25" );
 
+
+	//@@@
+	// WRAPUP
+	return SySmz__YaFx_v( Sa_l );
 }
 
 //==============================================

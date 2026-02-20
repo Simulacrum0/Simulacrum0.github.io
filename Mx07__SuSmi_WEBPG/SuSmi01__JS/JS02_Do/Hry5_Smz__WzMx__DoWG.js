@@ -1,4 +1,4 @@
-const DoWG__BriDzSa__Da_wuk = "227"; 
+const DoWG__BriDzSa__Da_wuk = "228"; 
 
 //==============================================
 //==============================================
@@ -2049,7 +2049,9 @@ async function DoWG__BriYa_FuYz( Sa_l, Yz_k )
 	// SAVE RESULTS only if succeeded
 	if( SySmz__BriYz__Ye_y( Sa_l ) )
 	{
-		return Sa_l;
+		//!!!
+		// WRAPUP
+		return SySmz__YaFx_v( Sa_l );
 	}
 
 	//@@@

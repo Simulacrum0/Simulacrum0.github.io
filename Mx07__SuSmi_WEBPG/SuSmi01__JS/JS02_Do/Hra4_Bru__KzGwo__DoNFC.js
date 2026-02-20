@@ -65,7 +65,7 @@ DoNFC.BriYi = function( Sa_l )
 }
 
 //-------------------------------------------------
-DoNFC.BriYa = function( Yz_k )
+DoNFC.BriYa = async function( Yz_k )
 //-------------------------------------------------
 {
 	const Sa_l = SySmz__YaFz_v( DoNFC );
@@ -77,7 +77,7 @@ DoNFC.BriYa = function( Yz_k )
 
 
 //-------------------------------------------------
-DoNFC.Mo = function( Sa_l, Jy_k, Mo_l )
+DoNFC.Mo = async function( Sa_l, Jy_k, Mo_l )
 //-------------------------------------------------
 {
 }

@@ -38,7 +38,7 @@ DoTAK.BriYi = function( Sa_l )
 }
 
 //-------------------------------------------------
-DoTAK.BriYa = function( Yz_k )
+DoTAK.BriYa = async function( Yz_k )
 //-------------------------------------------------
 {
 	const Sa_l = SySmz__YaFz_v( DoTAK );

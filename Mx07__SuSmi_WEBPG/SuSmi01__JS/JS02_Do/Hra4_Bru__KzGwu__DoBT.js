@@ -50,7 +50,7 @@ DoBT.BriYi = function( Sa_l )
 }
 
 //-------------------------------------------------
-DoBT.BriYa = function( Yz_k )
+DoBT.BriYa = async function( Yz_k )
 //-------------------------------------------------
 {
 	const Sa_l = SySmz__YaFz_v( DoBT );
@@ -62,7 +62,7 @@ DoBT.BriYa = function( Yz_k )
 
 
 //-------------------------------------------------
-DoBT.Mo = function( Sa_l, Jy_k, Mo_l )
+DoBT.Mo = async function( Sa_l, Jy_k, Mo_l )
 //-------------------------------------------------
 {
 }

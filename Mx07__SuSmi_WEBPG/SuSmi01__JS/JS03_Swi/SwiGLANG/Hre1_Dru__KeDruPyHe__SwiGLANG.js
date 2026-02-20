@@ -18,6 +18,8 @@ const ViLANG = Object.freeze
 //=====================================
 async function translateText(text, targetLang)
 {
+	//@@@
+	// GOOGLE TRANSLATE
 	try {
 		const url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=${targetLang}&dt=t&q=${encodeURIComponent(text)}`;
 
@@ -71,7 +73,7 @@ SwiLANG.BriYi = function( Sa_l )
 }
 
 //-------------------------------------------------
-SwiLANG.BriYa = function( Yz_k )
+SwiLANG.BriYa = async function( Yz_k )
 //-------------------------------------------------
 {
 	const Sa_l = SySmz__YaFz_v( SwiLANG );
@@ -82,7 +84,7 @@ SwiLANG.BriYa = function( Yz_k )
 
 
 //-------------------------------------------------
-SwiLANG.Mo = function( Sa_l, Jy_k, Mo_l )
+SwiLANG.Mo = async function( Sa_l, Jy_k, Mo_l )
 //-------------------------------------------------
 {
 }

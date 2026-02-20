@@ -2,9 +2,30 @@
 // STARTUP
 //==============================================
 
+//----------------------------
+// SYS_CFG^KoYz
+//----------------------------
+const BriYz = Object.freeze
+({
+	HxHo_qk: 0
+	, Trx_qk: 1
+	, Cho_qk: 2
+	, Che_qk: 3
+
+	, Ya_qk: 4
+	, Ye_qk: 5
+	, Yo_qk: 6
+	, Yi_qk: 7
+});
+
+
+//----------------------------
+// SYSTEM LOG
+//----------------------------
 // ONLY SAVE last 64 log lines
 const SmaBraHi_wuk = 64;
 const SmaViKa_wuk = ( SmaBraHi_wuk - 1 );
+
 
 //----------------------------
 // SYSTEM SERVICE_GOVERNOR
@@ -18,6 +39,8 @@ var Ko =
 	, BriYa_GiDri_df: 0.0
 	, BriYe_GiDri_df: 0.0
 
+	, Trx_vsg: null
+
 	//@@@
 	// NODE
 	// MOBILE
@@ -27,13 +50,13 @@ var Ko =
 
 	, Hrz4_Bu__VaDe_vsg: "Browser ??"
 
-	, KaBz__VaDe_vsg: "CPU ??"
-	, KaBx__VaDe_vsg: "GPU ??"
-	, KaBa__VaDe_vsg: "NPU ??"
+	, KaBz__VaDe_vsg: "Unknown"
+	, KaBx__VaDe_vsg: "Unknown"
+	, KaBa__VaDe_vsg: "None"
 
-	, KaBz__Gwz_vsg: "ROCKET"
-	, KaBx__Gwz_vsg: "ROCKET"
-	, KaBa__Gwz_vsg: "ROCKET"
+	, KaBz__Gwz_vsg: "CHECK"
+	, KaBx__Gwz_vsg: "CHECK"
+	, KaBa__Gwz_vsg: "DISABLE"
 
 
 	//@@@
@@ -54,7 +77,7 @@ var Ko =
 	, YeFo_wu: 0
 	, YeWi_df: 0.0
 };
-window.Ko = Ko;
+Ko = Ko;
 
 
 //==============================================
@@ -70,7 +93,7 @@ const SmaJy_vsg =
 //----------------------------------
 [
 	// LOG ICONS:
-	// Sy, Je Dre, Trx
+	// Sy, Je, Dre, Trx
 	'🤖', '✅', '😕','🤯'
 	// '⚙️', 'ℹ️', '⚠️', '🚫'
 ];
@@ -125,61 +148,114 @@ function SmaKzFu( Kz_k )
 	Object.values( Kz_k ).forEach( _Vu => { SmaDBG( _Vu ); });
 }
 
-//==============================================
-// SECURITY
-//==============================================
 
-//@@@
-// CORS must RUN FIRST
-SmaSy( "[LAUNCH] Web_Security[ CORS: " + (window.crossOriginIsolated ?  "✅😀" : "❌😞" ) + " ]" );
-if( !window.crossOriginIsolated )
+
+//----------------------------
+// JS_ERR
+window.onerror = (e) =>
+//----------------------------
 {
-	// MSG should display @ DOM
-	MoDzTrx( KoSy__KwiGru_KeDru_l.TrxJy00__HrxCheHo__CORS_vsg );
-}
+	const Trx_vsg = ( JSON.stringify( e ) );
 
+	// LOG ERR
+	SmaDBG( e );
 
-
-//==============================================
-// WASM64 preferred
-//==============================================
-try
-{
-	// Ko.WASM64_yk = false;
-	Ko.WASM64_yk = WebAssembly.validate(new Uint8Array([0,97,115,109,1,0,0,0,5,3,1,4,1]));
-}
-catch(e)
-{
-	// WebAssembly is not supported at all
-	SmaTrx( "[LAUNCH] No Web Assembly:", e );
-	MoDzTrx( KoSy__KwiGru_KeDru_l.TrxJy01__HrzMoHo__WASM_vsg );
-}
-
-Ko.KaBx__TiFo_wuk = navigator.hardwareConcurrency;
-SmaSy( "[LAUNCH] Web_Assembly[ " + ( Ko.WASM64_yk ? "64" : "32" ) + "bit:" + ( Ko.WASM64_yk ? "✅😀" : "🆗😐") + " ]", "CPUs:", Ko.KaBx__TiFo_wuk );
-
-
-//==============================================
-// DOM
-//==============================================
-
-//@@@
-// DOM STARTUP
-document.addEventListener('readystatechange', function()
-{
-	// if (document.readyState === 'interactive')
-	// {
-	// 	SmaSy( "[LAUNCH] WebPage_DOM Interactive" );
-	// }
-
-	if (document.readyState === 'complete')
+	// ERR_TYPES
+	/*
+	if (e instanceof TypeError)
 	{
-		SmaSy( "[LAUNCH] Web_DOM Fully_Loaded" );
+		// statements to handle TypeError exceptions
 	}
-});
+	else if(e instanceof RangeError)
+	{
+		// statements to handle RangeError exceptions
+	}
+	else if (e instanceof EvalError)
+	{
+		// statements to handle EvalError exceptions
+	}
+	else
+	{
+		// statements to handle any unspecified exceptions
+	}
+	*/
+
+	MoDzTrx( Trx_vsg );
+}
 
 //==============================================
-// MODULE INTERFACE
+// BOOTUP
+//
+// !!!
+// NOTE: Errors must be saved to show later
+// !!!
+//
+//==============================================
+function MoDz__BOOT()
+{
+	//----------------------------------
+	// SECURITY
+	//----------------------------------
+
+	//@@@
+	// CORS must RUN FIRST
+	SmaSy( "[LAUNCH] Web_Security via CORS: " + (window.crossOriginIsolated ?  "✅😀" : "❌😞" ) );
+	if( !window.crossOriginIsolated )
+	{
+		// MSG should display @ DOM
+		// SmaTrx( "[LAUNCH] No CORS Security" );
+		Ko.Trx_vsg = ( KoSy__KwiGru_KeDru_l.TrxJy00__HrxCheHo__CORS_vsg );
+	}
+
+	//----------------------------------
+	// WASM64 preferred
+	//----------------------------------
+	try
+	{
+		//$$$
+		// TEST PURPOSES?
+		// Ko.WASM64_yk = false;
+		Ko.WASM64_yk = WebAssembly.validate(new Uint8Array([0,97,115,109,1,0,0,0,5,3,1,4,1]));
+	}
+	catch(e)
+	{
+		// WebAssembly is not supported at all
+		// SmaTrx( "[LAUNCH] No Web Assembly:", e );
+		Ko.Trx_vsg = ( KoSy__KwiGru_KeDru_l.TrxJy01__HrzMoHo__WASM_vsg );
+	}
+
+	Ko.KaBx__TiFo_wuk = navigator.hardwareConcurrency;
+	SmaSy( "[LAUNCH] Web_Assembly: " + ( Ko.WASM64_yk ? "64" : "32" ) + "bit:" + ( Ko.WASM64_yk ? "✅😀" : "🆗😐") + " CPUs:", Ko.KaBx__TiFo_wuk );
+
+	//----------------------------------
+	// DOM STARTUP
+	//----------------------------------
+	document.addEventListener( 'readystatechange', function()
+	{
+		// if (document.readyState === 'interactive')
+		// {
+		// 	SmaSy( "[LAUNCH] WebPage_DOM Interactive" );
+		// }
+
+		if (document.readyState === 'complete')
+		{
+			SmaSy( "[LAUNCH] Web_DOM Fully_Loaded" );
+		}
+	});
+
+	//----------------------------------
+	// RESIZE
+	//----------------------------------
+	window.addEventListener( "resize", KoDz_GyHa );
+}
+
+//!!!
+// RUN FIRST
+MoDz__BOOT();
+
+
+//==============================================
+// MODULE INTERFACE for EMSCRIPTEN ENGINE
 //==============================================
 var Module =
 {
@@ -203,6 +279,16 @@ var Module =
 	onRuntimeInitialized: function()
 	{
         // SmaSy( "WASM module is ready" );
+		if( Ko.Trx_vsg )
+		{
+			// IF WE FAILED ABOVE, we have to wait until we get here
+			//  to SHOW ERR screen, so we must save and 'clear' the existing error
+			// so it won't be ignored.
+			const Trx_vsg = Ko.Trx_vsg;
+			Ko.Trx_vsg = null;
+			MoDzTrx( Trx_vsg );
+			return;
+		}
 		KoDz__YaFz();
 		MoDz__DzStxGru();
     },
@@ -247,11 +333,11 @@ function MoDzTrx( Trx_vsg )
 	//@@@
 	// CFG
 	// If already 'Err' exit
-	if( !Module ) return;
-	if( Module.Trx_vsg ) return;
-	Module.Trx_vsg = Trx_vsg;
+	if( Ko.Trx_vsg ) return;
 
+	Ko.Trx_vsg = Trx_vsg;
 	KoDz__YzChy( BriYz.Trx_qk );
+
 
 	//@@@
 	// ERR MSGBARS
@@ -259,20 +345,22 @@ function MoDzTrx( Trx_vsg )
 	//&&&
 	// HEADER (Fixed)
 	// Err Alert, Build Version,
-	var Bz_vsg = KoSy__KwiGru_KeDru_l.TrxBz_vsg + " [" + ( window.Ko.Hx_SyDx_vsg ? window.Ko.Hx_SyDx_vsg : "???" ) + " " + BriDzSa__Da_vsg + "] ";
-	Module.Sma__KeMe_Bz( Bz_vsg );
+	const Bz_vsg = KoSy__KwiGru_KeDru_l.TrxBz_vsg + " [" + ( Ko.Hx_SyDx_vsg ? Ko.Hx_SyDx_vsg : "???" ) + " " + BriDzSa__Da_vsg + "] ";
 
 	//&&&
 	// FOOTER (Dynamic)
 	// Please Quit + Err Msg
-	var Bo_vsg = KoSy__KwiGru_KeDru_l.TrxKrx_vsg + " " + Trx_vsg;
-	Module.Sma__KeMe_Bo( Bo_vsg );
+	const Bo_vsg = KoSy__KwiGru_KeDru_l.TrxKrx_vsg + " " + Trx_vsg;
 
+	//&&&
+	// GUI MSGBARS
+	Module.Sma__KeMe_Bz( Bz_vsg );
+	Module.Sma__KeMe_Bo( Bo_vsg );
 
 	//&&&
 	// DBG
-	SmaTrx( "[LAUNCH]", Bo_vsg );
-	SmaTrx( "[LAUNCH] *STK_TRACE*:", jsStackTrace() );
+	SmaTrx( "[FAIL]", Bo_vsg );
+	SmaTrx( "[FAIL] *STK_TRACE*:", jsStackTrace() );
 
 	// POST for DBG
 	// console.error( Bo_vsg );
@@ -283,42 +371,14 @@ function MoDzTrx( Trx_vsg )
 	// DISPLAY ERR
 	HryMx01_KeMeTrx();
 
-	// STOP INTERVALS
-	// if( window.Ko.Trx_GyHa  ){ clearInterval( window.Ko.Trx_GyHa ); }
+	//$$$
+	// REFRESH @ INTERVALS
+	// Unneeded
+	// Ko.Trx_GyHa = setInterval( KoDz_GyHa, 2000 );
+	// if( Ko.Trx_GyHa  ){ clearInterval( Ko.Trx_GyHa ); }
 
 	// SERV closes All Else
 	KoDz__Yi();
-}
-
-
-//----------------------------
-// JS_ERR
-window.onerror = (e) =>
-//----------------------------
-{
-	const Trx_vsg = ( JSON.stringify( e ) );
-	/*
-	// ERR_TYPES
-	if (e instanceof TypeError)
-	{
-		// statements to handle TypeError exceptions
-	}
-	else if (e instanceof RangeError)
-	{
-		// statements to handle RangeError exceptions
-	}
-	else if (e instanceof EvalError)
-	{
-		// statements to handle EvalError exceptions
-	}
-	else
-	{
-		// statements to handle any unspecified exceptions
-		//logMyErrors(e); // pass exception object to error handler
-	}
-	*/
-
-	MoDzTrx( Trx_vsg );
 }
 
 
@@ -330,7 +390,7 @@ function MoDzTrx__NxHo_y( Va, Kri_y )
 	// SmaSy( "NxHo: ---> " + Va );
 	if( !Kri_y )
 	{
-		MoDzTrx( "ERR: " + Va + " @ " + Kri_y );
+		MoDzTrx( "[FAIL]: " + Va + " @ " + Kri_y );
 		return true;
 	}
 	return false;

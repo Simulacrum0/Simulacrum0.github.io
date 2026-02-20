@@ -3169,71 +3169,75 @@ function checkIncomingModuleAPI() {
 
 var ASM_CONSTS = {
   72360: $0 => {
-    if (!window.Ko.Hx_SyDx_vsg) {
-      window.Ko.Hx_SyDx_vsg = UTF8ToString($0);
+    if (!Ko.Hx_SyDx_vsg) {
+      Ko.Hx_SyDx_vsg = UTF8ToString($0);
     }
   },
-  72441: ($0, $1, $2) => {
+  72427: ($0, $1, $2) => {
     let TaFrz_v = (growMemViews(), HEAPU8).subarray($0, $0 + $1);
     const Sma_vsg = (new TextDecoder).decode(TaFrz_v.slice(0));
     SmaJe("[MSG]", Sma_vsg, $2);
   },
-  72584: $0 => {
+  72570: $0 => {
     const Sma_vsg = Module.UTF8ToString($0);
     SmaJe(Sma_vsg);
   },
-  72649: $0 => {
+  72635: $0 => {
     const Sma_vsg = Module.UTF8ToString($0);
     SmaJe(Sma_vsg);
   },
-  72714: $0 => {
+  72700: $0 => {
     const Sma_vsg = Module.UTF8ToString($0);
     SmaJe(Sma_vsg);
   },
-  72779: () => {
+  72765: () => {
     const isHidden = document.hidden;
     const hasFocus = document.hasFocus();
     (isHidden || !hasFocus) ? KoDz__YoChy() : KoDz__YuChy();
   },
-  72913: () => {
+  72899: () => {
     KoDz__YuChy();
   },
-  72932: () => {
+  72918: () => {
     KoDz__YoChy();
   },
-  72951: () => KoDz__YzYe_y(),
-  72978: () => {
+  72937: () => KoDz__YzYe_y(),
+  72964: () => {
     const SaWG_l = Ko.SySmz_v[SyVx.WG_qk];
     const Brz_wuk = 0;
     DoWG.TxCho_JaKu(SaWG_l, Brz_wuk, 0, 0, 0, SaWG_l.MxPo_Bri_l.width, SaWG_l.MxPo_Bri_l.height);
   },
-  73138: () => {
+  73124: () => {
     MoDzTrx("Fake Error as TEST");
   },
-  73175: () => {
+  73161: () => {
     const SaWG_l = Ko.SySmz_v[SyVx.WG_qk];
     SaWG_l.KaSmz_l.destroy();
   },
-  73246: () => {
+  73232: () => {
+    const SaLANG_l = Ko.SySmz_v[SyVx.LANG_qk];
+    SaLANG_l.Ji.Mo(SaLANG_l, 0, 0);
+  },
+  73315: () => {
     const SaPAY_l = Ko.SySmz_v[SyVx.PAY_qk];
     DoPAY.Mo(SaPAY_l, 0, 0);
   },
-  73320: () => {
+  73389: () => {
     location.reload();
   },
-  73343: () => {
+  73412: () => {
     const SaSHAR_l = Ko.SySmz_v[SyVx.SHAR_qk];
     DoSHAR.Mo(SaSHAR_l, 0, 0);
   },
-  73421: () => {},
-  73425: () => {
+  73490: () => {},
+  73494: () => {
     console.log("MC: HrySmz__BriYa");
   },
-  73465: () => {},
-  73469: () => {
+  73534: () => {},
+  73538: () => {
     const SaSTRM_l = Ko.SySmz_v[SyVx.STRM_qk];
   },
-  73518: $0 => {
+  73587: $0 => {
     const SaWG_l = Ko.SySmz_v[SyVx.WG_qk];
     const SaSTRM_l = Ko.SySmz_v[SyVx.STRM_qk];
     if (!SySmz__BriYz__Ye_y(SaWG_l) || !SySmz__BriYz__Ye_y(SaSTRM_l)) return;

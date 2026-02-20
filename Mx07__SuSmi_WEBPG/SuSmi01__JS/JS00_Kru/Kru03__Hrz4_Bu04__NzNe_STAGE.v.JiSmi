@@ -266,7 +266,7 @@ function HryMx01_KeMeTrx()
 
 	TrxBz_k.innerText = KoSy__KwiGru_KeDru_l.BriDz_VaSy_vsg + " " + KoSy__KwiGru_KeDru_l.TrxBz_vsg + BriDzSa__Da_vsg;
 
-	TrxKa_k.innerText = Module.Trx_vsg;
+	TrxKa_k.innerText = Ko.Trx_vsg;
 
 	//@@@
 	// LOG
@@ -330,10 +330,8 @@ function Hrz4_Bu__ChyNeKu( Vx_wu )
 			//&&&
 			// FOCUS on 'first' element to skip MENU tab-run
 			NzVa_v[i].focus();
-
 			//
 			// NzVa_v[i].firstElementChild.focus();
-
 		}
 	}
 

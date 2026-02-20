@@ -1,4 +1,4 @@
-const DoWA__BriDzSa__Da_wuk = "227"; 
+const DoWA__BriDzSa__Da_wuk = "228"; 
 
 //==============================================
 //==============================================
@@ -225,7 +225,14 @@ DoWA.BriYa = async function( Yz_k )
 		return null;
 	}
 
+	//@@@
+	// WRAPUP
+	// return SySmz__YaFx_v( Sa_l );
 
+
+	//-------------------------------------
+	// EXAMPLE
+	//-------------------------------------
 	const Sx_l = Sa_l.Sx_l;
 
 	const JaPe_Ku_vsg = BriDz__Mx_KuTu_vsg + "Mx01__SuKz_MEDIA/SuKz01_JaPe__SND/";
@@ -243,7 +250,9 @@ DoWA.BriYa = async function( Yz_k )
 	Sa_l.Try_JaPe_l.load();
 
 
-
+	//@@@
+	// WRAPUP
+	return SySmz__YaFx_v( Sa_l );
 }
 
 //==============================================

@@ -36,18 +36,20 @@ SwiTONE.BriYi = function( Sa_l )
 }
 
 //-------------------------------------------------
-SwiTONE.BriYa = function( Yz_k )
+SwiTONE.BriYa = async function( Yz_k )
 //-------------------------------------------------
 {
 	const Sa_l = SySmz__YaFz_v( SwiTONE );
 
 
+	//@@@
+	// WRAPUP
 	return SySmz__YaFx_v( Sa_l );
 }
 
 
 //-------------------------------------------------
-SwiTONE.Mo = function( Sa_l, Jy_k, Mo_l )
+SwiTONE.Mo = async function( Sa_l, Jy_k, Mo_l )
 //-------------------------------------------------
 {
 }

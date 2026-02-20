@@ -37,7 +37,7 @@ DoPTR.BriYi = function( Sa_l )
 }
 
 //-------------------------------------------------
-DoPTR.BriYa = function( Yz_k )
+DoPTR.BriYa = async function( Yz_k )
 //-------------------------------------------------
 {
 	const Sa_l = SySmz__YaFz_v( DoPTR );
@@ -49,7 +49,7 @@ DoPTR.BriYa = function( Yz_k )
 
 
 //-------------------------------------------------
-DoPTR.Mo = function( Sa_l, Jy_k, Mo_l )
+DoPTR.Mo = async function( Sa_l, Jy_k, Mo_l )
 //-------------------------------------------------
 {
 }

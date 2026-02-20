@@ -37,7 +37,7 @@ DoSCRN.BriYi = function( Sa_l )
 }
 
 //-------------------------------------------------
-DoSCRN.BriYa = function( Yz_k )
+DoSCRN.BriYa = async function( Yz_k )
 //-------------------------------------------------
 {
 	const Sa_l = SySmz__YaFz_v( DoSCRN );
@@ -48,7 +48,7 @@ DoSCRN.BriYa = function( Yz_k )
 
 
 //-------------------------------------------------
-DoSCRN.Mo = function( Sa_l, Jy_k, Mo_l )
+DoSCRN.Mo = async function( Sa_l, Jy_k, Mo_l )
 //-------------------------------------------------
 {
 }

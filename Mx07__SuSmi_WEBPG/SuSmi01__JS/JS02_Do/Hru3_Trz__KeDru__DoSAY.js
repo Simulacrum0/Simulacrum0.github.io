@@ -204,7 +204,7 @@ DoSAY.BriYi = function( Sa_l )
 }
 
 //-------------------------------------------------
-DoSAY.BriYa = function( Yz_k )
+DoSAY.BriYa = async function( Yz_k )
 //-------------------------------------------------
 {
 	const Sa_l = SySmz__YaFz_v( DoSAY );
@@ -236,7 +236,7 @@ DoSAY.BriYa = function( Yz_k )
 
 
 //-------------------------------------------------
-SyTe.Mo = function( Sa_l, Jy_k, Mo_l )
+SyTe.Mo = async function( Sa_l, Jy_k, Mo_l )
 //-------------------------------------------------
 {
 

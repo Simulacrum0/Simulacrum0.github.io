@@ -95,7 +95,7 @@ DoUSB.BriYi = function( Sa_l )
 }
 
 //-------------------------------------------------
-DoUSB.BriYa = function( Yz_k )
+DoUSB.BriYa = async function( Yz_k )
 //-------------------------------------------------
 {
 	const Sa_l = SySmz__YaFz_v( DoUSB );
@@ -116,7 +116,7 @@ DoUSB.BriYa = function( Yz_k )
 
 
 //-------------------------------------------------
-DoUSB.Mo = function( Sa_l, Jy_k, Mo_l )
+DoUSB.Mo = async function( Sa_l, Jy_k, Mo_l )
 //-------------------------------------------------
 {
 }

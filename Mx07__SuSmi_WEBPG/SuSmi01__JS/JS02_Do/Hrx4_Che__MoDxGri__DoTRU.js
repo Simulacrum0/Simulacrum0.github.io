@@ -39,7 +39,7 @@ DoTRU.BriYi = function( Sa_l )
 }
 
 //-------------------------------------------------
-DoTRU.BriYa = function( Yz_k )
+DoTRU.BriYa = async function( Yz_k )
 //-------------------------------------------------
 {
 	const Sa_l = SySmz__YaFz_v( DoTRU );
@@ -50,7 +50,7 @@ DoTRU.BriYa = function( Yz_k )
 
 
 //-------------------------------------------------
-DoTRU.Mo = function( Sa_l, Jy_k, Mo_l )
+DoTRU.Mo = async function( Sa_l, Jy_k, Mo_l )
 //-------------------------------------------------
 {
 

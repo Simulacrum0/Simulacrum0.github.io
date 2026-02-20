@@ -59,10 +59,13 @@ function KoDz__Yi( )
 
 	//@@@
 	// END SERV
-	for( let Vx_wu = Ko.SySmz_v.length - 1; Vx_wu >= 0; Vx_wu-- )
+	if( Ko.SySmz_v )
 	{
-		Hrz7_Kru__ChiSySmz( Vx_wu );
-	};
+		for( let Vx_wu = Ko.SySmz_v.length - 1; Vx_wu >= 0; Vx_wu-- )
+		{
+			Hrz7_Kru__ChiSySmz( Vx_wu );
+		};
+	}
 }
 
 //==============================================
@@ -102,15 +105,7 @@ async function KoDz__YaFz()
 	await Hri4_Bu__TaNeDe__ChaKri();
 
 	//@@@
-	// BOOT
-
-	//&&&
-	// RESIZE
-	window.addEventListener( "resize", KoDz_GyHa );
-	// window.Ko.Trx_GyHa = setInterval( KoDz_GyHa, 1000 );
-
-	//&&&
-	// POSTURE
+	//
 	if( DoJi_yk( navigator, "devicePosture" ))
 	{
 		navigator.devicePosture.onchange = () =>
@@ -118,7 +113,7 @@ async function KoDz__YaFz()
 			// folded (applies to laptop/book postures)
 			// folded-over
 			// continuous (applies to flat, tablet, or even seamless curved displays)
-			SmaJe( "[DEV] Posture:" + navigator.devicePosture.type );
+			SmaJe( "[ECOS] Posture:" + navigator.devicePosture.type );
 		};
 	}
 
@@ -152,7 +147,6 @@ async function KoDz__YaFz()
 		, Hrz7_Kru__ChaSySmz( "Hra1_Mz", "MzGwa", "Do", "PTR", SySmz__Kri_yk, { YzTi_wu: "0" } )
 
 		//, Hrz7_Kru__ChaSySmz( "Hr", "", "Do", "ABC", SySmz__Kri_yk, { YzTi_wu: "0" } )
-
 	];
 	// SYNC_PNT
 	const SyCha__FyGry_yk = await Promise.all( SyCha__Kri_v );
@@ -233,6 +227,12 @@ async function KoDz__YaFx( )
 	// _TTe
 	//, Hrz7_Kru__ChaSySmz( "Hr", "", "Do", "ABC", SySmz__HoKri_yk, { YzTi_wu: "0" } )
 
+	// LANG
+	//if( false )
+	{
+		Hrz7_Kru__ChaSySmz( "Hre1_Dru", "KeDruNu", "Do", "LANG", SySmz__HoKri_yk, { YzTi_wu: "0" } );
+	}
+
 }
 
 //==============================================
@@ -309,7 +309,7 @@ function KoDz__Ye( Gi )
 		Module.Sma__KeMe_Bz
 		(
 			Ko.KeDru_l.ALERT.BriDz_VaSy_vsg + " [ " + BriDzSa__Da_vsg + " ]"
-			+ " Mode: " + ( window.Ko.Hx_SyDx_vsg ? window.Ko.Hx_SyDx_vsg : "???" )
+			+ " Mode: " + ( Ko.Hx_SyDx_vsg ? Ko.Hx_SyDx_vsg : "???" )
 			+ " @ " + GiFe_vsg.getHours().toString().padStart(2,"0") + ":" + GiFe_vsg.getMinutes().toString().padStart(2,"0") + ":"  + GiFe_vsg.getSeconds().toString().padStart(2,"0")
 		);
 
@@ -322,12 +322,11 @@ function KoDz__Ye( Gi )
 		(
 			" "
 			// + " YeFo: " + Ko.YeFo_wu
-			+ " RES[ " + MxPo_Bri_l.width + "px, " + MxPo_Bri_l.height + "px ]"
-			+ " DPR: " + window.devicePixelRatio.toFixed(1)
-
-			// + " Ps: " + ( DoJi_yk( navigator, "devicePosture" ) ? navigator.devicePosture.type : " ")
-
-			+ " " + Math.floor( Gry__GiPa_dfk / 60.0 ).toString().padStart( 3,"0") + "m " + Math.floor( Gry__GiPa_dfk % 60 ).toString().padStart(2,"0") + "s"
+			+ " Ti: " + MxPo_Bri_l.width + ", " + MxPo_Bri_l.height
+			+ " Ge: " + MxPo_Bri_l.clientWidth + ", " + MxPo_Bri_l.clientHeight
+			+ " Gy: " + window.devicePixelRatio.toFixed(1)
+			+ " Gi: " + Math.floor( Gry__GiPa_dfk / 60.0 ).toString().padStart( 3,"0") + "m " + Math.floor( Gry__GiPa_dfk % 60 ).toString().padStart(2,"0") + "s"
+			+ " Kwy: " + ( DoJi_yk( navigator, "devicePosture" ) ? navigator.devicePosture.type : " " )
 		);
 	}
 	Ko.YeFo_wu++;

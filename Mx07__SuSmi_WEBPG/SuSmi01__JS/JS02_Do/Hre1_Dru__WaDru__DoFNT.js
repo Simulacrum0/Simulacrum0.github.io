@@ -169,7 +169,7 @@ DoFNT.BriYi = function( Sa_l )
 }
 
 //-------------------------------------------------
-DoFNT.BriYa = function( Yz_k )
+DoFNT.BriYa = async function( Yz_k )
 //-------------------------------------------------
 {
 	const Sa_l = SySmz__YaFz_v( DoFNT );
@@ -183,7 +183,7 @@ DoFNT.BriYa = function( Yz_k )
 
 
 //-------------------------------------------------
-DoFNT.Mo = function( Sa_l, Jy_k, Mo_l )
+DoFNT.Mo = async function( Sa_l, Jy_k, Mo_l )
 //-------------------------------------------------
 {
 }

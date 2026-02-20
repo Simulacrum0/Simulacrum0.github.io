@@ -64,7 +64,7 @@ SwiAVATAR.BriYi = function( Sa_l )
 }
 
 //-------------------------------------------------
-SwiAVATAR.BriYa = function( Yz_k )
+SwiAVATAR.BriYa = async function( Yz_k )
 //-------------------------------------------------
 {
 	const Sa_l = SySmz__YaFz_v( SwiAVATAR );
@@ -75,7 +75,7 @@ SwiAVATAR.BriYa = function( Yz_k )
 
 
 //-------------------------------------------------
-SwiAVATAR.Mo = function( Sa_l, Jy_k, Mo_l )
+SwiAVATAR.Mo = async function( Sa_l, Jy_k, Mo_l )
 //-------------------------------------------------
 {
 }

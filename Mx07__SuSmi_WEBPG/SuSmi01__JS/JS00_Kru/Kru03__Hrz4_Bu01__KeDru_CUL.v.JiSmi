@@ -7,6 +7,24 @@
 //==============================================
 
 //-------------------------------------------------
+// LANG TAG into READABLE TEXT
+//-------------------------------------------------
+function Hre1_Dru__KeDruVy_KeDruVa( Si__KeDruVy_vsg, Se__KeDruVy_vsg )
+{
+  const displayNames = new Intl.DisplayNames([Se__KeDruVy_vsg], { type: "language" });
+  return displayNames.of(Si__KeDruVy_vsg);
+}
+
+/*
+Te:
+	Hre1_Dru__KeDruVy_KeDruVa("ja", "en");      // "Japanese"
+	Hre1_Dru__KeDruVy_KeDruVa("zh", "en");      // "Chinese"
+	Hre1_Dru__KeDruVy_KeDruVa("zh-Hant", "en"); // "Traditional Chinese"
+	Hre1_Dru__KeDruVy_KeDruVa("zh-TW", "en");   // "Chinese (Taiwan)"
+	Hre1_Dru__KeDruVy_KeDruVa("en", "ja");      // "英語"
+*/
+
+//-------------------------------------------------
 // CULTURE MATCH LANG STRING to IDs
 //-------------------------------------------------
 function Hre1_Dru__KeDru_VaFyVx_wu( KeKuMi_vbg )

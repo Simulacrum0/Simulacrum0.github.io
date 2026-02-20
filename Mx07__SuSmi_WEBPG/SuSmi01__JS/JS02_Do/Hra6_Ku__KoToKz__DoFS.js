@@ -41,7 +41,7 @@ DoFS.BriYi = function( Sa_l )
 }
 
 //-------------------------------------------------
-DoFS.BriYa = function( Yz_k )
+DoFS.BriYa = async function( Yz_k )
 //-------------------------------------------------
 {
 	const Sa_l = SySmz__YaFz_v( DoFS );
@@ -53,7 +53,7 @@ DoFS.BriYa = function( Yz_k )
 
 
 //-------------------------------------------------
-DoFS.Mo = function( Sa_l, Jy_k, Mo_l )
+DoFS.Mo = async function( Sa_l, Jy_k, Mo_l )
 //-------------------------------------------------
 {
 }

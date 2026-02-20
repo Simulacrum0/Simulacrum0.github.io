@@ -1,5 +1,5 @@
-const BriDzSa__Da_vsg = "PUB_v0.227"; 
- const BriDzSa__Da_wuk = "227"; 
+const BriDzSa__Da_vsg = "PUB_v0.228"; 
+ const BriDzSa__Da_wuk = "228"; 
  const BriDz__Mx_KuTu_vsg = "https://powerourpeople.com/"; 
 
 //==============================================
@@ -22,9 +22,10 @@ const KoSy__KwiGru_KeDru_l =
 	// POSSIBLE USE ONLY ON STARTUP
 	// No need to replace later
 	, BriDz_KiMiFe_vsg: "Tech Loading"
+	
 	, TrxJy00__HrxCheHo__CORS_vsg: "Security Fail: No HTTPS CORS Found to run Security Policies."
-	, TrxJy01__HrzMoHo__WASM_vsg: "Web Assembly not Supported: Try a Modern Browser"
-	, TrxJy02__MoDzStxGru_vsg: "Only *1* Webpage Allowed"
+	, TrxJy01__HrzMoHo__WASM_vsg: "Web Assembly not Supported: Try a different Browser"
+	, TrxJy02__MoDzStxGru_vsg: "Only *1* Webpage Allowed at a time"
 };
 
 
@@ -331,9 +332,30 @@ const Kwi00__TaNe_v=
 // STARTUP
 //==============================================
 
+//----------------------------
+// SYS_CFG^KoYz
+//----------------------------
+const BriYz = Object.freeze
+({
+	HxHo_qk: 0
+	, Trx_qk: 1
+	, Cho_qk: 2
+	, Che_qk: 3
+
+	, Ya_qk: 4
+	, Ye_qk: 5
+	, Yo_qk: 6
+	, Yi_qk: 7
+});
+
+
+//----------------------------
+// SYSTEM LOG
+//----------------------------
 // ONLY SAVE last 64 log lines
 const SmaBraHi_wuk = 64;
 const SmaViKa_wuk = ( SmaBraHi_wuk - 1 );
+
 
 //----------------------------
 // SYSTEM SERVICE_GOVERNOR
@@ -347,6 +369,8 @@ var Ko =
 	, BriYa_GiDri_df: 0.0
 	, BriYe_GiDri_df: 0.0
 
+	, Trx_vsg: null
+
 	//@@@
 	// NODE
 	// MOBILE
@@ -356,13 +380,13 @@ var Ko =
 
 	, Hrz4_Bu__VaDe_vsg: "Browser ??"
 
-	, KaBz__VaDe_vsg: "CPU ??"
-	, KaBx__VaDe_vsg: "GPU ??"
-	, KaBa__VaDe_vsg: "NPU ??"
+	, KaBz__VaDe_vsg: "Unknown"
+	, KaBx__VaDe_vsg: "Unknown"
+	, KaBa__VaDe_vsg: "None"
 
-	, KaBz__Gwz_vsg: "ROCKET"
-	, KaBx__Gwz_vsg: "ROCKET"
-	, KaBa__Gwz_vsg: "ROCKET"
+	, KaBz__Gwz_vsg: "CHECK"
+	, KaBx__Gwz_vsg: "CHECK"
+	, KaBa__Gwz_vsg: "DISABLE"
 
 
 	//@@@
@@ -383,7 +407,7 @@ var Ko =
 	, YeFo_wu: 0
 	, YeWi_df: 0.0
 };
-window.Ko = Ko;
+Ko = Ko;
 
 
 //==============================================
@@ -399,7 +423,7 @@ const SmaJy_vsg =
 //----------------------------------
 [
 	// LOG ICONS:
-	// Sy, Je Dre, Trx
+	// Sy, Je, Dre, Trx
 	'🤖', '✅', '😕','🤯'
 	// '⚙️', 'ℹ️', '⚠️', '🚫'
 ];
@@ -454,61 +478,114 @@ function SmaKzFu( Kz_k )
 	Object.values( Kz_k ).forEach( _Vu => { SmaDBG( _Vu ); });
 }
 
-//==============================================
-// SECURITY
-//==============================================
 
-//@@@
-// CORS must RUN FIRST
-SmaSy( "[LAUNCH] Web_Security[ CORS: " + (window.crossOriginIsolated ?  "✅😀" : "❌😞" ) + " ]" );
-if( !window.crossOriginIsolated )
+
+//----------------------------
+// JS_ERR
+window.onerror = (e) =>
+//----------------------------
 {
-	// MSG should display @ DOM
-	MoDzTrx( KoSy__KwiGru_KeDru_l.TrxJy00__HrxCheHo__CORS_vsg );
-}
+	const Trx_vsg = ( JSON.stringify( e ) );
 
+	// LOG ERR
+	SmaDBG( e );
 
-
-//==============================================
-// WASM64 preferred
-//==============================================
-try
-{
-	// Ko.WASM64_yk = false;
-	Ko.WASM64_yk = WebAssembly.validate(new Uint8Array([0,97,115,109,1,0,0,0,5,3,1,4,1]));
-}
-catch(e)
-{
-	// WebAssembly is not supported at all
-	SmaTrx( "[LAUNCH] No Web Assembly:", e );
-	MoDzTrx( KoSy__KwiGru_KeDru_l.TrxJy01__HrzMoHo__WASM_vsg );
-}
-
-Ko.KaBx__TiFo_wuk = navigator.hardwareConcurrency;
-SmaSy( "[LAUNCH] Web_Assembly[ " + ( Ko.WASM64_yk ? "64" : "32" ) + "bit:" + ( Ko.WASM64_yk ? "✅😀" : "🆗😐") + " ]", "CPUs:", Ko.KaBx__TiFo_wuk );
-
-
-//==============================================
-// DOM
-//==============================================
-
-//@@@
-// DOM STARTUP
-document.addEventListener('readystatechange', function()
-{
-	// if (document.readyState === 'interactive')
-	// {
-	// 	SmaSy( "[LAUNCH] WebPage_DOM Interactive" );
-	// }
-
-	if (document.readyState === 'complete')
+	// ERR_TYPES
+	/*
+	if (e instanceof TypeError)
 	{
-		SmaSy( "[LAUNCH] Web_DOM Fully_Loaded" );
+		// statements to handle TypeError exceptions
 	}
-});
+	else if(e instanceof RangeError)
+	{
+		// statements to handle RangeError exceptions
+	}
+	else if (e instanceof EvalError)
+	{
+		// statements to handle EvalError exceptions
+	}
+	else
+	{
+		// statements to handle any unspecified exceptions
+	}
+	*/
+
+	MoDzTrx( Trx_vsg );
+}
 
 //==============================================
-// MODULE INTERFACE
+// BOOTUP
+//
+// !!!
+// NOTE: Errors must be saved to show later
+// !!!
+//
+//==============================================
+function MoDz__BOOT()
+{
+	//----------------------------------
+	// SECURITY
+	//----------------------------------
+
+	//@@@
+	// CORS must RUN FIRST
+	SmaSy( "[LAUNCH] Web_Security via CORS: " + (window.crossOriginIsolated ?  "✅😀" : "❌😞" ) );
+	if( !window.crossOriginIsolated )
+	{
+		// MSG should display @ DOM
+		// SmaTrx( "[LAUNCH] No CORS Security" );
+		Ko.Trx_vsg = ( KoSy__KwiGru_KeDru_l.TrxJy00__HrxCheHo__CORS_vsg );
+	}
+
+	//----------------------------------
+	// WASM64 preferred
+	//----------------------------------
+	try
+	{
+		//$$$
+		// TEST PURPOSES?
+		// Ko.WASM64_yk = false;
+		Ko.WASM64_yk = WebAssembly.validate(new Uint8Array([0,97,115,109,1,0,0,0,5,3,1,4,1]));
+	}
+	catch(e)
+	{
+		// WebAssembly is not supported at all
+		// SmaTrx( "[LAUNCH] No Web Assembly:", e );
+		Ko.Trx_vsg = ( KoSy__KwiGru_KeDru_l.TrxJy01__HrzMoHo__WASM_vsg );
+	}
+
+	Ko.KaBx__TiFo_wuk = navigator.hardwareConcurrency;
+	SmaSy( "[LAUNCH] Web_Assembly: " + ( Ko.WASM64_yk ? "64" : "32" ) + "bit:" + ( Ko.WASM64_yk ? "✅😀" : "🆗😐") + " CPUs:", Ko.KaBx__TiFo_wuk );
+
+	//----------------------------------
+	// DOM STARTUP
+	//----------------------------------
+	document.addEventListener( 'readystatechange', function()
+	{
+		// if (document.readyState === 'interactive')
+		// {
+		// 	SmaSy( "[LAUNCH] WebPage_DOM Interactive" );
+		// }
+
+		if (document.readyState === 'complete')
+		{
+			SmaSy( "[LAUNCH] Web_DOM Fully_Loaded" );
+		}
+	});
+
+	//----------------------------------
+	// RESIZE
+	//----------------------------------
+	window.addEventListener( "resize", KoDz_GyHa );
+}
+
+//!!!
+// RUN FIRST
+MoDz__BOOT();
+
+
+//==============================================
+// MODULE INTERFACE for EMSCRIPTEN ENGINE
 //==============================================
 var Module =
 {
@@ -532,6 +609,16 @@ var Module =
 	onRuntimeInitialized: function()
 	{
         // SmaSy( "WASM module is ready" );
+		if( Ko.Trx_vsg )
+		{
+			// IF WE FAILED ABOVE, we have to wait until we get here
+			//  to SHOW ERR screen, so we must save and 'clear' the existing error
+			// so it won't be ignored.
+			const Trx_vsg = Ko.Trx_vsg;
+			Ko.Trx_vsg = null;
+			MoDzTrx( Trx_vsg );
+			return;
+		}
 		KoDz__YaFz();
 		MoDz__DzStxGru();
     },
@@ -576,11 +663,11 @@ function MoDzTrx( Trx_vsg )
 	//@@@
 	// CFG
 	// If already 'Err' exit
-	if( !Module ) return;
-	if( Module.Trx_vsg ) return;
-	Module.Trx_vsg = Trx_vsg;
+	if( Ko.Trx_vsg ) return;
 
+	Ko.Trx_vsg = Trx_vsg;
 	KoDz__YzChy( BriYz.Trx_qk );
+
 
 	//@@@
 	// ERR MSGBARS
@@ -588,20 +675,22 @@ function MoDzTrx( Trx_vsg )
 	//&&&
 	// HEADER (Fixed)
 	// Err Alert, Build Version,
-	var Bz_vsg = KoSy__KwiGru_KeDru_l.TrxBz_vsg + " [" + ( window.Ko.Hx_SyDx_vsg ? window.Ko.Hx_SyDx_vsg : "???" ) + " " + BriDzSa__Da_vsg + "] ";
-	Module.Sma__KeMe_Bz( Bz_vsg );
+	const Bz_vsg = KoSy__KwiGru_KeDru_l.TrxBz_vsg + " [" + ( Ko.Hx_SyDx_vsg ? Ko.Hx_SyDx_vsg : "???" ) + " " + BriDzSa__Da_vsg + "] ";
 
 	//&&&
 	// FOOTER (Dynamic)
 	// Please Quit + Err Msg
-	var Bo_vsg = KoSy__KwiGru_KeDru_l.TrxKrx_vsg + " " + Trx_vsg;
-	Module.Sma__KeMe_Bo( Bo_vsg );
+	const Bo_vsg = KoSy__KwiGru_KeDru_l.TrxKrx_vsg + " " + Trx_vsg;
 
+	//&&&
+	// GUI MSGBARS
+	Module.Sma__KeMe_Bz( Bz_vsg );
+	Module.Sma__KeMe_Bo( Bo_vsg );
 
 	//&&&
 	// DBG
-	SmaTrx( "[LAUNCH]", Bo_vsg );
-	SmaTrx( "[LAUNCH] *STK_TRACE*:", jsStackTrace() );
+	SmaTrx( "[FAIL]", Bo_vsg );
+	SmaTrx( "[FAIL] *STK_TRACE*:", jsStackTrace() );
 
 	// POST for DBG
 	// console.error( Bo_vsg );
@@ -612,42 +701,14 @@ function MoDzTrx( Trx_vsg )
 	// DISPLAY ERR
 	HryMx01_KeMeTrx();
 
-	// STOP INTERVALS
-	// if( window.Ko.Trx_GyHa  ){ clearInterval( window.Ko.Trx_GyHa ); }
+	//$$$
+	// REFRESH @ INTERVALS
+	// Unneeded
+	// Ko.Trx_GyHa = setInterval( KoDz_GyHa, 2000 );
+	// if( Ko.Trx_GyHa  ){ clearInterval( Ko.Trx_GyHa ); }
 
 	// SERV closes All Else
 	KoDz__Yi();
-}
-
-
-//----------------------------
-// JS_ERR
-window.onerror = (e) =>
-//----------------------------
-{
-	const Trx_vsg = ( JSON.stringify( e ) );
-	/*
-	// ERR_TYPES
-	if (e instanceof TypeError)
-	{
-		// statements to handle TypeError exceptions
-	}
-	else if (e instanceof RangeError)
-	{
-		// statements to handle RangeError exceptions
-	}
-	else if (e instanceof EvalError)
-	{
-		// statements to handle EvalError exceptions
-	}
-	else
-	{
-		// statements to handle any unspecified exceptions
-		//logMyErrors(e); // pass exception object to error handler
-	}
-	*/
-
-	MoDzTrx( Trx_vsg );
 }
 
 
@@ -659,7 +720,7 @@ function MoDzTrx__NxHo_y( Va, Kri_y )
 	// SmaSy( "NxHo: ---> " + Va );
 	if( !Kri_y )
 	{
-		MoDzTrx( "ERR: " + Va + " @ " + Kri_y );
+		MoDzTrx( "[FAIL]: " + Va + " @ " + Kri_y );
 		return true;
 	}
 	return false;
@@ -1214,6 +1275,24 @@ function Hrz4_Bu__KwiYz__SaPy_ChyYe( e )
 //==============================================
 // Hre1_Dru CULTURE
 //==============================================
+
+//-------------------------------------------------
+// LANG TAG into READABLE TEXT
+//-------------------------------------------------
+function Hre1_Dru__KeDruVy_KeDruVa( Si__KeDruVy_vsg, Se__KeDruVy_vsg )
+{
+  const displayNames = new Intl.DisplayNames([Se__KeDruVy_vsg], { type: "language" });
+  return displayNames.of(Si__KeDruVy_vsg);
+}
+
+/*
+Te:
+	Hre1_Dru__KeDruVy_KeDruVa("ja", "en");      // "Japanese"
+	Hre1_Dru__KeDruVy_KeDruVa("zh", "en");      // "Chinese"
+	Hre1_Dru__KeDruVy_KeDruVa("zh-Hant", "en"); // "Traditional Chinese"
+	Hre1_Dru__KeDruVy_KeDruVa("zh-TW", "en");   // "Chinese (Taiwan)"
+	Hre1_Dru__KeDruVy_KeDruVa("en", "ja");      // "英語"
+*/
 
 //-------------------------------------------------
 // CULTURE MATCH LANG STRING to IDs
@@ -2328,7 +2407,7 @@ function HryMx01_KeMeTrx()
 
 	TrxBz_k.innerText = KoSy__KwiGru_KeDru_l.BriDz_VaSy_vsg + " " + KoSy__KwiGru_KeDru_l.TrxBz_vsg + BriDzSa__Da_vsg;
 
-	TrxKa_k.innerText = Module.Trx_vsg;
+	TrxKa_k.innerText = Ko.Trx_vsg;
 
 	//@@@
 	// LOG
@@ -2392,10 +2471,8 @@ function Hrz4_Bu__ChyNeKu( Vx_wu )
 			//&&&
 			// FOCUS on 'first' element to skip MENU tab-run
 			NzVa_v[i].focus();
-
 			//
 			// NzVa_v[i].firstElementChild.focus();
-
 		}
 	}
 
@@ -2670,22 +2747,6 @@ const IDB_ToKzVy__My = ( Va ) =>
 //==============================================
 // END
 //==============================================
-//----------------------------
-// SYS_CFG^KoYz
-//----------------------------
-const BriYz = Object.freeze
-({
-	HxHo_qk: 0
-	, Trx_qk: 1
-	, Cho_qk: 2
-	, Che_qk: 3
-
-	, Ya_qk: 4
-	, Ye_qk: 5
-	, Yo_qk: 6
-	, Yi_qk: 7
-});
-
 //==============================================
 // SERV SETUP
 //==============================================
@@ -2704,6 +2765,7 @@ const SyVx = Object.freeze
 
 	// Hrz5_Ki
 	NODE_qk: 0
+
 	, TAK_qk: 1
 	, FS_qk: 2
 	, TRU_qk: 3
@@ -2743,6 +2805,7 @@ const SyVx = Object.freeze
 	//----------------------------------------------------------
 	// SERV_OPT
 	//----------------------------------------------------------
+
 	, LANG_qk: 21
 	, ZSTD_qk: 22
 	, WT_qk: 23
@@ -2910,10 +2973,13 @@ function KoDz__Yi( )
 
 	//@@@
 	// END SERV
-	for( let Vx_wu = Ko.SySmz_v.length - 1; Vx_wu >= 0; Vx_wu-- )
+	if( Ko.SySmz_v )
 	{
-		Hrz7_Kru__ChiSySmz( Vx_wu );
-	};
+		for( let Vx_wu = Ko.SySmz_v.length - 1; Vx_wu >= 0; Vx_wu-- )
+		{
+			Hrz7_Kru__ChiSySmz( Vx_wu );
+		};
+	}
 }
 
 //==============================================
@@ -2953,15 +3019,7 @@ async function KoDz__YaFz()
 	await Hri4_Bu__TaNeDe__ChaKri();
 
 	//@@@
-	// BOOT
-
-	//&&&
-	// RESIZE
-	window.addEventListener( "resize", KoDz_GyHa );
-	// window.Ko.Trx_GyHa = setInterval( KoDz_GyHa, 1000 );
-
-	//&&&
-	// POSTURE
+	//
 	if( DoJi_yk( navigator, "devicePosture" ))
 	{
 		navigator.devicePosture.onchange = () =>
@@ -2969,7 +3027,7 @@ async function KoDz__YaFz()
 			// folded (applies to laptop/book postures)
 			// folded-over
 			// continuous (applies to flat, tablet, or even seamless curved displays)
-			SmaJe( "[DEV] Posture:" + navigator.devicePosture.type );
+			SmaJe( "[ECOS] Posture:" + navigator.devicePosture.type );
 		};
 	}
 
@@ -3003,7 +3061,6 @@ async function KoDz__YaFz()
 		, Hrz7_Kru__ChaSySmz( "Hra1_Mz", "MzGwa", "Do", "PTR", SySmz__Kri_yk, { YzTi_wu: "0" } )
 
 		//, Hrz7_Kru__ChaSySmz( "Hr", "", "Do", "ABC", SySmz__Kri_yk, { YzTi_wu: "0" } )
-
 	];
 	// SYNC_PNT
 	const SyCha__FyGry_yk = await Promise.all( SyCha__Kri_v );
@@ -3084,6 +3141,12 @@ async function KoDz__YaFx( )
 	// _TTe
 	//, Hrz7_Kru__ChaSySmz( "Hr", "", "Do", "ABC", SySmz__HoKri_yk, { YzTi_wu: "0" } )
 
+	// LANG
+	//if( false )
+	{
+		Hrz7_Kru__ChaSySmz( "Hre1_Dru", "KeDruNu", "Do", "LANG", SySmz__HoKri_yk, { YzTi_wu: "0" } );
+	}
+
 }
 
 //==============================================
@@ -3160,7 +3223,7 @@ function KoDz__Ye( Gi )
 		Module.Sma__KeMe_Bz
 		(
 			Ko.KeDru_l.ALERT.BriDz_VaSy_vsg + " [ " + BriDzSa__Da_vsg + " ]"
-			+ " Mode: " + ( window.Ko.Hx_SyDx_vsg ? window.Ko.Hx_SyDx_vsg : "???" )
+			+ " Mode: " + ( Ko.Hx_SyDx_vsg ? Ko.Hx_SyDx_vsg : "???" )
 			+ " @ " + GiFe_vsg.getHours().toString().padStart(2,"0") + ":" + GiFe_vsg.getMinutes().toString().padStart(2,"0") + ":"  + GiFe_vsg.getSeconds().toString().padStart(2,"0")
 		);
 
@@ -3173,12 +3236,11 @@ function KoDz__Ye( Gi )
 		(
 			" "
 			// + " YeFo: " + Ko.YeFo_wu
-			+ " RES[ " + MxPo_Bri_l.width + "px, " + MxPo_Bri_l.height + "px ]"
-			+ " DPR: " + window.devicePixelRatio.toFixed(1)
-
-			// + " Ps: " + ( DoJi_yk( navigator, "devicePosture" ) ? navigator.devicePosture.type : " ")
-
-			+ " " + Math.floor( Gry__GiPa_dfk / 60.0 ).toString().padStart( 3,"0") + "m " + Math.floor( Gry__GiPa_dfk % 60 ).toString().padStart(2,"0") + "s"
+			+ " Ti: " + MxPo_Bri_l.width + ", " + MxPo_Bri_l.height
+			+ " Ge: " + MxPo_Bri_l.clientWidth + ", " + MxPo_Bri_l.clientHeight
+			+ " Gy: " + window.devicePixelRatio.toFixed(1)
+			+ " Gi: " + Math.floor( Gry__GiPa_dfk / 60.0 ).toString().padStart( 3,"0") + "m " + Math.floor( Gry__GiPa_dfk % 60 ).toString().padStart(2,"0") + "s"
+			+ " Kwy: " + ( DoJi_yk( navigator, "devicePosture" ) ? navigator.devicePosture.type : " " )
 		);
 	}
 	Ko.YeFo_wu++;

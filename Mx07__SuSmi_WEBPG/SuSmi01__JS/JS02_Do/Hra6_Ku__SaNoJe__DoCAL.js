@@ -102,7 +102,7 @@ function generateDummyCalendarEvent()
 
 
 //-------------------------------------------------
-DoCAL.BriYa = function( Yz_k )
+DoCAL.BriYa = async function( Yz_k )
 //-------------------------------------------------
 {
 	const Sa_l = SySmz__YaFz_v( DoCAL );
@@ -114,7 +114,7 @@ DoCAL.BriYa = function( Yz_k )
 
 
 //-------------------------------------------------
-DoCAL.Mo = function( Sa_l, Jy_k, Mo_l )
+DoCAL.Mo = async function( Sa_l, Jy_k, Mo_l )
 //-------------------------------------------------
 {
 

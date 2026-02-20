@@ -37,7 +37,7 @@ SwiML.BriYi = function( Sa_l )
 }
 
 //-------------------------------------------------
-SwiML.BriYa = function( Yz_k )
+SwiML.BriYa = async function( Yz_k )
 //-------------------------------------------------
 {
 	const Sa_l = SySmz__YaFz_v( SwiML );
@@ -49,7 +49,7 @@ SwiML.BriYa = function( Yz_k )
 
 
 //-------------------------------------------------
-SwiML.Mo = function( Sa_l, Jy_k, Mo_l )
+SwiML.Mo = async function( Sa_l, Jy_k, Mo_l )
 //-------------------------------------------------
 {
 }

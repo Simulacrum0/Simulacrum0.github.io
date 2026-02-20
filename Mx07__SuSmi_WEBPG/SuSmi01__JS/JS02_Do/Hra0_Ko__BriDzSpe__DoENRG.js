@@ -38,7 +38,7 @@ DoENRG.BriYi = function( Sa_l )
 }
 
 //-------------------------------------------------
-DoENRG.BriYa = function( Yz_k )
+DoENRG.BriYa = async function( Yz_k )
 //-------------------------------------------------
 {
 	const Sa_l = SySmz__YaFz_v( DoENRG );
@@ -49,7 +49,7 @@ DoENRG.BriYa = function( Yz_k )
 
 
 //-------------------------------------------------
-DoENRG.Mo = function( Sa_l, Jy_k, Mo_l )
+DoENRG.Mo = async function( Sa_l, Jy_k, Mo_l )
 //-------------------------------------------------
 {
 }

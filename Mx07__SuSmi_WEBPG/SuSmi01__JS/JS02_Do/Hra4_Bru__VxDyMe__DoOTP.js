@@ -123,7 +123,7 @@ DoOTP.BriYi = function( Sa_l )
 }
 
 //-------------------------------------------------
-DoOTP.BriYa = function( Yz_k )
+DoOTP.BriYa = async function( Yz_k )
 //-------------------------------------------------
 {
 	const Sa_l = SySmz__YaFz_v( DoOTP );
@@ -135,7 +135,7 @@ DoOTP.BriYa = function( Yz_k )
 
 
 //-------------------------------------------------
-DoOTP.Mo = function( Sa_l, Jy_k, Mo_l )
+DoOTP.Mo = async function( Sa_l, Jy_k, Mo_l )
 //-------------------------------------------------
 {
 }
