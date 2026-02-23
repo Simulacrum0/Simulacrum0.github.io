@@ -1,5 +1,5 @@
-const BriDzSa__Da_vsg = "PUB_v0.228"; 
- const BriDzSa__Da_wuk = "228"; 
+const BriDzSa__Da_vsg = "PUB_v0.229"; 
+ const BriDzSa__Da_wuk = "229"; 
  const BriDz__Mx_KuTu_vsg = "https://powerourpeople.com/"; 
 
 //==============================================
@@ -35,6 +35,56 @@ const KoSy__KwiGru_KeDru_l =
 //==============================================
 // LANG/COUNTRY BEGIN
 //==============================================
+const Hre1_Dru__ToKz_v =
+[
+	// DEFAULT SRC
+	"en"
+
+	, " ar" // 0
+	, " bg" // 1
+	, " bn" // 2
+	, " cs" // 3
+	, " da" // 4
+	, " de" // 5
+	, " el" // 6
+	, " es-ES" // 7
+	, " es-419" // 8
+	, " fi" // 9
+	, " fr-CA" // 10
+	, " fr-FR" // 11
+	, " he" // 12
+	, " hi" // 13
+	, " hr" // 14
+	, " hu" // 15
+	, " id" // 16
+	, " it" // 17
+	, " ja" // 18
+	, " kn" // 19
+	, " ko" // 20
+	, " lt" // 21
+	, " mr" // 22
+	, " nl" // 23
+	, " no" // 24
+	, " pl" // 25
+	, " pt-BR" // 26
+	, " pt-PT" // 27
+	, " ro" // 28
+	, " ru" // 29
+	, " sk" // 30
+	, " sl" // 31
+	, " sv" // 32
+	, " ta" // 33
+	, " te" // 34
+	, " th" // 35
+	, " tr" // 36
+	, " uk" // 37
+	, " vi" // 38
+	, " zh" // 39
+	, " zh-HK" // 40
+	, " zh-TW" // 41
+
+];
+
 
 //-------------------------------------------------
 //
@@ -107,25 +157,25 @@ const Hre1_Dru__Gra_v =
 	//=================================================================
 	// es
 	{
-		"Vy": "es",
+		"Vy": "es-ES",
 		"Va": "Español (España)",
 		"So": "Spanish (Spain)",
 		"KuGwz": "🇪🇸",
-		"ToKz": "es"
+		"ToKz": "es-ES"
 	},
 	{
 		"Vy": "es-419",
 		"Va": "Español (Latinoamérica)",
 		"So": "Spanish (Latin America)",
 		"KuGwz": "🌎",
-		"ToKz": "es"
+		"ToKz": "es-419"
 	},
 	{
 		"Vy": "es-US",
 		"Va": "Español (Estados Unidos)",
 		"So": "Spanish (United States)",
 		"KuGwz": "🇺🇸",
-		"ToKz": "es"
+		"ToKz": "es-419"
 	},
 
 	//=================================================================
@@ -135,8 +185,8 @@ const Hre1_Dru__Gra_v =
 	{ "Vy": "eu", "Va": "Euskara", "KuGwz": "🇪🇸", "So": "Basque", "ToKz": "eu" },
 	{ "Vy": "fa", "Va": "فارسی", "KuGwz": "🇮🇷", "So": "Persian", "ToKz": "fa" },
 	{ "Vy": "fi", "Va": "Suomi", "KuGwz": "🇫🇮", "So": "Finnish", "ToKz": "fi" },
-	{ "Vy": "fr-CA", "Va": "Français (Canada)", "KuGwz": "🇨🇦", "So": "French", "ToKz": "fr" },
-	{ "Vy": "fr-FR", "Va": "Français (France)", "KuGwz": "🇫🇷", "So": "French", "ToKz": "fr" },
+	{ "Vy": "fr-CA", "Va": "Français (Canada)", "KuGwz": "🇨🇦", "So": "French", "ToKz": "fr-CA" },
+	{ "Vy": "fr-FR", "Va": "Français (France)", "KuGwz": "🇫🇷", "So": "French", "ToKz": "fr-FR" },
 	{ "Vy": "gl", "Va": "Galego", "KuGwz": "🇪🇸", "So": "Galician", "ToKz": "gl" },
 	{ "Vy": "gu", "Va": "ગુજરાતી", "KuGwz": "🇮🇳", "So": "Gujarati", "ToKz": "gu" },
 
@@ -173,8 +223,8 @@ const Hre1_Dru__Gra_v =
 
 	{ "Vy": "pa", "Va": "ਪੰਜਾਬੀ", "KuGwz": "🇮🇳", "So": "Punjabi", "ToKz": "pa" },
 	{ "Vy": "pl", "Va": "Polski", "KuGwz": "🇵🇱", "So": "Polish", "ToKz": "pl" },
-	{ "Vy": "pt-BR", "Va": "Português (Brasil)", "KuGwz": "🇧🇷", "So": "Portuguese (Brazil)", "ToKz": "pt" },
-	{ "Vy": "pt-PT", "Va": "Português (Portugal)", "KuGwz": "🇵🇹", "So": "Portuguese (Portugal)", "ToKz": "pt" },
+	{ "Vy": "pt-BR", "Va": "Português (Brasil)", "KuGwz": "🇧🇷", "So": "Portuguese (Brazil)", "ToKz": "pt-BR" },
+	{ "Vy": "pt-PT", "Va": "Português (Portugal)", "KuGwz": "🇵🇹", "So": "Portuguese (Portugal)", "ToKz": "pt-PT" },
 	{ "Vy": "rm", "Va": "Rumantsch", "KuGwz": "🇨🇭", "So": "Romansh", "ToKz": "rm" },
 	{ "Vy": "ro", "Va": "Română", "KuGwz": "🇷🇴", "So": "Romanian", "ToKz": "ro" },
 	{ "Vy": "ru", "Va": "Русский", "KuGwz": "🇷🇺", "So": "Russian", "ToKz": "ru" },
@@ -198,8 +248,8 @@ const Hre1_Dru__Gra_v =
 	{ "Vy": "vi", "Va": "Tiếng Việt", "KuGwz": "🇻🇳", "So": "Vietnamese", "ToKz": "vi" },
 
 	{ "Vy": "zh", "Va": "中文（简体）", "KuGwz": "🇨🇳", "So": "Chinese (Simplified)", "ToKz": "zh" },
-	{ "Vy": "zh-HK", "Va": "中文（香港）", "KuGwz": "🇭🇰", "So": "Chinese (Hong Kong)", "ToKz": "zh" },
-	{ "Vy": "zh-TW", "Va": "中文（繁體）", "KuGwz": "🇹🇼", "So": "Chinese (Traditional)", "ToKz": "zh" },
+	{ "Vy": "zh-HK", "Va": "中文（香港）", "KuGwz": "🇭🇰", "So": "Chinese (Hong Kong)", "ToKz": "zh-HK" },
+	{ "Vy": "zh-TW", "Va": "中文（繁體）", "KuGwz": "🇹🇼", "So": "Chinese (Traditional)", "ToKz": "zh-TW" },
 	{ "Vy": "zu", "Va": "Zulu", "KuGwz": "🇿🇦", "So": "Zulu", "ToKz": "zu" }
 ];
 
@@ -378,15 +428,17 @@ var Ko =
 	, Hrz3_By__VaDe_vsg: "Unknown OS"
 	, Hrz3_By__Gwz_vsg: "GLOBAL"
 
-	, Hrz4_Bu__VaDe_vsg: "Browser ??"
+	, Hrz4_Bu__VaDe_vsg: "Unknown Browser"
 
-	, KaBz__VaDe_vsg: "Unknown"
-	, KaBx__VaDe_vsg: "Unknown"
-	, KaBa__VaDe_vsg: "None"
-
+	// CPU
 	, KaBz__Gwz_vsg: "CHECK"
+	, KaBz__VaDe_vsg: "unknown"
+	// GPU
 	, KaBx__Gwz_vsg: "CHECK"
+	, KaBx__VaDe_vsg: "unknown"
+	// NPU
 	, KaBa__Gwz_vsg: "DISABLE"
+	, KaBa__VaDe_vsg: "none"
 
 
 	//@@@
@@ -492,7 +544,7 @@ window.onerror = (e) =>
 
 	// ERR_TYPES
 	/*
-	if (e instanceof TypeError)
+	if(e instanceof TypeError)
 	{
 		// statements to handle TypeError exceptions
 	}
@@ -500,7 +552,7 @@ window.onerror = (e) =>
 	{
 		// statements to handle RangeError exceptions
 	}
-	else if (e instanceof EvalError)
+	else if(e instanceof EvalError)
 	{
 		// statements to handle EvalError exceptions
 	}
@@ -562,12 +614,12 @@ function MoDz__BOOT()
 	//----------------------------------
 	document.addEventListener( 'readystatechange', function()
 	{
-		// if (document.readyState === 'interactive')
+		// if(document.readyState === 'interactive')
 		// {
 		// 	SmaSy( "[LAUNCH] WebPage_DOM Interactive" );
 		// }
 
-		if (document.readyState === 'complete')
+		if(document.readyState === 'complete')
 		{
 			SmaSy( "[LAUNCH] Web_DOM Fully_Loaded" );
 		}
@@ -786,11 +838,13 @@ async function MoDz__DzStxGru()
 //=====================================
 function Hrz3_By__FyTo()
 {
-	const NAV_NODE = navigator.userAgent.toUpperCase();
+	const NODE_vksg = navigator.userAgent.toUpperCase();
+
+	SmaSy( "[LAUNCH] Node:", NODE_vksg );
 
 	//@@@
 	// BACKUP
-	if ( navigator.userAgentData )
+	if( navigator.userAgentData )
 	{
 		Ko.Hrz3_By__VaDe_vsg = navigator.userAgentData.platform;
 		//MOBILE = navigator.userAgentData.mobile;
@@ -806,38 +860,47 @@ function Hrz3_By__FyTo()
 
 	//@@@
 	// MOST ANDROID shows LINUX in platform
-	if ( NAV_NODE.includes( "ANDROID" ) )
+	if( NODE_vksg.includes( "ANDROID" ) )
 	{
 		Ko.Hrz3_By__Gwz_vsg = "DRD";
 		Ko.Hrz3_By__VaDe_vsg = "Android";
+
 		Ko.Hrz3_By__KaGeSpu_y = true;
 	}
-	else if ( NAV_NODE.includes( "LINUX" ) || NAV_NODE.includes( "X11" ) || NAV_NODE.includes( "WAYLAND" ) )
+	else if( NODE_vksg.includes( "LINUX" ) || NODE_vksg.includes( "X11" ) || NODE_vksg.includes( "WAYLAND" ) )
 	{
 		Ko.Hrz3_By__Gwz_vsg = "LNX";
 		Ko.Hrz3_By__VaDe_vsg = "Linux";
 	}
-	else if ( NAV_NODE.includes( "IPAD" ) )
+	else if( NODE_vksg.includes( "IPAD" ) )
 	{
 		Ko.Hrz3_By__Gwz_vsg = "IOS";
 		Ko.Hrz3_By__VaDe_vsg = "iPadOS";
+
+		Ko.KaBz__Gwz_vsg = "ARM";
 		Ko.KaBz__VaDe_vsg = "ARM64";
+
 		Ko.Hrz3_By__KaGeSpu_y = true;
 	}
-	else if ( NAV_NODE.includes( "IPHONE" ) )
+	else if( NODE_vksg.includes( "IPHONE" ) )
 	{
 		Ko.Hrz3_By__Gwz_vsg = "IOS";
 		Ko.Hrz3_By__VaDe_vsg = "iOS";
+
+		Ko.KaBz__Gwz_vsg = "ARM";
 		Ko.KaBz__VaDe_vsg = "ARM64";
+
 		Ko.Hrz3_By__KaGeSpu_y = true;
 	}
-	else if ( NAV_NODE.includes( "MAC" ) )
+	else if( NODE_vksg.includes( "MAC" ) )
 	{
 		Ko.Hrz3_By__Gwz_vsg = "MAC";
 		Ko.Hrz3_By__VaDe_vsg = "Mac";
+
+		Ko.KaBz__Gwz_vsg = "ARM";
 		Ko.KaBz__VaDe_vsg = "ARM64";
 	}
-	else if ( NAV_NODE.includes( "WINDOWS" ) )
+	else if( NODE_vksg.includes( "WINDOWS" ) )
 	{
 		Ko.Hrz3_By__Gwz_vsg = "WIN";
 		Ko.Hrz3_By__VaDe_vsg = "Windows";
@@ -846,16 +909,19 @@ function Hrz3_By__FyTo()
 
 	//@@@
 	// CPU
-	if ( NAV_NODE.includes( "X86_64" ) || NAV_NODE.includes( "X64" ) )
+	if( NODE_vksg.includes( "X86_64" ) || NODE_vksg.includes( "X64" ) )
 	{
+		Ko.KaBz__Gwz_vsg = "INTEL";
 		Ko.KaBz__VaDe_vsg = "X64";
 	}
-	else if ( NAV_NODE.includes( "ARM" ) || NAV_NODE.includes( "AARCH" ) )
+	else if( NODE_vksg.includes( "ARM" ) || NODE_vksg.includes( "AARCH" ) )
 	{
+		Ko.KaBz__Gwz_vsg = "ARM";
 		Ko.KaBz__VaDe_vsg = "ARM64";
 	}
-	else if ( NAV_NODE.includes( "RISCV" ) || NAV_NODE.includes( "RISC-V" ) )
+	else if( NODE_vksg.includes( "RISCV" ) || NODE_vksg.includes( "RISC-V" ) )
 	{
+		Ko.KaBz__Gwz_vsg = "RISCV";
 		Ko.KaBz__VaDe_vsg = "RISC-V";
 	}
 
@@ -1044,15 +1110,15 @@ function Hrz4_Bu__KwiYz__HriNe_MyYy()
 		HriNeDe__Ta_ChyStz( TaKeDy_l );
 
 		const SaNo__TaKeDy_l = Ko.TaKeDy_l.KwiYz_v;
-		SaNo__TaKeDy_l.forEach( function ( Ti_v, Vx_wu )
+		SaNo__TaKeDy_l.forEach( function( Ti_k, Vx_wu )
 		{
-			// SmaSy( "------ Vx_wu:", Vx_wu, Ti_v.KeDy_vsg );
+			// SmaSy( "------ Vx_wu:", Vx_wu, Ti_k.KeDy_vsg );
 
 			//&&&
 			// ADD BTN
 			const Kz_l = document.createElement( 'option' );
 			Kz_l.className = 'HriNeTi WaDru_De';
-			Kz_l.innerText = `${SaPy_vvsg[ Ti_v.NiJaPo_wu ]} ${Ti_v.KeDy_vsg }` + ( Vx_wu & 1 ? "🔒":"🔓" );
+			Kz_l.innerText = `${SaPy_vvsg[ Ti_k.NiJaPo_wu ]} ${Ti_k.KeDy_vsg }` + ( Vx_wu & 1 ? "🔒":"🔓" );
 			Kz_l.value = Vx_wu;
 			TaKeDy_l.appendChild( Kz_l );
 		});
@@ -1705,10 +1771,17 @@ function HriNeDe__Ta_ChyStz( Ta_v )
 }
 
 //@@@
-// INNERT_TEXT
+// INNER_TEXT
 function HriNeDe__ChyVaSy( Vy_vsg, KeDru_vksg )
 {
 	document.getElementById( Vy_vsg ).innerText = KeDru_vksg;
+}
+
+//@@@
+// ICON
+function HriNeDe__ChyGwz( Vy_vsg, Gwz_vksg )
+{
+	document.getElementById( Vy_vsg ).className = "JaPo__De GwzDoPo GwzKeDru GwzDo_" + Gwz_vksg;
 }
 
 //@@@
@@ -1797,15 +1870,15 @@ function Hri4_Bu__TaJo_Chy()
 
 	//@@@
 	const SaNo__TaJo_l = Ko.TaKeDy_l.KwiYz_v;
-	SaNo__TaJo_l.forEach( function ( Ti_v, Vx_wu )
+	SaNo__TaJo_l.forEach( function( Ti_k, Vx_wu )
 	{
-		// SmaSy( "------ Vx_wu:", Vx_wu, Ti_v.KeDy_vsg );
+		// SmaSy( "------ Vx_wu:", Vx_wu, Ti_k.KeDy_vsg );
 
 		//&&&
 		// ADD BTN
 		const Kz_l = document.createElement( "option" );
 		Kz_l.className = "HriNeTi WaDru_De";
-		Kz_l.innerText = `${SaPy_vvsg[ Ti_v.NiJaPo_wu ]} ${Ti_v.KeDy_vsg }`;
+		Kz_l.innerText = `${SaPy_vvsg[ Ti_k.NiJaPo_wu ]} ${Ti_k.KeDy_vsg }`;
 		Kz_l.value = Vx_wu;
 		TaJo_l.appendChild( Kz_l );
 	});
@@ -1920,14 +1993,14 @@ async function Hri4_Bu__TaNeDe__ChaKri()
 	// ARIA ROLE: https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Roles
 	// Elm.setAttribute("role", "progressbar");
 
-	Kwi00__TaNe_v.forEach( function ( Ti_v, Vx_wu )
+	Kwi00__TaNe_v.forEach( function( Ti_k, Vx_wu )
 	{
-		SmaSy( "[GUI]----[OPT]----@:", Vx_wu, Ti_v.Va );
+		SmaSy( "[GUI]----[OPT]----@:", Vx_wu, Ti_k.Va );
 
 
 		//@@@
 		// ELM ADD TYPE
-		switch( Ti_v.Jy )
+		switch( Ti_k.Jy )
 		{
 			// Domain Space
 			case NeJy.KuTz_qk:
@@ -1990,18 +2063,18 @@ async function Hri4_Bu__TaNeDe__ChaKri()
 	// LIST FILL ENTRIES
 	const KeDruGri_v = [ "en", "es" ];
 
-	Hre1_Dru__Gra_v.forEach( function ( Ti_v, Vx_wu )
+	Hre1_Dru__Gra_v.forEach( function( Ti_k, Vx_wu )
 	{
-		//SmaSy( "------ Vx_wu:", Vx_wu, Ti_v.Va );
+		// SmaSy( "------ Vx_wu:", Vx_wu, Ti_k.Va );
 
 		//&&&
 		// CHOOSE LANG DROPDOWN ADD BTNS
-		if( KeDruGri_v.includes( Ti_v.ToKz ) )
+		if( KeDruGri_v.includes( Ti_k.ToKz ) )
 		{
 			const Kz_l = document.createElement( "option" );
 			Kz_l.className = "HriNeTi WaDru_Ku";
-			Kz_l.innerText = `${Ti_v.KuGwz} ${Ti_v.Va}`;
-			Kz_l.value = Ti_v.Vy;
+			Kz_l.innerText = `${Ti_k.KuGwz} ${Ti_k.Va}`;
+			Kz_l.value = Ti_k.Vy;
 
 			Ne00_KuNe02__NiKeDru__Ta_l.appendChild( Kz_l );
 		}
@@ -2011,7 +2084,7 @@ async function Hri4_Bu__TaNeDe__ChaKri()
 		{
 			const Kz_l = document.createElement( "div" );
 
-			if( KeDruGri_v.includes( Ti_v.ToKz ) )
+			if( KeDruGri_v.includes( Ti_k.ToKz ) )
 			{
 				Kz_l.className = "NiJaPo_Va NiJaPo_VaGri WaDru_Ku";
 				Kz_l.onclick = function() { Ne00_KuNe02__NiKeDru__JeChy( Vx_wu ); }
@@ -2021,12 +2094,12 @@ async function Hri4_Bu__TaNeDe__ChaKri()
 				Kz_l.className = "NiJaPo_Va NiJaPo_VaRu WaDru_Ku";
 			}
 
-			Kz_l.innerText = Ti_v.KuGwz;
+			Kz_l.innerText = Ti_k.KuGwz;
 
 			// LOCALE TOOLTIP
 			// const To_l = document.createElement( "div" );
 			// To_l.className = "NiJaPo_To WaDru_Ku";
-			// To_l.setAttribute( "data-title", Ti_v.Va + "\n" + Ti_v.So );
+			// To_l.setAttribute( "data-title", Ti_k.Va + "\n" + Ti_k.So );
 			// Kz_l.appendChild( To_l );
 
 			KeDru__TaJaPo_l.appendChild( Kz_l );
@@ -2069,15 +2142,15 @@ async function Hri4_Bu__TaNeDe__ChaKri()
 
 		//@@@
 		const SaNo__TaKeDy_l = Ko.TaKeDy_l.KwiYz_v;
-		SaNo__TaKeDy_l.forEach( function ( Ti_v, Vx_wu )
+		SaNo__TaKeDy_l.forEach( function( Ti_k, Vx_wu )
 		{
-			// SmaSy( "------ Vx_wu:", Vx_wu, Ti_v.KeDy_vsg );
+			// SmaSy( "------ Vx_wu:", Vx_wu, Ti_k.KeDy_vsg );
 
 			//&&&
 			// ADD BTN
 			const Kz_l = document.createElement( "option" );
 			Kz_l.className = "HriNeTi WaDru_De";
-			Kz_l.innerText = `${SaPy_vvsg[ Ti_v.NiJaPo_wu ]} ${Ti_v.KeDy_vsg }` + ( Vx_wu & 1 ? "🔒":"🔓" );
+			Kz_l.innerText = `${SaPy_vvsg[ Ti_k.NiJaPo_wu ]} ${Ti_k.KeDy_vsg }` + ( Vx_wu & 1 ? "🔒":"🔓" );
 			Kz_l.value = Vx_wu;
 			TaKeDy_l.appendChild( Kz_l );
 		});
@@ -2094,15 +2167,15 @@ async function Hri4_Bu__TaNeDe__ChaKri()
 
 		//@@@
 		const SaNo__TaKeDy_l = Ko.TaKeDy_l.KwiYz_v;
-		SaNo__TaKeDy_l.forEach( function ( Ti_v, Vx_wu )
+		SaNo__TaKeDy_l.forEach( function( Ti_k, Vx_wu )
 		{
-			// SmaSy( "------ Vx_wu:", Vx_wu, Ti_v.KeDy_vsg );
+			// SmaSy( "------ Vx_wu:", Vx_wu, Ti_k.KeDy_vsg );
 
 			//&&&
 			// ADD BTN
 			const Kz_l = document.createElement( "option" );
 			Kz_l.className = "HriNeTi WaDru_De";
-			Kz_l.innerText = `${SaPy_vvsg[ Ti_v.NiJaPo_wu ]} ${Ti_v.KeDy_vsg }` + ( Vx_wu & 1 ? "🔒":"🔓" );
+			Kz_l.innerText = `${SaPy_vvsg[ Ti_k.NiJaPo_wu ]} ${Ti_k.KeDy_vsg }` + ( Vx_wu & 1 ? "🔒":"🔓" );
 			Kz_l.value = Vx_wu;
 			TaKeDy_l.appendChild( Kz_l );
 		});
@@ -2118,16 +2191,26 @@ async function Hri4_Bu__TaNeDe__ChaKri()
 	// APP VERSION
 	HriNeDe__ChyVaSy( "BriDzSa__Da", BriDzSa__Da_vsg );
 
-	HriNeDe__ChyVaSy( "Hrz3_By__VaDe", Ko.Hrz3_By__VaDe_vsg + ( Ko.Hrz3_By__KaGeSpu_y ? " Mobile" : " Stationary" ) );
-	HriNeDe__ChyVaSy( "Hrz4_Bu__VaDe", Ko.Hrz4_Bu__VaDe_vsg + " 📲 " + Ko.Hrz4_Bu__Da_wfk );
-
-	document.getElementById( "Hrz3_By__Gwz" ).className = "JaPo__De GwzDoPo GwzKeDru GwzDo_" + Ko.Hrz3_By__Gwz_vsg;
+	//@@@
+	// OS
+	HriNeDe__ChyVaSy( "Hrz3_By__VaDe", Ko.Hrz3_By__VaDe_vsg );
+	// UNEEDED: + ( Ko.Hrz3_By__KaGeSpu_y ? " Mobile" : " Stationary" ) );
+	HriNeDe__ChyGwz( "Hrz3_By__Gwz", Ko.Hrz3_By__Gwz_vsg );
 
 	//@@@
-	// SHOW
-	HriNeDe__ChyVaSy( "Hrz3_By__BzVa", Ko.KaBz__VaDe_vsg );
-	HriNeDe__ChyVaSy( "Hrz3_By__BxVa", Ko.KaBx__VaDe_vsg );
-	HriNeDe__ChyVaSy( "Hrz3_By__BaVa", Ko.KaBa__VaDe_vsg );
+	// BROWSER
+	HriNeDe__ChyVaSy( "Hrz4_Bu__VaDe", Ko.Hrz4_Bu__VaDe_vsg + ": v" + Ko.Hrz4_Bu__Da_wfk );
+
+	//@@@
+	// CHIPS
+	HriNeDe__ChyVaSy( "KaBz__VaDe", Ko.KaBz__VaDe_vsg );
+	HriNeDe__ChyGwz( "KaBz__Gwz", Ko.KaBz__Gwz_vsg );
+
+	HriNeDe__ChyVaSy( "KaBx__VaDe", Ko.KaBx__VaDe_vsg );
+	HriNeDe__ChyGwz( "KaBx__Gwz", Ko.KaBx__Gwz_vsg );
+
+	HriNeDe__ChyVaSy( "KaBa__VaDe", Ko.KaBa__VaDe_vsg );
+	HriNeDe__ChyGwz( "KaBa__Gwz", Ko.KaBa__Gwz_vsg );
 
 
 	//-------------------------------------------------
@@ -2819,7 +2902,7 @@ const SyVx = Object.freeze
 	, ML_qk: 29
 	, GEN_qk: 30
 	, AVATAR_qk: 31
-	, X_qk: 32
+	, SMTP_qk: 32
 
 	, SwiBLANK_qk: 33 // BLANK
 
@@ -3166,9 +3249,9 @@ function KoDz__YoChy()
 	//&&&
 	// BROADCAST PAUSE
 	_Hrz5_Ki__BriSmz__Yo();
-	Ko.SySmz_v.forEach( function ( Ti_v )
+	Ko.SySmz_v.forEach( function( Ti_k )
 	{
-		if( SySmz__BriYz__Ye_y( Ti_v ) && Ti_v.Ji.BriYo ){ Ti_v.Ji.BriYo( Ti_v ); }
+		if( SySmz__BriYz__Ye_y( Ti_k ) && Ti_k.Ji.BriYo ){ Ti_k.Ji.BriYo( Ti_k ); }
 	});
 }
 
@@ -3183,9 +3266,9 @@ function KoDz__YuChy()
 
 	//&&&
 	// BROADCAST RESUME
-	Ko.SySmz_v.forEach( function( Ti_v )
+	Ko.SySmz_v.forEach( function( Ti_k )
 	{
-		if( SySmz__BriYz__Ye_y( Ti_v ) && Ti_v.Ji.BriYu ){ Ti_v.Ji.BriYu( Ti_v); }
+		if( SySmz__BriYz__Ye_y( Ti_k ) && Ti_k.Ji.BriYu ){ Ti_k.Ji.BriYu( Ti_k); }
 	});
 	_Hrz5_Ki__BriSmz__Yu();
 
@@ -3252,9 +3335,9 @@ function KoDz__Ye( Gi )
 
 	//@@@
 	// TEK-SERVS UPDATE ALL
-	Ko.SySmz_v.forEach( function ( Ti_v )
+	Ko.SySmz_v.forEach( function( Ti_k )
 	{
-		if( SySmz__BriYz__Ye_y( Ti_v ) && Ti_v.Ji.BriYe ){ Ti_v.Ji.BriYe( Ti_v, Gi ); }
+		if( SySmz__BriYz__Ye_y( Ti_k ) && Ti_k.Ji.BriYe ){ Ti_k.Ji.BriYe( Ti_k, Gi ); }
 	});
 
 

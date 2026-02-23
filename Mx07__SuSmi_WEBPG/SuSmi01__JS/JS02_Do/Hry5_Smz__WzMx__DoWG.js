@@ -1,4 +1,4 @@
-const DoWG__BriDzSa__Da_wuk = "228"; 
+const DoWG__BriDzSa__Da_wuk = "229"; 
 
 //==============================================
 //==============================================
@@ -2021,11 +2021,18 @@ async function DoWG__BriYa_SmzYz( Sa_l, Yz_k )
 
 	//@@@
 	// GUI UPDATE
-	const VENDOR_vsg = KaKy_l.info.vendor.toUpperCase();
 	Ko.KaBx__VaDe_vsg = ( KaKy_l.info.vendor + " " + KaKy_l.info.architecture );
-	HriNeDe__ChyVaSy( "Hrz3_By__BxVa", Ko.KaBx__VaDe_vsg );
+	HriNeDe__ChyVaSy( "KaBx__VaDe", Ko.KaBx__VaDe_vsg );
 
+	const VENDOR_vksg = KaKy_l.info.vendor.toUpperCase();
+	if( VENDOR_vksg.includes( "AMD" ) )	{ Ko.KaBx__Gwz_vsg = "AMD"; }
+	else if( VENDOR_vksg.includes( "BROADCOM" ) )	{ Ko.KaBx__Gwz_vsg = "BROADCOM"; }
+	else if( VENDOR_vksg.includes( "QUALCOMM" ) ) { Ko.KaBx__Gwz_vsg = "QUALCOMM"; }
+	else if( VENDOR_vksg.includes( "INTEL" ) )	{ Ko.KaBx__Gwz_vsg = "INTEL"; }
+	else if( VENDOR_vksg.includes( "NVIDIA" ) )	{ Ko.KaBx__Gwz_vsg = "NVIDIA"; }
+	else if( VENDOR_vksg.includes( "VIVANTE" ) ){ Ko.KaBx__Gwz_vsg = "VIVANTE"; }
 
+	HriNeDe__ChyGwz( "KaBx__Gwz", Ko.KaBx__Gwz_vsg );
 
 
 	return SySmz__YaFx_v( Sa_l );

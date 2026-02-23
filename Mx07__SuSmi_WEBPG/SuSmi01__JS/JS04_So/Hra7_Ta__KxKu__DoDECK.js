@@ -115,7 +115,7 @@ async function TzKa__Chy( Tz_wu )
 	HriNeDe__Ta_ChyStz( TaNzKa_v );
 
 	TzKa_v.TOPICS.forEach(
-		function ( Ti_v, Vx_wu )
+		function( Ti_v, Vx_wu )
 		{
 			// SmaDx__Kz_JSON( Ti_v );
 			// console.log( "[" + Vx_wu + "]------------" + Ti_v.TITLE );
@@ -192,7 +192,7 @@ async function NzKa__Chy( Nz_wu )
 	HriNeDe__Ta_ChyStz( TaJzKa_v );
 
 	NzKa_v.THOTS.forEach(
-		function ( Ti_v, Vx_wu )
+		function( Ti_v, Vx_wu )
 		{
 			// SmaDx__Kz_JSON( Ti_v );
 			// console.log( "[" + Vx_wu + "]------------" + Ti_v.TITLE );
@@ -283,7 +283,7 @@ async function JzKa__Chy( Jz_wu )
 	if ( Jz_v.CONTENT )
 	{
 		Jz_v.CONTENT.forEach(
-			function ( Ti_v, Vx_wu )
+			function( Ti_v, Vx_wu )
 			{
 				//$$$
 				// DBG
@@ -457,7 +457,7 @@ async function Hre1_Dru__BriYa()
 	HriNeDe__Ta_ChyStz( TaKeDru_v );
 
 	Hre1_Dru__Gra_v.forEach(
-		function ( Ti_v, Vx_wu )
+		function( Ti_v, Vx_wu )
 		{
 			// console.log( "------ Vx_wu:", Vx_wu, Ti_v.Va );
 
@@ -627,7 +627,7 @@ async function Hre1_Dru__ChyKeDru( KeKuMi_vbg )
 
 	TzKa__Fo_wu = KeDru_v.SUBJECTS.length;
 	KeDru_v.SUBJECTS.forEach(
-		function ( Ti_v, Vx_wu )
+		function( Ti_v, Vx_wu )
 		{
 			// console.log( "------ Vx_wu:", Vx_wu, Ti_v.Va );
 
@@ -1341,7 +1341,7 @@ function SmaDx__Kz_JSON( Kz_v )
 function SmaDx__Ta_JSON( Ta_v )
 {
 	Ta_v.forEach(
-		function ( Ti_v, Vx_wu )
+		function( Ti_v, Vx_wu )
 		{
 			console.log( "[" + Vx_wu + "]------------" );
 			SmaDx__Kz_JSON( Ti_v );

@@ -1,6 +1,56 @@
 //==============================================
 // LANG/COUNTRY BEGIN
 //==============================================
+const Hre1_Dru__ToKz_v =
+[
+	// DEFAULT SRC
+	"en"
+
+	, " ar" // 0
+	, " bg" // 1
+	, " bn" // 2
+	, " cs" // 3
+	, " da" // 4
+	, " de" // 5
+	, " el" // 6
+	, " es-ES" // 7
+	, " es-419" // 8
+	, " fi" // 9
+	, " fr-CA" // 10
+	, " fr-FR" // 11
+	, " he" // 12
+	, " hi" // 13
+	, " hr" // 14
+	, " hu" // 15
+	, " id" // 16
+	, " it" // 17
+	, " ja" // 18
+	, " kn" // 19
+	, " ko" // 20
+	, " lt" // 21
+	, " mr" // 22
+	, " nl" // 23
+	, " no" // 24
+	, " pl" // 25
+	, " pt-BR" // 26
+	, " pt-PT" // 27
+	, " ro" // 28
+	, " ru" // 29
+	, " sk" // 30
+	, " sl" // 31
+	, " sv" // 32
+	, " ta" // 33
+	, " te" // 34
+	, " th" // 35
+	, " tr" // 36
+	, " uk" // 37
+	, " vi" // 38
+	, " zh" // 39
+	, " zh-HK" // 40
+	, " zh-TW" // 41
+
+];
+
 
 //-------------------------------------------------
 //
@@ -73,25 +123,25 @@ const Hre1_Dru__Gra_v =
 	//=================================================================
 	// es
 	{
-		"Vy": "es",
+		"Vy": "es-ES",
 		"Va": "Español (España)",
 		"So": "Spanish (Spain)",
 		"KuGwz": "🇪🇸",
-		"ToKz": "es"
+		"ToKz": "es-ES"
 	},
 	{
 		"Vy": "es-419",
 		"Va": "Español (Latinoamérica)",
 		"So": "Spanish (Latin America)",
 		"KuGwz": "🌎",
-		"ToKz": "es"
+		"ToKz": "es-419"
 	},
 	{
 		"Vy": "es-US",
 		"Va": "Español (Estados Unidos)",
 		"So": "Spanish (United States)",
 		"KuGwz": "🇺🇸",
-		"ToKz": "es"
+		"ToKz": "es-419"
 	},
 
 	//=================================================================
@@ -101,8 +151,8 @@ const Hre1_Dru__Gra_v =
 	{ "Vy": "eu", "Va": "Euskara", "KuGwz": "🇪🇸", "So": "Basque", "ToKz": "eu" },
 	{ "Vy": "fa", "Va": "فارسی", "KuGwz": "🇮🇷", "So": "Persian", "ToKz": "fa" },
 	{ "Vy": "fi", "Va": "Suomi", "KuGwz": "🇫🇮", "So": "Finnish", "ToKz": "fi" },
-	{ "Vy": "fr-CA", "Va": "Français (Canada)", "KuGwz": "🇨🇦", "So": "French", "ToKz": "fr" },
-	{ "Vy": "fr-FR", "Va": "Français (France)", "KuGwz": "🇫🇷", "So": "French", "ToKz": "fr" },
+	{ "Vy": "fr-CA", "Va": "Français (Canada)", "KuGwz": "🇨🇦", "So": "French", "ToKz": "fr-CA" },
+	{ "Vy": "fr-FR", "Va": "Français (France)", "KuGwz": "🇫🇷", "So": "French", "ToKz": "fr-FR" },
 	{ "Vy": "gl", "Va": "Galego", "KuGwz": "🇪🇸", "So": "Galician", "ToKz": "gl" },
 	{ "Vy": "gu", "Va": "ગુજરાતી", "KuGwz": "🇮🇳", "So": "Gujarati", "ToKz": "gu" },
 
@@ -139,8 +189,8 @@ const Hre1_Dru__Gra_v =
 
 	{ "Vy": "pa", "Va": "ਪੰਜਾਬੀ", "KuGwz": "🇮🇳", "So": "Punjabi", "ToKz": "pa" },
 	{ "Vy": "pl", "Va": "Polski", "KuGwz": "🇵🇱", "So": "Polish", "ToKz": "pl" },
-	{ "Vy": "pt-BR", "Va": "Português (Brasil)", "KuGwz": "🇧🇷", "So": "Portuguese (Brazil)", "ToKz": "pt" },
-	{ "Vy": "pt-PT", "Va": "Português (Portugal)", "KuGwz": "🇵🇹", "So": "Portuguese (Portugal)", "ToKz": "pt" },
+	{ "Vy": "pt-BR", "Va": "Português (Brasil)", "KuGwz": "🇧🇷", "So": "Portuguese (Brazil)", "ToKz": "pt-BR" },
+	{ "Vy": "pt-PT", "Va": "Português (Portugal)", "KuGwz": "🇵🇹", "So": "Portuguese (Portugal)", "ToKz": "pt-PT" },
 	{ "Vy": "rm", "Va": "Rumantsch", "KuGwz": "🇨🇭", "So": "Romansh", "ToKz": "rm" },
 	{ "Vy": "ro", "Va": "Română", "KuGwz": "🇷🇴", "So": "Romanian", "ToKz": "ro" },
 	{ "Vy": "ru", "Va": "Русский", "KuGwz": "🇷🇺", "So": "Russian", "ToKz": "ru" },
@@ -164,8 +214,8 @@ const Hre1_Dru__Gra_v =
 	{ "Vy": "vi", "Va": "Tiếng Việt", "KuGwz": "🇻🇳", "So": "Vietnamese", "ToKz": "vi" },
 
 	{ "Vy": "zh", "Va": "中文（简体）", "KuGwz": "🇨🇳", "So": "Chinese (Simplified)", "ToKz": "zh" },
-	{ "Vy": "zh-HK", "Va": "中文（香港）", "KuGwz": "🇭🇰", "So": "Chinese (Hong Kong)", "ToKz": "zh" },
-	{ "Vy": "zh-TW", "Va": "中文（繁體）", "KuGwz": "🇹🇼", "So": "Chinese (Traditional)", "ToKz": "zh" },
+	{ "Vy": "zh-HK", "Va": "中文（香港）", "KuGwz": "🇭🇰", "So": "Chinese (Hong Kong)", "ToKz": "zh-HK" },
+	{ "Vy": "zh-TW", "Va": "中文（繁體）", "KuGwz": "🇹🇼", "So": "Chinese (Traditional)", "ToKz": "zh-TW" },
 	{ "Vy": "zu", "Va": "Zulu", "KuGwz": "🇿🇦", "So": "Zulu", "ToKz": "zu" }
 ];
 

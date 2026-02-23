@@ -127,15 +127,15 @@ function Hrz4_Bu__KwiYz__HriNe_MyYy()
 		HriNeDe__Ta_ChyStz( TaKeDy_l );
 
 		const SaNo__TaKeDy_l = Ko.TaKeDy_l.KwiYz_v;
-		SaNo__TaKeDy_l.forEach( function ( Ti_v, Vx_wu )
+		SaNo__TaKeDy_l.forEach( function( Ti_k, Vx_wu )
 		{
-			// SmaSy( "------ Vx_wu:", Vx_wu, Ti_v.KeDy_vsg );
+			// SmaSy( "------ Vx_wu:", Vx_wu, Ti_k.KeDy_vsg );
 
 			//&&&
 			// ADD BTN
 			const Kz_l = document.createElement( 'option' );
 			Kz_l.className = 'HriNeTi WaDru_De';
-			Kz_l.innerText = `${SaPy_vvsg[ Ti_v.NiJaPo_wu ]} ${Ti_v.KeDy_vsg }` + ( Vx_wu & 1 ? "🔒":"🔓" );
+			Kz_l.innerText = `${SaPy_vvsg[ Ti_k.NiJaPo_wu ]} ${Ti_k.KeDy_vsg }` + ( Vx_wu & 1 ? "🔒":"🔓" );
 			Kz_l.value = Vx_wu;
 			TaKeDy_l.appendChild( Kz_l );
 		});

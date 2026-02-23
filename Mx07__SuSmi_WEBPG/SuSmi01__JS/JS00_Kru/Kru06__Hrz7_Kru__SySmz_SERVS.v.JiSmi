@@ -70,7 +70,7 @@ const SyVx = Object.freeze
 	, ML_qk: 29
 	, GEN_qk: 30
 	, AVATAR_qk: 31
-	, X_qk: 32
+	, SMTP_qk: 32
 
 	, SwiBLANK_qk: 33 // BLANK
 

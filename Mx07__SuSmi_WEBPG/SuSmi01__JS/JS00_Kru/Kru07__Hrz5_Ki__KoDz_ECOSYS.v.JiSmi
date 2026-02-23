@@ -252,9 +252,9 @@ function KoDz__YoChy()
 	//&&&
 	// BROADCAST PAUSE
 	_Hrz5_Ki__BriSmz__Yo();
-	Ko.SySmz_v.forEach( function ( Ti_v )
+	Ko.SySmz_v.forEach( function( Ti_k )
 	{
-		if( SySmz__BriYz__Ye_y( Ti_v ) && Ti_v.Ji.BriYo ){ Ti_v.Ji.BriYo( Ti_v ); }
+		if( SySmz__BriYz__Ye_y( Ti_k ) && Ti_k.Ji.BriYo ){ Ti_k.Ji.BriYo( Ti_k ); }
 	});
 }
 
@@ -269,9 +269,9 @@ function KoDz__YuChy()
 
 	//&&&
 	// BROADCAST RESUME
-	Ko.SySmz_v.forEach( function( Ti_v )
+	Ko.SySmz_v.forEach( function( Ti_k )
 	{
-		if( SySmz__BriYz__Ye_y( Ti_v ) && Ti_v.Ji.BriYu ){ Ti_v.Ji.BriYu( Ti_v); }
+		if( SySmz__BriYz__Ye_y( Ti_k ) && Ti_k.Ji.BriYu ){ Ti_k.Ji.BriYu( Ti_k); }
 	});
 	_Hrz5_Ki__BriSmz__Yu();
 
@@ -338,9 +338,9 @@ function KoDz__Ye( Gi )
 
 	//@@@
 	// TEK-SERVS UPDATE ALL
-	Ko.SySmz_v.forEach( function ( Ti_v )
+	Ko.SySmz_v.forEach( function( Ti_k )
 	{
-		if( SySmz__BriYz__Ye_y( Ti_v ) && Ti_v.Ji.BriYe ){ Ti_v.Ji.BriYe( Ti_v, Gi ); }
+		if( SySmz__BriYz__Ye_y( Ti_k ) && Ti_k.Ji.BriYe ){ Ti_k.Ji.BriYe( Ti_k, Gi ); }
 	});
 
 

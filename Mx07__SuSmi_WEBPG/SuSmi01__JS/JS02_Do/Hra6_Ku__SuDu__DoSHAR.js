@@ -65,7 +65,8 @@ DoSHAR.BriYi = function( Sa_l )
 function canBrowserShareData(data)
 //-------------------------------------------------
 {
-	if (!navigator.share || !navigator.canShare) {
+	if (!navigator.share || !navigator.canShare)
+	{
 	  return false;
 	}
 
@@ -113,14 +114,15 @@ DoSHAR.Mo = async function( Sa_l, Jy_k, Mo_l )
 
 	const sharedDataSample =
 	{
-	  title: "Some text title",
-	  text: "More text",
-	  url: "A url we want to share",
+	  title: "MicroCosm REPORT from XYZ",
+	  text: "System Log Goes here",
+	  url: "PowerOurPeople.com/WzFe.html#LINK_TO_XP_001",
 	};
 
-	SmaJe( "SHARING TEXT" );
+	SmaJe( "SHARING REPORT" );
 
-	try {
+	try
+	{
 		await navigator.share( sharedDataSample );
 		// The data was shared successfully.
 	  } catch (e) {

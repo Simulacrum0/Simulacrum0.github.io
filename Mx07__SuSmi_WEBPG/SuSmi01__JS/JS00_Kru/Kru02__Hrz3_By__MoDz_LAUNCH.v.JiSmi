@@ -48,15 +48,17 @@ var Ko =
 	, Hrz3_By__VaDe_vsg: "Unknown OS"
 	, Hrz3_By__Gwz_vsg: "GLOBAL"
 
-	, Hrz4_Bu__VaDe_vsg: "Browser ??"
+	, Hrz4_Bu__VaDe_vsg: "Unknown Browser"
 
-	, KaBz__VaDe_vsg: "Unknown"
-	, KaBx__VaDe_vsg: "Unknown"
-	, KaBa__VaDe_vsg: "None"
-
+	// CPU
 	, KaBz__Gwz_vsg: "CHECK"
+	, KaBz__VaDe_vsg: "unknown"
+	// GPU
 	, KaBx__Gwz_vsg: "CHECK"
+	, KaBx__VaDe_vsg: "unknown"
+	// NPU
 	, KaBa__Gwz_vsg: "DISABLE"
+	, KaBa__VaDe_vsg: "none"
 
 
 	//@@@
@@ -162,7 +164,7 @@ window.onerror = (e) =>
 
 	// ERR_TYPES
 	/*
-	if (e instanceof TypeError)
+	if(e instanceof TypeError)
 	{
 		// statements to handle TypeError exceptions
 	}
@@ -170,7 +172,7 @@ window.onerror = (e) =>
 	{
 		// statements to handle RangeError exceptions
 	}
-	else if (e instanceof EvalError)
+	else if(e instanceof EvalError)
 	{
 		// statements to handle EvalError exceptions
 	}
@@ -232,12 +234,12 @@ function MoDz__BOOT()
 	//----------------------------------
 	document.addEventListener( 'readystatechange', function()
 	{
-		// if (document.readyState === 'interactive')
+		// if(document.readyState === 'interactive')
 		// {
 		// 	SmaSy( "[LAUNCH] WebPage_DOM Interactive" );
 		// }
 
-		if (document.readyState === 'complete')
+		if(document.readyState === 'complete')
 		{
 			SmaSy( "[LAUNCH] Web_DOM Fully_Loaded" );
 		}
@@ -456,11 +458,13 @@ async function MoDz__DzStxGru()
 //=====================================
 function Hrz3_By__FyTo()
 {
-	const NAV_NODE = navigator.userAgent.toUpperCase();
+	const NODE_vksg = navigator.userAgent.toUpperCase();
+
+	SmaSy( "[LAUNCH] Node:", NODE_vksg );
 
 	//@@@
 	// BACKUP
-	if ( navigator.userAgentData )
+	if( navigator.userAgentData )
 	{
 		Ko.Hrz3_By__VaDe_vsg = navigator.userAgentData.platform;
 		//MOBILE = navigator.userAgentData.mobile;
@@ -476,38 +480,47 @@ function Hrz3_By__FyTo()
 
 	//@@@
 	// MOST ANDROID shows LINUX in platform
-	if ( NAV_NODE.includes( "ANDROID" ) )
+	if( NODE_vksg.includes( "ANDROID" ) )
 	{
 		Ko.Hrz3_By__Gwz_vsg = "DRD";
 		Ko.Hrz3_By__VaDe_vsg = "Android";
+
 		Ko.Hrz3_By__KaGeSpu_y = true;
 	}
-	else if ( NAV_NODE.includes( "LINUX" ) || NAV_NODE.includes( "X11" ) || NAV_NODE.includes( "WAYLAND" ) )
+	else if( NODE_vksg.includes( "LINUX" ) || NODE_vksg.includes( "X11" ) || NODE_vksg.includes( "WAYLAND" ) )
 	{
 		Ko.Hrz3_By__Gwz_vsg = "LNX";
 		Ko.Hrz3_By__VaDe_vsg = "Linux";
 	}
-	else if ( NAV_NODE.includes( "IPAD" ) )
+	else if( NODE_vksg.includes( "IPAD" ) )
 	{
 		Ko.Hrz3_By__Gwz_vsg = "IOS";
 		Ko.Hrz3_By__VaDe_vsg = "iPadOS";
+
+		Ko.KaBz__Gwz_vsg = "ARM";
 		Ko.KaBz__VaDe_vsg = "ARM64";
+
 		Ko.Hrz3_By__KaGeSpu_y = true;
 	}
-	else if ( NAV_NODE.includes( "IPHONE" ) )
+	else if( NODE_vksg.includes( "IPHONE" ) )
 	{
 		Ko.Hrz3_By__Gwz_vsg = "IOS";
 		Ko.Hrz3_By__VaDe_vsg = "iOS";
+
+		Ko.KaBz__Gwz_vsg = "ARM";
 		Ko.KaBz__VaDe_vsg = "ARM64";
+
 		Ko.Hrz3_By__KaGeSpu_y = true;
 	}
-	else if ( NAV_NODE.includes( "MAC" ) )
+	else if( NODE_vksg.includes( "MAC" ) )
 	{
 		Ko.Hrz3_By__Gwz_vsg = "MAC";
 		Ko.Hrz3_By__VaDe_vsg = "Mac";
+
+		Ko.KaBz__Gwz_vsg = "ARM";
 		Ko.KaBz__VaDe_vsg = "ARM64";
 	}
-	else if ( NAV_NODE.includes( "WINDOWS" ) )
+	else if( NODE_vksg.includes( "WINDOWS" ) )
 	{
 		Ko.Hrz3_By__Gwz_vsg = "WIN";
 		Ko.Hrz3_By__VaDe_vsg = "Windows";
@@ -516,16 +529,19 @@ function Hrz3_By__FyTo()
 
 	//@@@
 	// CPU
-	if ( NAV_NODE.includes( "X86_64" ) || NAV_NODE.includes( "X64" ) )
+	if( NODE_vksg.includes( "X86_64" ) || NODE_vksg.includes( "X64" ) )
 	{
+		Ko.KaBz__Gwz_vsg = "INTEL";
 		Ko.KaBz__VaDe_vsg = "X64";
 	}
-	else if ( NAV_NODE.includes( "ARM" ) || NAV_NODE.includes( "AARCH" ) )
+	else if( NODE_vksg.includes( "ARM" ) || NODE_vksg.includes( "AARCH" ) )
 	{
+		Ko.KaBz__Gwz_vsg = "ARM";
 		Ko.KaBz__VaDe_vsg = "ARM64";
 	}
-	else if ( NAV_NODE.includes( "RISCV" ) || NAV_NODE.includes( "RISC-V" ) )
+	else if( NODE_vksg.includes( "RISCV" ) || NODE_vksg.includes( "RISC-V" ) )
 	{
+		Ko.KaBz__Gwz_vsg = "RISCV";
 		Ko.KaBz__VaDe_vsg = "RISC-V";
 	}
 
