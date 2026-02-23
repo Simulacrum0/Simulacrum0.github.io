@@ -314,8 +314,7 @@ DoLANG.Mo = async function( Sa_l, Jy_k, Mo_l )
 	let ARR_vsg = "";
 	for( const f in KeDru__ToKz_v )
 	{
-		const Vx_wuk = f + 1;
-		ARR_vsg += `\t\t, \" ${KeDru__ToKz_v[ f ]}\" // #${Vx_wuk}\n`;
+		ARR_vsg += `\t\t, \" ${KeDru__ToKz_v[ f ]}\" // #${f}\n`;
 	}
 	console.log( ARR_vsg );
 
