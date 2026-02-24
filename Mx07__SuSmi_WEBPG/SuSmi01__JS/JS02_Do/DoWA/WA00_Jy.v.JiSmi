@@ -7,7 +7,7 @@
 // SySmz.v.Du
 "use strict";
 const DoWA = { SyTu_vsg: "Do", VaDy_vsg: "WA" };
-window.DoWA = DoWA;
+Ko.Ji_v.DoWA = DoWA;
 
 //==============================================
 // QUALITIES

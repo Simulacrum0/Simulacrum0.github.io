@@ -109,7 +109,7 @@ async function Hrz7_Kru__ChaSySmz( SyJy_vsg, ToKz_vsg, SyTu_vsg, VaDy_vsg, SySmz
 
 	//@@@
 	// IF NOT ALREADY LOADED!
-	if( !window[ VaSy_vsg ] )
+	if( !Ko.Ji_v[ VaSy_vsg ] )
 	{
 		const JS_k = await import( BriDz__Mx_KuTu_vsg + "Mx07__SuSmi_WEBPG/SuSmi01__JS/" + ( Do_yk ? "JS02_Do" : ( "JS03_Swi/Swi" + VaDy_vsg ) ) + "/" + SyJy_vsg + "__" + ToKz_vsg + "__" + VaSy_vsg + ".js" );
 		// SmaJe( "SERV-MODULE", JS_k );
@@ -122,7 +122,7 @@ async function Hrz7_Kru__ChaSySmz( SyJy_vsg, ToKz_vsg, SyTu_vsg, VaDy_vsg, SySmz
 
 	//&&&
 	// Need available for ERR below
-	const Sy_l = await window[ VaSy_vsg ].BriYa( Yz_l );
+	const Sy_l = await Ko.Ji_v[ VaSy_vsg ].BriYa( Yz_l );
 	if( Sy_l )
 	{
 		Ko.SySmz_v[ SyVx_wuk ] = Sy_l;

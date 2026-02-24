@@ -3,7 +3,7 @@
 //==============================================
 "use strict";
 const DoGLF = { SyTu_vsg: "Do", VaDy_vsg: "GLF" };
-window.DoGLF = DoGLF;
+Ko.Ji_v.DoGLF = DoGLF;
 
 //==============================================
 // DoGLF_Trx

@@ -1,7 +1,7 @@
 // SySmz.v.Du
 "use strict";
 const DoOTP = { SyTu_vsg: "Do", VaDy_vsg: "OTP" };
-window.DoOTP = DoOTP;
+Ko.Ji_v.DoOTP = DoOTP;
 
 //==============================================
 // QUALITIES

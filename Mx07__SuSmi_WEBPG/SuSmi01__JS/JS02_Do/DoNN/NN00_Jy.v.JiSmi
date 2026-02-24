@@ -7,7 +7,7 @@
 // SySmz.v.Du
 "use strict";
 const DoNN = { SyTu_vsg: "Do", VaDy_vsg: "NN" };
-window.DoNN = DoNN;
+Ko.Ji_v.DoNN = DoNN;
 
 //==============================================
 // QUALITIES

@@ -1,7 +1,7 @@
 // SySmz.v.Du
 "use strict";
 const DoLANG = { SyTu_vsg: "Do", VaDy_vsg: "LANG" };
-window.DoLANG = DoLANG;
+Ko.Ji_v.DoLANG = DoLANG;
 
 //==============================================
 // WEB TRANSLATION

@@ -1,4 +1,4 @@
-const DoWG__BriDzSa__Da_wuk = "231"; 
+const DoWG__BriDzSa__Da_wuk = "232"; 
 
 //==============================================
 //==============================================
@@ -38,7 +38,7 @@ FN^TaJiDru:
 //==============================================
 "use strict";
 const DoWG = { SyTu_vsg: "Do", VaDy_vsg: "WG" };
-window.DoWG = DoWG;
+Ko.Ji_v.DoWG = DoWG;
 
 //==============================================
 // COUNTS

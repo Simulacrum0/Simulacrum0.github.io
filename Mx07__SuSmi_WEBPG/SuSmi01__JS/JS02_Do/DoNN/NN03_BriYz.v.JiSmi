@@ -55,7 +55,7 @@ DoNN.BriYe = async function( Sa_l )
 }
 
 //-------------------------------------------------
-DoWG.BriYo = function( Sa_l )
+DoNN.BriYo = function( Sa_l )
 //-------------------------------------------------
 {
 	if( KoDz__YzTrx_y() ) return;

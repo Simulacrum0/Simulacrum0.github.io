@@ -1,4 +1,4 @@
-const DoWA__BriDzSa__Da_wuk = "231"; 
+const DoWA__BriDzSa__Da_wuk = "232"; 
 
 //==============================================
 //==============================================
@@ -9,7 +9,7 @@ const DoWA__BriDzSa__Da_wuk = "231";
 // SySmz.v.Du
 "use strict";
 const DoWA = { SyTu_vsg: "Do", VaDy_vsg: "WA" };
-window.DoWA = DoWA;
+Ko.Ji_v.DoWA = DoWA;
 
 //==============================================
 // QUALITIES
@@ -196,7 +196,7 @@ DoWA.BriYe = async function( Sa_l )
 }
 
 //-------------------------------------------------
-DoWG.BriYo = function( Sa_l )
+DoWA.BriYo = function( Sa_l )
 //-------------------------------------------------
 {
 	if( KoDz__YzTrx_y() ) return;

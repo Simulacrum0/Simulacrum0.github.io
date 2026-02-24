@@ -1,7 +1,7 @@
 // SySmz.v.Du
 "use strict";
 const DoSTRM = { SyTu_vsg: "Do", VaDy_vsg: "STRM" };
-window.DoSTRM = DoSTRM;
+Ko.Ji_v.DoSTRM = DoSTRM;
 
 //==============================================
 // QUALITIES

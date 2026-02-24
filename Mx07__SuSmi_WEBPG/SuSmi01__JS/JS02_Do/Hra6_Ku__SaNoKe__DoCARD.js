@@ -1,7 +1,7 @@
 // SySmz.v.Du
 "use strict";
 const DoCARD = { SyTu_vsg: "Do", VaDy_vsg: "CARD" };
-window.DoCARD = DoCARD;
+Ko.Ji_v.DoCARD = DoCARD;
 
 //==============================================
 // QUALITIES

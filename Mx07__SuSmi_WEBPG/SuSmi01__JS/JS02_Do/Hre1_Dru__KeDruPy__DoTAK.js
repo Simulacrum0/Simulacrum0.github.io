@@ -1,7 +1,7 @@
 // SySmz.v.Du
 "use strict";
 const DoTAK = { SyTu_vsg: "Do", VaDy_vsg: "TAK" };
-window.DoTAK = DoTAK;
+Ko.Ji_v.DoTAK = DoTAK;
 
 //==============================================
 // QUALITIES

@@ -1,7 +1,7 @@
 // SySmz.v.Du
 "use strict";
 const DoBT = { SyTu_vsg: "Do", VaDy_vsg: "BT" };
-window.DoBT = DoBT;
+Ko.Ji_v.DoBT = DoBT;
 
 //==============================================
 // QUALITIES

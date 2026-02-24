@@ -1,7 +1,7 @@
 // SySmz.v.Du
 "use strict";
 const DoPTR = { SyTu_vsg: "Do", VaDy_vsg: "PTR" };
-window.DoPTR = DoPTR;
+Ko.Ji_v.DoPTR = DoPTR;
 
 //==============================================
 // QUALITIES

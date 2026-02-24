@@ -1,4 +1,4 @@
-const DoXR__BriDzSa__Da_wuk = "231"; 
+const DoXR__BriDzSa__Da_wuk = "232"; 
 
 //==============================================
 //==============================================
@@ -9,7 +9,7 @@ const DoXR__BriDzSa__Da_wuk = "231";
 // SySmz.v.Du
 "use strict";
 const DoXR = { SyTu_vsg: "Do", VaDy_vsg: "XR" };
-window.DoXR = DoXR;
+Ko.Ji_v.DoXR = DoXR;
 
 //==============================================
 // QUALITIES
@@ -652,7 +652,7 @@ DoXR.BriYe = async function( Sa_l )
 }
 
 //-------------------------------------------------
-DoWG.BriYo = function( Sa_l )
+DoXR.BriYo = function( Sa_l )
 //-------------------------------------------------
 {
 	if( KoDz__YzTrx_y() ) return;
@@ -832,7 +832,7 @@ DoXR.BriYa = async function( Yz_k )
 			myTextField.oninput = function()
 			{
 				// ...
-				var textFromUser = myTextField.value;
+				let textFromUser = myTextField.value;
 				SmaJe( "TYPED:", textFromUser );
 			};
 		}

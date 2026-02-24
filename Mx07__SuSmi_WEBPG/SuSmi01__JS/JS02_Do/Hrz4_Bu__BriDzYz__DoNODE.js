@@ -1,7 +1,7 @@
 // SySmz.v.Du
 "use strict";
 const DoNODE = { SyTu_vsg: "Do", VaDy_vsg: "NODE" };
-window.DoNODE = DoNODE;
+Ko.Ji_v.DoNODE = DoNODE;
 
 //=====================================
 // COPY CLIPBOARD
@@ -15,7 +15,7 @@ DoNODE.copyToClipboard = function( text )
 	}
 	else if ( document.queryCommandSupported && document.queryCommandSupported( "copy" ) )
 	{
-		var textarea = document.createElement( "textarea" );
+		let textarea = document.createElement( "textarea" );
 		textarea.textContent = text;
 		textarea.style.position = "fixed";
 		document.body.appendChild( textarea );
@@ -137,7 +137,7 @@ DoNODE.TYPING = function( Yz_k )
 }
 /*
 // Create a hidden input element
-var input = document.createElement("input");
+let input = document.createElement("input");
 input.type = "text";
 input.style.position = "absolute";
 input.style.opacity = "0";
@@ -150,7 +150,7 @@ function startTextInput() {
 
 // Event listener for input
 input.addEventListener("input", function() {
-    var text = input.value;
+    let text = input.value;
     // Send text to SDL3
 });
 
@@ -230,10 +230,10 @@ if DoJi_yk( navigator, "virtualKeyboard" )
 //=====================================
 DoNODE.findGetParameter = function( parameterName )
 {
-	var tmp = [];
-	var result = null;
-	var items = location.search.substr( 1 ).split( "&" );
-	for ( var index = 0; index < items.length; index++ )
+	let tmp = [];
+	let result = null;
+	let items = location.search.substr( 1 ).split( "&" );
+	for ( let index = 0; index < items.length; index++ )
 	{
 		tmp = items[ index ].split( "=" );
 		if ( tmp[ 0 ] === parameterName ) result = decodeURIComponent( tmp[ 1 ] );

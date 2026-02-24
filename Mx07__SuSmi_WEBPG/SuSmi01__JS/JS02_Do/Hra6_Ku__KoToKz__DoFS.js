@@ -1,7 +1,7 @@
 // SySmz.v.Du
 "use strict";
 const DoFS = { SyTu_vsg: "Do", VaDy_vsg: "FS" };
-window.DoFS = DoFS;
+Ko.Ji_v.DoFS = DoFS;
 
 //==============================================
 // QUALITIES

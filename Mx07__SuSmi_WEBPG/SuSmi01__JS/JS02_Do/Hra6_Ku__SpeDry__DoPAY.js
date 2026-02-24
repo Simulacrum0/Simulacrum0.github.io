@@ -1,7 +1,7 @@
 // SySmz.v.Du
 "use strict";
 const DoPAY = { SyTu_vsg: "Do", VaDy_vsg: "PAY" };
-window.DoPAY = DoPAY;
+Ko.Ji_v.DoPAY = DoPAY;
 
 //==============================================
 // QUALITIES

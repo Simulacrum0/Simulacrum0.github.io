@@ -1,7 +1,7 @@
 // SySmz.v.Du
 "use strict";
 const DoFNT = { SyTu_vsg: "Do", VaDy_vsg: "FNT" };
-window.DoFNT = DoFNT;
+Ko.Ji_v.DoFNT = DoFNT;
 
 //==============================================
 // QUALITIES

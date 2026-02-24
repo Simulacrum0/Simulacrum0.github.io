@@ -101,7 +101,7 @@ async function Hra7_Ta__ToKzMi_JSON_v( ChaKuTu_vsg, ToKzVa_vsg )
 // NotApplicable via CORS
 //=====================================
 /*
-var SmeKz_l = document.createElement("iframe");
+let SmeKz_l = document.createElement("iframe");
 SmeKz_l.id = "LNK"
 SmeKz_l.class = "SmeKz"
 

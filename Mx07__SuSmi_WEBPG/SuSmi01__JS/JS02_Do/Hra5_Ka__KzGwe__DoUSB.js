@@ -1,7 +1,7 @@
 // SySmz.v.Du
 "use strict";
 const DoUSB = { SyTu_vsg: "Do", VaDy_vsg: "USB" };
-window.DoUSB = DoUSB;
+Ko.Ji_v.DoUSB = DoUSB;
 
 //==============================================
 // QUALITIES

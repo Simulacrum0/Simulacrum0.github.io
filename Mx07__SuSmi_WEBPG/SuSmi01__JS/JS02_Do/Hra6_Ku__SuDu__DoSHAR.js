@@ -1,7 +1,7 @@
 // SySmz.v.Du
 "use strict";
 const DoSHAR = { SyTu_vsg: "Do", VaDy_vsg: "SHAR" };
-window.DoSHAR = DoSHAR;
+Ko.Ji_v.DoSHAR = DoSHAR;
 
 //==============================================
 // QUALITIES

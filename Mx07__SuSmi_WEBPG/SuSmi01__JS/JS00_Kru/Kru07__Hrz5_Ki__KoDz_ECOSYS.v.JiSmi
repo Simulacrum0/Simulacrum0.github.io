@@ -158,8 +158,8 @@ async function KoDz__YaFz()
 	// FNT (Required, but *AFTER* FNT above )
 	const WaDru__Kri_v =
 	[
-		DoFNT.Hrz7_Kru__ChaWaDru( "Segoe UI Emoji", "url(" + BriDz__Mx_KuTu_vsg + "Mx01__SuKz_MEDIA/SuKz04_WaDru__FONT/WaDru00__Ku.ttf )" )
-		, DoFNT.Hrz7_Kru__ChaWaDru( "Final Frontier Old Style", "url(" + BriDz__Mx_KuTu_vsg + "Mx01__SuKz_MEDIA/SuKz04_WaDru__FONT/WaDru01__Bz.ttf )" )
+		Ko.Ji_v.DoFNT.Hrz7_Kru__ChaWaDru( "Segoe UI Emoji", "url(" + BriDz__Mx_KuTu_vsg + "Mx01__SuKz_MEDIA/SuKz04_WaDru__FONT/WaDru00__Ku.ttf )" )
+		, Ko.Ji_v.DoFNT.Hrz7_Kru__ChaWaDru( "Final Frontier Old Style", "url(" + BriDz__Mx_KuTu_vsg + "Mx01__SuKz_MEDIA/SuKz04_WaDru__FONT/WaDru01__Bz.ttf )" )
 	];
 
 	const WaDru__Kri_yk = await Promise.all( WaDru__Kri_v );
@@ -352,7 +352,7 @@ function KoDz__Ye( Gi )
 //=====================================
 // LOAD APP ENGINE
 //=====================================
-var BriDz_Fz_js = document.createElement("script");
+const BriDz_Fz_js = document.createElement("script");
 BriDz_Fz_js.src = "Mx07__SuSmi_WEBPG/SuSmi06__BIN/KoKri__BriDz" + ( Ko.WASM64_yk ? 64:32 ) + ".js";
 document.head.appendChild(BriDz_Fz_js);
 

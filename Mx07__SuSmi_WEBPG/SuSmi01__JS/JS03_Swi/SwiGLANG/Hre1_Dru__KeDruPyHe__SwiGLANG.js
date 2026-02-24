@@ -1,7 +1,7 @@
 // SySmz.v.Du
 "use strict";
 const SwiLANG = { SyTu_vsg: "Swi", VaDy_vsg: "LANG" };
-window.SwiLANG = SwiLANG;
+Ko.Ji_v.SwiLANG = SwiLANG;
 
 //==============================================
 // QUALITIES

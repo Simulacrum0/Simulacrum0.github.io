@@ -1,7 +1,7 @@
 // SySmz.v.Du
 "use strict";
 const SwiTONE = { SyTu_vsg: "Swi", VaDy_vsg: "TONE" };
-window.SwiTONE = SwiTONE;
+Ko.Ji_v.SwiTONE = SwiTONE;
 
 //==============================================
 // QUALITIES

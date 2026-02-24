@@ -39,7 +39,7 @@ DoXR.BriYe = async function( Sa_l )
 }
 
 //-------------------------------------------------
-DoWG.BriYo = function( Sa_l )
+DoXR.BriYo = function( Sa_l )
 //-------------------------------------------------
 {
 	if( KoDz__YzTrx_y() ) return;
@@ -219,7 +219,7 @@ DoXR.BriYa = async function( Yz_k )
 			myTextField.oninput = function()
 			{
 				// ...
-				var textFromUser = myTextField.value;
+				let textFromUser = myTextField.value;
 				SmaJe( "TYPED:", textFromUser );
 			};
 		}

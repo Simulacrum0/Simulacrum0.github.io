@@ -1,4 +1,4 @@
-const DoNN__BriDzSa__Da_wuk = "231"; 
+const DoNN__BriDzSa__Da_wuk = "232"; 
 
 //==============================================
 //==============================================
@@ -9,7 +9,7 @@ const DoNN__BriDzSa__Da_wuk = "231";
 // SySmz.v.Du
 "use strict";
 const DoNN = { SyTu_vsg: "Do", VaDy_vsg: "NN" };
-window.DoNN = DoNN;
+Ko.Ji_v.DoNN = DoNN;
 
 //==============================================
 // QUALITIES
@@ -131,7 +131,7 @@ DoNN.BriYe = async function( Sa_l )
 }
 
 //-------------------------------------------------
-DoWG.BriYo = function( Sa_l )
+DoNN.BriYo = function( Sa_l )
 //-------------------------------------------------
 {
 	if( KoDz__YzTrx_y() ) return;

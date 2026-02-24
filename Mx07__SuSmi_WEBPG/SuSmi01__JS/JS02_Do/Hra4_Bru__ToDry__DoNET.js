@@ -1,7 +1,7 @@
 // SySmz.v.Du
 "use strict";
 const DoNET = { SyTu_vsg: "Do", VaDy_vsg: "NET" };
-window.DoNET = DoNET;
+Ko.Ji_v.DoNET = DoNET;
 
 //==============================================
 // Kro__DoNET:

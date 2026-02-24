@@ -1,5 +1,5 @@
-const BriDzSa__Da_vsg = "PUB_v0.231"; 
- const BriDzSa__Da_wuk = "231"; 
+const BriDzSa__Da_vsg = "PUB_v0.232"; 
+ const BriDzSa__Da_wuk = "232"; 
  const BriDz__Mx_KuTu_vsg = "https://powerourpeople.com/"; 
 
 //==============================================
@@ -415,10 +415,13 @@ let Ko =
 	//@@@
 	// BOOT
 	WASM64_yk: false
-	, MoDzYa__GiDri_duk: 0
-	, BriYa_GiDri_df: 0.0
-	, BriYe_GiDri_df: 0.0
 	, Trx_vsg: null
+
+	//@@@
+	// LOG
+	// Sma_vvsg
+	, SmaFe_wu: 0
+	, Sma_vvsg: [ SmaBraHi_wuk ].fill( null )
 
 	//@@@
 	// NODE
@@ -444,22 +447,21 @@ let Ko =
 	//@@@
 	// SERV
 	// Setup @ KoDz__YaFz
+	, Ji_v: {}
 
 	//@@@
 	// CFG
 	// by User
 	, TaKeDy_l: {}
 
-	//@@@
-	// LOG
-	// Sma_vvsg
-	, SmaFe_wu: 0
-	, Sma_vvsg: [ SmaBraHi_wuk ].fill( null )
 
 	//@@@
-	// UPD
-	, YeFo_wu: 0
+	// TIME
+	, MoDzYa__GiDri_duk: 0
+	, BriYa_GiDri_df: 0.0
+	, BriYe_GiDri_df: 0.0
 	, YeWi_df: 0.0
+	, YeFo_wu: 0
 };
 window.Ko = Ko;
 
@@ -653,6 +655,7 @@ MoDz__BOOT();
 //==============================================
 // MODULE INTERFACE for EMSCRIPTEN ENGINE
 //==============================================
+// MUST BE "var"
 var Module =
 {
 	// ERR STATUS
@@ -2962,7 +2965,7 @@ async function Hrz7_Kru__ChaSySmz( SyJy_vsg, ToKz_vsg, SyTu_vsg, VaDy_vsg, SySmz
 
 	//@@@
 	// IF NOT ALREADY LOADED!
-	if( !window[ VaSy_vsg ] )
+	if( !Ko.Ji_v[ VaSy_vsg ] )
 	{
 		const JS_k = await import( BriDz__Mx_KuTu_vsg + "Mx07__SuSmi_WEBPG/SuSmi01__JS/" + ( Do_yk ? "JS02_Do" : ( "JS03_Swi/Swi" + VaDy_vsg ) ) + "/" + SyJy_vsg + "__" + ToKz_vsg + "__" + VaSy_vsg + ".js" );
 		// SmaJe( "SERV-MODULE", JS_k );
@@ -2975,7 +2978,7 @@ async function Hrz7_Kru__ChaSySmz( SyJy_vsg, ToKz_vsg, SyTu_vsg, VaDy_vsg, SySmz
 
 	//&&&
 	// Need available for ERR below
-	const Sy_l = await window[ VaSy_vsg ].BriYa( Yz_l );
+	const Sy_l = await Ko.Ji_v[ VaSy_vsg ].BriYa( Yz_l );
 	if( Sy_l )
 	{
 		Ko.SySmz_v[ SyVx_wuk ] = Sy_l;
@@ -3189,8 +3192,8 @@ async function KoDz__YaFz()
 	// FNT (Required, but *AFTER* FNT above )
 	const WaDru__Kri_v =
 	[
-		DoFNT.Hrz7_Kru__ChaWaDru( "Segoe UI Emoji", "url(" + BriDz__Mx_KuTu_vsg + "Mx01__SuKz_MEDIA/SuKz04_WaDru__FONT/WaDru00__Ku.ttf )" )
-		, DoFNT.Hrz7_Kru__ChaWaDru( "Final Frontier Old Style", "url(" + BriDz__Mx_KuTu_vsg + "Mx01__SuKz_MEDIA/SuKz04_WaDru__FONT/WaDru01__Bz.ttf )" )
+		Ko.Ji_v.DoFNT.Hrz7_Kru__ChaWaDru( "Segoe UI Emoji", "url(" + BriDz__Mx_KuTu_vsg + "Mx01__SuKz_MEDIA/SuKz04_WaDru__FONT/WaDru00__Ku.ttf )" )
+		, Ko.Ji_v.DoFNT.Hrz7_Kru__ChaWaDru( "Final Frontier Old Style", "url(" + BriDz__Mx_KuTu_vsg + "Mx01__SuKz_MEDIA/SuKz04_WaDru__FONT/WaDru01__Bz.ttf )" )
 	];
 
 	const WaDru__Kri_yk = await Promise.all( WaDru__Kri_v );
@@ -3383,7 +3386,7 @@ function KoDz__Ye( Gi )
 //=====================================
 // LOAD APP ENGINE
 //=====================================
-var BriDz_Fz_js = document.createElement("script");
+const BriDz_Fz_js = document.createElement("script");
 BriDz_Fz_js.src = "Mx07__SuSmi_WEBPG/SuSmi06__BIN/KoKri__BriDz" + ( Ko.WASM64_yk ? 64:32 ) + ".js";
 document.head.appendChild(BriDz_Fz_js);
 
@@ -3493,7 +3496,7 @@ async function Hra7_Ta__ToKzMi_JSON_v( ChaKuTu_vsg, ToKzVa_vsg )
 // NotApplicable via CORS
 //=====================================
 /*
-var SmeKz_l = document.createElement("iframe");
+let SmeKz_l = document.createElement("iframe");
 SmeKz_l.id = "LNK"
 SmeKz_l.class = "SmeKz"
 

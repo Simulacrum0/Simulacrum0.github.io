@@ -1,7 +1,7 @@
 // SySmz.v.Du
 "use strict";
 const DoCAL = { SyTu_vsg: "Do", VaDy_vsg: "CAL" };
-window.DoCAL = DoCAL;
+Ko.Ji_v.DoCAL = DoCAL;
 
 //==============================================
 // QUALITIES

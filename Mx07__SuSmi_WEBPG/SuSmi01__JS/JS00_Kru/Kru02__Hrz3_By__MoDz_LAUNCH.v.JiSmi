@@ -35,10 +35,13 @@ let Ko =
 	//@@@
 	// BOOT
 	WASM64_yk: false
-	, MoDzYa__GiDri_duk: 0
-	, BriYa_GiDri_df: 0.0
-	, BriYe_GiDri_df: 0.0
 	, Trx_vsg: null
+
+	//@@@
+	// LOG
+	// Sma_vvsg
+	, SmaFe_wu: 0
+	, Sma_vvsg: [ SmaBraHi_wuk ].fill( null )
 
 	//@@@
 	// NODE
@@ -64,22 +67,21 @@ let Ko =
 	//@@@
 	// SERV
 	// Setup @ KoDz__YaFz
+	, Ji_v: {}
 
 	//@@@
 	// CFG
 	// by User
 	, TaKeDy_l: {}
 
-	//@@@
-	// LOG
-	// Sma_vvsg
-	, SmaFe_wu: 0
-	, Sma_vvsg: [ SmaBraHi_wuk ].fill( null )
 
 	//@@@
-	// UPD
-	, YeFo_wu: 0
+	// TIME
+	, MoDzYa__GiDri_duk: 0
+	, BriYa_GiDri_df: 0.0
+	, BriYe_GiDri_df: 0.0
 	, YeWi_df: 0.0
+	, YeFo_wu: 0
 };
 window.Ko = Ko;
 
@@ -273,6 +275,7 @@ MoDz__BOOT();
 //==============================================
 // MODULE INTERFACE for EMSCRIPTEN ENGINE
 //==============================================
+// MUST BE "var"
 var Module =
 {
 	// ERR STATUS
