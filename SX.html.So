@@ -31,6 +31,22 @@
 <body>
 
 	<!-- Ku00__LAUNCH ------------------------------------------------->
+	<div id="Ku00_KoYa" class="Tz01__SpoKz Tz00__Gry HriNe__SmoTy">
+		<canvas id="MxPo_Kwi" class="Tz01__SpoKz Tz02__MxPo"></canvas>
+		<!-- PANEL_LAUNCH_CFG -->
+		<div id="Nz00_Kwi" class="Ku00__KaFz">
+
+			<!-- TITLE BAR w ICONS & TXT -->
+			<header><div class="Ku01_BzVa_GeBre">
+				<span  id="BriDz_VaSy_vsg" class="BriDz_FzVa WaDru_SmuHi"></span>
+				<img class="BriDz_FzVa JaPo__BriDzSo" src="Mx01__SuKz_MEDIA/SuKz03_TxTrz__APTIV_MADE/TxTrz01__GEMS.jpg"></img>
+			</div></header><!-- Ku01_BzVa_GeBre -->
+
+		</div>
+	</div>
+
+
+	<!-- Ku01__LAUNCH ------------------------------------------------->
 	<div id="Ku01_KeMeKwi" class="Tz01__SpoKz Tz00__Gry HriNe__SmoTy">
 		<canvas id="MxPo_Kwi" class="Tz01__SpoKz Tz02__MxPo"></canvas>
 
@@ -148,7 +164,7 @@
 
 								<div class="Ku06_KwiBriDz_ToGyHu">
 									<span id="Ne00_KuNe05__KoTo01_vsg" class="HriNeVa WaDru_De"></span>
-									<span id="Hrz3_Bu__Gwz" class="JaPo__De GwzDoPo GwzKeDru GwzDo_NODE">BROWSER: </span>
+									<span id="Hrz3_Bu__Gwz" class="JaPo__De GwzDoPo GwzKeDru GwzDo_NODE"></span>
 									<div id="Hrz4_Bu__VaDe" class="KeDruBa BriDz_ToGyHu WaDru_De"></div>
 								</div>
 
@@ -160,20 +176,20 @@
 
 								<div class="Ku06_KwiBriDz_ToGyHu">
 									<div id="Ne00_KuNe05__KoTo03_vsg" class="HriNeVa WaDru_De"></div>
-									<span id="Hrz3_By__BzGwz" class="JaPo__De GwzDoPo GwzKeDru GwzDo_INTEL"></span>
-									<div id="Hrz3_By__BzVa" class="KeDruBa BriDz_ToGyHu WaDru_De"></div>
+									<span id="KaBz__Gwz" class="JaPo__De GwzDoPo GwzKeDru GwzDo_ROCKET"></span>
+									<div id="KaBz__VaDe" class="KeDruBa BriDz_ToGyHu WaDru_De"></div>
 								</div>
 
 								<div class="Ku06_KwiBriDz_ToGyHu">
 									<div id="Ne00_KuNe05__KoTo04_vsg" class="HriNeVa WaDru_De"></div>
-									<span id="Hrz3_By__BxGwz" class="JaPo__De GwzDoPo GwzKeDru GwzDo_NVIDIA"></span>
-									<div id="Hrz3_By__BxVa" class="KeDruBa BriDz_ToGyHu WaDru_De"></div>
+									<span id="KaBx__Gwz" class="JaPo__De GwzDoPo GwzKeDru GwzDo_ROCKET"></span>
+									<div id="KaBx__VaDe" class="KeDruBa BriDz_ToGyHu WaDru_De"></div>
 								</div>
 
 								<div class="Ku06_KwiBriDz_ToGyHu">
 									<div id="Ne00_KuNe05__KoTo05_vsg" class="HriNeVa WaDru_De"></div>
-									<span id="Hrz3_By__BxGwz" class="JaPo__De GwzDoPo GwzKeDru GwzDo_ROCKET"></span>
-									<div id="Hrz3_By__BaVa" class="KeDruBa BriDz_ToGyHu WaDru_De"></div>
+									<span id="KaBa__Gwz" class="JaPo__De GwzDoPo GwzKeDru GwzDo_ROCKET"></span>
+									<div id="KaBa__VaDe" class="KeDruBa BriDz_ToGyHu WaDru_De"></div>
 								</div>
 
 						</div>
@@ -416,24 +432,20 @@
 					</span>
 
 					<span class="Ku07__HriNe">
-						<p class="BriDz_Sz WaDru_De">INFO PANEL99 VERTICAL TITLE</p>
-
 						2️⃣
 						<span id="Ne05_Hx00__Nz01_vsg" class="HriNeVa KeDruNz WaDru_Bz"></span>
 						<div id="Ne05_Hx01__Ka01_vsg" class="KeDruSkx WaDru_De"></div>
 						<span class="JaPo__De GwzDoPo GwzHu GwzDo_SECURITY"></span>
 					</span>
-					<span class="Ku07__HriNe">
-						<p class="BriDz_Sz WaDru_De">INFO PANEL99 VERTICAL TITLE</p>
 
+					<span class="Ku07__HriNe">
 						3️⃣
 						<span id="Ne05_Hx00__Nz02_vsg" class="HriNeVa KeDruNz WaDru_Bz"></span>
 						<div id="Ne05_Hx01__Ka02_vsg" class="KeDruBa WaDru_De"></div>
 						<span class="JaPo__De GwzDoPo GwzHu GwzDo_NET"></span>
 					</span>
-					<span class="Ku07__HriNe">
-						<p class="BriDz_Sz WaDru_De">INFO PANEL99 VERTICAL TITLE</p>
 
+					<span class="Ku07__HriNe">
 						4️⃣
 						<span id="Ne05_Hx00__Nz03_vsg" class="HriNeVa KeDruNz WaDru_Bz"></span>
 						<div id="Ne05_Hx01__Ka03_vsg" class="KeDruSkx WaDru_De"></div>
@@ -461,7 +473,6 @@
 						<div id="Ne06_Grx01__Ka00_vsg" class="KeDruBa WaDru_De"></div>
 					</span>
 					<span class="Ku07__HriNe">
-						<p class="BriDz_Sz WaDru_De">INFO PANEL 77 VERTICAL TITLE</p>
 						2️⃣
 						<span id="Ne06_Grx00__Nz01_Che_vsg" class="HriNeVa KeDruNz WaDru_Bz"></span>
 						<p id="Ne06_Grx01__Ka01_vsg" class="KeDruBa WaDru_De"></p>
@@ -472,7 +483,6 @@
 						<span class="JaPo__De GwzDoPo GwzHu GwzDo_GDPR"></span>
 					</span>
 					<span class="Ku07__HriNe">
-						<p class="BriDz_Sz WaDru_De">INFO PANEL99 VERTICAL TITLE</p>
 						3️⃣
 						<span id="Ne06_Grx00__Nz02_So_vsg" class="HriNeVa KeDruNz WaDru_Bz"></span>
 						<p id="Ne06_Grx01__Ka02_vsg" class="KeDruBa WaDru_De"></p>
@@ -491,7 +501,7 @@
 		</div> <!-- PANEL LAUNCH_CFG -->
 	</div>	<!-- Ku00__LAUNCH -->
 
-	<!-- Ku01__FAIL ------------------------------------------------>
+	<!-- Ku02__FAIL ------------------------------------------------>
 	<div id="Ku02_KeMeTrx" class="Tz01__SpoKz Tz00__Gry HriNe__SmoTy">
 		<canvas id="MxPo_Trx" class="Tz01__SpoKz Tz02__MxPo"></canvas>
 
@@ -512,18 +522,18 @@
 	</div> <!-- Ku01__FAIL -->
 
 
-	<!-- Ku02__LIFE ------------------------------------------------>
+	<!-- Ku03__LIFE ------------------------------------------------>
 	<div id="Ku03_KeMeBri" class="Tz01__SpoKz Tz00__Gry HriNe__SmoTy">
 		<canvas id="MxPo_Bri" class="Tz01__SpoKz Tz02__MxPo"></canvas>
 	</div> <!-- Ku02__LIFE -->
 
-	<!-- Ku03__TYPING ------------------------------------------------>
+	<!-- Ku04__TYPING ------------------------------------------------>
 	<div class="HriNe__SmoTy">
 		<input id="Ku04_KeDruTre" class="WaDru_Bz" type="text" name="?" >TYPE HERE</input>
 		<!-- <audio id="audio-player" controls="true" src="https://raw.githubusercontent.com/kbstt/pwa-demos/main/track2.mp3" class="Tz01__SpoKz"></audio> -->
 	</div>
 
-	<!-- Ku04__DBG ------------------------------------------------>
+	<!-- Ku05__DBG ------------------------------------------------>
 	<footer>
 		<p id="KeMe_Bz" class="Tz01__SpoKz WaDru_Bz KeMe_De KeMe_Bz"></p>
 		<p id="KeMe_Bo" class="Tz01__SpoKz WaDru_Bz KeMe_De KeMe_Bo" onclick="MoDzTrx( 'Fake Error as TEST' );"></p>
