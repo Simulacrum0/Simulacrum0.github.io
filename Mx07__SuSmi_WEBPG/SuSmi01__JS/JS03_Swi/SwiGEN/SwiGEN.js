@@ -1,7 +1,7 @@
 // SySmz.v.Du
 "use strict";
 const SwiGEN = { SyTu_vsg: "Swi", VaDy_vsg: "GEN" };
-Ko.Ji_v.SwiGEN = SwiGEN;
+Ko.Ji.SwiGEN = SwiGEN;
 
 //==============================================
 // QUALITIES

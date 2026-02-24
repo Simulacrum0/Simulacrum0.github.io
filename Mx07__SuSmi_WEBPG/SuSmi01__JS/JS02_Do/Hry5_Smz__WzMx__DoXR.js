@@ -1,4 +1,4 @@
-const DoXR__BriDzSa__Da_wuk = "232"; 
+const DoXR__BriDzSa__Da_wuk = "233"; 
 
 //==============================================
 //==============================================
@@ -9,7 +9,7 @@ const DoXR__BriDzSa__Da_wuk = "232";
 // SySmz.v.Du
 "use strict";
 const DoXR = { SyTu_vsg: "Do", VaDy_vsg: "XR" };
-Ko.Ji_v.DoXR = DoXR;
+Ko.Ji.DoXR = DoXR;
 
 //==============================================
 // QUALITIES

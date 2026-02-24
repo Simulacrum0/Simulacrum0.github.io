@@ -1,7 +1,7 @@
 // SySmz.v.Du
 "use strict";
 const DoTRU = { SyTu_vsg: "Do", VaDy_vsg: "TRU" };
-Ko.Ji_v.DoTRU = DoTRU;
+Ko.Ji.DoTRU = DoTRU;
 
 
 //==============================================

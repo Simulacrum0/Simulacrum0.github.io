@@ -1,7 +1,7 @@
 // SySmz.v.Du
 "use strict";
 const DoSHAR = { SyTu_vsg: "Do", VaDy_vsg: "SHAR" };
-Ko.Ji_v.DoSHAR = DoSHAR;
+Ko.Ji.DoSHAR = DoSHAR;
 
 //==============================================
 // QUALITIES
@@ -116,7 +116,7 @@ DoSHAR.Mo = async function( Sa_l, Jy_k, Mo_l )
 	{
 	  title: "MicroCosm REPORT from XYZ",
 	  text: "System Log Goes here",
-	  url: "PowerOurPeople.com/WzFe.html#LINK_TO_XP_001",
+	  url: "PowerOurPeople.com/SX.html#LINK_TO_XP_001",
 	};
 
 	SmaJe( "SHARING REPORT" );

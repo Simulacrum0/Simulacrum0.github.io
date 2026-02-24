@@ -1,7 +1,7 @@
 // SySmz.v.Du
 "use strict";
 const SwiBLANK = { SyTu_vsg: "Swi", VaDy_vsg: "BLANK" };
-Ko.Ji_v.SwiBLANK = SwiBLANK;
+Ko.Ji.SwiBLANK = SwiBLANK;
 
 //==============================================
 // QUALITIES

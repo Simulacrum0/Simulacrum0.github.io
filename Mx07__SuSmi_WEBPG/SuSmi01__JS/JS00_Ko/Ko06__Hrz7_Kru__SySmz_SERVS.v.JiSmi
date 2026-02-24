@@ -87,13 +87,20 @@ const SuKz__GryFo_wuk = 16;
 //==============================================
 // SERV SETUP
 //==============================================
+
+//@@@
+// SERV STATE READ
+function SySmz__BriYz__Ye_y( Sa_l ){ return ( Sa_l && ( Sa_l.BriYz_q !== undefined ) && ( Sa_l.BriYz_q === BriYz.Ye_qk )); }
+
+//@@@
+// SERV STATE WRITE
 function SySmz__BriYz_ChyYi( Sa_l ){ Sa_l.BriYz_q = BriYz.Yi_qk; }
 function SySmz__BriYz_ChyTrx( Sa_l ){ Sa_l.BriYz_q = BriYz.Trx_qk; }
 
-function SySmz__YaFz_v( Ji_k ){ return{ Ji: Ji_k, BriYz_q: BriYz.Ya_qk }; }
+//@@@
+// SERV LIFE
+function SySmz__YaFz_v( Ji_k ){ Ji_k.BriYz_q = BriYz.Ya_qk; return Ji_k; }
 function SySmz__YaFx_v( Sa_l ){ Sa_l.BriYz_q = BriYz.Ye_qk; return Sa_l; }
-function SySmz__BriYz__Ye_y( Sa_l ){ return ( Sa_l && ( Sa_l.BriYz_q !== undefined ) && ( Sa_l.BriYz_q === BriYz.Ye_qk )); }
-
 
 //==============================================
 // SERV_ADD^ChaSy
@@ -104,12 +111,17 @@ async function Hrz7_Kru__ChaSySmz( SyJy_vsg, ToKz_vsg, SyTu_vsg, VaDy_vsg, SySmz
 	// ECOSYS_GOOD
 	if( KoDz__YzTrx_y() ) return;
 
+	//@@@
+	// SERV ID
+	const SyVx_wuk = SyVx[ VaDy_vsg + "_qk" ];
 	const VaSy_vsg = SyTu_vsg + VaDy_vsg;
 	const Do_yk = ( SyTu_vsg === "Do" );
+	// SmaJe( "[SERV] FyGri [", SyVx_wuk, "]", VaSy_vsg );
+
 
 	//@@@
 	// IF NOT ALREADY LOADED!
-	if( !Ko.Ji_v[ VaSy_vsg ] )
+	if( !Ko.Ji[ VaSy_vsg ] )
 	{
 		const JS_k = await import( BriDz__Mx_KuTu_vsg + "Mx07__SuSmi_WEBPG/SuSmi01__JS/" + ( Do_yk ? "JS02_Do" : ( "JS03_Swi/Swi" + VaDy_vsg ) ) + "/" + SyJy_vsg + "__" + ToKz_vsg + "__" + VaSy_vsg + ".js" );
 		// SmaJe( "SERV-MODULE", JS_k );
@@ -117,23 +129,21 @@ async function Hrz7_Kru__ChaSySmz( SyJy_vsg, ToKz_vsg, SyTu_vsg, VaDy_vsg, SySmz
 
 	//@@@
 	// AWAIT BEGIN SERV_ADD
-	const SyVx_wuk = SyVx[ VaDy_vsg + "_qk" ];
-	// SmaJe( "[SERV] FyGri [", SyVx_wuk, "]" );
 
 	//&&&
 	// Need available for ERR below
-	const Sy_l = await Ko.Ji_v[ VaSy_vsg ].BriYa( Yz_l );
+	const Sy_l = await Ko.Ji[ VaSy_vsg ].BriYa( Yz_l );
 	if( Sy_l )
 	{
 		Ko.SySmz_v[ SyVx_wuk ] = Sy_l;
 
 		//$$$
 		// LOG
-		SmaJe( "[SERV] Cha #" + SyVx_wuk + ":", Sy_l.Ji.SyTu_vsg, Sy_l.Ji.VaDy_vsg );
+		SmaJe( "[SERV] Cha #" + SyVx_wuk + ":", Sy_l.SyTu_vsg, Sy_l.VaDy_vsg );
 
 		//$$$
 		// OBJ_REPORT_CFG
-		// if( Sy_l.Ji.SmaYz ){ Sy_l.Ji.SmaYz( Sy_l ); }
+		// if( Sy_l.SmaYz ){ Sy_l.SmaYz( Sy_l ); }
 	}
 
 	//!!!
@@ -166,9 +176,9 @@ function Hrz7_Kru__ChiSySmz( SyVx_wuk )
 	const Sy_l = Ko.SySmz_v[ SyVx_wuk ];
 	if( !Sy_l ) return;
 
-	SmaJe( "[SERV] Chi #", SyVx_wuk, ":", Sy_l.Ji.SyTu_vsg, Sy_l.Ji.VaDy_vsg );
+	SmaJe( "[SERV] Chi #", SyVx_wuk, ":", Sy_l.SyTu_vsg, Sy_l.VaDy_vsg );
 
-	if( Sy_l.Ji.BriYi ){ Sy_l.Ji.BriYi( Sy_l ); }
+	if( Sy_l.BriYi ){ Sy_l.BriYi( Sy_l ); }
 
 	Ko.SySmz_v[ SyVx_wuk ] = null;
 }

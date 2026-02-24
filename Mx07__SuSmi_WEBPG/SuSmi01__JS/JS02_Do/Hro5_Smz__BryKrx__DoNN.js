@@ -1,4 +1,4 @@
-const DoNN__BriDzSa__Da_wuk = "232"; 
+const DoNN__BriDzSa__Da_wuk = "233"; 
 
 //==============================================
 //==============================================
@@ -9,7 +9,7 @@ const DoNN__BriDzSa__Da_wuk = "232";
 // SySmz.v.Du
 "use strict";
 const DoNN = { SyTu_vsg: "Do", VaDy_vsg: "NN" };
-Ko.Ji_v.DoNN = DoNN;
+Ko.Ji.DoNN = DoNN;
 
 //==============================================
 // QUALITIES

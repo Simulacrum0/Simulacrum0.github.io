@@ -1,7 +1,7 @@
 // SySmz.v.Du
 "use strict";
 const SwiML = { SyTu_vsg: "Swi", VaDy_vsg: "ML" };
-Ko.Ji_v.SwiML = SwiML;
+Ko.Ji.SwiML = SwiML;
 
 //==============================================
 // QUALITIES

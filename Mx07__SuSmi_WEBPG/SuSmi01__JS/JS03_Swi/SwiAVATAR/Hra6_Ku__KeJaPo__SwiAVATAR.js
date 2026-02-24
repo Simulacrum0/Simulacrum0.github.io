@@ -1,7 +1,7 @@
 // SySmz.v.Du
 "use strict";
 const SwiAVATAR = { SyTu_vsg: "Swi", VaDy_vsg: "AVATAR" };
-Ko.Ji_v.SwiAVATAR = SwiAVATAR;
+Ko.Ji.SwiAVATAR = SwiAVATAR;
 
 //==============================================
 // QUALITIES

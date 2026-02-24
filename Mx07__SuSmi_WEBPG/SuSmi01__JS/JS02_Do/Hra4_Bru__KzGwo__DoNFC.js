@@ -1,7 +1,7 @@
 // SySmz.v.Du
 "use strict";
 const DoNFC = { SyTu_vsg: "Do", VaDy_vsg: "NFC" };
-Ko.Ji_v.DoNFC = DoNFC;
+Ko.Ji.DoNFC = DoNFC;
 
 //==============================================
 // QUALITIES

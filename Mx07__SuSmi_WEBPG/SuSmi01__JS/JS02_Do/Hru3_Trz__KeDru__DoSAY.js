@@ -1,7 +1,7 @@
 // SySmz.v.Du
 "use strict";
 const DoSAY = { SyTu_vsg: "Do", VaDy_vsg: "SAY" };
-Ko.Ji_v.DoSAY = DoSAY;
+Ko.Ji.DoSAY = DoSAY;
 
 //==============================================
 // QUALITIES

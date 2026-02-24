@@ -594,7 +594,7 @@ async function Hre1_Dru__ChyKeDru( KeKuMi_vbg )
 	document.getElementById( 'VyDa' ).innerHTML = `${KeDru_v.TERMS.DaVa}${BriDzYz_v.MoDzDa} ${TrzFi__Gi_vbg}`;
 	document.getElementById( 'VyGiZe' ).innerHTML = `${KeDru_v.TERMS.TrzZeVa} ${TrzZe__Gi_vbg}`;
 	document.getElementById( 'KeDruVa' ).innerHTML = `${KeKu_l.KuGwz} ${KeKu_l.Va}`;
-	document.getElementById( 'VyKo__HrzBy_Kri' ).innerHTML = `<span class="GwzDo GwzDo_${Ko__HrzByVy_vbg}"></span><br>${Ko__HrzByVy_vbg}_${Ko.KaBz_vsg}`;
+	document.getElementById( 'VyKo__HrzBy_Kri' ).innerHTML = `<span class="GwzDo GwzDo_${Ko__HrzByVy_vbg}"></span><br>${Ko__HrzByVy_vbg}_${Ko__KaBz_vsg}`;
 
 	//!!!
 	// Am Setting here redundantly as out-of-order not resolved w/ async/await;
@@ -657,7 +657,7 @@ async function Hre1_Dru__ChyKeDru( KeKuMi_vbg )
 //-------------------------------------------------
 // USER FACING
 let Ko__HrzByVa_vbg = "Unknown";
-let Ko.KaBz_vsg = "Unknown";
+let Ko__KaBz_vsg = "Unknown";
 
 // INTERNAL
 let Ko__HrzByVy_vbg = "???";
@@ -675,11 +675,11 @@ function BriDz__Ha()
 		Ko__HrzByVa_vbg = navigator.userAgentData.platform;
 		//MOBILE = navigator.userAgentData.mobile;
 		//
-		// FAIL on Ko.KaBz_vsg as it doesn't match below
+		// FAIL on Ko__KaBz_vsg as it doesn't match below
 		// navigator.userAgentData.getHighEntropyValues( ["architecture", "platformVersion"])
 		// .then( ua =>
 		// {
-		// 	// Ko.KaBz_vsg = ua.architecture;
+		// 	// Ko__KaBz_vsg = ua.architecture;
 		// 	// VER = ua.platformVersion;
 		// } );
 	}
@@ -705,14 +705,14 @@ function BriDz__Ha()
 			Ko__HrzByVa_vbg = "iOS";
 			Ko__HrzByVy_vbg = "IOS";
 			Ko__ToKzJy_vbg = "ipa";
-			Ko.KaBz_vsg = "ARM64";
+			Ko__KaBz_vsg = "ARM64";
 		}
 		else if ( NAV_NODE.includes( "MAC" ) )
 		{
 			Ko__HrzByVa_vbg = "Mac";
 			Ko__HrzByVy_vbg = "MAC";
 			Ko__ToKzJy_vbg = "app";
-			Ko.KaBz_vsg = "ARM64";
+			Ko__KaBz_vsg = "ARM64";
 		}
 		else if ( NAV_NODE.includes( "WINDOWS" ) )
 		{
@@ -722,24 +722,24 @@ function BriDz__Ha()
 		}
 
 		//@@@
-		// Ko.KaBz_vsg
+		// Ko__KaBz_vsg
 		if ( NAV_NODE.includes( "X86_64" ) || NAV_NODE.includes( "X64" ) )
 		{
-			Ko.KaBz_vsg = "X64";
+			Ko__KaBz_vsg = "X64";
 		}
 		else if ( NAV_NODE.includes( "ARM" ) || NAV_NODE.includes( "AARCH" ) )
 		{
-			Ko.KaBz_vsg = "ARM64";
+			Ko__KaBz_vsg = "ARM64";
 		}
 		else if ( NAV_NODE.includes( "RISCV" ) || NAV_NODE.includes( "RISC-V" ) )
 		{
-			Ko.KaBz_vsg = "RISC-V";
+			Ko__KaBz_vsg = "RISC-V";
 		}
 	}
 
 	//@@@
 	// LOG
-	console.log( `Node: ${Ko__HrzByVa_vbg}_${Ko.KaBz_vsg}` );
+	console.log( `Node: ${Ko__HrzByVa_vbg}_${Ko__KaBz_vsg}` );
 }
 
 //==============================================
@@ -1110,7 +1110,7 @@ function DOWNLOAD_Dy( EXE )
 
 	// ONLY OFFER AVAILABLE EXE
 	if (
-		( ( Ko.KaBz_vsg === "X64" ) && ( Ko__HrzByVy_vbg === "LNX" ) )
+		( ( Ko__KaBz_vsg === "X64" ) && ( Ko__HrzByVy_vbg === "LNX" ) )
 	)
 	{
 		window.location.assign( EXE_URL );
@@ -1122,7 +1122,7 @@ function DOWNLOAD_Dy( EXE )
 
 function DOWNLOAD_Fe()
 {
-	const EXE = Ko__HrzByVy_vbg + "_" + Ko.KaBz_vsg + ".v." + Ko__ToKzJy_vbg;
+	const EXE = Ko__HrzByVy_vbg + "_" + Ko__KaBz_vsg + ".v." + Ko__ToKzJy_vbg;
 	// console.log( EXE );
 	DOWNLOAD_Dy( EXE )
 }

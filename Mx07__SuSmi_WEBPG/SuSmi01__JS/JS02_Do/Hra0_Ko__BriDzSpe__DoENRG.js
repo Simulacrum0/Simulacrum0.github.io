@@ -1,7 +1,7 @@
 // SySmz.v.Du
 "use strict";
 const DoENRG = { SyTu_vsg: "Do", VaDy_vsg: "ENRG" };
-Ko.Ji_v.DoENRG = DoENRG;
+Ko.Ji.DoENRG = DoENRG;
 
 //==============================================
 // QUALITIES

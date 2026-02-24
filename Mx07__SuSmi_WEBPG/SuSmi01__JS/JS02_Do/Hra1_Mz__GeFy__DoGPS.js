@@ -1,7 +1,7 @@
 // SySmz.v.Du
 "use strict";
 const DoGPS = { SyTu_vsg: "Do", VaDy_vsg: "GPS" };
-Ko.Ji_v.DoGPS = DoGPS;
+Ko.Ji.DoGPS = DoGPS;
 
 //==============================================
 // QUALITIES

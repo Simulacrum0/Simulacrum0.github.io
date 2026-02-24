@@ -1,5 +1,5 @@
-const BriDzSa__Da_vsg = "PUB_v0.232"; 
- const BriDzSa__Da_wuk = "232"; 
+const BriDzSa__Da_vsg = "PUB_v0.233"; 
+ const BriDzSa__Da_wuk = "233"; 
  const BriDz__Mx_KuTu_vsg = "https://powerourpeople.com/"; 
 
 //==============================================
@@ -447,7 +447,7 @@ let Ko =
 	//@@@
 	// SERV
 	// Setup @ KoDz__YaFz
-	, Ji_v: {}
+	, Ji: {}
 
 	//@@@
 	// CFG
@@ -856,7 +856,7 @@ function Hrz3_By__FyTo()
 {
 	const NODE_vksg = navigator.userAgent.toUpperCase();
 
-	SmaSy( "[LAUNCH] Node:", NODE_vksg );
+	SmaSy( "[LAUNCH] Browser_ID:", NODE_vksg );
 
 	//@@@
 	// BACKUP
@@ -2434,19 +2434,66 @@ function Hry_DriBrz( MxVa_vsg, NOTCH_yk, KuPo_l, KwzPo_l, KwaPo_l )
 	HrySxDe__ChyHEXGRID( Sx_l, Mx_l.width, Mx_l.height, 80.0, KuPo_l, KwzPo_l, KwaPo_l, NOTCH_yk );
 }
 
+
+	HriNeDe__ChyKuHi( "Ku00_KoYa", false );
+
+
 //=====================================
-// RESIZE_00 LAUNCH_CFG
+// RESIZE_00 BOOT VISUAL
 //=====================================
-function HryMx00_KeMeKwi()
+function HryMx00_KoYa()
 {
 	//---------------------------------
 	// VIEWS
 	//---------------------------------
-	HriNeDe__ChyKuHi( "Ku00_KeMeKwi", true );
-	HriNeDe__ChyKuHi( "Ku01_KeMeTrx", false );
-	HriNeDe__ChyKuHi( "Ku02_KeMeBri", false );
+	HriNeDe__ChyKuHi( "Ku00_KoYa",true );
+	HriNeDe__ChyKuHi( "Ku01_KeMeKwi", false );
+	HriNeDe__ChyKuHi( "Ku02_KeMeTrx", false );
+	HriNeDe__ChyKuHi( "Ku03_KeMeBri", false );
 
-	HriNeDe__ChyKuHi( "Ku03_KeDruTre", false );
+	HriNeDe__ChyKuHi( "Ku04_KeDruTre", false );
+
+	//---------------------------------
+	// CANVAS
+	//---------------------------------
+	const TaPo_v =
+	[
+		// BLUEPRINT:
+		 "#8888BB", "#9999CC", "#BBBBEE"
+
+		// DEEP BLUE
+		, "#333355", "#9999CC", "#BBBBEE"
+		// RICH_RED
+		, "#DD1111", "#AAAACC", "#DDDDFF"
+		// FADE
+		, "#333333", "#666666", "#999999"
+	];
+
+	// INDEX[ 4 ] by 3
+	const FePo_k = ( BriDzSa__Da_wuk & 3 ) * 4;
+	Hry_DriBrz( "MxPo_Kwi", false, TaPo_v[ FePo_k + 0 ],TaPo_v[ FePo_k + 1 ],TaPo_v[ FePo_k + 2 ] );
+
+	
+	//---------------------------------
+	// GUI_SYNC
+	//---------------------------------
+	Hrz4_Bu__KwiYz__HriNe_MyYy();
+}
+
+//=====================================
+// RESIZE_01 LAUNCH_CFG
+//=====================================
+function HryMx01_KeMeKwi()
+{
+	//---------------------------------
+	// VIEWS
+	//---------------------------------
+	HriNeDe__ChyKuHi( "Ku00_KoYa", false );
+	HriNeDe__ChyKuHi( "Ku01_KeMeKwi", true );
+	HriNeDe__ChyKuHi( "Ku02_KeMeTrx", false );
+	HriNeDe__ChyKuHi( "Ku03_KeMeBri", false );
+
+	HriNeDe__ChyKuHi( "Ku04_KeDruTre", false );
 
 	//---------------------------------
 	// CANVAS
@@ -2464,16 +2511,15 @@ function HryMx00_KeMeKwi()
 
 		// DEEP BLUE
 		, "#333355", "#9999CC", "#BBBBEE"
+		// RICH_RED
+		, "#DD1111", "#AAAACC", "#DDDDFF"
 		// FADE
 		, "#333333", "#666666", "#999999"
-		// CHARCOAL
-		, "#555555", "#BBBBBB", "#DDDDDD"
 		// DARK
 		, "#000000", "#555555", "#888888"
 	];
 
 	// INDEX[ 8 ] by 3
-	// const FePo_k = 5 * 3;
 	const FePo_k = ( BriDzSa__Da_wuk & 7 ) * 3;
 	Hry_DriBrz( "MxPo_Kwi", false, TaPo_v[ FePo_k + 0 ],TaPo_v[ FePo_k + 1 ],TaPo_v[ FePo_k + 2 ] );
 
@@ -2485,7 +2531,7 @@ function HryMx00_KeMeKwi()
 
 
 //==============================================
-// RESIZE_01 FAIL
+// RESIZE_02 FAIL
 //==============================================
 function HryMx01_KeMeTrx()
 {
@@ -2494,16 +2540,19 @@ function HryMx01_KeMeTrx()
 	//---------------------------------
 	Hri4_Bu__TaNeDe__ChiKri();
 
-	HriNeDe__ChyKuHi( "Ku00_KeMeKwi", false );
-	HriNeDe__ChyKuHi( "Ku01_KeMeTrx", true );
-	HriNeDe__ChyKuHi( "Ku02_KeMeBri", false );
+	HriNeDe__ChyKuHi( "Ku00_KoYa", false );
+	HriNeDe__ChyKuHi( "Ku01_KeMeKwi", false );
+	HriNeDe__ChyKuHi( "Ku02_KeMeTrx", true );
+	HriNeDe__ChyKuHi( "Ku03_KeMeBri", false );
 
-	HriNeDe__ChyKuHi( "Ku03_KeDruTre", false );
+	HriNeDe__ChyKuHi( "Ku04_KeDruTre", false );
 
 	//---------------------------------
 	// CANVAS
 	//---------------------------------
-	Hry_DriBrz( "MxPo_Trx", true, "#DD1111", "#AAAACC", "#DDDDFF" );
+	// CHARCOAL
+	Hry_DriBrz( "MxPo_Trx", true, "#555555", "#BBBBBB", "#DDDDDD" );
+
 
 	//---------------------------------
 	// MSG
@@ -2533,20 +2582,21 @@ function HryMx01_KeMeTrx()
 
 
 //==============================================
-// RESIZE_02 LIFE
+// RESIZE_03 LIFE
 //==============================================
-function HryMx02_KeMeBri()
+function HryMx03_KeMeBri()
 {
 	Hri4_Bu__TaNeDe__ChiKri();
 
 	//---------------------------------
 	// VIEWS
 	//---------------------------------
-	HriNeDe__ChyKuHi( "Ku00_KeMeKwi", false );
-	HriNeDe__ChyKuHi( "Ku01_KeMeTrx", false );
-	HriNeDe__ChyKuHi( "Ku02_KeMeBri", true );
+	HriNeDe__ChyKuHi( "Ku00_KoYa", false );
+	HriNeDe__ChyKuHi( "Ku01_KeMeKwi", false );
+	HriNeDe__ChyKuHi( "Ku02_KeMeTrx", false );
+	HriNeDe__ChyKuHi( "Ku03_KeMeBri", true );
 
-	HriNeDe__ChyKuHi( "Ku03_KeDruTre", false );
+	HriNeDe__ChyKuHi( "Ku04_KeDruTre", false );
 
 }
 
@@ -2598,7 +2648,7 @@ function Hrz4_Bu__ChyNeKu( Vx_wu )
 //==============================================
 function Tra_KeMeBri()
 {
-	HryMx02_KeMeBri();
+	HryMx03_KeMeBri();
 	const KwiYz_k = Ko.TaKeDy_l.KwiYz_v[ Ko.TaKeDy_l.KeDy_wu ];
 
 	//!!!
@@ -2614,8 +2664,8 @@ function Tra_KeMeBri()
 		KwiYz_k.Ne03_Hry06__SmzYz_q = Cha__YzVi_q;
 
 		// Restart WG
-		const SaWG_l = Ko.SySmz_v[ SyVx.WG_qk ];
-		SaWG_l.KaSmz_l.destroy();
+		const SyWG_k = Ko.SySmz_v[ SyVx.WG_qk ];
+		SyWG_k.KaSmz_l.destroy();
 	}
 
 	Hrz4_Bu__KwiYz__Ko_ChyYe();
@@ -2650,7 +2700,7 @@ function KoDz_GyHa()
 {
 	//@@@
 	// UPDATE MODE
-	( KoDz__YzYa_y() ) ? HryMx00_KeMeKwi() : ( KoDz__YzTrx_y() ? HryMx01_KeMeTrx() : HryMx02_KeMeBri() );
+	( KoDz__YzYa_y() ) ? HryMx01_KeMeKwi() : ( KoDz__YzTrx_y() ? HryMx01_KeMeTrx() : HryMx03_KeMeBri() );
 
 	//@@@
 	// EM SIZE
@@ -2943,13 +2993,20 @@ const SuKz__GryFo_wuk = 16;
 //==============================================
 // SERV SETUP
 //==============================================
+
+//@@@
+// SERV STATE READ
+function SySmz__BriYz__Ye_y( Sa_l ){ return ( Sa_l && ( Sa_l.BriYz_q !== undefined ) && ( Sa_l.BriYz_q === BriYz.Ye_qk )); }
+
+//@@@
+// SERV STATE WRITE
 function SySmz__BriYz_ChyYi( Sa_l ){ Sa_l.BriYz_q = BriYz.Yi_qk; }
 function SySmz__BriYz_ChyTrx( Sa_l ){ Sa_l.BriYz_q = BriYz.Trx_qk; }
 
-function SySmz__YaFz_v( Ji_k ){ return{ Ji: Ji_k, BriYz_q: BriYz.Ya_qk }; }
+//@@@
+// SERV LIFE
+function SySmz__YaFz_v( Ji_k ){ Ji_k.BriYz_q = BriYz.Ya_qk; return Ji_k; }
 function SySmz__YaFx_v( Sa_l ){ Sa_l.BriYz_q = BriYz.Ye_qk; return Sa_l; }
-function SySmz__BriYz__Ye_y( Sa_l ){ return ( Sa_l && ( Sa_l.BriYz_q !== undefined ) && ( Sa_l.BriYz_q === BriYz.Ye_qk )); }
-
 
 //==============================================
 // SERV_ADD^ChaSy
@@ -2960,12 +3017,17 @@ async function Hrz7_Kru__ChaSySmz( SyJy_vsg, ToKz_vsg, SyTu_vsg, VaDy_vsg, SySmz
 	// ECOSYS_GOOD
 	if( KoDz__YzTrx_y() ) return;
 
+	//@@@
+	// SERV ID
+	const SyVx_wuk = SyVx[ VaDy_vsg + "_qk" ];
 	const VaSy_vsg = SyTu_vsg + VaDy_vsg;
 	const Do_yk = ( SyTu_vsg === "Do" );
+	// SmaJe( "[SERV] FyGri [", SyVx_wuk, "]", VaSy_vsg );
+
 
 	//@@@
 	// IF NOT ALREADY LOADED!
-	if( !Ko.Ji_v[ VaSy_vsg ] )
+	if( !Ko.Ji[ VaSy_vsg ] )
 	{
 		const JS_k = await import( BriDz__Mx_KuTu_vsg + "Mx07__SuSmi_WEBPG/SuSmi01__JS/" + ( Do_yk ? "JS02_Do" : ( "JS03_Swi/Swi" + VaDy_vsg ) ) + "/" + SyJy_vsg + "__" + ToKz_vsg + "__" + VaSy_vsg + ".js" );
 		// SmaJe( "SERV-MODULE", JS_k );
@@ -2973,23 +3035,21 @@ async function Hrz7_Kru__ChaSySmz( SyJy_vsg, ToKz_vsg, SyTu_vsg, VaDy_vsg, SySmz
 
 	//@@@
 	// AWAIT BEGIN SERV_ADD
-	const SyVx_wuk = SyVx[ VaDy_vsg + "_qk" ];
-	// SmaJe( "[SERV] FyGri [", SyVx_wuk, "]" );
 
 	//&&&
 	// Need available for ERR below
-	const Sy_l = await Ko.Ji_v[ VaSy_vsg ].BriYa( Yz_l );
+	const Sy_l = await Ko.Ji[ VaSy_vsg ].BriYa( Yz_l );
 	if( Sy_l )
 	{
 		Ko.SySmz_v[ SyVx_wuk ] = Sy_l;
 
 		//$$$
 		// LOG
-		SmaJe( "[SERV] Cha #" + SyVx_wuk + ":", Sy_l.Ji.SyTu_vsg, Sy_l.Ji.VaDy_vsg );
+		SmaJe( "[SERV] Cha #" + SyVx_wuk + ":", Sy_l.SyTu_vsg, Sy_l.VaDy_vsg );
 
 		//$$$
 		// OBJ_REPORT_CFG
-		// if( Sy_l.Ji.SmaYz ){ Sy_l.Ji.SmaYz( Sy_l ); }
+		// if( Sy_l.SmaYz ){ Sy_l.SmaYz( Sy_l ); }
 	}
 
 	//!!!
@@ -3022,9 +3082,9 @@ function Hrz7_Kru__ChiSySmz( SyVx_wuk )
 	const Sy_l = Ko.SySmz_v[ SyVx_wuk ];
 	if( !Sy_l ) return;
 
-	SmaJe( "[SERV] Chi #", SyVx_wuk, ":", Sy_l.Ji.SyTu_vsg, Sy_l.Ji.VaDy_vsg );
+	SmaJe( "[SERV] Chi #", SyVx_wuk, ":", Sy_l.SyTu_vsg, Sy_l.VaDy_vsg );
 
-	if( Sy_l.Ji.BriYi ){ Sy_l.Ji.BriYi( Sy_l ); }
+	if( Sy_l.BriYi ){ Sy_l.BriYi( Sy_l ); }
 
 	Ko.SySmz_v[ SyVx_wuk ] = null;
 }
@@ -3192,8 +3252,8 @@ async function KoDz__YaFz()
 	// FNT (Required, but *AFTER* FNT above )
 	const WaDru__Kri_v =
 	[
-		Ko.Ji_v.DoFNT.Hrz7_Kru__ChaWaDru( "Segoe UI Emoji", "url(" + BriDz__Mx_KuTu_vsg + "Mx01__SuKz_MEDIA/SuKz04_WaDru__FONT/WaDru00__Ku.ttf )" )
-		, Ko.Ji_v.DoFNT.Hrz7_Kru__ChaWaDru( "Final Frontier Old Style", "url(" + BriDz__Mx_KuTu_vsg + "Mx01__SuKz_MEDIA/SuKz04_WaDru__FONT/WaDru01__Bz.ttf )" )
+		Ko.Ji.DoFNT.Hrz7_Kru__ChaWaDru( "Segoe UI Emoji", "url(" + BriDz__Mx_KuTu_vsg + "Mx01__SuKz_MEDIA/SuKz04_WaDru__FONT/WaDru00__Ku.ttf )" )
+		, Ko.Ji.DoFNT.Hrz7_Kru__ChaWaDru( "Final Frontier Old Style", "url(" + BriDz__Mx_KuTu_vsg + "Mx01__SuKz_MEDIA/SuKz04_WaDru__FONT/WaDru01__Bz.ttf )" )
 	];
 
 	const WaDru__Kri_yk = await Promise.all( WaDru__Kri_v );
@@ -3288,7 +3348,7 @@ function KoDz__YoChy()
 	_Hrz5_Ki__BriSmz__Yo();
 	Ko.SySmz_v.forEach( function( Ti_k )
 	{
-		if( SySmz__BriYz__Ye_y( Ti_k ) && Ti_k.Ji.BriYo ){ Ti_k.Ji.BriYo( Ti_k ); }
+		if( SySmz__BriYz__Ye_y( Ti_k ) && Ti_k.BriYo ){ Ti_k.BriYo( Ti_k ); }
 	});
 }
 
@@ -3305,7 +3365,7 @@ function KoDz__YuChy()
 	// BROADCAST RESUME
 	Ko.SySmz_v.forEach( function( Ti_k )
 	{
-		if( SySmz__BriYz__Ye_y( Ti_k ) && Ti_k.Ji.BriYu ){ Ti_k.Ji.BriYu( Ti_k); }
+		if( SySmz__BriYz__Ye_y( Ti_k ) && Ti_k.BriYu ){ Ti_k.BriYu( Ti_k); }
 	});
 	_Hrz5_Ki__BriSmz__Yu();
 
@@ -3342,7 +3402,7 @@ function KoDz__Ye( Gi )
 		let GiFe_vsg = new Date();
 		Module.Sma__KeMe_Bz
 		(
-			Ko.KeDru_l.ALERT.BriDz_VaSy_vsg + " [ " + BriDzSa__Da_vsg + " ]"
+			KoSy__KwiGru_KeDru_l.BriDz_VaSy_vsg + " [ " + BriDzSa__Da_vsg + " ]"
 			+ " Mode: " + ( Ko.Hx_SyDx_vsg ? Ko.Hx_SyDx_vsg : "???" )
 			+ " @ " + GiFe_vsg.getHours().toString().padStart(2,"0") + ":" + GiFe_vsg.getMinutes().toString().padStart(2,"0") + ":"  + GiFe_vsg.getSeconds().toString().padStart(2,"0")
 		);
@@ -3374,7 +3434,7 @@ function KoDz__Ye( Gi )
 	// TEK-SERVS UPDATE ALL
 	Ko.SySmz_v.forEach( function( Ti_k )
 	{
-		if( SySmz__BriYz__Ye_y( Ti_k ) && Ti_k.Ji.BriYe ){ Ti_k.Ji.BriYe( Ti_k, Gi ); }
+		if( SySmz__BriYz__Ye_y( Ti_k ) && Ti_k.BriYe ){ Ti_k.BriYe( Ti_k, Gi ); }
 	});
 
 

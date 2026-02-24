@@ -1,4 +1,4 @@
-const DoWG__BriDzSa__Da_wuk = "232"; 
+const DoWG__BriDzSa__Da_wuk = "233"; 
 
 //==============================================
 //==============================================
@@ -38,7 +38,7 @@ FN^TaJiDru:
 //==============================================
 "use strict";
 const DoWG = { SyTu_vsg: "Do", VaDy_vsg: "WG" };
-Ko.Ji_v.DoWG = DoWG;
+Ko.Ji.DoWG = DoWG;
 
 //==============================================
 // COUNTS
@@ -2083,8 +2083,8 @@ DoWG.BriYa = async function( Yz_k )
 
 	//@@@
 	// CDN SYNC
-	const CDN_Version_yk = ( BriDzSa__Da_wuk == DoWG__BriDzSa__Da_wuk );
-	if( MoDzTrx__NxHo_y( "[WG] Version Behind (Try again in 2~15min?)", CDN_Version_yk )){ return null; }
+	const Hra4_Bru__CDN_DaHe_yk = ( BriDzSa__Da_wuk === DoWG__BriDzSa__Da_wuk );
+	if( MoDzTrx__NxHo_y( "[WG] Version Behind (Refresh page to try again in 3~13min?)", Hra4_Bru__CDN_DaHe_yk )){ return null; }
 
 
 	//-------------------------------------------------

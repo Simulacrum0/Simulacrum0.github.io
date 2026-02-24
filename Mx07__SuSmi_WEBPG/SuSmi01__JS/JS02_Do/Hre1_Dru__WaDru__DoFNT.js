@@ -1,7 +1,7 @@
 // SySmz.v.Du
 "use strict";
 const DoFNT = { SyTu_vsg: "Do", VaDy_vsg: "FNT" };
-Ko.Ji_v.DoFNT = DoFNT;
+Ko.Ji.DoFNT = DoFNT;
 
 //==============================================
 // QUALITIES

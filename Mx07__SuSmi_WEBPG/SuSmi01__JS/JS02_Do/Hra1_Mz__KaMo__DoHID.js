@@ -1,7 +1,7 @@
 // SySmz.v.Du
 "use strict";
 const DoHID = { SyTu_vsg: "Do", VaDy_vsg: "HID" };
-Ko.Ji_v.DoHID = DoHID;
+Ko.Ji.DoHID = DoHID;
 
 //==============================================
 // QUALITIES

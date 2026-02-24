@@ -1,7 +1,7 @@
 // SySmz.v.Du
 "use strict";
 const DoSCRN = { SyTu_vsg: "Do", VaDy_vsg: "SCRN" };
-Ko.Ji_v.DoSCRN = DoSCRN;
+Ko.Ji.DoSCRN = DoSCRN;
 
 //==============================================
 // QUALITIES

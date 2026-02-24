@@ -1,7 +1,7 @@
 // SySmz.v.Du
 "use strict";
 const DoNODE = { SyTu_vsg: "Do", VaDy_vsg: "NODE" };
-Ko.Ji_v.DoNODE = DoNODE;
+Ko.Ji.DoNODE = DoNODE;
 
 //=====================================
 // COPY CLIPBOARD
@@ -19,8 +19,10 @@ DoNODE.copyToClipboard = function( text )
 		textarea.textContent = text;
 		textarea.style.position = "fixed";
 		document.body.appendChild( textarea );
+		
 		textarea.select();
 		textarea.setSelectionRange( 0, 99999 );
+
 		try
 		{
 			document.execCommand( "copy" );

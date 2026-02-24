@@ -174,12 +174,26 @@
 		, "TrxJy__SuKz_GriHo_vsg": "Required Content Fail:"
 	}
 
+	, "TERMS":
+	{
+		"HxHo_vsg": "Undefined"
+		, "Mu_vsg": "Ignore"
+		, "Ho_vsg": "No"
+		, "Hx_vsg": "Yes"
+
+		, "HraKoJy__Be_vsg": "Phone"
+		, "HraKoJy__Bi_vsg": "Tablet"
+		, "HraKoJy__BeMz_vsg": "XR"
+		, "HraKoJy__Ba_vsg": "Station"
+
+	}
 
 	, "CREDITS":
 	[
 		{ "ID": "Cosm", "OWN": "john jake kolb v", "URL": "https://PowerOurPeople.com" }
 		, { "ID": "Bugout", "OWN":  "Chris McCormick", "URL": "https://github.com/chr15m/bugout/tree/master" }
 	]
+
 
 	, "SUBJECTS":
 	[

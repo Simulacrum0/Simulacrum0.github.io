@@ -31,7 +31,7 @@
 <body>
 
 	<!-- Ku00__LAUNCH ------------------------------------------------->
-	<div id="Ku00_KeMeKwi" class="Tz01__SpoKz Tz00__Gry HriNe__SmoTy">
+	<div id="Ku01_KeMeKwi" class="Tz01__SpoKz Tz00__Gry HriNe__SmoTy">
 		<canvas id="MxPo_Kwi" class="Tz01__SpoKz Tz02__MxPo"></canvas>
 
 		<!-- PANEL_LAUNCH_CFG -->
@@ -492,7 +492,7 @@
 	</div>	<!-- Ku00__LAUNCH -->
 
 	<!-- Ku01__FAIL ------------------------------------------------>
-	<div id="Ku01_KeMeTrx" class="Tz01__SpoKz Tz00__Gry HriNe__SmoTy">
+	<div id="Ku02_KeMeTrx" class="Tz01__SpoKz Tz00__Gry HriNe__SmoTy">
 		<canvas id="MxPo_Trx" class="Tz01__SpoKz Tz02__MxPo"></canvas>
 
 		<!-- TITLE BAR w ICONS & TXT -->
@@ -513,13 +513,13 @@
 
 
 	<!-- Ku02__LIFE ------------------------------------------------>
-	<div id="Ku02_KeMeBri" class="Tz01__SpoKz Tz00__Gry HriNe__SmoTy">
+	<div id="Ku03_KeMeBri" class="Tz01__SpoKz Tz00__Gry HriNe__SmoTy">
 		<canvas id="MxPo_Bri" class="Tz01__SpoKz Tz02__MxPo"></canvas>
 	</div> <!-- Ku02__LIFE -->
 
 	<!-- Ku03__TYPING ------------------------------------------------>
 	<div class="HriNe__SmoTy">
-		<input id="Ku03_KeDruTre" class="WaDru_Bz" type="text" name="?" >TYPE HERE</input>
+		<input id="Ku04_KeDruTre" class="WaDru_Bz" type="text" name="?" >TYPE HERE</input>
 		<!-- <audio id="audio-player" controls="true" src="https://raw.githubusercontent.com/kbstt/pwa-demos/main/track2.mp3" class="Tz01__SpoKz"></audio> -->
 	</div>
 
@@ -536,7 +536,7 @@
 // SCRIPT STARTUP
 //==============================================
 -->
-<script type="text/javascript" src="Mx07__SuSmi_WEBPG/SuSmi01__JS/JS00_Kru/Kru.js"></script>
+<script type="text/javascript" src="Mx07__SuSmi_WEBPG/SuSmi01__JS/JS00_Ko/Ko.js"></script>
 <!--
 //==============================================
 // END

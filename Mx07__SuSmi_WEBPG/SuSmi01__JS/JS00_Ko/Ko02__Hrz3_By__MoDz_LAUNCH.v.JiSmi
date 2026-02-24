@@ -67,7 +67,7 @@ let Ko =
 	//@@@
 	// SERV
 	// Setup @ KoDz__YaFz
-	, Ji_v: {}
+	, Ji: {}
 
 	//@@@
 	// CFG
@@ -476,7 +476,7 @@ function Hrz3_By__FyTo()
 {
 	const NODE_vksg = navigator.userAgent.toUpperCase();
 
-	SmaSy( "[LAUNCH] Node:", NODE_vksg );
+	SmaSy( "[LAUNCH] Browser_ID:", NODE_vksg );
 
 	//@@@
 	// BACKUP

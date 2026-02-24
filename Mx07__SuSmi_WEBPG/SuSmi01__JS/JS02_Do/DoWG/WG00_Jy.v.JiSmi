@@ -36,7 +36,7 @@ FN^TaJiDru:
 //==============================================
 "use strict";
 const DoWG = { SyTu_vsg: "Do", VaDy_vsg: "WG" };
-Ko.Ji_v.DoWG = DoWG;
+Ko.Ji.DoWG = DoWG;
 
 //==============================================
 // COUNTS

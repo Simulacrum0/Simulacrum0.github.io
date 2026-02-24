@@ -1,4 +1,4 @@
-const DoWA__BriDzSa__Da_wuk = "232"; 
+const DoWA__BriDzSa__Da_wuk = "233"; 
 
 //==============================================
 //==============================================
@@ -9,7 +9,7 @@ const DoWA__BriDzSa__Da_wuk = "232";
 // SySmz.v.Du
 "use strict";
 const DoWA = { SyTu_vsg: "Do", VaDy_vsg: "WA" };
-Ko.Ji_v.DoWA = DoWA;
+Ko.Ji.DoWA = DoWA;
 
 //==============================================
 // QUALITIES

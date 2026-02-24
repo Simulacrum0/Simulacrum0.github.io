@@ -158,8 +158,8 @@ async function KoDz__YaFz()
 	// FNT (Required, but *AFTER* FNT above )
 	const WaDru__Kri_v =
 	[
-		Ko.Ji_v.DoFNT.Hrz7_Kru__ChaWaDru( "Segoe UI Emoji", "url(" + BriDz__Mx_KuTu_vsg + "Mx01__SuKz_MEDIA/SuKz04_WaDru__FONT/WaDru00__Ku.ttf )" )
-		, Ko.Ji_v.DoFNT.Hrz7_Kru__ChaWaDru( "Final Frontier Old Style", "url(" + BriDz__Mx_KuTu_vsg + "Mx01__SuKz_MEDIA/SuKz04_WaDru__FONT/WaDru01__Bz.ttf )" )
+		Ko.Ji.DoFNT.Hrz7_Kru__ChaWaDru( "Segoe UI Emoji", "url(" + BriDz__Mx_KuTu_vsg + "Mx01__SuKz_MEDIA/SuKz04_WaDru__FONT/WaDru00__Ku.ttf )" )
+		, Ko.Ji.DoFNT.Hrz7_Kru__ChaWaDru( "Final Frontier Old Style", "url(" + BriDz__Mx_KuTu_vsg + "Mx01__SuKz_MEDIA/SuKz04_WaDru__FONT/WaDru01__Bz.ttf )" )
 	];
 
 	const WaDru__Kri_yk = await Promise.all( WaDru__Kri_v );
@@ -254,7 +254,7 @@ function KoDz__YoChy()
 	_Hrz5_Ki__BriSmz__Yo();
 	Ko.SySmz_v.forEach( function( Ti_k )
 	{
-		if( SySmz__BriYz__Ye_y( Ti_k ) && Ti_k.Ji.BriYo ){ Ti_k.Ji.BriYo( Ti_k ); }
+		if( SySmz__BriYz__Ye_y( Ti_k ) && Ti_k.BriYo ){ Ti_k.BriYo( Ti_k ); }
 	});
 }
 
@@ -271,7 +271,7 @@ function KoDz__YuChy()
 	// BROADCAST RESUME
 	Ko.SySmz_v.forEach( function( Ti_k )
 	{
-		if( SySmz__BriYz__Ye_y( Ti_k ) && Ti_k.Ji.BriYu ){ Ti_k.Ji.BriYu( Ti_k); }
+		if( SySmz__BriYz__Ye_y( Ti_k ) && Ti_k.BriYu ){ Ti_k.BriYu( Ti_k); }
 	});
 	_Hrz5_Ki__BriSmz__Yu();
 
@@ -308,7 +308,7 @@ function KoDz__Ye( Gi )
 		let GiFe_vsg = new Date();
 		Module.Sma__KeMe_Bz
 		(
-			Ko.KeDru_l.ALERT.BriDz_VaSy_vsg + " [ " + BriDzSa__Da_vsg + " ]"
+			KoSy__KwiGru_KeDru_l.BriDz_VaSy_vsg + " [ " + BriDzSa__Da_vsg + " ]"
 			+ " Mode: " + ( Ko.Hx_SyDx_vsg ? Ko.Hx_SyDx_vsg : "???" )
 			+ " @ " + GiFe_vsg.getHours().toString().padStart(2,"0") + ":" + GiFe_vsg.getMinutes().toString().padStart(2,"0") + ":"  + GiFe_vsg.getSeconds().toString().padStart(2,"0")
 		);
@@ -340,7 +340,7 @@ function KoDz__Ye( Gi )
 	// TEK-SERVS UPDATE ALL
 	Ko.SySmz_v.forEach( function( Ti_k )
 	{
-		if( SySmz__BriYz__Ye_y( Ti_k ) && Ti_k.Ji.BriYe ){ Ti_k.Ji.BriYe( Ti_k, Gi ); }
+		if( SySmz__BriYz__Ye_y( Ti_k ) && Ti_k.BriYe ){ Ti_k.BriYe( Ti_k, Gi ); }
 	});
 
 

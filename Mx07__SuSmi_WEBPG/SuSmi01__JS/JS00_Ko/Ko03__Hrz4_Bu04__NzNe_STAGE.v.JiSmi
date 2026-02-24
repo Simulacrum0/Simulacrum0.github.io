@@ -186,19 +186,66 @@ function Hry_DriBrz( MxVa_vsg, NOTCH_yk, KuPo_l, KwzPo_l, KwaPo_l )
 	HrySxDe__ChyHEXGRID( Sx_l, Mx_l.width, Mx_l.height, 80.0, KuPo_l, KwzPo_l, KwaPo_l, NOTCH_yk );
 }
 
+
+	HriNeDe__ChyKuHi( "Ku00_KoYa", false );
+
+
 //=====================================
-// RESIZE_00 LAUNCH_CFG
+// RESIZE_00 BOOT VISUAL
 //=====================================
-function HryMx00_KeMeKwi()
+function HryMx00_KoYa()
 {
 	//---------------------------------
 	// VIEWS
 	//---------------------------------
-	HriNeDe__ChyKuHi( "Ku00_KeMeKwi", true );
-	HriNeDe__ChyKuHi( "Ku01_KeMeTrx", false );
-	HriNeDe__ChyKuHi( "Ku02_KeMeBri", false );
+	HriNeDe__ChyKuHi( "Ku00_KoYa",true );
+	HriNeDe__ChyKuHi( "Ku01_KeMeKwi", false );
+	HriNeDe__ChyKuHi( "Ku02_KeMeTrx", false );
+	HriNeDe__ChyKuHi( "Ku03_KeMeBri", false );
 
-	HriNeDe__ChyKuHi( "Ku03_KeDruTre", false );
+	HriNeDe__ChyKuHi( "Ku04_KeDruTre", false );
+
+	//---------------------------------
+	// CANVAS
+	//---------------------------------
+	const TaPo_v =
+	[
+		// BLUEPRINT:
+		 "#8888BB", "#9999CC", "#BBBBEE"
+
+		// DEEP BLUE
+		, "#333355", "#9999CC", "#BBBBEE"
+		// RICH_RED
+		, "#DD1111", "#AAAACC", "#DDDDFF"
+		// FADE
+		, "#333333", "#666666", "#999999"
+	];
+
+	// INDEX[ 4 ] by 3
+	const FePo_k = ( BriDzSa__Da_wuk & 3 ) * 4;
+	Hry_DriBrz( "MxPo_Kwi", false, TaPo_v[ FePo_k + 0 ],TaPo_v[ FePo_k + 1 ],TaPo_v[ FePo_k + 2 ] );
+
+	
+	//---------------------------------
+	// GUI_SYNC
+	//---------------------------------
+	Hrz4_Bu__KwiYz__HriNe_MyYy();
+}
+
+//=====================================
+// RESIZE_01 LAUNCH_CFG
+//=====================================
+function HryMx01_KeMeKwi()
+{
+	//---------------------------------
+	// VIEWS
+	//---------------------------------
+	HriNeDe__ChyKuHi( "Ku00_KoYa", false );
+	HriNeDe__ChyKuHi( "Ku01_KeMeKwi", true );
+	HriNeDe__ChyKuHi( "Ku02_KeMeTrx", false );
+	HriNeDe__ChyKuHi( "Ku03_KeMeBri", false );
+
+	HriNeDe__ChyKuHi( "Ku04_KeDruTre", false );
 
 	//---------------------------------
 	// CANVAS
@@ -216,16 +263,15 @@ function HryMx00_KeMeKwi()
 
 		// DEEP BLUE
 		, "#333355", "#9999CC", "#BBBBEE"
+		// RICH_RED
+		, "#DD1111", "#AAAACC", "#DDDDFF"
 		// FADE
 		, "#333333", "#666666", "#999999"
-		// CHARCOAL
-		, "#555555", "#BBBBBB", "#DDDDDD"
 		// DARK
 		, "#000000", "#555555", "#888888"
 	];
 
 	// INDEX[ 8 ] by 3
-	// const FePo_k = 5 * 3;
 	const FePo_k = ( BriDzSa__Da_wuk & 7 ) * 3;
 	Hry_DriBrz( "MxPo_Kwi", false, TaPo_v[ FePo_k + 0 ],TaPo_v[ FePo_k + 1 ],TaPo_v[ FePo_k + 2 ] );
 
@@ -237,7 +283,7 @@ function HryMx00_KeMeKwi()
 
 
 //==============================================
-// RESIZE_01 FAIL
+// RESIZE_02 FAIL
 //==============================================
 function HryMx01_KeMeTrx()
 {
@@ -246,16 +292,19 @@ function HryMx01_KeMeTrx()
 	//---------------------------------
 	Hri4_Bu__TaNeDe__ChiKri();
 
-	HriNeDe__ChyKuHi( "Ku00_KeMeKwi", false );
-	HriNeDe__ChyKuHi( "Ku01_KeMeTrx", true );
-	HriNeDe__ChyKuHi( "Ku02_KeMeBri", false );
+	HriNeDe__ChyKuHi( "Ku00_KoYa", false );
+	HriNeDe__ChyKuHi( "Ku01_KeMeKwi", false );
+	HriNeDe__ChyKuHi( "Ku02_KeMeTrx", true );
+	HriNeDe__ChyKuHi( "Ku03_KeMeBri", false );
 
-	HriNeDe__ChyKuHi( "Ku03_KeDruTre", false );
+	HriNeDe__ChyKuHi( "Ku04_KeDruTre", false );
 
 	//---------------------------------
 	// CANVAS
 	//---------------------------------
-	Hry_DriBrz( "MxPo_Trx", true, "#DD1111", "#AAAACC", "#DDDDFF" );
+	// CHARCOAL
+	Hry_DriBrz( "MxPo_Trx", true, "#555555", "#BBBBBB", "#DDDDDD" );
+
 
 	//---------------------------------
 	// MSG
@@ -285,20 +334,21 @@ function HryMx01_KeMeTrx()
 
 
 //==============================================
-// RESIZE_02 LIFE
+// RESIZE_03 LIFE
 //==============================================
-function HryMx02_KeMeBri()
+function HryMx03_KeMeBri()
 {
 	Hri4_Bu__TaNeDe__ChiKri();
 
 	//---------------------------------
 	// VIEWS
 	//---------------------------------
-	HriNeDe__ChyKuHi( "Ku00_KeMeKwi", false );
-	HriNeDe__ChyKuHi( "Ku01_KeMeTrx", false );
-	HriNeDe__ChyKuHi( "Ku02_KeMeBri", true );
+	HriNeDe__ChyKuHi( "Ku00_KoYa", false );
+	HriNeDe__ChyKuHi( "Ku01_KeMeKwi", false );
+	HriNeDe__ChyKuHi( "Ku02_KeMeTrx", false );
+	HriNeDe__ChyKuHi( "Ku03_KeMeBri", true );
 
-	HriNeDe__ChyKuHi( "Ku03_KeDruTre", false );
+	HriNeDe__ChyKuHi( "Ku04_KeDruTre", false );
 
 }
 
@@ -350,7 +400,7 @@ function Hrz4_Bu__ChyNeKu( Vx_wu )
 //==============================================
 function Tra_KeMeBri()
 {
-	HryMx02_KeMeBri();
+	HryMx03_KeMeBri();
 	const KwiYz_k = Ko.TaKeDy_l.KwiYz_v[ Ko.TaKeDy_l.KeDy_wu ];
 
 	//!!!
@@ -366,8 +416,8 @@ function Tra_KeMeBri()
 		KwiYz_k.Ne03_Hry06__SmzYz_q = Cha__YzVi_q;
 
 		// Restart WG
-		const SaWG_l = Ko.SySmz_v[ SyVx.WG_qk ];
-		SaWG_l.KaSmz_l.destroy();
+		const SyWG_k = Ko.SySmz_v[ SyVx.WG_qk ];
+		SyWG_k.KaSmz_l.destroy();
 	}
 
 	Hrz4_Bu__KwiYz__Ko_ChyYe();
@@ -402,7 +452,7 @@ function KoDz_GyHa()
 {
 	//@@@
 	// UPDATE MODE
-	( KoDz__YzYa_y() ) ? HryMx00_KeMeKwi() : ( KoDz__YzTrx_y() ? HryMx01_KeMeTrx() : HryMx02_KeMeBri() );
+	( KoDz__YzYa_y() ) ? HryMx01_KeMeKwi() : ( KoDz__YzTrx_y() ? HryMx01_KeMeTrx() : HryMx03_KeMeBri() );
 
 	//@@@
 	// EM SIZE

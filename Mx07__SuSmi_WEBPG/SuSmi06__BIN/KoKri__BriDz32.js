@@ -3203,64 +3203,64 @@ var ASM_CONSTS = {
   },
   72937: () => KoDz__YzYe_y(),
   72964: () => {
-    const SaWG_l = Ko.SySmz_v[SyVx.WG_qk];
+    const SyWG_k = Ko.SySmz_v[SyVx.WG_qk];
     const Brz_wuk = 0;
-    DoWG.TxCho_JaKu(SaWG_l, Brz_wuk, 0, 0, 0, SaWG_l.MxPo_Bri_l.width, SaWG_l.MxPo_Bri_l.height);
+    DoWG.TxCho_JaKu(SyWG_k, Brz_wuk, 0, 0, 0, SyWG_k.MxPo_Bri_l.width, SyWG_k.MxPo_Bri_l.height);
   },
   73124: () => {
     MoDzTrx("Fake Error as TEST");
   },
   73161: () => {
-    const SaWG_l = Ko.SySmz_v[SyVx.WG_qk];
-    SaWG_l.KaSmz_l.destroy();
+    const SyWG_k = Ko.SySmz_v[SyVx.WG_qk];
+    SyWG_k.KaSmz_l.destroy();
   },
   73232: () => {
-    const SaLANG_l = Ko.SySmz_v[SyVx.LANG_qk];
-    SaLANG_l.Ji.Mo(SaLANG_l, 0, 0);
+    const SyLANG_k = Ko.SySmz_v[SyVx.LANG_qk];
+    SyLANG_k.Mo(SyLANG_k, 0, 0);
   },
-  73315: () => {
-    const SaPAY_l = Ko.SySmz_v[SyVx.PAY_qk];
-    DoPAY.Mo(SaPAY_l, 0, 0);
+  73312: () => {
+    const SyPAY_k = Ko.SySmz_v[SyVx.PAY_qk];
+    SyPAY_k.Mo(SyPAY_k, 0, 0);
   },
-  73389: () => {
+  73388: () => {
     location.reload();
   },
-  73412: () => {
-    const SaSHAR_l = Ko.SySmz_v[SyVx.SHAR_qk];
-    DoSHAR.Mo(SaSHAR_l, 0, 0);
+  73411: () => {
+    const SySHAR_k = Ko.SySmz_v[SyVx.SHAR_qk];
+    SySHAR_k.Mo(SySHAR_k, 0, 0);
   },
-  73490: () => {},
-  73494: () => {
+  73491: () => {},
+  73495: () => {
     console.log("MC: HrySmz__BriYa");
   },
-  73534: () => {},
-  73538: () => {
-    const SaSTRM_l = Ko.SySmz_v[SyVx.STRM_qk];
+  73535: () => {},
+  73539: () => {
+    const SySTRM_k = Ko.SySmz_v[SyVx.STRM_qk];
   },
-  73587: $0 => {
-    const SaWG_l = Ko.SySmz_v[SyVx.WG_qk];
-    const SaSTRM_l = Ko.SySmz_v[SyVx.STRM_qk];
-    if (!SySmz__BriYz__Ye_y(SaWG_l) || !SySmz__BriYz__Ye_y(SaSTRM_l)) return;
+  73588: $0 => {
+    const SyWG_k = Ko.SySmz_v[SyVx.WG_qk];
+    const SySTRM_k = Ko.SySmz_v[SyVx.STRM_qk];
+    if (!SySmz__BriYz__Ye_y(SyWG_k) || !SySmz__BriYz__Ye_y(SySTRM_k)) return;
     let Kwy_wu = $0;
     const LAYER_Gz_wuk = 0;
-    const SaGLF_l = Ko.SySmz_v[SyVx.GLF_qk];
+    const SyGLF_k = Ko.SySmz_v[SyVx.GLF_qk];
     const KwiYz_k = Ko.TaKeDy_l.KwiYz_v[Ko.TaKeDy_l.KeDy_wu];
-    SaGLF_l.Ji.Hre7_Me__KeDru_Ha(SaGLF_l, "🛸| Ke: " + KwiYz_k.KeDy_vsg, 0, 0);
-    SaGLF_l.Ji.Hre7_Me__KeDru_Ha(SaGLF_l, "👾| Ye: " + Ko.YeWi_df.toFixed(1) + "ms", 0, 64);
-    SaGLF_l.Ji.Hre7_Me__KeDru_Ha(SaGLF_l, "👹| Hry: " + Ko.KaBxGiHa_df.toFixed(1) + "ms", 0, 128);
-    SaGLF_l.Ji.Hre7_Me__KeDru_Ha(SaGLF_l, "🔊| Hru: Spkr: " + KwiYz_k.Ne02_Hru__MxPeVo_ba + " Mute: " + KwiYz_k.Ne02_Hru__MxPeHo_y, 0, 192);
-    SaGLF_l.Ji.Hre7_Me__KeDru_Ha(SaGLF_l, "👽| HrzBy: " + Ko.Hrz3_By__Va_vsg + " v" + Ko.Hrz3_By__Da_wfk, 0, 256);
-    SaGLF_l.Ji.Hre7_Me__KeDru_Ha(SaGLF_l, "🤖| Go: " + "-", 0, 320);
-    SaGLF_l.Ji.Hre7_Me__KeDru_Ha(SaGLF_l, "💀| C: ", 0, 384);
-    SaGLF_l.Ji.Hre7_Me__KeDru_Ha(SaGLF_l, "🔥| YeFo: " + Ko.YeFo_wu, 0, 448);
+    SyGLF_k.Hre7_Me__KeDru_Ha(SyGLF_k, "🛸| Ke: " + KwiYz_k.KeDy_vsg, 0, 0);
+    SyGLF_k.Hre7_Me__KeDru_Ha(SyGLF_k, "👾| Ye: " + Ko.YeWi_df.toFixed(1) + "ms", 0, 64);
+    SyGLF_k.Hre7_Me__KeDru_Ha(SyGLF_k, "👹| Hry: " + Ko.KaBxGiHa_df.toFixed(1) + "ms", 0, 128);
+    SyGLF_k.Hre7_Me__KeDru_Ha(SyGLF_k, "🔊| Hru: Spkr: " + KwiYz_k.Ne02_Hru__MxPeVo_ba + " Mute: " + KwiYz_k.Ne02_Hru__MxPeHo_y, 0, 192);
+    SyGLF_k.Hre7_Me__KeDru_Ha(SyGLF_k, "👽| HrzBy: " + Ko.Hrz3_By__Va_vsg + " v" + Ko.Hrz3_By__Da_wfk, 0, 256);
+    SyGLF_k.Hre7_Me__KeDru_Ha(SyGLF_k, "🤖| Go: " + "-", 0, 320);
+    SyGLF_k.Hre7_Me__KeDru_Ha(SyGLF_k, "💀| C: ", 0, 384);
+    SyGLF_k.Hre7_Me__KeDru_Ha(SyGLF_k, "🔥| YeFo: " + Ko.YeFo_wu, 0, 448);
     try {
-      SaWG_l.Ji.KiCho_JaKz(SaWG_l, 0, 0, 0, 512, 512, SaGLF_l.WzPo_Gwa_l);
+      SyWG_k.KiCho_JaKz(SyWG_k, 0, 0, 0, 512, 512, SyGLF_k.WzPo_Gwa_l);
       if ((Ko.SuKz_v[1] instanceof HTMLVideoElement) && (Ko.SuKz_v[1].Kwy_wu)) {
-        SaWG_l.Ji.KiCho_JaKz(SaWG_l, 0, 512, LAYER_Gz_wuk, 480, 480, Ko.SuKz_v[1]);
+        SyWG_k.KiCho_JaKz(SyWG_k, 0, 512, LAYER_Gz_wuk, 480, 480, Ko.SuKz_v[1]);
       }
       if ((Ko.SuKz_v[2] instanceof HTMLVideoElement) && (Ko.SuKz_v[2].Kwy_wu > 0) && (Ko.SuKz_v[2].Kwy_wu != Kwy_wu)) {
         {
-          SaWG_l.Ji.KiCho_JaKz(SaWG_l, 512, 512, LAYER_Gz_wuk, 512, 512, Ko.SuKz_v[2]);
+          SyWG_k.KiCho_JaKz(SyWG_k, 512, 512, LAYER_Gz_wuk, 512, 512, Ko.SuKz_v[2]);
         }
         Kwy_wu = Ko.SuKz_v[2].Kwy_wu;
       }
