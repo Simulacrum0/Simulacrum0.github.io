@@ -1,4 +1,4 @@
-const DoWA__BriDzSa__Da_wuk = "230"; 
+const DoWA__BriDzSa__Da_wuk = "231"; 
 
 //==============================================
 //==============================================
@@ -55,13 +55,13 @@ function Try_JaPe_l( Sx_l, bufferList )
 	// SmaJe( "[WA] LOAD FINISH" );
 
 	// Create two sources and play them both together.
-	var source1 = Sx_l.createBufferSource();
+	let source1 = Sx_l.createBufferSource();
 
 	source1.buffer = bufferList[0];
 	source1.connect(Sx_l.destination);
 	source1.start(0);
 
-	var source2 = Sx_l.createBufferSource();
+	let source2 = Sx_l.createBufferSource();
 	source2.buffer = bufferList[1];
 	source2.connect(Sx_l.destination);
 	source2.start( 1.0 );
@@ -81,10 +81,10 @@ function Try_JaPe_t(Sx_l, JaPe__Va_vsg )
 
 Try_JaPe_t.prototype.loadBuffer = function(url, index)
 {
-    var request = new XMLHttpRequest();
+    let request = new XMLHttpRequest();
     request.open("GET", url, true);
     request.responseType = "arraybuffer";
-    var loader = this;
+    let loader = this;
 
 	request.onload = function()
 	{
@@ -117,7 +117,7 @@ Try_JaPe_t.prototype.loadBuffer = function(url, index)
 
 Try_JaPe_t.prototype.load = function()
 {
-    for (var i = 0; i < this.JaPe__Va_vsg.length; ++i)
+    for (let i = 0; i < this.JaPe__Va_vsg.length; ++i)
         this.loadBuffer(this.JaPe__Va_vsg[i], i);
 }
 

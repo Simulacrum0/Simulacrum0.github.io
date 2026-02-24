@@ -232,7 +232,7 @@ async function handleClick(event) {
   }
   // Remove all previous landmarks
   const allCanvas = event.target.parentNode.getElementsByClassName("canvas");
-  for (var i = allCanvas.length - 1; i >= 0; i--) {
+  for (let i = allCanvas.length - 1; i >= 0; i--) {
     const n = allCanvas[i];
     n.parentNode.removeChild(n);
   }

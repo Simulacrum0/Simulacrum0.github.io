@@ -15,9 +15,9 @@ DoWG.KiCho_JiJa = async function( Sa_l )
 
 	// SAVE SHADER PRECOMPILED
 	// // Check for shader cache support
-	// if (KaSmz_l.features.has('pipeline-cache')) {
+	// if (KaSmz_l.features.has("pipeline-cache")) {
 		//   // Get cached shader binary if available
-		//   const cachedShader = await caches.match('/shaders/particle.wgsl.bin');
+		//   const cachedShader = await caches.match("/shaders/particle.wgsl.bin");
 
 		//   if (cachedShader) {
 //     // Use pre-compiled binary shader
@@ -30,14 +30,14 @@ DoWG.KiCho_JiJa = async function( Sa_l )
 //     });
 
 //     const pipeline = KaSmz_l.createRenderPipeline({
-	//       vertex: { module: shader, entryPoint: 'vertexMain' },
-	//       fragment: { module: shader, entryPoint: 'fragmentMain' },
+	//       vertex: { module: shader, entryPoint: "vertexMain" },
+	//       fragment: { module: shader, entryPoint: "fragmentMain" },
 	//       // Other pipeline settings...
 	//     });
 
 	//     // Cache the compiled binary
 	//     const binary = await pipeline.getBinary();
-	//     await caches.put('/shaders/particle.wgsl.bin', new Response(binary));
+	//     await caches.put("/shaders/particle.wgsl.bin", new Response(binary));
 	//   }
 	// }
 
@@ -86,7 +86,7 @@ DoWG.KiCho_JxRe = function( Sa_l )
 	// 	  size: 1024 * 1024 * 16, // 16MB
 	// 	  usage: GPUBufferUsage.STORAGE | GPUBufferUsage.COPY_DST,
 	// 	  mappedAtCreation: true,
-	// 	  memoryControlFlags: ['persist', 'direct'] // WebGPU 2.0 feature
+	// 	  memoryControlFlags: ["persist", "direct"] // WebGPU 2.0 feature
 	// 	});
 
 	// 	// Get direct access to GPU memory

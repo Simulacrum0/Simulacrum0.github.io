@@ -20,8 +20,8 @@ DoWG.BriYe = async function( Sa_l, GiDri_duk  )
 	const DBG_yk = true;
 	if( DBG_yk )
 	{
-		Sa_l.KaSmz_l.pushErrorScope('internal');
-		Sa_l.KaSmz_l.pushErrorScope('validation');
+		Sa_l.KaSmz_l.pushErrorScope("internal");
+		Sa_l.KaSmz_l.pushErrorScope("validation");
 	}
 
 	//@@@
@@ -31,11 +31,11 @@ DoWG.BriYe = async function( Sa_l, GiDri_duk  )
 	//@@@
 	// CMD PASS BEGIN
 	const KaSmz_l = Sa_l.KaSmz_l;
-	const MoKro_l = KaSmz_l.createCommandEncoder( { label: 'MoKro' } );
+	const MoKro_l = KaSmz_l.createCommandEncoder( { label: "MoKro" } );
 
 	const TaMoVa_k =
 	{
-		label: 'TaMo'
+		label: "TaMo"
 	};
 
 	//&&&
@@ -64,7 +64,7 @@ DoWG.BriYe = async function( Sa_l, GiDri_duk  )
 	// PTRN
 	{
 		TaMo_l = MoKro_l.beginComputePass( TaMoVa_k );
-		TaMo_l.pushDebugGroup('Gen PTRN');
+		TaMo_l.pushDebugGroup("Gen PTRN");
 		{
 			TaMo_l.setPipeline( Sa_l.PTRN_k );
 			TaMo_l.setBindGroup( 0, Sa_l.SuGweKy_v[ SuGweKy.DuPoMy_qk ] );
@@ -82,7 +82,7 @@ DoWG.BriYe = async function( Sa_l, GiDri_duk  )
 	if( 10 )
 	{
 		TaMo_l = MoKro_l.beginComputePass( TaMoVa_k );
-		TaMo_l.pushDebugGroup('Gen SHP');
+		TaMo_l.pushDebugGroup("Gen SHP");
 		{
 			TaMo_l.setPipeline( Sa_l.SHP_k );
 			TaMo_l.setBindGroup( 0, Sa_l.SuGweKy_v[ SuGweKy.DuPoMy_qk ] );
@@ -103,7 +103,7 @@ DoWG.BriYe = async function( Sa_l, GiDri_duk  )
 	if( 0 )
 	{
 		TaMo_l = MoKro_l.beginComputePass();
-		TaMo_l.pushDebugGroup('Gen LGT');
+		TaMo_l.pushDebugGroup("Gen LGT");
 		{
 			TaMo_l.setPipeline( Sa_l.LGT_k );
 			TaMo_l.setBindGroup( 0, Sa_l.SuGweKy_v[ SuGweKy.DuPoMy_qk ] );
@@ -121,7 +121,7 @@ DoWG.BriYe = async function( Sa_l, GiDri_duk  )
 	//@@@
 	// MAKE
 	// TaMo_l = MoKro_l.beginComputePass();
-	// TaMo_l.pushDebugGroup('Gen MEXEL');
+	// TaMo_l.pushDebugGroup("Gen MEXEL");
 	// {
 	// 	TaMo_l.setPipeline( Sa_l.MEXEL_Mz_k );
 	// 	TaMo_l.setBindGroup( 0, Sa_l.SuGweKy_v[ SuGweKy.DuPoTrz_qk ] );
@@ -221,7 +221,7 @@ DoWG.BriYe = async function( Sa_l, GiDri_duk  )
 		);
 
 		// COPY QUERY RESULTS
-		if( Sa_l.ToMy_Sma_l.mapState === 'unmapped' )
+		if( Sa_l.ToMy_Sma_l.mapState === "unmapped" )
 		{
 			MoKro_l.copyBufferToBuffer( Sa_l.TaGiMy_Ma_l, 0, Sa_l.ToMy_Sma_l, 0, Sa_l.ToMy_Sma_l.size);
 		};
@@ -236,7 +236,7 @@ DoWG.BriYe = async function( Sa_l, GiDri_duk  )
 	//@@@
 	// TIMER
 	// timestamps are recorded in nanoseconds.
-    if( Sa_l.KaTy.TIMER_yk && Sa_l.ToMy_Sma_l.mapState === 'unmapped' )
+    if( Sa_l.KaTy.TIMER_yk && Sa_l.ToMy_Sma_l.mapState === "unmapped" )
 	{
 		//SmaJe( "[WG] TIMER WAIT" );
       	await Sa_l.ToMy_Sma_l.mapAsync( GPUMapMode.READ ).then(() =>
@@ -295,7 +295,7 @@ DoWG.BriYe = async function( Sa_l, GiDri_duk  )
 			// ITER SECTIONS
 			const Ku_l = Sa_l.TxCho__TraJaKu_v[ 0 ];
 			{
-				// SAVE for 'continuous Blit in WebXR'
+				// SAVE for "continuous Blit in WebXR"
 				const WzPo_Gwa_l = new OffscreenCanvas( Ku_l.GyGx_wu, Ku_l.GyGa_wu );
 				if( MyTo_v && WzPo_Gwa_l )
 				{
@@ -315,14 +315,14 @@ DoWG.BriYe = async function( Sa_l, GiDri_duk  )
 
 						// SAFARI: NO webp!
 						// image/webp,jpeg,png
-						const blobA = await WzPo_Gwa_l.convertToBlob( { type: 'image/jpeg', quality: 0.67 } );
-						Hra6_Ku__ToKz_ChyBLOB( blobA, 'SHOT_A.jpeg');
+						const blobA = await WzPo_Gwa_l.convertToBlob( { type: "image/jpeg", quality: 0.67 } );
+						Hra6_Ku__ToKz_ChyBLOB( blobA, "SHOT_A.jpeg");
 
-						// const blobB = await WzPo_Gwa_l.convertToBlob( { type: 'image/jpeg', quality: 0.33 } );
-						// Hra6_Ku__ToKz_ChyBLOB( blobB, 'SHOT_B.jpeg');
+						// const blobB = await WzPo_Gwa_l.convertToBlob( { type: "image/jpeg", quality: 0.33 } );
+						// Hra6_Ku__ToKz_ChyBLOB( blobB, "SHOT_B.jpeg");
 
-						// const blobC = await WzPo_Gwa_l.convertToBlob( { type: 'image/jpeg', quality: 0.00 } );
-						// Hra6_Ku__ToKz_ChyBLOB( blobC, 'SHOT_C.jpeg');
+						// const blobC = await WzPo_Gwa_l.convertToBlob( { type: "image/jpeg", quality: 0.00 } );
+						// Hra6_Ku__ToKz_ChyBLOB( blobC, "SHOT_C.jpeg");
 
 					}// if ctx
 
@@ -331,7 +331,7 @@ DoWG.BriYe = async function( Sa_l, GiDri_duk  )
 				}// if canvas
 			}// per Request
 
-			// SIGNAL we're clear
+			// SIGNAL Mem Clear
 			Sa_l.TxCho__JxRe_l.unmap();
 			Sa_l.TxCho__TraJaKu_v = [];
 		}// per IMG

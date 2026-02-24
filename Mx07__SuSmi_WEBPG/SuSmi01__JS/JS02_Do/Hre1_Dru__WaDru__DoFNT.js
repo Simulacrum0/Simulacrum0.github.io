@@ -79,7 +79,7 @@ DoFNT.Hrz7_Kru__ChaWaDru = async function( Va_l, KuTu_l )
 	// ECOSYS_GOOD
 	if( KoDz__YzTrx_y() ) return;
 
-	var Fe__WaDru_l = new FontFace( Va_l, KuTu_l );
+	let Fe__WaDru_l = new FontFace( Va_l, KuTu_l );
 	Fe__WaDru_l.load()
 
 	.then(function( loaded_face )
@@ -102,7 +102,7 @@ DoFNT.Hrz7_Kru__ChaWaDru = async function( Va_l, KuTu_l )
 // Add to FONT_FAM, URL.createObjectURL for bin, etc.
 
 
-var junction_font = new FontFace('Junction Regular', 'url(fonts/junction-regular.woff)');
+let junction_font = new FontFace('Junction Regular', 'url(fonts/junction-regular.woff)');
 
 junction_font.load().then(function(loaded_face)
 {
@@ -131,7 +131,7 @@ document.fonts.ready.then(function(font_face_set) {
 	{
 		// We will add it to document with another shinning new CSS3 Font-Loading API
 		// https://developer.mozilla.org/en-US/docs/Web/API/CSS_Font_Loading_API
-		var fnt = new FontFace(fontName, `url(${URL.createObjectURL(fontBlob)}) format('woff2')`, { style: fStyle, weight: fWeight });
+		let fnt = new FontFace(fontName, `url(${URL.createObjectURL(fontBlob)}) format('woff2')`, { style: fStyle, weight: fWeight });
 		document.fonts.add(fnt);
 		fnt.loaded.then( function ()
 		{

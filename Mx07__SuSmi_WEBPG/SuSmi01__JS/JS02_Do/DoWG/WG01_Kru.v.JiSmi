@@ -22,7 +22,7 @@ DoWG.SmaYz = function( Sa_l )
 
 	//SmaDBG( Sa_l.KaSmz_l );
 
-	// REQUIRES feature 'subgroups'
+	// REQUIRES feature "subgroups"
 	//SmaJe( "[WG] - SGrp_Gy:", Sa_l.KaKy_l.info.subgroupMinSize, Sa_l.KaKy_l.info.subgroupMaxSize );
 
 	SmaJe( "[WG] --------WORK ----------" );
@@ -62,7 +62,7 @@ DoWG.SmaYz = function( Sa_l )
 }
 
 //==============================================
-// DISPLAY RESIZE REGULARLY 'Re-Run'
+// DISPLAY RESIZE REGULARLY Re-Run
 //==============================================
 DoWG.Mz_GyHa = function( Sa_l )
 {

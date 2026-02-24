@@ -1,5 +1,5 @@
-const BriDzSa__Da_vsg = "PUB_v0.230"; 
- const BriDzSa__Da_wuk = "230"; 
+const BriDzSa__Da_vsg = "PUB_v0.231"; 
+ const BriDzSa__Da_wuk = "231"; 
  const BriDz__Mx_KuTu_vsg = "https://powerourpeople.com/"; 
 
 //==============================================
@@ -410,7 +410,7 @@ const SmaViKa_wuk = ( SmaBraHi_wuk - 1 );
 //----------------------------
 // SYSTEM SERVICE_GOVERNOR
 //----------------------------
-var Ko =
+let Ko =
 {
 	//@@@
 	// BOOT
@@ -418,11 +418,11 @@ var Ko =
 	, MoDzYa__GiDri_duk: 0
 	, BriYa_GiDri_df: 0.0
 	, BriYe_GiDri_df: 0.0
-
 	, Trx_vsg: null
 
 	//@@@
 	// NODE
+
 	// MOBILE
 	, Hrz3_By__KaGeSpu_y: false
 	, Hrz3_By__VaDe_vsg: "Unknown OS"
@@ -443,9 +443,11 @@ var Ko =
 
 	//@@@
 	// SERV
+	// Setup @ KoDz__YaFz
+
 	//@@@
-	// CLNs
-	// Configs by User
+	// CFG
+	// by User
 	, TaKeDy_l: {}
 
 	//@@@
@@ -459,7 +461,7 @@ var Ko =
 	, YeFo_wu: 0
 	, YeWi_df: 0.0
 };
-Ko = Ko;
+window.Ko = Ko;
 
 
 //==============================================
@@ -468,7 +470,7 @@ Ko = Ko;
 //==============================================
 // 'arguments object' is a builtin Array -like object.
 // Array.prototype.slice.call(arguments) converts *array-like* 'arguments' to a TRUE array 'ARG_v:
-// function LOG(){ var ARG_v = Array.prototype.slice.call(arguments); console.log.apply(console, ARG_v); }
+// function LOG(){ let ARG_v = Array.prototype.slice.call(arguments); console.log.apply(console, ARG_v); }
 
 //----------------------------------
 const SmaJy_vsg =
@@ -503,10 +505,10 @@ function SmaTro_vsg( SmaJy_wu, ARG_v )
 //----------------------------------
 // LOG by AUDIENCE
 //----------------------------------
-function SmaSy(){ var ARG_v = Array.prototype.slice.call(arguments); console.log( SmaTro_vsg( 0, ARG_v ) );}
-function SmaJe(){ var ARG_v = Array.prototype.slice.call(arguments); console.log( SmaTro_vsg( 1, ARG_v ) );}
-function SmaDre(){ var ARG_v = Array.prototype.slice.call(arguments); console.warn( SmaTro_vsg( 2, ARG_v ) );}
-function SmaTrx(){ var ARG_v = Array.prototype.slice.call(arguments); console.error( SmaTro_vsg( 3, ARG_v ) );}
+function SmaSy(){ let ARG_v = Array.prototype.slice.call(arguments); console.log( SmaTro_vsg( 0, ARG_v ) );}
+function SmaJe(){ let ARG_v = Array.prototype.slice.call(arguments); console.log( SmaTro_vsg( 1, ARG_v ) );}
+function SmaDre(){ let ARG_v = Array.prototype.slice.call(arguments); console.warn( SmaTro_vsg( 2, ARG_v ) );}
+function SmaTrx(){ let ARG_v = Array.prototype.slice.call(arguments); console.error( SmaTro_vsg( 3, ARG_v ) );}
 
 function SmaGwxHu(){ SmaJe( "[" + this.VaDy_vsg + "]----------------------------------" ); }
 function SmaGwxDe(){ SmaJe( "[" + this.VaDy_vsg + "]=============================" ); }
@@ -517,7 +519,7 @@ function SmaGwxHi(){ SmaJe( "[" + this.VaDy_vsg + "]############################
 function SmaDBG()
 //----------------------------------
 {
-	var ARG_v = Array.prototype.slice.call(arguments);
+	let ARG_v = Array.prototype.slice.call(arguments);
 	console.log.apply(console, ARG_v);
 }
 
@@ -530,12 +532,24 @@ function SmaKzFu( Kz_k )
 	Object.values( Kz_k ).forEach( _Vu => { SmaDBG( _Vu ); });
 }
 
+//==============================================
+// REPORT__IF_INVALID
+//==============================================
+function SmaSy__NxHo_y( Va, Kri_y )
+{
+	if( !Kri_y )
+	{
+		SmaSy( Va + " @ " + Kri_y );
+		return true;
+	}
+	return false;
+}
 
 
-//----------------------------
-// JS_ERR
+//==============================================
+// WINDOW__ERR
+//==============================================
 window.onerror = (e) =>
-//----------------------------
 {
 	const Trx_vsg = ( JSON.stringify( e ) );
 
@@ -765,7 +779,7 @@ function MoDzTrx( Trx_vsg )
 
 
 //==============================================
-// TEST_VALID
+// FAIL__IF_INVALID
 //==============================================
 function MoDzTrx__NxHo_y( Va, Kri_y )
 {
@@ -796,8 +810,7 @@ async function MoDz__DzStxGru()
 	sessionStorage.setItem( 'KoGi', Ko.MoDzYa__GiDri_duk );
 
 	// TAB-CONNECTIONS = Broadcast Type
-//	var BCHN_l = new BroadcastChannel('tab-connections');
-	var BCHN_l = new BroadcastChannel( "MoDz__DzStxGru" );
+	let BCHN_l = new BroadcastChannel( "MoDz__DzStxGru" );
 
 	//@@@
 	//SEND MSG
@@ -809,7 +822,7 @@ async function MoDz__DzStxGru()
 	BCHN_l.onmessage = function( e )
 	{
 		// Split by Colon
-		var PKT_k = e.data.split(':');
+		let PKT_k = e.data.split(':');
 
 		if( PKT_k[0] == "KrzVy" )
 		{
@@ -859,15 +872,8 @@ function Hrz3_By__FyTo()
 	}
 
 	//@@@
-	// MOST ANDROID shows LINUX in platform
-	if( NODE_vksg.includes( "ANDROID" ) )
-	{
-		Ko.Hrz3_By__Gwz_vsg = "DRD";
-		Ko.Hrz3_By__VaDe_vsg = "Android";
-
-		Ko.Hrz3_By__KaGeSpu_y = true;
-	}
-	else if( NODE_vksg.includes( "LINUX" ) || NODE_vksg.includes( "X11" ) || NODE_vksg.includes( "WAYLAND" ) )
+	// MATCH OS
+	if( NODE_vksg.includes( "LINUX" ) || NODE_vksg.includes( "X11" ) || NODE_vksg.includes( "WAYLAND" ) )
 	{
 		Ko.Hrz3_By__Gwz_vsg = "LNX";
 		Ko.Hrz3_By__VaDe_vsg = "Linux";
@@ -904,6 +910,21 @@ function Hrz3_By__FyTo()
 	{
 		Ko.Hrz3_By__Gwz_vsg = "WIN";
 		Ko.Hrz3_By__VaDe_vsg = "Windows";
+	}
+
+	//&&&
+	// MOST ANDROID shows LINUX in platform so MUST COME AFTER!
+	if( NODE_vksg.includes( "ANDROID" ) )
+	{
+		Ko.Hrz3_By__Gwz_vsg = "DRD";
+		Ko.Hrz3_By__VaDe_vsg = "Android";
+
+		// Default CPU in case not listed
+		Ko.KaBz__Gwz_vsg = "ARM";
+		Ko.KaBz__VaDe_vsg = "ARM64";
+
+		// Mobile
+		Ko.Hrz3_By__KaGeSpu_y = true;
 	}
 
 
@@ -2831,15 +2852,8 @@ const IDB_ToKzVy__My = ( Va ) =>
 // END
 //==============================================
 //==============================================
-// SERV SETUP
+// SERV ROSTER
 //==============================================
-function SySmz__BriYz_ChyYi( Sa_l ){ Sa_l.BriYz_q = BriYz.Yi_qk; }
-function SySmz__BriYz_ChyTrx( Sa_l ){ Sa_l.BriYz_q = BriYz.Trx_qk; }
-
-function SySmz__YaFz_v( Ji_k ){ return{ Ji: Ji_k, BriYz_q: BriYz.Ya_qk }; }
-function SySmz__YaFx_v( Sa_l ){ Sa_l.BriYz_q = BriYz.Ye_qk; return Sa_l; }
-function SySmz__BriYz__Ye_y( Sa_l ){ return ( Sa_l && ( Sa_l.BriYz_q !== undefined ) && ( Sa_l.BriYz_q === BriYz.Ye_qk )); }
-
 const SyVx = Object.freeze
 ({
 	//----------------------------------------------------------
@@ -2904,15 +2918,35 @@ const SyVx = Object.freeze
 	, AVATAR_qk: 31
 	, SMTP_qk: 32
 
-	, SwiBLANK_qk: 33 // BLANK
+	, IMAP_qk: 33
+	, DAV_qk: 34
+	, JCON_qk: 35
+	, LGATO_qk: 36
+
+
+	, SwiBLANK_qk: 37 // BLANK
 
 	//$$$
-	// 34 SERVS 2026/02
+	// 38 SERVS 2026/02
 
 });
 
+// SERV ROSTER
 const SyVx__GryFo_wuk = SyVx.length;
-const SuKz__GryFo_wuk = 10;
+// SERV MEDIA-STRM ROSTER
+const SuKz__GryFo_wuk = 16;
+
+
+//==============================================
+// SERV SETUP
+//==============================================
+function SySmz__BriYz_ChyYi( Sa_l ){ Sa_l.BriYz_q = BriYz.Yi_qk; }
+function SySmz__BriYz_ChyTrx( Sa_l ){ Sa_l.BriYz_q = BriYz.Trx_qk; }
+
+function SySmz__YaFz_v( Ji_k ){ return{ Ji: Ji_k, BriYz_q: BriYz.Ya_qk }; }
+function SySmz__YaFx_v( Sa_l ){ Sa_l.BriYz_q = BriYz.Ye_qk; return Sa_l; }
+function SySmz__BriYz__Ye_y( Sa_l ){ return ( Sa_l && ( Sa_l.BriYz_q !== undefined ) && ( Sa_l.BriYz_q === BriYz.Ye_qk )); }
+
 
 //==============================================
 // SERV_ADD^ChaSy
