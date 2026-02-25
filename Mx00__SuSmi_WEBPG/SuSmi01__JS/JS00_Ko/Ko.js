@@ -1,5 +1,5 @@
-const BriDzSa__Da_vsg = "PUB_v0.237"; 
- const BriDzSa__Da_wuk = "237"; 
+const BriDzSa__Da_vsg = "PUB_v0.238"; 
+ const BriDzSa__Da_wuk = "238"; 
  const BriDz__Mx_KuTu_vsg = "https://powerourpeople.com/"; 
 
 //==============================================
@@ -12,20 +12,31 @@ const BriDzSa__Da_vsg = "PUB_v0.237";
 const KoSy__KwiGru_KeDru_l =
 {
 	//@@@
-	// REPLACED after LAUNCH
+	// LABELS REPLACED after LAUNCH
 	// once culture loaded
-	BriDz_VaSy_vsg: "MicroCosm"
-	, TrxBz_vsg: "Tech FAIL: "
-	, TrxKrx_vsg: "Please try a different Browser or Computer"
+	BriDz00_VaSy_vsg: "MicroCosm"
+	, BriDz02__TrxBz_vsg: "Tech FAIL: "
+	, BriDz03__TrxKrx_vsg: "Please try a different Browser or Computer"
+
 
 	//@@@
 	// POSSIBLE USE ONLY ON STARTUP
 	// No need to replace later
 	, BriDz_KiMiFe_vsg: "Tech Loading"
-	
+
 	, TrxJy00__HrxCheHo__CORS_vsg: "Security Fail: No HTTPS CORS Found to run Security Policies."
 	, TrxJy01__HrzMoHo__WASM_vsg: "Web Assembly not Supported: Try a different Browser"
 	, TrxJy02__MoDzStxGru_vsg: "Only *1* Webpage Allowed at a time"
+
+
+	//@@@
+	// FIXED LANGUAGE
+	, "CREDITS":
+	[
+		{ "ID": "Cosm", "OWN": "john jake kolb v", "URL": "https://PowerOurPeople.com" }
+		, { "ID": "Bugout", "OWN":  "Chris McCormick", "URL": "https://github.com/chr15m/bugout/tree/master" }
+	]
+
 };
 
 
@@ -744,12 +755,12 @@ function MoDzTrx( Trx_vsg )
 	//&&&
 	// HEADER (Fixed)
 	// Err Alert, Build Version,
-	const Bz_vsg = KoSy__KwiGru_KeDru_l.TrxBz_vsg + " [" + ( Ko.Hx_SyDx_vsg ? Ko.Hx_SyDx_vsg : "???" ) + " " + BriDzSa__Da_vsg + "] ";
+	const Bz_vsg = KoSy__KwiGru_KeDru_l.BriDz02__TrxBz_vsg + " [" + ( Ko.Hx_SyDx_vsg ? Ko.Hx_SyDx_vsg : "???" ) + " " + BriDzSa__Da_vsg + "] ";
 
 	//&&&
 	// FOOTER (Dynamic)
 	// Please Quit + Err Msg
-	const Bo_vsg = KoSy__KwiGru_KeDru_l.TrxKrx_vsg + " " + Trx_vsg;
+	const Bo_vsg = KoSy__KwiGru_KeDru_l.BriDz03__TrxKrx_vsg + " " + Trx_vsg;
 
 	//&&&
 	// GUI MSGBARS
@@ -1173,7 +1184,7 @@ function Hrz4_Bu__KwiYz__HriNe_MyYy()
 
 	//@@@
 	// USER LOCK
-	HriNeDe__ChyHryVoHu( "BriDz_TraKwi_vsg", SmxHa_yk );
+	HriNeDe__ChyHryVoHu( "BriDz01_TraKwi_vsg", SmxHa_yk );
 
 	// SECURITY AREA
 	HriNeDe__ChyHry( "Ne01_KeDy06__CheHaKri", SmxHa_yk );
@@ -1462,15 +1473,15 @@ async function Hre1_Dru__KeDru_ChyVx( KeDru_wuk )
 
 	//@@@
 	// REPLACE CORE LAUNCH-ERR MSGS
-	KoSy__KwiGru_KeDru_l.BriDz_VaSy_vsg = KeDru_l.LAUNCH.BriDz_VaSy_vsg;
-	KoSy__KwiGru_KeDru_l.TrxBz_vsg = KeDru_l.LAUNCH.TrxBz_vsg;
-	KoSy__KwiGru_KeDru_l.TrxKrx_vsg = KeDru_l.LAUNCH.TrxKrx_vsg;
+	KoSy__KwiGru_KeDru_l.BriDz00_VaSy_vsg = KeDru_l.LABELS.BriDz00_VaSy_vsg;
+	KoSy__KwiGru_KeDru_l.BriDz02__TrxBz_vsg = KeDru_l.LABELS.BriDz02__TrxBz_vsg;
+	KoSy__KwiGru_KeDru_l.BriDz03__TrxKrx_vsg = KeDru_l.LABELS.BriDz03__TrxKrx_vsg;
 
 
 	//@@@
 	// SUBMIT BTN
-	const HriNe_KwiVu_k = document.getElementById( 'BriDz_TraKwi_vsg' );
-	HriNe_KwiVu_k.value = KeDru_l.LABELS.BriDz_TraKwi_vsg;
+	const HriNe_KwiVu_k = document.getElementById( 'BriDz01_TraKwi_vsg' );
+	HriNe_KwiVu_k.value = KeDru_l.LABELS.BriDz01_TraKwi_vsg;
 
 
 	//@@@
@@ -1769,7 +1780,7 @@ function HriNeDe__TraKwi()
 {
 	//@@@
 	// SUBMIT BTN
-	const HriNe_KwiVu_k = document.getElementById( "BriDz_TraKwi_vsg" );
+	const HriNe_KwiVu_k = document.getElementById( "BriDz01_TraKwi_vsg" );
 	HriNe_KwiVu_k.focus();
 }
 
@@ -2447,22 +2458,8 @@ function HryMx00_KeMeHxHo()
 	//---------------------------------
 	// CANVAS
 	//---------------------------------
-	const TaPo_v =
-	[
-		// BLUEPRINT:
-		 "#8888BB", "#9999CC", "#BBBBEE"
-
-		// DEEP BLUE
-		, "#333355", "#9999CC", "#BBBBEE"
-		// RICH_RED
-		, "#DD1111", "#AAAACC", "#DDDDFF"
-		// FADE
-		, "#333333", "#666666", "#999999"
-	];
-
-	// INDEX[ 4 ] by 3
-	const FePo_k = ( BriDzSa__Da_wuk & 3 ) * 4;
-	Hry_DriBrz( "MxPo_HxHo", false, TaPo_v[ FePo_k + 0 ],TaPo_v[ FePo_k + 1 ],TaPo_v[ FePo_k + 2 ] );
+	// BLUEPRINT:
+	Hry_DriBrz( "MxPo_HxHo", false, "#8888BB", "#9999CC", "#BBBBEE" );
 
 
 	//---------------------------------
@@ -2496,14 +2493,14 @@ function HryMx01_KeMeKwi()
 		// BLUEPRINT:
 		, "#8888BB", "#9999CC", "#BBBBEE"
 		// GREYGRAF
-		, "#EEEEFF", "#FFAAAA", "#FF8888"
+		, "#999999", "#FFFFFF", "#222222"
 		// PURPLE
 		, "#993399", "#999999", "#CCCCCC"
 
+		// CHARCOAL
+		, "#555555", "#BBBBBB", "#DDDDDD"
 		// DEEP BLUE
 		, "#333355", "#9999CC", "#BBBBEE"
-		// RICH_RED
-		, "#DD1111", "#AAAACC", "#DDDDFF"
 		// FADE
 		, "#333333", "#666666", "#999999"
 		// DARK
@@ -2541,8 +2538,8 @@ function HryMx01_KeMeTrx()
 	//---------------------------------
 	// CANVAS
 	//---------------------------------
-	// CHARCOAL
-	Hry_DriBrz( "MxPo_Trx", true, "#555555", "#BBBBBB", "#DDDDDD" );
+	// RICH_RED
+	Hry_DriBrz( "MxPo_Trx", true, "#990c0c", "#CC9999", "#FFBBBB" );
 
 
 	//---------------------------------
@@ -2552,7 +2549,7 @@ function HryMx01_KeMeTrx()
 	const TrxKa_k = document.getElementById("TrxKa");
 	const TrxSma_Ta_k = document.getElementById("TrxSma_Ta");
 
-	TrxBz_k.innerText = KoSy__KwiGru_KeDru_l.BriDz_VaSy_vsg + " " + KoSy__KwiGru_KeDru_l.TrxBz_vsg + BriDzSa__Da_vsg;
+	TrxBz_k.innerText = KoSy__KwiGru_KeDru_l.BriDz00_VaSy_vsg + " " + KoSy__KwiGru_KeDru_l.BriDz02__TrxBz_vsg + BriDzSa__Da_vsg;
 
 	TrxKa_k.innerText = Ko.Trx_vsg;
 
@@ -3392,7 +3389,7 @@ function KoDz__Ye( Gi )
 		let GiFe_vsg = new Date();
 		Module.Sma__KeMe_Bz
 		(
-			KoSy__KwiGru_KeDru_l.BriDz_VaSy_vsg + " [ " + BriDzSa__Da_vsg + " ]"
+			KoSy__KwiGru_KeDru_l.BriDz00_VaSy_vsg + " [ " + BriDzSa__Da_vsg + " ]"
 			+ " Mode: " + ( Ko.Hx_SyDx_vsg ? Ko.Hx_SyDx_vsg : "???" )
 			+ " @ " + GiFe_vsg.getHours().toString().padStart(2,"0") + ":" + GiFe_vsg.getMinutes().toString().padStart(2,"0") + ":"  + GiFe_vsg.getSeconds().toString().padStart(2,"0")
 		);

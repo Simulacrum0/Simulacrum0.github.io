@@ -172,7 +172,7 @@ function Hrz4_Bu__KwiYz__HriNe_MyYy()
 
 	//@@@
 	// USER LOCK
-	HriNeDe__ChyHryVoHu( "BriDz_TraKwi_vsg", SmxHa_yk );
+	HriNeDe__ChyHryVoHu( "BriDz01_TraKwi_vsg", SmxHa_yk );
 
 	// SECURITY AREA
 	HriNeDe__ChyHry( "Ne01_KeDy06__CheHaKri", SmxHa_yk );

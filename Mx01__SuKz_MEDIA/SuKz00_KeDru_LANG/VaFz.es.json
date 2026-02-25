@@ -1,14 +1,14 @@
 {
 	"LAUNCH":
 	{
-		"BriDz_VaSy_vsg": "MicroCosm"
-		, "TrxBz_vsg": "Tech FAIL: "
-		, "TrxKrx_vsg": "Please try a different Browser or Device"
+		"BriDz00_VaSy_vsg": "MicroCosm"
+		, "BriDz02__TrxBz_vsg": "Tech FAIL: "
+		, "BriDz03__TrxKrx_vsg": "Please try a different Browser or Device"
 	}
 
 	, "LABELS":
 	{
-		"BriDz_TraKwi_vsg": "🚀 EMPEZAR!"
+		"BriDz01_TraKwi_vsg": "🚀 EMPEZAR!"
 
 		, "Ne00_KuNe_vsg": "🗺️\nDONDE"
 		, "Ne01_KeDy_vsg": "🥸\nQUÍEN"
@@ -101,8 +101,8 @@
 	{
 		"Dre__SySmz_GriHo_vsg": "Optional Service Fail: "
 
-		, "TrxBz_vsg": "Tech FAIL: "
-		, "TrxKrx_vsg": "Please try a different Browser or Device"
+		, "BriDz02__TrxBz_vsg": "Tech FAIL: "
+		, "BriDz03__TrxKrx_vsg": "Please try a different Browser or Device"
 
 		, "TrxJy__KaBzTrx__WG_vsg": "GPU Not Available or Capable: Try Restarting Browser or Machine"
 

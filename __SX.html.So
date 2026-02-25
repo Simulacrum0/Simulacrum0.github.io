@@ -7,21 +7,26 @@
 //==============================================
 -->
 <head>
+	<!-- META -->
+	<meta charset="utf-8">
+	<meta name="robots" content="index, follow">
+	<title>MicroCosm</title>
+
+
+	<!-- SECURITY -->
 	<!-- <script type="text/javascript" src="Mx00__SuSmi_WEBPG/SuSmi01__JS/JS03_Swi/SwiCORS/Hrx4_Che__MeGrx_CORS_DBG.js"></script> -->
 	<script type="text/javascript" src="Hrx4_Che__MeGrx_CORS.js"></script>
 
-	<!-- PRELOAD to avoid 'flash of font change' -->
+	<!-- FONT PRELOAD to avoid 'flash of font change' -->
 	<link rel="preload" as="font" href="Mx01__SuKz_MEDIA/SuKz04_WaDru__FONT/WaDru01__Bz.ttf" crossorigin >
 	<link rel="preload" as="font" href="Mx01__SuKz_MEDIA/SuKz04_WaDru__FONT/WaDru00__Ku.ttf" crossorigin >
 
-	<meta charset="utf-8">
-	<meta http-equiv="Content-Type"
-	content="text/html; charset=utf-8">
-	<title>MicroCosm</title>
-	<link rel="manifest" href="manifest.json" />
-
 	<!-- STYLE & MEDIA -->
-	<link rel="stylesheet" href="Mx00__SuSmi_WEBPG/SuSmi02__CSS/JoDx02__KoKri.css">
+	<link rel="apple-touch-icon" sizes="180x180" href="/Mx01__SuKz_MEDIA/SuKz02_JaPo__PICT/JaPo03__DryDz/DryDz00__POP_180.png">
+	<link rel="shortcut icon" type="image/png" href="Mx01__SuKz_MEDIA/SuKz02_JaPo__PICT/JaPo03__DryDz/DryDz00__POP_512.png"/>
+	<link rel="manifest" href="manifest.json" />
+	<link rel="stylesheet" href="Mx00__SuSmi_WEBPG/SuSmi02__CSS/JoDx00__Ko.css">
+
 </head>
 <!--
 //==============================================
@@ -31,23 +36,26 @@
 <body>
 
 	<!-- Ku00__LAUNCH ------------------------------------------------->
-	<div id="Ku00_KoYa" class="Tz01__SpoKz Tz00__Gry HriNe__SmoTy">
-		<canvas id="MxPo_Kwi" class="Tz01__SpoKz Tz02__MxPo"></canvas>
+	<div id="Ku00_KoYa" class="Tz01__SpoKz Tz00__Gry HriNe__SmoTy KzVo_StzDriStx">
+		<canvas id="MxPo_HxHo" class="Tz01__SpoKz Tz02__MxPo"></canvas>
+
 		<!-- PANEL_LAUNCH_CFG -->
-		<div id="Nz00_Kwi" class="Ku00__KaFz">
+		<div class="Ku00__KaFz">
 
 			<!-- TITLE BAR w ICONS & TXT -->
 			<header><div class="Ku01_BzVa_GeBre">
-				<span  id="BriDz_VaSy_vsg" class="BriDz_FzVa WaDru_SmuHi"></span>
-				<img class="BriDz_FzVa JaPo__BriDzSo" src="Mx01__SuKz_MEDIA/SuKz03_SaTrz__SELFMADE/BriDzGwz_Gx.jpg"></img>
+				<img class="BriDz_FzVa JaPo__BriDzSo" src="Mx01__SuKz_MEDIA/SuKz02_JaPo__PICT/JaPo03__DryDz/DryDz00__POP_512.png"></img>
+				<span class="BriDz_FzVa WaDru_JoGrz">NOW LOADING...PLEASE WAIT</span>
+				<img class="BriDz_FzVa JaPo__BriDzSo" src="Mx01__SuKz_MEDIA/SuKz02_JaPo__PICT/JaPo01__SaTrz/SaTrz00__Gx.jpg"></img>
 			</div></header><!-- Ku01_BzVa_GeBre -->
 
+			<h6 class="BriDz_DeVa WaDru_De">Please wait while we download data. Thank you.</h6>
 		</div>
 	</div>
 
 
 	<!-- Ku01__LAUNCH ------------------------------------------------->
-	<div id="Ku01_KeMeKwi" class="Tz01__SpoKz Tz00__Gry HriNe__SmoTy">
+	<div id="Ku01_KeMeKwi" class="Tz01__SpoKz Tz00__Gry HriNe__SmoTy KzVo_StzDriStx">
 		<canvas id="MxPo_Kwi" class="Tz01__SpoKz Tz02__MxPo"></canvas>
 
 		<!-- PANEL_LAUNCH_CFG -->
@@ -55,16 +63,16 @@
 
 			<!-- TITLE BAR w ICONS & TXT -->
 			<header><div class="Ku01_BzVa_GeBre">
-				<img class="BriDz_FzVa JaPo__BriDzSo" src="Mx01__SuKz_MEDIA/SuKz07_DryDz__BIZ/DryDzGwz05__THINKER_512.png"></img>
+				<img class="BriDz_FzVa JaPo__BriDzSo" src="Mx01__SuKz_MEDIA/SuKz02_JaPo__PICT/JaPo03__DryDz/DryDz00__POP_512.png"></img>
 				<span  id="BriDz_VaSy_vsg" class="BriDz_FzVa WaDru_SmuHi"></span>
 				<!-- LAUNCH BTN ---------------->
 				<input id="BriDz_TraKwi_vsg" class="BriDz_FzVa HriNe_Tra TreHy HriNe_TraKwi WaDru_SmuHi" tabindex=1 type="submit" onclick="Tra_KeMeBri()"/>
 
-				<img class="BriDz_FzVa JaPo__BriDzSo" src="Mx01__SuKz_MEDIA/SuKz03_SaTrz__SELFMADE/BriDzGwz_Gx.jpg"></img>
+				<img class="BriDz_FzVa JaPo__BriDzSo" src="Mx01__SuKz_MEDIA/SuKz02_JaPo__PICT/JaPo01__SaTrz/SaTrz00__Gx.jpg"></img>
 			</div></header><!-- Ku01_BzVa_GeBre -->
 
 			<!-- PANEL_GUI -->
-			<div id="Ku01__HriNe" class="Ku01__HriNe Ku01__HriNe">
+			<div class="Ku01__HriNe">
 
 				<!-- NzVa_TraKz^PANEL__MENU_TABS ------------------------------->
 				 <nav><div class="Ku02__HriNzVa Ku02__HriNzVa" role="tablist">
@@ -80,7 +88,7 @@
 				</div></nav>
 
 				<!-- Ku04__NeKu^PANEL_CHOICE ----------------------------------->
-				<main><div id="Ku03__NzKwa" class="Ku03__NzKwa Ku03__NzKwa">
+				<main><div class="Ku03__NzKwa">
 
 					<!-- Ku04__NeKu0x^WHERE -->
 					<div id="NeKu0x" class="NeKuJy Ku04__MoKu">
@@ -105,11 +113,11 @@
 							</div>
 
 							<div>
-								<img class="BriDz_FzVa JaPo__BriDzSo" src="Mx01__SuKz_MEDIA/SuKz03_SaTrz__SELFMADE/BriDzGwz_Gx.jpg"></img>
+								<img class="BriDz_FzVa JaPo__BriDzSo" src="Mx01__SuKz_MEDIA/SuKz02_JaPo__PICT/JaPo01__SaTrz/SaTrz00__Gx.jpg"></img>
 								<span id="Ne00_KuNe03__VaBz_vsg" class="HriNeVa KeDruNz WaDru_Bz"></span>
-								<img class="BriDz_FzVa JaPo__BriDzSo" src="Mx01__SuKz_MEDIA/SuKz03_SaTrz__SELFMADE/BriDzGwz_Gx.jpg"></img>
+								<img class="BriDz_FzVa JaPo__BriDzSo" src="Mx01__SuKz_MEDIA/SuKz02_JaPo__PICT/JaPo01__SaTrz/SaTrz00__Gx.jpg"></img>
 								<div class="BriDz_Sz WaDru_De">INFO SPACETIME 005</div>
-								<img class="BriDz_FzVa JaPo__BriDzSo" src="Mx01__SuKz_MEDIA/SuKz03_SaTrz__SELFMADE/BriDzGwz_Gx.jpg"></img>
+								<img class="BriDz_FzVa JaPo__BriDzSo" src="Mx01__SuKz_MEDIA/SuKz02_JaPo__PICT/JaPo01__SaTrz/SaTrz00__Gx.jpg"></img>
 							</div>
 						</div>
 
@@ -502,20 +510,23 @@
 	</div>	<!-- Ku00__LAUNCH -->
 
 	<!-- Ku02__FAIL ------------------------------------------------>
-	<div id="Ku02_KeMeTrx" class="Tz01__SpoKz Tz00__Gry HriNe__SmoTy">
+	<div id="Ku02_KeMeTrx" class="Tz01__SpoKz Tz00__Gry HriNe__SmoTy KzVo_StzDriStx">
 		<canvas id="MxPo_Trx" class="Tz01__SpoKz Tz02__MxPo"></canvas>
 
 		<!-- TITLE BAR w ICONS & TXT -->
 		<div id="Nz01_Trx" class="Ku00__KaFz" hidden>
 
 		<div class="Ku01_BzVa_GeBre">
-			<img class="BriDz_FzVa JaPo__BriDzSo" src="Mx01__SuKz_MEDIA/SuKz07_DryDz__BIZ/DryDzGwz05__THINKER_512.png"></img>
+			<img class="BriDz_FzVa JaPo__BriDzSo" src="Mx01__SuKz_MEDIA/SuKz02_JaPo__PICT/JaPo03__DryDz/DryDz00__POP_512.png"></img>
 			<span id="TrxBz" class="BriDz_FzVa WaDru_SmuHi"></span>
-			<img class="BriDz_FzVa JaPo__BriDzSo" src="Mx01__SuKz_MEDIA/SuKz03_SaTrz__SELFMADE/BriDzGwz_Gx.jpg"></img>
+			<img class="BriDz_FzVa JaPo__BriDzSo" src="Mx01__SuKz_MEDIA/SuKz02_JaPo__PICT/JaPo01__SaTrz/SaTrz00__Gx.jpg"></img>
 		</div><!-- Ku01_BzVa_GeBre -->
 
-			<p id="TrxKa" class="WaDru_De BriDz_TrxKz"></p>
-			<p id="TrxJaPo" class="NiJaPo_Trx">😟</p>
+			<p id="TrxKa" class="WaDru_Bz BriDz_TrxKz"></p>
+			<p class="NiJaPo_Trx">😟</p>
+
+			<br><br><br><br><br>
+			<p id="Trx__TaSma_vsg" class="WaDru_Bz BriDz_TrxKz "></p>
 
 			<div id="TrxSma_Ta" class="KeDruSkx WaDru_De"></div>
 		</div> <!-- PANEL FAIL -->
@@ -523,7 +534,7 @@
 
 
 	<!-- Ku03__LIFE ------------------------------------------------>
-	<div id="Ku03_KeMeBri" class="Tz01__SpoKz Tz00__Gry HriNe__SmoTy">
+	<div id="Ku03_KeMeBri" class="Tz01__SpoKz Tz00__Gry HriNe__SmoTy KzVo_StzDriStx">
 		<canvas id="MxPo_Bri" class="Tz01__SpoKz Tz02__MxPo"></canvas>
 	</div> <!-- Ku02__LIFE -->
 

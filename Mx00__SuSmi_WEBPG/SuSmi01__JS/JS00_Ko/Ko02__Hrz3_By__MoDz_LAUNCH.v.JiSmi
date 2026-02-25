@@ -364,12 +364,12 @@ function MoDzTrx( Trx_vsg )
 	//&&&
 	// HEADER (Fixed)
 	// Err Alert, Build Version,
-	const Bz_vsg = KoSy__KwiGru_KeDru_l.TrxBz_vsg + " [" + ( Ko.Hx_SyDx_vsg ? Ko.Hx_SyDx_vsg : "???" ) + " " + BriDzSa__Da_vsg + "] ";
+	const Bz_vsg = KoSy__KwiGru_KeDru_l.BriDz02__TrxBz_vsg + " [" + ( Ko.Hx_SyDx_vsg ? Ko.Hx_SyDx_vsg : "???" ) + " " + BriDzSa__Da_vsg + "] ";
 
 	//&&&
 	// FOOTER (Dynamic)
 	// Please Quit + Err Msg
-	const Bo_vsg = KoSy__KwiGru_KeDru_l.TrxKrx_vsg + " " + Trx_vsg;
+	const Bo_vsg = KoSy__KwiGru_KeDru_l.BriDz03__TrxKrx_vsg + " " + Trx_vsg;
 
 	//&&&
 	// GUI MSGBARS

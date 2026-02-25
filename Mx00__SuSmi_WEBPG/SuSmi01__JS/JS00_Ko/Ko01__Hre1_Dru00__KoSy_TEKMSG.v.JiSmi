@@ -8,20 +8,31 @@
 const KoSy__KwiGru_KeDru_l =
 {
 	//@@@
-	// REPLACED after LAUNCH
+	// LABELS REPLACED after LAUNCH
 	// once culture loaded
-	BriDz_VaSy_vsg: "MicroCosm"
-	, TrxBz_vsg: "Tech FAIL: "
-	, TrxKrx_vsg: "Please try a different Browser or Computer"
+	BriDz00_VaSy_vsg: "MicroCosm"
+	, BriDz02__TrxBz_vsg: "Tech FAIL: "
+	, BriDz03__TrxKrx_vsg: "Please try a different Browser or Computer"
+
 
 	//@@@
 	// POSSIBLE USE ONLY ON STARTUP
 	// No need to replace later
 	, BriDz_KiMiFe_vsg: "Tech Loading"
-	
+
 	, TrxJy00__HrxCheHo__CORS_vsg: "Security Fail: No HTTPS CORS Found to run Security Policies."
 	, TrxJy01__HrzMoHo__WASM_vsg: "Web Assembly not Supported: Try a different Browser"
 	, TrxJy02__MoDzStxGru_vsg: "Only *1* Webpage Allowed at a time"
+
+
+	//@@@
+	// FIXED LANGUAGE
+	, "CREDITS":
+	[
+		{ "ID": "Cosm", "OWN": "john jake kolb v", "URL": "https://PowerOurPeople.com" }
+		, { "ID": "Bugout", "OWN":  "Chris McCormick", "URL": "https://github.com/chr15m/bugout/tree/master" }
+	]
+
 };
 
 

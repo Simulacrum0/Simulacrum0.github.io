@@ -1,14 +1,11 @@
 {
-	"LAUNCH":
+	"LABELS":
 	{
-		"BriDz_VaSy_vsg": "MicroCosm"
-		, "TrxBz_vsg": "Tech FAIL: "
-		, "TrxKrx_vsg": "Please try a different Browser or Device"
-	}
+		"BriDz00_VaSy_vsg": "MicroCosm"
+		, "BriDz01_TraKwi_vsg": "🚀 LAUNCH"
+		, "BriDz02__TrxBz_vsg": "Tech FAIL: "
+		, "BriDz03__TrxKrx_vsg": "Please try a different WebBrowser or Electronic-Device"
 
-	, "LABELS":
-	{
-		"BriDz_TraKwi_vsg": "🚀 LAUNCH"
 
 		, "Ne00_KuNe_vsg": "🗺️\nWHERE"
 		, "Ne01_KeDy_vsg": "🥸\nWHO"
@@ -145,6 +142,9 @@
 		, "Ne06_Grx01__Ka01_vsg": "Legal Compliances go here"
 		, "Ne06_Grx01__Ka02_vsg": "Credits go here"
 		, "Ne06_Grx01__Ka03_vsg": "Company info goes here"
+
+		, "Trx__TaSma_vsg": "Event LOG"
+
 	}
 
 
@@ -188,16 +188,11 @@
 
 	}
 
-	, "CREDITS":
-	[
-		{ "ID": "Cosm", "OWN": "john jake kolb v", "URL": "https://PowerOurPeople.com" }
-		, { "ID": "Bugout", "OWN":  "Chris McCormick", "URL": "https://github.com/chr15m/bugout/tree/master" }
-	]
-
 
 	, "SUBJECTS":
 	[
-		{ "ID": "Everyone", "NAME": "1) Introduction for Everyone" }
-		, { "ID": "Features", "NAME": "2) Features for Solutions" }
+		{ "VaDe": "Everyone", "HxDe": "Introduction for Everyone\nAbout this digital simulation." }
+		, { "VaDe": "Features", "HxDe": "Features for Solutions\nAbout what you can do." }
+
 	]
 }

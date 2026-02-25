@@ -205,22 +205,8 @@ function HryMx00_KeMeHxHo()
 	//---------------------------------
 	// CANVAS
 	//---------------------------------
-	const TaPo_v =
-	[
-		// BLUEPRINT:
-		 "#8888BB", "#9999CC", "#BBBBEE"
-
-		// DEEP BLUE
-		, "#333355", "#9999CC", "#BBBBEE"
-		// RICH_RED
-		, "#DD1111", "#AAAACC", "#DDDDFF"
-		// FADE
-		, "#333333", "#666666", "#999999"
-	];
-
-	// INDEX[ 4 ] by 3
-	const FePo_k = ( BriDzSa__Da_wuk & 3 ) * 4;
-	Hry_DriBrz( "MxPo_HxHo", false, TaPo_v[ FePo_k + 0 ],TaPo_v[ FePo_k + 1 ],TaPo_v[ FePo_k + 2 ] );
+	// BLUEPRINT:
+	Hry_DriBrz( "MxPo_HxHo", false, "#8888BB", "#9999CC", "#BBBBEE" );
 
 
 	//---------------------------------
@@ -254,14 +240,14 @@ function HryMx01_KeMeKwi()
 		// BLUEPRINT:
 		, "#8888BB", "#9999CC", "#BBBBEE"
 		// GREYGRAF
-		, "#EEEEFF", "#FFAAAA", "#FF8888"
+		, "#999999", "#FFFFFF", "#222222"
 		// PURPLE
 		, "#993399", "#999999", "#CCCCCC"
 
+		// CHARCOAL
+		, "#555555", "#BBBBBB", "#DDDDDD"
 		// DEEP BLUE
 		, "#333355", "#9999CC", "#BBBBEE"
-		// RICH_RED
-		, "#DD1111", "#AAAACC", "#DDDDFF"
 		// FADE
 		, "#333333", "#666666", "#999999"
 		// DARK
@@ -299,8 +285,8 @@ function HryMx01_KeMeTrx()
 	//---------------------------------
 	// CANVAS
 	//---------------------------------
-	// CHARCOAL
-	Hry_DriBrz( "MxPo_Trx", true, "#555555", "#BBBBBB", "#DDDDDD" );
+	// RICH_RED
+	Hry_DriBrz( "MxPo_Trx", true, "#990c0c", "#CC9999", "#FFBBBB" );
 
 
 	//---------------------------------
@@ -310,7 +296,7 @@ function HryMx01_KeMeTrx()
 	const TrxKa_k = document.getElementById("TrxKa");
 	const TrxSma_Ta_k = document.getElementById("TrxSma_Ta");
 
-	TrxBz_k.innerText = KoSy__KwiGru_KeDru_l.BriDz_VaSy_vsg + " " + KoSy__KwiGru_KeDru_l.TrxBz_vsg + BriDzSa__Da_vsg;
+	TrxBz_k.innerText = KoSy__KwiGru_KeDru_l.BriDz00_VaSy_vsg + " " + KoSy__KwiGru_KeDru_l.BriDz02__TrxBz_vsg + BriDzSa__Da_vsg;
 
 	TrxKa_k.innerText = Ko.Trx_vsg;
 

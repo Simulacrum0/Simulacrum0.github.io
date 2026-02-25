@@ -692,10 +692,10 @@ TEXT
 	margin: var(--GyStz) var(--GyBo);
 }
 
-/* TEXT__TITLE_WORDSIZE */
+/* TEXT__DEFAULT_WORDSIZE */
 .BriDz_DeVa
 {
-	font-size: var(--GyTreHi);
+	font-size: var(--GyTreDe);
 	white-space: pre-wrap;
 	text-align: center;
 	margin: var(--GyBo) var(--GyBo);
@@ -718,7 +718,7 @@ TEXT
 /* TEXT__DBG ERR */
 .BriDz_TrxKz
 {
-	font-size: var(--GyTreHi);
+	font-size: var(--GyKaHu);
 	text-align: center;
 }
 

@@ -108,15 +108,15 @@ async function Hre1_Dru__KeDru_ChyVx( KeDru_wuk )
 
 	//@@@
 	// REPLACE CORE LAUNCH-ERR MSGS
-	KoSy__KwiGru_KeDru_l.BriDz_VaSy_vsg = KeDru_l.LAUNCH.BriDz_VaSy_vsg;
-	KoSy__KwiGru_KeDru_l.TrxBz_vsg = KeDru_l.LAUNCH.TrxBz_vsg;
-	KoSy__KwiGru_KeDru_l.TrxKrx_vsg = KeDru_l.LAUNCH.TrxKrx_vsg;
+	KoSy__KwiGru_KeDru_l.BriDz00_VaSy_vsg = KeDru_l.LABELS.BriDz00_VaSy_vsg;
+	KoSy__KwiGru_KeDru_l.BriDz02__TrxBz_vsg = KeDru_l.LABELS.BriDz02__TrxBz_vsg;
+	KoSy__KwiGru_KeDru_l.BriDz03__TrxKrx_vsg = KeDru_l.LABELS.BriDz03__TrxKrx_vsg;
 
 
 	//@@@
 	// SUBMIT BTN
-	const HriNe_KwiVu_k = document.getElementById( 'BriDz_TraKwi_vsg' );
-	HriNe_KwiVu_k.value = KeDru_l.LABELS.BriDz_TraKwi_vsg;
+	const HriNe_KwiVu_k = document.getElementById( 'BriDz01_TraKwi_vsg' );
+	HriNe_KwiVu_k.value = KeDru_l.LABELS.BriDz01_TraKwi_vsg;
 
 
 	//@@@
