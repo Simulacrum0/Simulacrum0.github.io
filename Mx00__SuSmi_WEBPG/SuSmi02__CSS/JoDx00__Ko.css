@@ -164,8 +164,17 @@ FONT
 @@@@@@@@@@@@@@@*/
 .WaDru_SmuHi
 {
+	font-family: "Final Frontier Old Style", sans-serif;
+}
+
+.WaDru_JeDo
+{
+	font-family: cursive;
+}
+
+.WaDru_JoGrz
+{
 	font-family: fantasy;
-	/* font-family: "Final Frontier Old Style", sans-serif; */
 }
 
 .WaDru_Bz
@@ -496,28 +505,32 @@ NOTIFY^KeMe
 
 /* TOOLTIP BUBBLE TEXT */
 .KeMe_To
+, .KeMe_ToKeDru
+{
+	font-size: -var(GyTreHu);
+	white-space: pre-wrap;
+
+	color: var(--PoKuSteSpo);
+}
+
+/* TOOLTIP BUBBLE BOX */
+.KeMe_To
 {
 	cursor: help;
 	position: relative;
 	overflow: visible;
-
-	margin: var(--GyBiHu);
-	padding: var(--GyBiHu);
-
-
-	color: var(--PoKuSteSpo);
-	background-color: var(--PoKuTo);
-
-	border-radius: var(--GyKaHu);
-
-	font-size: -var(GyTreHu);
-	white-space: pre-wrap;
 	text-align: center;
+
+	padding: var(--GyBiHu);
+	margin: var(--GyBiHu);
+
 
 	width: fit-content;
 	height: fit-content;
 	min-width: var(--GyBzHi);
+	border-radius: var(--GyKaHu);
 
+	background-color: var(--PoKuTo);
 	opacity: 1.0;
 }
 
