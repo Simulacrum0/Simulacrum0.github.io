@@ -1,0 +1,1085 @@
+//==============================================
+//==============================================
+// WG: LIFE
+//==============================================
+//==============================================
+
+//==============================================
+// SESSION PAUSE
+//==============================================
+DoWG.BriYo = function( Sa_l )
+{
+	if( DoWG__KrzYeHo_y( Sa_l )){ return; }
+	//SmaSy( "[WG] BriYo: WG PAUSE" );
+
+	// Pause Compute Tasks?
+	// Reset Clocks?
+}
+
+//==============================================
+// SESSION END
+//==============================================
+function DoWG__BriYi_SmzYz( Sa_l )
+{
+	SySmz__BriYz_ChyYi( Sa_l );
+
+	//@@@
+	// CLEAR REQUESTS
+	Sa_l.TxCho__KriJaKu_v = [];
+	Sa_l.TxCho__TraJaKu_v = [];
+	Sa_l.KaTy = {};
+
+
+	//@@@
+	// IMG_DECKs
+	Sa_l.Spe__TaGwa_l = null;
+	Sa_l.Spy__TaGwa_l = null;
+	Sa_l.Wz__TaGwa_l = null;
+
+	//@@@
+	// BUFs
+	Sa_l.KzDy__JxRe_l = null;
+	Sa_l.TxCho__JxRe_l = null;
+	Sa_l.SuTy__JxRe_l = null;
+
+
+	//@@@
+	// QUERY
+	// Timer Query Buf
+	Sa_l.TaGiMy_Kz_l = null;
+	// Answer  Buf
+	Sa_l.ToMy_Sma_l = null;
+
+
+	//@@@
+	// SAMPLR
+	Sa_l.JaMi__BILNR_k = null;
+	Sa_l.JaMi__TRILNR_k = null;
+
+	//@@@
+	// CTX
+	Sa_l.MxPo_Sx_l = null;
+
+	//@@@
+	// ADAPTER/DEVICE
+	Sa_l.KaSmz_l = null;
+	Sa_l.KaKy_l = null;
+}
+
+//==============================================
+// SERVICE END
+//==============================================
+DoWG.BriYi = function( Sa_l )
+{
+	SmaSy( "[WG] BriYi: " + this.VaDy_vsg );
+
+	DoWG__BriYi_SmzYz( Sa_l );
+
+	//@@@
+	// QUERY
+	// Scrnshot Req (queue)
+	Sa_l.TxCho__KriJaKu_v = null;
+	// Scrnshot Use (export)
+	Sa_l.TxCho__TraJaKu_v = null;
+
+	//@@@
+	// DISPLAYS
+	Sa_l.MxPo_Gwa_l = null;
+	Sa_l.WzPo_Gwa_l = null;
+
+	//@@@
+	// SRCs
+	Sa_l.TaJiHry_vh = null;
+}
+
+//==============================================
+// SESSION BEGIN
+/*
+CRT:
+- Gen Session
+- Load Prog Src
+- Chip Adapter
+- Screen
+- Chip Device
+- Ctx
+- Smplr
+
+
+- BIND/PIPE_LAYOUTs
+- PROGs
+
+ALLOC:
+
+- SIGNAL Texture TaGwa_l
+- CRAFT Uniform SuTy_l
+- FIELD Storage JxRe_l
+- BINDINGS
+
+JOB:
+- Media_Strms
+- Strm_Models
+- Job_Models
+- Job_Prog
+- Job_Pipe
+
+*/
+//==============================================
+async function DoWG__BriYa_SmzYz( Sa_l, Yz_k )
+//==============================================
+{
+	DoWG__BriYi_SmzYz( Sa_l );
+	const SmzYz_l = DoWG__SmzYz_v[ Yz_k.YzVi_q ];
+	const KwiYz_k = Ko.TaKeDy_l.KwiYz_v[ Ko.TaKeDy_l.KeDy_wu ];
+
+	//@@@
+	// LOG
+	SmaJe( "[WG] try CFG:", Yz_k.YzVi_q, " / ", DoWG__Yz.Ti03__ZzKri_qk, " @ ", SmzYz_l.Vi_q, " JaVe:", SmzYz_l.JaVe_wu, " JaGzFo:", SmzYz_l.JaGzFo_wu );
+
+	//-------------------------------------------------
+	// CHIP ADAPTER
+	//-------------------------------------------------
+	const JiKri_l =
+	{
+		// IGNORED 2025/11
+		// powerPreference: "high-performance"
+		// powerPreference: "low-power"
+		// FAILS
+		// forceFallbackAdapter: true
+		// COMPATIBILITY
+		...( SmzYz_l.Vi_qk === DoWG__Yz.Ti00__TraHu_qk ) && { featureLevel: "compatibility" },
+	};
+
+	const KaKy_l = await navigator.gpu?.requestAdapter( JiKri_l );
+	if( SmaSy__NxHo_y( "[WG] Adapter", KaKy_l )){ return null; }
+	Sa_l.KaKy_l = KaKy_l;
+
+	const T1_yk = KaKy_l.features.has( "core-features-and-limits" );
+
+	// Default "rgba8unorm"
+	Sa_l.MxPo__FMT_l = navigator.gpu.getPreferredCanvasFormat();
+	// Possible?
+	// rg11b10ufloat-renderable
+	// if( 0 ){ Sa_l.MxPo__FMT_l = "rgba16float"; }
+
+	//-------------------------------------------------
+	// CHIP DRIVER
+	//-------------------------------------------------
+
+	//@@@
+	// AVAIL
+	//const KaTy__WG2 = KaKy_l.features.has( "extended-pipeline-cache" );
+	Sa_l.KaTy.TIMER_yk = KaKy_l.features.has( "timestamp-query" );
+
+
+	//&&&
+	// SUBGRP
+	// subgroupsize:  [4, 128]
+	//https://caniuse.com/?search=subgroup ~70%
+	// Not Apple!
+	Sa_l.KaTy.SUBGRP_yk = KaKy_l.features.has( "subgroups" );
+
+
+	//&&&
+	// FMT
+	// 2026: USELESS w/ MIPs ( can only BIND 1 MIP Level )
+	//const KaTy__TFMT2_yk = KaKy_l.features.has( "texture-formats-tier2" );
+	//const KaTy__RWTEX_yk = KaKy_l.features.has( "readonly_and_readwrite_storage_textures" );
+	//const KaTy__RGB32_yk = KaKy_l.features.has( "rg11b10ufloat-renderable" );
+	//SmaSy( "[WG] TFMT2: ", KaTy__TFMT2_yk, "RWTEX: ", KaTy__RWTEX_yk, "RGB32: ", KaTy__RGB32_yk );
+
+
+	//@@@
+	// DRV_REQ
+	const KaKri_k =
+	{
+		//&&&
+		// FEATS
+		requiredFeatures:
+		 [
+			 T1_yk ? "core-features-and-limits" : undefined
+
+			 // if bgra8unorm exists, REQUIRE
+			 , Sa_l.MxPo__FMT_l === "bgra8unorm" ? [ "bgra8unorm-storage" ] : undefined
+			 , Sa_l.KaTy.TIMER_yk ? "timestamp-query" : undefined
+			 , Sa_l.KaTy.SUBGRP_yk ? "subgroups" : undefined
+
+			 //, KaTy__TFMT2_yk ? "texture-formats-tier2" : undefined
+			 // , KaTy__RWTEX_yk ? "readonly_and_readwrite_storage_textures" : undefined
+			 //, KaTy__RGB32_yk ? "rg11b10ufloat-renderable" : undefined
+
+			 //, KaTy__WG2_yk ? "pipeline-statistics-query" : undefined
+			 //, KaTy__WG2_yk ? "extended-pipeline-cache" : undefined
+			 //, KaTy__WG2_yk ? "memory-mapping-control" : undefined
+
+			 //, KaTy__BC_yk ? "texture-compression-bc" : undefined
+			 //, KaTy__ASTC_yk ? "texture-compression-astc" : undefined
+
+			].filter(Boolean)
+
+			//&&&
+			// LIMITS
+			// Request maximum resource limits
+			, requiredLimits:
+			{
+				// PROG
+				maxComputeInvocationsPerWorkgroup: KaKy_l.limits.maxComputeInvocationsPerWorkgroup
+				, maxComputeWorkgroupSizeX: KaKy_l.limits.maxComputeWorkgroupSizeX
+				, maxComputeWorkgroupSizeY: KaKy_l.limits.maxComputeWorkgroupSizeY
+				, maxComputeWorkgroupSizeZ: KaKy_l.limits.maxComputeWorkgroupSizeZ
+				, maxComputeWorkgroupStorageSize: KaKy_l.limits.maxComputeWorkgroupStorageSize
+
+				// RCD
+				, maxBufferSize: KaKy_l.limits.maxBufferSize
+				, maxUniformBufferBindingSize: KaKy_l.limits.maxUniformBufferBindingSize
+				, maxStorageBufferBindingSize: KaKy_l.limits.maxStorageBufferBindingSize
+
+				// IMG
+				, maxTextureArrayLayers: KaKy_l.limits.maxTextureArrayLayers
+				, maxTextureDimension2D: KaKy_l.limits.maxTextureDimension2D
+			}
+	};
+
+	//@@@
+	// DEV
+	const KaSmz_l = await KaKy_l.requestDevice( KaKri_k );
+	if( SmaSy__NxHo_y( "[WG] Device", KaSmz_l )){ return null; }
+	Sa_l.KaSmz_l = KaSmz_l;
+
+	//&&&
+	// ERR SCOPES
+	Sa_l.KaSmz_l.pushErrorScope( "internal" );
+	Sa_l.KaSmz_l.pushErrorScope( "validation" );
+
+	const Tier_wqk = KaSmz_l.features.has( "core-features-and-limits" ) ? 1 : 0;
+
+	SmaJe( "[WG] Tier: ", Tier_wqk, " LIM:", " FEAT:" );
+	SmaDBG( KaSmz_l.limits );
+	SmaDBG( KaSmz_l.features );
+
+
+	//&&&
+	// CHIP_TYPE
+	// const powerPreference = device.adapterInfo.powerPreference;
+	// if (powerPreference === "high-performance") {
+	// // High-performance GPU detected. Enabling enhanced graphics settings.
+	// } else if (powerPreference === "low-power") {
+	// // Low-power GPU detected. Optimizing for battery life.
+	// }
+
+	//&&&
+	// ERR DEV LOST
+	// GPUDeviceLostReason
+    // "unknown",
+    // "destroyed",
+	//
+	// TEST_LOSS in CHROME: navigate to “about:gpucrash”
+	// Note:needs CLI --disable-domain-blocking-for-3d-apis --disable-gpu-process-crash-limit
+  	KaSmz_l.lost.then((e) =>
+	{
+		SySmz__BriYz_ChyTrx( Sa_l );
+
+		//!!!
+		// STOP RELOADING if we tried S seconds ago or T many times
+		const Fe__GiDri_duk = (new Date()).getTime();
+		// If its been > S milliseconds, Always try again in case of intermittent losses.
+		const TraNa__GiDri_wuk = 8 * 1000;
+		const Fi__GiDri_duk = ( sessionStorage.WG_BriYa__GiDri_duk ) ? ( Number( sessionStorage.WG_BriYa__GiDri_duk )) : ( Fe__GiDri_duk - TraNa__GiDri_wuk );
+
+		const Gi__TraNa_yk = (( Fe__GiDri_duk - Fi__GiDri_duk ) >= TraNa__GiDri_wuk );
+
+		// if the count is > T, Stop trying
+		const TraNa__GrxBraHi_wuk = 3;
+		const TraNa__Fo_wuk = ( sessionStorage.WG_BriYa__TraNa__Fo_wuk ) ? ( Number( sessionStorage.WG_BriYa__TraNa__Fo_wuk )) : 0;
+		const Fo__TraNa_yk = ( TraNa__Fo_wuk < TraNa__GrxBraHi_wuk );
+
+		// UPDATE STORAGE
+		// Always update Count; Set to 0 if enough time elapsed.
+		sessionStorage.WG_BriYa__TraNa__Fo_wuk = Gi__TraNa_yk ? 1 : ( TraNa__Fo_wuk + 1 );
+		// but only update Time if enough time elapsed
+		if( Gi__TraNa_yk ){ sessionStorage.WG_BriYa__GiDri_duk = Fe__GiDri_duk; }
+
+		//!!!
+		// RECREATE LIFE
+		SmaTrx
+		(
+			"[WG] Session LOST Reason:", e.reason, " Info:", e.message
+			, " GiTraNa:", Gi__TraNa_yk
+			, " DUR:",  ( ( Fe__GiDri_duk - Fi__GiDri_duk ) / 1000.0 )
+			, " TraNa:", TraNa__Fo_wuk
+		);
+
+
+		Yz_k.YzVi_q = KwiYz_k.Ne03_Hry06__SmzYz_q;
+		return
+		(
+			( Gi__TraNa_yk || Fo__TraNa_yk )
+			// TRY AGAIN
+			? DoWG__BriYa_FuYz( Sa_l, Yz_k )
+			// TOO many attempts or time elapsed, throw ERROR
+			: MoDzTrx( Ko.KeDru_l.ALERT.TrxJy__KaBzTrx__WG_vsg )
+		);
+
+  	});
+
+	//&&&
+	// ERR LISTENER
+	KaSmz_l.addEventListener( "uncapturederror", (e) =>
+	{
+		// FIREFOX Preventing this
+		// MoDzTrx( "WG Err: " + e.error );
+		SmaTrx( "[WG] Surprise Err: ", e.error.constructor.name, e.error.message );
+	});
+
+
+	//-------------------------------------------------
+	// CANVAS-CTX
+	//-------------------------------------------------
+	{
+		const MxPo_Gwa_l = Sa_l.MxPo_Gwa_l;
+
+		const MxPo_Sx_l = MxPo_Gwa_l.getContext( "webgpu" );
+		if( SmaSy__NxHo_y( "[WG] Context", MxPo_Sx_l )){ return null; }
+
+		Sa_l.MxPo_Sx_l = MxPo_Sx_l;
+		MxPo_Sx_l.configure
+		({
+			device: KaSmz_l
+			, format: Sa_l.MxPo__FMT_l
+			// REQ for RW MxPo via ComputeShader
+			, usage: GPUTextureUsage.TEXTURE_BINDING | GPUTextureUsage.STORAGE_BINDING
+
+			//@@@
+			// CLR_FMT
+			// SDR means Standard Dynamic Range (standard NTSC/sRGB colorspace)
+			// WCG means Wide Color Gamut (greener greens, redder reds, bluer blues)
+			// HDR means High Dynamic Ranges (brightnesses brighter than normal RGB colorspace)
+			, alphaMode: "opaque"
+			// P3
+			, colorSpace: "display-p3"
+			, toneMapping: { mode: "extended" }
+			// NITS 200~1200
+			// Not AVAIL, colorSpace: "rec2100-display-linear"
+			//, toneMapping: { mode:"hdr10", clli:{maxFALL:200, maxCLL:1200} }
+		});
+
+
+		// ratio of the resolution in physical pixels to the resolution in CSS pixels
+		// const devicePixelRatio = window.devicePixelRatio;
+		MxPo_Gwa_l.width = MxPo_Gwa_l.clientWidth;
+		MxPo_Gwa_l.height = MxPo_Gwa_l.clientHeight;
+	}
+
+	//-------------------------------------------------
+	// SAMPLER^JaMi
+	//-------------------------------------------------
+	// "filtering", "non-filtering", "comparison"
+	// lodMinClamp: float= 0
+	// lodMaxClamp: float= 32
+	// compare: GPUCompareFunction
+	// maxAnisotropy: unsigned short= 1
+	//-------------------------------------------------
+	{
+		Sa_l.JaMi__BILNR_k = Sa_l.KaSmz_l.createSampler
+		({
+			addressModeU: "clamp-to-edge",
+			addressModeV: "clamp-to-edge",
+
+			magFilter: "linear",
+			minFilter: "linear",
+			mipmapFilter: "nearest",
+		});
+
+		Sa_l.JaMi__TRILNR_k = Sa_l.KaSmz_l.createSampler
+		({
+				addressModeU: "clamp-to-edge",
+				addressModeV: "clamp-to-edge",
+
+				magFilter: "linear",
+				minFilter: "linear",
+				mipmapFilter: "linear",
+		} );
+	}
+
+	//-------------------------------------------------
+	// QUERY BUF
+	//-------------------------------------------------
+	 if( Sa_l.KaTy.TIMER_yk )
+	 {
+		//!!!
+		// CLEAR TIME
+		Ko.KaBxGiHa_df = 0.;
+
+		//@@@
+		// QUERY SET
+		Sa_l.TaGiMy_Kz_l = Sa_l.KaSmz_l.createQuerySet
+		({
+			label: "TaGiMy_Kz",
+			type: "timestamp",
+			count: TaGiMy__Fo_wuk,
+		});
+
+		//@@@
+		// TIMER BUF
+		Sa_l.TaGiMy_Ma_l = Sa_l.KaSmz_l.createBuffer
+		({
+			label: "TaGiMy_Ma",
+			// 8 is "du_t" timestamp size
+			size: TaGiMy__Fo_wuk * 8,
+			usage:
+			GPUBufferUsage.QUERY_RESOLVE | GPUBufferUsage.COPY_SRC,
+		});
+
+		//@@@
+		// TIMER_RESULT BUF
+		Sa_l.ToMy_Sma_l = Sa_l.KaSmz_l.createBuffer
+		({
+			label: "ToMy_Sma",
+			size:  TaGiMy__Fo_wuk * 8,
+			usage: GPUBufferUsage.COPY_DST | GPUBufferUsage.MAP_READ,
+		});
+	}
+
+	//-------------------------------------------------
+	// GROUP_LAYOUT
+	//-------------------------------------------------
+	// sampler:  GPUSamplerBindingType
+	// - type:{ comparison, non-filtering, filtering }
+	//
+	// buffer:	GPUBufferBindingType
+	// - "uniform": RO GPUBufferUsage.UNIFORM
+	// - "storage": RW GPUBufferUsage.STORAGE.
+	// - "read-only-storage": RO GPUBufferUsage.STORAGE.
+	//
+	// texture, GPUTextureBindingLayout
+	// 	- viewDimension{ "1d", "2d-array", "2d", "3d", "cube" }
+	//  - sampleType  RO
+	// 	"float"
+	// "unfilterable-float"
+	// "depth"
+	// "sint"
+	// "uint"
+	//
+	// storageTexture: GPUStorageTextureBindingLayout
+	// - access:{ read-only, read-write, write-only}
+	// "write-only"	WO
+	//
+	// "read-write" RW
+	// "read-only" RO
+	//
+	// - "readonly_and_readwrite_storage_textures"
+	// - !!--> ONLY IF
+	// - WGSL language extension is present in WGSLLanguageFeatures.
+	//-------------------------------------------------
+	const DuPoMy_SuTyJy = KaSmz_l.createBindGroupLayout
+	({
+		label: "DuPoMy CraftType",
+		entries:
+		[
+			{
+				binding: 0,
+				visibility: GPUShaderStage.COMPUTE,
+				sampler: { type: "filtering" }
+			}
+			,
+			{
+				binding: 1,
+				visibility: GPUShaderStage.COMPUTE,
+				texture: { viewDimension: "2d-array" }
+			}
+		]
+	});
+
+
+	const WzPoChy_SuTyJy = KaSmz_l.createBindGroupLayout
+	({
+		label: "WzPoChy CraftType",
+		entries:
+		[
+			{
+				binding: 0,
+				visibility: GPUShaderStage.COMPUTE,
+				storageTexture: { format: "rgba8unorm", viewDimension: "2d-array", access: "write-only" }
+			}
+		]
+	});
+
+
+	const MzPo_SuTyJy = KaSmz_l.createBindGroupLayout
+	({
+		label: "MzPo CraftType",
+		entries:
+		[
+			{
+				binding: 0,
+				visibility: GPUShaderStage.COMPUTE,
+				// REQ: texture-format-tier2 for RW rgba8 RW
+				storageTexture: { viewDimension: "2d-array", format: "rgba8unorm", access: "write-only" }
+				// storageTexture: { viewDimension: "2d-array", format: "rgba8unorm", access: "read-write" }
+			}
+		]
+	});
+
+
+	const MxPoChy_SuTyJy = KaSmz_l.createBindGroupLayout
+	({
+		label: "MxPo CraftType",
+		entries:
+		[
+			{
+				binding: 0,
+				visibility: GPUShaderStage.COMPUTE,
+				storageTexture: { format: Sa_l.MxPo__FMT_l }
+			}
+		]
+	});
+
+
+	//-------------------------------------------------
+	// LAYOUT_PIPELINE
+	//-------------------------------------------------
+	const WzPoChy_KySuTyJy = KaSmz_l.createPipelineLayout
+	({
+		label: "DuPoMy WzPoChy",
+		bindGroupLayouts: [ DuPoMy_SuTyJy, WzPoChy_SuTyJy ],
+	});
+
+	const MzPo_KySuTyJy = KaSmz_l.createPipelineLayout
+	({
+		label: "MzPo",
+		bindGroupLayouts: [ MzPo_SuTyJy ],
+	});
+
+	const MxPo_KySuTyJy = KaSmz_l.createPipelineLayout
+	({
+		label: "DuPoMy MxPoChy",
+		bindGroupLayouts: [ DuPoMy_SuTyJy, MxPoChy_SuTyJy ],
+	});
+
+
+	//-------------------------------------------------
+	// LOADED DONE
+	// RESOLVE ALL AT ONCE?
+	// Or TOLERATE some fails to iterate w/ placeholders?
+	//-------------------------------------------------
+	const TaJiHry_Smx_k = await Promise.all( Sa_l.TaJiHry_vh );
+	// allows iteration: Promise.allSettled( Sa_l.TaJiHry_vh ).then(( MSG ) => SmaSy( "[WG] PROG Load:", MSG ) );
+	let WzGy_wuk = 8;
+
+	TaJiHry_vvsg.forEach( function( Ti_v, Vx_wu )
+	{
+		if( SmaSy__NxHo_y( "[WG] SRC:" + Ti_v.Va_vsg, Sa_l.TaJiHry_vh[ Vx_wu ] )){ return null; }
+
+		// SmaSy( "[WG]JiHry_#", Vx_wu, " Yz:", !! (Sa_l.TaJiHry_vh[ Vx_wu ] ), " Va:", Ti_v.Va_vsg, " SuKy:", Ti_v.JiSuKy_q, " SuTyJy:", Ti_v.SuTyJy_q );
+	});
+
+
+	//-------------------------------------------------
+	// PTRN
+	//-------------------------------------------------
+	{
+	const Ji_wuk = JiHry_l.Ji04_PTRN__GwaBry_qk;
+//	const Ji_wuk = JiHry_l.Ji14_MEXEL__SpeJoDi_qk;
+
+	const JiKa_vsg = await Sa_l.TaJiHry_vh[ Ji_wuk ];
+	if( SmaSy__NxHo_y( "SRC:" + TaJiHry_vvsg[ Ji_wuk ].Va_vsg, JiKa_vsg )){ return null; }
+
+	const JiBz_vsg =`
+	@group(0) @binding(0) var JaKro_k: sampler;
+	@group(0) @binding(1) var JaPo_k: texture_2d_array<f32>;
+	@group(1) @binding(0) var SePo_k: texture_storage_2d_array<rgba8unorm, write>;
+
+	const WzGy_wuk: u32 = 8;
+	`;
+
+	const JiSpo_v = KaSmz_l.createShaderModule
+	({
+		label: TaJiHry_vvsg[ Ji_wuk ].Va_vsg
+		, code: JiBz_vsg + JiKa_vsg
+	  });
+
+	  if( SmaSy__NxHo_y( "COMPILE:" + TaJiHry_vvsg[ Ji_wuk ].Va_vsg, JiSpo_v )){ return null; }
+
+	  Sa_l.PTRN_k = KaSmz_l.createComputePipeline
+	  ({
+		label: "PIPE:" + TaJiHry_vvsg[ Ji_wuk ].Va_vsg
+		, layout: WzPoChy_KySuTyJy
+		, compute: { module: JiSpo_v }
+	  });
+  }
+
+
+  //-------------------------------------------------
+  // MEXEL
+  //-------------------------------------------------
+  {
+
+  const Ji_wuk = JiHry_l.Ji12_MEXEL__WaJoDi_qk;
+
+  const JiKa_vsg = await Sa_l.TaJiHry_vh[ Ji_wuk ];
+  if( SmaSy__NxHo_y( "SRC:" + TaJiHry_vvsg[ Ji_wuk ].Va_vsg, JiKa_vsg )){ return null; }
+
+  const JiBz_vsg =`
+  @group(0) @binding(0) var JaKro_k: sampler;
+  @group(0) @binding(1) var JaPo_k: texture_2d_array<f32>;
+  @group(1) @binding(0) var SePo_k: texture_storage_2d_array<rgba8unorm, write>;
+
+  const WzGy_wuk: u32 = 8;
+  var<private> Gwo_wu2: vec2u;
+  var<workgroup> Gwo__Vu_vwf2: array< array< vec2f, 8 >, 8>;
+  `;
+
+  // Global variables
+  // private = current thread only
+  // workgroup = shared with all threads in workgroup
+
+  // ERR if using INDIRECT WzGy_wuk (Override can"t be 2nd level of array );
+
+  const JiSpo_v = KaSmz_l.createShaderModule
+  ({
+	  label: TaJiHry_vvsg[ Ji_wuk ].Va_vsg
+	  , code: JiBz_vsg + JiKa_vsg
+	});
+
+	if( SmaSy__NxHo_y( "COMPILE:" + TaJiHry_vvsg[ Ji_wuk ].Va_vsg, JiSpo_v )){ return null; }
+
+	Sa_l.SHP_k = KaSmz_l.createComputePipeline
+	({
+	  label: "PIPE:" + TaJiHry_vvsg[ Ji_wuk ].Va_vsg
+	  , layout: WzPoChy_KySuTyJy
+	  , compute: { module: JiSpo_v }
+	});
+
+	}
+
+
+	//-------------------------------------------------
+	// PRESENT
+	//-------------------------------------------------
+	{
+	const Ji_wuk = JiHry_l.Ji00_PRESENT__MxPoCho_qk;
+	const JiKa_vsg = await Sa_l.TaJiHry_vh[ Ji_wuk ];
+	if( SmaSy__NxHo_y( "[WG] Prog Src:" + TaJiHry_vvsg[ Ji_wuk ].Va_vsg, JiKa_vsg )){ return null; }
+
+	const JiBz_vsg =`
+	@group(0) @binding(0) var JaKro_k: sampler;
+	@group(0) @binding(1) var JaPo_k: texture_2d_array<f32>;
+	@group(1) @binding(0) var MxPo_k: texture_storage_2d<${Sa_l.MxPo__FMT_l}, write>;
+
+	const WzGy_wuk: u32 = 8;
+	`;
+
+	const JiSpo_v = KaSmz_l.createShaderModule
+	({
+		label: TaJiHry_vvsg[ Ji_wuk ].Va_vsg
+		, code: JiBz_vsg + JiKa_vsg
+	  });
+
+	  if( SmaSy__NxHo_y( "[WG] Compile:" + TaJiHry_vvsg[ Ji_wuk ].Va_vsg, JiSpo_v )){ return null; }
+
+	  Sa_l.MxPoCho_qk = KaSmz_l.createComputePipeline
+	  ({
+		label: "MxPoCho:" + TaJiHry_vvsg[ Ji_wuk ].Va_vsg
+		, layout: MxPo_KySuTyJy
+		//, entryPoint: "cs"
+		, compute: { module: JiSpo_v }
+	  });
+	}
+
+
+
+	//-------------------------------------------------
+	// BUF
+	//-------------------------------------------------
+
+		//@@@
+		// FLAGS
+		const TraTy_qk =
+			// RW for DMA_COPY
+			GPUTextureUsage.COPY_SRC | GPUTextureUsage.COPY_DST
+			// RW for COMPUTE
+			| GPUTextureUsage.TEXTURE_BINDING | GPUTextureUsage.STORAGE_BINDING
+			//$$$ EXPECTED REQUIREMENT ( Dawn Invalidates Absence )
+			| GPUTextureUsage.RENDER_ATTACHMENT
+			;
+
+		//@@@
+		// PLACEHOLDERS
+		let Spy__TaGwa_l = undefined;
+		let Spe__TaGwa_l = undefined;
+		let Wz__TaGwa_l = undefined;
+
+		let KzDy__JxRe_l = undefined;
+		let SuTy__JxRe_l = undefined;
+		let TxCho__JxRe_l = undefined;
+
+		//@@@
+		// LIMITS
+		const JaVe_wuk = Math.min( SmzYz_l.JaVe_wu, KaKy_l.limits.maxTextureDimension2D );
+		// const JaGzFo_wuk = SmzYz_l.JaGzFo_v[ Yz_k.YzVi_q ];
+		const JaGzFo_wuk = Math.min( SmzYz_l.JaGzFo_wu, KaKy_l.limits.maxTextureArrayLayers );
+
+		//@@@
+		// DIM
+		const Ti__JaVe_wuk = JaVe_wuk;
+		const Wz__JaVe_wuk = JaVe_wuk;
+
+		// MIP
+		// Sample down to 8x8
+		const BrzFo_wuk = Math.min( Math.log2( JaVe_wuk ) - 3, 8 );
+
+		//@@@
+		// ERR PUSH
+		Sa_l.KaSmz_l.pushErrorScope( "out-of-memory" );
+
+		//@@@
+		// MAKE GOOD STATUS
+		let TrzRi_y = true;
+
+		//@@@
+		// IMG
+		// LG to SM
+		SmaJe( "[WG] ASK❓Ve:", JaVe_wuk, " GzFo: ", JaGzFo_wuk, " BrzFo:", BrzFo_wuk );
+
+
+			//&&&
+			// IMG MATTER
+			if( TrzRi_y )
+			{
+				Spy__TaGwa_l = Sa_l.KaSmz_l.createTexture
+				({
+					label: "Spy__TaGwa_l"
+					, dimension: "2d"
+					, size: [ Ti__JaVe_wuk, Ti__JaVe_wuk, JaGzFo_wuk ],  mipLevelCount: BrzFo_wuk
+					, format: "rgba8unorm"
+					, sampleCount: 1
+					, usage: TraTy_qk
+				});
+				TrzRi_y = ( !!Spy__TaGwa_l );
+			}
+			//&&&
+			// IMG ENERGY
+			if( TrzRi_y )
+			{
+				Spe__TaGwa_l = Sa_l.KaSmz_l.createTexture
+				({
+					label: "Spe__TaGwa_l"
+					, dimension: "2d"
+					, size: [ Ti__JaVe_wuk, Ti__JaVe_wuk, JaGzFo_wuk ],  mipLevelCount: BrzFo_wuk
+					, format: "rgba8unorm"
+					, sampleCount: 1
+					, usage: TraTy_qk
+				});
+
+				TrzRi_y = ( !!Spe__TaGwa_l );
+			}
+			//&&&
+			// IMG WORK
+			if( TrzRi_y )
+			{
+				Wz__TaGwa_l = Sa_l.KaSmz_l.createTexture
+				({
+					label: "Wz__TaGwa_l",
+					dimension: "2d",
+					size: [ Wz__JaVe_wuk, Wz__JaVe_wuk, 2 ], mipLevelCount: 1,
+					format: "rgba8unorm",
+					sampleCount: 1,
+					usage: TraTy_qk
+				});
+				TrzRi_y = ( !!Wz__TaGwa_l );
+			}
+			//@@@
+			// RCD
+			//&&&
+			// OBJS
+			if( TrzRi_y )
+			{
+				KzDy__JxRe_l = Sa_l.KaSmz_l.createBuffer
+				({
+					label: "KzDy__JxRe",
+					size:  KzDy__BraHiFrz_k,
+					usage: GPUBufferUsage.COPY_SRC,
+				});
+				TrzRi_y = ( !!Wz__TaGwa_l );
+			}
+			//&&&
+			// PSBCLONE
+			if( TrzRi_y )
+			{
+				TxCho__JxRe_l = KaSmz_l.createBuffer
+			({
+					label: "TxCho__JxRe_l"
+					, usage: GPUBufferUsage.COPY_DST | GPUBufferUsage.MAP_READ
+					, size: TxCho__BraHiFrz_k
+				})
+				TrzRi_y = ( !!Wz__TaGwa_l );
+			}
+			//&&&
+			// CRAFTS
+			if( TrzRi_y )
+			{
+				SuTy__JxRe_l = Sa_l.KaSmz_l.createBuffer
+				({
+					label: "SuTy__JxRe",
+					size:  SuTy__BraHiFrz_k,
+					usage: GPUBufferUsage.UNIFORM,
+				});
+				TrzRi_y = ( !!Wz__TaGwa_l );
+			}
+
+			//&&&
+			// LOG RESULTS
+			//SmaJe( "[WG] RESULTS ⁉️=", TrzRi_y, " ,  " Ve:", JaGzFo_wuk );
+			//SmaJe( "[WG] RESULTS ⁉️= ", "Spy", Spy__TaGwa_l, "Spe", Spe__TaGwa_l, "Wz", Wz__TaGwa_l, " KzDy", KzDy__JxRe_l, " TxCho", TxCho__JxRe_l, " SuTy", SuTy__JxRe_l  );
+
+	//&&&
+	// ERR CLEAR via POP on no Mem
+	// EXPECT FAILS
+	await Sa_l.KaSmz_l.popErrorScope().then(( e ) =>
+	{
+		if( e )
+		{
+			// SmaSy( "[WG]: MEM_REQ Kri:", Ti__JaVe_wuk,  " #", ( JaGzFo_wuk ), e.message );
+
+			Spy__TaGwa_l?.destroy();
+			Spe__TaGwa_l?.destroy();
+			Wz__TaGwa_l?.destroy();
+
+			KzDy__JxRe_l?.destroy();
+			TxCho__JxRe_l?.destroy();
+			SuTy__JxRe_l?.destroy();
+
+
+			Spy__TaGwa_l = undefined;
+			Spe__TaGwa_l = undefined;
+			Wz__TaGwa_l = undefined;
+
+			KzDy__JxRe_l = undefined;
+			TxCho__JxRe_l = undefined;
+			SuTy__JxRe_l = undefined;
+
+			return null;
+		}
+	});
+
+
+	//&&&
+	// STOR
+	Sa_l.Spy__TaGwa_l = Spy__TaGwa_l;
+	Sa_l.Spe__TaGwa_l = Spe__TaGwa_l;
+	Sa_l.Wz__TaGwa_l = Wz__TaGwa_l;
+
+	Sa_l.KzDy__JxRe_l = KzDy__JxRe_l;
+	Sa_l.TxCho__JxRe_l = TxCho__JxRe_l;
+	Sa_l.SuTy__JxRe_l = SuTy__JxRe_l;
+
+	//@@@
+	// LOG
+	// SmaSy( "[WG] Spy", Spy__TaGwa_l );
+	// SmaSy( "[WG] Spe", Spe__TaGwa_l );
+	// SmaSy( "[WG] Wz", Wz__TaGwa_l );
+
+	// SmaSy( "[WG] KzDy", KzDy__JxRe_l );
+	// SmaSy( "[WG] TxCho", TxCho__JxRe_l );
+	// SmaSy( "[WG] SuTy", SuTy__JxRe_l );
+
+
+	//-------------------------------------------------
+	//  CRAFT STRMs
+	//-------------------------------------------------
+	Sa_l.SuGweKy_v =
+		[
+		  KaSmz_l.createBindGroup
+		({
+		  label: "DuPoMy MEDIA_STRM",
+		  layout: DuPoMy_SuTyJy,
+		  entries:
+		  [{
+			binding: 0,
+			resource: Sa_l.JaMi__BILNR_k
+			// resource: Sa_l.JaMi__TRILNR_k
+		  }
+		  ,{ binding: 1, resource: Sa_l.Spy__TaGwa_l }
+		]})
+
+		   , KaSmz_l.createBindGroup
+		   ({
+			 label: "DuPoTrz MIP_SRC",
+			 layout: DuPoMy_SuTyJy,
+			 entries:
+			 [{
+			   binding: 0,
+			   resource: Sa_l.JaMi__BILNR_k
+			   // resource: Sa_l.JaMi__TRILNR_k
+			 },{
+			   binding: 1,
+			   // T1_REQ: resource: Sa_l.Spy__TaGwa_l.createView( { baseMipLevel: 0, mipLevelCount: 1, baseArrayLayer: 0, arrayLayerCount: 1 } )
+			   resource: Sa_l.Spy__TaGwa_l.createView( { baseMipLevel: 0, mipLevelCount: 1 } )
+
+			 }] })
+
+		, KaSmz_l.createBindGroup
+		({
+		  label: "WzPoChy MEDIA_STRM",
+		  layout: WzPoChy_SuTyJy,
+		  entries:
+		  [{
+			binding: 0,
+			resource: Sa_l.Wz__TaGwa_l
+		  }] })
+
+		, KaSmz_l.createBindGroup
+		({
+			label: "MzPoDe OBS",
+			layout: MzPo_SuTyJy,
+			entries:
+			[{
+				binding: 0,	resource: Sa_l.Spy__TaGwa_l.createView( { baseMipLevel: 0, mipLevelCount: 1 } )
+				// T1_REQ: resource: Sa_l.Spy__TaGwa_l.createView( { baseMipLevel: 0, mipLevelCount: 1, baseArrayLayer: 0, arrayLayerCount: 1 } )
+			}]})
+
+		];
+
+
+	//-------------------------------------------------
+	// CHECK on Final ERRORS
+	//-------------------------------------------------
+	await Sa_l.KaSmz_l.popErrorScope().then(( e ) =>
+	{
+		if( e )
+		{
+			SmaSy( "[WG] Validation Err:", e );
+			return null;
+		}
+	});
+	await Sa_l.KaSmz_l.popErrorScope().then(( e ) =>
+	{
+		if( e )
+		{
+			SmaSy( "[WG] Internal Err:", e );
+			return null;
+		}
+	});
+
+	//-------------------------------------------------
+	// SPATIAL ENGINE BEGAN
+	//-------------------------------------------------
+
+	//@@@
+	// SAVE SUCCESS
+	KwiYz_k.Ne03_Hry06__SmzYz_q = Yz_k.YzVi_q;
+	Hrz4_Bu__TaKeDy__ChyGry();
+
+	//@@@
+	// REPORT
+	SmaJe( "[WG] HDR", Sa_l.KaTy__HDR_y, "MxPo__FMT", Sa_l.MxPo__FMT_l );
+
+	const YzGry_vsg = KaBxTy_v[ Yz_k.YzVi_q ];
+	const YzKwx_wu = YzGry_vsg.indexOf( "^=" );
+
+	const YzVa_vsg = YzGry_vsg.substring( 0, YzKwx_wu );
+	const YzHx_vsg = YzGry_vsg.substring( YzKwx_wu + 1);
+
+	SmaJe( "[WG] READY CFG:", Yz_k.YzVi_q, " @ ", YzVa_vsg, " = ", YzHx_vsg );
+
+
+	//@@@
+	// GUI UPDATE
+	Ko.KaBx__VaDe_vsg = ( KaKy_l.info.vendor + " " + KaKy_l.info.architecture );
+	HriNeDe__ChyVaSy( "KaBx__VaDe", Ko.KaBx__VaDe_vsg );
+
+	const VENDOR_vksg = KaKy_l.info.vendor.toUpperCase();
+	if( VENDOR_vksg.includes( "AMD" ) )	{ Ko.KaBx__Gwz_vsg = "AMD"; }
+	else if( VENDOR_vksg.includes( "BROADCOM" ) )	{ Ko.KaBx__Gwz_vsg = "BROADCOM"; }
+	else if( VENDOR_vksg.includes( "QUALCOMM" ) ) { Ko.KaBx__Gwz_vsg = "QUALCOMM"; }
+	else if( VENDOR_vksg.includes( "INTEL" ) )	{ Ko.KaBx__Gwz_vsg = "INTEL"; }
+	else if( VENDOR_vksg.includes( "NVIDIA" ) )	{ Ko.KaBx__Gwz_vsg = "NVIDIA"; }
+	else if( VENDOR_vksg.includes( "VIVANTE" ) ){ Ko.KaBx__Gwz_vsg = "VIVANTE"; }
+
+	HriNeDe__ChyGwz( "KaBx__Gwz", Ko.KaBx__Gwz_vsg );
+
+
+	return SySmz__YaFx_v( Sa_l );
+}
+
+//==============================================
+async function DoWG__BriYa_FuYz( Sa_l, Yz_k )
+//==============================================
+{
+	//@@@
+	// RETURN OBJECT ONCE
+	do
+	{
+		await DoWG__BriYa_SmzYz( Sa_l, Yz_k );
+		if( SySmz__BriYz__Ye_y( Sa_l ) ) break;
+	}
+	while( Yz_k.YzVi_q-- );
+
+
+	//@@@
+	// SAVE RESULTS only if succeeded
+	if( SySmz__BriYz__Ye_y( Sa_l ) )
+	{
+		//!!!
+		// WRAPUP
+		return SySmz__YaFx_v( Sa_l );
+	}
+
+	//@@@
+	// ELSE ERR
+	MoDzTrx( Ko.KeDru_l.ALERT.TrxJy__KaBzTrx__WG_vsg );
+	return null;
+}
+
+//==============================================
+DoWG.BriYa = async function( Yz_k )
+//==============================================
+{
+	//-------------------------------------------------
+	// VERIFY
+	//-------------------------------------------------
+
+	//@@@
+	// MAKE SESSION with Ji INTERFACE
+	const Sa_l = SySmz__YaFz_v( DoWG );
+
+	//@@@
+	// CDN SYNC
+	const Hra4_Bru__CDN_DaHe_yk = ( BriDzSa__Da_wuk === DoWG__BriDzSa__Da_wuk );
+	if( MoDzTrx__NxHo_y( "[WG] Version Behind (Refresh page to try again in 3~13min?)", Hra4_Bru__CDN_DaHe_yk )){ return null; }
+
+
+	//-------------------------------------------------
+	// PROG TXT ASYNC LOAD
+	//-------------------------------------------------
+	Sa_l.TaJiHry_vh = [];
+	TaJiHry_vvsg.forEach( function( Ti_v, Vx_wu )
+	{
+		Sa_l.TaJiHry_vh[ Vx_wu ] = Hra6_Ku__ToKz_My__vsg( "Mx00__SuSmi_WEBPG/SuSmi01__JS/JS01_JiHry/", Ti_v.Va_vsg + ".v.Hry" );
+	});
+
+
+	//-------------------------------------------------
+	// SCREEN
+	//-------------------------------------------------
+
+	//@@@
+	// CANVAS
+	Sa_l.MxPo_Gwa_l = document.getElementById( "MxPo_Bri" );
+	if( MoDzTrx__NxHo_y( "[WG] Canvas", Sa_l.MxPo_Gwa_l )){ return null; }
+
+	//@@@
+	//  HDR
+	const HDR_v = window.matchMedia( "(dynamic-range: high)" );
+	Sa_l.KaTy__HDR_y = HDR_v.matches ? true : false;
+
+	//-------------------------------------------------
+	// CFG_FIND MATCH
+	//-------------------------------------------------
+	return await DoWG__BriYa_FuYz( Sa_l, Yz_k );
+}
+
+//==============================================
+//==============================================
+// WG LIFE
+//==============================================
+//==============================================

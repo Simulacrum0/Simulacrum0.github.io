@@ -16,12 +16,12 @@
 	"icons":
 	[
 		{
-			"src": "Mx01__SuKz_MEDIA/SuKz07_DryDz__BIZ/DryDzGwz05__THINKER_512.png",
+			"src": "Mx01__SuKz_MEDIA/SuKz02_JaPo__PICT/JaPo03__DryDz/DryDz00__POP_512.png",
 			"type": "image/png",
 			"sizes": "512x512"
 		},
 		{
-			"src": "Mx01__SuKz_MEDIA/SuKz07_DryDz__BIZ/DryDzGwz05__THINKER_192.png",
+			"src": "Mx01__SuKz_MEDIA/SuKz02_JaPo__PICT/JaPo03__DryDz/DryDz00__POP_192.png",
 			"type": "image/png",
 			"sizes": "192x192"
 		}
@@ -63,14 +63,14 @@
 	"screenshots":
 	[
 		{
-			"src": "Mx01__SuKz_MEDIA/SuKz03_SaTrz__SELFMADE/BriDzGwz_Gx.jpg",
+			"src": "Mx01__SuKz_MEDIA/SuKz02_JaPo__PICT/JaPo01__SaTrz/SaTrz00__Gx.jpg",
 			"type": "image/jpg",
 			"sizes": "657x387",
 			"form_factor": "wide"
 		}
 		,
 		{
-			"src": "Mx01__SuKz_MEDIA/SuKz03_SaTrz__SELFMADE/BriDzGwz_Ga.jpg",
+			"src": "Mx01__SuKz_MEDIA/SuKz02_JaPo__PICT/JaPo01__SaTrz/SaTrz00__Ga.jpg",
 			"type": "image/jpg",
 			"sizes": "425x947",
 			"form_factor": "narrow"
