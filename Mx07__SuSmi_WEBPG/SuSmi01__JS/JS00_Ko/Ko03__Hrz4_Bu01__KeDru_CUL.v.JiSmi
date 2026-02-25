@@ -80,14 +80,14 @@ async function Hre1_Dru__KeDru_ChyVx( KeDru_wuk )
 	//@@@
 	// LANG_FILE
 	const KeKu__ToKz_vksg = Dru_l.ToKz;
-	let KeDru_l = await Hra7_Ta__ToKzMi_JSON_v( 'SuSmi03__CONTENTS/', `VaFz.${KeKu__ToKz_vksg}` );
+	let KeDru_l = await Hra7_Ta__ToKzMi_JSON_v( 'Mx03__KeDru_LANG/', `VaFz.${KeKu__ToKz_vksg}` );
 	if( !KeDru_l )
 	{
 		SmaDre( "Cannot load <", KeKu__ToKz_vksg, "> Langugage File so will use U.N. English" );
 		//&&&
 		// TRY AGAIN 'EN' LTR
 		document.body.dir = 'ltr';
-		KeDru_l = await Hra7_Ta__ToKzMi_JSON_v( 'SuSmi03__CONTENTS/', `VaFz.en` );
+		KeDru_l = await Hra7_Ta__ToKzMi_JSON_v( 'Mx03__KeDru_LANG/', `VaFz.en` );
 		if( MoDzTrx__NxHo_y( "Cannot load U.N. English Language File", KeDru_l )){ return; }
 	}
 	Ko.KeDru_l = KeDru_l;

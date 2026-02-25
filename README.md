@@ -1,16 +1,12 @@
-# LabEast's 'Wantware' Website
-*Wantware Deployment* is for getting or learning about Essence. This website provides downloads of the Essence program by platform and launching chip (CPU) as well as various store packages and other deployment files. Additionally, it contains documents, diagrams and other details to learn about how wantware works.
+# Power_Our_People's SX (Shared-Experience) Website
+*Shaared Experiences* are for creating any digital experiences, such as mindmaps, project or data visualizers, personal information trackers, task planners, group gaming and modeling something from the real world or your imagination. Then you can share such creations with others.
 
 | **Places** | *Description* |
 |:--------|:-------:|
-| Root | Web Pages for LabEast's Wantware Download site |
-| Mx00__ToKz_DATA | Data tables such as such as Reports |
+| Root | Technology Archives for PowerOurPeople's SX Website |
+| Mx00__SuSmi_WEBPG | Web Design Content such as HTML, CSS, & JS files |
 | Mx01__SuKz_MEDIA | Content such as backgrounds, symbols, fonts, sounds and pictures |
-| Mx02__TxKuCho_WVERSE | Wantverse clones for default distribution |
-| Mx03__DruDz_DOCS | Documents such as overviews, technology, and reports |
-| Mx04__TrxFe_ISSUES | Warnings, bugs, caveats and other information related to issues faced by any user |
-| Mx05__KoDz_EXE | Programs are the actual 'binary executable program' that launches Wantware |
-| Mx06__MeSy_PKG | Package information for software stores, package managers and other externally organized distribution. |
-| Mx07__SuSmi_WEBPG | Web Design Content such as HTML, CSS & JS files |
+| Mx02__TxKuCho_WVERSE | _Deprecated LEGACY content (soon to be erased)_ |
+| Mx03__KeDru_LANG | Customized language files for any cultural style of language. We humbly seek help in accurate translation. |
 
-![Background](Mx01__SuKz_MEDIA/SuKz03_TxTrz__APTIV_MADE/TxTrz00__BANNER_4_1.jpg)
+![Background](Mx01__SuKz_MEDIA/SuKz02_JaPo__PICT/JaPo00__FyHo.jpg)

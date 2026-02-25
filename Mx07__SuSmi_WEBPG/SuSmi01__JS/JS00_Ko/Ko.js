@@ -1,5 +1,5 @@
-const BriDzSa__Da_vsg = "PUB_v0.234"; 
- const BriDzSa__Da_wuk = "234"; 
+const BriDzSa__Da_vsg = "PUB_v0.235"; 
+ const BriDzSa__Da_wuk = "235"; 
  const BriDz__Mx_KuTu_vsg = "https://powerourpeople.com/"; 
 
 //==============================================
@@ -1440,14 +1440,14 @@ async function Hre1_Dru__KeDru_ChyVx( KeDru_wuk )
 	//@@@
 	// LANG_FILE
 	const KeKu__ToKz_vksg = Dru_l.ToKz;
-	let KeDru_l = await Hra7_Ta__ToKzMi_JSON_v( 'SuSmi03__CONTENTS/', `VaFz.${KeKu__ToKz_vksg}` );
+	let KeDru_l = await Hra7_Ta__ToKzMi_JSON_v( 'Mx03__KeDru_LANG/', `VaFz.${KeKu__ToKz_vksg}` );
 	if( !KeDru_l )
 	{
 		SmaDre( "Cannot load <", KeKu__ToKz_vksg, "> Langugage File so will use U.N. English" );
 		//&&&
 		// TRY AGAIN 'EN' LTR
 		document.body.dir = 'ltr';
-		KeDru_l = await Hra7_Ta__ToKzMi_JSON_v( 'SuSmi03__CONTENTS/', `VaFz.en` );
+		KeDru_l = await Hra7_Ta__ToKzMi_JSON_v( 'Mx03__KeDru_LANG/', `VaFz.en` );
 		if( MoDzTrx__NxHo_y( "Cannot load U.N. English Language File", KeDru_l )){ return; }
 	}
 	Ko.KeDru_l = KeDru_l;
@@ -3447,7 +3447,7 @@ function KoDz__Ye( Gi )
 // LOAD APP ENGINE
 //=====================================
 const BriDz_Fz_js = document.createElement("script");
-BriDz_Fz_js.src = "Mx07__SuSmi_WEBPG/SuSmi06__BIN/KoKri__BriDz" + ( Ko.WASM64_yk ? 64:32 ) + ".js";
+BriDz_Fz_js.src = "Mx07__SuSmi_WEBPG/SuSmi03__BIN/KoKri__BriDz" + ( Ko.WASM64_yk ? 64:32 ) + ".js";
 document.head.appendChild(BriDz_Fz_js);
 
 //=====================================
@@ -3516,7 +3516,8 @@ async function Hra7_Ta__ToKzMi_JSON_v( ChaKuTu_vsg, ToKzVa_vsg )
 {
 	try
 	{
-		let KuTu_vsg = `${BriDz__Mx_KuTu_vsg}Mx07__SuSmi_WEBPG/${ChaKuTu_vsg}${ToKzVa_vsg}.json`;
+		let KuTu_vsg = `${BriDz__Mx_KuTu_vsg}/${ChaKuTu_vsg}${ToKzVa_vsg}.json`;
+
 		// SmaJe( `FILE seeking: ${KuTu_vsg}`);
 
 		const res = await fetch( KuTu_vsg,

@@ -1,6 +1,6 @@
 {
-	"short_name": "C-PoP",
-	"name": "Cosm-PoP",
+	"short_name": "SX",
+	"name": "Share-Xperiences",
 	"description": "A solution maker tool to build and share simulations and behaviors.",
 
 	"id": "/?source=pwa",
@@ -63,14 +63,14 @@
 	"screenshots":
 	[
 		{
-			"src": "Mx01__SuKz_MEDIA/SuKz03_TxTrz__APTIV_MADE/TxTrz01__GEMS.jpg",
+			"src": "Mx01__SuKz_MEDIA/SuKz03_SaTrz__SELFMADE/BriDzGwz_Gx.jpg",
 			"type": "image/jpg",
 			"sizes": "657x387",
 			"form_factor": "wide"
 		}
 		,
 		{
-			"src": "Mx01__SuKz_MEDIA/SuKz03_TxTrz__APTIV_MADE/TxTrz02__QUAD.jpg",
+			"src": "Mx01__SuKz_MEDIA/SuKz03_SaTrz__SELFMADE/BriDzGwz_Ga.jpg",
 			"type": "image/jpg",
 			"sizes": "425x947",
 			"form_factor": "narrow"

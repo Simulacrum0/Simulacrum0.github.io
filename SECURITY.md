@@ -15,4 +15,4 @@ currently being supported with security updates.
 ## Reporting a Vulnerability
 If you encounter any bugs, security violations or any feedback, please email 'support@MindAptiv.com' with a description of the problem and if possible, how to reproduce. We cannot guarantee any reply of message given modern email issues and spam rates. We aim to respond as able and address issues according to severity and our resources. Thanks for any efforts.
 
-![Background](Mx01__SuKz_MEDIA/SuKz03_TxTrz__APTIV_MADE/TxTrz09__SATELLITE.jpg)
+![Background](Mx01__SuKz_MEDIA/SuKz03_SaTrz__SELFMADE/TxTrz09__SATELLITE.jpg)
