@@ -6,4 +6,4 @@ This website collects no personal data other than the standard means to transmit
 ## Reporting a Vulnerability
 If you encounter any bugs, security violations or any feedback, please email 'support@PowerOurPeople.com' with a description of the problem and if possible, how to reproduce. We cannot guarantee any reply of message given modern email issues and spam rates. We aim to respond as able and address issues according to severity and our resources. Thanks for any efforts.
 
-![Background](Mx01__SuKz_MEDIA/SuKz02_JaPo__PICT/JaPo01__SaTrz/SaTrz00__Gx.jpg)
+![Background](Mx01__SuKz_MEDIA/SuKz02_JaPo__IMG/JaPo01__SaTrz/SaTrz00__Gx.jpg)
