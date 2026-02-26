@@ -372,7 +372,7 @@ var Module =
 		// BEGIN SYSTEM
 		KoDz__YaFz();
 		// ENSURE ONLY ONE INSTANCE!
-		xMoDz__DzStxGru();
+		MoDz__DzStxGru();
 
 		// ERR TEST
 		// const ERR_v = new Array(-1);

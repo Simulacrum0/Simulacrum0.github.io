@@ -1,5 +1,5 @@
-const BriDzSa__Da_vsg = "PUB_v0.241"; 
- const BriDzSa__Da_wuk = "241"; 
+const BriDzSa__Da_vsg = "PUB_v0.242"; 
+ const BriDzSa__Da_wuk = "242"; 
  const BriDz__Mx_KuTu_vsg = "https://powerourpeople.com/"; 
 
 //==============================================
@@ -763,7 +763,7 @@ var Module =
 		// BEGIN SYSTEM
 		KoDz__YaFz();
 		// ENSURE ONLY ONE INSTANCE!
-		xMoDz__DzStxGru();
+		MoDz__DzStxGru();
 
 		// ERR TEST
 		// const ERR_v = new Array(-1);
