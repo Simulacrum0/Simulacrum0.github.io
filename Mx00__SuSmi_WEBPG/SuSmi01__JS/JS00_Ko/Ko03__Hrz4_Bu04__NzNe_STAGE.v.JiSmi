@@ -292,13 +292,10 @@ function HryMx01_KeMeTrx()
 	//---------------------------------
 	// MSG
 	//---------------------------------
-	const TrxBz_k = document.getElementById("TrxBz");
-	const TrxKa_k = document.getElementById("TrxKa");
-	const TrxSma_Ta_k = document.getElementById("TrxSma_Ta");
+	HriNeDe__ChyVaSy( "TrxBz", KoSy__KwiGru_KeDru_l.BriDz00_VaSy_vsg + " " + KoSy__KwiGru_KeDru_l.BriDz02__TrxBz_vsg );
+	HriNeDe__ChyVaSy( "TrxKa", Ko.Trx_vsg );
+	HriNeDe__ChyVaSy( "TrxDa", BriDzSa__Da_vsg );
 
-	TrxBz_k.innerText = KoSy__KwiGru_KeDru_l.BriDz00_VaSy_vsg + " " + KoSy__KwiGru_KeDru_l.BriDz02__TrxBz_vsg + BriDzSa__Da_vsg;
-
-	TrxKa_k.innerText = Ko.Trx_vsg;
 
 	//@@@
 	// LOG
@@ -306,12 +303,13 @@ function HryMx01_KeMeTrx()
 	const SmaFo_wuk = Math.min( Ko.SmaFe_wu, SmaBraHi_wuk );
 	const GeZo_wuk = Math.max( 0, Ko.SmaFe_wu - SmaFo_wuk );
 
-	TrxSma_Ta.innerText = null;
+	const TrxSma_Ta_k = document.getElementById("TrxSma_Ta");
+	TrxSma_Ta_k.innerText = null;
 
 	for( let i = 0; i < SmaFo_wuk; i++)
 	{
 		const Vy_wuk = ( ( i + GeZo_wuk ) & SmaViKa_wuk );
-		TrxSma_Ta.innerText += Sma_vvsg[ Vy_wuk ] + "\n";
+		TrxSma_Ta_k.innerText += Sma_vvsg[ Vy_wuk ] + "\n";
 	}
 }
 

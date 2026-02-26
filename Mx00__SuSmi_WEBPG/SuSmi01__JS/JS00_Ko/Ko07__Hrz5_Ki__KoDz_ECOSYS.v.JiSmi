@@ -293,23 +293,28 @@ function KoDz__Ye( Gi )
 		Ko.BriYe_GiDri_df = Gry__GiDri_dfk;
 
 		//&&&
-		// HEADER (Fixed)
+		// HEADER STATUS BAR
 		let GiFe_vsg = new Date();
-		Module.Sma__KeMe_Bz
+
+		HriNeDe__ChyVaSy
 		(
-			KoSy__KwiGru_KeDru_l.BriDz00_VaSy_vsg + " [ " + BriDzSa__Da_vsg + " ]"
-			+ " Mode: " + ( Ko.Hx_SyDx_vsg ? Ko.Hx_SyDx_vsg : "???" )
+			"KeMe_Bz"
+			, "|> "
+			+ KoSy__KwiGru_KeDru_l.BriDz00_VaSy_vsg
+			+ " = " + BriDzSa__Da_vsg
 			+ " @ " + GiFe_vsg.getHours().toString().padStart(2,"0") + ":" + GiFe_vsg.getMinutes().toString().padStart(2,"0") + ":"  + GiFe_vsg.getSeconds().toString().padStart(2,"0")
 		);
 
 
 		//&&&
-		// FOOTER (Dynamic)
+		// FOOTER STATUS BAR
 		const Gry__GiPa_dfk = Gry__GiDri_dfk / 1000.0;
 
-		Module.Sma__KeMe_Bo
+		HriNeDe__ChyVaSy
 		(
-			" "
+			"KeMe_Bo"
+			,
+			"|> "
 			// + " YeFo: " + Ko.YeFo_wu
 			+ " Ti: " + MxPo_Bri_l.width + ", " + MxPo_Bri_l.height
 			+ " Ge: " + MxPo_Bri_l.clientWidth + ", " + MxPo_Bri_l.clientHeight

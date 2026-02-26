@@ -134,7 +134,7 @@ function Hrz4_Bu__KwiYz__HriNe_MyYy()
 			//&&&
 			// ADD BTN
 			const Kz_l = document.createElement( 'option' );
-			Kz_l.className = 'HriNeTi WaDru_De';
+			Kz_l.className = 'HriNeTi WaDru_Vu';
 			Kz_l.innerText = `${SaPy_vvsg[ Ti_k.NiJaPo_wu ]} ${Ti_k.KeDy_vsg }` + ( Vx_wu & 1 ? "🔒":"🔓" );
 			Kz_l.value = Vx_wu;
 			TaKeDy_l.appendChild( Kz_l );

@@ -1,5 +1,5 @@
-const BriDzSa__Da_vsg = "PUB_v0.238"; 
- const BriDzSa__Da_wuk = "238"; 
+const BriDzSa__Da_vsg = "PUB_v0.239"; 
+ const BriDzSa__Da_wuk = "239"; 
  const BriDz__Mx_KuTu_vsg = "https://powerourpeople.com/"; 
 
 //==============================================
@@ -707,29 +707,14 @@ var Module =
     },
 
 	//@@@
-	// HEADER BAR
-	Sma__KeMe_Bz( Sma_vsg )
-	{
-		let DzYz__Bz_l = document.getElementById('KeMe_Bz');
-		DzYz__Bz_l.innerHTML = "|> "+ ( Sma_vsg );
-	},
-
-	//@@@
-	// FOOTER BAR
-	Sma__KeMe_Bo( Sma_vsg )
-	{
-		let DzYz__Bo_l = document.getElementById('KeMe_Bo');
-		DzYz__Bo_l.innerHTML = "|> " + ( Sma_vsg );
-	},
-
-	//@@@
 	// LOAD
-	monitorRunDependencies( left )
+	monitorRunDependencies( Fo_k )
 	{
-		// NO NEED TO REPORT CURRENTLY
-		this.totalDependencies = Math.max(this.totalDependencies, left);
-		Module.Sma__KeMe_Bo( left ? ( KoSy__KwiGru_KeDru_l.BriDz_KiMiFe_vsg + ' (' + (this.totalDependencies - left) + '/' + this.totalDependencies + ')') : " " );
-
+		//!!!
+		// REQUIRED
+		this.totalDependencies = Math.max( this.totalDependencies, Fo_k );
+		// NO NEED TO REPORT CURRENTLY ( just 1 goes to 0 )
+		// SmaJe( "[LAUNCH]", Fo_k, "Modules Remain of ", this.totalDependencies );
 	},
 
 };
@@ -748,40 +733,18 @@ function MoDzTrx( Trx_vsg )
 	Ko.Trx_vsg = Trx_vsg;
 	KoDz__YzChy( BriYz.Trx_qk );
 
-
 	//@@@
-	// ERR MSGBARS
-
-	//&&&
-	// HEADER (Fixed)
-	// Err Alert, Build Version,
-	const Bz_vsg = KoSy__KwiGru_KeDru_l.BriDz02__TrxBz_vsg + " [" + ( Ko.Hx_SyDx_vsg ? Ko.Hx_SyDx_vsg : "???" ) + " " + BriDzSa__Da_vsg + "] ";
-
-	//&&&
-	// FOOTER (Dynamic)
-	// Please Quit + Err Msg
-	const Bo_vsg = KoSy__KwiGru_KeDru_l.BriDz03__TrxKrx_vsg + " " + Trx_vsg;
-
-	//&&&
-	// GUI MSGBARS
-	Module.Sma__KeMe_Bz( Bz_vsg );
-	Module.Sma__KeMe_Bo( Bo_vsg );
-
-	//&&&
-	// DBG
-	SmaTrx( "[FAIL]", Bo_vsg );
+	// LOG
+	// MSGBOX alert( Trx_vsg );
+	SmaTrx( "[FAIL]", Trx_vsg );
 	SmaTrx( "[FAIL] *STK_TRACE*:", jsStackTrace() );
 
-	// POST for DBG
-	// console.error( Bo_vsg );
-
-	// Skip MSGBOX
-	// alert( Bo_vsg );
-
+	//@@@
 	// DISPLAY ERR
 	KoDz_GyHa();
 
-	// SERV closes All Else
+	//@@@
+	// SERV END ALL
 	KoDz__Yi();
 }
 
@@ -951,7 +914,7 @@ function Hrz3_By__FyTo()
 	else if( NODE_vksg.includes( "RISCV" ) || NODE_vksg.includes( "RISC-V" ) )
 	{
 		Ko.KaBz__Gwz_vsg = "RISCV";
-		Ko.KaBz__VaDe_vsg = "RISC-V";
+		Ko.KaBz__VaDe_vsg = "RISC-V 64";
 	}
 
 }
@@ -1146,7 +1109,7 @@ function Hrz4_Bu__KwiYz__HriNe_MyYy()
 			//&&&
 			// ADD BTN
 			const Kz_l = document.createElement( 'option' );
-			Kz_l.className = 'HriNeTi WaDru_De';
+			Kz_l.className = 'HriNeTi WaDru_Vu';
 			Kz_l.innerText = `${SaPy_vvsg[ Ti_k.NiJaPo_wu ]} ${Ti_k.KeDy_vsg }` + ( Vx_wu & 1 ? "🔒":"🔓" );
 			Kz_l.value = Vx_wu;
 			TaKeDy_l.appendChild( Kz_l );
@@ -1906,7 +1869,7 @@ function Hri4_Bu__TaJo_Chy()
 		//&&&
 		// ADD BTN
 		const Kz_l = document.createElement( "option" );
-		Kz_l.className = "HriNeTi WaDru_De";
+		Kz_l.className = "HriNeTi WaDru_Vu";
 		Kz_l.innerText = `${SaPy_vvsg[ Ti_k.NiJaPo_wu ]} ${Ti_k.KeDy_vsg }`;
 		Kz_l.value = Vx_wu;
 		TaJo_l.appendChild( Kz_l );
@@ -2178,7 +2141,7 @@ async function Hri4_Bu__TaNeDe__ChaKri()
 			//&&&
 			// ADD BTN
 			const Kz_l = document.createElement( "option" );
-			Kz_l.className = "HriNeTi WaDru_De";
+			Kz_l.className = "HriNeTi WaDru_Vu";
 			Kz_l.innerText = `${SaPy_vvsg[ Ti_k.NiJaPo_wu ]} ${Ti_k.KeDy_vsg }` + ( Vx_wu & 1 ? "🔒":"🔓" );
 			Kz_l.value = Vx_wu;
 			TaKeDy_l.appendChild( Kz_l );
@@ -2203,7 +2166,7 @@ async function Hri4_Bu__TaNeDe__ChaKri()
 			//&&&
 			// ADD BTN
 			const Kz_l = document.createElement( "option" );
-			Kz_l.className = "HriNeTi WaDru_De";
+			Kz_l.className = "HriNeTi WaDru_Vu";
 			Kz_l.innerText = `${SaPy_vvsg[ Ti_k.NiJaPo_wu ]} ${Ti_k.KeDy_vsg }` + ( Vx_wu & 1 ? "🔒":"🔓" );
 			Kz_l.value = Vx_wu;
 			TaKeDy_l.appendChild( Kz_l );
@@ -2545,13 +2508,10 @@ function HryMx01_KeMeTrx()
 	//---------------------------------
 	// MSG
 	//---------------------------------
-	const TrxBz_k = document.getElementById("TrxBz");
-	const TrxKa_k = document.getElementById("TrxKa");
-	const TrxSma_Ta_k = document.getElementById("TrxSma_Ta");
+	HriNeDe__ChyVaSy( "TrxBz", KoSy__KwiGru_KeDru_l.BriDz00_VaSy_vsg + " " + KoSy__KwiGru_KeDru_l.BriDz02__TrxBz_vsg );
+	HriNeDe__ChyVaSy( "TrxKa", Ko.Trx_vsg );
+	HriNeDe__ChyVaSy( "TrxDa", BriDzSa__Da_vsg );
 
-	TrxBz_k.innerText = KoSy__KwiGru_KeDru_l.BriDz00_VaSy_vsg + " " + KoSy__KwiGru_KeDru_l.BriDz02__TrxBz_vsg + BriDzSa__Da_vsg;
-
-	TrxKa_k.innerText = Ko.Trx_vsg;
 
 	//@@@
 	// LOG
@@ -2559,12 +2519,13 @@ function HryMx01_KeMeTrx()
 	const SmaFo_wuk = Math.min( Ko.SmaFe_wu, SmaBraHi_wuk );
 	const GeZo_wuk = Math.max( 0, Ko.SmaFe_wu - SmaFo_wuk );
 
-	TrxSma_Ta.innerText = null;
+	const TrxSma_Ta_k = document.getElementById("TrxSma_Ta");
+	TrxSma_Ta_k.innerText = null;
 
 	for( let i = 0; i < SmaFo_wuk; i++)
 	{
 		const Vy_wuk = ( ( i + GeZo_wuk ) & SmaViKa_wuk );
-		TrxSma_Ta.innerText += Sma_vvsg[ Vy_wuk ] + "\n";
+		TrxSma_Ta_k.innerText += Sma_vvsg[ Vy_wuk ] + "\n";
 	}
 }
 
@@ -3385,23 +3346,28 @@ function KoDz__Ye( Gi )
 		Ko.BriYe_GiDri_df = Gry__GiDri_dfk;
 
 		//&&&
-		// HEADER (Fixed)
+		// HEADER STATUS BAR
 		let GiFe_vsg = new Date();
-		Module.Sma__KeMe_Bz
+
+		HriNeDe__ChyVaSy
 		(
-			KoSy__KwiGru_KeDru_l.BriDz00_VaSy_vsg + " [ " + BriDzSa__Da_vsg + " ]"
-			+ " Mode: " + ( Ko.Hx_SyDx_vsg ? Ko.Hx_SyDx_vsg : "???" )
+			"KeMe_Bz"
+			, "|> "
+			+ KoSy__KwiGru_KeDru_l.BriDz00_VaSy_vsg
+			+ " = " + BriDzSa__Da_vsg
 			+ " @ " + GiFe_vsg.getHours().toString().padStart(2,"0") + ":" + GiFe_vsg.getMinutes().toString().padStart(2,"0") + ":"  + GiFe_vsg.getSeconds().toString().padStart(2,"0")
 		);
 
 
 		//&&&
-		// FOOTER (Dynamic)
+		// FOOTER STATUS BAR
 		const Gry__GiPa_dfk = Gry__GiDri_dfk / 1000.0;
 
-		Module.Sma__KeMe_Bo
+		HriNeDe__ChyVaSy
 		(
-			" "
+			"KeMe_Bo"
+			,
+			"|> "
 			// + " YeFo: " + Ko.YeFo_wu
 			+ " Ti: " + MxPo_Bri_l.width + ", " + MxPo_Bri_l.height
 			+ " Ge: " + MxPo_Bri_l.clientWidth + ", " + MxPo_Bri_l.clientHeight

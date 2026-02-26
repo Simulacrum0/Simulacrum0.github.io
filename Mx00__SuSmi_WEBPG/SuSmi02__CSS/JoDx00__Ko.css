@@ -71,6 +71,9 @@ SHARED
 	--PoTraFra: #999;
 	--PoTraFre: #CCC;
 
+	/* FONT 3D SHADE */
+	--PoSmo: #777;
+
 	--PoKuTo: #DDDE;
 
 	--PoSi: #FFF;
@@ -150,7 +153,7 @@ ANCESTOR
 
 	/* content-visibility: auto; */
 	font-size: var(--GyTreDe);
-	/* font-display: block; */
+	image-rendering: auto;
 
 	color: var(--PoSiSpo);
 	background-color: var(--PoStz);
@@ -161,45 +164,97 @@ ANCESTOR
 
 /*@@@@@@@@@@@@@@@
 FONT
+WGT: light: 100, normal: 400, bold: 700
+
+Using 'font-stack' to unify OS
+KyAPPL: San Francisco
+SkiWIN: Segoe UI
+SkiDRD: Roboto
+SkiLNX: Ubuntu, Cantarell, Noto Sans
+
+
+BRAND(Final Frontier)
+SLAB(Industrial)
+SANS(Helvetica)
+HAND(Comic Sans)
+
+NEOGROTESQUE
+font-family: Inter, Roboto, 'Helvetica Neue', 'Arial Nova', 'Nimbus Sans', Arial, system-ui, sans-serif;
+
 @@@@@@@@@@@@@@@*/
-.WaDru_SmuHi
+
+/* FACE[ 4 ] --------------------------- */
+/* 00 BRAND UNIQUE */
+.WaDru_BriDzDy
 {
-	font-family: "Final Frontier Old Style", sans-serif;
+	/* font-family: "Final Frontier Old Style", system-ui, sans-serif; */
+	font-family: "Final Frontier Old Style", Impact, "Roboto", "Arial Black", fantasy, sans-serif;
 }
 
+
+/* INDUSTRIAL */
+/* NOTE: Roboto Condensed uses name sans-serif-condensed under Android */
+/* 01 HEADING */
+.WaDru_Bz
+/* 02 CHOICE */
+, .WaDru_Ne
+/* 03 VALUE */
+, .WaDru_Vu
+{
+	font-family: Bahnschrift, "DIN Alternate", "Franklin Gothic Medium", "Nimbus Sans Narrow", sans-serif-condensed, system-ui, sans-serif;
+}
+
+/* 04 HANDWRITTEN */
 .WaDru_JeDo
 {
-	font-family: cursive;
+	font-family: "Comic Sans MS", "Comic Sans", "Marker Felt", "Noteworthy", "Segoe Print", "Chalkboard SE", "Comic Neue", "Bradley Hand", Chilanka, TSCu_Comic, casual, sans-serif;
 }
 
-.WaDru_JoGrz
-{
-	font-family: fantasy;
-}
-
-.WaDru_Bz
-{
-	font-family: Arial, sans-serif;
-	font-weight: 600;
-	font-style: normal;
-}
-
-.WaDru_De,
-.WaDru_Py
-{
-	font-family: Arial, sans-serif;
-	font-weight: 400;
-	font-style: normal;
-}
-
+/* 05 FLAG */
 .WaDru_Ku
 {
 	/* Provides FLAGS that show correctly on Win11 and don't lag on Apple */
 	font-family: "Segoe UI Emoji", sans-serif;
-	font-weight: 400;
-	font-style: normal;
 }
 
+/* WEIGHT[4] --------------------------- */
+/* NORMAL */
+.WaDru_Vu
+, .WaDru_JeDo
+, .WaDru_Ku
+{
+	font-weight: 400;
+}
+
+/* BOLD */
+, .WaDru_Ne
+{
+	font-weight: 700;
+}
+
+/* ITALIC BOLD */
+.WaDru_Bz
+{
+	font-weight: 700;
+	font-style: italic;
+}
+
+/* 3D FX */
+.WaDru_BriDzDy
+{
+	font-weight: 900;
+
+	/* text-shadow: <horizontal-offset> <vertical-offset> <blur-radius> <color>; */
+    text-shadow:
+
+	1px 1px 0 var(--PoSmo)
+	, 1px 2px 0 var(--PoSmo)
+	, 1px 3px 0 var(--PoSmo)
+	, 1px 4px 0 var(--PoSmo)
+
+	;
+
+}
 
 /*@@@@@@@@@@@@@@@
 ICONS
@@ -318,17 +373,19 @@ MxPo_Bri: Run XP
 .Tz02__MxPo
 {
 	left: 0dvw;
+	top: 0dvh;
+
+	width: 100dvw;
+	height: 100dvh;
+}
+
+.Tz02__MxPo__Bri
+{
+	left: 0dvw;
 	top: var(--GyKaHu);
 
 	width: 100dvw;
 	height: calc( 100dvh - var(--GyKaHi));
-
-	image-rendering: auto;
-	/* PIXEL ART*/
-	/* image-rendering: pixelated; */
-	/* HIGH CONTRAST */
-	/* image-rendering: crisp-edges; */
-	/* SMOOTH */
 }
 
 /*@@@@@@@@@@@@@@@

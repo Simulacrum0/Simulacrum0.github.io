@@ -984,17 +984,21 @@ async function DoWG__BriYa_SmzYz( Sa_l, Yz_k )
 
 	//@@@
 	// GUI UPDATE
-	Ko.KaBx__VaDe_vsg = ( KaKy_l.info.vendor + " " + KaKy_l.info.architecture );
-	HriNeDe__ChyVaSy( "KaBx__VaDe", Ko.KaBx__VaDe_vsg );
-
+	let KaBx__Gwz_vsg = null;
 	const VENDOR_vksg = KaKy_l.info.vendor.toUpperCase();
-	if( VENDOR_vksg.includes( "AMD" ) )	{ Ko.KaBx__Gwz_vsg = "AMD"; }
-	else if( VENDOR_vksg.includes( "BROADCOM" ) )	{ Ko.KaBx__Gwz_vsg = "BROADCOM"; }
-	else if( VENDOR_vksg.includes( "QUALCOMM" ) ) { Ko.KaBx__Gwz_vsg = "QUALCOMM"; }
-	else if( VENDOR_vksg.includes( "INTEL" ) )	{ Ko.KaBx__Gwz_vsg = "INTEL"; }
-	else if( VENDOR_vksg.includes( "NVIDIA" ) )	{ Ko.KaBx__Gwz_vsg = "NVIDIA"; }
-	else if( VENDOR_vksg.includes( "VIVANTE" ) ){ Ko.KaBx__Gwz_vsg = "VIVANTE"; }
+	if( VENDOR_vksg.includes( "AMD" ) )	{ KaBx__Gwz_vsg = "AMD"; }
+	else if( VENDOR_vksg.includes( "BROADCOM" ) )	{ KaBx__Gwz_vsg = "BROADCOM"; }
+	else if( VENDOR_vksg.includes( "QUALCOMM" ) ) { KaBx__Gwz_vsg = "QUALCOMM"; }
+	else if( VENDOR_vksg.includes( "INTEL" ) )	{ KaBx__Gwz_vsg = "INTEL"; }
+	else if( VENDOR_vksg.includes( "NVIDIA" ) )	{ KaBx__Gwz_vsg = "NVIDIA"; }
+	else if( VENDOR_vksg.includes( "VIVANTE" ) ){ KaBx__Gwz_vsg = "VIVANTE"; }
 
+	// IF LOGO, Skip Vendor
+	if( KaBx__Gwz_vsg ){ Ko.KaBx__Gwz_vsg = KaBx__Gwz_vsg; }
+	Ko.KaBx__VaDe_vsg = KaBx__Gwz_vsg ? ( KaKy_l.info.architecture ) : ( KaKy_l.info.vendor + " " + KaKy_l.info.architecture );
+
+	// UPDATE GUI
+	HriNeDe__ChyVaSy( "KaBx__VaDe", Ko.KaBx__VaDe_vsg );
 	HriNeDe__ChyGwz( "KaBx__Gwz", Ko.KaBx__Gwz_vsg );
 
 

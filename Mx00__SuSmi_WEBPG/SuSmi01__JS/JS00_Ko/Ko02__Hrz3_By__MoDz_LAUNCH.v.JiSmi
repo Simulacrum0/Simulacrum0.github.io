@@ -316,29 +316,14 @@ var Module =
     },
 
 	//@@@
-	// HEADER BAR
-	Sma__KeMe_Bz( Sma_vsg )
-	{
-		let DzYz__Bz_l = document.getElementById('KeMe_Bz');
-		DzYz__Bz_l.innerHTML = "|> "+ ( Sma_vsg );
-	},
-
-	//@@@
-	// FOOTER BAR
-	Sma__KeMe_Bo( Sma_vsg )
-	{
-		let DzYz__Bo_l = document.getElementById('KeMe_Bo');
-		DzYz__Bo_l.innerHTML = "|> " + ( Sma_vsg );
-	},
-
-	//@@@
 	// LOAD
-	monitorRunDependencies( left )
+	monitorRunDependencies( Fo_k )
 	{
-		// NO NEED TO REPORT CURRENTLY
-		this.totalDependencies = Math.max(this.totalDependencies, left);
-		Module.Sma__KeMe_Bo( left ? ( KoSy__KwiGru_KeDru_l.BriDz_KiMiFe_vsg + ' (' + (this.totalDependencies - left) + '/' + this.totalDependencies + ')') : " " );
-
+		//!!!
+		// REQUIRED
+		this.totalDependencies = Math.max( this.totalDependencies, Fo_k );
+		// NO NEED TO REPORT CURRENTLY ( just 1 goes to 0 )
+		// SmaJe( "[LAUNCH]", Fo_k, "Modules Remain of ", this.totalDependencies );
 	},
 
 };
@@ -357,40 +342,18 @@ function MoDzTrx( Trx_vsg )
 	Ko.Trx_vsg = Trx_vsg;
 	KoDz__YzChy( BriYz.Trx_qk );
 
-
 	//@@@
-	// ERR MSGBARS
-
-	//&&&
-	// HEADER (Fixed)
-	// Err Alert, Build Version,
-	const Bz_vsg = KoSy__KwiGru_KeDru_l.BriDz02__TrxBz_vsg + " [" + ( Ko.Hx_SyDx_vsg ? Ko.Hx_SyDx_vsg : "???" ) + " " + BriDzSa__Da_vsg + "] ";
-
-	//&&&
-	// FOOTER (Dynamic)
-	// Please Quit + Err Msg
-	const Bo_vsg = KoSy__KwiGru_KeDru_l.BriDz03__TrxKrx_vsg + " " + Trx_vsg;
-
-	//&&&
-	// GUI MSGBARS
-	Module.Sma__KeMe_Bz( Bz_vsg );
-	Module.Sma__KeMe_Bo( Bo_vsg );
-
-	//&&&
-	// DBG
-	SmaTrx( "[FAIL]", Bo_vsg );
+	// LOG
+	// MSGBOX alert( Trx_vsg );
+	SmaTrx( "[FAIL]", Trx_vsg );
 	SmaTrx( "[FAIL] *STK_TRACE*:", jsStackTrace() );
 
-	// POST for DBG
-	// console.error( Bo_vsg );
-
-	// Skip MSGBOX
-	// alert( Bo_vsg );
-
+	//@@@
 	// DISPLAY ERR
 	KoDz_GyHa();
 
-	// SERV closes All Else
+	//@@@
+	// SERV END ALL
 	KoDz__Yi();
 }
 
@@ -560,7 +523,7 @@ function Hrz3_By__FyTo()
 	else if( NODE_vksg.includes( "RISCV" ) || NODE_vksg.includes( "RISC-V" ) )
 	{
 		Ko.KaBz__Gwz_vsg = "RISCV";
-		Ko.KaBz__VaDe_vsg = "RISC-V";
+		Ko.KaBz__VaDe_vsg = "RISC-V 64";
 	}
 
 }
