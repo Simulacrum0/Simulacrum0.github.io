@@ -337,7 +337,6 @@ function KoDz__Ye( Gi )
 		if( SySmz__BriYz__Ye_y( Ti_k ) && Ti_k.BriYe ){ Ti_k.BriYe( Ti_k, Gi ); }
 	});
 
-
 	//@@@
 	// LOOP FOREVER
 	requestAnimationFrame( KoDz__Ye );

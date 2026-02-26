@@ -1,5 +1,5 @@
-const BriDzSa__Da_vsg = "PUB_v0.240"; 
- const BriDzSa__Da_wuk = "240"; 
+const BriDzSa__Da_vsg = "PUB_v0.241"; 
+ const BriDzSa__Da_wuk = "241"; 
  const BriDz__Mx_KuTu_vsg = "https://powerourpeople.com/"; 
 
 //==============================================
@@ -446,13 +446,13 @@ let Ko =
 
 	// CPU
 	, KaBz__Gwz_vsg: "CHECK"
-	, KaBz__VaDe_vsg: "unknown"
+	, KaBz__VaDe_vsg: "Unknown"
 	// GPU
 	, KaBx__Gwz_vsg: "CHECK"
-	, KaBx__VaDe_vsg: "unknown"
+	, KaBx__VaDe_vsg: "Unknown"
 	// NPU
 	, KaBa__Gwz_vsg: "DISABLE"
-	, KaBa__VaDe_vsg: "none"
+	, KaBa__VaDe_vsg: "None"
 
 
 	//@@@
@@ -558,39 +558,93 @@ function SmaSy__NxHo_y( Va, Kri_y )
 	return false;
 }
 
-
 //==============================================
-// WINDOW__ERR
+// ERR
 //==============================================
-window.onerror = (e) =>
+function MoDzTrx( Trx_vsg )
 {
-	const Trx_vsg = ( JSON.stringify( e ) );
+	//@@@
+	// CFG
+	// If already 'Err' exit
+	if( Ko.Trx_vsg ) return;
 
-	// LOG ERR
-	SmaDBG( e );
+	Ko.Trx_vsg = Trx_vsg;
+	KoDz__YzChy( BriYz.Trx_qk );
 
-	// ERR_TYPES
-	/*
-	if(e instanceof TypeError)
+	//@@@
+	// LOG
+	// MSGBOX alert( Trx_vsg );
+	SmaTrx( "[FAIL] MSG:", Trx_vsg );
+	SmaTrx( "[FAIL] STK:", jsStackTrace() );
+
+	//@@@
+	// DISPLAY ERR
+	KoDz_GyHa();
+
+	//@@@
+	// SERV END ALL
+	KoDz__Yi();
+}
+
+
+//==============================================
+// FAIL__IF_INVALID
+//==============================================
+function MoDzTrx__NxHo_y( Va, Kri_y )
+{
+	// SmaSy( "NxHo: ---> " + Va );
+	if( !Kri_y )
 	{
-		// statements to handle TypeError exceptions
+		MoDzTrx( "[FAIL]: " + Va + " @ " + Kri_y );
+		return true;
 	}
-	else if(e instanceof RangeError)
+	return false;
+}
+
+
+//==============================================
+// JS_ERR
+//==============================================
+function MoDzTrx__Je( e )
+{
+	let Trx_vsg;
+
+	// LOG ERR EVT
+	if( e.type === "error" )
 	{
-		// statements to handle RangeError exceptions
+		Trx_vsg = e.message + " SRC: " + e.filename + ":" + e.lineno + ":" + e.colno;
+		SmaDBG( "[FAIL] HTML:", e );
 	}
-	else if(e instanceof EvalError)
+	else if( e.type === "unhandledrejection" )
 	{
-		// statements to handle EvalError exceptions
+		Trx_vsg = e.reason.message;
+
+		const STK_vsg = e.reason.stack;
+		if( STK_vsg )
+		{
+			// REGEX to match https://.*
+			const ToKz_vsg = STK_vsg.match(/https?:\/\/[^\s\)]+/)[0];
+			if( ToKz_vsg )
+			{
+				SmaTrx( "[FAIL] URL:", ToKz_vsg );
+				// Must use 2nd STRING in Split Array
+				const So_vsg = ToKz_vsg.split(/\S*Mx00__SuSmi_WEBPG/)[ 1 ];
+				SmaTrx( "[FAIL] REF:", So_vsg );
+			}
+		}
+		SmaDBG( "[FAIL] PROMISE:", e );
 	}
 	else
 	{
-		// statements to handle any unspecified exceptions
+		Trx_vsg = ( e.toString() );
 	}
-	*/
 
+	//@@@
+	// PRESENT ERR & STOP HANDLER
 	MoDzTrx( Trx_vsg );
+	e.preventDefault();
 }
+
 
 //==============================================
 // BOOTUP
@@ -606,6 +660,12 @@ function MoDz__BOOT()
 	// SECURITY
 	//----------------------------------
 	KoDz__YzChy( BriYz.HxHo_qk );
+
+	//@@@
+	// ERR HANDLERS
+	window.addEventListener( "error", MoDzTrx__Je );
+	window.addEventListener( "unhandledrejection", MoDzTrx__Je );
+
 
 	//@@@
 	// CORS must RUN FIRST
@@ -703,7 +763,10 @@ var Module =
 		// BEGIN SYSTEM
 		KoDz__YaFz();
 		// ENSURE ONLY ONE INSTANCE!
-		MoDz__DzStxGru();
+		xMoDz__DzStxGru();
+
+		// ERR TEST
+		// const ERR_v = new Array(-1);
     },
 
 	//@@@
@@ -718,50 +781,6 @@ var Module =
 	},
 
 };
-
-
-//==============================================
-// ERR
-//==============================================
-function MoDzTrx( Trx_vsg )
-{
-	//@@@
-	// CFG
-	// If already 'Err' exit
-	if( Ko.Trx_vsg ) return;
-
-	Ko.Trx_vsg = Trx_vsg;
-	KoDz__YzChy( BriYz.Trx_qk );
-
-	//@@@
-	// LOG
-	// MSGBOX alert( Trx_vsg );
-	SmaTrx( "[FAIL]", Trx_vsg );
-	SmaTrx( "[FAIL] *STK_TRACE*:", jsStackTrace() );
-
-	//@@@
-	// DISPLAY ERR
-	KoDz_GyHa();
-
-	//@@@
-	// SERV END ALL
-	KoDz__Yi();
-}
-
-
-//==============================================
-// FAIL__IF_INVALID
-//==============================================
-function MoDzTrx__NxHo_y( Va, Kri_y )
-{
-	// SmaSy( "NxHo: ---> " + Va );
-	if( !Kri_y )
-	{
-		MoDzTrx( "[FAIL]: " + Va + " @ " + Kri_y );
-		return true;
-	}
-	return false;
-}
 
 
 //==============================================
@@ -3389,7 +3408,6 @@ function KoDz__Ye( Gi )
 	{
 		if( SySmz__BriYz__Ye_y( Ti_k ) && Ti_k.BriYe ){ Ti_k.BriYe( Ti_k, Gi ); }
 	});
-
 
 	//@@@
 	// LOOP FOREVER

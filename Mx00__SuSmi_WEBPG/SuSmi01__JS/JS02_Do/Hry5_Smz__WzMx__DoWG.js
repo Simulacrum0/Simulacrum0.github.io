@@ -1,4 +1,4 @@
-const DoWG__BriDzSa__Da_wuk = "240"; 
+const DoWG__BriDzSa__Da_wuk = "241"; 
 
 //==============================================
 //==============================================
@@ -1055,6 +1055,11 @@ DoWG.BriYo = function( Sa_l )
 	// Reset Clocks?
 }
 
+function Hre1_Dru__ChyCAMELCASE( vsg )
+{
+	return ( vsg.charAt(0).toUpperCase() + vsg.slice(1) );
+}
+
 //==============================================
 // SESSION END
 //==============================================
@@ -2034,7 +2039,8 @@ async function DoWG__BriYa_SmzYz( Sa_l, Yz_k )
 
 	// IF LOGO, Skip Vendor
 	if( KaBx__Gwz_vsg ){ Ko.KaBx__Gwz_vsg = KaBx__Gwz_vsg; }
-	Ko.KaBx__VaDe_vsg = KaBx__Gwz_vsg ? ( KaKy_l.info.architecture ) : ( KaKy_l.info.vendor + " " + KaKy_l.info.architecture );
+	Ko.KaBx__VaDe_vsg = Hre1_Dru__ChyCAMELCASE( KaBx__Gwz_vsg ? ( KaKy_l.info.architecture ) : ( KaKy_l.info.vendor + " " + KaKy_l.info.architecture ));
+
 
 	// UPDATE GUI
 	HriNeDe__ChyVaSy( "KaBx__VaDe", Ko.KaBx__VaDe_vsg );
