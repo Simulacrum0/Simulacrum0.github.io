@@ -1,4 +1,4 @@
-const DoWG__BriDzSa__Da_wuk = "244"; 
+const DoWG__BriDzSa__Da_wuk = "245"; 
 
 //==============================================
 //==============================================
@@ -1353,7 +1353,7 @@ async function DoWG__BriYa_SmzYz( Sa_l, Yz_k )
 		);
 
 
-		Yz_k.YzVi_q = KwiYz_k.Ne03_Hry06__SmzYz_q;
+		Yz_k.YzVi_q = KwiYz_k.TzHry__NzSy__SmzYz_q;
 		return
 		(
 			( Gi__TraNa_yk || Fo__TraNa_yk )
@@ -1930,59 +1930,47 @@ async function DoWG__BriYa_SmzYz( Sa_l, Yz_k )
 	//-------------------------------------------------
 	//  CRAFT STRMs
 	//-------------------------------------------------
+	// T1_REQ: resource: Sa_l.Spy__TaGwa_l.createView( { baseMipLevel: 0, mipLevelCount: 1, baseArrayLayer: 0, arrayLayerCount: 1 } )
+	const Spy__TaGwa__Mi_k = Sa_l.Spy__TaGwa_l.createView( { baseMipLevel: 0, mipLevelCount: 1 } );
+	const Wz__TaGwa__Mi_k = Sa_l.Wz__TaGwa_l.createView( { baseMipLevel: 0, mipLevelCount: 1 } );
+
 	Sa_l.SuGweKy_v =
-		[
-		  KaSmz_l.createBindGroup
+	[
+		KaSmz_l.createBindGroup
 		({
-		  label: "DuPoMy MEDIA_STRM",
-		  layout: DuPoMy_SuTyJy,
-		  entries:
-		  [{
-			binding: 0,
-			resource: Sa_l.JaMi__BILNR_k
-			// resource: Sa_l.JaMi__TRILNR_k
-		  }
-		  ,{ binding: 1, resource: Sa_l.Spy__TaGwa_l }
+			label: "DuPoMy IMG_SRCS",
+			layout: DuPoMy_SuTyJy,
+			entries:[
+				{ binding: 0, resource: Sa_l.JaMi__BILNR_k }
+				,{ binding: 1, resource: Spy__TaGwa__Mi_k }
+				]})
+
+		, KaSmz_l.createBindGroup
+		({
+			label: "DuPoTrz MIP_SRC",
+			layout: DuPoMy_SuTyJy,
+			entries:[
+			//  Sa_l.JaMi__TRILNR_k
+			{ binding: 0, resource: Sa_l.JaMi__BILNR_k }
+			,{ binding: 1, resource: Spy__TaGwa__Mi_k  }
 		]})
-
-		   , KaSmz_l.createBindGroup
-		   ({
-			 label: "DuPoTrz MIP_SRC",
-			 layout: DuPoMy_SuTyJy,
-			 entries:
-			 [{
-			   binding: 0,
-			   resource: Sa_l.JaMi__BILNR_k
-			   // resource: Sa_l.JaMi__TRILNR_k
-			 },{
-			   binding: 1,
-			   // T1_REQ: resource: Sa_l.Spy__TaGwa_l.createView( { baseMipLevel: 0, mipLevelCount: 1, baseArrayLayer: 0, arrayLayerCount: 1 } )
-			   resource: Sa_l.Spy__TaGwa_l.createView( { baseMipLevel: 0, mipLevelCount: 1 } )
-
-			 }] })
 
 		, KaSmz_l.createBindGroup
 		({
 		  label: "WzPoChy MEDIA_STRM",
 		  layout: WzPoChy_SuTyJy,
-		  entries:
-		  [{
-			binding: 0,
-			resource: Sa_l.Wz__TaGwa_l
-		  }] })
+		  entries: [
+			{ binding: 0,	resource: Wz__TaGwa__Mi_k }
+		]})
 
 		, KaSmz_l.createBindGroup
 		({
 			label: "MzPoDe OBS",
 			layout: MzPo_SuTyJy,
-			entries:
-			[{
-				binding: 0,	resource: Sa_l.Spy__TaGwa_l.createView( { baseMipLevel: 0, mipLevelCount: 1 } )
-				// T1_REQ: resource: Sa_l.Spy__TaGwa_l.createView( { baseMipLevel: 0, mipLevelCount: 1, baseArrayLayer: 0, arrayLayerCount: 1 } )
-			}]})
-
-		];
-
+			entries:[
+				{ binding: 0,	resource: Spy__TaGwa__Mi_k }
+		]})
+	];
 
 	//-------------------------------------------------
 	// CHECK on Final ERRORS
@@ -2010,7 +1998,7 @@ async function DoWG__BriYa_SmzYz( Sa_l, Yz_k )
 
 	//@@@
 	// SAVE SUCCESS
-	KwiYz_k.Ne03_Hry06__SmzYz_q = Yz_k.YzVi_q;
+	KwiYz_k.TzHry__NzSy__SmzYz_q = Yz_k.YzVi_q;
 	Hrz4_Bu__TaKeDy__ChyGry();
 
 	//@@@
@@ -2027,25 +2015,24 @@ async function DoWG__BriYa_SmzYz( Sa_l, Yz_k )
 
 
 	//@@@
-	// GUI UPDATE
+	// FIND GUI INFO
 	let KaBx__Gwz_vsg = null;
 	const VENDOR_vksg = KaKy_l.info.vendor.toUpperCase();
 	if( VENDOR_vksg.includes( "AMD" ) )	{ KaBx__Gwz_vsg = "AMD"; }
-	else if( VENDOR_vksg.includes( "BROADCOM" ) )	{ KaBx__Gwz_vsg = "BROADCOM"; }
+	else if( VENDOR_vksg.includes( "BROADCOM" ) ) { KaBx__Gwz_vsg = "BROADCOM"; }
 	else if( VENDOR_vksg.includes( "QUALCOMM" ) ) { KaBx__Gwz_vsg = "QUALCOMM"; }
-	else if( VENDOR_vksg.includes( "INTEL" ) )	{ KaBx__Gwz_vsg = "INTEL"; }
-	else if( VENDOR_vksg.includes( "NVIDIA" ) )	{ KaBx__Gwz_vsg = "NVIDIA"; }
-	else if( VENDOR_vksg.includes( "VIVANTE" ) ){ KaBx__Gwz_vsg = "VIVANTE"; }
+	else if( VENDOR_vksg.includes( "INTEL" ) ) { KaBx__Gwz_vsg = "INTEL"; }
+	else if( VENDOR_vksg.includes( "NVIDIA" ) ) { KaBx__Gwz_vsg = "NVIDIA"; }
 
+	//&&&
 	// IF LOGO, Skip Vendor
-	if( KaBx__Gwz_vsg ){ Ko.KaBx__Gwz_vsg = KaBx__Gwz_vsg; }
+	if( KaBx__Gwz_vsg )	{ Ko.KaBx__Gwz_vsg = KaBx__Gwz_vsg; }
 	Ko.KaBx__VaDe_vsg = Hre1_Dru__ChyCAMELCASE( KaBx__Gwz_vsg ? ( KaKy_l.info.architecture ) : ( KaKy_l.info.vendor + " " + KaKy_l.info.architecture ));
 
-
+	//&&&
 	// UPDATE GUI
 	HriNeDe__ChyVaSy( "KaBx__VaDe", Ko.KaBx__VaDe_vsg );
-	HriNeDe__ChyGwz( "KaBx__Gwz", Ko.KaBx__Gwz_vsg );
-
+	HriNeDe__ChyJaPoDe( "KaBx__Gwz", "Ky", Ko.KaBx__Gwz_vsg );
 
 	return SySmz__YaFx_v( Sa_l );
 }

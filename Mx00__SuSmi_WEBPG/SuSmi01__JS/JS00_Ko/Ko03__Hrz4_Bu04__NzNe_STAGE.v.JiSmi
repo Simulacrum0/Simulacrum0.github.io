@@ -350,7 +350,7 @@ function Hrz4_Bu__ChyNeKu( Vx_wu )
 
 	//!!!
 	// WATCH STRING SPACES
-	const NzVa__FeDe_vsg = "NzVa_TraKz WaDru_Bz";
+	const NzVa__FeDe_vsg = "NzVa_TraKz WaDru_Va";
 	const NzVa__Se_vsg = NzVa__FeDe_vsg + " NzVa_Se_TraKz";
 
 	for( let i = 0; i < NzVa_v.length; i++)
@@ -391,10 +391,10 @@ function Tra_KeMeBri()
 
 	// const Cha__YzVi_q =  document.getElementById( "WG" ).value;
 	//const Cha__YzVi_q = 0;
-	const Cha__YzVi_q = KwiYz_k.Ne03_Hry06__SmzYz_q;
-	if( Cha__YzVi_q !== KwiYz_k.Ne03_Hry06__SmzYz_q )
+	const Cha__YzVi_q = KwiYz_k.TzHry__NzSy__SmzYz_q;
+	if( Cha__YzVi_q !== KwiYz_k.TzHry__NzSy__SmzYz_q )
 	{
-		KwiYz_k.Ne03_Hry06__SmzYz_q = Cha__YzVi_q;
+		KwiYz_k.TzHry__NzSy__SmzYz_q = Cha__YzVi_q;
 
 		// Restart WG
 		const SyWG_k = Ko.SySmz_v[ SyVx.WG_qk ];
@@ -409,7 +409,7 @@ function Tra_KeMeBri()
 
 	//@@@
 	// ECOSYS PLAY
-	SmaJe( "[GUI] User:", KwiYz_k.KeDy_vsg, " NEVER_PAUSE:", KwiYz_k.Ne04_Ko04__KoDz_YoHo_y );
+	SmaJe( "[GUI] User:", KwiYz_k.KeDy_vsg, " NEVER_PAUSE:", KwiYz_k.TzTru__NzCha__KoDz_YoHo_y );
 	if( KoDz__YzYa_y() )
 	{
 		SmaSy( "[GUI] ACTIVE via Resume" );

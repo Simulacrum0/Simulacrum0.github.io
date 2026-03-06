@@ -1,0 +1,203 @@
+{
+	"ALERT":
+	{
+		"Dre__SySmz_GriHo_vsg": "Optional Service Fail: "
+
+		, "TrxJy__KaBzTrx__WG_vsg": "GPU Not Available or Capable: Try Restarting Browser or Machine"
+		, "TrxJy__SySmz_GriHo_vsg": "Required Service Fail:"
+		, "TrxJy__SuKz_GriHo_vsg": "Required Content Fail:"
+	}
+
+	, "LABELS":
+	{
+		"BriDz00_VaSy_vsg": "MicroCosm🗺️SX"
+		, "BriDz01_TraKwi_vsg": "🚀 LAUNCH"
+		, "BriDz02__TrxBz_vsg": "Tech FAIL: "
+		, "BriDz03__TrxKrx_vsg": "Please try a different WebBrowser or Electronic-Device"
+		, "BriDz04__TrxTaSma_vsg": "Event LOG"
+
+
+		, "TzKu_vsg": "🗺️\nWHERE"
+		, "TzKe_vsg": "🥸\nWHO"
+		, "TzHru_vsg": "👂\nHEAR"
+		, "TzHry_vsg": "👀\nSEE"
+		, "TzTru_vsg": "👍\n ALLOW"
+		, "TzKro_vsg": "🧩\nLEARN"
+		, "TzGrx_vsg": "📜\nNOTICE"
+
+		, "TzSme_vsg": "TEST SECTION"
+
+		, "TzKu__NzYa_vsg": "👋Welcome to MicroCosm🗺️SX"
+			, "TzKu__NzYa__Ne00_vsg": "MicroCosm🗺️SX is your portal to exploring, creating, & sharing 'digital experiences' (XP) with people or communities you choose. By tapping Launch above you'll enter into the selected XP and can play, build, connect or simply understand its contents. To customize the launch experience in your browser select the other tabs to fit match your needs and permissions."
+
+		, "TzKu__NzJo_vsg": "🧭 Where to Go"
+			, "TzKu__NzJo__NiJo_vsg": "🚪Experience (XP) to Enter"
+
+		, "TzKu__NzKeDru_vsg": "🌐 Language"
+
+		, "TzKu__NzTrz_vsg": "🧪About this Version"
+
+			, "TzKu__NzTrz__SaSz00_Va_vsg": "🏗️Build:"
+			, "TzKu__NzTrz__SaSz01_Va_vsg": "🔎New Features:"
+			, "TzKu__NzTrz__SaSz02_Va_vsg": "🔬Test Focus:"
+			, "TzKu__NzTrz__SaSz03_Va_vsg": "🪲Known Issues:"
+
+			, "TzKu__NzTrz__SaSz01_Hx_vsg": "HTML, Javascript & CSS for launching should be done for User Profiles.\nLanguages are not yet supported but the behavior works as expected for English and intentionally-overriden Right to Left Spanish."
+			, "TzKu__NzTrz__SaSz02_Hx_vsg": "Check if the OS, Browser & Chips seem 'correct'.\nTest 7 Menus and verify formatting looks mvp-ok\n"
+			, "TzKu__NzTrz__SaSz03_Hx_vsg": "Build does not RUN!\nApple & Samsung fail in WebGPU\nLauncher needs Refinement\nAll possible art switching to svg vectors\n"
+
+
+		, "TzKu__NzKo_vsg": "🖥️Your Machine"
+
+			, "TzKu__NzKo__Sy00_vsg": "Device:"
+			, "TzKu__NzKo__Sy01_vsg": "OS:"
+			, "TzKu__NzKo__Sy02_vsg": "Browser:"
+			, "TzKu__NzKo__Sy03_vsg": "CPU:"
+			, "TzKu__NzKo__Sy04_vsg": "GPU:"
+			, "TzKu__NzKo__Sy05_vsg": "NPU:"
+
+
+		, "TzKe__NzDz_vsg": "🗣️User"
+			, "TzKe__NzDz__DzNe_vsg": "👥Pick User"
+			, "TzKe__NzDz__VaTre_vsg": "📛Edit Name"
+			, "TzKe__NzDz__ChaDe_vsg": "🆕Add New Default User"
+			, "TzKe__NzDz__ChaFe_vsg": "🖨️Copy Current User"
+			, "TzKe__NzDz__Chi_vsg": "🗑️Remove Current User"
+
+		, "TzKe__NzJa_vsg": "😎Profile"
+
+		, "TzKe__NzChe_vsg": "🔐Use Question-Answer Security"
+			, "TzKe__NzChe__MaKz_vsg": "🔒Question-Lock"
+			, "TzKe__NzChe__SmzKz_vsg": "🗝️Answer-Key"
+			, "TzKe__NzChe__Krz": "❓Check Answer"
+			, "TzKe__NzChe__Chy": "✅Save Answer"
+			, "TzKe__NzChe__Trx": "✖️Incorrect Answer"
+			, "TzKe__NzChe__TraHo": "🔑Requires Answer"
+			, "TzKe__NzChe__TraHy": "🔓User Ready"
+
+
+		, "TzHru__NzMx_vsg": "Speakers"
+			, "TzHru__NzMx__PeHo_vsg": "🔇Mute"
+			, "TzHru__NzMx__PeVo_vsg": "Volume"
+
+		, "TzHru__NzMz_vsg": "Microphones"
+			, "TzHru__NzMz__PeVo_vsg": "Format"
+
+		, "TzHru__NzSy_vsg": "Audio Tek"
+			, "TzHru__NzSy__Mo_vsg": "Control"
+			, "TzHru__NzSy__Dx_vsg": "Style"
+			, "TzHru__NzSy__SmzYz_vsg": "Provider"
+			, "TzHru__NzSy__GyBraHi_vsg": "Quality"
+			, "TzHru__NzSy__TyGy_vsg": "Detail"
+
+
+		, "TzHry__NzMz_vsg": "Camera"
+		, "TzHry__NzMz__MzPo_vsg": "Format"
+
+		, "TzHry__NzMx_vsg": "Display"
+			, "TzHry__NzMx__KeDruGy__Vo_vsg": "Legible Text Size"
+			, "TzHry__NzMx__PoGy__HyHo_vsg": "HDR"
+			, "TzHry__NzMx__Dx__TaNi_vsg": "Screen"
+				, "TzHry__NzMx__Dx00_MxPoDe_vsg": "Browser Tab"
+				, "TzHry__NzMx__Dx01_MxPoGyHi_vsg": "Fullscreen"
+				, "TzHry__NzMx__Dx02_MxPoGry_vsg": "Windows All-Screens"
+				, "TzHry__NzMx__Dx03_MxPoGry_vsg": "Fullscreen All-Screens"
+				, "TzHry__NzMx__Dx04_HriKeKwz_vsg": "VR ( Virtual Reality XR )"
+				, "TzHry__NzMx__Dx05_HriKeKwa_vsg": "AR ( Augmented Reality XR )"
+
+
+		, "TzHry__NzSy_vsg": "Visual Tek"
+			, "TzHry__NzSy__Mo_vsg": "Control"
+			, "TzHry__NzSy__Dx_vsg": "Style"
+			, "TzHry__NzSy__SmzYz_vsg": "Provider"
+			, "TzHry__NzSy__GyBraHi_vsg": "Quality"
+			, "TzHry__NzSy__TyGy_vsg": "Detail"
+
+		, "TzHry__NzSy__HriKeGe_vsg": "Movement"
+			, "TzHry__NzSy__HriKeGe00_vsg": "XR Space"
+			, "TzHry__NzSy__HriKeGe01_Spo_vsg": "XR Still User"
+			, "TzHry__NzSy__HriKeGe02_Bra_vsg": "XR Area Boundaries"
+			, "TzHry__NzSy__HriKeGe03_Dri_vsg": "XR Roaming"
+
+
+		, "TzTru__NzBri_vsg": "Activity"
+			, "TzTru__NzBri__KoYoHo_vsg": "Always Active (Background Work)"
+			, "TzTru__NzBri__HruYoHo_vsg": "Always Audible (Background Sound)"
+			, "TzTru__NzBri__BruYoHo_vsg": "Always Network"
+			, "TzTru__NzBri__SpeSz_vsg": "Power Use"
+
+		, "TzTru__NzDrx_vsg": "Track"
+			, "TzTru__NzDrx__MzKu_vsg": "Allow GPS Location (Track)"
+				, "TzTru__NzDrx__MzKu01_Ge_vsg": "Allow GPS Location (Track)"
+				, "TzTru__NzDrx__MzKu02_Ku_vsg": "Remember Locations Seen (Anchors)"
+				, "TzTru__NzDrx__MzKu03_Gz_vsg": "Allow Distance Sensors"
+
+		, "TzTru__NzBru_vsg": "Network"
+			, "TzTru__NzBru__TraGrx_vsg": "Allowed Connections"
+				, "TzTru__NzBru__TraGrx__Ho_vsg": "No Network"
+				, "TzTru__NzBru__TraGrx__SaGru_vsg": "Only Your Devices"
+				, "TzTru__NzBru__TraGrx__TuGru_vsg": "Only Known Contacts"
+				, "TzTru__NzBru__TraGrx__Sme_vsg": "Browse Anywhere"
+
+		, "TzTru__NzCha_vsg": "Install"
+			, "TzTru__NzCha__KwiYz_ChyDe_vsg": "Reset User's Settings to Default"
+			, "TzTru__NzCha__TaKeDy_Chx_vsg": "Clear All Users & Settings to NEW"
+
+
+		, "TzKro__Bz_vsg": "Learn about MicroCosm🗺️SX"
+
+			, "TzKro__Nz00_vsg": "Why MicroCosm🗺️SX?"
+			, "TzKro__Nz00__Ka_vsg": "EverybodyWins: No Shortage of Solutions, 100% People possible to create, use, & monetize compute powers for solutions\n\nYourChoice: Would you Rather live in an Everyone can monetize solutions for actual 'value' or continue in our Walled Garden, Engineer-Only, Software-Failure built world. Try_All_Tek, Model All Possibilities: Problems that more Money, more Talent, more Time, and more Code doesn’t solve.\n\nTransfer: Migration of Solutions, Ecosystem Investments Preserved - Subjective_Truth_Has_Value: Knowledge Rep/ Meaning Coordinates => Custom, Not One Size Fits All"
+
+			, "TzKro__Nz01_vsg": "Topic #2"
+			, "TzKro__Nz01__Ka_vsg": "COMPUTER_IS_BICYCLE_FOR_OUR_MINDS: I think one of the things that really separates us from the high primates is that we’re tool builders. I read a study that measured the efficiency of locomotion for various species on the planet. The condor used the least energy to move a kilometer. Humans came in with a rather unimpressive showing about a third of the way down the list. It was not too proud a showing for the crown of creation. So, that didn’t look so good. But then, somebody at Scientific American had the insight to test the efficiency of locomotion for a man on a bicycle. And, a man on a bicycle, a human on a bicycle, blew the condor away, completely off the top of the charts. And that’s what a computer is to me. What a computer is to me is it’s the most remarkable tool that we’ve ever come up with. It’s the equivalent of a bicycle for our minds. — Steve Jobs (1980)"
+
+
+			, "TzKro__Nz02_vsg": "FIVE_QUESTIONS:"
+			, "TzKro__Nz02__Ka_vsg": "- Trust: Is wantware real/viable? Does it do what is claimed.\n- Scope: Can it scale globally? Evidence it can reach intended clients as desired solutions.\n- Success: wantware Competition, IP-Protection and Market Lockout? Industry interest and value to existing stakeholders.\n- Risk: How ready and stable are we today and our roadmap? Timing and resources required to meet milestones.\n- Value: Is it worth it? Does empowering all humans to have personalized dialogs that create machine behaviors, shareable solutions, carry a global market value? Does it affect AI, Automation, and near-term economics?"
+
+			, "TzKro__Nz03_vsg": "Topic #4"
+			, "TzKro__Nz03__Ka_vsg": "WHAT: wantware is a Meta-Computer as it functions to talk 'About' computing and reconfigure itself for all its task needs by regenerating its machine instructions and transforming its data structures & streams towards performance or wattage or other optimization goals. It handles the user specified needs by exposing all of its potential capabilities ( 'what it can do' ) and current activities ( 'why and what its doing now' ) to an interactive dialog in the user's language and style.\n\nJUUL_QUOTE: I realized that the change we were seeking would not come from waiting for people or governments to do “the right thing” with respect to communities, sustainability, and justice. It required too much “zoom out” thinking— seeing the bigger picture, when most people were just trying to get by and raise their families. I saw creating wantware as means of opening up at least one sector of the economy to all people with an idea. To enable users to innovate in their own areas of expertise, solve problems from their unique perspective, own and control those creations, and monetize, trade, or give those creations in a truly free economic ecosystem. The image I always came back to was from the end of the 80’s movie, Solarbabies. One group controls all the water and thus has all the power. The solar babies release the water in such a way that it cannot be easily captured again. The power structure falls.\n\nWHAT: wantware is a Meta-Computer as it functions to talk 'About' computing and reconfigure itself for all its task needs by regenerating its machine instructions and transforming its data structures & streams towards performance or wattage or other optimization goals. It handles the user specified needs by exposing all of its potential capabilities ( 'what it can do' ) and current activities ( 'why and what its doing now' ) to an interactive dialog in the user's language and style.\n\nJUUL_QUOTE: I realized that the change we were seeking would not come from waiting for people or governments to do “the right thing” with respect to communities, sustainability, and justice. It required too much “zoom out” thinking— seeing the bigger picture, when most people were just trying to get by and raise their families. I saw creating wantware as means of opening up at least one sector of the economy to all people with an idea. To enable users to innovate in their own areas of expertise, solve problems from their unique perspective, own and control those creations, and monetize, trade, or give those creations in a truly free economic ecosystem. The image I always came back to was from the end of the 80’s movie, Solarbabies. One group controls all the water and thus has all the power. The solar babies release the water in such a way that it cannot be easily captured again. The power structure falls.\n\nWHAT: wantware is a Meta-Computer as it functions to talk 'About' computing and reconfigure itself for all its task needs by regenerating its machine instructions and transforming its data structures & streams towards performance or wattage or other optimization goals. It handles the user specified needs by exposing all of its potential capabilities ( 'what it can do' ) and current activities ( 'why and what its doing now' ) to an interactive dialog in the user's language and style.\n\nJUUL_QUOTE: I realized that the change we were seeking would not come from waiting for people or governments to do “the right thing” with respect to communities, sustainability, and justice. It required too much “zoom out” thinking— seeing the bigger picture, when most people were just trying to get by and raise their families. I saw creating wantware as means of opening up at least one sector of the economy to all people with an idea. To enable users to innovate in their own areas of expertise, solve problems from their unique perspective, own and control those creations, and monetize, trade, or give those creations in a truly free economic ecosystem. The image I always came back to was from the end of the 80’s movie, Solarbabies. One group controls all the water and thus has all the power. The solar babies release the water in such a way that it cannot be easily captured again. The power structure falls."
+
+
+		, "TzGrx__Bz_vsg": "Important Notices for Legal, Credit, or Usage rules."
+
+		, "TzGrx__NzTra_vsg": "How to Use"
+		, "TzGrx__NzTra__Ka_vsg": "Tab: Moves between top-level menu items.\nEnter or Space: Opens submenu.\nEsc: Closes current submenu and returns focus to the trigger.\nArrow Keys: Navigate between submenu items."
+
+		, "TzGrx__NzSmu_vsg": "Notices of Importance"
+			, "TzGrx__NzSmu__Ka_vsg": "Here is important info..."
+
+		, "TzGrx__NzSpe_vsg": "License Notices"
+			, "TzGrx__NzSpe__Ka_vsg": "Licenses used from..."
+
+		, "TzGrx__NzChe_vsg": "Legal Notices"
+			, "TzGrx__NzChe__Ka_vsg": "Legal Compliances go here"
+
+		, "TzGrx__NzSo_vsg": "Credit Notices"
+			, "TzGrx__NzSo__Ka_vsg": "Credits go to..."
+
+		, "TzGrx__NzDryKy_vsg": "Company Notices"
+			, "TzGrx__NzDryKy__Ka_vsg": "Copyright 2026 PowerOurPeople.\nLicensed under the Apache License, Version 2.0 (the 'License');\n-- You may not use this file except in compliance with the License.\n-- You may obtain a copy of the License at\n\nhttp://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+
+	}
+
+
+	, "USAGE":
+	{
+		"TzKe_vsg": "Select Identity, Culture & Security"
+		, "TzTru_vsg": "Decide on Access of Info"
+		, "TzHru_vsg": "Setup Audio Mic and Speakers"
+		, "TzHry_vsg": "Setup Displays, Style, and Quality"
+		, "TzKro_vsg": "Basic information about MicroCosm🗺️SX"
+		, "TzGrx_vsg": "License, Legal, Credit, & Company Notices"
+
+
+		, "TzKe__NzDz__DzNe_vsg": "Choose from previous or defaults Users"
+
+
+		, "TzGrx__NzChe_vsg": "DCMA, GPDR, DRM, PEGI, ESRB, etc."
+		, "TzGrx__NzSo_vsg": "Credits go here"
+		, "TzGrx__NzDryKy_vsg": "Company info goes here"
+	}
+}

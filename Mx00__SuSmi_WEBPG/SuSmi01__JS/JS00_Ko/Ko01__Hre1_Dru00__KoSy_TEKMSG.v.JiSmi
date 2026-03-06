@@ -10,11 +10,12 @@ const KoSy__KwiGru_KeDru_l =
 	//@@@
 	// LABELS REPLACED after LAUNCH
 	// once culture loaded
-	BriDz00_VaSy_vsg: "MicroCosm"
+	BriDz00_VaSy_vsg: "MicroCosm🗺️SX"
 	, BriDz02__TrxBz_vsg: "Tech FAIL: "
 	, BriDz03__TrxKrx_vsg: "Please try a different Browser or Computer"
+	, BriDz04__TrxTaSma_vsg: "Event LOG"
 
-
+	
 	//@@@
 	// POSSIBLE USE ONLY ON STARTUP
 	// No need to replace later

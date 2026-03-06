@@ -86,9 +86,18 @@ SHARED
 	--PoSmuSi: #DD2;
 	--PoSmuSo: #22F;
 
+
 	/* SIZE -------------------- */
 	--GyDru_Kwe: 4ch;
 	--GyDru_MoKu: 42ch;
+
+	/* STRETCH -------------------- */
+	/* Firefox <146 */
+	@supports (width: -moz-available) {	--stretch: -moz-available;}
+	/* Safari & Firefox 146+ */
+	@supports (width: -webkit-fill-available) {	--stretch: -webkit-fill-available;}
+	/* Chromium */
+	@supports (width: stretch) {--stretch: stretch;	}
 
 	/* SIZE -------------------- */
 	--GyStz: 0.0rem;
@@ -102,6 +111,8 @@ SHARED
 	--GyTreHu: 0.875rem;
 	--GyTreDe: 1.0rem;
 	--GyTreHi: 1.25rem;
+
+	--GyDruBz: 1.33rem;
 
 	--GyKaHu: 1.5rem;
 	--GyKaDe: 2.0rem;
@@ -163,57 +174,68 @@ ANCESTOR
 }
 
 /*@@@@@@@@@@@@@@@
-FONT
+FONT:
+- BRAND(Final Frontier)
+- SLAB(Industrial)
+- SANS(Helvetica)
+- HAND(Comic Sans)
+- FLAG(Language Selection)
+
 WGT: light: 100, normal: 400, bold: 700
 
-Using 'font-stack' to unify OS
+- Using 'font-stack' to support FAST load via OS
+- & to support 'closest per SCRIPT' style.
+
 KyAPPL: San Francisco
 SkiWIN: Segoe UI
-SkiDRD: Roboto
 SkiLNX: Ubuntu, Cantarell, Noto Sans
-
-
-BRAND(Final Frontier)
-SLAB(Industrial)
-SANS(Helvetica)
-HAND(Comic Sans)
+SkiDRD: Roboto
+- NOTE: Roboto Condensed uses name sans-serif-condensed under Android
 
 NEOGROTESQUE
 font-family: Inter, Roboto, 'Helvetica Neue', 'Arial Nova', 'Nimbus Sans', Arial, system-ui, sans-serif;
 
 @@@@@@@@@@@@@@@*/
+@font-face
+{
+	font-family: "Final Frontier Old Style";
+	src: url( "../../Mx01__SuKz_MEDIA/SuKz04_WaDru__FNT/WaDru00__Bz.woff2" ) format('woff2');
+}
+
+@font-face
+{
+	font-family: "Segoe UI Emoji";
+	src: url( "../../Mx01__SuKz_MEDIA/SuKz04_WaDru__FNT/WaDru01__Ku.woff2" ) format('woff2');
+}
 
 /* FACE[ 4 ] --------------------------- */
 /* 00 BRAND UNIQUE */
 .WaDru_BriDzDy
 {
-	/* font-family: "Final Frontier Old Style", system-ui, sans-serif; */
-	font-family: "Final Frontier Old Style", Impact, "Roboto", "Arial Black", fantasy, sans-serif;
+	font-family: "Final Frontier Old Style", Charcoal, Impact, "Roboto Slab", "Arial Black", sans-serif-black, sans-serif-condensed, ui-rounded, system-ui, sans-serif;
 }
 
-
 /* INDUSTRIAL */
-/* NOTE: Roboto Condensed uses name sans-serif-condensed under Android */
-/* 01 HEADING */
-.WaDru_Bz
-/* 02 CHOICE */
-, .WaDru_Ne
-/* 03 VALUE */
+/* 01 LABEL */
+.WaDru_Va
+/* 02 VALUE */
 , .WaDru_Vu
 {
 	font-family: Bahnschrift, "DIN Alternate", "Franklin Gothic Medium", "Nimbus Sans Narrow", sans-serif-condensed, system-ui, sans-serif;
 }
 
-/* 04 HANDWRITTEN */
+/* 03 HANDWRITTEN */
 .WaDru_JeDo
 {
 	font-family: "Comic Sans MS", "Comic Sans", "Marker Felt", "Noteworthy", "Segoe Print", "Chalkboard SE", "Comic Neue", "Bradley Hand", Chilanka, TSCu_Comic, casual, sans-serif;
 }
 
-/* 05 FLAG */
+/* 04 FLAG */
 .WaDru_Ku
 {
-	/* Provides FLAGS that show correctly on Win11 and don't lag on Apple */
+	/* Originally used special font for FLAGS to show correctly @ Win11
+	 *AND* No Lag on Apple
+	 font-family: "Segoe UI Emoji", sans-serif; */
 	font-family: "Segoe UI Emoji", sans-serif;
 }
 
@@ -226,125 +248,31 @@ font-family: Inter, Roboto, 'Helvetica Neue', 'Arial Nova', 'Nimbus Sans', Arial
 	font-weight: 400;
 }
 
-/* BOLD */
-, .WaDru_Ne
+/* LABEL */
+.WaDru_Va
 {
 	font-weight: 700;
-}
-
-/* ITALIC BOLD */
-.WaDru_Bz
-{
-	font-weight: 700;
-	font-style: italic;
 }
 
 /* 3D FX */
 .WaDru_BriDzDy
 {
 	font-weight: 900;
+	/* 3D Shade FX skew slightly right and progressively down */
 
 	/* text-shadow: <horizontal-offset> <vertical-offset> <blur-radius> <color>; */
     text-shadow:
-
-	1px 1px 0 var(--PoSmo)
-	, 1px 2px 0 var(--PoSmo)
-	, 1px 3px 0 var(--PoSmo)
-	, 1px 4px 0 var(--PoSmo)
-
+		1px 1px 0 var(--PoSmo)
+		, 1px 2px 0 var(--PoSmo)
+		, 1px 3px 0 var(--PoSmo)
+		, 1px 4px 0 var(--PoSmo)
 	;
-
 }
-
-/*@@@@@@@@@@@@@@@
-ICONS
-@@@@@@@@@@@@@@@*/
-.GwzKeDru{	zoom: 0.33; }
-.GwzHu{	zoom: 0.5; }
-.GwzDe{ font-size: var(--GyKaDe); }
-
-/* CLR ICONS */
-.GwzDoPo
-{
-	background: url( ../../Mx01__SuKz_MEDIA/SuKz02_JaPo__IMG/JaPo00__De/JaPo02__GwzDoPo.png);
-	background-repeat:no-repeat;
-
-	margin: var(--GyStz);
-	padding: var(--GyStz);
-	border-radius: var(--GyStz);
-
-	height: 108px;
-	width: 108px;
-}
-
-/* ROW 0 */
-.GwzDo_WIN { background-position: 0px 0px;}
-.GwzDo_IOS { background-position: -108px 0px;}
-.GwzDo_MAC { background-position: -216px 0px;}
-.GwzDo_DRD { background-position: -324px 0px;}
-.GwzDo_LNX { background-position: -432px 0px;}
-
-.GwzDo_ESRB { background-position: -540px 0px;}
-.GwzDo_PEGI { background-position: -648px 0px;}
-.GwzDo_GDPR { background-position: -756px 0px;}
-
-/* ROW 1 */
-.GwzDo_CCPA { background-position: 0px -108px;}
-.GwzDo_C{ background-position: -648px -108px;}
-
-/* ROW 2 */
-.GwzDo_BULLET { background-position: 0px -216px;}
-.GwzDo_INTEL { background-position: -108px -216px;}
-.GwzDo_AMD { background-position: -216px -216px;}
-.GwzDo_ARM { background-position: -324px -216px;}
-
-.GwzDo_RISCV { background-position: -432px -216px;}
-.GwzDo_NVIDIA { background-position: -540px -216px;}
-.GwzDo_QUALCOMM { background-position: -648px -216px;}
-.GwzDo_BROADCOM { background-position: -756px -216px;}
-
-
-/* ROW 3 */
-.GwzDo_VIVANTE { background-position: 0px -324px;}
-.GwzDo_NET { background-position: -108px -324px;}
-.GwzDo_SECURITY { background-position: -216px -324px;}
-.GwzDo_GLOBAL { background-position: -324px -324px;}
-
-.GwzDo_STORAGE { background-position: -432px -324px;}
-.GwzDo_SPEED { background-position: -540px -324px;}
-.GwzDo_BATTERY { background-position: -648px -324px;}
-.GwzDo_PLUG { background-position: -756px -324px;}
-
-/* ROW 4 */
-.GwzDo_ROCKET { background-position: 0px -432px;}
-.GwzDo_NODE { background-position: -108px -432px;}
-
-/* ROW 5 */
-.GwzDo_BEGIN { background-position: 0px -540px;}
-.GwzDo_REWIND { background-position: -108px -540px;}
-.GwzDo_PLAY { background-position: -216px -540px;}
-.GwzDo_PAUSE { background-position: -324px -540px;}
-
-.GwzDo_REC { background-position: -432px -540px;}
-.GwzDo_FF { background-position: -540px -540px;}
-.GwzDo_END { background-position: -648px -540px;}
-.GwzDo_CHECK { background-position: -756px -540px;}
-
-/* ROW 6 */
-.GwzDo_DISABLE { background-position: 0px -648px;}
-
 
 /*@@@@@@@@@@@@@@@
 DOMAIN AREAS^Tz
 - Not Panels nor Status Bars
 - Fullpage or Screen as Canvas spaces
-
-- 4 DOMAIN Modes:
-MxPo_
-MxPo_Kwi: Menu & Topic-GUI to edit
-MxPo_Trx: Errors
-MxPo_Bri: Run XP
-
 @@@@@@@@@@@@@@@*/
 .Tz00__Gry
 {
@@ -450,14 +378,14 @@ PANELS^Ku
 	display: flex;
 	flex: auto;
 	flex-wrap: nowrap;
-	place-items: stretch stretch;
+	place-items: var(--stretch) var(--stretch);
 
 	/* 0 bottom to align with topic section */
 	padding: var(--GyBiHu) var(--GyStz) var(--GyStz) var(--GyStz);
 }
 
-/* PANEL_ALL_CHOICES ---------------------- */
-.Ku03__NzKwa
+/* PANEL_ALL_DOMAIN_TOPIC_CHOICES ---------------------- */
+.Ku03__TaTz
 {
 	border-radius: var(--GyKaHu);
 	background-color: var(--PoStzVo);
@@ -495,30 +423,20 @@ PANELS^Ku
 	overflow-y: auto;
 }
 
-/* PANEL__VERSION */
-.Ku06_KwiBriDz_ToGyHu
+/* TOPIC_CHOICES__SECTION_INDEX */
+.Ku06__NzTaNe
 {
 	display: flex;
-	flex-wrap: wrap;
-
-	margin: var(--GyBe);
-	padding: var(--GyBe);
-}
-
-/* PANEL__SECTION_INDEX */
-.Ku07__HriNe
-{
-	display: inline-flex;
 	flex-wrap: wrap;
 	vertical-align: top;
 
 	text-align: start;
 	justify-content: start;
-	align-items: start;
+	align-items: normal;
 	overflow-y: auto;
 
 	gap: 0;
-	margin: var(--GyBiHu);
+	margin: var(--GyBo);
 	padding: var(--GyBo);
 
 	border-left: none;
@@ -529,6 +447,18 @@ PANELS^Ku
 	color: var(--PoBre);
 	background-color: var(--PoKuSta);
 	border-radius: var(--GyTreDe);
+}
+
+/* AREA__VERSION */
+.Ku07__ToSkeHu
+, .Ku07__ToSkeDe
+, .Ku07__ToSkeHi
+{
+	display: flex;
+	flex-wrap: wrap;
+
+	margin: var(--GyBe);
+	padding: var(--GyBe);
 }
 
 /*@@@@@@@@@@@@@@@
@@ -564,7 +494,7 @@ NOTIFY^KeMe
 .KeMe_To
 , .KeMe_ToKeDru
 {
-	font-size: -var(GyTreHu);
+	font-size: var(--GyTreHu);
 	white-space: pre-wrap;
 
 	color: var(--PoKuSteSpo);
@@ -629,7 +559,9 @@ TEXT
     align-items: center;
 	white-space: pre-wrap;
 
-	width: stretch;
+	width: var(--stretch);
+
+
 	padding: var(--GyBiHu);
 	margin: var(--GyStz);
 	margin-top: var(--GyTreDe);
@@ -664,6 +596,7 @@ TEXT
 {
 	display: inline-flex;
 	text-align: start;
+
 	color: var(--PoSi);
 
 	padding: var(--GyBo) var(--GyTreDe);
@@ -703,13 +636,13 @@ TEXT
 /* TEXT__DOCUMENT HEADER */
 .KeDruBz
 {
-	font-size: 1.33rem;
+	font-size: var(--GyDruBz);
 }
 
 /* TEXT__SECTION */
 .KeDruNz
 {
-	font-size: 1.20rem;
+	font-size: var(--GyTreHi);
 
 	margin: var(--GyBe);
 	padding: var(--GyBe);
@@ -726,7 +659,6 @@ TEXT
 	padding: var(--GyBiHu);
 
 	background-color: var(--PoKuHu);
-
 	overflow-y: auto;
 }
 
@@ -795,42 +727,47 @@ TEXT
 
 
 /*@@@@@@@@@@@@@@@
-ICONS
+IMAGES
 @@@@@@@@@@@@@@@*/
 
 /* DEFAULT_ICONS --------------------------------------*/
-.JaPo__De
+
+/* 2x2 MD */
+.JaPo__Va
+, .JaPo__Va_Kwu
 {
-	margin: var(--GyStz);
+	height: var(--GyKaDe);
+	margin: var(--GyBo);
 	padding: var(--GyStz);
 }
 
-/* TITLEBAR LOGOS */
-.JaPo__BriDzSo
+/* 2x2 MD */
+/* ROUNDED EDGE */
+.JaPo__Va_Kwu
+{
+	/* filter: invert(100%); */
+	background-color: var(--PoKuTo);
+	border-radius: var(--GyBiHu);
+	padding: var(--GyBe);
+}
+
+/* 4x4 LG */
+.JaPo__GyBzHu
+/* ROUNDED EDGE */
+, .JaPo__GyBzHu_Kwx
 {
 	position: relative;
-	/* z-index: 2; */
-
 	height: var(--GyBzHu);
 	margin: var(--GyBo);
 	padding: var(--GyStz);
+}
 
+.JaPo__GyBzHu_Kwx
+{
 	border-radius: var(--GyKaHu);
 	border: var(--GwxSpo) var(--GyBe) var(--PoSiSpo);
 }
 
-.JaPo__BriDzSx
-{
-	position: relative;
-	/* z-index: 2; */
-
-	height: var(--GyBzHu);
-	margin: var(--GyBo);
-	padding: var(--GyStz);
-
-	border-radius: var(--GyStz);
-	/* border: none; */
-}
 
 /*@@@@@@@@@@@@@@@
 SPRITE GRID

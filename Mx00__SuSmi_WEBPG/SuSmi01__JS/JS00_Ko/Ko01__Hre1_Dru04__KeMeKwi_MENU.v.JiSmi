@@ -1,0 +1,187 @@
+//==============================================
+// MENU BEGIN
+const Kwi00__TaNe_v=
+//==============================================
+[
+	//=========================================
+	// 0 WHERE
+	{ Va: "WHERE", Vy: "NeKu00", Jy: KoOPT.Tz_MoKu_qk }
+	//=========================================
+
+	, { Va: "WELCOME", Vy: "TzKu__NzYa_vsg", Jy: KoOPT.Nz_Va_qk }
+		, { Va: "INTRO MSG", Vy: "TzKu__NzYa__Ne00_vsg", Jy: KoOPT.To_GyDe_qk }
+
+	, { Va: "WHERE", Vy: "TzKu__NzJo_vsg", JyNo: "TzKe__NzJo__Ta_l", Tra: "Hrz4_Bu__JoChy()", SeVx: 9, Jy: KoOPT.Nz_Ta_qk }
+		, { Va: "SX POSTCARD", JaPo: "JaPo01__SaTrz/SaTrz00__Gx.jpg", Vy: "TzKu__NzJo__JoFe__JaPo_l", Jy: KoOPT.To_JaPoBz_qk }
+		, { Va: "SX LIST", Vy: "TzKu__NzJo__NiJo_vsg", Jy: KoOPT.To_GyDe_qk }
+
+	, { Va: "LANG", Vy: "TzKu__NzKeDru_vsg", JyNo: "TzKu__NzTrz__NiKeDru__Ta_l", Tra: "TzKu__NzTrz__NiKeDru__JeChy(null)", SeVx: 10, Jy: KoOPT.Nz_Ta_qk }
+
+		, { Va: "CUR FLAG", Vy: "TzKu__NzTrz__NiKeDru_q", Tra: "HriNeDe__ChyHryDry( 'TzKu__NzTrz__KeDru_TaJaPo_l' );", Jy: KoOPT.To_GwzSi_qk }
+		, { Va: "LANG IMG GRID", Vy: "TzKu__NzKeDru_vsg", JyNo: "TzKu__NzTrz__KeDru_TaJaPo_l", Jy: KoOPT.Ne_TaJaPo_qk }
+
+
+	, { Va: "BUILD", Vy: "TzKu__NzTrz_vsg", Jy: KoOPT.Nz_Va_qk }
+		, { Va: "VER GRP", Jy: KoOPT.Ku_ToSkeHu_qk }
+			, { Va: "LABEL", Vy: "TzKu__NzTrz__SaSz00_Va_vsg", Jy: KoOPT.To_VaSpo_qk }
+			, { Va: "VALUE", Vy: "BriDzSa__Da", Jy: KoOPT.To_VuSpo_qk }
+
+		, { Va: "NEW GRP", Jy: KoOPT.Ku_ToSkeHu_qk }
+			, { Va: "LABEL", Vy: "TzKu__NzTrz__SaSz01_Va_vsg", Jy: KoOPT.To_VaSpo_qk }
+			, { Va: "VALUE", Vy: "TzKu__NzTrz__SaSz01_Hx_vsg", Jy: KoOPT.To_VuSpo_qk }
+
+		, { Va: "TEST GRP", Jy: KoOPT.Ku_ToSkeHu_qk }
+			, { Va: "LABEL", Vy: "TzKu__NzTrz__SaSz02_Va_vsg", Jy: KoOPT.To_VaSpo_qk }
+			, { Va: "VALUE", Vy: "TzKu__NzTrz__SaSz02_Hx_vsg", Jy: KoOPT.To_VuSpo_qk }
+
+			, { Va: "BUG GRP", Jy: KoOPT.Ku_ToSkeHu_qk }
+			, { Va: "LABEL", Vy: "TzKu__NzTrz__SaSz03_Va_vsg", Jy: KoOPT.To_VaSpo_qk }
+			, { Va: "VALUE", Vy: "TzKu__NzTrz__SaSz03_Hx_vsg", Jy: KoOPT.To_VuSpo_qk }
+
+
+
+	, { Va: "NODE", Vy: "TzKu__NzKo_vsg", Jy: KoOPT.Nz_Va_qk }
+
+		, { Va: "DEVICE", Jy: KoOPT.Ku_ToSkeHu_qk }
+			, { Va: "ICON", Vy: "Hra0_Ko__Gwz", JaPo: "JaPo00__Ko/HraKo_De.svg", Jy: KoOPT.To_JaPoVa_qk }
+			, { Va: "LABEL", Vy: "TzKu__NzKo__Sy00_vsg", Jy: KoOPT.To_VaSpo_qk }
+			, { Va: "VALUE", Vy: "Hra0_Ko__VaDe", Jy: KoOPT.To_VuSpo_qk }
+
+		, { Va: "OS GRP", Jy: KoOPT.Ku_ToSkeHu_qk }
+			, { Va: "ICON", Vy: "Hrz3_By__Gwz", JaPo: "JaPo00__Ko/HrzBy_De.svg", Jy: KoOPT.To_JaPoVa_qk }
+			, { Va: "LABEL", Vy: "TzKu__NzKo__Sy01_vsg", Jy: KoOPT.To_VaSpo_qk }
+			, { Va: "VALUE", Vy: "Hrz3_By__VaDe", Jy: KoOPT.To_VuSpo_qk }
+
+		, { Va: "BROWSER GRP", Jy: KoOPT.Ku_ToSkeHu_qk }
+			, { Va: "ICON", Vy: "Hrz4_Bu__Gwz", JaPo: "JaPo00__Ko/HrzBu_De.svg", Jy: KoOPT.To_JaPoVa_qk }
+			, { Va: "LABEL", Vy: "TzKu__NzKo__Sy02_vsg", Jy: KoOPT.To_VaSpo_qk }
+			, { Va: "VALUE", Vy: "Hrz4_Bu__VaDe", Jy: KoOPT.To_VuSpo_qk }
+
+		, { Va: "CPU GRP", Jy: KoOPT.Ku_ToSkeHu_qk }
+			, { Va: "ICON", Vy: "KaBz__Gwz", JaPo: "JaPo00__Ko/Ka_De.svg", Jy: KoOPT.To_JaPoVa_qk }
+			, { Va: "LABEL", Vy: "TzKu__NzKo__Sy03_vsg", Jy: KoOPT.To_VaSpo_qk }
+			, { Va: "VALUE", Vy: "KaBz__VaDe", Jy: KoOPT.To_VuSpo_qk }
+
+		, { Va: "GPU GRP", Jy: KoOPT.Ku_ToSkeHu_qk }
+			, { Va: "ICON", Vy: "KaBx__Gwz", JaPo: "JaPo00__Ko/Ka_De.svg", Jy: KoOPT.To_JaPoVa_qk }
+			, { Va: "LABEL", Vy: "TzKu__NzKo__Sy04_vsg", Jy: KoOPT.To_VaSpo_qk }
+			, { Va: "VALUE", Vy: "KaBx__VaDe", Jy: KoOPT.To_VuSpo_qk }
+
+		, { Va: "NPU GRP", Jy: KoOPT.Ku_ToSkeHu_qk }
+			, { Va: "ICON", Vy: "KaBa__Gwz", JaPo: "JaPo00__Ko/Ka_De.svg", Jy: KoOPT.To_JaPoVa_qk }
+			, { Va: "LABEL", Vy: "TzKu__NzKo__Sy05_vsg", Jy: KoOPT.To_VaSpo_qk }
+			, { Va: "VALUE", Vy: "KaBa__VaDe", Jy: KoOPT.To_VuSpo_qk }
+
+
+			// TEST
+		, { Va: "V-LABEL HW", Vy: "TzSme_vsg", Jy: KoOPT.To_GoGa_qk }
+		, { Va: "TST IMG SRC", JaPo: "JaPo00__Ko/HrzBu_FIREFOX.svg", Vy: "TzKu__NzKo__", Jy: KoOPT.To_JaPoSi_qk }
+		, { Va: "TST IMG SRC", JaPo: "JaPo04__KuPy/ke.svg", Vy: "TzKu__NzKo__", Jy: KoOPT.To_JaPoSi_qk }
+		, { Va: "TST IMG LABEL", JaPo: "JaPo00__Ko/HrzBu_EDGE.svg", Vy: "TzKu__NzKo__", Jy: KoOPT.To_JaPoVa_qk }
+		, { Va: "TST IMG SRC", JaPo: "JaPo04__KuPy/mx.svg", Vy: "TzKu__NzKo__", Jy: KoOPT.To_JaPoSi_qk }
+
+		// NOT USED YET
+		//	, { Va: "V-LABEL SW", Vy: "_vsg", Jy: KoOPT.To_GoGa_qk }
+		//, { Va: "TST IMG FRAMED", JaPo: "JaPo00__Ko/HrzBu_SAFARI.svg", Vy: "TzKu__NzKo__", Jy: KoOPT.To_JaPoBz_qk }
+
+
+	//=========================================
+	// 1 WHO
+	, { Va: "WHO", Vy: "NeKu01", Jy: KoOPT.Tz_MoKu_qk }
+	//=========================================
+
+	, { Va: "USER", Vy: "TzKe__NzDz_vsg", JyNo: "TzKe__NzDz__Ta_l", Jy: KoOPT.Nz_Ta_qk }
+	, { Va: "PROFILE", Vy: "TzKe__NzJa_vsg", Jy: KoOPT.Nz_Va_qk }
+	, { Va: "SECURITY", Vy: "TzKe__NzChe_vsg", JyNo: "TzKe__NzChe_y", De: "false", Jy: KoOPT.Nz_HyHo_qk }
+
+
+	//=========================================
+	// 2 HEAR
+	, { Va: "HEAR", Vy: "NeKu02", Jy: KoOPT.Tz_MoKu_qk }
+	//=========================================
+
+	, { Va: "INPUT", Vy: "TzHru__NzMz_vsg", Jy: KoOPT.Nz_Va_qk }
+
+	, { Va: "OUTPUT", Vy: "TzHru__NzMx_vsg", Jy: KoOPT.Nz_Va_qk }
+
+	, { Va: "METH", Vy: "TzHru__NzSy_vsg", Jy: KoOPT.Nz_Va_qk }
+
+
+	//=========================================
+	// 3 SEE
+	, { Va: "SEE", Vy: "NeKu03", Jy: KoOPT.Tz_MoKu_qk }
+	//=========================================
+
+	, { Va: "INPUT", Vy: "TzHry__NzMz_vsg", Jy: KoOPT.Nz_Va_qk }
+
+	, { Va: "OUTPUT", Vy: "TzHry__NzMx_vsg", Jy: KoOPT.Nz_Va_qk }
+
+	, { Va: "METH", Vy: "TzHry__NzSy_vsg", Jy: KoOPT.Nz_Va_qk }
+
+
+	//=========================================
+	// 4 ALLOW
+	, { Va: "ALLOW", Vy: "NeKu04", Jy: KoOPT.Tz_MoKu_qk }
+	//=========================================
+
+	, { Va: "ACTIVITY", Vy: "TzTru__NzBri_vsg", Jy: KoOPT.Nz_Va_qk }
+
+	, { Va: "TRACK", Vy: "TzTru__NzDrx_vsg", Jy: KoOPT.Nz_Va_qk }
+
+	, { Va: "NETWORK", Vy: "TzTru__NzBru_vsg", Jy: KoOPT.Nz_Va_qk }
+
+	, { Va: "INSTALL", Vy: "TzTru__NzCha_vsg", Jy: KoOPT.Nz_Va_qk }
+
+
+	//=========================================
+	// 5 LEARN
+	, { Va: "LEARN", Vy: "NeKu05", Jy: KoOPT.Tz_ToKu_qk }
+	//=========================================
+	, { Va: "HEADLINE", Vy: "TzKro__Bz_vsg", Jy: KoOPT.Tz_Bz_qk }
+
+	, { Va: "TOPIC 00", Vy: "TzKro__Nz00_vsg", Jy: KoOPT.Nz_Va_qk }
+		, { Va: "BODY", Vy: "TzKro__Nz00__Ka_vsg", Jy: KoOPT.Ne_KeDru_GyHi_qk }
+
+	, { Va: "TOPIC 01", Vy: "TzKro__Nz01_vsg", Jy: KoOPT.Nz_Va_qk }
+		, { Va: "BODY", Vy: "TzKro__Nz01__Ka_vsg", Jy: KoOPT.Ne_KeDru_GyHi_qk }
+
+	, { Va: "TOPIC 02", Vy: "TzKro__Nz02_vsg", Jy: KoOPT.Nz_Va_qk }
+		, { Va: "BODY", Vy: "TzKro__Nz02__Ka_vsg", Jy: KoOPT.Ne_KeDru_GyHi_qk }
+
+	, { Va: "TOPIC 03", Vy: "TzKro__Nz03_vsg", Jy: KoOPT.Nz_Va_qk }
+		, { Va: "BODY", Vy: "TzKro__Nz03__Ka_vsg", Jy: KoOPT.Ne_KeDru_GyHi_qk }
+
+
+	//=========================================
+	// 6 NOTICE
+	, { Va: "NOTICES", Vy: "NeKu06", Jy: KoOPT.Tz_ToKu_qk }
+	//=========================================
+	, { Va: "HEADLINE", Vy: "TzGrx__Bz_vsg", Jy: KoOPT.Tz_Bz_qk }
+
+	, { Va: "USAGE", Vy: "TzGrx__NzTra_vsg", Jy: KoOPT.Nz_Va_qk }
+		, { Va: "BODY", Vy: "TzGrx__NzTra__Ka_vsg", Jy: KoOPT.Ne_KeDru_GyHi_qk }
+
+	, { Va: "PRIORITY", Vy: "TzGrx__NzSmu_vsg", Jy: KoOPT.Nz_Va_qk }
+		, { Va: "BODY", Vy: "TzGrx__NzSmu__Ka_vsg", Jy: KoOPT.Ne_KeDru_GyHi_qk }
+
+	, { Va: "LICENSE", Vy: "TzGrx__NzSpe_vsg", Jy: KoOPT.Nz_Va_qk }
+		, { Va: "BODY", Vy: "TzGrx__NzSpe__Ka_vsg", Jy: KoOPT.Ne_KeDru_GyHi_qk }
+
+
+	, { Va: "LEGAL", Vy: "TzGrx__NzChe_vsg", Jy: KoOPT.Nz_Va_qk }
+		, { Va: "BODY", Vy: "TzGrx__NzChe__Ka_vsg", Jy: KoOPT.Ne_KeDru_GyHi_qk }
+
+	, { Va: "CREDIT", Vy: "TzGrx__NzSo_vsg", Jy: KoOPT.Nz_Va_qk }
+		, { Va: "BODY", Vy: "TzGrx__NzSo__Ka_vsg", Jy: KoOPT.Ne_KeDru_GyHi_qk }
+
+	, { Va: "COMPANY", Vy: "TzGrx__NzDryKy_vsg", Jy: KoOPT.Nz_Va_qk }
+		, { Va: "BODY", Vy: "TzGrx__NzDryKy__Ka_vsg", Jy: KoOPT.Ne_KeDru_GyHi_qk }
+
+	//=========================================
+	// 7 END
+	//=========================================
+];
+
+//=====================================
+//  MENU END
+//=====================================

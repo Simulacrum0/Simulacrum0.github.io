@@ -4,77 +4,73 @@
 const SyVx = Object.freeze
 ({
 	//----------------------------------------------------------
-	// SERV_REQ
+	// SERV_NATIVE_WEB_API
 	//----------------------------------------------------------
 
 	// Hrz5_Ki
 	NODE_qk: 0
-
 	, TAK_qk: 1
 	, FS_qk: 2
-	, TRU_qk: 3
+	, AUTH_qk: 3
 
 	// Hra0_Ko^COMPUTER
 	, ENRG_qk: 4
 
 	// Hra1_Mz^SENSORS
 	, PTR_qk: 5
-	, HID_qk: 6
-	, GPS_qk: 7
+	, USB_qk: 6
+	, BT_qk: 7
+	, NFC_qk: 8
+
+	, HID_qk: 9
+	, SNS_qk: 10
+	, GPS_qk: 11
 
 	// Hra4_Bru^NET
-	, NET_qk: 8
+	, NET_qk: 12
 
 	// Hra6_Ku^GATE
-	, CAL_qk: 9
-	, PAY_qk: 10
-	, SHAR_qk: 11
+	, SHAR_qk: 13
+	, PAY_qk: 14
+	, CAL_qk: 15
+	, CARD_qk: 16
 
 	// Hra7_Ta^FMT
-	, STRM_qk: 12
-	, FNT_qk: 13
+	, STRM_qk: 17
+	, FNT_qk: 18
+
+	// Hre1_Dru
+	, LANG_qk: 19
 
 	// Hru^AUD
-	, WA_qk: 14
-	, HEAR_qk: 15
-	, SAY_qk: 16
+	, WA_qk: 20
+	, MPLYR_qk: 21
+	, HEAR_qk: 22
+	, SAY_qk: 23
 
 	// Hry^VIS
-	, WG_qk: 17
-	, GLF_qk: 18
-	, XR_qk: 19
-	, SCRN_qk: 20
+	, WG_qk: 24
+	, GLF_qk: 25
+	, XR_qk: 26
+	, SCRN_qk: 27
 
 
 	//----------------------------------------------------------
-	// SERV_OPT
+	// SERV_EXT_API
 	//----------------------------------------------------------
 
-	, LANG_qk: 21
-	, ZSTD_qk: 22
-	, WT_qk: 23
-	, TONE_qk: 24
-
-	, USB_qk: 25
-	, BT_qk: 26
-	, NFC_qk: 27
-	, MPLYR_qk: 28
-
-	, ML_qk: 29
-	, GEN_qk: 30
+	, ZSTD_qk: 28
+	, WT_qk: 29
+	, TONE_qk: 30
 	, AVATAR_qk: 31
-	, SMTP_qk: 32
 
-	, IMAP_qk: 33
-	, DAV_qk: 34
-	, JCON_qk: 35
-	, LGATO_qk: 36
-
-
-	, SwiBLANK_qk: 37 // BLANK
+	, EMAIL_qk: 32
+	, DAV_qk: 33
+	, GEN_qk: 34
+	, ML_qk: 35
 
 	//$$$
-	// 38 SERVS 2026/02
+	// 36 SERVS 2026/03
 
 });
 

@@ -2,9 +2,14 @@
 // SyDz_Ya
 //===================================
 
-//==============================================
-// Hry5_Smz SPATIAL
-//==============================================
+//-------------------------------------------------
+// ERR
+//-------------------------------------------------
+function SmaTrx( Trx_vbg )
+{
+	console.error( Trx_vbg );
+	alert( Trx_vbg );
+}
 
 //-------------------------------------------------
 // WEBGL
@@ -91,33 +96,6 @@ function KuTo__QUAD_Trz( gl )
 }
 
 //-------------------------------------------------
-// VIS_STATE
-//-------------------------------------------------
-
-// PLAY PAUSE
-let JoTra_y = false;
-let Hry5_Smz__KriYe = true;
-
-let MxSi__YeFo_wu = 0;
-let Fi__GiDri_wf = 0;
-let Fe__GiPa_wf = 0;
-
-//@@@
-// GL_INIT
-const MxSi = document.getElementById( 'MxSi_KuDri' );
-const gl = Hry5_Smz__Ya();
-const KuTo__QUAD_vwf2 = KuTo__QUAD_Trz( gl );
-const VS_wik = Hrz6_Tro__ChyJiKz( "QUAD_VERT", gl, gl.VERTEX_SHADER, JiJa__Ge_vkutf8 );
-
-//-------------------------------------------------
-// PROG_JiJa
-//-------------------------------------------------
-const JiJa_k = Hrz6_Tro__TrzJiJa( "JiJa00__De", gl, VS_wik, JiJa00__De_vkutf8 );
-const ToGe__Vy_k = gl.getAttribLocation( JiJa_k, 'Ge_wf4' );
-const ToBri__Vy_k = gl.getUniformLocation( JiJa_k, 'ToBri_vwf4' );
-
-
-//-------------------------------------------------
 // CANVAS UPDATE
 //-------------------------------------------------
 function Hry5_Smz__ChyYe( Fe__GiDri_wf )
@@ -160,7 +138,6 @@ function Hry5_Smz__ChyYe( Fe__GiDri_wf )
 		MxSi.style.height = MxSi.clientHeight + 'px';
 
 		// console.log( "TiGy: " + MxSi.clientWidth/ MxVeGx_wu + ", " + MxSi.clientHeight / MxVeGa_wu );
-
 		Hry5_Smz__KriYe = true;
 	}
 
@@ -211,57 +188,52 @@ function Hry5_Smz__ChyYe( Fe__GiDri_wf )
 }
 
 //==============================================
-// 5.0
 // ToMi DOWNLOAD
 //==============================================
+//@@@
+// AUDIO PLAY
 function DOWNLOAD_Dy( EXE )
 {
 	const EXE_URL = "Mx02__TxKuCho_WVERSE/Essence__" + EXE;
 	window.location.assign( EXE_URL );
-	ToMi_JaPe__Ya();
+
+	// PLAY AUDIO CHEER
+	const ToMi_JaPe_k = document.getElementById( "ToMi_JaPe" );
+	ToMi_JaPe_k.play();
 }
-
-
-//@@@
-// AUDIO PLAY
-let ToMi_JaPe = document.getElementById( "ToMi_JaPe" );
-
-function ToMi_JaPe__Ya()
-{
-	ToMi_JaPe.play();
-}
-
-function ToMi_JaPe__Yi()
-{
-	ToMi_JaPe.pause();
-}
-
 
 //==============================================
-// 7.0
-// Hrz5_Ki ENGINE
+// GLOBAL_STATE
 //==============================================
 
 //-------------------------------------------------
-// ERR
+// PLAY PAUSE
 //-------------------------------------------------
-function SmaTrx( Trx_vbg )
-{
-	console.error( Trx_vbg );
-	alert( Trx_vbg );
-}
+let Hry5_Smz__KriYe = true;
+let MxSi__YeFo_wu = 0;
+
+let Fi__GiDri_wf = 0;
+let Fe__GiPa_wf = 0;
 
 //-------------------------------------------------
-// APP INIT
-// ! ONLY Global Func to Run @ Startup
-( function BriDz__Ya()
-	//-------------------------------------------------
-	{
-		//@@@
-		// VISUAL
-		Hry5_Smz__ChyYe();
-	}
-)();
+// GL_INIT
+//-------------------------------------------------
+const MxSi = document.getElementById( 'MxSi_KuDri' );
+const gl = Hry5_Smz__Ya();
+const KuTo__QUAD_vwf2 = KuTo__QUAD_Trz( gl );
+const VS_wik = Hrz6_Tro__ChyJiKz( "QUAD_VERT", gl, gl.VERTEX_SHADER, JiJa__Ge_vkutf8 );
+
+//-------------------------------------------------
+// PROG_JiJa
+//-------------------------------------------------
+const JiJa_k = Hrz6_Tro__TrzJiJa( "JiJa00__De", gl, VS_wik, JiJa00__De_vkutf8 );
+const ToGe__Vy_k = gl.getAttribLocation( JiJa_k, 'Ge_wf4' );
+const ToBri__Vy_k = gl.getUniformLocation( JiJa_k, 'ToBri_vwf4' );
+
+//-------------------------------------------------
+// RUN UPDATE
+//-------------------------------------------------
+Hry5_Smz__ChyYe();
 
 //===================================
 // SyDz_Yi

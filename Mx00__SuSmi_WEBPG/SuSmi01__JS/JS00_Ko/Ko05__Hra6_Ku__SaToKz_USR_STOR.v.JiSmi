@@ -177,7 +177,7 @@ const IDB_ToKzVy__My = ( Va ) =>
 
 			request.onerror = () =>
 			{
-				SmaJe( "[USR_STOR] IDB Handle UNK\n");
+				SmaJe( "[USR_STOR] IDB Handle UNK");
 				reject(request.error);
 			}
 		});

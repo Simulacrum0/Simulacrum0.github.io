@@ -48,19 +48,27 @@ let Ko =
 
 	// MOBILE
 	, Hrz3_By__KaGeSpu_y: false
-	, Hrz3_By__VaDe_vsg: "Unknown OS"
-	, Hrz3_By__Gwz_vsg: "GLOBAL"
 
-	, Hrz4_Bu__VaDe_vsg: "Unknown Browser"
+	// DEVICE
+	, Hra0_Ko__VaDe_vsg: "Unknown"
+	, Hrz0_Ko__Gwz_vsg: null
+
+	// OS
+	, Hrz3_By__VaDe_vsg: "Unknown"
+	, Hrz3_By__Gwz_vsg: null
+
+	// BROWSER
+	, Hrz4_Bu__VaDe_vsg: "Unknown"
+	, Hrz4_Bu__Gwz_vsg: null
 
 	// CPU
-	, KaBz__Gwz_vsg: "CHECK"
+	, KaBz__Gwz_vsg: null
 	, KaBz__VaDe_vsg: "Unknown"
 	// GPU
-	, KaBx__Gwz_vsg: "CHECK"
+	, KaBx__Gwz_vsg: null
 	, KaBx__VaDe_vsg: "Unknown"
 	// NPU
-	, KaBa__Gwz_vsg: "DISABLE"
+	, KaBa__Gwz_vsg: null
 	, KaBa__VaDe_vsg: "None"
 
 
@@ -479,7 +487,7 @@ function Hrz3_By__FyTo()
 	}
 	else if( NODE_vksg.includes( "IPAD" ) )
 	{
-		Ko.Hrz3_By__Gwz_vsg = "IOS";
+		Ko.Hrz3_By__Gwz_vsg = "IPAD";
 		Ko.Hrz3_By__VaDe_vsg = "iPadOS";
 
 		Ko.KaBz__Gwz_vsg = "ARM";
@@ -582,9 +590,12 @@ async function Hrz4_Bu__FyTo()
 
 	// REPLACE
 	Ni_vsg[ 0 ] = Ni_vsg[ 0 ].replace( /edg/i, "Edge" );
-	Ni_vsg[ 0 ] = Ni_vsg[ 0 ].replace( /opr/i, "Opera" );
 	Ni_vsg[ 0 ] = Ni_vsg[ 0 ].replace( /OculusBrowser/i, "Meta" );
+	Ni_vsg[ 0 ] = Ni_vsg[ 0 ].replace( /opr/i, "Opera" );
 	Ni_vsg[ 0 ] = Ni_vsg[ 0 ].replace( /SamsungBrowser/i, "Samsung" );
+	// Ni_vsg[ 0 ] = Ni_vsg[ 0 ].replace( /Vivaldi/i, "Vivaldi" );
+
+	// ICON
 
 
 	// STORE

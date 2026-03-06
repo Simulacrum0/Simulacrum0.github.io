@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="120" height="120" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" font-family="'DejaVu Sans'" font-size="29.333" font-weight="bold" letter-spacing="-3">
+  <path id="a" d="M85.961 97.259c-49.975 29.173-88.156-27.081-63.218-63.22l-9.15-9.15c-39.613 61.069 30.857 118.17 81.516 81.519z" fill="none" stroke="#000" stroke-width="2.7423"/>
+  <use transform="rotate(180 60.109 59.87)" xlink:href="#a"/>
+  <text x="24.94444" y="58.29227">DRM</text>
+  <text x="22.87808" y="84.62875">FREE</text>
+</svg>

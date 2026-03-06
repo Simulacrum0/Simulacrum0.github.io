@@ -74,6 +74,126 @@ DoSTRM.SmaYz = function( Sa_l )
 	.then(gotStream)
 	.catch( (error) =>{ console.log('getUserMedia error!', error);} );
 
+
+
+
+	//@@@@
+	// SNAP AR CAM CODE
+
+	let mediaStream: MediaStream;
+
+async function updateCameraKitSource(
+  deviceId: string,
+  facingMode: 'user' | 'environment' = 'user',
+  session: CameraKitSession
+): Promise<MediaStream> {
+  if (mediaStream) {
+    const track = mediaStream.getVideoTracks()[0];
+    track.stop();
+  }
+
+  mediaStream = await navigator.mediaDevices.getUserMedia({
+    video: {
+      deviceId,
+      facingMode,
+      width: { ideal: 1280 },
+      height: { ideal: 720 },
+    },
+  });
+
+  cost source = createMediaStreamSource(mediaStream, {
+    cameraType: facingMode
+  })
+
+  session.setSource(source);
+}
+
+
+
+MEDIATRACKSETTINGS INACCURACY ON MOBILE
+On mobile devices in portrait mode, MediaTrackSettings may report incorrect values immediately after creating a MediaStream. This can lead to inaccurate resolution handling.
+
+Camera Kit automatically compensates for this, but if you call source.setRenderSize, this behavior is disabled. To ensure accuracy, retrieve MediaTrackSettings after a short timeout.
+
+setTimeout(() => {
+  const track = mediaStream.getVideoTracks()[0];
+  const { width, height } = track.getSettings();
+
+  source.setRenderSize(width, height);
+}, 100);
+
+
+SAVE LAST USED CAM:
+
+let currentDeviceId = window.localStorage.getItem('currentDeviceId') ?? undefined;
+
+const mediaStream = await navigator.mediaDevices.getUserMedia({
+  deviceId: currentDeviceId
+  video: {
+    width: { ideal: 1280 },
+    height: { ideal: 720 },
+  },
+});
+
+const track = mediaStream.getVideoTracks()[0];
+const settings = track.getSettings();
+const deviceId = settings.deviceId ?? '';
+
+if (deviceId !== currentDeviceId) {
+  currentDeviceId = deviceId;
+  window.localStorage.setItem('currentDeviceId', currentDeviceId)
+}
+
+
+REQUEST A MEDIASTREAM BEFORE ENUMERATING DEVICES
+Calling navigator.mediaDevices.enumerateDevices() before requesting a MediaStream will return incomplete device information. To ensure full device details are available, first call navigator.mediaDevices.getUserMedia().
+
+const mediaStream = await navigator.mediaDevices.getUserMedia({
+  video: {
+    width: { ideal: 1280 },
+    height: { ideal: 720 },
+  },
+});
+
+const mediaDevices = await navigator.mediaDevices.enumerateDevices();
+
+
+Stop Existing MediaStreamTracks Before Switching Cameras
+When switching cameras, always stop the current MediaStreamTrack before requesting a new one. Failing to do so can cause unpredictable behavior, especially on mobile Safari, and may even lead to crashes.
+
+let mediaStream: MediaStream;
+
+async function getMediaStreamForDevice(deviceId: string): Promise<MediaStream> {
+  if (mediaStream) {
+    const track = mediaStream.getVideoTracks()[0];
+    track.stop();
+  }
+
+  mediaStream = await navigator.mediaDevices.getUserMedia({
+    video: {
+      deviceId,
+      width: { ideal: 1280 },
+      height: { ideal: 720 },
+    },
+  });
+
+  return mediaStream;
+}
+
+
+CLIP_SIZE
+use source.setRenderSize to adjust the actual size of the output canvas.
+
+const mediaStream = await navigator.mediaDevices.getUserMedia({
+  video: {
+    width: { ideal: 1280 },
+    height: { ideal: 720 },
+  },
+});
+const source = createMediaStreamSource(mediaStream);
+
+source.setRenderSize(500, 500);
+
 	*/
 
 }

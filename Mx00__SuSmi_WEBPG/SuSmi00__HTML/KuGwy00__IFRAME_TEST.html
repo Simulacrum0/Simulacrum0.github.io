@@ -1,0 +1,27 @@
+<html>
+<body>
+
+	<!--
+	Programmatically a script and set it's innerHTML to what you want to execute. After that you can append it on top window's document head and the browser will execute it.
+
+	Because your site has the Cross-Origin Embedder Policy (COEP) enabled, each resource must specify a suitable Cross-Origin Resource Policy (CORP). This behavior prevents a document from loading cross-origin resources which don’t explicitly grant permission to be loaded.
+
+	To solve this, add the following to the resource’ response header:
+
+	Cross-Origin-Resource-Policy: same-site if the resource and your site are served from the same site.
+	Cross-Origin-Resource-Policy: cross-origin if the resource is served from another location than your website. ⚠️If you set this header, any website can embed this resource.
+	Alternatively, the document can use the variant: Cross-Origin-Embedder-Policy: credentialless instead of require-corp. It allows loading the resource, despite the missing CORP header, at the cost of requesting it without credentials like Cookies.
+
+ -->
+	<br><br>
+	<iframe src="https://data.gov" width="640" height="480">IFRAME TEST</iframe>
+	<fencedframe src="https://www.youtube.com/watch?v=zctTKdQcmVA" allow="geolocation 'src'" title="Advertisement for new Log. From Blammo!" width="640" height="480"></fencedframe>
+	<br><br>
+
+
+	<iframe src="https://weather.gov"></iframe>
+	<iframe src="https://www.loc.gov/free-to-use/"></iframe>
+	<iframe src="https://data.gov"></iframe>
+	<iframe src="https://www.openstreetmap.org/export/embed.html?bbox=-0.004017949104309083%2C51.47612752641776%2C0.00030577182769775396%2C51.478569861898606&amp;layer=mapnik"></iframe>
+</body>
+</html>>
