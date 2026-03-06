@@ -7,9 +7,9 @@
 
 - GUI has
 	a) Checkbox: Y or N wq @ KaHyHo, VuHyHo
-	b) Slider: 0...to N wu @ Ku06__NzTaNe
+	b) Slider: 0...to N wu
 	c) List: scrollable choices vertical or grid 0...Fo wu
-	d) Text: utf8 ( Label: HriNeVa, Edit: HriNeVa )
+	d) Text: utf8 as Label or Value or Edit
 	e) Buttons: run action ( show tabs, add/remove users, reset-settings, & launch )
 
 - EDIT: TreHy Can be hover-highlighted to show "editable"
@@ -132,7 +132,7 @@ function HriNeDe__Ta_ChyStz( Ta_v )
 //==============================================
 // FOCUS
 //==============================================
-function HriNeDe__ChySeTra()
+function HriNeDe__ChySeTra( Vy_vsg )
 {
 	//@@@
 	// SUBMIT BTN
@@ -202,18 +202,19 @@ function Hri4_Bu__MzBuDru_Je( e )
 
 		case( "ArrowRight" ):
 		{
-			SmaJe( "RT" );
+			// SmaJe( "RT" );
 		//	Hrz4_Bu__ChyNeKu( 5 );
 
 			break;
 		}
 		case( "ArrowLeft" ):
 		{
-			SmaJe( "LF" );
+			//SmaJe( "LF" );
 			break;
 		}
 
-		case( "0" ):
+
+		// case( "0" ):
 		case( "1" ):
 		case( "2" ):
 		case( "3" ):
@@ -221,12 +222,18 @@ function Hri4_Bu__MzBuDru_Je( e )
 		case( "5" ):
 		case( "6" ):
 		case( "7" ):
-		case( "8" ):
-		case( "9" ):
+
+		// case( "8" ):
+		// case( "9" ):
 		{
 			SmaJe( "#" + e.key );
 
-			Hrz4_Bu__ChyNeKu( e.key );
+			if (e.shiftKey) {/*shift is down*/}
+			if (e.altKey) {/*alt is down*/}
+			if (e.ctrlKey) {/*ctrl is down*/}
+			if (e.metaKey) {/*cmd is down*/}
+
+			Hrz4_Bu__ChyNeKu( parseInt( e.key ) - 1 );
 
 			break;
 		}
@@ -356,6 +363,7 @@ async function Hri4_Bu__TaNeDe__ChaKri()
 
 				//&&&
 				// TOPIC
+				case KoOPT.Nz_KeDru_qk:
 				case KoOPT.Nz_Va_qk:
 				case KoOPT.Nz_Ta_qk:
 				case KoOPT.Nz_HyHo_qk:
@@ -367,34 +375,37 @@ async function Hri4_Bu__TaNeDe__ChaKri()
 					Bz_l.innerText = Kwi00__NzVx_vsg[ Nz_Fo_wu ];
 
 					// LABEL ONLY
-					if( NeJy_qk === KoOPT.Nz_Va_qk )
+					if(( NeJy_qk === KoOPT.Nz_Va_qk ) || ( NeJy_qk === KoOPT.Nz_KeDru_qk ) )
 					{
-						Hri4_Bu__ChaKz_l( Bz_l, "span", Ti_k.Vy, Kwi00__TaNeJy_v[ KoOPT.Nz_Bz_qk ].class, null );
+						Hri4_Bu__ChaKz_l( Bz_l, "span", Ti_k.Vy, Kwi00__TaNeJy_v[ KoOPT.To_NzBz_qk ].class, null );
 					}
 					// TEXT LIST
 					else if( NeJy_qk === KoOPT.Nz_Ta_qk )
 					{
 						// label
-						Hri4_Bu__ChaKz_l( Bz_l, "label", Ti_k.Vy, Kwi00__TaNeJy_v[ KoOPT.Nz_Bz_qk ].class, null );
+						Hri4_Bu__ChaKz_l( Bz_l, "label", Ti_k.Vy, Kwi00__TaNeJy_v[ KoOPT.To_NzBz_qk ].class, null );
 						Bz_l.setAttribute( "for", Ti_k.JyNo );
 
 						// select
 						// Tra & SeVx EXPECTED
 						Hri4_Bu__ChaKz_l( Bz_l, "select", Ti_k.JyNo, Kwi00__TaNeJy_v[ KoOPT.Ne_KeDru_Tre_qk ].class, Ti_k );
 
-			//	<label id="TzKu__NzJo_vsg" for="TzKe__NzDz__Ta_l" class="HriNeVa KeDruNz WaDru_Va" ></label>
+			//	<label id="TzKu__NzJo_vsg" for="TzKe__NzDz__Ta_l" class="KeDru_NeVa KeDruNz WaDru_Va" ></label>
 			//	<select id="TzKe__NzDz__Ta_l" class="HriNeTi WaDru_Vu TreHy" onchange="Hrz4_Bu__JoChy()" tabindex=9 ></select>
 					}
 					// ON-OFF
 					else if( NeJy_qk === KoOPT.Nz_HyHo_qk )
 					{
 						// span, HyHo
-						Hri4_Bu__ChaKz_l( Bz_l, "span", Ti_k.Vy, Kwi00__TaNeJy_v[ KoOPT.Nz_Bz_qk ].class, null );
+						Hri4_Bu__ChaKz_l( Bz_l, "span", Ti_k.Vy, Kwi00__TaNeJy_v[ KoOPT.To_NzBz_qk ].class, null );
 					}
 
 					//%%%
 					// SEPARATOR LINE
 					Hri4_Bu__ChaKz_l( Bz_l, "hr", null, null, null );
+					// add Grid space?
+					// Hri4_Bu__ChaKz_l( Nz_l, "br", null, null, null );
+
 					Ku_l = null;
 					Nz_Fo_wu++;
 					break;
@@ -428,7 +439,7 @@ async function Hri4_Bu__TaNeDe__ChaKri()
 				{
 					let Kz_l = Hri4_Bu__ChaKz_l( DoNe_k, NeJy_k.elm, Ti_k.Vy, NeJy_k.class, Ti_k );
 
-					// <span id="TzHru__NzMx__PeHo_vsg" class="HriNeVa WaDru_Va"></span>
+					// <span id="TzHru__NzMx__PeHo_vsg" class="KeDru_NeVa WaDru_Va"></span>
 					// <label class="KaHyHo WaDru_Vu">
 					// 		<input id="TzHru__NzMx__PeHo_y" class="MzHyHo" type="checkbox" onchange="Hrz4_Bu__KwiYz__Ko_ChyYe()" >
 					// 		<span class="VuHyHo"></span>

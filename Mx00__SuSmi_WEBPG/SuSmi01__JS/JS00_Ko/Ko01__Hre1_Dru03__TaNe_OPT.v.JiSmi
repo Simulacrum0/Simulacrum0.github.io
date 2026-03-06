@@ -39,10 +39,10 @@ const KoOPT = Object.freeze
 	, Tz_ToKu_qk: 3 // Domain Info
 	, Tz_Bz_qk: 4 // Domain Headline
 
-	, Nz_Va_qk: 5 // Topic Label
-	, Nz_Ta_qk: 6 // Topic Picker
-	, Nz_HyHo_qk: 7 // Topic Radio
-	, Nz_Bz_qk: 8 // Title under Topic
+	, Nz_KeDru_qk: 5 // Title under Topic
+	, Nz_Va_qk: 6 // Topic Label
+	, Nz_Ta_qk: 7 // Topic Picker
+	, Nz_HyHo_qk: 8 // Topic Radio
 
 	, Ku_ToSkeHu_qk: 9 // Choice Space
 	, Ku_ToSkeDe_qk: 10 // Choice Space
@@ -68,12 +68,12 @@ const KoOPT = Object.freeze
 	, To_VaSpo_qk: 26 // Label
 	, To_VuSpo_qk: 27 // Value
 
-	, To_JaPoBz_qk: 28 // Img FRAMED
-	, Ne_cc_qk: 29 // Sprite
-	, Ne_dd_qk: 30 // Sprite
-	, To_JaPoSi_qk: 31 // Img SRC
+	, To_NzBz_qk: 28 // Title under Topic
+	, To_JaPoBz_qk: 29 // Img FRAMED
+	, To_JaPoVa_qk: 30 // Txt Size Img
+	, To_JaPoVa_Kwu_qk: 31 // Txt Size Img w/ BG
 
-	, To_JaPoVa_qk: 32 // Img LABEL
+	, To_JaPoSi_qk: 32 // Img SRC
 	, To_GwzTi_qk: 33 // Sprite Elem
 	, To_GwzSi_qk: 34 // Sprite Focus
 
@@ -93,17 +93,18 @@ const Kwi00__TaNeJy_v =
 	, { elm: "div", class: "NeKuJy Ku04__MoKu" }
 	, { elm: "div", class: "NeKuJy Ku05__ToKu" }
 	// DOMAIN HEADLINE
-	, { elm: "p", class: "HriNeVa KeDruBz WaDru_Va" }
+	, { elm: "p", class: "KeDru_NeVa KeDruBz WaDru_Va" }
 
 	// TOPIC Nz Va, NiNe, HyHo
-	, { elm: "div", class: "Ku06__NzTaNe" }
-	, { elm: "div", class: "Ku06__NzTaNe" }
-	, { elm: "div", class: "Ku06__NzTaNe" }
-	, { elm: "label", class: "HriNeVa KeDruNz WaDru_Va" }
-
+	, { elm: "div", class: "Ku06__NzTaNe_Gwx" }
+	, { elm: "div", class: "Ku06__NzTaNe_Gwa" }
+	, { elm: "div", class: "Ku06__NzTaNe_Gwa" }
+	, { elm: "div", class: "Ku06__NzTaNe_Gwa" }
 
 	// SPACE
-	// Ku_ToSke
+	// Ku_ToSkeHu_qk
+	// Ku_ToSkeDe_qk
+	// Ku_ToSkeHi_qk
 	, { elm: "div", class: "Ku07__ToSkeHu" }
 	, { elm: "div", class: "Ku07__ToSkeDe" }
 	, { elm: "div", class: "Ku07__ToSkeHi" }
@@ -133,7 +134,7 @@ const Kwi00__TaNeJy_v =
 	// Ne_KeDru_Che_qk PWD EDIT
 	, { elm: "div", class: "" }
 	// Ne_aaa_qk
-	, { elm: "span", class: "HriNeVa KeDruNz WaDru_Va" }
+	, { elm: "span", class: "" }
 	// Ne_KeDru_Hi_qk PGRPH
 	, { elm: "span", class: "KeDruSkx WaDru_Vu" }
 
@@ -143,21 +144,25 @@ const Kwi00__TaNeJy_v =
 	// To_GoGa_qk INFO VERTICAL
 	, { elm: "div", class: "BriDz_Sz WaDru_Vu" }
 	// To_VaSpo_qk LABEL
-	, { elm: "span", class: "HriNeVa WaDru_Vu" }
+	, { elm: "label", class: "KeDru_NeVa WaDru_Vu" }
 	// To_VuSpo_qk VALUE
-	, { elm: "div", class: "KeDruBa BriDz_ToGyHu WaDru_Vu" }
+	, { elm: "div", class: "KeDru_ToVu WaDru_Vu" }
+
+	// To_NzBz_qk TITLE LABEL
+	, { elm: "label", class: "KeDru_NeVa KeDruNz WaDru_Va" }
 
 	// To_JaPoBz_qk IMG FRAME TITLE
 	, { elm: "img", class: "BriDz_FzVa JaPo__GyBzHu_Kwx" }
-	// cc
-	, { elm: "span", class: "" }
-	// dd
-	, { elm: "span", class: "" }
-	// To_JaPoSi_qk
-	, { elm: "img", class: "BriDz_DeVa JaPo__GyBzHu" }
 
 	// To_JaPoVa_qk
-	, { elm: "img", class: "BriDz_DeVa JaPo__Va" }
+	, { elm: "img", class: "JaPo__Va" }
+	// To_JaPoVa_Kwu_qk
+	, { elm: "img", class: "JaPo__Va_Kwu" }
+
+	// To_JaPoSi_qk
+	, { elm: "img", class: "JaPo__GyBzHu" }
+
+
 	// EMOJI BTNS
 	, { elm: "span", class: "NiJaPo_Fe WaDru_Ku TreHy" }
 	, { elm: "span", class: "NiJaPo_Fe WaDru_Ku TreHy" }

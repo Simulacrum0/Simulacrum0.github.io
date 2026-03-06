@@ -12,6 +12,9 @@
 	Cross-Origin-Resource-Policy: cross-origin if the resource is served from another location than your website. ⚠️If you set this header, any website can embed this resource.
 	Alternatively, the document can use the variant: Cross-Origin-Embedder-Policy: credentialless instead of require-corp. It allows loading the resource, despite the missing CORP header, at the cost of requesting it without credentials like Cookies.
 
+	@ https://web.dev/articles/coop-coep?utm_source=devtools&utm_campaign=stable
+	You can enable cross-origin isolation on a document embedded within an iframe by applying allow="cross-origin-isolated" permissions policy to the <iframe> tag and meeting the same conditions described in this document. Note that entire chain of the documents including parent frames and child frames must be cross-origin isolated as well.
+
  -->
 	<br><br>
 	<iframe src="https://data.gov" width="640" height="480">IFRAME TEST</iframe>
@@ -19,7 +22,10 @@
 	<br><br>
 
 
-	<iframe src="https://weather.gov"></iframe>
+	<br>
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/eNr0tg4hZvw?si=1vFiyLgaYIeWhG2f" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+	<iframe allow="cross-origin-isolated" src="https://weather.gov/"></iframe>
 	<iframe src="https://www.loc.gov/free-to-use/"></iframe>
 	<iframe src="https://data.gov"></iframe>
 	<iframe src="https://www.openstreetmap.org/export/embed.html?bbox=-0.004017949104309083%2C51.47612752641776%2C0.00030577182769775396%2C51.478569861898606&amp;layer=mapnik"></iframe>

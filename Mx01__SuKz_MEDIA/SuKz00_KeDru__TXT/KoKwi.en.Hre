@@ -35,26 +35,33 @@
 
 		, "TzKu__NzKeDru_vsg": "🌐 Language"
 
-		, "TzKu__NzTrz_vsg": "🧪About this Version"
-
-			, "TzKu__NzTrz__SaSz00_Va_vsg": "🏗️Build:"
-			, "TzKu__NzTrz__SaSz01_Va_vsg": "🔎New Features:"
-			, "TzKu__NzTrz__SaSz02_Va_vsg": "🔬Test Focus:"
-			, "TzKu__NzTrz__SaSz03_Va_vsg": "🪲Known Issues:"
-
-			, "TzKu__NzTrz__SaSz01_Hx_vsg": "HTML, Javascript & CSS for launching should be done for User Profiles.\nLanguages are not yet supported but the behavior works as expected for English and intentionally-overriden Right to Left Spanish."
-			, "TzKu__NzTrz__SaSz02_Hx_vsg": "Check if the OS, Browser & Chips seem 'correct'.\nTest 7 Menus and verify formatting looks mvp-ok\n"
-			, "TzKu__NzTrz__SaSz03_Hx_vsg": "Build does not RUN!\nApple & Samsung fail in WebGPU\nLauncher needs Refinement\nAll possible art switching to svg vectors\n"
-
 
 		, "TzKu__NzKo_vsg": "🖥️Your Machine"
-
 			, "TzKu__NzKo__Sy00_vsg": "Device:"
 			, "TzKu__NzKo__Sy01_vsg": "OS:"
 			, "TzKu__NzKo__Sy02_vsg": "Browser:"
 			, "TzKu__NzKo__Sy03_vsg": "CPU:"
 			, "TzKu__NzKo__Sy04_vsg": "GPU:"
 			, "TzKu__NzKo__Sy05_vsg": "NPU:"
+
+
+
+		, "TzKu__NzTrz_vsg": "🧪About this Version"
+			, "TzKu__NzTrz__BriDzSa__Da_vsg": "🏗️Build Version:"
+			, "TzKu__NzTrz__TyCha_Va_vsg": "☑️New Features:"
+			, "TzKu__NzTrz__TyFa_Va_vsg": "📈Coming Soon:"
+
+			, "TzKu__NzTrz__TyCha_Hx_vsg": "☑️HTML, Javascript & CSS for launching should be done for User Profiles.\n☑️Languages are not yet supported but the behavior works as expected for English and intentionally-overriden Right to Left Spanish.\n☑️Menus in testing mode now."
+			, "TzKu__NzTrz__TyFa_Hx_vsg": "📈Launcher complete\n📈GPU Cleanup finished\n📈Editing Presentations for Website and Beyond\n📈Behavior Making"
+
+
+		, "TzKu__NzSme_vsg": "🔎Investigators"
+			, "TzKu__NzSme__Smu_Va_vsg": "🔬Test Focus:"
+			, "TzKu__NzSme__DreTrx_Va_vsg": "⚠️Known Issues:"
+
+			, "TzKu__NzSme__Smu_Hx_vsg": "🔬Check if the OS, Browser & Chips seem 'correct'.\n🔬Test 7 Menus and verify formatting looks mvp-ok\n🔬Check if icons match OS,Browser, etc."
+			, "TzKu__NzSme__DreTrx_Hx_vsg": "⚠️Build does not RUN!\n⚠️Apple & Samsung fail in WebGPU\nLauncher needs Refinement\n⚠️All possible art switching to svg vectors\n"
+
 
 
 		, "TzKe__NzDz_vsg": "🗣️User"

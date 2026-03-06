@@ -49,7 +49,6 @@ SHARED
 {
 	/* COLOR --------------------------*/
 	--PoStz: #0000;
-	--PoStzFz: #0002;
 	--PoStzVo: #0008;
 	--PoStzDe: #000A;
 	--PoStzSpo: #000F;
@@ -89,13 +88,16 @@ SHARED
 
 	/* SIZE -------------------- */
 	--GyDru_Kwe: 4ch;
-	--GyDru_MoKu: 42ch;
+	--GyDru_KeDru: 32ch;
+	--GyDru_MoKuGx: 48ch;
+	--GyDru_MoKuGa: 64ch;
+
 
 	/* STRETCH -------------------- */
 	/* Firefox <146 */
-	@supports (width: -moz-available) {	--stretch: -moz-available;}
+	@supports (width: -moz-available) {--stretch: -moz-available;}
 	/* Safari & Firefox 146+ */
-	@supports (width: -webkit-fill-available) {	--stretch: -webkit-fill-available;}
+	@supports (width: -webkit-fill-available) {--stretch: -webkit-fill-available;}
 	/* Chromium */
 	@supports (width: stretch) {--stretch: stretch;	}
 
@@ -371,39 +373,41 @@ PANELS^Ku
 .Ku02__HriNzVa
 {
 	cursor: cell;
-	background-color: var(--PoStz);
-	border-radius: var(--GyStz);
 	margin: var(--GyStz);
+	/* 0 bottom to align with topic section */
+	padding: var(--GyBiHu) var(--GyStz) var(--GyStz) var(--GyStz);
 
 	display: flex;
 	flex: auto;
 	flex-wrap: nowrap;
 	place-items: var(--stretch) var(--stretch);
 
-	/* 0 bottom to align with topic section */
-	padding: var(--GyBiHu) var(--GyStz) var(--GyStz) var(--GyStz);
+	border-radius: var(--GyStz);
+
+	background-color: var(--PoStz);
 }
 
 /* PANEL_ALL_DOMAIN_TOPIC_CHOICES ---------------------- */
 .Ku03__TaTz
 {
-	border-radius: var(--GyKaHu);
 	background-color: var(--PoStzVo);
 
 	/* 0 to align with topic section */
 	margin: var(--GyStz);
+	margin-left: var(--GyStz);
+	margin-right: var(--GyStz);
 	padding: var(--GyStz);
+	align-content: flex-start;
+	justify-content: flex-start;
 
 	/* TL TR BR BL */
-	border-radius: var(--GyStz) var(--GyStz) var(--GyKaHu) var(--GyKaHu);
-
 	border-left: var(--GwxSpo) var(--GyBe) var(--PoSi);
 	border-right: var(--GwxSpo) var(--GyBe) var(--PoSi);
 	border-top: none;
 	border-bottom: var(--GwxSpo) var(--GyBe) var(--PoSi);
 
-	margin-left: var(--GyStz);
-	margin-right: var(--GyStz);
+	border-radius: var(--GyKaHu);
+	border-radius: var(--GyStz) var(--GyStz) var(--GyKaHu) var(--GyKaHu);
 }
 
 
@@ -412,9 +416,23 @@ PANELS^Ku
 {
 	display: grid;
 	gap: var(--GyTreDe);
-	grid-template-columns: repeat( auto-fill, minmax( var(--GyDru_MoKu), 1fr ));
-
+	margin: var(--GyBiHu);
 	overflow-y: auto;
+
+	vertical-align: top;
+	align-content: flex-start;
+	justify-content: flex-start;
+
+	/* TALL */
+	@media (min-aspect-ratio: 1/1)
+	{
+		grid-template-columns: repeat( auto-fill, minmax( var(--GyDru_MoKuGx), 1fr ));
+	}
+	/* WIDE */
+	@media (max-aspect-ratio: 1/1)
+	{
+		grid-template-columns: repeat( auto-fill, minmax( var(--GyDru_MoKuGa), 1fr ));
+	}
 }
 
 .Ku05__ToKu
@@ -424,18 +442,15 @@ PANELS^Ku
 }
 
 /* TOPIC_CHOICES__SECTION_INDEX */
-.Ku06__NzTaNe
+.Ku06__NzTaNe_Gwx
+, .Ku06__NzTaNe_Gwa
 {
-	display: flex;
-	flex-wrap: wrap;
-	vertical-align: top;
-
-	text-align: start;
-	justify-content: start;
-	align-items: normal;
 	overflow-y: auto;
+	vertical-align: top;
+	text-align: start;
+	align-content: flex-start;
+	justify-content: flex-start;
 
-	gap: 0;
 	margin: var(--GyBo);
 	padding: var(--GyBo);
 
@@ -443,16 +458,49 @@ PANELS^Ku
 	border-right: none;
 	border-top:  var(--GyBe) var(--GwxSpo)var(--PoKuSteSpo);
 	border-bottom: none;
+	border-radius: var(--GyTreDe);
 
 	color: var(--PoBre);
 	background-color: var(--PoKuSta);
-	border-radius: var(--GyTreDe);
 }
+
+.Ku06__NzTaNe_Gwx
+{
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0;
+	display: inline-flex;
+}
+
+.Ku06__NzTaNe_Gwa
+{
+	display: grid;
+	grid-template-columns: repeat( auto-fill, minmax( 32ch, 1fr ));
+	gap: var(--GyBe);
+}
+
 
 /* AREA__VERSION */
 .Ku07__ToSkeHu
 , .Ku07__ToSkeDe
-, .Ku07__ToSkeHi
+{
+	display: inline-flex;
+	flex-wrap: wrap;
+
+	vertical-align: top;
+	text-align: start;
+	align-content: flex-start;
+	justify-content: flex-start;
+
+	margin: var(--GyBo);
+	padding: var(--GyBe);
+	/* gap: var(--GyBiHu); */
+
+	/* border: var(--GwxSpo) var(--GyBe); border-color: blue; */
+	background-color: var(--PoKuHu);
+}
+
+.Ku07__ToSkeHi
 {
 	display: flex;
 	flex-wrap: wrap;
@@ -460,6 +508,29 @@ PANELS^Ku
 	margin: var(--GyBe);
 	padding: var(--GyBe);
 }
+
+/*@@@@@@@@@@@@@@@
+SECTION LINE
+@@@@@@@@@@@@@@@*/
+hr
+{
+    display: block;
+	border-radius: var(--GyTreDe);
+
+	width: 100%;
+	height: var(--GyTreDe);
+
+	border-left: none;
+	border-right: none;
+	border-bottom: var(--GwxSpo) var(--GyBe) var(--PoKuStuVo);
+	border-top: none;
+
+    margin: var(--GyStz);
+    padding: var(--GyStz);
+	/* Small Pad for curve */
+    padding-bottom: var(--GyBiHu);
+}
+
 
 /*@@@@@@@@@@@@@@@
 NOTIFY^KeMe
@@ -592,19 +663,33 @@ TEXT
 /* TEXT__CHOICE_ITEMS--------------------------------------------- */
 
 /* TEXT__LABELS */
-.HriNeVa
+.KeDru_NeVa
 {
 	display: inline-flex;
-	text-align: start;
+
+	margin: var(--GyBo);
+	padding: var(--GyBo);
 
 	color: var(--PoSi);
-
-	padding: var(--GyBo) var(--GyTreDe);
-	margin: var(--GyBo) var(--GyStz);
-
-	background-color: var(--PoStzFz);
+	/* border: var(--GwxSpo) var(--GyBe);	border-color: yellow; */
 }
 
+/* TEXT__INFO_VALUE */
+.KeDru_ToVu
+{
+	display: inline-flex;
+	white-space: pre-wrap;
+	overflow-y: auto;
+
+	margin: var(--GyBo);
+	padding: var(--GyBo);
+
+	font-size: var(--GyBiHi);
+
+	color: var(--PoTraFre);
+	/* background-color: var(--PoKuHu); */
+	/* border: var(--GwxSpo) var(--GyBe);border-color: red; */
+}
 
 /* TEXT__LIST_ELEMENTS */
 .HriNeTi
@@ -615,8 +700,8 @@ TEXT
 	display: inline-flex;
 	text-align: start;
 
-	margin: var(--GyBo) var(--GyBe);
-	padding: var(--GyBo) var(--GyTreDe);
+	margin: var(--GyBo);
+	padding: var(--GyBo);
 
 	color: var(--PoSi);
 	background-color: var(--PoKuSteSpo);
@@ -630,7 +715,8 @@ TEXT
 {
 	text-align: center;
 	margin: var(--GyBo);
-	padding: var(--GyBo) 0.75rem;
+	padding: var(--GyBo) var(--GyBiHi);
+	line-height: var(--GyKaDe);
 }
 
 /* TEXT__DOCUMENT HEADER */
@@ -662,16 +748,14 @@ TEXT
 	overflow-y: auto;
 }
 
-
 /* TEXT__DOCUMENT COLUMNS */
 .KeDruSkx
 {
-	/* Requires BLOCK */
+	/* Requires BLOCK to split columns */
 	column-rule: 0.25em var(--GwxKwo) var(--PoKuSta);
-	column-width: var(--GyDru_MoKu);
+	column-width: var(--GyDru_KeDru);
 	column-gap: var(--GyDru_Kwe);
 }
-
 
 /* TEXT__TITLE_WORDSIZE */
 .BriDz_FzVa
@@ -679,29 +763,6 @@ TEXT
 	font-size: var(--GyKaHi);
 	text-align: center;
 	margin: var(--GyStz) var(--GyBo);
-}
-
-/* TEXT__DEFAULT_WORDSIZE */
-.BriDz_DeVa
-{
-	font-size: var(--GyTreDe);
-	white-space: pre-wrap;
-	text-align: center;
-	margin: var(--GyBo) var(--GyBo);
-}
-
-
-/* TEXT__INFO_SMALL */
-.BriDz_ToGyHu
-{
-	display: block;
-	margin: var(--GyBe);
-	padding: var(--GyBiDe);
-
-	font-size: var(--GyBiDe);
-	text-align:start;
-
-	color: var(--PoTraFre);
 }
 
 /* TEXT__DBG ERR */
@@ -739,6 +800,9 @@ IMAGES
 	height: var(--GyKaDe);
 	margin: var(--GyBo);
 	padding: var(--GyStz);
+
+	white-space: pre-wrap;
+	text-align: center;
 }
 
 /* 2x2 MD */
@@ -760,6 +824,10 @@ IMAGES
 	height: var(--GyBzHu);
 	margin: var(--GyBo);
 	padding: var(--GyStz);
+
+	white-space: pre-wrap;
+	text-align: center;
+
 }
 
 .JaPo__GyBzHu_Kwx
@@ -1048,28 +1116,6 @@ SLIDER
 	background-color: var(--PoStz);
 
 	transition: var(--GiDe);
-}
-
-
-/*@@@@@@@@@@@@@@@
-SECTION LINE
-@@@@@@@@@@@@@@@*/
-hr
-{
-    display: block;
-	border-radius: var(--GyTreDe);
-
-	width: 100%;
-
-	border-left: none;
-	border-right: none;
-	border-bottom: var(--GwxSpo) var(--GyBe) var(--PoKuStuVo);
-	border-top: none;
-
-    margin: var(--GyStz);
-    padding: var(--GyStz);
-	/* Small Pad for curve */
-    padding-bottom: var(--GyBiHu);
 }
 
 
