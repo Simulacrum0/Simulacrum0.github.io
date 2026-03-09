@@ -140,6 +140,175 @@ function HriNeDe__ChySeTra( Vy_vsg )
 	e.focus();
 }
 
+
+//==============================================
+// LIGHT vs DARK MODEs
+//==============================================
+
+//-------------------------------------------------
+// CLR MODES
+//-------------------------------------------------
+const TaPoSz_v =
+[
+	{
+		Va: "Light Mode"
+		, PoGwy: "#FFF0" // BASE PALETTE
+		, PoGwyDe: "#CCCA"	// PANEL__OUTER_TOPIC
+
+		, PoKuDe: "#DDDA" // SECTION BG
+		, PoKuTraHo: "#CCC8" // MENU TITLE BG
+		, PoKuTraHy: "#FFF8" // MENU SELECT TITLE BG
+		, PoKuTz: "#CCCF" // DOMAIN BG
+		, PoKuStuVo: "#AAA8" // SECTION LINE
+
+		, PoBre: "#BBB" // PANEL MISC
+		, PoBreHu: "#BBB4"	// CHOOSE GROUP
+		, PoBreVo: "#BBB8"	// FADED ELM
+		, PoBreSpo: "#BBBF" // SPRITE SELECTOR
+
+		, PoTraFre:"#666" // CFG VALUE
+		, PoTraFra: "#555"	// MENU BG
+		, PoSi: "#000" // MAIN TXT
+		, PoSiSpo: "#000F" // ACTIVE
+
+		, PoSmo: "#BBB" // FONT 3D SHADOW
+		, PoSmuTra: "#D22"	// ACTIVATE
+		, PoSmuSe: "#2A2" // GO
+	}
+	,
+	{
+		Va: "Dark Mode"
+		, PoGwy: "#0000" //BASE PALETTE
+		, PoGwyDe: "#000A" //PANEL__OUTER_TOPIC
+
+		, PoKuDe: "#222A" //SECTION BG
+		, PoKuTraHy: "#0008" //MENU SELECT TITLE BG
+		, PoKuTraHo: "#4448" //MENU TITLE BG
+		, PoKuTz: "#444F" //DOMAIN BG
+		, PoKuStuVo: "#6668" //SECTION LINE
+
+		, PoBre: "#888" //PANEL MISC
+		, PoBreHu: "#8884" //CHOOSE GROUP
+		, PoBreVo: "#8888" //FADED ELM
+		, PoBreSpo: "#888F" //SPRITE SELECTOR
+
+		, PoTraFre:"#CCC" //CFG VALUE
+		, PoTraFra: "#999" //MENU BG
+		, PoSi: "#FFF" //MAIN TXT
+		, PoSiSpo: "#FFFF" //ACTIVE
+
+		, PoSmo: "#777" //FONT 3D SHADOW
+		, PoSmuTra: "#D22" //ACTIVATE
+		, PoSmuSe: "#2A2" // GO
+	}
+	,
+	{
+		Va: "Warm Mode"
+		, PoGwy: "#4000" //BASE PALETTE
+		, PoGwyDe: "#500A" //PANEL__OUTER_TOPIC
+
+		, PoKuDe: "#700A" //SECTION BG
+		, PoKuTraHy: "#5008" //MENU SELECT TITLE BG
+		, PoKuTraHo: "#7228" //MENU TITLE BG
+		, PoKuTz: "#722F" //DOMAIN BG
+		, PoKuStuVo: "#9448" //SECTION LINE
+
+		, PoBre: "#C66" //PANEL MISC
+		, PoBreHu: "#C664" //CHOOSE GROUP
+		, PoBreVo: "#C888" //FADED ELM
+		, PoBreSpo: "#C88F" //SPRITE SELECTOR
+
+		, PoTraFre:"#FCC" //CFG VALUE
+		, PoTraFra: "#966" //MENU BG
+		, PoSi: "#FFF" //MAIN TXT
+		, PoSiSpo: "#FFFF" //ACTIVE
+
+		, PoSmo: "#B66" //FONT 3D SHADOW
+		, PoSmuTra: "#D22" //ACTIVATE
+		, PoSmuSe: "#2A2" // GO
+	}
+	,
+	{
+		Va: "Cool Mode"
+		, PoGwy: "#0000" //BASE PALETTE
+		, PoGwyDe: "#000A" //PANEL__OUTER_TOPIC
+
+		, PoKuDe: "#222A" //SECTION BG
+		, PoKuTraHy: "#0008" //MENU SELECT TITLE BG
+		, PoKuTraHo: "#4448" //MENU TITLE BG
+		, PoKuTz: "#444F" //DOMAIN BG
+		, PoKuStuVo: "#6668" //SECTION LINE
+
+		, PoBre: "#888" //PANEL MISC
+		, PoBreHu: "#8884" //CHOOSE GROUP
+		, PoBreVo: "#8888" //FADED ELM
+		, PoBreSpo: "#888F" //SPRITE SELECTOR
+
+		, PoTraFre:"#CCC" //CFG VALUE
+		, PoTraFra: "#999" //MENU BG
+		, PoSi: "#FFF" //MAIN TXT
+		, PoSiSpo: "#FFFF" //ACTIVE
+
+		, PoSmo: "#777" //FONT 3D SHADOW
+		, PoSmuTra: "#D22" //ACTIVATE
+		, PoSmuSe: "#2A2" // GO
+	}
+];
+
+//-------------------------------------------------
+// SET MODES
+//-------------------------------------------------
+function HriNeDe__PoSzChy( Sz_q )
+{
+	const PoSz_k = TaPoSz_v[ Sz_q ];
+	const FzKz_k = document.documentElement;
+
+	for( const Ty_k in PoSz_k )
+	{
+		FzKz_k.style.setProperty( "--" + Ty_k, PoSz_k[ Ty_k ] );
+	};
+}
+
+//-------------------------------------------------
+// HANDLE CHANGE
+//-------------------------------------------------
+function HriNeDe__PoSzJe( e )
+{
+	if( e.matches )
+	{
+    	SmaSy( "[GUI] Dark mode" );
+		HriNeDe__PoSzChy( 1 );
+  	}
+	else
+	{
+    	SmaSy( "[GUI] Light mode" );
+		HriNeDe__PoSzChy( 0 );
+  	}
+}
+
+
+//-------------------------------------------------
+// STARTUP
+//-------------------------------------------------
+function HriNeDe__PoSzYa()
+{
+	//@@@
+	// GET LIGHT/DARK MODE
+	const PoSz_Stz_k = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)');
+	if( !PoSz_Stz_k ) return;
+
+	//@@@
+	// SET or USE CFG?
+	// HriNeDe__PoSzJe( PoSz_Stz_k );
+	// HACKED to specific mode
+	HriNeDe__PoSzChy( 2 );
+
+	//@@@
+	// EVT LISTENER
+	PoSz_Stz_k.addEventListener('change', HriNeDe__PoSzJe);
+}
+
+
 //=====================================
 // SPACETIME FILL by USER
 //=====================================
@@ -200,19 +369,43 @@ function Hri4_Bu__MzBuDru_Je( e )
 			break;
 		}
 
-		case( "ArrowRight" ):
-		{
-			// SmaJe( "RT" );
-		//	Hrz4_Bu__ChyNeKu( 5 );
-
-			break;
-		}
 		case( "ArrowLeft" ):
 		{
-			//SmaJe( "LF" );
+			HriNeDe__PoSzChy( 0 );
+			break;
+		}
+		case( "ArrowRight" ):
+		{
+			HriNeDe__PoSzChy( 1 );
 			break;
 		}
 
+		case( "ArrowUp" ):
+		{
+			const FzKz_k = document.documentElement;
+			const WaDru__DoGy_vsg = FzKz_k.style.fontSize;
+			// Parse the value (remove "px" and convert to number)
+			let WaDruGy_wfk = parseFloat( WaDru__DoGy_vsg );
+			if( Number.isNaN(WaDruGy_wfk) ) { WaDruGy_wfk = 16.0; }
+			SmaJe( "CUR fnt:", WaDru__DoGy_vsg, WaDruGy_wfk );
+			WaDruGy_wfk += 1.0;
+			FzKz_k.style.fontSize = WaDruGy_wfk.toString() + "px";
+
+			break;
+		}
+		case( "ArrowDown" ):
+		{
+			const FzKz_k = document.documentElement;
+			const WaDru__DoGy_vsg = FzKz_k.style.fontSize;
+			// Parse the value (remove "px" and convert to number)
+			let WaDruGy_wfk = parseFloat( WaDru__DoGy_vsg );
+			if( Number.isNaN(WaDruGy_wfk) ) { WaDruGy_wfk = 16.0; }
+			SmaJe( "CUR fnt:", WaDru__DoGy_vsg, WaDruGy_wfk );
+			WaDruGy_wfk -= 1.0;
+			FzKz_k.style.fontSize = WaDruGy_wfk.toString() + "px";
+
+			break;
+		}
 
 		// case( "0" ):
 		case( "1" ):
@@ -413,9 +606,7 @@ async function Hri4_Bu__TaNeDe__ChaKri()
 
 				//&&&
 				// SPACE
-				case KoOPT.Ku_ToSkeHu_qk:
-				case KoOPT.Ku_ToSkeDe_qk:
-				case KoOPT.Ku_ToSkeHi_qk:
+				case KoOPT.Ku_ToSkeTa_qk:
 				{
 					Ku_l = Hri4_Bu__ChaKz_l( DoKu_k, NeJy_k.elm, null, NeJy_k.class, Ti_k );
 					break;
@@ -626,10 +817,8 @@ if( false )
 
 	//&&&
 	// DEVICE
-	// + ( Ko.Hrz3_By__KaGeSpu_y ? " Mobile" : " Stationary" ) );
 	HriNeDe__ChyVaSy( "Hra0_Ko__VaDe", Ko.Hra0_Ko__VaDe_vsg );
-	HriNeDe__ChyJaPoDe( "Hra0_Ko__Gwz", "HrzBy_", Ko.Hra0_Ko__Gwz_vsg );
-
+	HriNeDe__ChyJaPoDe( "Hra0_Ko__Gwz", "HraKo_", Ko.Hra0_Ko__Gwz_vsg );
 
 	//&&&
 	// OS
@@ -639,7 +828,7 @@ if( false )
 	//&&&
 	// BROWSER
 	HriNeDe__ChyVaSy( "Hrz4_Bu__VaDe", Ko.Hrz4_Bu__VaDe_vsg + ": v" + Ko.Hrz4_Bu__Da_wfk );
-//	HriNeDe__ChyJaPoDe( "Hrz4_Bu__Gwz", "HrzBy_", Ko.KaBz__Gwz_vsg );
+	HriNeDe__ChyJaPoDe( "Hrz4_Bu__Gwz", "HrzBu_", Ko.Hrz4_Bu__Gwz_vsg );
 
 
 	//@@@

@@ -83,8 +83,8 @@ async function KoDz__YaFz()
 	// TIME_BEGAN
 	Ko.BriYa_GiDri_df = performance.now();
 	// OS, CPU, BROWSER, & VER
-	Hrz3_By__FyTo();
-	await Hrz4_Bu__FyTo();
+	await KoDz__SyHa();
+
 
 	// FIND USERS LAUNCH_CFG
 	Hrz4_Bu__TaKeDy__FyGry();
@@ -151,6 +151,10 @@ async function KoDz__YaFz()
 	// SmaJe( "[SERV] FONT", WaDru__Kri_yk );
 	if( !WaDru__Kri_yk ){ return; }
 	*/
+
+	//@@@
+	// CLR_MODE
+	HriNeDe__PoSzYa();
 
 	//@@@
 	// DISPLAY LAUNCH CANVAS

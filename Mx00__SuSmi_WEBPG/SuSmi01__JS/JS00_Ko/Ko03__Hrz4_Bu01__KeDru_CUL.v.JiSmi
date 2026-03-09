@@ -97,15 +97,8 @@ async function Hre1_Dru__KeDru_ChyVx( KeDru_wuk )
 	// TEXT_DIR
 	// Set text direction
 	const Fe__KeDru_lksg = Dru_l.ToKz;
-	const KeDru_RTL_v = [ 'ar', 'he', 'fa', 'es' ];
-	if( KeDru_RTL_v.includes( Fe__KeDru_lksg ) )
-	{
-		document.body.dir = 'rtl';
-	}
-	else
-	{
-		document.body.dir = 'ltr';
-	}
+	const KeDru_RTL_v = [ "ar", "he", "fa", "es" ];
+	document.body.dir = ( KeDru_RTL_v.includes( Fe__KeDru_lksg ) )? "rtl" : "ltr";
 
 	//@@@
 	// REPLACE CORE LAUNCH-ERR MSGS

@@ -51,25 +51,23 @@ let Ko =
 
 	// DEVICE
 	, Hra0_Ko__VaDe_vsg: "Unknown"
-	, Hrz0_Ko__Gwz_vsg: null
-
+	, Hra0_Ko__Gwz_vsg: null
 	// OS
 	, Hrz3_By__VaDe_vsg: "Unknown"
 	, Hrz3_By__Gwz_vsg: null
-
 	// BROWSER
 	, Hrz4_Bu__VaDe_vsg: "Unknown"
 	, Hrz4_Bu__Gwz_vsg: null
 
 	// CPU
-	, KaBz__Gwz_vsg: null
 	, KaBz__VaDe_vsg: "Unknown"
+	, KaBz__Gwz_vsg: null
 	// GPU
-	, KaBx__Gwz_vsg: null
 	, KaBx__VaDe_vsg: "Unknown"
+	, KaBx__Gwz_vsg: null
 	// NPU
-	, KaBa__Gwz_vsg: null
 	, KaBa__VaDe_vsg: "None"
+	, KaBa__Gwz_vsg: null
 
 
 	//@@@
@@ -456,14 +454,13 @@ async function MoDz__DzStxGru()
 //=====================================
 // NODE & CPU
 //=====================================
-function Hrz3_By__FyTo()
+async function Hrz3_By__FyTo()
 {
 	const NODE_vksg = navigator.userAgent.toUpperCase();
-
 	SmaSy( "[LAUNCH] Browser_ID:", NODE_vksg );
 
 	//@@@
-	// BACKUP
+	// IN CASE of NO MATCHES?
 	if( navigator.userAgentData )
 	{
 		Ko.Hrz3_By__VaDe_vsg = navigator.userAgentData.platform;
@@ -558,6 +555,7 @@ function Hrz3_By__FyTo()
 //=====================================
 // BROWSER VERSION (Browser & App )
 //=====================================
+
 async function Hrz4_Bu__FyTo()
 {
 	//@@@
@@ -596,17 +594,44 @@ async function Hrz4_Bu__FyTo()
 	// Ni_vsg[ 0 ] = Ni_vsg[ 0 ].replace( /Vivaldi/i, "Vivaldi" );
 
 	// ICON
-
+	const Hrz4_Bu__FeDy_vsg = Ni_vsg[ 0 ].toUpperCase();
+	const Hrz4_Bu__TaDy_vvsg = [ "BRAVE" , "CHROME" , "EDGE" , "FIREFOX" , "SAFARI", "VIVALDI"	];
+	if( Hrz4_Bu__TaDy_vvsg.includes( Hrz4_Bu__FeDy_vsg ) )
+	{
+		Ko.Hrz4_Bu__Gwz_vsg = Hrz4_Bu__FeDy_vsg;
+	}
 
 	// STORE
 	Ko.Hrz4_Bu__VaDe_vsg = Ni_vsg[ 0 ];
 	Ko.Hrz4_Bu__Da_wfk = parseFloat( Ni_vsg[ 1 ] );
 	if( isNaN( Ko.Hrz4_Bu__Da_wfk ) ){ Ko.Hrz4_Bu__Da_wfk = 0.0; }
 
-	SmaJe( "[LAUNCH] HrzBy_VaDa", Ko.Hrz4_Bu__VaDe_vsg, "||", Ko.Hrz4_Bu__Da_wfk );
+	SmaJe( "[LAUNCH] HrzBy_VaDa", Ko.Hrz4_Bu__VaDe_vsg, " v", Ko.Hrz4_Bu__Da_wfk );
+
 	// NOT WELL SUPPORTED 2026
 	// if( navigator.userAgentData && navigator.userAgentData.brands )
 	// { SmaJe(  "[LAUNCH] BRAND:", navigator.userAgentData.brands ); }
+}
+
+//=====================================
+// MACHINE TYPE
+//=====================================
+function Hra0_Ko__FyTo()
+{
+	
+	Ko.Hra0_Ko__VaDe_vsg = "VR";
+
+
+}
+
+//=====================================
+// EXE EVAL
+//=====================================
+async function KoDz__SyHa()
+{
+	await Hrz3_By__FyTo();
+	await Hrz4_Bu__FyTo();
+	Hra0_Ko__FyTo();
 }
 
 //==============================================

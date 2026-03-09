@@ -1,4 +1,4 @@
-const DoWG__BriDzSa__Da_wuk = "248"; 
+const DoWG__BriDzSa__Da_wuk = "249"; 
 
 //==============================================
 //==============================================
@@ -2025,9 +2025,11 @@ async function DoWG__BriYa_SmzYz( Sa_l, Yz_k )
 	else if( VENDOR_vksg.includes( "NVIDIA" ) ) { KaBx__Gwz_vsg = "NVIDIA"; }
 
 	//&&&
-	// IF LOGO, Skip Vendor
+	// LOGO & NAME
 	if( KaBx__Gwz_vsg )	{ Ko.KaBx__Gwz_vsg = KaBx__Gwz_vsg; }
-	Ko.KaBx__VaDe_vsg = Hre1_Dru__ChyCAMELCASE( KaBx__Gwz_vsg ? ( KaKy_l.info.architecture ) : ( KaKy_l.info.vendor + " " + KaKy_l.info.architecture ));
+	// Below Skips Vendor Name
+	// Ko.KaBx__VaDe_vsg = Hre1_Dru__ChyCAMELCASE( KaBx__Gwz_vsg ? ( KaKy_l.info.architecture ) : ( KaKy_l.info.vendor + " " + KaKy_l.info.architecture ));
+	Ko.KaBx__VaDe_vsg = Hre1_Dru__ChyCAMELCASE( KaKy_l.info.vendor ) + " " + Hre1_Dru__ChyCAMELCASE( KaKy_l.info.architecture );
 
 	//&&&
 	// UPDATE GUI

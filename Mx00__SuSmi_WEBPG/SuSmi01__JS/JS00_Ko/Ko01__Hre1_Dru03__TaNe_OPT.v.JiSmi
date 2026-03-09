@@ -44,9 +44,9 @@ const KoOPT = Object.freeze
 	, Nz_Ta_qk: 7 // Topic Picker
 	, Nz_HyHo_qk: 8 // Topic Radio
 
-	, Ku_ToSkeHu_qk: 9 // Choice Space
-	, Ku_ToSkeDe_qk: 10 // Choice Space
-	, Ku_ToSkeHi_qk: 11 // Choice Space
+	, Ku_ToSkeTa_qk: 9 // Choice Space
+	, _bbb_qk: 10 //
+	, _ccc_qk: 11 //
 
 	, Ne_Tra_qk: 12 // Btn
 	, Ne_VxBra_qk: 13 // Slider
@@ -60,7 +60,7 @@ const KoOPT = Object.freeze
 
 	, Ne_KeDru_Tre_qk: 20 // Text Edit
 	, Ne_KeDru_Che_qk: 21 // Pwd Edit
-	, Ne_aaa_qk: 22 //
+	, _aaa_qk: 22 //
 	, Ne_KeDru_GyHi_qk: 23 // Paragraph
 
 	, To_GyDe_qk: 24 // Info Horizontal
@@ -102,12 +102,12 @@ const Kwi00__TaNeJy_v =
 	, { elm: "div", class: "Ku06__NzTaNe_Gwa" }
 
 	// SPACE
-	// Ku_ToSkeHu_qk
-	// Ku_ToSkeDe_qk
-	// Ku_ToSkeHi_qk
-	, { elm: "div", class: "Ku07__ToSkeHu" }
-	, { elm: "div", class: "Ku07__ToSkeDe" }
-	, { elm: "div", class: "Ku07__ToSkeHi" }
+	// Ku_ToSkeTa_qk
+	// Ku_bbb_qk
+	// Ku_ccc_qk
+	, { elm: "div", class: "Ku07__ToSkeTa" }
+	, { elm: "div", class: "" }
+	, { elm: "div", class: "" }
 
 
 	// CHOICE
@@ -133,7 +133,7 @@ const Kwi00__TaNeJy_v =
 	, { elm: "div", class: "" }
 	// Ne_KeDru_Che_qk PWD EDIT
 	, { elm: "div", class: "" }
-	// Ne_aaa_qk
+	// _aaa_qk
 	, { elm: "span", class: "" }
 	// Ne_KeDru_Hi_qk PGRPH
 	, { elm: "span", class: "KeDruSkx WaDru_Vu" }
@@ -153,12 +153,10 @@ const Kwi00__TaNeJy_v =
 
 	// To_JaPoBz_qk IMG FRAME TITLE
 	, { elm: "img", class: "BriDz_FzVa JaPo__GyBzHu_Kwx" }
-
 	// To_JaPoVa_qk
 	, { elm: "img", class: "JaPo__Va" }
 	// To_JaPoVa_Kwu_qk
 	, { elm: "img", class: "JaPo__Va_Kwu" }
-
 	// To_JaPoSi_qk
 	, { elm: "img", class: "JaPo__GyBzHu" }
 

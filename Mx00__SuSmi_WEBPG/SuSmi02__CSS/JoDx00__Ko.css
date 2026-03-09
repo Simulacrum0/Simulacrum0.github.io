@@ -43,65 +43,24 @@ RULES:
 
 
 /*@@@@@@@@@@@@@@@
-SHARED
+VARIABLES
 @@@@@@@@@@@@@@@*/
 :root
 {
 	/* COLOR --------------------------*/
-	--PoStz: #0000;
-	--PoStzVo: #0008;
-	--PoStzDe: #000A;
-	--PoStzSpo: #000F;
 
-	--PoKuSta: #222A;
+	/* FIXED COLORS for BUBBLE_TEXT & FX */
+	--PoSzStz: #000F;
+	--PoSzBreSta: #888F;
+	--PoSzStx: #DDDE;
 
-	--PoKuHu: #0008;
-	--PoKuSteVo: #4448;
-	--PoKuSteSpo: #444F;
-
-	/* Section Line */
-	--PoKuStuVo: #6668;
-
-	--PoBre: #888;
-	--PoBreHu: #8884;
-	--PoBreVo: #8888;
-	--PoBreSpo: #888F;
-
-	--PoTraFra: #999;
-	--PoTraFre: #CCC;
-
-	/* FONT 3D SHADE */
-	--PoSmo: #777;
-
-	--PoKuTo: #DDDE;
-
-	--PoSi: #FFF;
-	--PoSiVo: #FFF8;
-	--PoSiSpo: #FFFF;
-
-	/* ALERT */
-	--PoSmuTra: #D22;
-	--PoSmuSe: #2A2;
-	--PoSmuSi: #DD2;
-	--PoSmuSo: #22F;
-
-
-	/* SIZE -------------------- */
+	/* SIZE GLYPH CHAR -------------------- */
 	--GyDru_Kwe: 4ch;
 	--GyDru_KeDru: 32ch;
 	--GyDru_MoKuGx: 48ch;
 	--GyDru_MoKuGa: 64ch;
 
-
-	/* STRETCH -------------------- */
-	/* Firefox <146 */
-	@supports (width: -moz-available) {--stretch: -moz-available;}
-	/* Safari & Firefox 146+ */
-	@supports (width: -webkit-fill-available) {--stretch: -webkit-fill-available;}
-	/* Chromium */
-	@supports (width: stretch) {--stretch: stretch;	}
-
-	/* SIZE -------------------- */
+	/* SIZE ROOT LEGIBLE UNIT------------------- */
 	--GyStz: 0.0rem;
 	--GyBe: 0.125rem;
 	--GyBo: 0.25rem;
@@ -124,13 +83,20 @@ SHARED
 	--GyBzDe: 6.0rem;
 	--GyBzHi: 8.0rem;
 
+	/* TIMING -------------------- */
+	--GiDe: 0.5s;
+
+	/* TAB HEADERS STRETCH -------------------- */
+	/* Firefox <146 */
+	@supports (width: -moz-available) {--stretch: -moz-available;}
+	/* Safari & Firefox 146+ */
+	@supports (width: -webkit-fill-available) {--stretch: -webkit-fill-available;}
+	/* Chromium */
+	@supports (width: stretch) {--stretch: stretch;	}
 
 	/* LINES-------------------- */
 	--GwxSpo: solid;
 	--GwxKwo: dotted;
-
-	/* TIMING -------------------- */
-	--GiDe: 0.5s;
 }
 
 
@@ -155,24 +121,42 @@ ANCESTOR
 @@@@@@@@@@@@@@@*/
 *
 {
+	/* LAYOUT SPACE */
 	/* content-box WIDTH/HEIGHT ignore padding, margin, & border */
 	/* border-box  WIDTH/HEIGHT ignore margin only */
 	box-sizing: border-box;
 	overflow: hidden;
-
 	border-radius: var(--GyStz);
 	margin: var(--GyStz);
 	padding: var(--GyStz);
 
+	/* ZOOM SIZE */
 	/* content-visibility: auto; */
 	font-size: var(--GyTreDe);
+
+	/* COLOR & QUALITY */
 	image-rendering: auto;
-
 	color: var(--PoSiSpo);
-	background-color: var(--PoStz);
-
+	background-color: var(--PoGwy);
 	/* SLIDER & RADIO CLR	*/
 	accent-color: var(--PoSmuTra);
+
+	/* ANIMATION */
+	transition: var(--GiDe);
+}
+
+/*@@@@@@@@@@@@@@@
+ROOT ZOOM_SCALE
+@@@@@@@@@@@@@@@*/
+html
+{
+	@media (min-width: 320px) { font-size: 14px;}
+	@media (min-width: 481px) { font-size: 15px;}
+	@media (min-width: 641px) { font-size: 16px;}
+	@media (min-width: 961px) { font-size: 17px;}
+	@media (min-width: 1025px) { font-size: 18px;}
+	@media (min-width: 1281px) { font-size: 19px;}
+	@media (min-width: 1601px) { font-size: 20px;}
 }
 
 /*@@@@@@@@@@@@@@@
@@ -296,8 +280,8 @@ DOMAIN AREAS^Tz
 	border-radius: var(--GyStz);
 	border: none;
 
-	color: var(--PoSiSpo);
-	background-color: var(--PoKuSteSpo)
+	/* color: var(--PoSiSpo);
+	background-color: var(--PoKuTz); */
 }
 
 .Tz02__MxPo
@@ -329,18 +313,19 @@ PANELS^Ku
 	position: absolute;
 	z-index: 1;
 
-	/* Use 1.5 instead of 3 because DBG Bars */
-	left: var(--GyKaHu);
-	top: var(--GyKaHi);
+	left: var(--GyTreDe);
+	top: var(--GyTreDe);
 	border-radius: var(--GyKaHu);
 	padding: var(--GyTreDe);
 
-	/* CONSIDER 'DBG' BARS, only 'width' since Trx needs expand for centering */
-	width: calc( 100dvw - var(--GyKaHi) );
-	max-height: calc( 100dvh - var(--GyBzDe) );
+	/* GyKaDe is 2 * GyTreDe */
+	width: calc( 100dvw - var(--GyKaDe) );
+	max-height: calc( 100dvh - var(--GyKaDe) );
 
-	background-color: var(--PoStzDe);
+	background-color: var(--PoGwyDe);
 	border: var(--GwxSpo) var(--GyBe) var(--PoBre);
+
+	box-shadow: 0 -0.5em var(--GyBiHu) var(--PoTraFra);
 
 	/* ALLSCROLL ALL TOPIC AREA*/
 	overflow: auto;
@@ -372,25 +357,24 @@ PANELS^Ku
 /* PANEL__MENU TABS --------------------------------- */
 .Ku02__HriNzVa
 {
-	cursor: cell;
-	margin: var(--GyStz);
-	/* 0 bottom to align with topic section */
-	padding: var(--GyBiHu) var(--GyStz) var(--GyStz) var(--GyStz);
-
 	display: flex;
 	flex: auto;
 	flex-wrap: nowrap;
+
+	/* 0 bottom to align with topic section */
+	margin: var(--GyStz);
+	padding: var(--GyBiHu) var(--GyStz) var(--GyStz) var(--GyStz);
 	place-items: var(--stretch) var(--stretch);
 
+	cursor: cell;
 	border-radius: var(--GyStz);
-
-	background-color: var(--PoStz);
+	background-color: var(--PoGwy);
 }
 
 /* PANEL_ALL_DOMAIN_TOPIC_CHOICES ---------------------- */
 .Ku03__TaTz
 {
-	background-color: var(--PoStzVo);
+	background-color: var(--PoKuTraHy);
 
 	/* 0 to align with topic section */
 	margin: var(--GyStz);
@@ -426,22 +410,23 @@ PANELS^Ku
 	/* TALL */
 	@media (min-aspect-ratio: 1/1)
 	{
-		grid-template-columns: repeat( auto-fill, minmax( var(--GyDru_MoKuGx), 1fr ));
+		grid-template-columns: repeat( auto-fit, minmax( var(--GyDru_MoKuGx), 1fr ));
 	}
 	/* WIDE */
 	@media (max-aspect-ratio: 1/1)
 	{
-		grid-template-columns: repeat( auto-fill, minmax( var(--GyDru_MoKuGa), 1fr ));
+		grid-template-columns: repeat( auto-fit, minmax( var(--GyDru_MoKuGa), 1fr ));
 	}
 }
 
+/* INFO BLOCK */
 .Ku05__ToKu
 {
 	display: inline-block;
 	overflow-y: auto;
 }
 
-/* TOPIC_CHOICES__SECTION_INDEX */
+/* TOPIC_CHOICES__INDEX_SECTION_PANEL */
 .Ku06__NzTaNe_Gwx
 , .Ku06__NzTaNe_Gwa
 {
@@ -456,33 +441,33 @@ PANELS^Ku
 
 	border-left: none;
 	border-right: none;
-	border-top:  var(--GyBe) var(--GwxSpo)var(--PoKuSteSpo);
+	border-top:  var(--GyBe) var(--GwxSpo)var(--PoKuTz);
 	border-bottom: none;
 	border-radius: var(--GyTreDe);
 
 	color: var(--PoBre);
-	background-color: var(--PoKuSta);
+	background-color: var(--PoKuDe);
 }
 
+/* TOPIC_CHOICES ROWS */
 .Ku06__NzTaNe_Gwx
 {
-	display: flex;
+	display: inline-flex;
 	flex-wrap: wrap;
 	gap: 0;
-	display: inline-flex;
 }
 
+/* TOPIC_CHOICES AREAS */
 .Ku06__NzTaNe_Gwa
 {
 	display: grid;
-	grid-template-columns: repeat( auto-fill, minmax( 32ch, 1fr ));
+	grid-template-columns: repeat( auto-fit, minmax( var(--GyDru_KeDru), 1fr ));
 	gap: var(--GyBe);
+	border-radius: var(--GyTreDe);
 }
 
-
-/* AREA__VERSION */
-.Ku07__ToSkeHu
-, .Ku07__ToSkeDe
+/* AREA__INFO */
+.Ku07__ToSkeTa
 {
 	display: inline-flex;
 	flex-wrap: wrap;
@@ -494,19 +479,10 @@ PANELS^Ku
 
 	margin: var(--GyBo);
 	padding: var(--GyBe);
-	/* gap: var(--GyBiHu); */
 
+	border-radius: var(--GyTreDe);
+	background-color: var(--PoKuTraHy);
 	/* border: var(--GwxSpo) var(--GyBe); border-color: blue; */
-	background-color: var(--PoKuHu);
-}
-
-.Ku07__ToSkeHi
-{
-	display: flex;
-	flex-wrap: wrap;
-
-	margin: var(--GyBe);
-	padding: var(--GyBe);
 }
 
 /*@@@@@@@@@@@@@@@
@@ -568,7 +544,7 @@ NOTIFY^KeMe
 	font-size: var(--GyTreHu);
 	white-space: pre-wrap;
 
-	color: var(--PoKuSteSpo);
+	color: var(--PoSzStz);
 }
 
 /* TOOLTIP BUBBLE BOX */
@@ -588,7 +564,7 @@ NOTIFY^KeMe
 	min-width: var(--GyBzHi);
 	border-radius: var(--GyKaHu);
 
-	background-color: var(--PoKuTo);
+	background-color: var(--PoSzStx);
 	opacity: 1.0;
 }
 
@@ -614,7 +590,7 @@ NOTIFY^KeMe
 	inset-block-end: -1.0rem;
 
 	/* Top Border ONLY faces down */
-	border-color: var(--PoKuTo) transparent transparent transparent;
+	border-color: var(--PoSzStx) transparent transparent transparent;
 }
 
 
@@ -623,7 +599,7 @@ TEXT
 @@@@@@@@@@@@@@@*/
 
 /* TEXT__MENU_TITLE --------------------------------- */
-.NzVa_TraKz
+.KeDru_NzVa__TraKz
 {
 	display: flex;
     justify-content: center;
@@ -632,31 +608,31 @@ TEXT
 
 	width: var(--stretch);
 
-
 	padding: var(--GyBiHu);
 	margin: var(--GyStz);
 	margin-top: var(--GyTreDe);
 
 	color: var(--PoTraFra);
-	background-color: var(--PoKuSteVo);
+	background-color: var(--PoKuTraHo);
 
 	border: var(--GwxSpo) var(--GyBe) var(--PoSi);
 	border-radius: var(--GyKaHu) var(--GyKaHu) 0 0;
 
-	transition: var(--GiDe);
+
 }
 
 /* TEXT__MENU_SELECTED */
-.NzVa_Se_TraKz
+.KeDru_NzVa_Se__TraKz
 {
 	font-size: 1.125rem;
 	color: var(--PoSi);
-	background-color: var(--PoKuHu);
+	background-color: var(--PoKuTraHy);
 
 	outline: none;
 	box-shadow: 0 -0.5em var(--GyBiHu) var(--PoTraFra);
+	padding: var(--GyBiHi);
 
-	transition: var(--GiDe);
+
 	border-bottom:none;
 }
 
@@ -687,36 +663,8 @@ TEXT
 	font-size: var(--GyBiHi);
 
 	color: var(--PoTraFre);
-	/* background-color: var(--PoKuHu); */
+	/* background-color: var(--PoKuTraHy); */
 	/* border: var(--GwxSpo) var(--GyBe);border-color: red; */
-}
-
-/* TEXT__LIST_ELEMENTS */
-.HriNeTi
-/* TEXT__TYPING_INPUT */
-, .KeDru_MiPo
-, .HriNe_Tra
-{
-	display: inline-flex;
-	text-align: start;
-
-	margin: var(--GyBo);
-	padding: var(--GyBo);
-
-	color: var(--PoSi);
-	background-color: var(--PoKuSteSpo);
-
-	border-radius: var(--GyKaHu);
-	border: var(--GwxSpo) var(--GyBe) var(--PoSi);
-}
-
-/* TEXT__BTN */
-.HriNe_Tra
-{
-	text-align: center;
-	margin: var(--GyBo);
-	padding: var(--GyBo) var(--GyBiHi);
-	line-height: var(--GyKaDe);
 }
 
 /* TEXT__DOCUMENT HEADER */
@@ -743,8 +691,10 @@ TEXT
 
 	margin: var(--GyBiHu);
 	padding: var(--GyBiHu);
+	border-radius: var(--GyTreDe);
 
-	background-color: var(--PoKuHu);
+
+	background-color: var(--PoKuTraHy);
 	overflow-y: auto;
 }
 
@@ -752,7 +702,7 @@ TEXT
 .KeDruSkx
 {
 	/* Requires BLOCK to split columns */
-	column-rule: 0.25em var(--GwxKwo) var(--PoKuSta);
+	column-rule: var(--GyBo) var(--GwxKwo) var(--PoKuDe);
 	column-width: var(--GyDru_KeDru);
 	column-gap: var(--GyDru_Kwe);
 }
@@ -786,6 +736,37 @@ TEXT
 	text-orientation: sideways;
 }
 
+/*@@@@@@@@@@@@@@@
+INTERACTIVE CHOICE
+@@@@@@@@@@@@@@@*/
+
+/* TEXT__LIST_ELEMENTS */
+.HriNeTi
+/* TEXT__TYPING_INPUT */
+, .KeDru_MiPo
+, .HriNe_Tra
+{
+	display: inline-flex;
+	text-align: start;
+
+	margin: var(--GyBo);
+	padding: var(--GyBo);
+
+	color: var(--PoSi);
+	background-color: var(--PoKuTz);
+
+	border-radius: var(--GyKaHu);
+	border: var(--GwxSpo) var(--GyBe) var(--PoSi);
+}
+
+/* TEXT__BTN */
+.HriNe_Tra
+{
+	text-align: center;
+	margin: var(--GyBo);
+	padding: var(--GyBo) var(--GyBiHi);
+	line-height: var(--GyKaDe);
+}
 
 /*@@@@@@@@@@@@@@@
 IMAGES
@@ -810,7 +791,7 @@ IMAGES
 .JaPo__Va_Kwu
 {
 	/* filter: invert(100%); */
-	background-color: var(--PoKuTo);
+	background-color: var(--PoSzStx);
 	border-radius: var(--GyBiHu);
 	padding: var(--GyBe);
 }
@@ -827,7 +808,6 @@ IMAGES
 
 	white-space: pre-wrap;
 	text-align: center;
-
 }
 
 .JaPo__GyBzHu_Kwx
@@ -835,7 +815,6 @@ IMAGES
 	border-radius: var(--GyKaHu);
 	border: var(--GwxSpo) var(--GyBe) var(--PoSiSpo);
 }
-
 
 /*@@@@@@@@@@@@@@@
 SPRITE GRID
@@ -857,13 +836,14 @@ SPRITE GRID
 	display: inline-flex;
 	place-items: center center;
 	text-align: center;
+	margin: var(--GyBo);
+	padding: var(--GyBo);
 
 	font-size: var(--GyBzDe);
 	width: auto;
 	height: var(--GyBzHi);
 
-	margin: var(--GyBo);
-	padding: var(--GyBo);
+	border-radius: var(--GyTreDe);
 }
 
 .NiJaPo_Trx
@@ -903,7 +883,7 @@ SPRITE GRID
 	font-size: 1.925rem;
 	margin: 0.075rem;
 	padding: var(--GyStz);
-	background-color: var(--PoStz);
+	background-color: var(--PoGwy);
 
 	border-radius: var(--GyBo);
 }
@@ -923,7 +903,7 @@ SPRITE GRID
 .NiJaPo_VaGri:Hover
 {
 	background-color: var(--PoSi);
-	transition: var(--GiDe);
+
 }
 
 /* OVERLAY EXACT*/
@@ -952,7 +932,7 @@ SPRITE GRID
 	filter: grayscale( 0% );
 
 	background-color: var(--PoSi);
-	transition: var(--GiDe);
+
 }
 
 /*@@@@@@@@@@@@@@@
@@ -971,7 +951,7 @@ BTN SUBMIT ===> LAUNCH BTN RED
 	border-radius: var(--GyKaHu);
 	border: var(--GwxSpo) var(--GyBe) var(--PoSi);
 
-	transition: var(--GiDe);
+
 }
 
 /* BTN SUBMIT HOVER BG Po ==> GREEN */
@@ -981,7 +961,7 @@ BTN SUBMIT ===> LAUNCH BTN RED
 	font-size: var(--GyKaDe);
 	box-shadow: 0 0 var(--GyTreDe) var(--PoSmuSe );
 	background-color: var(--PoSmuSe);
-	transition: var(--GiDe);
+
 }
 
 /*@@@@@@@@@@@@@@@
@@ -1010,7 +990,7 @@ TOGGLE_SWITCH
 	height: var(--GyKaHu);
 
 	border-radius: var(--GyKaHu);
-	transition: var(--GiDe);
+
 }
 
 /* BAR PART GREY of CHECKBOX */
@@ -1030,7 +1010,7 @@ TOGGLE_SWITCH
 	border-radius: var(--GyKaHu);
 	background-color: var(--PoKuStuVo);
 
-	transition: var(--GiDe);
+
 }
 
 /* CIRCLE PART (WHITE/RED) of CHECKBOX */
@@ -1048,21 +1028,21 @@ TOGGLE_SWITCH
 	background-color: var(--PoTraFre);
 	border-radius: var(--GyKaHu);
 
-	transition: var(--GiDe);
+
 }
 
 /* CHECKBOX RED BG */
 .MzHyHo:checked + .VuHyHo
 {
 	background-color: var(--PoSmuTra);
-	transition: var(--GiDe);
+
 }
 
 /* FOCUS SLIDE ON/OFF */
 .MzHyHo:checked + .VuHyHo:before
 {
 	transform: translateX( var(--GyKaHu) );
-	transition: var(--GiDe);
+
 }
 
 /*@@@@@@@@@@@@@@@
@@ -1083,10 +1063,10 @@ RADIO GROUP
 	padding: var(--GyBo);
 
 	color: var(--PoSiSpo);
-	background-color: var(--PoStz);
+	background-color: var(--PoGwy);
 	border-radius: var(--GyTreDe);
 
-	transition: var(--GiDe);
+
 }
 
 .NiGruTi
@@ -1094,8 +1074,8 @@ RADIO GROUP
 	margin: var(--GyBo);
 	padding: var(--GyBo);
 
-	background-color: var(--PoStz);
-	transition: var(--GiDe);
+	background-color: var(--PoGwy);
+
 }
 
 /*@@@@@@@@@@@@@@@
@@ -1113,9 +1093,9 @@ SLIDER
 	border: none;
 
 	color: var(--PoSiSpo);
-	background-color: var(--PoStz);
+	background-color: var(--PoGwy);
 
-	transition: var(--GiDe);
+
 }
 
 
@@ -1127,36 +1107,36 @@ HOVER GLOW
 , .NiGruVa:hover
 {
 	box-shadow: 0 0 var(--GyTreHu) var(--PoSi);
-	transition: var(--GiDe);
+
 }
 
 .TreHy:hover
 {
 	box-shadow: 0.0 0 var(--GyTreDe) var(--PoSi);
-	transition: var(--GiDe);
+
 }
 
 .KaHyHo:hover
 {
 	box-shadow: 0 0 var(--GyKaHu) var(--PoSi);
-	transition: var(--GiDe);
+
 }
 
 /* TEXT__MENU_TITLE---HOVER PTR  */
-.NzVa_TraKz:hover
+.KeDru_NzVa__TraKz:hover
 {
 	font-size: var(--GyTreHi);
 	outline: none;
 	box-shadow: 0 -0.5em var(--GyTreDe) var(--PoTraFre);
-	transition: var(--GiDe);
+
 }
 
 /*@@@@@@@@@@@@@@@
 FOCUS DOTTED OUTLINE
 @@@@@@@@@@@@@@@*/
 
-  .NzVa_TraKz:focus
-, .NzVa_Se_TraKz:focus
+  .KeDru_NzVa__TraKz:focus
+, .KeDru_NzVa_Se__TraKz:focus
 , .TreHy:focus
 , .HriNe_TraKwi:focus
 , .HriNeVo:focus
@@ -1166,8 +1146,8 @@ FOCUS DOTTED OUTLINE
 	outline: dotted var(--GyBe) var(--PoSi);
 }
 
-.NzVa_TraKz:focus
-.NzVa_Se_TraKz:focus
+.KeDru_NzVa__TraKz:focus
+.KeDru_NzVa_Se__TraKz:focus
 {
 	font-size: var(--GyTreHi);
 }
@@ -1197,13 +1177,11 @@ ELM_FX
 {
 	cursor: not-allowed;
 
-	color: var(--PoKuHu);
+	color: var(--PoKuTraHy);
 	background-color: var(--PoBreVo);
 
 	filter: blur( 4px );
 	/* filter: brightness( 25% ); */
-
-	transition: var(--GiDe)
 }
 
 .HriNe__SmoTy
