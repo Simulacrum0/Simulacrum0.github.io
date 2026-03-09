@@ -1,5 +1,5 @@
-const BriDzSa__Da_vsg = "PUB_v0.251"; 
- const BriDzSa__Da_wuk = "251"; 
+const BriDzSa__Da_vsg = "PUB_v0.252"; 
+ const BriDzSa__Da_wuk = "252"; 
  const BriDz__Mx_KuTu_vsg = "https://powerourpeople.com/"; 
 
 //==============================================
@@ -1259,17 +1259,16 @@ async function Hrz4_Bu__FyTo()
 
 	// DETECT
 	if( (navigator.brave && await navigator.brave.isBrave() || false) ){ Ni_vsg[ 0 ] = "Brave"; }
-
 	// REPLACE
 	Ni_vsg[ 0 ] = Ni_vsg[ 0 ].replace( /edg/i, "Edge" );
 	Ni_vsg[ 0 ] = Ni_vsg[ 0 ].replace( /OculusBrowser/i, "Meta" );
 	Ni_vsg[ 0 ] = Ni_vsg[ 0 ].replace( /opr/i, "Opera" );
 	Ni_vsg[ 0 ] = Ni_vsg[ 0 ].replace( /SamsungBrowser/i, "Samsung" );
-	// Ni_vsg[ 0 ] = Ni_vsg[ 0 ].replace( /Vivaldi/i, "Vivaldi" );
+	Ni_vsg[ 0 ] = Ni_vsg[ 0 ].replace( /Vivaldi/i, "Vivaldi" );
 
 	// ICON
 	const Hrz4_Bu__FeDy_vsg = Ni_vsg[ 0 ].toUpperCase();
-	const Hrz4_Bu__TaDy_vvsg = [ "BRAVE" , "CHROME" , "EDGE" , "FIREFOX" , "SAFARI", "VIVALDI"	];
+	const Hrz4_Bu__TaDy_vvsg = [ "BRAVE" , "CHROME" , "EDGE" , "FIREFOX" , "SAFARI", "SAMSUNG", "VIVALDI"	];
 	if( Hrz4_Bu__TaDy_vvsg.includes( Hrz4_Bu__FeDy_vsg ) )
 	{
 		Ko.Hrz4_Bu__Gwz_vsg = Hrz4_Bu__FeDy_vsg;
@@ -1292,9 +1291,9 @@ async function Hrz4_Bu__FyTo()
 //=====================================
 function Hra0_Ko__FyTo()
 {
-	
-	Ko.Hra0_Ko__VaDe_vsg = "VR";
+	const Hra0_Ko__TaJy_vvsg = [ "VR",  "AR",  "De",  "MOBILE",  "STATION",  "TABLET" ];
 
+	Ko.Hra0_Ko__VaDe_vsg = "STATION";
 
 }
 
