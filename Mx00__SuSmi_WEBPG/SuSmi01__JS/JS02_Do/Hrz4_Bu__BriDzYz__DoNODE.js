@@ -124,9 +124,6 @@ DoNODE.measureMemory = async function()
 
 }
 
-DoNODE.measureMemory();
-
-
 //=====================================
 // TXT_EDIT
 //=====================================
@@ -279,6 +276,9 @@ DoNODE.BriYa = async function( Yz_k )
 	//	{
 	//		SmaJe( "Event" );
 	//	});
+
+
+	// DoNODE.measureMemory();
 
 
 	return SySmz__YaFx_v( Sa_l );
