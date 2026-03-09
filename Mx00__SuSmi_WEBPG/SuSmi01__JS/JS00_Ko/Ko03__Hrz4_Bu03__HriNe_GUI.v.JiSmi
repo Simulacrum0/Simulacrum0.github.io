@@ -301,7 +301,7 @@ function HriNeDe__PoSzYa()
 	// SET or USE CFG?
 	// HriNeDe__PoSzJe( PoSz_Stz_k );
 	// HACKED to specific mode
-	HriNeDe__PoSzChy( 2 );
+	HriNeDe__PoSzChy( 1 );
 
 	//@@@
 	// EVT LISTENER

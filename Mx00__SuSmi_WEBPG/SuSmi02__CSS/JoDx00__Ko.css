@@ -661,6 +661,7 @@ TEXT
 	padding: var(--GyBo);
 
 	font-size: var(--GyBiHi);
+	line-height: var(--GyDruBz);
 
 	color: var(--PoTraFre);
 	/* background-color: var(--PoKuTraHy); */
@@ -685,7 +686,7 @@ TEXT
 /* TEXT__DOCUMENT BODY */
 .KeDruBa, .KeDruSkx
 {
-	font-size: var(--GyTreHu);
+
 	white-space: pre-wrap;
 	max-width: calc( 100% - var(--GyTreDe) );
 
@@ -693,6 +694,8 @@ TEXT
 	padding: var(--GyBiHu);
 	border-radius: var(--GyTreDe);
 
+	font-size: var(--GyTreHu);
+	line-height: var(--GyDruBz);
 
 	background-color: var(--PoKuTraHy);
 	overflow-y: auto;
@@ -1094,8 +1097,6 @@ SLIDER
 
 	color: var(--PoSiSpo);
 	background-color: var(--PoGwy);
-
-
 }
 
 

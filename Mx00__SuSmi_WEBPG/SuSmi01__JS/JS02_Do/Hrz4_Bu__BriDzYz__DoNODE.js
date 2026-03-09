@@ -19,7 +19,7 @@ DoNODE.copyToClipboard = function( text )
 		textarea.textContent = text;
 		textarea.style.position = "fixed";
 		document.body.appendChild( textarea );
-		
+
 		textarea.select();
 		textarea.setSelectionRange( 0, 99999 );
 
@@ -87,7 +87,7 @@ DoNODE.runMemoryMeasurements = function()
 
 DoNODE.measureMemory = async function()
 {
-	if( !performance.measureUserAgentSpecificMemory ) return;
+	if( !crossOriginIsolated || !DoJi_yk( performance, measureUserAgentSpecificMemory )) return;
 
 	const HrxKuHa = await performance.measureUserAgentSpecificMemory();
 	// MxPo_De(HrxKuHa);

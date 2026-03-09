@@ -1,5 +1,5 @@
-const BriDzSa__Da_vsg = "PUB_v0.249"; 
- const BriDzSa__Da_wuk = "249"; 
+const BriDzSa__Da_vsg = "PUB_v0.250"; 
+ const BriDzSa__Da_wuk = "250"; 
  const BriDz__Mx_KuTu_vsg = "https://powerourpeople.com/"; 
 
 //==============================================
@@ -2361,7 +2361,7 @@ function HriNeDe__PoSzYa()
 	// SET or USE CFG?
 	// HriNeDe__PoSzJe( PoSz_Stz_k );
 	// HACKED to specific mode
-	HriNeDe__PoSzChy( 2 );
+	HriNeDe__PoSzChy( 1 );
 
 	//@@@
 	// EVT LISTENER
