@@ -295,6 +295,9 @@ DOMAIN AREAS^Tz
 
 	/* color: var(--PoSiSpo);
 	background-color: var(--PoKuTz); */
+
+	animation: none;
+	transition: none;
 }
 
 .Tz02__MxPo
