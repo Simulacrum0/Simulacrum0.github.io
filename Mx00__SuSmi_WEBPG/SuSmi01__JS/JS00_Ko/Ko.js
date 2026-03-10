@@ -1,5 +1,5 @@
-const BriDzSa__Da_vsg = "PUB_v0.253"; 
- const BriDzSa__Da_wuk = "253"; 
+const BriDzSa__Da_vsg = "PUB_v0.254"; 
+ const BriDzSa__Da_wuk = "254"; 
  const BriDz__Mx_KuTu_vsg = "https://powerourpeople.com/"; 
 
 //==============================================
@@ -2465,15 +2465,22 @@ function Hri4_Bu__MzBuDru_Je( e )
 
 		case( "ArrowLeft" ):
 		{
-			HriNeDe__PoSzChy( 0 );
+			//HriNeDe__PoSzChy( 0 );
 			break;
 		}
 		case( "ArrowRight" ):
 		{
-			HriNeDe__PoSzChy( 1 );
+			// HriNeDe__PoSzChy( 1 );
 			break;
 		}
 
+		case "Home": { HriNeDe__PoSzChy( 0 ); break; }
+		case "End": { HriNeDe__PoSzChy( 1 ); break; }
+		case "PageUp": { HriNeDe__PoSzChy( 2 ); break; }
+		case "PageDown": { HriNeDe__PoSzChy( 3 ); break; }
+
+
+		case "Numpad8":
 		case( "ArrowUp" ):
 		{
 			const FzKz_k = document.documentElement;
@@ -2487,6 +2494,8 @@ function Hri4_Bu__MzBuDru_Je( e )
 
 			break;
 		}
+
+		case "Numpad2":
 		case( "ArrowDown" ):
 		{
 			const FzKz_k = document.documentElement;
@@ -2912,9 +2921,9 @@ if( false )
 	//&&&
 	// DEVICE
 	const Hra0_Ko__TaJy_vvsg = [ "MOBILE", "TABLET",  "STATION", "VR",  "AR" ];
-	const Hra0_Ko__VaDe_vsg = Hra0_Ko__TaJy_vvsg[ Ko.Hra0_Ko__Jy_wq ];
+	const Hra0_Ko__VaDe_vsg = Hra0_Ko__TaJy_vvsg[ Ko.Hra0_Ko__Jy_q ];
 	HriNeDe__ChyVaSy( "Hra0_Ko__VaDe", Hra0_Ko__VaDe_vsg );
-//	HriNeDe__ChyJaPoDe( "Hra0_Ko__Gwz", "HraKo_", Hra0_Ko__VaDe_vsg.toUpperCase() );
+	HriNeDe__ChyJaPoDe( "Hra0_Ko__Gwz", "HraKo_", Hra0_Ko__VaDe_vsg.toUpperCase() );
 
 	//&&&
 	// OS
