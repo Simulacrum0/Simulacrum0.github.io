@@ -54,6 +54,19 @@ VARIABLES
 	--PoSzBreSta: #888F;
 	--PoSzStx: #DDDE;
 
+	/* OVERRIDEN COLORS for 404, ERR, no JS Pages! */
+	--PoGwy: #0000; /* BASE PALETTE */
+	--PoGwyDe: #000A; /* PANEL__OUTER_TOPIC */
+
+	--PoSi: #FFF; /* ACTIVE */
+	--PoSiSpo: #FFFF; /* MAIN TXT */
+
+	--PoKuDe: #222A; /* SECTION BG */
+	--PoKuTz: #444F; /* DOMAIN BG */
+
+	--PoSmo: #777; /* FONT 3D SHADOW */
+	--PoSmuTra: #D22;
+
 	/* SIZE GLYPH CHAR -------------------- */
 	--GyDru_Kwe: 4ch;
 	--GyDru_KeDru: 32ch;

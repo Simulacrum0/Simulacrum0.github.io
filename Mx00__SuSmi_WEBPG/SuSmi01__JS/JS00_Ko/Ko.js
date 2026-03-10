@@ -1,5 +1,5 @@
-const BriDzSa__Da_vsg = "PUB_v0.252"; 
- const BriDzSa__Da_wuk = "252"; 
+const BriDzSa__Da_vsg = "PUB_v0.253"; 
+ const BriDzSa__Da_wuk = "253"; 
  const BriDz__Mx_KuTu_vsg = "https://powerourpeople.com/"; 
 
 //==============================================
@@ -677,7 +677,7 @@ const Kwi00__TaNe_v=
 //==============================================
 
 //----------------------------
-// SYS_CFG^KoYz
+// LIFE_STATE^BriYz
 //----------------------------
 const BriYz = Object.freeze
 ({
@@ -690,6 +690,20 @@ const BriYz = Object.freeze
 	, Ye_qk: 5
 	, Yo_qk: 6
 	, Yi_qk: 7
+});
+
+
+//----------------------------
+// MACHINE_TYPE^KoJy
+//----------------------------
+const Hra0_KoJy = Object.freeze
+({
+	KoBeDru_qk: 0
+	, KoBeGwa_qk: 1
+
+	, KoBa_qk: 2
+	, KoBeMzHri_qk: 3
+	, KoBeMzSa_qk: 4
 });
 
 
@@ -720,12 +734,8 @@ let Ko =
 	//@@@
 	// NODE
 
-	// MOBILE
-	, Hrz3_By__KaGeSpu_y: false
-
 	// DEVICE
-	, Hra0_Ko__VaDe_vsg: "Unknown"
-	, Hra0_Ko__Gwz_vsg: null
+	, Hra0_Ko__Jy_q: Hra0_KoJy.KoBa_qk
 	// OS
 	, Hrz3_By__VaDe_vsg: "Unknown"
 	, Hrz3_By__Gwz_vsg: null
@@ -1164,7 +1174,7 @@ async function Hrz3_By__FyTo()
 		Ko.KaBz__Gwz_vsg = "ARM";
 		Ko.KaBz__VaDe_vsg = "ARM64";
 
-		Ko.Hrz3_By__KaGeSpu_y = true;
+		Ko.Hra0_Ko__Jy_q = Hra0_KoJy.KoBeGwa_qk;
 	}
 	else if( NODE_vksg.includes( "IPHONE" ) )
 	{
@@ -1174,7 +1184,7 @@ async function Hrz3_By__FyTo()
 		Ko.KaBz__Gwz_vsg = "ARM";
 		Ko.KaBz__VaDe_vsg = "ARM64";
 
-		Ko.Hrz3_By__KaGeSpu_y = true;
+		Ko.Hra0_Ko__Jy_q = Hra0_KoJy.KoBeDru_qk;
 	}
 	else if( NODE_vksg.includes( "MAC" ) )
 	{
@@ -1202,7 +1212,8 @@ async function Hrz3_By__FyTo()
 		Ko.KaBz__VaDe_vsg = "ARM64";
 
 		// Mobile
-		Ko.Hrz3_By__KaGeSpu_y = true;
+		Ko.Hra0_Ko__Jy_q = true;
+		Ko.Hra0_Ko__Jy_q = Hra0_KoJy.KoBeDru_qk;
 	}
 
 
@@ -1289,12 +1300,36 @@ async function Hrz4_Bu__FyTo()
 //=====================================
 // MACHINE TYPE
 //=====================================
-function Hra0_Ko__FyTo()
+async function Hra0_Ko__FyTo()
 {
-	const Hra0_Ko__TaJy_vvsg = [ "VR",  "AR",  "De",  "MOBILE",  "STATION",  "TABLET" ];
+	//@@@
+	// META is AR currently
+	if( Ko.Hrz4_Bu__VaDe_vsg === "Meta" )
+	{ Ko.Hra0_Ko__Jy_q = Hra0_KoJy.KoBeMzSa_qk; }
 
-	Ko.Hra0_Ko__VaDe_vsg = "STATION";
+	//@@@
+	// API
+	if( navigator.xr )
+	{
+		const KriYz_k =
+		{
+			requiredFeatures: [ "local" ]
+		};
+		const AR_yk = await navigator.xr.isSessionSupported( "immersive-ar", KriYz_k );
+		const VR_yk = await navigator.xr.isSessionSupported( "immersive-vr", KriYz_k );
 
+		if( AR_yk ){ Ko.Hra0_Ko__Jy_q = Hra0_KoJy.KoBeMzSa_qk; }
+		else if( VR_yk ){ Ko.Hra0_Ko__Jy_q = Hra0_KoJy.KoBeMzHri_qk; }
+	}
+
+	//@@@
+	// if 'PHONE' check if TABLET or actually PHONE using WIDTH
+	if( Ko.Hra0_Ko__Jy_q ===Hra0_KoJy.KoBeDru_qk )
+	{
+		// TABLET
+		if (window.matchMedia( "(min-width: 768px)" ).matches )
+		{ Ko.Hra0_Ko__Jy_q = Hra0_KoJy.KoBeGwa_qk; }
+	}
 }
 
 //=====================================
@@ -1304,7 +1339,7 @@ async function KoDz__SyHa()
 {
 	await Hrz3_By__FyTo();
 	await Hrz4_Bu__FyTo();
-	Hra0_Ko__FyTo();
+	await Hra0_Ko__FyTo();
 }
 
 //==============================================
@@ -1359,11 +1394,11 @@ function Hrz4_Bu__KwiYz__ChyDe( Va_vksg, NiJaPo_wuk, KeDru_wuk )
 	//!!!
 	// METHOD
 	// MOBILE
-	if( Ko.Hrz3_By__KaGeSpu_y )
+	if( Ko.Hra0_Ko__Jy_q < Hra0_KoJy.KoBa_qk )
 	{
 		// KwiYz_k.Ne02_Hru0__
 	}
-	// DESKTOP
+	// STATION
 	else
 	{
 	}
@@ -1379,12 +1414,12 @@ function Hrz4_Bu__KwiYz__ChyDe( Va_vksg, NiJaPo_wuk, KeDru_wuk )
 	//!!!
 	// METHOD
 	// MOBILE
-	if( Ko.Hrz3_By__KaGeSpu_y )
+	if( Ko.Hra0_Ko__Jy_q < Hra0_KoJy.KoBa_qk )
 	{
 		KwiYz_k.TzHry__NzSy__SmzYz_q = 0;
 		KwiYz_k.TzHry__NzSy__GyBraHi_bu = 0;
 	}
-	// DESKTOP
+	// STATION
 	else
 	{
 		KwiYz_k.TzHry__NzSy__SmzYz_q = 1;
@@ -2876,8 +2911,10 @@ if( false )
 
 	//&&&
 	// DEVICE
-	HriNeDe__ChyVaSy( "Hra0_Ko__VaDe", Ko.Hra0_Ko__VaDe_vsg );
-	HriNeDe__ChyJaPoDe( "Hra0_Ko__Gwz", "HraKo_", Ko.Hra0_Ko__Gwz_vsg );
+	const Hra0_Ko__TaJy_vvsg = [ "MOBILE", "TABLET",  "STATION", "VR",  "AR" ];
+	const Hra0_Ko__VaDe_vsg = Hra0_Ko__TaJy_vvsg[ Ko.Hra0_Ko__Jy_wq ];
+	HriNeDe__ChyVaSy( "Hra0_Ko__VaDe", Hra0_Ko__VaDe_vsg );
+//	HriNeDe__ChyJaPoDe( "Hra0_Ko__Gwz", "HraKo_", Hra0_Ko__VaDe_vsg.toUpperCase() );
 
 	//&&&
 	// OS

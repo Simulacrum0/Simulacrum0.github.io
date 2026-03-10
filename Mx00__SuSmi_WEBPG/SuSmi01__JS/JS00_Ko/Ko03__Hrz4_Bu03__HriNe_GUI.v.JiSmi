@@ -817,8 +817,10 @@ if( false )
 
 	//&&&
 	// DEVICE
-	HriNeDe__ChyVaSy( "Hra0_Ko__VaDe", Ko.Hra0_Ko__VaDe_vsg );
-	HriNeDe__ChyJaPoDe( "Hra0_Ko__Gwz", "HraKo_", Ko.Hra0_Ko__Gwz_vsg );
+	const Hra0_Ko__TaJy_vvsg = [ "MOBILE", "TABLET",  "STATION", "VR",  "AR" ];
+	const Hra0_Ko__VaDe_vsg = Hra0_Ko__TaJy_vvsg[ Ko.Hra0_Ko__Jy_wq ];
+	HriNeDe__ChyVaSy( "Hra0_Ko__VaDe", Hra0_Ko__VaDe_vsg );
+//	HriNeDe__ChyJaPoDe( "Hra0_Ko__Gwz", "HraKo_", Hra0_Ko__VaDe_vsg.toUpperCase() );
 
 	//&&&
 	// OS

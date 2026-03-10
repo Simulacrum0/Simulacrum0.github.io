@@ -47,11 +47,11 @@ function Hrz4_Bu__KwiYz__ChyDe( Va_vksg, NiJaPo_wuk, KeDru_wuk )
 	//!!!
 	// METHOD
 	// MOBILE
-	if( Ko.Hrz3_By__KaGeSpu_y )
+	if( Ko.Hra0_Ko__Jy_q < Hra0_KoJy.KoBa_qk )
 	{
 		// KwiYz_k.Ne02_Hru0__
 	}
-	// DESKTOP
+	// STATION
 	else
 	{
 	}
@@ -67,12 +67,12 @@ function Hrz4_Bu__KwiYz__ChyDe( Va_vksg, NiJaPo_wuk, KeDru_wuk )
 	//!!!
 	// METHOD
 	// MOBILE
-	if( Ko.Hrz3_By__KaGeSpu_y )
+	if( Ko.Hra0_Ko__Jy_q < Hra0_KoJy.KoBa_qk )
 	{
 		KwiYz_k.TzHry__NzSy__SmzYz_q = 0;
 		KwiYz_k.TzHry__NzSy__GyBraHi_bu = 0;
 	}
-	// DESKTOP
+	// STATION
 	else
 	{
 		KwiYz_k.TzHry__NzSy__SmzYz_q = 1;

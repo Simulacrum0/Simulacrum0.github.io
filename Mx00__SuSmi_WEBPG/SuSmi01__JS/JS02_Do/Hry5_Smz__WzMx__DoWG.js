@@ -1,4 +1,4 @@
-const DoWG__BriDzSa__Da_wuk = "252"; 
+const DoWG__BriDzSa__Da_wuk = "253"; 
 
 //==============================================
 //==============================================
@@ -2018,6 +2018,7 @@ async function DoWG__BriYa_SmzYz( Sa_l, Yz_k )
 	// FIND GUI INFO
 	let KaBx__Gwz_vsg = null;
 	const VENDOR_vksg = KaKy_l.info.vendor.toUpperCase();
+	
 	if( VENDOR_vksg.includes( "AMD" ) )	{ KaBx__Gwz_vsg = "AMD"; }
 	else if( VENDOR_vksg.includes( "BROADCOM" ) ) { KaBx__Gwz_vsg = "BROADCOM"; }
 	else if( VENDOR_vksg.includes( "QUALCOMM" ) ) { KaBx__Gwz_vsg = "QUALCOMM"; }
