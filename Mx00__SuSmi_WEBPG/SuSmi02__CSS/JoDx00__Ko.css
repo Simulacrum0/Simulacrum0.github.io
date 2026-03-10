@@ -507,18 +507,15 @@ SECTION LINE
 hr
 {
     display: block;
-	border-radius: var(--GyTreDe);
 
 	width: 100%;
-	height: var(--GyTreDe);
-
-	border-left: none;
-	border-right: none;
-	border-bottom: var(--GwxSpo) var(--GyBe) var(--PoKuStuVo);
-	border-top: none;
-
-    margin: var(--GyStz);
+	height: var(--GyBiHu);
     padding: var(--GyStz);
+	margin: var(--GyStz);
+
+	border-radius: var(--GyBiHu);
+	border: none;
+	border-bottom: var(--GwxSpo) var(--GyBe) var(--PoKuStuVo);
 	/* Small Pad for curve */
     padding-bottom: var(--GyBiHu);
 }
