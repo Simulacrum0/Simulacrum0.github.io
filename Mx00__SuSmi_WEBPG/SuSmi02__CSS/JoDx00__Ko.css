@@ -531,12 +531,14 @@ NOTIFY^KeMe
 	left: 0dvw;
 	width: 100dvw;
 	height: var(--GyKaHu);
+	font-size: var(--GyTreDe);
 
 	text-align: start;
 	justify-content: start;
 	align-items: center;
 
-	font-size: var(--GyTreHi);
+	/* Black bar*/
+	background-color: var(--PoSzStz);
 }
 
 /* TOP/BOTTOM STATUS BAR PLACEMENT */
