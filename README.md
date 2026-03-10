@@ -1,5 +1,5 @@
-# Power_Our_People's SX (Shared-Experience) Website
-*Shaared Experiences* are for creating any digital experiences, such as mindmaps, project or data visualizers, personal information trackers, task planners, group gaming and modeling something from the real world or your imagination. Then you can share such creations with others.
+# Power_Our_People's ESX (Electronic-Shared-eXperience) Website
+*Electronic Shared Experiences* are for creating any digital experiences, such as mindmaps, project or data visualizers, personal information trackers, task planners, group gaming and modeling something from the real world or your imagination. Then you can share such creations with others.
 
 | **Places** | *Description* |
 |:--------|:-------:|
