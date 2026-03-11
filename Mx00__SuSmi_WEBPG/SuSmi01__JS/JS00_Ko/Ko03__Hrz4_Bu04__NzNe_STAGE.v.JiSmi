@@ -292,9 +292,9 @@ function HryMx01_KeMeTrx()
 	//---------------------------------
 	// MSG
 	//---------------------------------
-	HriNeDe__ChyVaSy( "TrxBz", KoSy__KwiGru_KeDru_l.BriDz00_VaSy_vsg + " " + KoSy__KwiGru_KeDru_l.BriDz02__TrxBz_vsg );
+	HriNeDe__ChyVaSy( "TrxBz", KoSy__KwiGru_KeDru_l.BriDz00__VaDe_vsg + " " + KoSy__KwiGru_KeDru_l.BriDz02__TrxBz_vsg );
 	HriNeDe__ChyVaSy( "TrxKa", Ko.Trx_vsg );
-	HriNeDe__ChyVaSy( "TrxDa", BriDzSa__Da_vsg );
+	HriNeDe__ChyVaSy( "TrxDa", BriDzSa__Da_vsg + " " + BriDzSa__Gi_vsg );
 
 
 	//@@@

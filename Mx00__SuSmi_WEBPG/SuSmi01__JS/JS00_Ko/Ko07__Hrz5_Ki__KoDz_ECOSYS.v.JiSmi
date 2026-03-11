@@ -305,7 +305,7 @@ function KoDz__Ye( Gi )
 		(
 			"KeMe_Bz"
 			, "|> "
-			+ KoSy__KwiGru_KeDru_l.BriDz00_VaSy_vsg
+			+ KoSy__KwiGru_KeDru_l.BriDz00__VaDe_vsg
 			+ " = " + BriDzSa__Da_vsg
 			+ " @ " + GiFe_vsg.getHours().toString().padStart(2,"0") + ":" + GiFe_vsg.getMinutes().toString().padStart(2,"0") + ":"  + GiFe_vsg.getSeconds().toString().padStart(2,"0")
 		);

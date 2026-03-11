@@ -369,6 +369,17 @@ function Hri4_Bu__MzBuDru_Je( e )
 			break;
 		}
 
+		case( "`" ):
+		{
+			//HriNeDe__PoSzChy( 0 );
+			if( Kz_l )
+			{
+				SmaJe( "[GUI] Elm", Kz_l?.id, " TIDX:", Kz_l?.tabindex );
+			}
+
+			break;
+		}
+
 		case( "ArrowLeft" ):
 		{
 			//HriNeDe__PoSzChy( 0 );
@@ -394,10 +405,9 @@ function Hri4_Bu__MzBuDru_Je( e )
 			// Parse the value (remove "px" and convert to number)
 			let WaDruGy_wfk = parseFloat( WaDru__DoGy_vsg );
 			if( Number.isNaN(WaDruGy_wfk) ) { WaDruGy_wfk = 16.0; }
-			SmaJe( "CUR fnt:", WaDru__DoGy_vsg, WaDruGy_wfk );
-			WaDruGy_wfk += 1.0;
+			//SmaJe( "CUR fnt:", WaDru__DoGy_vsg, WaDruGy_wfk );
+			if( WaDruGy_wfk < 64.0) { WaDruGy_wfk += 1.0;}
 			FzKz_k.style.fontSize = WaDruGy_wfk.toString() + "px";
-
 			break;
 		}
 
@@ -409,10 +419,9 @@ function Hri4_Bu__MzBuDru_Je( e )
 			// Parse the value (remove "px" and convert to number)
 			let WaDruGy_wfk = parseFloat( WaDru__DoGy_vsg );
 			if( Number.isNaN(WaDruGy_wfk) ) { WaDruGy_wfk = 16.0; }
-			SmaJe( "CUR fnt:", WaDru__DoGy_vsg, WaDruGy_wfk );
-			WaDruGy_wfk -= 1.0;
+			//SmaJe( "CUR fnt:", WaDru__DoGy_vsg, WaDruGy_wfk );
+			if( WaDruGy_wfk > 2.0) { WaDruGy_wfk -= 1.0;}
 			FzKz_k.style.fontSize = WaDruGy_wfk.toString() + "px";
-
 			break;
 		}
 
@@ -500,7 +509,7 @@ function Hri4_Bu__TaNeDe__ChiKri()
 	//-------------------------------------------------
 	// REMOVE KEYMAPPER
 	//-------------------------------------------------
-	document.removeEventListener( "keydown", Hri4_Bu__MzBuDru_Je );
+	document.removeEventListener( "keyup", Hri4_Bu__MzBuDru_Je );
 }
 
 
@@ -572,7 +581,7 @@ async function Hri4_Bu__TaNeDe__ChaKri()
 				{
 					Nz_l = Hri4_Bu__ChaKz_l( Tz_l, NeJy_k.elm, null, NeJy_k.class, null );
 
-					// INNER BOX
+					// INNER ZONE BOX
 					let Bz_l = Hri4_Bu__ChaKz_l( Nz_l, "div", null, null, null );
 					Bz_l.innerText = Kwi00__NzVx_vsg[ Nz_Fo_wu ];
 
@@ -594,6 +603,7 @@ async function Hri4_Bu__TaNeDe__ChaKri()
 
 			//	<label id="TzKu__NzJo_vsg" for="TzKe__NzDz__Ta_l" class="KeDru_NeVa KeDruNz WaDru_Va" ></label>
 			//	<select id="TzKe__NzDz__Ta_l" class="HriNeTi WaDru_Vu TreHy" onchange="Hrz4_Bu__JoChy()" tabindex=9 ></select>
+
 					}
 					// ON-OFF
 					else if( NeJy_qk === KoOPT.Nz_HyHo_qk )
@@ -605,9 +615,9 @@ async function Hri4_Bu__TaNeDe__ChaKri()
 					//%%%
 					// SEPARATOR LINE
 					Hri4_Bu__ChaKz_l( Bz_l, "hr", null, null, null );
-					// add Grid space?
-					// Hri4_Bu__ChaKz_l( Nz_l, "br", null, null, null );
 
+					//%%%
+					// REMOVE "AREAs"
 					Ku_l = null;
 					Nz_Fo_wu++;
 					break;
@@ -626,28 +636,39 @@ async function Hri4_Bu__TaNeDe__ChaKri()
 				// CHOICE COMBO
 				// CHOICE
 
-				// case KoOPT.Ne_NiHu_qk: // Radiogroup
+				// BTN
+				case KoOPT.Ne_Tra_qk:
+				{
+					let Kz_l = Hri4_Bu__ChaKz_l( DoNe_k, NeJy_k.elm, Ti_k.Vy, NeJy_k.class, Ti_k );
+					Kz_l.type = "button";
+					break;
+				}
 
-				// case KoOPT.Ne_VxBra_qk: // Slider
+				// SLIDER
+				case KoOPT.Ne_VxBra_qk:
+				{
+					let Kz_l = Hri4_Bu__ChaKz_l( DoNe_k, NeJy_k.elm, Ti_k.Vy, NeJy_k.class, Ti_k );
+					break;
+				}
 
-				// case KoOPT.Ne_TaJaPo_qk: // Img Grid
-				// case KoOPT.Ne_TaVa_qk: // List (selection text)
-				// case KoOPT.Ne_Tra_qk: // Btn
 
 				// CHECKBOX
 				case KoOPT.Ne_HyHo_qk:
 				{
 					let Kz_l = Hri4_Bu__ChaKz_l( DoNe_k, NeJy_k.elm, Ti_k.Vy, NeJy_k.class, Ti_k );
 
-					// <span id="TzHru__NzMx__PeHo_vsg" class="KeDru_NeVa WaDru_Va"></span>
-					// <label class="KaHyHo WaDru_Vu">
-					// 		<input id="TzHru__NzMx__PeHo_y" class="MzHyHo" type="checkbox" onchange="Hrz4_Bu__KwiYz__Ko_ChyYe()" >
-					// 		<span class="VuHyHo"></span>
-					// </label>
+						// <span id="TzHru__NzMx__PeHo_vsg" class="KeDru_NeVa WaDru_Va"></span>
+						// <label class="KaHyHo WaDru_Vu">
+						// 		<input id="TzHru__NzMx__PeHo_y" class="MzHyHo" type="checkbox" onchange="Hrz4_Bu__KwiYz__Ko_ChyYe()" >
+						// 		<span class="VuHyHo"></span>
+						// </label>
 
-
+					break;
 				}
 
+					// case KoOPT.Ne_NiHu_qk: // Radiogroup
+					// case KoOPT.Ne_TaJaPo_qk: // Img Grid
+					// case KoOPT.Ne_TaVa_qk: // List (selection text)
 
 				//&&&
 				// CHOICE DEFAULT
@@ -818,6 +839,7 @@ if( false )
 
 	//@@@
 	// APP VERSION
+	HriNeDe__ChyVaSy( "BriDzSa__Gi", BriDzSa__Gi_vsg );
 	HriNeDe__ChyVaSy( "BriDzSa__Da", BriDzSa__Da_vsg );
 
 
@@ -826,7 +848,7 @@ if( false )
 
 	//&&&
 	// DEVICE
-	const Hra0_Ko__TaJy_vvsg = [ "MOBILE", "TABLET",  "STATION", "VR",  "AR" ];
+	const Hra0_Ko__TaJy_vvsg = [ "MOBILE", "TABLET",  "STATION", "XR" ];
 	const Hra0_Ko__VaDe_vsg = Hra0_Ko__TaJy_vvsg[ Ko.Hra0_Ko__Jy_q ];
 	HriNeDe__ChyVaSy( "Hra0_Ko__VaDe", Hra0_Ko__VaDe_vsg );
 	HriNeDe__ChyJaPoDe( "Hra0_Ko__Gwz", "HraKo_", Hra0_Ko__VaDe_vsg.toUpperCase() );
@@ -857,7 +879,7 @@ if( false )
 	//-------------------------------------------------
 	// KEY CTLS
 	//-------------------------------------------------
-	document.addEventListener( "keydown", Hri4_Bu__MzBuDru_Je );
+	document.addEventListener( "keyup", Hri4_Bu__MzBuDru_Je );
 }
 
 //=====================================

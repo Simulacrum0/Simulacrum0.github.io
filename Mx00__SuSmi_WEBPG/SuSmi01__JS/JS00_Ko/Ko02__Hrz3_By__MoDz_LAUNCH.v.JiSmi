@@ -24,12 +24,10 @@ const BriYz = Object.freeze
 //----------------------------
 const Hra0_KoJy = Object.freeze
 ({
-	KoBeDru_qk: 0
-	, KoBeGwa_qk: 1
-
-	, KoBa_qk: 2
-	, KoBeMzHri_qk: 3
-	, KoBeMzSa_qk: 4
+	KoBeDru_qk: 0 // PHONE
+	, KoBeGwa_qk: 1 // TABLET
+	, KoBa_qk: 2 // STATION
+	, KoBeMz_qk: 3 // XR
 });
 
 
@@ -294,13 +292,17 @@ function MoDz__BOOT()
 
 	//@@@
 	// CORS must RUN FIRST
-	SmaSy( "[LAUNCH] Web_Security via CORS: " + (window.crossOriginIsolated ?  "✅😀" : "❌😞" ) );
+	// Can CFG as below:
+	// window.coi = { coepCredentialless: () => true };
+	SmaSy( "[LAUNCH] Web_Security via CORS: " + (window.crossOriginIsolated ?  "✅😀" : "❌😞" ) + " RES:" + ( window.credentialless ? "CredentialLESS" : "RequireCORP" ) );
+
 	if( !window.crossOriginIsolated )
 	{
 		// MSG should display @ DOM
 		// SmaTrx( "[LAUNCH] No CORS Security" );
 		Ko.Trx_vsg = ( KoSy__KwiGru_KeDru_l.TrxJy00__HrxCheHo__CORS_vsg );
 	}
+
 
 	//----------------------------------
 	// WASM64 preferred
@@ -406,7 +408,6 @@ var Module =
 	},
 
 };
-
 
 //==============================================
 // ONE APP only
@@ -566,7 +567,6 @@ async function Hrz3_By__FyTo()
 //=====================================
 // BROWSER VERSION (Browser & App )
 //=====================================
-
 async function Hrz4_Bu__FyTo()
 {
 	//@@@
@@ -592,8 +592,7 @@ async function Hrz4_Bu__FyTo()
 	Ni_vsg = Ni_vsg[2] ? [ Ni_vsg[1], Ni_vsg[2] ] : [ navigator.appName, navigator.appVersion, '-?' ];
 
 	//@@@
-	// FORMAT
-
+	// MATCH BROWSER TYPE
 	// DETECT
 	if( (navigator.brave && await navigator.brave.isBrave() || false) ){ Ni_vsg[ 0 ] = "Brave"; }
 	// REPLACE
@@ -605,7 +604,7 @@ async function Hrz4_Bu__FyTo()
 
 	// ICON
 	const Hrz4_Bu__FeDy_vsg = Ni_vsg[ 0 ].toUpperCase();
-	const Hrz4_Bu__TaDy_vvsg = [ "BRAVE" , "CHROME" , "EDGE" , "FIREFOX" , "SAFARI", "SAMSUNG", "VIVALDI"	];
+	const Hrz4_Bu__TaDy_vvsg = [ "BRAVE" , "CHROME" , "EDGE" , "FIREFOX" , "META", "OPERA", "SAFARI", "SAMSUNG", "VIVALDI"	];
 	if( Hrz4_Bu__TaDy_vvsg.includes( Hrz4_Bu__FeDy_vsg ) )
 	{
 		Ko.Hrz4_Bu__Gwz_vsg = Hrz4_Bu__FeDy_vsg;
@@ -631,29 +630,30 @@ async function Hra0_Ko__FyTo()
 	//@@@
 	// META is AR currently
 	if( Ko.Hrz4_Bu__VaDe_vsg === "Meta" )
-	{ Ko.Hra0_Ko__Jy_q = Hra0_KoJy.KoBeMzSa_qk; }
+	{ Ko.Hra0_Ko__Jy_q = Hra0_KoJy.KoBeMz_qk; }
 
 	//@@@
 	// API
-	if( navigator.xr )
-	{
-		const KriYz_k =
-		{
-			requiredFeatures: [ "local" ]
-		};
-		const AR_yk = await navigator.xr.isSessionSupported( "immersive-ar", KriYz_k );
-		const VR_yk = await navigator.xr.isSessionSupported( "immersive-vr", KriYz_k );
+	// SKIP as most phones report AR
+	// if( navigator.xr )
+	// {
+	// 	const KriYz_k =
+	// 	{
+	// 		requiredFeatures: [ "local" ]
+	// 	};
+	// 	const AR_yk = await navigator.xr.isSessionSupported( "immersive-ar", KriYz_k );
+	// 	const VR_yk = await navigator.xr.isSessionSupported( "immersive-vr", KriYz_k );
 
-		if( AR_yk ){ Ko.Hra0_Ko__Jy_q = Hra0_KoJy.KoBeMzSa_qk; }
-		else if( VR_yk ){ Ko.Hra0_Ko__Jy_q = Hra0_KoJy.KoBeMzHri_qk; }
-	}
+	// 	if( AR_yk ){ Ko.Hra0_Ko__Jy_q = Hra0_KoJy.KoBeMz_qk; }
+	// 	else if( VR_yk ){ Ko.Hra0_Ko__Jy_q = Hra0_KoJy.KoBeMz_qk; }
+	// }
 
 	//@@@
 	// if 'PHONE' check if TABLET or actually PHONE using WIDTH
 	if( Ko.Hra0_Ko__Jy_q ===Hra0_KoJy.KoBeDru_qk )
 	{
 		// TABLET
-		if (window.matchMedia( "(min-width: 768px)" ).matches )
+		if( window.matchMedia( "(min-width: 768px)" ).matches )
 		{ Ko.Hra0_Ko__Jy_q = Hra0_KoJy.KoBeGwa_qk; }
 	}
 }

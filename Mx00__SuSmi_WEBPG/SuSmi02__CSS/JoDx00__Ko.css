@@ -51,6 +51,7 @@ VARIABLES
 
 	/* FIXED COLORS for BUBBLE_TEXT & FX */
 	--PoSzStz: #000F;
+	--PoSzStzVo: #0008;
 	--PoSzBreSta: #888F;
 	--PoSzStx: #DDDE;
 
@@ -97,7 +98,7 @@ VARIABLES
 	--GyBzHi: 8.0rem;
 
 	/* TIMING -------------------- */
-	--GiDe: 0.5s;
+	--GiDe: 0.25s;
 
 	/* TAB HEADERS STRETCH -------------------- */
 	/* Firefox <146 */
@@ -293,9 +294,6 @@ DOMAIN AREAS^Tz
 	border-radius: var(--GyStz);
 	border: none;
 
-	/* color: var(--PoSiSpo);
-	background-color: var(--PoKuTz); */
-
 	animation: none;
 	transition: none;
 }
@@ -332,7 +330,7 @@ PANELS^Ku
 	left: var(--GyTreDe);
 	top: var(--GyTreDe);
 	border-radius: var(--GyKaHu);
-	padding: var(--GyTreDe);
+	padding: var(--GyBiHu);
 
 	/* GyKaDe is 2 * GyTreDe */
 	width: calc( 100dvw - var(--GyKaDe) );
@@ -632,8 +630,6 @@ TEXT
 
 	border: var(--GwxSpo) var(--GyBe) var(--PoSi);
 	border-radius: var(--GyKaHu) var(--GyKaHu) 0 0;
-
-
 }
 
 /* TEXT__MENU_SELECTED */
@@ -653,7 +649,7 @@ TEXT
 
 /* TEXT__CHOICE_ITEMS--------------------------------------------- */
 
-/* TEXT__LABELS */
+/* TEXT_INFO__LABEL */
 .KeDru_NeVa
 {
 	display: inline-flex;
@@ -665,7 +661,7 @@ TEXT
 	/* border: var(--GwxSpo) var(--GyBe);	border-color: yellow; */
 }
 
-/* TEXT__INFO_VALUE */
+/* TEXT_INFO__VALUE */
 .KeDru_ToVu
 {
 	display: inline-flex;
@@ -683,64 +679,7 @@ TEXT
 	/* border: var(--GwxSpo) var(--GyBe);border-color: red; */
 }
 
-/* TEXT__DOCUMENT HEADER */
-.KeDruBz
-{
-	font-size: var(--GyDruBz);
-}
-
-/* TEXT__SECTION */
-.KeDruNz
-{
-	font-size: var(--GyTreHi);
-
-	margin: var(--GyBe);
-	padding: var(--GyBe);
-}
-
-/* TEXT__DOCUMENT BODY */
-.KeDruBa, .KeDruSkx
-{
-
-	white-space: pre-wrap;
-	max-width: calc( 100% - var(--GyTreDe) );
-
-	margin: var(--GyBiHu);
-	padding: var(--GyBiHu);
-	border-radius: var(--GyTreDe);
-
-	font-size: var(--GyTreHu);
-	line-height: var(--GyDruBz);
-
-	background-color: var(--PoKuTraHy);
-	overflow-y: auto;
-}
-
-/* TEXT__DOCUMENT COLUMNS */
-.KeDruSkx
-{
-	/* Requires BLOCK to split columns */
-	column-rule: var(--GyBo) var(--GwxKwo) var(--PoKuDe);
-	column-width: var(--GyDru_KeDru);
-	column-gap: var(--GyDru_Kwe);
-}
-
-/* TEXT__TITLE_WORDSIZE */
-.BriDz_FzVa
-{
-	font-size: var(--GyKaHi);
-	text-align: center;
-	margin: var(--GyStz) var(--GyBo);
-}
-
-/* TEXT__DBG ERR */
-.BriDz_TrxKz
-{
-	font-size: var(--GyKaHu);
-	text-align: center;
-}
-
-/* TEXT_GOAL__VERTICAL*/
+/* TEXT_INFO__VERTICAL*/
 .BriDz_Sz
 {
 	display: flex;
@@ -753,6 +692,78 @@ TEXT
 	writing-mode: sideways-lr;
 	text-orientation: sideways;
 }
+/* TEXT__DOC_PGRAF--------------------------------------------- */
+
+/* TEXT_DOC_PGRAF HEADER */
+.KeDruBz
+{
+	font-size: var(--GyDruBz);
+}
+
+/* TEXT_DOC_PGRAF BODY */
+.KeDruBa, .KeDruSkx
+{
+	white-space: pre-wrap;
+	/* NEED 100% width for FIREFOX 2026 */
+	width: 100%;
+	max-width: calc( 100% - var(--GyTreDe) );
+	/* height: fit-content; */
+	font-size: var(--GyTreHu);
+	line-height: var(--GyDruBz);
+
+	margin: var(--GyBiHu);
+	padding: var(--GyBiHu);
+	border-radius: var(--GyTreDe);
+
+
+	background-color: var(--PoSzStzVo);
+	overflow-x: auto;
+	overflow-y: auto;
+}
+
+/* TEXT_DOC_PGRAF COLUMNS */
+.KeDruSkx
+{
+	/* Requires BLOCK to split columns */
+	column-rule: var(--GyBo) var(--GwxKwo) var(--PoKuDe);
+	column-width: var(--GyDru_KeDru);
+	column-gap: var(--GyDru_Kwe);
+}
+
+/* TEXT__PAGE_NOTICES --------------------------------------------- */
+
+/* TEXT__SECTION */
+.KeDruNz
+{
+	font-size: var(--GyTreHi);
+	margin: var(--GyBe);
+	padding: var(--GyBe);
+}
+
+/* TEXT__TITLE_WORDSIZE */
+.BriDz_FzVa
+{
+	font-size: var(--GyKaHi);
+	text-align: center;
+	margin: var(--GyStz) var(--GyBo);
+}
+
+/* TEXT__DBG --------------------------------------------- */
+
+/* TEXT__DBG ERR */
+.BriDz_TrxKz
+{
+	font-size: var(--GyKaHu);
+	text-align: center;
+}
+
+/* TEXT__DBG EMAIL */
+.BriDz_TrxMe
+{
+	font-size: var(--GyTreHu);
+	text-align: center;
+}
+
 
 /*@@@@@@@@@@@@@@@
 INTERACTIVE CHOICE
@@ -833,6 +844,17 @@ IMAGES
 	border-radius: var(--GyKaHu);
 	border: var(--GwxSpo) var(--GyBe) var(--PoSiSpo);
 }
+
+.JaPo__GyBzDe_Gwa
+{
+	height: var(--GyBzDe );
+	padding: var(--GyBo);
+
+	border-radius: var(--GyBiHu);
+	border: var(--GwxSpo) var(--GyBe) var(--PoSzStz);
+	background-color: var(--PoSzStx);
+}
+
 
 /*@@@@@@@@@@@@@@@
 SPRITE GRID

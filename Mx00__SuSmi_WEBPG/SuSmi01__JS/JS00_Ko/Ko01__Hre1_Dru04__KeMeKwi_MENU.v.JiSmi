@@ -10,6 +10,15 @@ const Kwi00__TaNe_v=
 
 	, { Va: "---- WELCOME", Vy: "TzKu__NzYa_vsg", Jy: KoOPT.Nz_Va_qk }
 		, { Va: "INTRO MSG", Vy: "TzKu__NzYa__Ne00_vsg", Jy: KoOPT.To_GyDe_qk }
+		, { Va: "MAIN MSG", Vy: "TzKu__NzYa__Ne01_vsg", Jy: KoOPT.To_GyDe_qk }
+
+		// TESTS
+		, { Va: "NEW USER", Vy: "TzKe__NzDz__ChaDe_vsg", Jy: KoOPT.Ne_Tra_qk, Tra: "TzKe__NzDz__Cha_Tra( false )" }
+		, { Va: "VOLUME", Vy: "TzHru__NzMx__PeVo_vsg", Jy: KoOPT.Ne_VxBra_qk }
+		, { Va: "MUTE", Vy: "TzHru__NzMx__PeHo_vsg", Jy: KoOPT.Ne_HyHo_qk }
+
+
+
 
 	, { Va: "---- WHERE", Vy: "TzKu__NzJo_vsg", JyNo: "TzKe__NzJo__Ta_l", Tra: "Hrz4_Bu__JoChy()", SeVx: 9, Jy: KoOPT.Nz_Ta_qk }
 		, { Va: "SX POSTCARD", JaPo: "JaPo01__SaTrz/SaTrz00__Gx.jpg", Vy: "TzKu__NzJo__JoFe__JaPo_l", Jy: KoOPT.To_JaPoBz_qk }
@@ -57,7 +66,9 @@ const Kwi00__TaNe_v=
 		, { Va: "---- BUILD", Vy: "TzKu__NzTrz_vsg", Jy: KoOPT.Nz_Va_qk }
 			, { Va: "VER GRP", Jy: KoOPT.Ku_ToSkeTa_qk }
 				, { Va: "LABEL", Vy: "TzKu__NzTrz__BriDzSa__Da_vsg", Jy: KoOPT.To_VaSpo_qk }
+				, { Va: "VALUE", Vy: "BriDzSa__Gi", Jy: KoOPT.To_VuSpo_qk }
 				, { Va: "VALUE", Vy: "BriDzSa__Da", Jy: KoOPT.To_VuSpo_qk }
+
 			, { Va: "NEW GRP", Jy: KoOPT.Ku_ToSkeTa_qk }
 				, { Va: "LABEL", Vy: "TzKu__NzTrz__TyCha_Va_vsg", Jy: KoOPT.To_VaSpo_qk }
 				, { Va: "VALUE", Vy: "TzKu__NzTrz__TyCha_Hx_vsg", Jy: KoOPT.To_VuSpo_qk }
@@ -67,9 +78,12 @@ const Kwi00__TaNe_v=
 
 
 		, { Va: "---- INVESTIGATE", Vy: "TzKu__NzSme_vsg", Jy: KoOPT.Nz_Va_qk }
-			, { Va: "TEST GRP", Jy: KoOPT.Ku_ToSkeTa_qk }
-				, { Va: "LABEL", Vy: "TzKu__NzSme__Smu_Va_vsg", Jy: KoOPT.To_VaSpo_qk }
-				, { Va: "VALUE", Vy: "TzKu__NzSme__Smu_Hx_vsg", Jy: KoOPT.To_VuSpo_qk }
+			, { Va: "CONSIDER GRP", Jy: KoOPT.Ku_ToSkeTa_qk }
+				, { Va: "LABEL", Vy: "TzKu__NzSme__JzHa_Va_vsg", Jy: KoOPT.To_VaSpo_qk }
+				, { Va: "VALUE", Vy: "TzKu__NzSme__JzHa_Hx_vsg", Jy: KoOPT.To_VuSpo_qk }
+		, { Va: "TEST GRP", Jy: KoOPT.Ku_ToSkeTa_qk }
+				, { Va: "LABEL", Vy: "TzKu__NzSme__JiHa_Va_vsg", Jy: KoOPT.To_VaSpo_qk }
+				, { Va: "VALUE", Vy: "TzKu__NzSme__JiHa_Hx_vsg", Jy: KoOPT.To_VuSpo_qk }
 			, { Va: "WARN GRP", Jy: KoOPT.Ku_ToSkeTa_qk }
 				, { Va: "LABEL", Vy: "TzKu__NzSme__DreTrx_Va_vsg", Jy: KoOPT.To_VaSpo_qk }
 				, { Va: "VALUE", Vy: "TzKu__NzSme__DreTrx_Hx_vsg", Jy: KoOPT.To_VuSpo_qk }
@@ -168,14 +182,26 @@ const Kwi00__TaNe_v=
 		, { Va: "BODY", Vy: "TzGrx__NzSpe__Ka_vsg", Jy: KoOPT.Ne_KeDru_GyHi_qk }
 
 
-	, { Va: "LEGAL", Vy: "TzGrx__NzChe_vsg", Jy: KoOPT.Nz_KeDru_qk }
-		, { Va: "BODY", Vy: "TzGrx__NzChe__Ka_vsg", Jy: KoOPT.Ne_KeDru_GyHi_qk }
+	, { Va: "CERT", Vy: "TzGrx__NzChe_vsg", Jy: KoOPT.Nz_Va_qk }
+		, { Va: "CERT GRP", Jy: KoOPT.Ku_ToSkeTa_qk }
+			, { Va: "CERT LOGO", JaPo: "JaPo00__Ko/Grx00__CC.svg", Jy: KoOPT.To_JaPoSi_qk }
+			, { Va: "CERT TXT", Vy: "TzGrx__NzChe__Ka00_vsg", Jy: KoOPT.Ne_KeDru_GyHi_qk }
 
-		, { Va: "CERT", JaPo: "JaPo00__Ko/Grx00__CC.svg", Jy: KoOPT.To_JaPoSi_qk }
-		, { Va: "CERT", JaPo: "JaPo00__Ko/Grx01__DRMFREE.svg", Jy: KoOPT.To_JaPoSi_qk }
-		, { Va: "CERT", JaPo: "JaPo00__Ko/Grx02__AHI.svg", Jy: KoOPT.To_JaPoSi_qk }
-		, { Va: "CERT", JaPo: "JaPo00__Ko/Grx03__ESRB_E.svg", Jy: KoOPT.To_JaPoSi_qk }
-		, { Va: "CERT", JaPo: "JaPo00__Ko/Grx04__PEGI_OK.svg", Jy: KoOPT.To_JaPoSi_qk }
+		, { Va: "CERT GRP", Jy: KoOPT.Ku_ToSkeTa_qk }
+			, { Va: "CERT LOGO", JaPo: "JaPo00__Ko/Grx01__DRMFREE.svg", Jy: KoOPT.To_JaPoSi_qk }
+			, { Va: "CERT TXT", Vy: "TzGrx__NzChe__Ka01_vsg", Jy: KoOPT.Ne_KeDru_GyHi_qk }
+
+		, { Va: "CERT GRP", Jy: KoOPT.Ku_ToSkeTa_qk }
+			, { Va: "CERT LOGO", JaPo: "JaPo00__Ko/Grx02__AHI.svg", Jy: KoOPT.To_JaPoSi_qk }
+			, { Va: "CERT TXT", Vy: "TzGrx__NzChe__Ka02_vsg", Jy: KoOPT.Ne_KeDru_GyHi_qk }
+
+		, { Va: "CERT GRP", Jy: KoOPT.Ku_ToSkeTa_qk }
+			, { Va: "CERT LOGO", JaPo: "JaPo00__Ko/Grx03__ESRB_E.svg", Jy: KoOPT.To_JaPoSi_qk }
+			, { Va: "CERT TXT", Vy: "TzGrx__NzChe__Ka03_vsg", Jy: KoOPT.Ne_KeDru_GyHi_qk }
+
+		, { Va: "CERT GRP", Jy: KoOPT.Ku_ToSkeTa_qk }
+			, { Va: "CERT LOGO", JaPo: "JaPo00__Ko/Grx04__PEGI_OK.svg", Jy: KoOPT.To_JaPoSi_qk }
+			, { Va: "CERT TXT", Vy: "TzGrx__NzChe__Ka04_vsg", Jy: KoOPT.Ne_KeDru_GyHi_qk }
 
 
 	, { Va: "CREDIT", Vy: "TzGrx__NzSo_vsg", Jy: KoOPT.Nz_KeDru_qk }

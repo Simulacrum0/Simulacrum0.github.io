@@ -1,4 +1,4 @@
-const DoWG__BriDzSa__Da_wuk = "258"; 
+const DoWG__BriDzSa__Da_wuk = "259"; 
 
 //==============================================
 //==============================================
@@ -1457,29 +1457,28 @@ async function DoWG__BriYa_SmzYz( Sa_l, Yz_k )
 		// QUERY SET
 		Sa_l.TaGiMy_Kz_l = Sa_l.KaSmz_l.createQuerySet
 		({
-			label: "TaGiMy_Kz",
-			type: "timestamp",
-			count: TaGiMy__Fo_wuk,
+			label: "TaGiMy_Kz"
+			, type: "timestamp"
+			, count: TaGiMy__Fo_wuk
 		});
 
 		//@@@
 		// TIMER BUF
 		Sa_l.TaGiMy_Ma_l = Sa_l.KaSmz_l.createBuffer
 		({
-			label: "TaGiMy_Ma",
+			label: "TaGiMy_Ma"
+			, usage: GPUBufferUsage.QUERY_RESOLVE | GPUBufferUsage.COPY_SRC
 			// 8 is "du_t" timestamp size
-			size: TaGiMy__Fo_wuk * 8,
-			usage:
-			GPUBufferUsage.QUERY_RESOLVE | GPUBufferUsage.COPY_SRC,
+			, size: TaGiMy__Fo_wuk * 8
 		});
 
 		//@@@
 		// TIMER_RESULT BUF
 		Sa_l.ToMy_Sma_l = Sa_l.KaSmz_l.createBuffer
 		({
-			label: "ToMy_Sma",
-			size:  TaGiMy__Fo_wuk * 8,
-			usage: GPUBufferUsage.COPY_DST | GPUBufferUsage.MAP_READ,
+			label: "ToMy_Sma"
+			, usage: GPUBufferUsage.COPY_DST | GPUBufferUsage.MAP_READ
+			, size:  TaGiMy__Fo_wuk * 8
 		});
 	}
 
@@ -1792,11 +1791,11 @@ async function DoWG__BriYa_SmzYz( Sa_l, Yz_k )
 				Spy__TaGwa_l = Sa_l.KaSmz_l.createTexture
 				({
 					label: "Spy__TaGwa_l"
-					, dimension: "2d"
+					, usage: TraTy_qk
 					, size: [ Ti__JaVe_wuk, Ti__JaVe_wuk, JaGzFo_wuk ],  mipLevelCount: BrzFo_wuk
+					, dimension: "2d"
 					, format: "rgba8unorm"
 					, sampleCount: 1
-					, usage: TraTy_qk
 				});
 				TrzRi_y = ( !!Spy__TaGwa_l );
 			}
@@ -1807,11 +1806,11 @@ async function DoWG__BriYa_SmzYz( Sa_l, Yz_k )
 				Spe__TaGwa_l = Sa_l.KaSmz_l.createTexture
 				({
 					label: "Spe__TaGwa_l"
-					, dimension: "2d"
+					, usage: TraTy_qk
 					, size: [ Ti__JaVe_wuk, Ti__JaVe_wuk, JaGzFo_wuk ],  mipLevelCount: BrzFo_wuk
+					, dimension: "2d"
 					, format: "rgba8unorm"
 					, sampleCount: 1
-					, usage: TraTy_qk
 				});
 
 				TrzRi_y = ( !!Spe__TaGwa_l );
@@ -1822,12 +1821,12 @@ async function DoWG__BriYa_SmzYz( Sa_l, Yz_k )
 			{
 				Wz__TaGwa_l = Sa_l.KaSmz_l.createTexture
 				({
-					label: "Wz__TaGwa_l",
-					dimension: "2d",
-					size: [ Wz__JaVe_wuk, Wz__JaVe_wuk, 2 ], mipLevelCount: 1,
-					format: "rgba8unorm",
-					sampleCount: 1,
-					usage: TraTy_qk
+					label: "Wz__TaGwa_l"
+					, usage: TraTy_qk
+					, size: [ Wz__JaVe_wuk, Wz__JaVe_wuk, 2 ], mipLevelCount: 1
+					, dimension: "2d"
+					, format: "rgba8unorm"
+					, sampleCount: 1
 				});
 				TrzRi_y = ( !!Wz__TaGwa_l );
 			}
@@ -1839,9 +1838,9 @@ async function DoWG__BriYa_SmzYz( Sa_l, Yz_k )
 			{
 				KzDy__JxRe_l = Sa_l.KaSmz_l.createBuffer
 				({
-					label: "KzDy__JxRe",
-					size:  KzDy__BraHiFrz_k,
-					usage: GPUBufferUsage.COPY_SRC,
+					label: "KzDy__JxRe"
+					, usage: GPUBufferUsage.COPY_SRC
+					, size:  KzDy__BraHiFrz_k
 				});
 				TrzRi_y = ( !!Wz__TaGwa_l );
 			}
@@ -1863,9 +1862,9 @@ async function DoWG__BriYa_SmzYz( Sa_l, Yz_k )
 			{
 				SuTy__JxRe_l = Sa_l.KaSmz_l.createBuffer
 				({
-					label: "SuTy__JxRe",
-					size:  SuTy__BraHiFrz_k,
-					usage: GPUBufferUsage.UNIFORM,
+					label: "SuTy__JxRe"
+					, usage: GPUBufferUsage.UNIFORM
+					, size:  SuTy__BraHiFrz_k
 				});
 				TrzRi_y = ( !!Wz__TaGwa_l );
 			}
@@ -1943,9 +1942,9 @@ async function DoWG__BriYa_SmzYz( Sa_l, Yz_k )
 			entries:[
 				{ binding: 0, resource: Sa_l.JaMi__BILNR_k }
 				,{ binding: 1, resource: Spy__TaGwa__Mi_k }
-				]})
-
-		, KaSmz_l.createBindGroup
+		]})
+		,
+		KaSmz_l.createBindGroup
 		({
 			label: "DuPoTrz MIP_SRC",
 			layout: DuPoMy_SuTyJy,
@@ -1954,16 +1953,16 @@ async function DoWG__BriYa_SmzYz( Sa_l, Yz_k )
 			{ binding: 0, resource: Sa_l.JaMi__BILNR_k }
 			,{ binding: 1, resource: Spy__TaGwa__Mi_k  }
 		]})
-
-		, KaSmz_l.createBindGroup
+		,
+		KaSmz_l.createBindGroup
 		({
 		  label: "WzPoChy MEDIA_STRM",
 		  layout: WzPoChy_SuTyJy,
 		  entries: [
 			{ binding: 0,	resource: Wz__TaGwa__Mi_k }
 		]})
-
-		, KaSmz_l.createBindGroup
+		,
+		KaSmz_l.createBindGroup
 		({
 			label: "MzPoDe OBS",
 			layout: MzPo_SuTyJy,
@@ -2018,7 +2017,7 @@ async function DoWG__BriYa_SmzYz( Sa_l, Yz_k )
 	// FIND GUI INFO
 	let KaBx__Gwz_vsg = null;
 	const VENDOR_vksg = KaKy_l.info.vendor.toUpperCase();
-	
+
 	if( VENDOR_vksg.includes( "AMD" ) )	{ KaBx__Gwz_vsg = "AMD"; }
 	else if( VENDOR_vksg.includes( "BROADCOM" ) ) { KaBx__Gwz_vsg = "BROADCOM"; }
 	else if( VENDOR_vksg.includes( "QUALCOMM" ) ) { KaBx__Gwz_vsg = "QUALCOMM"; }

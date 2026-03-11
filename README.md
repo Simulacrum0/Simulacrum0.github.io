@@ -1,9 +1,9 @@
-# Power_Our_People's ESX (Electronic-Shared-eXperience) Website
-*Electronic Shared Experiences* are for creating any digital experiences, such as mindmaps, project or data visualizers, personal information trackers, task planners, group gaming and modeling something from the real world or your imagination. Then you can share such creations with others.
+# Power_Our_People's MicroCosm🗺️SX (Shared-eXperience) Website
+*MicroCosm🗺️ Shared Experiences* are for creating any digital experiences, such as mindmaps, project or data visualizers, personal information trackers, task planners, group gaming and modeling something from the real world or your imagination. Then you can share such creations with others.
 
 | **Places** | *Description* |
 |:--------|:-------:|
-| Root | Technology Archives for PowerOurPeople's SX Website |
+| Root | Technology Usecase MicroCosm🗺️SX Website |
 | Mx00__SuSmi_WEBPG | Web Design Content such as HTML, CSS, & JS files |
 | Mx01__SuKz_MEDIA | Content such as backgrounds, symbols, fonts, sounds and pictures |
 | Mx02__TxKuCho_WVERSE | _Deprecated LEGACY content (soon to be erased)_ |

@@ -1,5 +1,6 @@
-const BriDzSa__Da_vsg = "PUB_v0.258"; 
- const BriDzSa__Da_wuk = "258"; 
+const BriDzSa__Gi_vsg="2026-03-11--14:37"; 
+ const BriDzSa__Da_vsg = "PUB_v0.259"; 
+ const BriDzSa__Da_wuk = "259"; 
  const BriDz__Mx_KuTu_vsg = "https://powerourpeople.com/"; 
 
 //==============================================
@@ -14,12 +15,12 @@ const KoSy__KwiGru_KeDru_l =
 	//@@@
 	// LABELS REPLACED after LAUNCH
 	// once culture loaded
-	BriDz00_VaSy_vsg: "MicroCosm🗺️SX"
+	BriDz00__VaDe_vsg: "MicroCosm🗺️SX"
 	, BriDz02__TrxBz_vsg: "Tech FAIL: "
 	, BriDz03__TrxKrx_vsg: "Please try a different Browser or Computer"
 	, BriDz04__TrxTaSma_vsg: "Event LOG"
 
-	
+
 	//@@@
 	// POSSIBLE USE ONLY ON STARTUP
 	// No need to replace later
@@ -416,9 +417,9 @@ const Kwi00__TaNeJy_v =
 
 	// CHOICE
 	// Ne_Tra_qk BTN
-	, { elm: "div", class: "" }
+	, { elm: "button", class: "HriNe_Tra TreHy WaDru_Va" }
 	// Ne_VxBra_qk SLIDER
-	, { elm: "div", class: "" }
+	, { elm: "meter", class: "" }
 	// Ne_HyHo_qk CHECKBOX
 	, { elm: "div", class: "" }
 	// Ne_NiHu_qk RADIOGROUP
@@ -448,12 +449,12 @@ const Kwi00__TaNeJy_v =
 	// To_GoGa_qk INFO VERTICAL
 	, { elm: "div", class: "BriDz_Sz WaDru_Vu" }
 	// To_VaSpo_qk LABEL
-	, { elm: "label", class: "KeDru_NeVa WaDru_Vu" }
+	, { elm: "p", class: "KeDru_NeVa WaDru_Vu" }
 	// To_VuSpo_qk VALUE
 	, { elm: "div", class: "KeDru_ToVu WaDru_Vu" }
 
 	// To_NzBz_qk TITLE LABEL
-	, { elm: "label", class: "KeDru_NeVa KeDruNz WaDru_Va" }
+	, { elm: "p", class: "KeDru_NeVa KeDruNz WaDru_Va" }
 
 	// To_JaPoBz_qk IMG FRAME TITLE
 	, { elm: "img", class: "BriDz_FzVa JaPo__GyBzHu_Kwx" }
@@ -462,7 +463,7 @@ const Kwi00__TaNeJy_v =
 	// To_JaPoVa_Kwu_qk
 	, { elm: "img", class: "JaPo__Va_Kwu" }
 	// To_JaPoSi_qk
-	, { elm: "img", class: "JaPo__GyBzHu" }
+	, { elm: "img", class: "JaPo__GyBzHu JaPo__GyBzDe_Gwa" }
 
 
 	// EMOJI BTNS
@@ -490,6 +491,15 @@ const Kwi00__TaNe_v=
 
 	, { Va: "---- WELCOME", Vy: "TzKu__NzYa_vsg", Jy: KoOPT.Nz_Va_qk }
 		, { Va: "INTRO MSG", Vy: "TzKu__NzYa__Ne00_vsg", Jy: KoOPT.To_GyDe_qk }
+		, { Va: "MAIN MSG", Vy: "TzKu__NzYa__Ne01_vsg", Jy: KoOPT.To_GyDe_qk }
+
+		// TESTS
+		, { Va: "NEW USER", Vy: "TzKe__NzDz__ChaDe_vsg", Jy: KoOPT.Ne_Tra_qk, Tra: "TzKe__NzDz__Cha_Tra( false )" }
+		, { Va: "VOLUME", Vy: "TzHru__NzMx__PeVo_vsg", Jy: KoOPT.Ne_VxBra_qk }
+		, { Va: "MUTE", Vy: "TzHru__NzMx__PeHo_vsg", Jy: KoOPT.Ne_HyHo_qk }
+
+
+
 
 	, { Va: "---- WHERE", Vy: "TzKu__NzJo_vsg", JyNo: "TzKe__NzJo__Ta_l", Tra: "Hrz4_Bu__JoChy()", SeVx: 9, Jy: KoOPT.Nz_Ta_qk }
 		, { Va: "SX POSTCARD", JaPo: "JaPo01__SaTrz/SaTrz00__Gx.jpg", Vy: "TzKu__NzJo__JoFe__JaPo_l", Jy: KoOPT.To_JaPoBz_qk }
@@ -537,7 +547,9 @@ const Kwi00__TaNe_v=
 		, { Va: "---- BUILD", Vy: "TzKu__NzTrz_vsg", Jy: KoOPT.Nz_Va_qk }
 			, { Va: "VER GRP", Jy: KoOPT.Ku_ToSkeTa_qk }
 				, { Va: "LABEL", Vy: "TzKu__NzTrz__BriDzSa__Da_vsg", Jy: KoOPT.To_VaSpo_qk }
+				, { Va: "VALUE", Vy: "BriDzSa__Gi", Jy: KoOPT.To_VuSpo_qk }
 				, { Va: "VALUE", Vy: "BriDzSa__Da", Jy: KoOPT.To_VuSpo_qk }
+
 			, { Va: "NEW GRP", Jy: KoOPT.Ku_ToSkeTa_qk }
 				, { Va: "LABEL", Vy: "TzKu__NzTrz__TyCha_Va_vsg", Jy: KoOPT.To_VaSpo_qk }
 				, { Va: "VALUE", Vy: "TzKu__NzTrz__TyCha_Hx_vsg", Jy: KoOPT.To_VuSpo_qk }
@@ -547,9 +559,12 @@ const Kwi00__TaNe_v=
 
 
 		, { Va: "---- INVESTIGATE", Vy: "TzKu__NzSme_vsg", Jy: KoOPT.Nz_Va_qk }
-			, { Va: "TEST GRP", Jy: KoOPT.Ku_ToSkeTa_qk }
-				, { Va: "LABEL", Vy: "TzKu__NzSme__Smu_Va_vsg", Jy: KoOPT.To_VaSpo_qk }
-				, { Va: "VALUE", Vy: "TzKu__NzSme__Smu_Hx_vsg", Jy: KoOPT.To_VuSpo_qk }
+			, { Va: "CONSIDER GRP", Jy: KoOPT.Ku_ToSkeTa_qk }
+				, { Va: "LABEL", Vy: "TzKu__NzSme__JzHa_Va_vsg", Jy: KoOPT.To_VaSpo_qk }
+				, { Va: "VALUE", Vy: "TzKu__NzSme__JzHa_Hx_vsg", Jy: KoOPT.To_VuSpo_qk }
+		, { Va: "TEST GRP", Jy: KoOPT.Ku_ToSkeTa_qk }
+				, { Va: "LABEL", Vy: "TzKu__NzSme__JiHa_Va_vsg", Jy: KoOPT.To_VaSpo_qk }
+				, { Va: "VALUE", Vy: "TzKu__NzSme__JiHa_Hx_vsg", Jy: KoOPT.To_VuSpo_qk }
 			, { Va: "WARN GRP", Jy: KoOPT.Ku_ToSkeTa_qk }
 				, { Va: "LABEL", Vy: "TzKu__NzSme__DreTrx_Va_vsg", Jy: KoOPT.To_VaSpo_qk }
 				, { Va: "VALUE", Vy: "TzKu__NzSme__DreTrx_Hx_vsg", Jy: KoOPT.To_VuSpo_qk }
@@ -648,14 +663,26 @@ const Kwi00__TaNe_v=
 		, { Va: "BODY", Vy: "TzGrx__NzSpe__Ka_vsg", Jy: KoOPT.Ne_KeDru_GyHi_qk }
 
 
-	, { Va: "LEGAL", Vy: "TzGrx__NzChe_vsg", Jy: KoOPT.Nz_KeDru_qk }
-		, { Va: "BODY", Vy: "TzGrx__NzChe__Ka_vsg", Jy: KoOPT.Ne_KeDru_GyHi_qk }
+	, { Va: "CERT", Vy: "TzGrx__NzChe_vsg", Jy: KoOPT.Nz_Va_qk }
+		, { Va: "CERT GRP", Jy: KoOPT.Ku_ToSkeTa_qk }
+			, { Va: "CERT LOGO", JaPo: "JaPo00__Ko/Grx00__CC.svg", Jy: KoOPT.To_JaPoSi_qk }
+			, { Va: "CERT TXT", Vy: "TzGrx__NzChe__Ka00_vsg", Jy: KoOPT.Ne_KeDru_GyHi_qk }
 
-		, { Va: "CERT", JaPo: "JaPo00__Ko/Grx00__CC.svg", Jy: KoOPT.To_JaPoSi_qk }
-		, { Va: "CERT", JaPo: "JaPo00__Ko/Grx01__DRMFREE.svg", Jy: KoOPT.To_JaPoSi_qk }
-		, { Va: "CERT", JaPo: "JaPo00__Ko/Grx02__AHI.svg", Jy: KoOPT.To_JaPoSi_qk }
-		, { Va: "CERT", JaPo: "JaPo00__Ko/Grx03__ESRB_E.svg", Jy: KoOPT.To_JaPoSi_qk }
-		, { Va: "CERT", JaPo: "JaPo00__Ko/Grx04__PEGI_OK.svg", Jy: KoOPT.To_JaPoSi_qk }
+		, { Va: "CERT GRP", Jy: KoOPT.Ku_ToSkeTa_qk }
+			, { Va: "CERT LOGO", JaPo: "JaPo00__Ko/Grx01__DRMFREE.svg", Jy: KoOPT.To_JaPoSi_qk }
+			, { Va: "CERT TXT", Vy: "TzGrx__NzChe__Ka01_vsg", Jy: KoOPT.Ne_KeDru_GyHi_qk }
+
+		, { Va: "CERT GRP", Jy: KoOPT.Ku_ToSkeTa_qk }
+			, { Va: "CERT LOGO", JaPo: "JaPo00__Ko/Grx02__AHI.svg", Jy: KoOPT.To_JaPoSi_qk }
+			, { Va: "CERT TXT", Vy: "TzGrx__NzChe__Ka02_vsg", Jy: KoOPT.Ne_KeDru_GyHi_qk }
+
+		, { Va: "CERT GRP", Jy: KoOPT.Ku_ToSkeTa_qk }
+			, { Va: "CERT LOGO", JaPo: "JaPo00__Ko/Grx03__ESRB_E.svg", Jy: KoOPT.To_JaPoSi_qk }
+			, { Va: "CERT TXT", Vy: "TzGrx__NzChe__Ka03_vsg", Jy: KoOPT.Ne_KeDru_GyHi_qk }
+
+		, { Va: "CERT GRP", Jy: KoOPT.Ku_ToSkeTa_qk }
+			, { Va: "CERT LOGO", JaPo: "JaPo00__Ko/Grx04__PEGI_OK.svg", Jy: KoOPT.To_JaPoSi_qk }
+			, { Va: "CERT TXT", Vy: "TzGrx__NzChe__Ka04_vsg", Jy: KoOPT.Ne_KeDru_GyHi_qk }
 
 
 	, { Va: "CREDIT", Vy: "TzGrx__NzSo_vsg", Jy: KoOPT.Nz_KeDru_qk }
@@ -698,12 +725,10 @@ const BriYz = Object.freeze
 //----------------------------
 const Hra0_KoJy = Object.freeze
 ({
-	KoBeDru_qk: 0
-	, KoBeGwa_qk: 1
-
-	, KoBa_qk: 2
-	, KoBeMzHri_qk: 3
-	, KoBeMzSa_qk: 4
+	KoBeDru_qk: 0 // PHONE
+	, KoBeGwa_qk: 1 // TABLET
+	, KoBa_qk: 2 // STATION
+	, KoBeMz_qk: 3 // XR
 });
 
 
@@ -968,13 +993,17 @@ function MoDz__BOOT()
 
 	//@@@
 	// CORS must RUN FIRST
-	SmaSy( "[LAUNCH] Web_Security via CORS: " + (window.crossOriginIsolated ?  "✅😀" : "❌😞" ) );
+	// Can CFG as below:
+	// window.coi = { coepCredentialless: () => true };
+	SmaSy( "[LAUNCH] Web_Security via CORS: " + (window.crossOriginIsolated ?  "✅😀" : "❌😞" ) + " RES:" + ( window.credentialless ? "CredentialLESS" : "RequireCORP" ) );
+
 	if( !window.crossOriginIsolated )
 	{
 		// MSG should display @ DOM
 		// SmaTrx( "[LAUNCH] No CORS Security" );
 		Ko.Trx_vsg = ( KoSy__KwiGru_KeDru_l.TrxJy00__HrxCheHo__CORS_vsg );
 	}
+
 
 	//----------------------------------
 	// WASM64 preferred
@@ -1080,7 +1109,6 @@ var Module =
 	},
 
 };
-
 
 //==============================================
 // ONE APP only
@@ -1240,7 +1268,6 @@ async function Hrz3_By__FyTo()
 //=====================================
 // BROWSER VERSION (Browser & App )
 //=====================================
-
 async function Hrz4_Bu__FyTo()
 {
 	//@@@
@@ -1266,8 +1293,7 @@ async function Hrz4_Bu__FyTo()
 	Ni_vsg = Ni_vsg[2] ? [ Ni_vsg[1], Ni_vsg[2] ] : [ navigator.appName, navigator.appVersion, '-?' ];
 
 	//@@@
-	// FORMAT
-
+	// MATCH BROWSER TYPE
 	// DETECT
 	if( (navigator.brave && await navigator.brave.isBrave() || false) ){ Ni_vsg[ 0 ] = "Brave"; }
 	// REPLACE
@@ -1279,7 +1305,7 @@ async function Hrz4_Bu__FyTo()
 
 	// ICON
 	const Hrz4_Bu__FeDy_vsg = Ni_vsg[ 0 ].toUpperCase();
-	const Hrz4_Bu__TaDy_vvsg = [ "BRAVE" , "CHROME" , "EDGE" , "FIREFOX" , "SAFARI", "SAMSUNG", "VIVALDI"	];
+	const Hrz4_Bu__TaDy_vvsg = [ "BRAVE" , "CHROME" , "EDGE" , "FIREFOX" , "META", "OPERA", "SAFARI", "SAMSUNG", "VIVALDI"	];
 	if( Hrz4_Bu__TaDy_vvsg.includes( Hrz4_Bu__FeDy_vsg ) )
 	{
 		Ko.Hrz4_Bu__Gwz_vsg = Hrz4_Bu__FeDy_vsg;
@@ -1305,29 +1331,30 @@ async function Hra0_Ko__FyTo()
 	//@@@
 	// META is AR currently
 	if( Ko.Hrz4_Bu__VaDe_vsg === "Meta" )
-	{ Ko.Hra0_Ko__Jy_q = Hra0_KoJy.KoBeMzSa_qk; }
+	{ Ko.Hra0_Ko__Jy_q = Hra0_KoJy.KoBeMz_qk; }
 
 	//@@@
 	// API
-	if( navigator.xr )
-	{
-		const KriYz_k =
-		{
-			requiredFeatures: [ "local" ]
-		};
-		const AR_yk = await navigator.xr.isSessionSupported( "immersive-ar", KriYz_k );
-		const VR_yk = await navigator.xr.isSessionSupported( "immersive-vr", KriYz_k );
+	// SKIP as most phones report AR
+	// if( navigator.xr )
+	// {
+	// 	const KriYz_k =
+	// 	{
+	// 		requiredFeatures: [ "local" ]
+	// 	};
+	// 	const AR_yk = await navigator.xr.isSessionSupported( "immersive-ar", KriYz_k );
+	// 	const VR_yk = await navigator.xr.isSessionSupported( "immersive-vr", KriYz_k );
 
-		if( AR_yk ){ Ko.Hra0_Ko__Jy_q = Hra0_KoJy.KoBeMzSa_qk; }
-		else if( VR_yk ){ Ko.Hra0_Ko__Jy_q = Hra0_KoJy.KoBeMzHri_qk; }
-	}
+	// 	if( AR_yk ){ Ko.Hra0_Ko__Jy_q = Hra0_KoJy.KoBeMz_qk; }
+	// 	else if( VR_yk ){ Ko.Hra0_Ko__Jy_q = Hra0_KoJy.KoBeMz_qk; }
+	// }
 
 	//@@@
 	// if 'PHONE' check if TABLET or actually PHONE using WIDTH
 	if( Ko.Hra0_Ko__Jy_q ===Hra0_KoJy.KoBeDru_qk )
 	{
 		// TABLET
-		if (window.matchMedia( "(min-width: 768px)" ).matches )
+		if( window.matchMedia( "(min-width: 768px)" ).matches )
 		{ Ko.Hra0_Ko__Jy_q = Hra0_KoJy.KoBeGwa_qk; }
 	}
 }
@@ -1809,7 +1836,7 @@ async function Hre1_Dru__KeDru_ChyVx( KeDru_wuk )
 
 	//@@@
 	// REPLACE CORE LAUNCH-ERR MSGS
-	KoSy__KwiGru_KeDru_l.BriDz00_VaSy_vsg = KeDru_l.LABELS.BriDz00_VaSy_vsg;
+	KoSy__KwiGru_KeDru_l.BriDz00__VaDe_vsg = KeDru_l.LABELS.BriDz00__VaDe_vsg;
 	// BriDz01 is 'LAUNCH' which isn't used if LAUNCH-ERR
 	KoSy__KwiGru_KeDru_l.BriDz02__TrxBz_vsg = KeDru_l.LABELS.BriDz02__TrxBz_vsg;
 	KoSy__KwiGru_KeDru_l.BriDz03__TrxKrx_vsg = KeDru_l.LABELS.BriDz03__TrxKrx_vsg;
@@ -2463,6 +2490,17 @@ function Hri4_Bu__MzBuDru_Je( e )
 			break;
 		}
 
+		case( "`" ):
+		{
+			//HriNeDe__PoSzChy( 0 );
+			if( Kz_l )
+			{
+				SmaJe( "[GUI] Elm", Kz_l?.id, " TIDX:", Kz_l?.tabindex );
+			}
+
+			break;
+		}
+
 		case( "ArrowLeft" ):
 		{
 			//HriNeDe__PoSzChy( 0 );
@@ -2488,10 +2526,9 @@ function Hri4_Bu__MzBuDru_Je( e )
 			// Parse the value (remove "px" and convert to number)
 			let WaDruGy_wfk = parseFloat( WaDru__DoGy_vsg );
 			if( Number.isNaN(WaDruGy_wfk) ) { WaDruGy_wfk = 16.0; }
-			SmaJe( "CUR fnt:", WaDru__DoGy_vsg, WaDruGy_wfk );
-			WaDruGy_wfk += 1.0;
+			//SmaJe( "CUR fnt:", WaDru__DoGy_vsg, WaDruGy_wfk );
+			if( WaDruGy_wfk < 64.0) { WaDruGy_wfk += 1.0;}
 			FzKz_k.style.fontSize = WaDruGy_wfk.toString() + "px";
-
 			break;
 		}
 
@@ -2503,10 +2540,9 @@ function Hri4_Bu__MzBuDru_Je( e )
 			// Parse the value (remove "px" and convert to number)
 			let WaDruGy_wfk = parseFloat( WaDru__DoGy_vsg );
 			if( Number.isNaN(WaDruGy_wfk) ) { WaDruGy_wfk = 16.0; }
-			SmaJe( "CUR fnt:", WaDru__DoGy_vsg, WaDruGy_wfk );
-			WaDruGy_wfk -= 1.0;
+			//SmaJe( "CUR fnt:", WaDru__DoGy_vsg, WaDruGy_wfk );
+			if( WaDruGy_wfk > 2.0) { WaDruGy_wfk -= 1.0;}
 			FzKz_k.style.fontSize = WaDruGy_wfk.toString() + "px";
-
 			break;
 		}
 
@@ -2594,7 +2630,7 @@ function Hri4_Bu__TaNeDe__ChiKri()
 	//-------------------------------------------------
 	// REMOVE KEYMAPPER
 	//-------------------------------------------------
-	document.removeEventListener( "keydown", Hri4_Bu__MzBuDru_Je );
+	document.removeEventListener( "keyup", Hri4_Bu__MzBuDru_Je );
 }
 
 
@@ -2666,7 +2702,7 @@ async function Hri4_Bu__TaNeDe__ChaKri()
 				{
 					Nz_l = Hri4_Bu__ChaKz_l( Tz_l, NeJy_k.elm, null, NeJy_k.class, null );
 
-					// INNER BOX
+					// INNER ZONE BOX
 					let Bz_l = Hri4_Bu__ChaKz_l( Nz_l, "div", null, null, null );
 					Bz_l.innerText = Kwi00__NzVx_vsg[ Nz_Fo_wu ];
 
@@ -2688,6 +2724,7 @@ async function Hri4_Bu__TaNeDe__ChaKri()
 
 			//	<label id="TzKu__NzJo_vsg" for="TzKe__NzDz__Ta_l" class="KeDru_NeVa KeDruNz WaDru_Va" ></label>
 			//	<select id="TzKe__NzDz__Ta_l" class="HriNeTi WaDru_Vu TreHy" onchange="Hrz4_Bu__JoChy()" tabindex=9 ></select>
+
 					}
 					// ON-OFF
 					else if( NeJy_qk === KoOPT.Nz_HyHo_qk )
@@ -2699,9 +2736,9 @@ async function Hri4_Bu__TaNeDe__ChaKri()
 					//%%%
 					// SEPARATOR LINE
 					Hri4_Bu__ChaKz_l( Bz_l, "hr", null, null, null );
-					// add Grid space?
-					// Hri4_Bu__ChaKz_l( Nz_l, "br", null, null, null );
 
+					//%%%
+					// REMOVE "AREAs"
 					Ku_l = null;
 					Nz_Fo_wu++;
 					break;
@@ -2720,28 +2757,39 @@ async function Hri4_Bu__TaNeDe__ChaKri()
 				// CHOICE COMBO
 				// CHOICE
 
-				// case KoOPT.Ne_NiHu_qk: // Radiogroup
+				// BTN
+				case KoOPT.Ne_Tra_qk:
+				{
+					let Kz_l = Hri4_Bu__ChaKz_l( DoNe_k, NeJy_k.elm, Ti_k.Vy, NeJy_k.class, Ti_k );
+					Kz_l.type = "button";
+					break;
+				}
 
-				// case KoOPT.Ne_VxBra_qk: // Slider
+				// SLIDER
+				case KoOPT.Ne_VxBra_qk:
+				{
+					let Kz_l = Hri4_Bu__ChaKz_l( DoNe_k, NeJy_k.elm, Ti_k.Vy, NeJy_k.class, Ti_k );
+					break;
+				}
 
-				// case KoOPT.Ne_TaJaPo_qk: // Img Grid
-				// case KoOPT.Ne_TaVa_qk: // List (selection text)
-				// case KoOPT.Ne_Tra_qk: // Btn
 
 				// CHECKBOX
 				case KoOPT.Ne_HyHo_qk:
 				{
 					let Kz_l = Hri4_Bu__ChaKz_l( DoNe_k, NeJy_k.elm, Ti_k.Vy, NeJy_k.class, Ti_k );
 
-					// <span id="TzHru__NzMx__PeHo_vsg" class="KeDru_NeVa WaDru_Va"></span>
-					// <label class="KaHyHo WaDru_Vu">
-					// 		<input id="TzHru__NzMx__PeHo_y" class="MzHyHo" type="checkbox" onchange="Hrz4_Bu__KwiYz__Ko_ChyYe()" >
-					// 		<span class="VuHyHo"></span>
-					// </label>
+						// <span id="TzHru__NzMx__PeHo_vsg" class="KeDru_NeVa WaDru_Va"></span>
+						// <label class="KaHyHo WaDru_Vu">
+						// 		<input id="TzHru__NzMx__PeHo_y" class="MzHyHo" type="checkbox" onchange="Hrz4_Bu__KwiYz__Ko_ChyYe()" >
+						// 		<span class="VuHyHo"></span>
+						// </label>
 
-
+					break;
 				}
 
+					// case KoOPT.Ne_NiHu_qk: // Radiogroup
+					// case KoOPT.Ne_TaJaPo_qk: // Img Grid
+					// case KoOPT.Ne_TaVa_qk: // List (selection text)
 
 				//&&&
 				// CHOICE DEFAULT
@@ -2912,6 +2960,7 @@ if( false )
 
 	//@@@
 	// APP VERSION
+	HriNeDe__ChyVaSy( "BriDzSa__Gi", BriDzSa__Gi_vsg );
 	HriNeDe__ChyVaSy( "BriDzSa__Da", BriDzSa__Da_vsg );
 
 
@@ -2920,7 +2969,7 @@ if( false )
 
 	//&&&
 	// DEVICE
-	const Hra0_Ko__TaJy_vvsg = [ "MOBILE", "TABLET",  "STATION", "VR",  "AR" ];
+	const Hra0_Ko__TaJy_vvsg = [ "MOBILE", "TABLET",  "STATION", "XR" ];
 	const Hra0_Ko__VaDe_vsg = Hra0_Ko__TaJy_vvsg[ Ko.Hra0_Ko__Jy_q ];
 	HriNeDe__ChyVaSy( "Hra0_Ko__VaDe", Hra0_Ko__VaDe_vsg );
 	HriNeDe__ChyJaPoDe( "Hra0_Ko__Gwz", "HraKo_", Hra0_Ko__VaDe_vsg.toUpperCase() );
@@ -2951,7 +3000,7 @@ if( false )
 	//-------------------------------------------------
 	// KEY CTLS
 	//-------------------------------------------------
-	document.addEventListener( "keydown", Hri4_Bu__MzBuDru_Je );
+	document.addEventListener( "keyup", Hri4_Bu__MzBuDru_Je );
 }
 
 //=====================================
@@ -3251,9 +3300,9 @@ function HryMx01_KeMeTrx()
 	//---------------------------------
 	// MSG
 	//---------------------------------
-	HriNeDe__ChyVaSy( "TrxBz", KoSy__KwiGru_KeDru_l.BriDz00_VaSy_vsg + " " + KoSy__KwiGru_KeDru_l.BriDz02__TrxBz_vsg );
+	HriNeDe__ChyVaSy( "TrxBz", KoSy__KwiGru_KeDru_l.BriDz00__VaDe_vsg + " " + KoSy__KwiGru_KeDru_l.BriDz02__TrxBz_vsg );
 	HriNeDe__ChyVaSy( "TrxKa", Ko.Trx_vsg );
-	HriNeDe__ChyVaSy( "TrxDa", BriDzSa__Da_vsg );
+	HriNeDe__ChyVaSy( "TrxDa", BriDzSa__Da_vsg + " " + BriDzSa__Gi_vsg );
 
 
 	//@@@
@@ -4097,7 +4146,7 @@ function KoDz__Ye( Gi )
 		(
 			"KeMe_Bz"
 			, "|> "
-			+ KoSy__KwiGru_KeDru_l.BriDz00_VaSy_vsg
+			+ KoSy__KwiGru_KeDru_l.BriDz00__VaDe_vsg
 			+ " = " + BriDzSa__Da_vsg
 			+ " @ " + GiFe_vsg.getHours().toString().padStart(2,"0") + ":" + GiFe_vsg.getMinutes().toString().padStart(2,"0") + ":"  + GiFe_vsg.getSeconds().toString().padStart(2,"0")
 		);

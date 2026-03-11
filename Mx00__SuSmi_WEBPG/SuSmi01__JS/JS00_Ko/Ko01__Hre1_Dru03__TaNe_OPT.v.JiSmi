@@ -112,9 +112,9 @@ const Kwi00__TaNeJy_v =
 
 	// CHOICE
 	// Ne_Tra_qk BTN
-	, { elm: "div", class: "" }
+	, { elm: "button", class: "HriNe_Tra TreHy WaDru_Va" }
 	// Ne_VxBra_qk SLIDER
-	, { elm: "div", class: "" }
+	, { elm: "meter", class: "" }
 	// Ne_HyHo_qk CHECKBOX
 	, { elm: "div", class: "" }
 	// Ne_NiHu_qk RADIOGROUP
@@ -144,12 +144,12 @@ const Kwi00__TaNeJy_v =
 	// To_GoGa_qk INFO VERTICAL
 	, { elm: "div", class: "BriDz_Sz WaDru_Vu" }
 	// To_VaSpo_qk LABEL
-	, { elm: "label", class: "KeDru_NeVa WaDru_Vu" }
+	, { elm: "p", class: "KeDru_NeVa WaDru_Vu" }
 	// To_VuSpo_qk VALUE
 	, { elm: "div", class: "KeDru_ToVu WaDru_Vu" }
 
 	// To_NzBz_qk TITLE LABEL
-	, { elm: "label", class: "KeDru_NeVa KeDruNz WaDru_Va" }
+	, { elm: "p", class: "KeDru_NeVa KeDruNz WaDru_Va" }
 
 	// To_JaPoBz_qk IMG FRAME TITLE
 	, { elm: "img", class: "BriDz_FzVa JaPo__GyBzHu_Kwx" }
@@ -158,7 +158,7 @@ const Kwi00__TaNeJy_v =
 	// To_JaPoVa_Kwu_qk
 	, { elm: "img", class: "JaPo__Va_Kwu" }
 	// To_JaPoSi_qk
-	, { elm: "img", class: "JaPo__GyBzHu" }
+	, { elm: "img", class: "JaPo__GyBzHu JaPo__GyBzDe_Gwa" }
 
 
 	// EMOJI BTNS

@@ -102,7 +102,7 @@ async function Hre1_Dru__KeDru_ChyVx( KeDru_wuk )
 
 	//@@@
 	// REPLACE CORE LAUNCH-ERR MSGS
-	KoSy__KwiGru_KeDru_l.BriDz00_VaSy_vsg = KeDru_l.LABELS.BriDz00_VaSy_vsg;
+	KoSy__KwiGru_KeDru_l.BriDz00__VaDe_vsg = KeDru_l.LABELS.BriDz00__VaDe_vsg;
 	// BriDz01 is 'LAUNCH' which isn't used if LAUNCH-ERR
 	KoSy__KwiGru_KeDru_l.BriDz02__TrxBz_vsg = KeDru_l.LABELS.BriDz02__TrxBz_vsg;
 	KoSy__KwiGru_KeDru_l.BriDz03__TrxKrx_vsg = KeDru_l.LABELS.BriDz03__TrxKrx_vsg;
