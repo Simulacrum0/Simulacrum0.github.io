@@ -1,6 +1,6 @@
-const BriDzSa__Gi_vsg="2026-03-12--10:48"; 
- const BriDzSa__Da_vsg = "PUB_v0.260"; 
- const BriDzSa__Da_wuk = "260"; 
+const BriDzSa__Gi_vsg="2026-03-12--10:59"; 
+ const BriDzSa__Da_vsg = "PUB_v0.261"; 
+ const BriDzSa__Da_wuk = "261"; 
  const BriDz__Mx_KuTu_vsg = "https://powerourpeople.com/"; 
 
 //==============================================
@@ -4257,7 +4257,7 @@ function KoDz__Ye( Gi )
 // LOAD APP ENGINE
 //=====================================
 const BriDz_Fz_js = document.createElement("script");
-BriDz_Fz_js.src = "Mx00__SuSmi_WEBPG/SuSmi03__BIN/KoKri__BriDz" + ( Ko.WASM64_yk ? 64:32 ) + ".js";
+BriDz_Fz_js.src = "Mx00__SuSmi_WEBPG/SuSmi03__WASM/KoKri__BriDz" + ( Ko.WASM64_yk ? 64:32 ) + ".js";
 document.head.appendChild(BriDz_Fz_js);
 
 //=====================================
