@@ -1,4 +1,4 @@
-const DoWG__BriDzSa__Da_wuk = "259"; 
+const DoWG__BriDzSa__Da_wuk = "260"; 
 
 //==============================================
 //==============================================
@@ -1360,7 +1360,7 @@ async function DoWG__BriYa_SmzYz( Sa_l, Yz_k )
 			// TRY AGAIN
 			? DoWG__BriYa_FuYz( Sa_l, Yz_k )
 			// TOO many attempts or time elapsed, throw ERROR
-			: MoDzTrx( Ko.KeDru_l.ALERT.TrxJy__KaBzTrx__WG_vsg )
+			: MoDzTrx( Ko.KeDru_l.VaDe.TrxJy__KaBzTrx__WG_vsg )
 		);
 
   	});
@@ -2064,7 +2064,7 @@ async function DoWG__BriYa_FuYz( Sa_l, Yz_k )
 
 	//@@@
 	// ELSE ERR
-	MoDzTrx( Ko.KeDru_l.ALERT.TrxJy__KaBzTrx__WG_vsg );
+	MoDzTrx( Ko.KeDru_l.VaDe.TrxJy__KaBzTrx__WG_vsg );
 	return null;
 }
 

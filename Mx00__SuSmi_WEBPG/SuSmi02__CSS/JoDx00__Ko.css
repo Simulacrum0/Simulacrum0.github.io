@@ -50,14 +50,14 @@ VARIABLES
 	/* COLOR --------------------------*/
 
 	/* FIXED COLORS for BUBBLE_TEXT & FX */
+	--PoSzVoHo: #0000;
 	--PoSzStz: #000F;
 	--PoSzStzVo: #0008;
 	--PoSzBreSta: #888F;
 	--PoSzStx: #DDDE;
 
 	/* OVERRIDEN COLORS for 404, ERR, no JS Pages! */
-	--PoGwy: #0000; /* BASE PALETTE */
-	--PoGwyDe: #000A; /* PANEL__OUTER_TOPIC */
+	--PoGwyFz: #000A; /* PANEL__OUTER_TOPIC */
 
 	--PoSi: #FFF; /* ACTIVE */
 	--PoSiSpo: #FFFF; /* MAIN TXT */
@@ -70,7 +70,8 @@ VARIABLES
 
 	/* SIZE GLYPH CHAR -------------------- */
 	--GyDru_Kwe: 4ch;
-	--GyDru_KeDru: 32ch;
+	/* Optimal Character Reading Length says 50~75 but given Ideographs we'll stay low */
+	--GyDru_KeDru: 48ch;
 	--GyDru_MoKuGx: 48ch;
 	--GyDru_MoKuGa: 64ch;
 
@@ -99,6 +100,7 @@ VARIABLES
 
 	/* TIMING -------------------- */
 	--GiDe: 0.25s;
+	--GiHi: 1.0s;
 
 	/* TAB HEADERS STRETCH -------------------- */
 	/* Firefox <146 */
@@ -151,7 +153,7 @@ ANCESTOR
 	/* COLOR & QUALITY */
 	image-rendering: auto;
 	color: var(--PoSiSpo);
-	background-color: var(--PoGwy);
+	background-color: var(--PoSzVoHo);
 	/* SLIDER & RADIO CLR	*/
 	accent-color: var(--PoSmuTra);
 
@@ -269,6 +271,16 @@ font-family: Inter, Roboto, 'Helvetica Neue', 'Arial Nova', 'Nimbus Sans', Arial
 	;
 }
 
+.JaPo_BriDzDy
+{
+    box-shadow:
+		1px 1px 0 var(--PoSmo)
+		, 1px 2px 0 var(--PoSmo)
+		, 1px 3px 0 var(--PoSmo)
+		, 1px 4px 0 var(--PoSmo)
+	;
+}
+
 /*@@@@@@@@@@@@@@@
 DOMAIN AREAS^Tz
 - Not Panels nor Status Bars
@@ -336,10 +348,10 @@ PANELS^Ku
 	width: calc( 100dvw - var(--GyKaDe) );
 	max-height: calc( 100dvh - var(--GyKaDe) );
 
-	background-color: var(--PoGwyDe);
+	background-color: var(--PoGwyFz);
 	border: var(--GwxSpo) var(--GyBe) var(--PoBre);
 
-	box-shadow: 0 -0.5em var(--GyBiHu) var(--PoTraFra);
+	box-shadow: 0 -0.5em var(--GyBiHu) var(--PoSoSmo);
 
 	/* ALLSCROLL ALL TOPIC AREA*/
 	overflow: auto;
@@ -353,10 +365,8 @@ PANELS^Ku
 
     justify-content: center;
     align-items: center;
-
-	/* width: fit-content; */
-	margin: var(--GyTreDe) var(--GyBo);
-	padding: var(--GyBo);
+	margin: var(--GyBe);
+	padding: var(--GyStz);
 }
 
 /* PANEL_GUI ---------------------- */
@@ -382,7 +392,7 @@ PANELS^Ku
 
 	cursor: cell;
 	border-radius: var(--GyStz);
-	background-color: var(--PoGwy);
+	background-color: var(--PoSzVoHo);
 }
 
 /* PANEL_ALL_DOMAIN_TOPIC_CHOICES ---------------------- */
@@ -421,12 +431,12 @@ PANELS^Ku
 	align-content: flex-start;
 	justify-content: flex-start;
 
-	/* TALL */
+	/* WIDE */
 	@media (min-aspect-ratio: 1/1)
 	{
 		grid-template-columns: repeat( auto-fit, minmax( var(--GyDru_MoKuGx), 1fr ));
 	}
-	/* WIDE */
+	/* TALL */
 	@media (max-aspect-ratio: 1/1)
 	{
 		grid-template-columns: repeat( auto-fit, minmax( var(--GyDru_MoKuGa), 1fr ));
@@ -463,7 +473,7 @@ PANELS^Ku
 	background-color: var(--PoKuDe);
 }
 
-/* TOPIC_CHOICES ROWS */
+/* TOPIC_CHOICES TEXT-LINES */
 .Ku06__NzTaNe_Gwx
 {
 	display: inline-flex;
@@ -480,8 +490,8 @@ PANELS^Ku
 	border-radius: var(--GyTreDe);
 }
 
-/* AREA__INFO */
-.Ku07__ToSkeTa
+/* INFO_SURF */
+.Ku07__ToGwa
 {
 	display: inline-flex;
 	flex-wrap: wrap;
@@ -625,7 +635,7 @@ TEXT
 	margin: var(--GyStz);
 	margin-top: var(--GyTreDe);
 
-	color: var(--PoTraFra);
+	color: var(--PoSoSmo);
 	background-color: var(--PoKuTraHo);
 
 	border: var(--GwxSpo) var(--GyBe) var(--PoSi);
@@ -640,7 +650,7 @@ TEXT
 	background-color: var(--PoKuTraHy);
 
 	outline: none;
-	box-shadow: 0 -0.5em var(--GyBiHu) var(--PoTraFra);
+	box-shadow: 0 -0.5em var(--GyBiHu) var(--PoSoSmo);
 	padding: var(--GyBiHi);
 
 
@@ -674,7 +684,7 @@ TEXT
 	font-size: var(--GyBiHi);
 	line-height: var(--GyDruBz);
 
-	color: var(--PoTraFre);
+	color: var(--PoSeVu);
 	/* background-color: var(--PoKuTraHy); */
 	/* border: var(--GwxSpo) var(--GyBe);border-color: red; */
 }
@@ -715,8 +725,7 @@ TEXT
 	padding: var(--GyBiHu);
 	border-radius: var(--GyTreDe);
 
-
-	background-color: var(--PoSzStzVo);
+	background-color: var(--PoKuTraHy);
 	overflow-x: auto;
 	overflow-y: auto;
 }
@@ -923,7 +932,7 @@ SPRITE GRID
 	font-size: 1.925rem;
 	margin: 0.075rem;
 	padding: var(--GyStz);
-	background-color: var(--PoGwy);
+	background-color: var(--PoSzVoHo);
 
 	border-radius: var(--GyBo);
 }
@@ -1030,7 +1039,6 @@ TOGGLE_SWITCH
 	height: var(--GyKaHu);
 
 	border-radius: var(--GyKaHu);
-
 }
 
 /* BAR PART GREY of CHECKBOX */
@@ -1049,8 +1057,6 @@ TOGGLE_SWITCH
 
 	border-radius: var(--GyKaHu);
 	background-color: var(--PoKuStuVo);
-
-
 }
 
 /* CIRCLE PART (WHITE/RED) of CHECKBOX */
@@ -1065,24 +1071,23 @@ TOGGLE_SWITCH
 	width: var(--GyKaHu);
 	height: var(--GyKaHu);
 
-	background-color: var(--PoTraFre);
+	background-color: var(--PoSeVu);
 	border-radius: var(--GyKaHu);
-
-
+	transition: var(--GiHi);
 }
 
 /* CHECKBOX RED BG */
 .MzHyHo:checked + .VuHyHo
 {
 	background-color: var(--PoSmuTra);
-
+	transition: var(--GiHi);
 }
 
 /* FOCUS SLIDE ON/OFF */
 .MzHyHo:checked + .VuHyHo:before
 {
 	transform: translateX( var(--GyKaHu) );
-
+	transition: var(--GiHi);
 }
 
 /*@@@@@@@@@@@@@@@
@@ -1103,7 +1108,7 @@ RADIO GROUP
 	padding: var(--GyBo);
 
 	color: var(--PoSiSpo);
-	background-color: var(--PoGwy);
+	background-color: var(--PoSzVoHo);
 	border-radius: var(--GyTreDe);
 
 
@@ -1114,7 +1119,7 @@ RADIO GROUP
 	margin: var(--GyBo);
 	padding: var(--GyBo);
 
-	background-color: var(--PoGwy);
+	background-color: var(--PoSzVoHo);
 
 }
 
@@ -1133,7 +1138,7 @@ SLIDER
 	border: none;
 
 	color: var(--PoSiSpo);
-	background-color: var(--PoGwy);
+	background-color: var(--PoSzVoHo);
 }
 
 
@@ -1165,7 +1170,7 @@ HOVER GLOW
 {
 	font-size: var(--GyTreHi);
 	outline: none;
-	box-shadow: 0 -0.5em var(--GyTreDe) var(--PoTraFre);
+	box-shadow: 0 -0.5em var(--GyTreDe) var(--PoSeVu);
 
 }
 

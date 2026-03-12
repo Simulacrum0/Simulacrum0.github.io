@@ -3,10 +3,10 @@
 
 | **Places** | *Description* |
 |:--------|:-------:|
-| Root | Technology Usecase MicroCosm🗺️SX Website |
+| Root Folder | Web Technology & Required Files to run MicroCosm🗺️SX Website |
 | Mx00__SuSmi_WEBPG | Web Design Content such as HTML, CSS, & JS files |
 | Mx01__SuKz_MEDIA | Content such as backgrounds, symbols, fonts, sounds and pictures |
 | Mx02__TxKuCho_WVERSE | _Deprecated LEGACY content (soon to be erased)_ |
 | Mx03__KeDru_LANG | Customized language files for any cultural style of language. We humbly seek help in accurate translation. |
 
-![Background](Mx01__SuKz_MEDIA/SuKz02_JaPo__IMG/JaPo01__SaTrzSaTrz00__Gx.jpg)
+![Background](Mx01__SuKz_MEDIA/SuKz02_JaPo__IMG/JaPo01__SaTrz/SaTrz00__Gx.jpg)

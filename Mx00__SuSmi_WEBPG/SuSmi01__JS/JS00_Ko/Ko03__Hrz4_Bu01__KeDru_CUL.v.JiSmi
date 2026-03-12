@@ -102,22 +102,22 @@ async function Hre1_Dru__KeDru_ChyVx( KeDru_wuk )
 
 	//@@@
 	// REPLACE CORE LAUNCH-ERR MSGS
-	KoSy__KwiGru_KeDru_l.BriDz00__VaDe_vsg = KeDru_l.LABELS.BriDz00__VaDe_vsg;
+	KoSy__KwiGru_KeDru_l.BriDz00__VaDe_vsg = KeDru_l.HriNe.BriDz00__VaDe_vsg;
 	// BriDz01 is 'LAUNCH' which isn't used if LAUNCH-ERR
-	KoSy__KwiGru_KeDru_l.BriDz02__TrxBz_vsg = KeDru_l.LABELS.BriDz02__TrxBz_vsg;
-	KoSy__KwiGru_KeDru_l.BriDz03__TrxKrx_vsg = KeDru_l.LABELS.BriDz03__TrxKrx_vsg;
-	KoSy__KwiGru_KeDru_l.BriDz04__TrxTaSma_vsg = KeDru_l.LABELS.BriDz04__TrxTaSma_vsg;
+	KoSy__KwiGru_KeDru_l.BriDz02__TrxBz_vsg = KeDru_l.HriNe.BriDz02__TrxBz_vsg;
+	KoSy__KwiGru_KeDru_l.BriDz03__TrxKrx_vsg = KeDru_l.HriNe.BriDz03__TrxKrx_vsg;
+	KoSy__KwiGru_KeDru_l.BriDz04__TrxTaSma_vsg = KeDru_l.HriNe.BriDz04__TrxTaSma_vsg;
 
 
 	//@@@
 	// SUBMIT BTN
 	const HriNe_KwiVu_k = document.getElementById( 'BriDz01_TraKwi_vsg' );
-	HriNe_KwiVu_k.value = KeDru_l.LABELS.BriDz01_TraKwi_vsg;
+	HriNe_KwiVu_k.value = KeDru_l.HriNe.BriDz01_TraKwi_vsg;
 
 
 	//@@@
 	// UPDATE LABELS
-	Object.entries( KeDru_l.LABELS ).forEach
+	Object.entries( KeDru_l.HriNe ).forEach
 	(
 		function ( [ Vy_vbg, Va_vbg ] )
 		{
@@ -131,9 +131,9 @@ async function Hre1_Dru__KeDru_ChyVx( KeDru_wuk )
 
 	//@@@
 	// UPDATE USAGE
-	SmaDBG( "[CUL] USAGE:", KeDru_l.USAGE );
+	SmaDBG( "[CUL] USAGE:", KeDru_l.VaHx );
 	// Used ONLY at Runtime via Toggle
-	// Object.entries( KeDru_l.USAGE ).forEach
+	// Object.entries( KeDru_l.VaHx ).forEach
 	// (
 	// 	function ( [ Vy_vbg, Va_vbg ] )
 	// 	{
@@ -151,9 +151,9 @@ async function Hre1_Dru__KeDru_ChyVx( KeDru_wuk )
 //-------------------------------------------------
 function TzKu__NzTrz__NiKeDru__JeChy( KeDru_wuk )
 {
-	const TzKu__NzTrz__NiKeDru__Ta_l = document.getElementById( 'TzKu__NzTrz__NiKeDru__Ta_l' );
-	SmaJe( "CHG!", TzKu__NzTrz__NiKeDru__Ta_l );
-	Hre1_Dru__KeDru_ChyVx( ( KeDru_wuk !== null )? KeDru_wuk : TzKu__NzTrz__NiKeDru__Ta_l.selectedIndex );
+	const TzKu__NzKeDru__Ta_l = document.getElementById( 'TzKu__NzKeDru__Ta_l' );
+	SmaJe( "CHG!", TzKu__NzKeDru__Ta_l );
+	Hre1_Dru__KeDru_ChyVx( ( KeDru_wuk !== null )? KeDru_wuk : TzKu__NzKeDru__Ta_l.selectedIndex );
 
 
 	//@@@

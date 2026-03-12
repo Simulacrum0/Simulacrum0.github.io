@@ -39,19 +39,19 @@ const KoOPT = Object.freeze
 	, Tz_ToKu_qk: 3 // Domain Info
 	, Tz_Bz_qk: 4 // Domain Headline
 
-	, Nz_KeDru_qk: 5 // Title under Topic
+	, Nz_To_qk: 5 // Topic Info
 	, Nz_Va_qk: 6 // Topic Label
 	, Nz_Ta_qk: 7 // Topic Picker
-	, Nz_HyHo_qk: 8 // Topic Radio
+	, Nz_HyHo_qk: 8 // Topic On/Off
 
-	, Ku_ToSkeTa_qk: 9 // Choice Space
+	, Ku_ToGwa_qk: 9 // Choice Space
 	, _bbb_qk: 10 //
 	, _ccc_qk: 11 //
 
 	, Ne_Tra_qk: 12 // Btn
 	, Ne_VxBra_qk: 13 // Slider
 	, Ne_HyHo_qk: 14 // Checkbox
-	, Ne_NiHu_qk: 15 // Radiogroup
+	, _ddd_qk: 15 //
 
 	, Ne_TaJaPo_qk: 16 // Img Grid
 	, Ne_TiJaPo_qk: 17 // Img Elm
@@ -102,10 +102,10 @@ const Kwi00__TaNeJy_v =
 	, { elm: "div", class: "Ku06__NzTaNe_Gwa" }
 
 	// SPACE
-	// Ku_ToSkeTa_qk
+	// Ku_ToGwa_qk
 	// Ku_bbb_qk
 	// Ku_ccc_qk
-	, { elm: "div", class: "Ku07__ToSkeTa" }
+	, { elm: "div", class: "Ku07__ToGwa" }
 	, { elm: "div", class: "" }
 	, { elm: "div", class: "" }
 
@@ -114,10 +114,10 @@ const Kwi00__TaNeJy_v =
 	// Ne_Tra_qk BTN
 	, { elm: "button", class: "HriNe_Tra TreHy WaDru_Va" }
 	// Ne_VxBra_qk SLIDER
-	, { elm: "meter", class: "" }
+	, { elm: "input", class: "HriNeVo" }
 	// Ne_HyHo_qk CHECKBOX
-	, { elm: "div", class: "" }
-	// Ne_NiHu_qk RADIOGROUP
+	, { elm: "input", class: "MzHyHo" }
+	// _ddd_qk
 	, { elm: "div", class: "" }
 
 	// Ne_TaJaPo_qk IMG GRID

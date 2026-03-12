@@ -116,7 +116,7 @@ function Hrz4_Bu__KwiYz__HriNe_MyYy()
 
 	//@@@
 	// LANG LIST SELECTION
-	document.getElementById( "TzKu__NzTrz__NiKeDru__Ta_l" ).selectedIndex = KwiYz_k.KeDru_wu;
+	document.getElementById( "TzKu__NzKeDru__Ta_l" ).selectedIndex = KwiYz_k.KeDru_wu;
 
 	//@@@
 	// SET LANG_ICON
@@ -326,7 +326,7 @@ function Hrz4_Bu__KwiYz__Ko_ChyYe()
 
 	KwiYz_k.TzHry__NzSy__HriKe_y = false; // document.getElementById( "TzHry__NzSy__HriKe_y" ).value;
 
-	//document.getElementById( "TzHry__NzSy__SmzYz__Ta_l" ).selectedIndex = KwiYz_k.KeDru_wu;
+	//document.getElementById( "TzHry__NzSy__Ta_l" ).selectedIndex = KwiYz_k.KeDru_wu;
 
 */
 

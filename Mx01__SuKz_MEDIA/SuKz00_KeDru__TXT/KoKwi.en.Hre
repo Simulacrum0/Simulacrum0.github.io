@@ -1,5 +1,5 @@
 {
-	"ALERT":
+	"VaDe":
 	{
 		"Dre__SySmz_GriHo_vsg": "Optional Service Fail: "
 
@@ -8,14 +8,33 @@
 		, "TrxJy__SuKz_GriHo_vsg": "Required Content Fail:"
 	}
 
-	, "LABELS":
+
+	, "VaHx":
+	{
+		"TzKe_vsg": "Select Identity, Culture & Security"
+		, "TzTru_vsg": "Decide on Access of Info"
+		, "TzHru_vsg": "Setup Audio Mic and Speakers"
+		, "TzHry_vsg": "Setup Displays, Style, and Quality"
+		, "TzKro_vsg": "Basic information about MicroCosm🗺️SX"
+		, "TzGrx_vsg": "License, Legal, Credit, & Company Notices"
+
+
+		, "TzKe__NzDz__DzNe_vsg": "Choose from previous or defaults Users"
+
+		, "TzGrx__NzChe_vsg": "DCMA, GPDR, DRM, PEGI, ESRB, etc."
+		, "TzGrx__NzSo_vsg": "Credits go here"
+		, "TzGrx__NzDryKy_vsg": "Company info goes here"
+	}
+
+
+	, "HriNe":
 	{
 		"BriDz00__VaDe_vsg": "MicroCosm🗺️SX"
 		, "BriDz01_TraKwi_vsg": "🚀 LAUNCH"
 		, "BriDz02__TrxBz_vsg": "Tech FAIL: "
 		, "BriDz03__TrxKrx_vsg": "Please try a different WebBrowser or Electronic-Device"
 		, "BriDz04__TrxTaSma_vsg": "Event LOG"
-
+		, "BriDz05__SaNoJaPo_vsg": "👤"
 
 		, "TzKu_vsg": "❶🗺️\nWHERE"
 		, "TzKe_vsg": "❷🥸\nWHO"
@@ -25,10 +44,9 @@
 		, "TzKro_vsg": "❻🧩\nLEARN"
 		, "TzGrx_vsg": "❼📜\nNOTICE"
 
-		, "TzSme_vsg": "TEST SECTION"
 
-		, "TzKu__NzYa_vsg": "👋Welcome to MicroCosm🗺️SX"
-			, "TzKu__NzYa__Ne00_vsg": "MicroCosm🗺️SX is a web tool to build an electronic shared experience, "
+		, "TzKu__NzYa_vsg": "👋Welcome Greeting"
+			, "TzKu__NzYa__Ne00_vsg": "MicroCosm🗺️SX is a web tool to build an electronic shared experience that connects to all major web-browsers on all modern devices and OS platforms."
 			, "TzKu__NzYa__Ne01_vsg": "MicroCosm🗺️SX is your portal to exploring, creating, & sharing 'digital experiences' (SX) with people or communities you choose. By tapping Launch above you'll enter into the selected SX and can play, build, connect or simply understand its contents. To customize the launch experience in your browser select the other tabs to fit match your needs and permissions."
 
 
@@ -61,7 +79,7 @@
 			, "TzKu__NzSme__DreTrx_Va_vsg": "⚠️Known Issues:"
 
 			, "TzKu__NzSme__JzHa_Hx_vsg": "🤔We need to test all 5 OS's, the 3 major Browser Families( Chromium, Safari, Firefox) and usually some Chrome offshoots(Samsung, Meta, Opera, Brave)\n🤔Now that our launcher is complete, the vast majority of features are simply built on top of the existing WebCPU/WebGPU instructions with very little except 'new' web-services to ever consider adding.\n🤔Critical to our success is the ability for the motivated to report their logs back to our HQ without legal (GDPR) violations."
-			, "TzKu__NzSme__JiHa_Hx_vsg": "🔬Check if the OS, Browser & Chips seem 'correct'.\n🔬Test 7 Menus and verify formatting looks mvp-ok\n🔬Check if icons match OS,Browser, etc."
+			, "TzKu__NzSme__JiHa_Hx_vsg": "🔬Check if the OS, Browser & Chips seem 'correct'.\n🔬Test 7 ❂Menus and verify formatting looks mvp-ok\n🔬Check if icons match OS,Browser, etc."
 			, "TzKu__NzSme__DreTrx_Hx_vsg": "⚠️Build does not RUN!\n⚠️Apple & Samsung fail in WebGPU\nLauncher needs Refinement\n⚠️All possible art switching to svg vectors\n"
 
 
@@ -87,7 +105,7 @@
 
 		, "TzHru__NzMx_vsg": "Speakers"
 			, "TzHru__NzMx__PeHo_vsg": "🔇Mute"
-			, "TzHru__NzMx__PeVo_vsg": "Volume"
+			, "TzHru__NzMx__PeVo_vsg": "🔊Volume"
 
 		, "TzHru__NzMz_vsg": "Microphones"
 			, "TzHru__NzMz__PeVo_vsg": "Format"
@@ -106,6 +124,7 @@
 		, "TzHry__NzMx_vsg": "Display"
 			, "TzHry__NzMx__KeDruGy__Vo_vsg": "Legible Text Size"
 			, "TzHry__NzMx__PoGy__HyHo_vsg": "HDR"
+
 			, "TzHry__NzMx__Dx__TaNi_vsg": "Screen"
 				, "TzHry__NzMx__Dx00_MxPoDe_vsg": "Browser Tab"
 				, "TzHry__NzMx__Dx01_MxPoGyHi_vsg": "Fullscreen"
@@ -162,8 +181,8 @@
 			, "TzKro__Nz01__Ka_vsg": "COMPUTER_IS_BICYCLE_FOR_OUR_MINDS: I think one of the things that really separates us from the high primates is that we’re tool builders. I read a study that measured the efficiency of locomotion for various species on the planet. The condor used the least energy to move a kilometer. Humans came in with a rather unimpressive showing about a third of the way down the list. It was not too proud a showing for the crown of creation. So, that didn’t look so good. But then, somebody at Scientific American had the insight to test the efficiency of locomotion for a man on a bicycle. And, a man on a bicycle, a human on a bicycle, blew the condor away, completely off the top of the charts. And that’s what a computer is to me. What a computer is to me is it’s the most remarkable tool that we’ve ever come up with. It’s the equivalent of a bicycle for our minds. — Steve Jobs (1980)"
 
 
-			, "TzKro__Nz02_vsg": "FIVE_QUESTIONS:"
-			, "TzKro__Nz02__Ka_vsg": "- Trust: Is wantware real/viable? Does it do what is claimed.\n- Scope: Can it scale globally? Evidence it can reach intended clients as desired solutions.\n- Success: wantware Competition, IP-Protection and Market Lockout? Industry interest and value to existing stakeholders.\n- Risk: How ready and stable are we today and our roadmap? Timing and resources required to meet milestones.\n- Value: Is it worth it? Does empowering all humans to have personalized dialogs that create machine behaviors, shareable solutions, carry a global market value? Does it affect AI, Automation, and near-term economics?"
+			, "TzKro__Nz02_vsg": "Topic #3:"
+			, "TzKro__Nz02__Ka_vsg": "FIVE_QUESTIONS\n💠 Trust: Is wantware real/viable? Does it do what is claimed.\n💠 Scope: Can it scale globally? Evidence it can reach intended clients as desired solutions.\n💠 Success: wantware Competition, IP-Protection and Market Lockout? Industry interest and value to existing stakeholders.\n💠 Risk: How ready and stable are we today and our roadmap? Timing and resources required to meet milestones.\n💠 Value: Is it worth it? Does empowering all humans to have personalized dialogs that create machine behaviors, shareable solutions, carry a global market value? Does it affect AI, Automation, and near-term economics?"
 
 			, "TzKro__Nz03_vsg": "Topic #4"
 			, "TzKro__Nz03__Ka_vsg": "WHAT: wantware is a Meta-Computer as it functions to talk 'About' computing and reconfigure itself for all its task needs by regenerating its machine instructions and transforming its data structures & streams towards performance or wattage or other optimization goals. It handles the user specified needs by exposing all of its potential capabilities ( 'what it can do' ) and current activities ( 'why and what its doing now' ) to an interactive dialog in the user's language and style.\n\nJUUL_QUOTE: I realized that the change we were seeking would not come from waiting for people or governments to do “the right thing” with respect to communities, sustainability, and justice. It required too much “zoom out” thinking— seeing the bigger picture, when most people were just trying to get by and raise their families. I saw creating wantware as means of opening up at least one sector of the economy to all people with an idea. To enable users to innovate in their own areas of expertise, solve problems from their unique perspective, own and control those creations, and monetize, trade, or give those creations in a truly free economic ecosystem. The image I always came back to was from the end of the 80’s movie, Solarbabies. One group controls all the water and thus has all the power. The solar babies release the water in such a way that it cannot be easily captured again. The power structure falls.\n\nWHAT: wantware is a Meta-Computer as it functions to talk 'About' computing and reconfigure itself for all its task needs by regenerating its machine instructions and transforming its data structures & streams towards performance or wattage or other optimization goals. It handles the user specified needs by exposing all of its potential capabilities ( 'what it can do' ) and current activities ( 'why and what its doing now' ) to an interactive dialog in the user's language and style.\n\nJUUL_QUOTE: I realized that the change we were seeking would not come from waiting for people or governments to do “the right thing” with respect to communities, sustainability, and justice. It required too much “zoom out” thinking— seeing the bigger picture, when most people were just trying to get by and raise their families. I saw creating wantware as means of opening up at least one sector of the economy to all people with an idea. To enable users to innovate in their own areas of expertise, solve problems from their unique perspective, own and control those creations, and monetize, trade, or give those creations in a truly free economic ecosystem. The image I always came back to was from the end of the 80’s movie, Solarbabies. One group controls all the water and thus has all the power. The solar babies release the water in such a way that it cannot be easily captured again. The power structure falls.\n\nWHAT: wantware is a Meta-Computer as it functions to talk 'About' computing and reconfigure itself for all its task needs by regenerating its machine instructions and transforming its data structures & streams towards performance or wattage or other optimization goals. It handles the user specified needs by exposing all of its potential capabilities ( 'what it can do' ) and current activities ( 'why and what its doing now' ) to an interactive dialog in the user's language and style.\n\nJUUL_QUOTE: I realized that the change we were seeking would not come from waiting for people or governments to do “the right thing” with respect to communities, sustainability, and justice. It required too much “zoom out” thinking— seeing the bigger picture, when most people were just trying to get by and raise their families. I saw creating wantware as means of opening up at least one sector of the economy to all people with an idea. To enable users to innovate in their own areas of expertise, solve problems from their unique perspective, own and control those creations, and monetize, trade, or give those creations in a truly free economic ecosystem. The image I always came back to was from the end of the 80’s movie, Solarbabies. One group controls all the water and thus has all the power. The solar babies release the water in such a way that it cannot be easily captured again. The power structure falls."
@@ -171,46 +190,68 @@
 
 		, "TzGrx__Bz_vsg": "Important Notices for Legal, Credit, or Usage rules."
 
+
+
 		, "TzGrx__NzTra_vsg": "How to Use"
-		, "TzGrx__NzTra__Ka_vsg": "Tab: Moves between top-level menu items.\nEnter or Space: Opens submenu.\nEsc: Closes current submenu and returns focus to the trigger.\nArrow Keys: Navigate between submenu items."
+		, "TzGrx__NzTra__Ka_vsg": "⌨️Tab: Moves between top-level ❂Menu items or the sub-menu #️⃣Topics.\n⌨️Enter or Space: Opens a ❂Menu or #️⃣Topic or clicks the focused choice.\n⌨️Esc: Leaves the current #️⃣Topic area and selects the current ❂Menu.\n⌨️Arrow Keys: Navigate between ❂Menus, Topics or Choices items.\n⌨️1~7: Select a ❂Menu or press twice to select a #️⃣Topic.\n⌨️0: Highlight the LAUNCH button."
+
+
 
 		, "TzGrx__NzSmu_vsg": "Notices of Importance"
 			, "TzGrx__NzSmu__Ka_vsg": "Here is important info..."
 
+
+
 		, "TzGrx__NzSpe_vsg": "License Notices"
 			, "TzGrx__NzSpe__Ka_vsg": "Licenses used from..."
+
+
 
 		, "TzGrx__NzChe_vsg": "Legal Notices"
 			, "TzGrx__NzChe__Ka00_vsg": "All media content on this site is licensed as Creative Commons"
 			, "TzGrx__NzChe__Ka01_vsg": "No DRM content is present unless used by yourself or your sharing group, which is legal and allowed."
 			, "TzGrx__NzChe__Ka02_vsg": "Made by Humans for Humans. No 'AI' was used to construct this ecosystem of webpage content, processor instructions, or ideas presented."
-			, "TzGrx__NzChe__Ka03_vsg": "ESRB rating has NOT been applied for yet. This logo serves ONLY GPUBufferUsage.COPY_SRC,as a placeholder for our expected outcome."
+			, "TzGrx__NzChe__Ka03_vsg": "ESRB rating has NOT been applied for yet. This logo serves ONLY as a placeholder for our expected outcome."
 			, "TzGrx__NzChe__Ka04_vsg": "PEGI rating has NOT been applied for yet. This logo serves ONLY as a placeholder for our expected outcome."
 
 		, "TzGrx__NzSo_vsg": "Credit Notices"
 			, "TzGrx__NzSo__Ka_vsg": "Credits go to..."
 
 		, "TzGrx__NzDryKy_vsg": "Company Notices"
-			, "TzGrx__NzDryKy__Ka_vsg": "Copyright 2026 PowerOurPeople.\nLicensed under the Apache License, Version 2.0 (the 'License');\n-- You may not use this file except in compliance with the License.\n-- You may obtain a copy of the License at\n\nhttp://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
-
+		, "TzGrx__NzDryKy__Ka_vsg": "Copyright 2026 PowerOurPeople.\nLicensed under the Apache License, Version 2.0 (the 'License');\n💠 You may not use this file except in compliance with the License.\n💠 You may obtain a copy of the License at\n\nhttp://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
 	}
 
 
-	, "USAGE":
+
+	, "TzKu__NzKeDru__Ta_l":
 	{
-		"TzKe_vsg": "Select Identity, Culture & Security"
-		, "TzTru_vsg": "Decide on Access of Info"
-		, "TzHru_vsg": "Setup Audio Mic and Speakers"
-		, "TzHry_vsg": "Setup Displays, Style, and Quality"
-		, "TzKro_vsg": "Basic information about MicroCosm🗺️SX"
-		, "TzGrx_vsg": "License, Legal, Credit, & Company Notices"
-
-
-		, "TzKe__NzDz__DzNe_vsg": "Choose from previous or defaults Users"
-
-
-		, "TzGrx__NzChe_vsg": "DCMA, GPDR, DRM, PEGI, ESRB, etc."
-		, "TzGrx__NzSo_vsg": "Credits go here"
-		, "TzGrx__NzDryKy_vsg": "Company info goes here"
+		"Ti00": "English"
+		, "Ti01": "Spanish"
 	}
+
+	, "TzKu__NzJo__Ta_l":
+	{
+		"Ti00": "Foyer"
+		, "Ti01": "Kitchen"
+		, "Ti02": "Workshop"
+		, "Ti03": "Basement"
+	}
+
+	, "TzKe__NzDz__Ta_l":
+	{
+		"Ti00": "8 track"
+		, "Ti01": "16 track"
+		, "Ti02": "32 track DSP"
+		, "Ti03": "128 track DSP"
+	}
+
+	, "TzHry__NzSy__Ta_l":
+	{
+		"Ti00": "Compatibility"
+		, "Ti01": "Lowest"
+		, "Ti02": "Average"
+		, "Ti03": "Highest"
+	}
+
+
 }

@@ -1,6 +1,6 @@
-const BriDzSa__Gi_vsg="2026-03-11--14:37"; 
- const BriDzSa__Da_vsg = "PUB_v0.259"; 
- const BriDzSa__Da_wuk = "259"; 
+const BriDzSa__Gi_vsg="2026-03-12--10:48"; 
+ const BriDzSa__Da_vsg = "PUB_v0.260"; 
+ const BriDzSa__Da_wuk = "260"; 
  const BriDz__Mx_KuTu_vsg = "https://powerourpeople.com/"; 
 
 //==============================================
@@ -344,19 +344,19 @@ const KoOPT = Object.freeze
 	, Tz_ToKu_qk: 3 // Domain Info
 	, Tz_Bz_qk: 4 // Domain Headline
 
-	, Nz_KeDru_qk: 5 // Title under Topic
+	, Nz_To_qk: 5 // Topic Info
 	, Nz_Va_qk: 6 // Topic Label
 	, Nz_Ta_qk: 7 // Topic Picker
-	, Nz_HyHo_qk: 8 // Topic Radio
+	, Nz_HyHo_qk: 8 // Topic On/Off
 
-	, Ku_ToSkeTa_qk: 9 // Choice Space
+	, Ku_ToGwa_qk: 9 // Choice Space
 	, _bbb_qk: 10 //
 	, _ccc_qk: 11 //
 
 	, Ne_Tra_qk: 12 // Btn
 	, Ne_VxBra_qk: 13 // Slider
 	, Ne_HyHo_qk: 14 // Checkbox
-	, Ne_NiHu_qk: 15 // Radiogroup
+	, _ddd_qk: 15 //
 
 	, Ne_TaJaPo_qk: 16 // Img Grid
 	, Ne_TiJaPo_qk: 17 // Img Elm
@@ -407,10 +407,10 @@ const Kwi00__TaNeJy_v =
 	, { elm: "div", class: "Ku06__NzTaNe_Gwa" }
 
 	// SPACE
-	// Ku_ToSkeTa_qk
+	// Ku_ToGwa_qk
 	// Ku_bbb_qk
 	// Ku_ccc_qk
-	, { elm: "div", class: "Ku07__ToSkeTa" }
+	, { elm: "div", class: "Ku07__ToGwa" }
 	, { elm: "div", class: "" }
 	, { elm: "div", class: "" }
 
@@ -419,10 +419,10 @@ const Kwi00__TaNeJy_v =
 	// Ne_Tra_qk BTN
 	, { elm: "button", class: "HriNe_Tra TreHy WaDru_Va" }
 	// Ne_VxBra_qk SLIDER
-	, { elm: "meter", class: "" }
+	, { elm: "input", class: "HriNeVo" }
 	// Ne_HyHo_qk CHECKBOX
-	, { elm: "div", class: "" }
-	// Ne_NiHu_qk RADIOGROUP
+	, { elm: "input", class: "MzHyHo" }
+	// _ddd_qk
 	, { elm: "div", class: "" }
 
 	// Ne_TaJaPo_qk IMG GRID
@@ -493,85 +493,9 @@ const Kwi00__TaNe_v=
 		, { Va: "INTRO MSG", Vy: "TzKu__NzYa__Ne00_vsg", Jy: KoOPT.To_GyDe_qk }
 		, { Va: "MAIN MSG", Vy: "TzKu__NzYa__Ne01_vsg", Jy: KoOPT.To_GyDe_qk }
 
+
 		// TESTS
-		, { Va: "NEW USER", Vy: "TzKe__NzDz__ChaDe_vsg", Jy: KoOPT.Ne_Tra_qk, Tra: "TzKe__NzDz__Cha_Tra( false )" }
-		, { Va: "VOLUME", Vy: "TzHru__NzMx__PeVo_vsg", Jy: KoOPT.Ne_VxBra_qk }
-		, { Va: "MUTE", Vy: "TzHru__NzMx__PeHo_vsg", Jy: KoOPT.Ne_HyHo_qk }
-
-
-
-
-	, { Va: "---- WHERE", Vy: "TzKu__NzJo_vsg", JyNo: "TzKe__NzJo__Ta_l", Tra: "Hrz4_Bu__JoChy()", SeVx: 9, Jy: KoOPT.Nz_Ta_qk }
-		, { Va: "SX POSTCARD", JaPo: "JaPo01__SaTrz/SaTrz00__Gx.jpg", Vy: "TzKu__NzJo__JoFe__JaPo_l", Jy: KoOPT.To_JaPoBz_qk }
-		, { Va: "SX LIST", Vy: "TzKu__NzJo__NiJo_vsg", Jy: KoOPT.To_GyDe_qk }
-
-	, { Va: " ---- LANG", Vy: "TzKu__NzKeDru_vsg", JyNo: "TzKu__NzTrz__NiKeDru__Ta_l", Tra: "TzKu__NzTrz__NiKeDru__JeChy(null)", SeVx: 10, Jy: KoOPT.Nz_Ta_qk }
-
-		, { Va: "CUR FLAG", Vy: "TzKu__NzTrz__NiKeDru_q", Tra: "HriNeDe__ChyHryDry( 'TzKu__NzTrz__KeDru_TaJaPo_l' );", Jy: KoOPT.To_GwzSi_qk }
-		, { Va: "LANG IMG GRID", Vy: "TzKu__NzKeDru_vsg", JyNo: "TzKu__NzTrz__KeDru_TaJaPo_l", Jy: KoOPT.Ne_TaJaPo_qk }
-
-	, { Va: "---- NODE", Vy: "TzKu__NzKo_vsg", Jy: KoOPT.Nz_Va_qk }
-
-		, { Va: "DEVICE", Jy: KoOPT.Ku_ToSkeTa_qk }
-			, { Va: "ICON", Vy: "Hra0_Ko__Gwz", JaPo: "JaPo00__Ko/HraKo_De.svg", Jy: KoOPT.To_JaPoVa_Kwu_qk }
-			, { Va: "LABEL", Vy: "TzKu__NzKo__Sy00_vsg", Jy: KoOPT.To_VaSpo_qk }
-			, { Va: "VALUE", Vy: "Hra0_Ko__VaDe", Jy: KoOPT.To_VuSpo_qk }
-
-		, { Va: "OS GRP", Jy: KoOPT.Ku_ToSkeTa_qk }
-			, { Va: "ICON", Vy: "Hrz3_By__Gwz", JaPo: "JaPo00__Ko/HrzBy_De.svg", Jy: KoOPT.To_JaPoVa_Kwu_qk }
-			, { Va: "LABEL", Vy: "TzKu__NzKo__Sy01_vsg", Jy: KoOPT.To_VaSpo_qk }
-			, { Va: "VALUE", Vy: "Hrz3_By__VaDe", Jy: KoOPT.To_VuSpo_qk }
-
-		, { Va: "BROWSER GRP", Jy: KoOPT.Ku_ToSkeTa_qk }
-			, { Va: "ICON", Vy: "Hrz4_Bu__Gwz", JaPo: "JaPo00__Ko/HrzBu_De.svg", Jy: KoOPT.To_JaPoVa_Kwu_qk }
-			, { Va: "LABEL", Vy: "TzKu__NzKo__Sy02_vsg", Jy: KoOPT.To_VaSpo_qk }
-			, { Va: "VALUE", Vy: "Hrz4_Bu__VaDe", Jy: KoOPT.To_VuSpo_qk }
-
-		, { Va: "CPU GRP", Jy: KoOPT.Ku_ToSkeTa_qk }
-			, { Va: "ICON", Vy: "KaBz__Gwz", JaPo: "JaPo00__Ko/Ka_De.svg", Jy: KoOPT.To_JaPoVa_Kwu_qk }
-			, { Va: "LABEL", Vy: "TzKu__NzKo__Sy03_vsg", Jy: KoOPT.To_VaSpo_qk }
-			, { Va: "VALUE", Vy: "KaBz__VaDe", Jy: KoOPT.To_VuSpo_qk }
-
-		, { Va: "GPU GRP", Jy: KoOPT.Ku_ToSkeTa_qk }
-			, { Va: "ICON", Vy: "KaBx__Gwz", JaPo: "JaPo00__Ko/Ka_De.svg", Jy: KoOPT.To_JaPoVa_Kwu_qk }
-			, { Va: "LABEL", Vy: "TzKu__NzKo__Sy04_vsg", Jy: KoOPT.To_VaSpo_qk }
-			, { Va: "VALUE", Vy: "KaBx__VaDe", Jy: KoOPT.To_VuSpo_qk }
-
-		, { Va: "NPU GRP", Jy: KoOPT.Ku_ToSkeTa_qk }
-			, { Va: "ICON", Vy: "KaBa__Gwz", JaPo: "JaPo00__Ko/Ka_De.svg", Jy: KoOPT.To_JaPoVa_Kwu_qk }
-			, { Va: "LABEL", Vy: "TzKu__NzKo__Sy05_vsg", Jy: KoOPT.To_VaSpo_qk }
-			, { Va: "VALUE", Vy: "KaBa__VaDe", Jy: KoOPT.To_VuSpo_qk }
-
-
-
-		, { Va: "---- BUILD", Vy: "TzKu__NzTrz_vsg", Jy: KoOPT.Nz_Va_qk }
-			, { Va: "VER GRP", Jy: KoOPT.Ku_ToSkeTa_qk }
-				, { Va: "LABEL", Vy: "TzKu__NzTrz__BriDzSa__Da_vsg", Jy: KoOPT.To_VaSpo_qk }
-				, { Va: "VALUE", Vy: "BriDzSa__Gi", Jy: KoOPT.To_VuSpo_qk }
-				, { Va: "VALUE", Vy: "BriDzSa__Da", Jy: KoOPT.To_VuSpo_qk }
-
-			, { Va: "NEW GRP", Jy: KoOPT.Ku_ToSkeTa_qk }
-				, { Va: "LABEL", Vy: "TzKu__NzTrz__TyCha_Va_vsg", Jy: KoOPT.To_VaSpo_qk }
-				, { Va: "VALUE", Vy: "TzKu__NzTrz__TyCha_Hx_vsg", Jy: KoOPT.To_VuSpo_qk }
-			, { Va: "SOON GRP", Jy: KoOPT.Ku_ToSkeTa_qk }
-				, { Va: "LABEL", Vy: "TzKu__NzTrz__TyFa_Va_vsg", Jy: KoOPT.To_VaSpo_qk }
-				, { Va: "VALUE", Vy: "TzKu__NzTrz__TyFa_Hx_vsg", Jy: KoOPT.To_VuSpo_qk }
-
-
-		, { Va: "---- INVESTIGATE", Vy: "TzKu__NzSme_vsg", Jy: KoOPT.Nz_Va_qk }
-			, { Va: "CONSIDER GRP", Jy: KoOPT.Ku_ToSkeTa_qk }
-				, { Va: "LABEL", Vy: "TzKu__NzSme__JzHa_Va_vsg", Jy: KoOPT.To_VaSpo_qk }
-				, { Va: "VALUE", Vy: "TzKu__NzSme__JzHa_Hx_vsg", Jy: KoOPT.To_VuSpo_qk }
-		, { Va: "TEST GRP", Jy: KoOPT.Ku_ToSkeTa_qk }
-				, { Va: "LABEL", Vy: "TzKu__NzSme__JiHa_Va_vsg", Jy: KoOPT.To_VaSpo_qk }
-				, { Va: "VALUE", Vy: "TzKu__NzSme__JiHa_Hx_vsg", Jy: KoOPT.To_VuSpo_qk }
-			, { Va: "WARN GRP", Jy: KoOPT.Ku_ToSkeTa_qk }
-				, { Va: "LABEL", Vy: "TzKu__NzSme__DreTrx_Va_vsg", Jy: KoOPT.To_VaSpo_qk }
-				, { Va: "VALUE", Vy: "TzKu__NzSme__DreTrx_Hx_vsg", Jy: KoOPT.To_VuSpo_qk }
-
-
-			// TEST
-		// , { Va: "V-LABEL HW", Vy: "TzSme_vsg", Jy: KoOPT.Nz_Va_qk }
+		// TEST
 		// 	, { Va: "TST IMG LABEL", JaPo: "JaPo00__Ko/HrzBu_EDGE.svg", Vy: "TzKu__NzKo__", Jy: KoOPT.To_JaPoVa_Kwu_qk }
 		// 	, { Va: "TST IMG SRC", JaPo: "JaPo04__KuPy/mx.svg", Vy: "TzKu__NzKo__", Jy: KoOPT.To_JaPoSi_qk }
 
@@ -579,15 +503,89 @@ const Kwi00__TaNe_v=
 		//	, { Va: "V-LABEL SW", Vy: "_vsg", Jy: KoOPT.To_GoGa_qk }
 		//, { Va: "TST IMG FRAMED", JaPo: "JaPo00__Ko/HrzBu_SAFARI.svg", Vy: "TzKu__NzKo__", Jy: KoOPT.To_JaPoBz_qk }
 
+	, { Va: "---- TEST", Vy: "TzHry__NzSy_vsg", Tra: "TzHry__NzSy__SmzYz__TaChy()", SeVx: 2, Jy: KoOPT.Nz_Ta_qk }
+		, { Va: "NEW USER", Vy: "TzKe__NzDz__ChaDe_vsg", Jy: KoOPT.Ne_Tra_qk, Tra: "TzKe__NzDz__Cha_Tra( false )" }
+		, { Va: "VOLUME", Vy: "TzHru__NzMx__PeVo_vsg", Jy: KoOPT.Ne_VxBra_qk }
+		, { Va: "MUTE", Vy: "TzHru__NzMx__PeHo_vsg", Jy: KoOPT.Ne_HyHo_qk }
+
+
+	, { Va: "---- WHERE", Vy: "TzKu__NzJo_vsg", Tra: "Hrz4_Bu__JoChy()", SeVx: 9, Jy: KoOPT.Nz_Ta_qk }
+		, { Va: "SX POSTCARD", JaPo: "JaPo01__SaTrz/SaTrz00__Gx.jpg", Vy: "TzKu__NzJo__JoFe__JaPo_l", Jy: KoOPT.To_JaPoBz_qk }
+		, { Va: "SX LIST", Vy: "TzKu__NzJo__NiJo_vsg", Jy: KoOPT.To_GyDe_qk }
+
+
+	, { Va: " ---- LANG", Vy: "TzKu__NzKeDru_vsg", Tra: "TzKu__NzTrz__NiKeDru__JeChy(null)", SeVx: 10, Jy: KoOPT.Nz_Ta_qk }
+
+		, { Va: "CUR FLAG", Vy: "TzKu__NzTrz__NiKeDru_q", Tra: "HriNeDe__ChyHryDry( 'TzKu__NzTrz__KeDru_TaJaPo_l' );", Jy: KoOPT.To_GwzSi_qk }
+		// , { Va: "LANG IMG GRID", Vy: "TzKu__NzKeDruJaPo_vsg", JyNo: "TzKu__NzTrz__KeDru_TaJaPo_l", Jy: KoOPT.Ne_TaJaPo_qk }
+
+
+	, { Va: "---- NODE", Vy: "TzKu__NzKo_vsg", Jy: KoOPT.Nz_Va_qk }
+
+		, { Va: "DEVICE", Jy: KoOPT.Ku_ToGwa_qk }
+			, { Va: "ICON", Vy: "Hra0_Ko__Gwz", JaPo: "JaPo00__Ko/HraKo_De.svg", Jy: KoOPT.To_JaPoVa_Kwu_qk }
+			, { Va: "LABEL", Vy: "TzKu__NzKo__Sy00_vsg", Jy: KoOPT.To_VaSpo_qk }
+			, { Va: "VALUE", Vy: "Hra0_Ko__VaDe", Jy: KoOPT.To_VuSpo_qk }
+
+		, { Va: "OS GRP", Jy: KoOPT.Ku_ToGwa_qk }
+			, { Va: "ICON", Vy: "Hrz3_By__Gwz", JaPo: "JaPo00__Ko/HrzBy_De.svg", Jy: KoOPT.To_JaPoVa_Kwu_qk }
+			, { Va: "LABEL", Vy: "TzKu__NzKo__Sy01_vsg", Jy: KoOPT.To_VaSpo_qk }
+			, { Va: "VALUE", Vy: "Hrz3_By__VaDe", Jy: KoOPT.To_VuSpo_qk }
+
+		, { Va: "BROWSER GRP", Jy: KoOPT.Ku_ToGwa_qk }
+			, { Va: "ICON", Vy: "Hrz4_Bu__Gwz", JaPo: "JaPo00__Ko/HrzBu_De.svg", Jy: KoOPT.To_JaPoVa_Kwu_qk }
+			, { Va: "LABEL", Vy: "TzKu__NzKo__Sy02_vsg", Jy: KoOPT.To_VaSpo_qk }
+			, { Va: "VALUE", Vy: "Hrz4_Bu__VaDe", Jy: KoOPT.To_VuSpo_qk }
+
+		, { Va: "CPU GRP", Jy: KoOPT.Ku_ToGwa_qk }
+			, { Va: "ICON", Vy: "KaBz__Gwz", JaPo: "JaPo00__Ko/Ka_De.svg", Jy: KoOPT.To_JaPoVa_Kwu_qk }
+			, { Va: "LABEL", Vy: "TzKu__NzKo__Sy03_vsg", Jy: KoOPT.To_VaSpo_qk }
+			, { Va: "VALUE", Vy: "KaBz__VaDe", Jy: KoOPT.To_VuSpo_qk }
+
+		, { Va: "GPU GRP", Jy: KoOPT.Ku_ToGwa_qk }
+			, { Va: "ICON", Vy: "KaBx__Gwz", JaPo: "JaPo00__Ko/Ka_De.svg", Jy: KoOPT.To_JaPoVa_Kwu_qk }
+			, { Va: "LABEL", Vy: "TzKu__NzKo__Sy04_vsg", Jy: KoOPT.To_VaSpo_qk }
+			, { Va: "VALUE", Vy: "KaBx__VaDe", Jy: KoOPT.To_VuSpo_qk }
+
+		, { Va: "NPU GRP", Jy: KoOPT.Ku_ToGwa_qk }
+			, { Va: "ICON", Vy: "KaBa__Gwz", JaPo: "JaPo00__Ko/Ka_De.svg", Jy: KoOPT.To_JaPoVa_Kwu_qk }
+			, { Va: "LABEL", Vy: "TzKu__NzKo__Sy05_vsg", Jy: KoOPT.To_VaSpo_qk }
+			, { Va: "VALUE", Vy: "KaBa__VaDe", Jy: KoOPT.To_VuSpo_qk }
+
+
+		, { Va: "---- BUILD", Vy: "TzKu__NzTrz_vsg", Jy: KoOPT.Nz_Va_qk }
+			, { Va: "VER GRP", Jy: KoOPT.Ku_ToGwa_qk }
+				, { Va: "LABEL", Vy: "TzKu__NzTrz__BriDzSa__Da_vsg", Jy: KoOPT.To_VaSpo_qk }
+				, { Va: "VALUE", Vy: "BriDzSa__Gi", Jy: KoOPT.To_VuSpo_qk }
+				, { Va: "VALUE", Vy: "BriDzSa__Da", Jy: KoOPT.To_VuSpo_qk }
+
+			, { Va: "NEW GRP", Jy: KoOPT.Ku_ToGwa_qk }
+				, { Va: "LABEL", Vy: "TzKu__NzTrz__TyCha_Va_vsg", Jy: KoOPT.To_VaSpo_qk }
+				, { Va: "VALUE", Vy: "TzKu__NzTrz__TyCha_Hx_vsg", Jy: KoOPT.To_VuSpo_qk }
+			, { Va: "SOON GRP", Jy: KoOPT.Ku_ToGwa_qk }
+				, { Va: "LABEL", Vy: "TzKu__NzTrz__TyFa_Va_vsg", Jy: KoOPT.To_VaSpo_qk }
+				, { Va: "VALUE", Vy: "TzKu__NzTrz__TyFa_Hx_vsg", Jy: KoOPT.To_VuSpo_qk }
+
+
+		, { Va: "---- INVESTIGATE", Vy: "TzKu__NzSme_vsg", Jy: KoOPT.Nz_Va_qk }
+			, { Va: "CONSIDER GRP", Jy: KoOPT.Ku_ToGwa_qk }
+				, { Va: "LABEL", Vy: "TzKu__NzSme__JzHa_Va_vsg", Jy: KoOPT.To_VaSpo_qk }
+				, { Va: "VALUE", Vy: "TzKu__NzSme__JzHa_Hx_vsg", Jy: KoOPT.To_VuSpo_qk }
+		, { Va: "TEST GRP", Jy: KoOPT.Ku_ToGwa_qk }
+				, { Va: "LABEL", Vy: "TzKu__NzSme__JiHa_Va_vsg", Jy: KoOPT.To_VaSpo_qk }
+				, { Va: "VALUE", Vy: "TzKu__NzSme__JiHa_Hx_vsg", Jy: KoOPT.To_VuSpo_qk }
+			, { Va: "WARN GRP", Jy: KoOPT.Ku_ToGwa_qk }
+				, { Va: "LABEL", Vy: "TzKu__NzSme__DreTrx_Va_vsg", Jy: KoOPT.To_VaSpo_qk }
+				, { Va: "VALUE", Vy: "TzKu__NzSme__DreTrx_Hx_vsg", Jy: KoOPT.To_VuSpo_qk }
 
 	//=========================================
 	// 1 WHO
 	, { Va: "WHO", Vy: "NeKu01", Jy: KoOPT.Tz_MoKu_qk }
 	//=========================================
 
-	, { Va: "USER", Vy: "TzKe__NzDz_vsg", JyNo: "TzKe__NzDz__Ta_l", Jy: KoOPT.Nz_Ta_qk }
+	, { Va: "USER", Vy: "TzKe__NzDz_vsg", Jy: KoOPT.Nz_Ta_qk }
 	, { Va: "PROFILE", Vy: "TzKe__NzJa_vsg", Jy: KoOPT.Nz_Va_qk }
-	, { Va: "SECURITY", Vy: "TzKe__NzChe_vsg", JyNo: "TzKe__NzChe_y", De: "false", Jy: KoOPT.Nz_HyHo_qk }
+	, { Va: "SECURITY", Vy: "TzKe__NzChe_vsg", De: "false", Jy: KoOPT.Nz_HyHo_qk }
 
 
 	//=========================================
@@ -634,16 +632,16 @@ const Kwi00__TaNe_v=
 	//=========================================
 	, { Va: "HEADLINE", Vy: "TzKro__Bz_vsg", Jy: KoOPT.Tz_Bz_qk }
 
-	, { Va: "TOPIC 00", Vy: "TzKro__Nz00_vsg", Jy: KoOPT.Nz_KeDru_qk }
+	, { Va: "TOPIC 00", Vy: "TzKro__Nz00_vsg", Jy: KoOPT.Nz_To_qk }
 		, { Va: "BODY", Vy: "TzKro__Nz00__Ka_vsg", Jy: KoOPT.Ne_KeDru_GyHi_qk }
 
-	, { Va: "TOPIC 01", Vy: "TzKro__Nz01_vsg", Jy: KoOPT.Nz_KeDru_qk }
+	, { Va: "TOPIC 01", Vy: "TzKro__Nz01_vsg", Jy: KoOPT.Nz_To_qk }
 		, { Va: "BODY", Vy: "TzKro__Nz01__Ka_vsg", Jy: KoOPT.Ne_KeDru_GyHi_qk }
 
-	, { Va: "TOPIC 02", Vy: "TzKro__Nz02_vsg", Jy: KoOPT.Nz_KeDru_qk }
+	, { Va: "TOPIC 02", Vy: "TzKro__Nz02_vsg", Jy: KoOPT.Nz_To_qk }
 		, { Va: "BODY", Vy: "TzKro__Nz02__Ka_vsg", Jy: KoOPT.Ne_KeDru_GyHi_qk }
 
-	, { Va: "TOPIC 03", Vy: "TzKro__Nz03_vsg", Jy: KoOPT.Nz_KeDru_qk }
+	, { Va: "TOPIC 03", Vy: "TzKro__Nz03_vsg", Jy: KoOPT.Nz_To_qk }
 		, { Va: "BODY", Vy: "TzKro__Nz03__Ka_vsg", Jy: KoOPT.Ne_KeDru_GyHi_qk }
 
 
@@ -653,42 +651,42 @@ const Kwi00__TaNe_v=
 	//=========================================
 	, { Va: "HEADLINE", Vy: "TzGrx__Bz_vsg", Jy: KoOPT.Tz_Bz_qk }
 
-	, { Va: "USAGE", Vy: "TzGrx__NzTra_vsg", Jy: KoOPT.Nz_KeDru_qk }
+	, { Va: "USAGE", Vy: "TzGrx__NzTra_vsg", Jy: KoOPT.Nz_Va_qk }
 		, { Va: "BODY", Vy: "TzGrx__NzTra__Ka_vsg", Jy: KoOPT.Ne_KeDru_GyHi_qk }
 
-	, { Va: "PRIORITY", Vy: "TzGrx__NzSmu_vsg", Jy: KoOPT.Nz_KeDru_qk }
+	, { Va: "PRIORITY", Vy: "TzGrx__NzSmu_vsg", Jy: KoOPT.Nz_To_qk }
 		, { Va: "BODY", Vy: "TzGrx__NzSmu__Ka_vsg", Jy: KoOPT.Ne_KeDru_GyHi_qk }
 
-	, { Va: "LICENSE", Vy: "TzGrx__NzSpe_vsg", Jy: KoOPT.Nz_KeDru_qk }
+	, { Va: "LICENSE", Vy: "TzGrx__NzSpe_vsg", Jy: KoOPT.Nz_To_qk }
 		, { Va: "BODY", Vy: "TzGrx__NzSpe__Ka_vsg", Jy: KoOPT.Ne_KeDru_GyHi_qk }
 
 
 	, { Va: "CERT", Vy: "TzGrx__NzChe_vsg", Jy: KoOPT.Nz_Va_qk }
-		, { Va: "CERT GRP", Jy: KoOPT.Ku_ToSkeTa_qk }
+		, { Va: "CERT GRP", Jy: KoOPT.Ku_ToGwa_qk }
 			, { Va: "CERT LOGO", JaPo: "JaPo00__Ko/Grx00__CC.svg", Jy: KoOPT.To_JaPoSi_qk }
 			, { Va: "CERT TXT", Vy: "TzGrx__NzChe__Ka00_vsg", Jy: KoOPT.Ne_KeDru_GyHi_qk }
 
-		, { Va: "CERT GRP", Jy: KoOPT.Ku_ToSkeTa_qk }
+		, { Va: "CERT GRP", Jy: KoOPT.Ku_ToGwa_qk }
 			, { Va: "CERT LOGO", JaPo: "JaPo00__Ko/Grx01__DRMFREE.svg", Jy: KoOPT.To_JaPoSi_qk }
 			, { Va: "CERT TXT", Vy: "TzGrx__NzChe__Ka01_vsg", Jy: KoOPT.Ne_KeDru_GyHi_qk }
 
-		, { Va: "CERT GRP", Jy: KoOPT.Ku_ToSkeTa_qk }
+		, { Va: "CERT GRP", Jy: KoOPT.Ku_ToGwa_qk }
 			, { Va: "CERT LOGO", JaPo: "JaPo00__Ko/Grx02__AHI.svg", Jy: KoOPT.To_JaPoSi_qk }
 			, { Va: "CERT TXT", Vy: "TzGrx__NzChe__Ka02_vsg", Jy: KoOPT.Ne_KeDru_GyHi_qk }
 
-		, { Va: "CERT GRP", Jy: KoOPT.Ku_ToSkeTa_qk }
+		, { Va: "CERT GRP", Jy: KoOPT.Ku_ToGwa_qk }
 			, { Va: "CERT LOGO", JaPo: "JaPo00__Ko/Grx03__ESRB_E.svg", Jy: KoOPT.To_JaPoSi_qk }
 			, { Va: "CERT TXT", Vy: "TzGrx__NzChe__Ka03_vsg", Jy: KoOPT.Ne_KeDru_GyHi_qk }
 
-		, { Va: "CERT GRP", Jy: KoOPT.Ku_ToSkeTa_qk }
+		, { Va: "CERT GRP", Jy: KoOPT.Ku_ToGwa_qk }
 			, { Va: "CERT LOGO", JaPo: "JaPo00__Ko/Grx04__PEGI_OK.svg", Jy: KoOPT.To_JaPoSi_qk }
 			, { Va: "CERT TXT", Vy: "TzGrx__NzChe__Ka04_vsg", Jy: KoOPT.Ne_KeDru_GyHi_qk }
 
 
-	, { Va: "CREDIT", Vy: "TzGrx__NzSo_vsg", Jy: KoOPT.Nz_KeDru_qk }
+	, { Va: "CREDIT", Vy: "TzGrx__NzSo_vsg", Jy: KoOPT.Nz_To_qk }
 		, { Va: "BODY", Vy: "TzGrx__NzSo__Ka_vsg", Jy: KoOPT.Ne_KeDru_GyHi_qk }
 
-	, { Va: "COMPANY", Vy: "TzGrx__NzDryKy_vsg", Jy: KoOPT.Nz_KeDru_qk }
+	, { Va: "COMPANY", Vy: "TzGrx__NzDryKy_vsg", Jy: KoOPT.Nz_To_qk }
 		, { Va: "BODY", Vy: "TzGrx__NzDryKy__Ka_vsg", Jy: KoOPT.Ne_KeDru_GyHi_qk }
 
 	//=========================================
@@ -1490,7 +1488,7 @@ function Hrz4_Bu__KwiYz__HriNe_MyYy()
 
 	//@@@
 	// LANG LIST SELECTION
-	document.getElementById( "TzKu__NzTrz__NiKeDru__Ta_l" ).selectedIndex = KwiYz_k.KeDru_wu;
+	document.getElementById( "TzKu__NzKeDru__Ta_l" ).selectedIndex = KwiYz_k.KeDru_wu;
 
 	//@@@
 	// SET LANG_ICON
@@ -1700,7 +1698,7 @@ function Hrz4_Bu__KwiYz__Ko_ChyYe()
 
 	KwiYz_k.TzHry__NzSy__HriKe_y = false; // document.getElementById( "TzHry__NzSy__HriKe_y" ).value;
 
-	//document.getElementById( "TzHry__NzSy__SmzYz__Ta_l" ).selectedIndex = KwiYz_k.KeDru_wu;
+	//document.getElementById( "TzHry__NzSy__Ta_l" ).selectedIndex = KwiYz_k.KeDru_wu;
 
 */
 
@@ -1836,22 +1834,22 @@ async function Hre1_Dru__KeDru_ChyVx( KeDru_wuk )
 
 	//@@@
 	// REPLACE CORE LAUNCH-ERR MSGS
-	KoSy__KwiGru_KeDru_l.BriDz00__VaDe_vsg = KeDru_l.LABELS.BriDz00__VaDe_vsg;
+	KoSy__KwiGru_KeDru_l.BriDz00__VaDe_vsg = KeDru_l.HriNe.BriDz00__VaDe_vsg;
 	// BriDz01 is 'LAUNCH' which isn't used if LAUNCH-ERR
-	KoSy__KwiGru_KeDru_l.BriDz02__TrxBz_vsg = KeDru_l.LABELS.BriDz02__TrxBz_vsg;
-	KoSy__KwiGru_KeDru_l.BriDz03__TrxKrx_vsg = KeDru_l.LABELS.BriDz03__TrxKrx_vsg;
-	KoSy__KwiGru_KeDru_l.BriDz04__TrxTaSma_vsg = KeDru_l.LABELS.BriDz04__TrxTaSma_vsg;
+	KoSy__KwiGru_KeDru_l.BriDz02__TrxBz_vsg = KeDru_l.HriNe.BriDz02__TrxBz_vsg;
+	KoSy__KwiGru_KeDru_l.BriDz03__TrxKrx_vsg = KeDru_l.HriNe.BriDz03__TrxKrx_vsg;
+	KoSy__KwiGru_KeDru_l.BriDz04__TrxTaSma_vsg = KeDru_l.HriNe.BriDz04__TrxTaSma_vsg;
 
 
 	//@@@
 	// SUBMIT BTN
 	const HriNe_KwiVu_k = document.getElementById( 'BriDz01_TraKwi_vsg' );
-	HriNe_KwiVu_k.value = KeDru_l.LABELS.BriDz01_TraKwi_vsg;
+	HriNe_KwiVu_k.value = KeDru_l.HriNe.BriDz01_TraKwi_vsg;
 
 
 	//@@@
 	// UPDATE LABELS
-	Object.entries( KeDru_l.LABELS ).forEach
+	Object.entries( KeDru_l.HriNe ).forEach
 	(
 		function ( [ Vy_vbg, Va_vbg ] )
 		{
@@ -1865,9 +1863,9 @@ async function Hre1_Dru__KeDru_ChyVx( KeDru_wuk )
 
 	//@@@
 	// UPDATE USAGE
-	SmaDBG( "[CUL] USAGE:", KeDru_l.USAGE );
+	SmaDBG( "[CUL] USAGE:", KeDru_l.VaHx );
 	// Used ONLY at Runtime via Toggle
-	// Object.entries( KeDru_l.USAGE ).forEach
+	// Object.entries( KeDru_l.VaHx ).forEach
 	// (
 	// 	function ( [ Vy_vbg, Va_vbg ] )
 	// 	{
@@ -1885,9 +1883,9 @@ async function Hre1_Dru__KeDru_ChyVx( KeDru_wuk )
 //-------------------------------------------------
 function TzKu__NzTrz__NiKeDru__JeChy( KeDru_wuk )
 {
-	const TzKu__NzTrz__NiKeDru__Ta_l = document.getElementById( 'TzKu__NzTrz__NiKeDru__Ta_l' );
-	SmaJe( "CHG!", TzKu__NzTrz__NiKeDru__Ta_l );
-	Hre1_Dru__KeDru_ChyVx( ( KeDru_wuk !== null )? KeDru_wuk : TzKu__NzTrz__NiKeDru__Ta_l.selectedIndex );
+	const TzKu__NzKeDru__Ta_l = document.getElementById( 'TzKu__NzKeDru__Ta_l' );
+	SmaJe( "CHG!", TzKu__NzKeDru__Ta_l );
+	Hre1_Dru__KeDru_ChyVx( ( KeDru_wuk !== null )? KeDru_wuk : TzKu__NzKeDru__Ta_l.selectedIndex );
 
 
 	//@@@
@@ -2120,6 +2118,173 @@ function Hrz4_Bu__TaKeDy__ChyGry()
 // USR END
 //=====================================
 //==============================================
+// GUI THEME
+// TINTS & LIGHT vs DARK MODEs
+//==============================================
+
+//-------------------------------------------------
+// CLR MODES
+//-------------------------------------------------
+const TaPoSz_v =
+[
+	{
+		Va: "Light Mode"
+		, PoGwyFz: "#CCCA"	// PANEL__OUTER_TOPIC
+
+		, PoKuDe: "#DDDA" // SECTION BG
+		, PoKuTraHo: "#CCC8" // MENU TITLE BG
+		, PoKuTraHy: "#FFF8" // MENU SELECT TITLE BG
+		, PoKuTz: "#CCCF" // DOMAIN BG
+		, PoKuStuVo: "#AAA8" // SECTION LINE
+
+		, PoBre: "#BBB" // PANEL MISC
+		, PoBreHu: "#BBB4"	// CHOOSE GROUP
+		, PoBreVo: "#BBB8"	// FADED ELM
+		, PoBreSpo: "#BBBF" // SPRITE SELECTOR
+
+		, PoSeVu:"#666" // CFG VALUE
+		, PoSoSmo: "#555"	// TXT SHADOW
+
+		, PoSi: "#000" // MAIN TXT
+		, PoSiSpo: "#000F" // ACTIVE
+
+		, PoSmo: "#BBB" // FONT 3D SHADOW
+		, PoSmuTra: "#D22"	// ACTIVATE
+		, PoSmuSe: "#2A2" // GO
+	}
+	,
+	{
+		Va: "Dark Mode"
+		, PoGwyFz: "#000A" //PANEL__OUTER_TOPIC
+
+		, PoKuDe: "#222A" //SECTION BG
+		, PoKuTraHy: "#0008" //MENU SELECT TITLE BG
+		, PoKuTraHo: "#4448" //MENU TITLE BG
+		, PoKuTz: "#444F" //DOMAIN BG
+		, PoKuStuVo: "#6668" //SECTION LINE
+
+		, PoBre: "#888" //PANEL MISC
+		, PoBreHu: "#8884" //CHOOSE GROUP
+		, PoBreVo: "#8888" //FADED ELM
+		, PoBreSpo: "#888F" //SPRITE SELECTOR
+
+		, PoSeVu:"#CCC" //CFG VALUE
+		, PoSoSmo: "#999" // TXT SHADOW
+
+		, PoSi: "#FFF" //MAIN TXT
+		, PoSiSpo: "#FFFF" //ACTIVE
+
+		, PoSmo: "#777" //FONT 3D SHADOW
+		, PoSmuTra: "#D22" //ACTIVATE
+		, PoSmuSe: "#2A2" // GO
+	}
+	,
+	{
+		Va: "Warm Mode"
+		, PoGwyFz: "#4007" //PANEL__OUTER_TOPIC
+
+		, PoKuDe: "#500A" //SECTION BG
+		, PoKuTraHy: "#7118" //MENU SELECT TITLE BG
+		, PoKuTraHo: "#A118" //MENU TITLE BG
+		, PoKuTz: "#A11F" //DOMAIN BG
+		, PoKuStuVo: "#D008" //SECTION LINE
+
+		, PoBre: "#D66" //PANEL MISC
+		, PoBreHu: "#D664" //CHOOSE GROUP
+		, PoBreVo: "#D888" //FADED ELM
+		, PoBreSpo: "#D88F" //SPRITE SELECTOR
+
+		, PoSeVu:"#FCC" //CFG VALUE
+		, PoSoSmo: "#A66" // TXT SHADOW
+
+		, PoSi: "#FFF" //MAIN TXT
+		, PoSiSpo: "#FFFF" //ACTIVE
+
+		, PoSmo: "#B66" //FONT 3D SHADOW
+		, PoSmuTra: "#D92" //ACTIVATE
+		, PoSmuSe: "#2A2" // GO
+	}
+	,
+	{
+		Va: "Cool Mode"
+		, PoGwyFz: "#0047" //PANEL__OUTER_TOPIC
+
+		, PoKuDe: "#005A" //SECTION BG
+		, PoKuTraHy: "#1178" //MENU SELECT TITLE BG
+		, PoKuTraHo: "#11A8" //MENU TITLE BG
+		, PoKuTz: "#11AF" //DOMAIN BG
+		, PoKuStuVo: "#00D8" //SECTION LINE
+
+		, PoBre: "#66D" //PANEL MISC
+		, PoBreHu: "#66D4" //CHOOSE GROUP
+		, PoBreVo: "#88D8" //FADED ELM
+		, PoBreSpo: "#88DF" //SPRITE SELECTOR
+
+		, PoSeVu:"#CCF" //CFG VALUE
+		, PoSoSmo: "#66A" // TXT SHADOW
+		, PoSi: "#FFF" //MAIN TXT
+		, PoSiSpo: "#FFFF" //ACTIVE
+
+		, PoSmo: "#66B" //FONT 3D SHADOW
+		, PoSmuTra: "#D22" //ACTIVATE
+		, PoSmuSe: "#2A2" // GO
+	}
+];
+
+//-------------------------------------------------
+// SET MODES
+//-------------------------------------------------
+function HriNeDe__PoSzChy( Sz_q )
+{
+	const PoSz_k = TaPoSz_v[ Sz_q ];
+	const FzKz_k = document.documentElement;
+
+	for( const Ty_k in PoSz_k )
+	{
+		FzKz_k.style.setProperty( "--" + Ty_k, PoSz_k[ Ty_k ] );
+	};
+}
+
+//-------------------------------------------------
+// HANDLE CHANGE
+//-------------------------------------------------
+function HriNeDe__PoSzJe( e )
+{
+	if( e.matches )
+	{
+    	SmaSy( "[GUI] Dark mode" );
+		HriNeDe__PoSzChy( 1 );
+  	}
+	else
+	{
+    	SmaSy( "[GUI] Light mode" );
+		HriNeDe__PoSzChy( 0 );
+  	}
+}
+
+
+//-------------------------------------------------
+// STARTUP
+//-------------------------------------------------
+function HriNeDe__PoSzYa()
+{
+	//@@@
+	// GET LIGHT/DARK MODE
+	const PoSz_Stz_k = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)');
+	if( !PoSz_Stz_k ) return;
+
+	//@@@
+	// SET or USE CFG?
+	// HriNeDe__PoSzJe( PoSz_Stz_k );
+	// HACKED to specific mode
+	HriNeDe__PoSzChy( 1 );
+
+	//@@@
+	// EVT LISTENER
+	PoSz_Stz_k.addEventListener('change', HriNeDe__PoSzJe);
+}
+
+//==============================================
 // GUI ELEMENTS
 /*
 - Using HTML Web PAGE to setup initial CFG ( w/o WG GUI ):
@@ -2261,175 +2426,6 @@ function HriNeDe__ChySeTra( Vy_vsg )
 	e.focus();
 }
 
-
-//==============================================
-// LIGHT vs DARK MODEs
-//==============================================
-
-//-------------------------------------------------
-// CLR MODES
-//-------------------------------------------------
-const TaPoSz_v =
-[
-	{
-		Va: "Light Mode"
-		, PoGwy: "#FFF0" // BASE PALETTE
-		, PoGwyDe: "#CCCA"	// PANEL__OUTER_TOPIC
-
-		, PoKuDe: "#DDDA" // SECTION BG
-		, PoKuTraHo: "#CCC8" // MENU TITLE BG
-		, PoKuTraHy: "#FFF8" // MENU SELECT TITLE BG
-		, PoKuTz: "#CCCF" // DOMAIN BG
-		, PoKuStuVo: "#AAA8" // SECTION LINE
-
-		, PoBre: "#BBB" // PANEL MISC
-		, PoBreHu: "#BBB4"	// CHOOSE GROUP
-		, PoBreVo: "#BBB8"	// FADED ELM
-		, PoBreSpo: "#BBBF" // SPRITE SELECTOR
-
-		, PoTraFre:"#666" // CFG VALUE
-		, PoTraFra: "#555"	// MENU BG
-		, PoSi: "#000" // MAIN TXT
-		, PoSiSpo: "#000F" // ACTIVE
-
-		, PoSmo: "#BBB" // FONT 3D SHADOW
-		, PoSmuTra: "#D22"	// ACTIVATE
-		, PoSmuSe: "#2A2" // GO
-	}
-	,
-	{
-		Va: "Dark Mode"
-		, PoGwy: "#0000" //BASE PALETTE
-		, PoGwyDe: "#000A" //PANEL__OUTER_TOPIC
-
-		, PoKuDe: "#222A" //SECTION BG
-		, PoKuTraHy: "#0008" //MENU SELECT TITLE BG
-		, PoKuTraHo: "#4448" //MENU TITLE BG
-		, PoKuTz: "#444F" //DOMAIN BG
-		, PoKuStuVo: "#6668" //SECTION LINE
-
-		, PoBre: "#888" //PANEL MISC
-		, PoBreHu: "#8884" //CHOOSE GROUP
-		, PoBreVo: "#8888" //FADED ELM
-		, PoBreSpo: "#888F" //SPRITE SELECTOR
-
-		, PoTraFre:"#CCC" //CFG VALUE
-		, PoTraFra: "#999" //MENU BG
-		, PoSi: "#FFF" //MAIN TXT
-		, PoSiSpo: "#FFFF" //ACTIVE
-
-		, PoSmo: "#777" //FONT 3D SHADOW
-		, PoSmuTra: "#D22" //ACTIVATE
-		, PoSmuSe: "#2A2" // GO
-	}
-	,
-	{
-		Va: "Warm Mode"
-		, PoGwy: "#4000" //BASE PALETTE
-		, PoGwyDe: "#500A" //PANEL__OUTER_TOPIC
-
-		, PoKuDe: "#700A" //SECTION BG
-		, PoKuTraHy: "#5008" //MENU SELECT TITLE BG
-		, PoKuTraHo: "#7228" //MENU TITLE BG
-		, PoKuTz: "#722F" //DOMAIN BG
-		, PoKuStuVo: "#9448" //SECTION LINE
-
-		, PoBre: "#C66" //PANEL MISC
-		, PoBreHu: "#C664" //CHOOSE GROUP
-		, PoBreVo: "#C888" //FADED ELM
-		, PoBreSpo: "#C88F" //SPRITE SELECTOR
-
-		, PoTraFre:"#FCC" //CFG VALUE
-		, PoTraFra: "#966" //MENU BG
-		, PoSi: "#FFF" //MAIN TXT
-		, PoSiSpo: "#FFFF" //ACTIVE
-
-		, PoSmo: "#B66" //FONT 3D SHADOW
-		, PoSmuTra: "#D22" //ACTIVATE
-		, PoSmuSe: "#2A2" // GO
-	}
-	,
-	{
-		Va: "Cool Mode"
-		, PoGwy: "#0000" //BASE PALETTE
-		, PoGwyDe: "#000A" //PANEL__OUTER_TOPIC
-
-		, PoKuDe: "#222A" //SECTION BG
-		, PoKuTraHy: "#0008" //MENU SELECT TITLE BG
-		, PoKuTraHo: "#4448" //MENU TITLE BG
-		, PoKuTz: "#444F" //DOMAIN BG
-		, PoKuStuVo: "#6668" //SECTION LINE
-
-		, PoBre: "#888" //PANEL MISC
-		, PoBreHu: "#8884" //CHOOSE GROUP
-		, PoBreVo: "#8888" //FADED ELM
-		, PoBreSpo: "#888F" //SPRITE SELECTOR
-
-		, PoTraFre:"#CCC" //CFG VALUE
-		, PoTraFra: "#999" //MENU BG
-		, PoSi: "#FFF" //MAIN TXT
-		, PoSiSpo: "#FFFF" //ACTIVE
-
-		, PoSmo: "#777" //FONT 3D SHADOW
-		, PoSmuTra: "#D22" //ACTIVATE
-		, PoSmuSe: "#2A2" // GO
-	}
-];
-
-//-------------------------------------------------
-// SET MODES
-//-------------------------------------------------
-function HriNeDe__PoSzChy( Sz_q )
-{
-	const PoSz_k = TaPoSz_v[ Sz_q ];
-	const FzKz_k = document.documentElement;
-
-	for( const Ty_k in PoSz_k )
-	{
-		FzKz_k.style.setProperty( "--" + Ty_k, PoSz_k[ Ty_k ] );
-	};
-}
-
-//-------------------------------------------------
-// HANDLE CHANGE
-//-------------------------------------------------
-function HriNeDe__PoSzJe( e )
-{
-	if( e.matches )
-	{
-    	SmaSy( "[GUI] Dark mode" );
-		HriNeDe__PoSzChy( 1 );
-  	}
-	else
-	{
-    	SmaSy( "[GUI] Light mode" );
-		HriNeDe__PoSzChy( 0 );
-  	}
-}
-
-
-//-------------------------------------------------
-// STARTUP
-//-------------------------------------------------
-function HriNeDe__PoSzYa()
-{
-	//@@@
-	// GET LIGHT/DARK MODE
-	const PoSz_Stz_k = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)');
-	if( !PoSz_Stz_k ) return;
-
-	//@@@
-	// SET or USE CFG?
-	// HriNeDe__PoSzJe( PoSz_Stz_k );
-	// HACKED to specific mode
-	HriNeDe__PoSzChy( 1 );
-
-	//@@@
-	// EVT LISTENER
-	PoSz_Stz_k.addEventListener('change', HriNeDe__PoSzJe);
-}
-
-
 //=====================================
 // SPACETIME FILL by USER
 //=====================================
@@ -2460,6 +2456,12 @@ function Hri4_Bu__TaJo_Chy()
 
 //=====================================
 // KEY CTL
+//
+// MODIFIERS
+// if (e.shiftKey) {/*shift is down*/}
+// if (e.altKey) {/*alt is down*/}
+// if (e.ctrlKey) {/*ctrl is down*/}
+// if (e.metaKey) {/*cmd is down*/}
 //=====================================
 function Hri4_Bu__MzBuDru_Je( e )
 {
@@ -2469,7 +2471,6 @@ function Hri4_Bu__MzBuDru_Je( e )
 	if( Kz_l )
 	{
 		// SmaJe( "ELM", Kz_l?.id );
-
 	}
 
 	//@@@
@@ -2501,16 +2502,16 @@ function Hri4_Bu__MzBuDru_Je( e )
 			break;
 		}
 
-		case( "ArrowLeft" ):
-		{
-			//HriNeDe__PoSzChy( 0 );
-			break;
-		}
-		case( "ArrowRight" ):
-		{
-			// HriNeDe__PoSzChy( 1 );
-			break;
-		}
+		// case( "ArrowLeft" ):
+		// {
+		// 	//HriNeDe__PoSzChy( 0 );
+		// 	break;
+		// }
+		// case( "ArrowRight" ):
+		// {
+		// 	// HriNeDe__PoSzChy( 1 );
+		// 	break;
+		// }
 
 		case "Home": { HriNeDe__PoSzChy( 0 ); break; }
 		case "End": { HriNeDe__PoSzChy( 1 ); break; }
@@ -2546,7 +2547,12 @@ function Hri4_Bu__MzBuDru_Je( e )
 			break;
 		}
 
-		// case( "0" ):
+		case( "0" ):
+		{
+			HriNeDe__ChySeTra( "BriDz01_TraKwi_vsg" );
+			break;
+		}
+
 		case( "1" ):
 		case( "2" ):
 		case( "3" ):
@@ -2558,19 +2564,45 @@ function Hri4_Bu__MzBuDru_Je( e )
 		// case( "8" ):
 		// case( "9" ):
 		{
-			SmaJe( "#" + e.key );
-
-			if (e.shiftKey) {/*shift is down*/}
-			if (e.altKey) {/*alt is down*/}
-			if (e.ctrlKey) {/*ctrl is down*/}
-			if (e.metaKey) {/*cmd is down*/}
-
-			Hrz4_Bu__ChyNeKu( parseInt( e.key ) - 1 );
+			// SmaJe( "#" + e.key );
+			if( true )
+			// CHANGE DOMAIN MENU
+			{
+				Hrz4_Bu__ChyNeKu( parseInt( e.key ) - 1 );
+			}
+			else
+			// CHANGE TOPIC AREA
+			{
+				Hrz4_Bu__ChyNeKu( parseInt( e.key ) - 1 );
+			}
 
 			break;
 		}
 	}// End Switch Key
 }
+
+
+//=====================================
+// ADD CHECK BOX
+//=====================================
+function Hri4_Bu__ChaHyHoKz_l( Bz_l, NeJy_k, Ti_k, VaJy_k )
+{
+	// SPAN
+	let Va_l = Hri4_Bu__ChaKz_l( Bz_l, "span", Ti_k.Vy, VaJy_k, null );
+
+	// LABEL BODY
+	let Ka_l = Hri4_Bu__ChaKz_l( Bz_l, "label", Ti_k.Vy, "KaHyHo WaDru_Vu", null );
+	const VuVy_vsg = Ti_k.Vy.replace( "_vsg", "_y" );
+	Va_l.setAttribute( "for", VuVy_vsg );
+
+	// INPUT
+	let Vu_l = Hri4_Bu__ChaKz_l( Ka_l, NeJy_k.elm, VuVy_vsg, NeJy_k.class, Ti_k );
+	Vu_l.setAttribute( "type", "checkbox" );
+	Vu_l.setAttribute( "checked", "false" );
+
+	let Dre_l = Hri4_Bu__ChaKz_l( Ka_l, "span", null, "VuHyHo", null );
+}
+
 
 //=====================================
 //
@@ -2585,27 +2617,28 @@ function Hri4_Bu__ChaKz_l( DoKz_l, elm, id, className, Dy_l )
 	// UNIQUE?
 	if( Dy_l )
 	{
+		// CLASS
+		if( Dy_l.Gwz ){ Kz_l.className = className + " " + Dy_l.Gwz; SmaJe( "[GUI] SPRITE", Kz_l.className ); }
+		// ARIA ROLE
+		if( Dy_l.Sz ){ Kz_l.setattribute( "role", Dy_l.Sz ); }
+		// TXT
+		if( Dy_l.KeDru ){ Kz_l.innerText = Dy_l.KeDru; }
 		// ACTION
 		if( Dy_l.Tra ){ Kz_l.onchange = Dy_l.Tra; }
-		if( Dy_l.Sz ){ Kz_l.setattribute( "role", Dy_l.Sz ); }
-
-		if( Dy_l.KeDru ){ Kz_l.innerText = Dy_l.KeDru; }
-
-		if( Dy_l.Gwz ){ Kz_l.className = className + " " + Dy_l.Gwz; SmaJe( "[GUI] SPRITE", Kz_l.className ); }
-
+		// IMG
 		if( Dy_l.JaPo )
 		{
 			Kz_l.src = ( "Mx01__SuKz_MEDIA/SuKz02_JaPo__IMG/" + Dy_l.JaPo );
 			// Kz_l.setAttribute( "alt", "Image of" + Dy_l.Va );
 			Kz_l.setAttribute( "loading", "lazy" );
-
-			// SmaJe( "[GUI] IMG", Kz_l.src );
 		}
-
+		// TAB_INDEX
 		if( Dy_l.SeVx ){ Kz_l.tabindex = Dy_l.SeVx; }
-		//if( Dy_l.x ){ Kz_l.?? = Dy_l.x; }
 
-		// Kz_l.value = Vx_wu;
+		//&&&
+		//if( Dy_l.x ){ Kz_l.?? = Dy_l.x; }
+		//if( Dy_l.x ){ Kz_l.?? = Dy_l.x; }
+		//if( Dy_l.x ){ Kz_l.?? = Dy_l.x; }
 	}
 
 	DoKz_l.append( Kz_l );
@@ -2695,7 +2728,7 @@ async function Hri4_Bu__TaNeDe__ChaKri()
 
 				//&&&
 				// TOPIC
-				case KoOPT.Nz_KeDru_qk:
+				case KoOPT.Nz_To_qk:
 				case KoOPT.Nz_Va_qk:
 				case KoOPT.Nz_Ta_qk:
 				case KoOPT.Nz_HyHo_qk:
@@ -2706,31 +2739,34 @@ async function Hri4_Bu__TaNeDe__ChaKri()
 					let Bz_l = Hri4_Bu__ChaKz_l( Nz_l, "div", null, null, null );
 					Bz_l.innerText = Kwi00__NzVx_vsg[ Nz_Fo_wu ];
 
-					// LABEL ONLY
-					if(( NeJy_qk === KoOPT.Nz_Va_qk ) || ( NeJy_qk === KoOPT.Nz_KeDru_qk ) )
+					// TOPIC NAME or INFO
+					if(( NeJy_qk === KoOPT.Nz_Va_qk ) || ( NeJy_qk === KoOPT.Nz_To_qk ) )
 					{
 						Hri4_Bu__ChaKz_l( Bz_l, "span", Ti_k.Vy, Kwi00__TaNeJy_v[ KoOPT.To_NzBz_qk ].class, null );
 					}
-					// TEXT LIST
+					// TOPIC LIST
 					else if( NeJy_qk === KoOPT.Nz_Ta_qk )
 					{
 						// label
-						Hri4_Bu__ChaKz_l( Bz_l, "label", Ti_k.Vy, Kwi00__TaNeJy_v[ KoOPT.To_NzBz_qk ].class, null );
-						Bz_l.setAttribute( "for", Ti_k.JyNo );
+						let Va_l = Hri4_Bu__ChaKz_l( Bz_l, "label", Ti_k.Vy, Kwi00__TaNeJy_v[ KoOPT.To_NzBz_qk ].class, null );
+						const TaVy_vsg = Ti_k.Vy.replace( "_vsg", "__Ta_l" );
+						Va_l.setAttribute( "for", TaVy_vsg );
 
 						// select
 						// Tra & SeVx EXPECTED
-						Hri4_Bu__ChaKz_l( Bz_l, "select", Ti_k.JyNo, Kwi00__TaNeJy_v[ KoOPT.Ne_KeDru_Tre_qk ].class, Ti_k );
+						Hri4_Bu__ChaKz_l( Bz_l, "select", TaVy_vsg, Kwi00__TaNeJy_v[ KoOPT.Ne_KeDru_Tre_qk ].class, Ti_k );
 
 			//	<label id="TzKu__NzJo_vsg" for="TzKe__NzDz__Ta_l" class="KeDru_NeVa KeDruNz WaDru_Va" ></label>
 			//	<select id="TzKe__NzDz__Ta_l" class="HriNeTi WaDru_Vu TreHy" onchange="Hrz4_Bu__JoChy()" tabindex=9 ></select>
 
+
 					}
-					// ON-OFF
+					// TOPIC ON-OFF
 					else if( NeJy_qk === KoOPT.Nz_HyHo_qk )
 					{
-						// span, HyHo
-						Hri4_Bu__ChaKz_l( Bz_l, "span", Ti_k.Vy, Kwi00__TaNeJy_v[ KoOPT.To_NzBz_qk ].class, null );
+						// Hri4_Bu__ChaKz_l( Bz_l, "span", Ti_k.Vy, , null );
+						const VaJy_k = Kwi00__TaNeJy_v[ KoOPT.To_NzBz_qk ].class;
+						Hri4_Bu__ChaHyHoKz_l( Nz_l, NeJy_k, Ti_k, VaJy_k );
 					}
 
 					//%%%
@@ -2746,56 +2782,85 @@ async function Hri4_Bu__TaNeDe__ChaKri()
 
 				//&&&
 				// SPACE
-				case KoOPT.Ku_ToSkeTa_qk:
+				case KoOPT.Ku_ToGwa_qk:
 				{
 					Ku_l = Hri4_Bu__ChaKz_l( DoKu_k, NeJy_k.elm, null, NeJy_k.class, Ti_k );
 					break;
 				}
 
-
 				//&&&
-				// CHOICE COMBO
 				// CHOICE
-
-				// BTN
+				//  BTN
 				case KoOPT.Ne_Tra_qk:
 				{
-					let Kz_l = Hri4_Bu__ChaKz_l( DoNe_k, NeJy_k.elm, Ti_k.Vy, NeJy_k.class, Ti_k );
+					let Bz_l = Hri4_Bu__ChaKz_l( Nz_l, "div", null, null, null );
+
+					let Kz_l = Hri4_Bu__ChaKz_l( Bz_l, NeJy_k.elm, Ti_k.Vy, NeJy_k.class, Ti_k );
 					Kz_l.type = "button";
 					break;
 				}
 
-				// SLIDER
-				case KoOPT.Ne_VxBra_qk:
-				{
-					let Kz_l = Hri4_Bu__ChaKz_l( DoNe_k, NeJy_k.elm, Ti_k.Vy, NeJy_k.class, Ti_k );
-					break;
-				}
-
-
+				//&&&
+				// CHOICE
 				// CHECKBOX
 				case KoOPT.Ne_HyHo_qk:
 				{
-					let Kz_l = Hri4_Bu__ChaKz_l( DoNe_k, NeJy_k.elm, Ti_k.Vy, NeJy_k.class, Ti_k );
+					const VaJy_k = "KeDru_NeVa WaDru_Va";
+					// Kwi00__TaNeJy_v[ KoOPT.To_NzBz_qk ].class;
 
-						// <span id="TzHru__NzMx__PeHo_vsg" class="KeDru_NeVa WaDru_Va"></span>
-						// <label class="KaHyHo WaDru_Vu">
-						// 		<input id="TzHru__NzMx__PeHo_y" class="MzHyHo" type="checkbox" onchange="Hrz4_Bu__KwiYz__Ko_ChyYe()" >
-						// 		<span class="VuHyHo"></span>
-						// </label>
+					let Bz_l = Hri4_Bu__ChaKz_l( Nz_l, "div", null, null, null );
+					Hri4_Bu__ChaHyHoKz_l( Bz_l, NeJy_k, Ti_k, VaJy_k );
+					break;
+				}
+
+				//&&&
+				// CHOICE
+				// SLIDER
+				case KoOPT.Ne_VxBra_qk:
+				{
+					let Bz_l = Hri4_Bu__ChaKz_l( Nz_l, "div", null, null, null );
+
+					// LABEL
+					let Va_l = Hri4_Bu__ChaKz_l( Bz_l, "label", Ti_k.Vy, "KeDru_NeVa WaDru_Va", null );
+					const VuVy_vsg = Ti_k.Vy.replace( "_vsg", "__Vu_wf" );
+					Va_l.setAttribute( "for", VuVy_vsg );
+
+					// INPUT
+					let Vu_l = Hri4_Bu__ChaKz_l( Bz_l, NeJy_k.elm, VuVy_vsg, NeJy_k.class, Ti_k );
+					Vu_l.setAttribute( "type", "range" );
+					Vu_l.setAttribute( "min", 0 );
+					Vu_l.setAttribute( "max", 100 );
+					Vu_l.setAttribute( "value", 67 );
 
 					break;
 				}
 
-					// case KoOPT.Ne_NiHu_qk: // Radiogroup
-					// case KoOPT.Ne_TaJaPo_qk: // Img Grid
-					// case KoOPT.Ne_TaVa_qk: // List (selection text)
+				//&&&
+				// CHOICE
+				// LST
+				case KoOPT.Ne_TaVa_qk:
+				{
+					// List (selection text)
+					break;
+				}
+
+				//&&&
+				// CHOICE
+				// IMG GRID
+				case KoOPT.Ne_TaJaPo_qk:
+				{
+					 // Img Grid
+					 break;
+				}
 
 				//&&&
 				// CHOICE DEFAULT
 				default:
 				{
 					let Kz_l = Hri4_Bu__ChaKz_l( DoNe_k, NeJy_k.elm, Ti_k.Vy, NeJy_k.class, Ti_k );
+
+					SmaDre( "UNCAUGHT CHOICE???:", Kz_l, Ti_k.Vy );
+
 				}
 			};//SWITCH  ADD ELM
 		}); // ITER ELM
@@ -2809,13 +2874,13 @@ if( false )
 	{
 		//@@@
 		// LANG DROPDOWN LIST
-		const TzKu__NzTrz__NiKeDru__Ta_l = document.getElementById( "TzKu__NzTrz__NiKeDru__Ta_l" );
+		const TzKu__NzKeDru__Ta_l = document.getElementById( "TzKu__NzKeDru__Ta_l" );
 		// LANGUAGE PICKER
 		const KeDru__TaJaPo_l = document.getElementById("TzKu__NzTrz__KeDru_TaJaPo_l");
 
 		//&&&
 		// LIST CLEAR
-		HriNeDe__Ta_ChyStz( TzKu__NzTrz__NiKeDru__Ta_l );
+		HriNeDe__Ta_ChyStz( TzKu__NzKeDru__Ta_l );
 		HriNeDe__Ta_ChyStz( KeDru__TaJaPo_l );
 
 		//&&&
@@ -2835,7 +2900,7 @@ if( false )
 				Kz_l.innerText = `${Ti_k.KuGwz} ${Ti_k.Va}`;
 				Kz_l.value = Ti_k.Vy;
 
-				TzKu__NzTrz__NiKeDru__Ta_l.appendChild( Kz_l );
+				TzKu__NzKeDru__Ta_l.appendChild( Kz_l );
 			}
 
 			//&&&
@@ -2864,7 +2929,7 @@ if( false )
 
 		//@@@
 		// STARTING LANG
-		TzKu__NzTrz__NiKeDru__Ta_l.selectedIndex = KwiYz_k.KeDru_wu;
+		TzKu__NzKeDru__Ta_l.selectedIndex = KwiYz_k.KeDru_wu;
 	}
 
 	Hre1_Dru__KeDru_ChyVx( KwiYz_k.KeDru_wu );
@@ -2930,7 +2995,7 @@ if( false )
 	// VIS_METHODS
 	//-------------------------------------------------
 	{
-		const TaKeDy_l = document.getElementById( "TzHry__NzSy__SmzYz__Ta_l" );
+		const TaKeDy_l = document.getElementById( "TzHry__NzSy__Ta_l" );
 		HriNeDe__Ta_ChyStz( TaKeDy_l );
 
 		//@@@
@@ -3483,7 +3548,7 @@ async function Hra6_Ku__ToKz_My__vJSON( ChaKuTu_vsg, ToKzVa_vsg )
 		//SmaJe( "[USR_STOR]", ToKz_v );
 		return ToKz_v;
 	}
-	catch ( e ) { MoDzTrx( Ko.KeDru_l.ALERT.TrxJy__SuKz_GriHo_vsg + " @ " + ToKzVa_vsg + " --> " + e ); }
+	catch ( e ) { MoDzTrx( Ko.KeDru_l.VaDe.TrxJy__SuKz_GriHo_vsg + " @ " + ToKzVa_vsg + " --> " + e ); }
 	return null;
 };
 
@@ -3501,7 +3566,7 @@ async function Hra6_Ku__ToKz_My__vsg( ChaKuTu_vsg, ToKzVa_vsg )
 		// SmaJe( "[USR_STOR]", ToKz_v );
 		return ToKz_v;
 	}
-	catch ( e ) { MoDzTrx( Ko.KeDru_l.ALERT.TrxJy__SuKz_GriHo_vsg + " @ " + ToKzVa_vsg + " --> " + e ); }
+	catch ( e ) { MoDzTrx( Ko.KeDru_l.VaDe.TrxJy__SuKz_GriHo_vsg + " @ " + ToKzVa_vsg + " --> " + e ); }
 	return null;
 };
 
@@ -3518,7 +3583,7 @@ async function Hra6_Ku__ToKz_My__vBLOB( ChaKuTu_vsg, ToKzVa_vsg )
 		const ToKz_v = await Smx_k.blob();
 		return ToKz_v;
 	}
-	catch ( e ) { MoDzTrx( Ko.KeDru_l.ALERT.TrxJy__SuKz_GriHo_vsg + " @ " + ToKzVa_vsg + " --> " + e ); }
+	catch ( e ) { MoDzTrx( Ko.KeDru_l.VaDe.TrxJy__SuKz_GriHo_vsg + " @ " + ToKzVa_vsg + " --> " + e ); }
 	return null;
 };
 
@@ -3548,7 +3613,7 @@ async function Hra6_Ku__ToKz_My__vBUF( ChaKuTu_vsg, ToKzVa_vsg )
 		const ToKz_v = await Smx_k.arrayBuffer();
 		return ToKz_v;
 	}
-	catch ( e ) { MoDzTrx( Ko.KeDru_l.ALERT.TrxJy__SuKz_GriHo_vsg + " @ " + ToKzVa_vsg + " --> " + e ); }
+	catch ( e ) { MoDzTrx( Ko.KeDru_l.VaDe.TrxJy__SuKz_GriHo_vsg + " @ " + ToKzVa_vsg + " --> " + e ); }
 	return null;
 };
 
@@ -3809,13 +3874,13 @@ async function Hrz7_Kru__ChaSySmz( SyJy_vsg, ToKz_vsg, SyTu_vsg, VaDy_vsg, SySmz
 		// REQ --> FAIL means ERR
 		if( SySmz__Kri_yk )
 		{
-			MoDzTrx( Ko.KeDru_l.ALERT.TrxJy__SySmz_GriHo_vsg + VaVx_vsg );
+			MoDzTrx( Ko.KeDru_l.VaDe.TrxJy__SySmz_GriHo_vsg + VaVx_vsg );
 		}
 		//&&&
 		// XTNDED --> FAIL means ALERT
 		else
 		{
-			SmaDre( Ko.KeDru_l.ALERT.Dre__SySmz_GriHo_vsg + VaVx_vsg );
+			SmaDre( Ko.KeDru_l.VaDe.Dre__SySmz_GriHo_vsg + VaVx_vsg );
 		}
 	}
 }
