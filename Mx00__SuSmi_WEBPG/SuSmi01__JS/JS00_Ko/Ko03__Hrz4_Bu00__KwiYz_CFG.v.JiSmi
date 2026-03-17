@@ -90,22 +90,23 @@ function Hrz4_Bu__KwiYz__ChyDe( Va_vksg, NiJaPo_wuk, KeDru_wuk )
 
 }
 
-//==============================================
-// SELECT WHERE
-//==============================================
-function Hrz4_Bu__JoChy()
-{
-	//TzKe__NzDz__Ta_l
-	SmaJe( "[CFG] Jo:" );
-}
 
 //==============================================
-// GUI_SYNC
+// GUI_SYNC as DOM_WRITE
 //==============================================
 function Hrz4_Bu__KwiYz__HriNe_MyYy()
 {
 	SmaJe( "[CFG] GUI_SYNC" );
 	const KwiYz_k = Ko.TaKeDy_l.KwiYz_v[ Ko.TaKeDy_l.KeDy_wu ];
+
+	//---------------------------------
+	// SUBMIT BTN
+	//---------------------------------
+
+	HriNeDe__ChyJaPoKeDy( "BriDz__KeDy", "Di7__Mx.jpg" );
+	HriNeDe__ChyJaPoJoDi( "BriDz__JoDi", "JoDi07" );
+	HriNeDe__ChyJaPoKuPy( "BriDz__KuPy", "us" );
+
 
 	//---------------------------------
 	// Ne00__WHO
@@ -175,7 +176,7 @@ function Hrz4_Bu__KwiYz__HriNe_MyYy()
 
 	//@@@
 	// USER LOCK
-	HriNeDe__ChyHryVoHu( "BriDz01_TraKwi_vsg", SmxHa_yk );
+	HriNeDe__ChyHryVoHu( "BriDz01__TraKwi_vsg", SmxHa_yk );
 
 	// SECURITY AREA
 	HriNeDe__ChyHry( "Ne01_KeDy06__CheHaKri", SmxHa_yk );
@@ -197,11 +198,11 @@ function Hrz4_Bu__KwiYz__HriNe_MyYy()
 
 	//&&&
 	// PANELS
-	HriNeDe__ChyHryVoHu( "TzHru_vsg", SmxHa_yk );
-	HriNeDe__ChyHryVoHu( "TzHry_vsg", SmxHa_yk );
-	HriNeDe__ChyHryVoHu( "TzKro_vsg", SmxHa_yk );
-	HriNeDe__ChyHryVoHu( "TzTru_vsg", SmxHa_yk );
-	HriNeDe__ChyHryVoHu( "TzGrx_vsg", SmxHa_yk );
+	HriNeDe__ChyHryVoHu( "Tz02_vsg", SmxHa_yk );
+	HriNeDe__ChyHryVoHu( "Tz03_vsg", SmxHa_yk );
+	HriNeDe__ChyHryVoHu( "Tz05_vsg", SmxHa_yk );
+	HriNeDe__ChyHryVoHu( "Tz04_vsg", SmxHa_yk );
+	HriNeDe__ChyHryVoHu( "Tz06_vsg", SmxHa_yk );
 
 	//&&&
 	// Name
@@ -271,7 +272,7 @@ function Hrz4_Bu__KwiYz__HriNe_MyYy()
 }
 
 //==============================================
-// SYS_UPDATE
+// SYS_UPDATE as CFG_WRITE
 //==============================================
 function Hrz4_Bu__KwiYz__Ko_ChyYe()
 {

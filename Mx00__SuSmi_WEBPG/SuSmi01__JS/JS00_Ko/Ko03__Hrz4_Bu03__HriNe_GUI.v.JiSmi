@@ -1,187 +1,5 @@
 //==============================================
-// GUI THEME
-// TINTS & LIGHT vs DARK MODEs
-//==============================================
-
-//-------------------------------------------------
-// CLR MODES
-//-------------------------------------------------
-const TaPoSz_v =
-[
-	{
-		Va: "Light Mode"
-		, PoGwyFz: "#CCCA"	// PANEL__OUTER_TOPIC
-
-		, PoKuDe: "#DDDA" // SECTION BG
-		, PoKuTraHo: "#CCC8" // MENU TITLE BG
-		, PoKuTraHy: "#FFF8" // MENU SELECT TITLE BG
-		, PoKuTz: "#CCCF" // DOMAIN BG
-		, PoKuStuVo: "#AAA8" // SECTION LINE
-
-		, PoBre: "#BBB" // PANEL MISC
-		, PoBreHu: "#BBB4"	// CHOOSE GROUP
-		, PoBreVo: "#BBB8"	// FADED ELM
-		, PoBreSpo: "#BBBF" // SPRITE SELECTOR
-
-		, PoSeVu:"#666" // CFG VALUE
-		, PoSoSmo: "#555"	// TXT SHADOW
-
-		, PoSi: "#000" // MAIN TXT
-		, PoSiSpo: "#000F" // ACTIVE
-
-		, PoSmo: "#BBB" // FONT 3D SHADOW
-		, PoSmuTra: "#D22"	// ACTIVATE
-		, PoSmuSe: "#2A2" // GO
-	}
-	,
-	{
-		Va: "Dark Mode"
-		, PoGwyFz: "#000A" //PANEL__OUTER_TOPIC
-
-		, PoKuDe: "#222A" //SECTION BG
-		, PoKuTraHy: "#0008" //MENU SELECT TITLE BG
-		, PoKuTraHo: "#4448" //MENU TITLE BG
-		, PoKuTz: "#444F" //DOMAIN BG
-		, PoKuStuVo: "#6668" //SECTION LINE
-
-		, PoBre: "#888" //PANEL MISC
-		, PoBreHu: "#8884" //CHOOSE GROUP
-		, PoBreVo: "#8888" //FADED ELM
-		, PoBreSpo: "#888F" //SPRITE SELECTOR
-
-		, PoSeVu:"#CCC" //CFG VALUE
-		, PoSoSmo: "#999" // TXT SHADOW
-
-		, PoSi: "#FFF" //MAIN TXT
-		, PoSiSpo: "#FFFF" //ACTIVE
-
-		, PoSmo: "#777" //FONT 3D SHADOW
-		, PoSmuTra: "#D22" //ACTIVATE
-		, PoSmuSe: "#2A2" // GO
-	}
-	,
-	{
-		Va: "Warm Mode"
-		, PoGwyFz: "#4007" //PANEL__OUTER_TOPIC
-
-		, PoKuDe: "#500A" //SECTION BG
-		, PoKuTraHy: "#7118" //MENU SELECT TITLE BG
-		, PoKuTraHo: "#A118" //MENU TITLE BG
-		, PoKuTz: "#A11F" //DOMAIN BG
-		, PoKuStuVo: "#D008" //SECTION LINE
-
-		, PoBre: "#D66" //PANEL MISC
-		, PoBreHu: "#D664" //CHOOSE GROUP
-		, PoBreVo: "#D888" //FADED ELM
-		, PoBreSpo: "#D88F" //SPRITE SELECTOR
-
-		, PoSeVu:"#FCC" //CFG VALUE
-		, PoSoSmo: "#A66" // TXT SHADOW
-
-		, PoSi: "#FFF" //MAIN TXT
-		, PoSiSpo: "#FFFF" //ACTIVE
-
-		, PoSmo: "#B66" //FONT 3D SHADOW
-		, PoSmuTra: "#D92" //ACTIVATE
-		, PoSmuSe: "#2A2" // GO
-	}
-	,
-	{
-		Va: "Cool Mode"
-		, PoGwyFz: "#0047" //PANEL__OUTER_TOPIC
-
-		, PoKuDe: "#005A" //SECTION BG
-		, PoKuTraHy: "#1178" //MENU SELECT TITLE BG
-		, PoKuTraHo: "#11A8" //MENU TITLE BG
-		, PoKuTz: "#11AF" //DOMAIN BG
-		, PoKuStuVo: "#00D8" //SECTION LINE
-
-		, PoBre: "#66D" //PANEL MISC
-		, PoBreHu: "#66D4" //CHOOSE GROUP
-		, PoBreVo: "#88D8" //FADED ELM
-		, PoBreSpo: "#88DF" //SPRITE SELECTOR
-
-		, PoSeVu:"#CCF" //CFG VALUE
-		, PoSoSmo: "#66A" // TXT SHADOW
-		, PoSi: "#FFF" //MAIN TXT
-		, PoSiSpo: "#FFFF" //ACTIVE
-
-		, PoSmo: "#66B" //FONT 3D SHADOW
-		, PoSmuTra: "#D22" //ACTIVATE
-		, PoSmuSe: "#2A2" // GO
-	}
-];
-
-//-------------------------------------------------
-// SET MODES
-//-------------------------------------------------
-function HriNeDe__PoSzChy( Sz_q )
-{
-	const PoSz_k = TaPoSz_v[ Sz_q ];
-	const FzKz_k = document.documentElement;
-
-	for( const Ty_k in PoSz_k )
-	{
-		FzKz_k.style.setProperty( "--" + Ty_k, PoSz_k[ Ty_k ] );
-	};
-}
-
-//-------------------------------------------------
-// HANDLE CHANGE
-//-------------------------------------------------
-function HriNeDe__PoSzJe( e )
-{
-	if( e.matches )
-	{
-    	SmaSy( "[GUI] Dark mode" );
-		HriNeDe__PoSzChy( 1 );
-  	}
-	else
-	{
-    	SmaSy( "[GUI] Light mode" );
-		HriNeDe__PoSzChy( 0 );
-  	}
-}
-
-
-//-------------------------------------------------
-// STARTUP
-//-------------------------------------------------
-function HriNeDe__PoSzYa()
-{
-	//@@@
-	// GET LIGHT/DARK MODE
-	const PoSz_Stz_k = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)');
-	if( !PoSz_Stz_k ) return;
-
-	//@@@
-	// SET or USE CFG?
-	// HriNeDe__PoSzJe( PoSz_Stz_k );
-	// HACKED to specific mode
-	HriNeDe__PoSzChy( 1 );
-
-	//@@@
-	// EVT LISTENER
-	PoSz_Stz_k.addEventListener('change', HriNeDe__PoSzJe);
-}
-
-//==============================================
-// GUI ELEMENTS
-/*
-- Using HTML Web PAGE to setup initial CFG ( w/o WG GUI ):
-- *However: Already loading WG, so could use GUI or ERR*
-- *Given need to invite others and limited time, am continuing HTML for now*
-
-- GUI has
-	a) Checkbox: Y or N wq @ KaHyHo, VuHyHo
-	b) Slider: 0...to N wu
-	c) List: scrollable choices vertical or grid 0...Fo wu
-	d) Text: utf8 as Label or Value or Edit
-	e) Buttons: run action ( show tabs, add/remove users, reset-settings, & launch )
-
-- EDIT: TreHy Can be hover-highlighted to show "editable"
-*/
-//==============================================
+// GUI BEGIN
 // SHOW/HIDE
 //==============================================
 
@@ -190,7 +8,6 @@ function HriNeDe__PoSzYa()
 function HriNeDe__ChyHryDry( Vy_vsg )
 {
 	const e = document.getElementById( Vy_vsg );
-	// e.hidden = !( e.hidden );
 	e.style.display = ( e.style.display === "none") ? "inline-flex" : "none";
 }
 
@@ -265,12 +82,102 @@ function HriNeDe__ChyVaSy( Vy_vsg, KeDru_vksg )
 
 //@@@
 // IMAGE
-function HriNeDe__ChyJaPoDe( Vy_vsg, Jy_vksg, Gwz_vksg )
+function HriNeDe__ChyJaPo( Vy_vsg, JaPo_vksg )
 {
+	document.getElementById( Vy_vsg ).src = BriDz__Mx_KuTu_vsg + "Mx01__SuKz_MEDIA/SuKz02_JaPo__IMG/" + JaPo_vksg;
+}
+
+//&&&
+// CORE_SYSTEM
+function HriNeDe__ChyJaPoKo( Vy_vsg, Jy_vksg, Gwz_vksg )
+{
+	// Designed to accept NULL and skip
 	if( Gwz_vksg )
 	{
-		document.getElementById( Vy_vsg ).src = "Mx01__SuKz_MEDIA/SuKz02_JaPo__IMG/JaPo00__Ko/" + Jy_vksg + Gwz_vksg + ".svg";
+		HriNeDe__ChyJaPo( Vy_vsg, "JaPo00__Ko/" + Jy_vksg + Gwz_vksg + ".svg" );
 	}
+}
+
+
+//&&&
+// SCENE
+function HriNeDe__ChyJaPoJoDi( Vy_vsg, KeDy_vksg )
+{
+	HriNeDe__ChyJaPo( Vy_vsg, "JaPo03__JoDi/" + KeDy_vksg + ".jpg" );
+}
+
+//&&&
+// AVATAR
+function HriNeDe__ChyJaPoKeDy( Vy_vsg, ToKz_vksg )
+{
+	HriNeDe__ChyJaPo( Vy_vsg, "JaPo04__KeDy/" + ToKz_vksg );
+}
+
+//&&&
+// LANG
+function HriNeDe__ChyJaPoKuPy( Vy_vsg, KuPy_vksg )
+{
+	HriNeDe__ChyJaPo( Vy_vsg, "JaPo06__KuPy/" + KuPy_vksg + ".svg" );
+}
+
+
+//==============================================
+// SHOW/HIDE TOPIC CONTAINER
+//==============================================
+function HriNe__NzNoKz__HryVoDry( HryVoVy_vsg, NzVy_vsg, HryDx_vsg )
+{
+	const Nz_l = document.getElementById( NzVy_vsg );
+	if( Nz_l.className === "Gz04__NzNe_Smo" )
+	{
+		// 🔼🔽⤴️⤵️
+		HriNeDe__ChyVaSy( HryVoVy_vsg, "🔼" );
+		Nz_l.className = HryDx_vsg;
+	}
+	else
+	{
+		HriNeDe__ChyVaSy( HryVoVy_vsg, "🔽" );
+		Nz_l.className = "Gz04__NzNe_Smo";
+	}
+}
+
+
+//==============================================
+// ADD or REMOVE TOOL TIP ELM
+//==============================================
+function HriNe__KeMeTo__ChaChiDry( KzVy_vsg )
+{
+	const KeMeTo_vsg = KzVy_vsg.replace( "_vsg", "__KeMeTo" );
+	const KeMeTo_k = document.getElementById( KeMeTo_vsg );
+
+	//@@@
+	// REMOVE
+	if( KeMeTo_k )
+	{
+		KeMeTo_k.remove();
+	}
+	//@@@
+	// ADD
+	else
+	{
+		const Kz_l = document.getElementById( KzVy_vsg )
+		const Bz_l = Kz_l.parentElement;
+
+		let KeMeTo_l = Hri4_Bu__ChaKz_l( Bz_l, "p", KeMeTo_vsg, "WaDru_Va KeMe_To", null );
+		KeMeTo_l.innerText = Ko.TzKwi__KeDru.KeMeTo[ KzVy_vsg ] ? Ko.TzKwi__KeDru.KeMeTo[ KzVy_vsg ] : "⚠️WARN: Missing"  + KzVy_vsg;
+		KeMeTo_l.onclick = function() { HriNe__KeMeTo__ChaChiDry( KzVy_vsg ); }
+
+		Bz_l.insertBefore( KeMeTo_l, Kz_l );
+	}
+}
+
+//=====================================
+// ELM ADD TOOLTIP SYMBOL
+//=====================================
+function Hri4_Bu__ChaKeMeToKz_l( Bz_l, TiVy_vsg )
+{
+	let Kz_l = Hri4_Bu__ChaKz_l( Bz_l, "span", null, "KeDru_NeVa WaDru_Va TreHy KeDru_TraGyHu", null );
+	Kz_l.innerText = "ℹ️";
+	Kz_l.onclick = function() { HriNe__KeMeTo__ChaChiDry( TiVy_vsg ); }
 }
 
 //==============================================
@@ -278,8 +185,7 @@ function HriNeDe__ChyJaPoDe( Vy_vsg, Jy_vksg, Gwz_vksg )
 //===============================`===============
 
 //@@@
-// CHECKBOX
-// RADIOBTN
+// TOGGLE
 function HriNeDe__ChyHyHo( Vy_vsg, HyHo_yk )
 {
 	const e = document.getElementById( Vy_vsg );
@@ -297,7 +203,7 @@ function HriNeDe__Ta_ChyStz( Ta_v )
 }
 
 //==============================================
-// FOCUS
+// ELM FOCUS
 //==============================================
 function HriNeDe__ChySeTra( Vy_vsg )
 {
@@ -307,186 +213,40 @@ function HriNeDe__ChySeTra( Vy_vsg )
 	e.focus();
 }
 
-//=====================================
-// SPACETIME FILL by USER
-//=====================================
-function Hri4_Bu__TaJo_Chy()
-{
-	const TaJo_l = document.getElementById( "TzKe__NzDz__Ta_l" );
-	HriNeDe__Ta_ChyStz( TaJo_l );
-
-	//@@@
-	const SaNo__TaJo_l = Ko.TaKeDy_l.KwiYz_v;
-	SaNo__TaJo_l.forEach( function( Ti_k, Vx_wu )
-	{
-		// SmaSy( "------ Vx_wu:", Vx_wu, Ti_k.KeDy_vsg );
-
-		//&&&
-		// ADD BTN
-		const Kz_l = document.createElement( "option" );
-		Kz_l.className = "HriNeTi WaDru_Vu";
-		Kz_l.innerText = `${SaPy_vvsg[ Ti_k.NiJaPo_wu ]} ${Ti_k.KeDy_vsg }`;
-		Kz_l.value = Vx_wu;
-
-		TaJo_l.appendChild( Kz_l );
-	});
-
-	TaJo_l.selectedIndex = 1;
-}
-
 
 //=====================================
-// KEY CTL
-//
-// MODIFIERS
-// if (e.shiftKey) {/*shift is down*/}
-// if (e.altKey) {/*alt is down*/}
-// if (e.ctrlKey) {/*ctrl is down*/}
-// if (e.metaKey) {/*cmd is down*/}
-//=====================================
-function Hri4_Bu__MzBuDru_Je( e )
-{
-	//@@@
-	// ELM ID & TYPE
-	const Kz_l = document.activeElement;
-	if( Kz_l )
-	{
-		// SmaJe( "ELM", Kz_l?.id );
-	}
-
-	//@@@
-	// NAVI
-	switch( e.key )
-	{
-		// case( "Enter" ):
-	 	// case( " " ):
-		// {
-		// 	SmaJe( "GO IN" );
-		// 	break;
-		// }
-
-		case "Cancel":
-		case( "Escape" ):
-		{
-			Hrz4_Bu__ChyNeKu( 0 );
-			break;
-		}
-
-		case( "`" ):
-		{
-			//HriNeDe__PoSzChy( 0 );
-			if( Kz_l )
-			{
-				SmaJe( "[GUI] Elm", Kz_l?.id, " TIDX:", Kz_l?.tabindex );
-			}
-
-			break;
-		}
-
-		// case( "ArrowLeft" ):
-		// {
-		// 	//HriNeDe__PoSzChy( 0 );
-		// 	break;
-		// }
-		// case( "ArrowRight" ):
-		// {
-		// 	// HriNeDe__PoSzChy( 1 );
-		// 	break;
-		// }
-
-		case "Home": { HriNeDe__PoSzChy( 0 ); break; }
-		case "End": { HriNeDe__PoSzChy( 1 ); break; }
-		case "PageUp": { HriNeDe__PoSzChy( 2 ); break; }
-		case "PageDown": { HriNeDe__PoSzChy( 3 ); break; }
-
-
-		case "Numpad8":
-		case( "ArrowUp" ):
-		{
-			const FzKz_k = document.documentElement;
-			const WaDru__DoGy_vsg = FzKz_k.style.fontSize;
-			// Parse the value (remove "px" and convert to number)
-			let WaDruGy_wfk = parseFloat( WaDru__DoGy_vsg );
-			if( Number.isNaN(WaDruGy_wfk) ) { WaDruGy_wfk = 16.0; }
-			//SmaJe( "CUR fnt:", WaDru__DoGy_vsg, WaDruGy_wfk );
-			if( WaDruGy_wfk < 64.0) { WaDruGy_wfk += 1.0;}
-			FzKz_k.style.fontSize = WaDruGy_wfk.toString() + "px";
-			break;
-		}
-
-		case "Numpad2":
-		case( "ArrowDown" ):
-		{
-			const FzKz_k = document.documentElement;
-			const WaDru__DoGy_vsg = FzKz_k.style.fontSize;
-			// Parse the value (remove "px" and convert to number)
-			let WaDruGy_wfk = parseFloat( WaDru__DoGy_vsg );
-			if( Number.isNaN(WaDruGy_wfk) ) { WaDruGy_wfk = 16.0; }
-			//SmaJe( "CUR fnt:", WaDru__DoGy_vsg, WaDruGy_wfk );
-			if( WaDruGy_wfk > 2.0) { WaDruGy_wfk -= 1.0;}
-			FzKz_k.style.fontSize = WaDruGy_wfk.toString() + "px";
-			break;
-		}
-
-		case( "0" ):
-		{
-			HriNeDe__ChySeTra( "BriDz01_TraKwi_vsg" );
-			break;
-		}
-
-		case( "1" ):
-		case( "2" ):
-		case( "3" ):
-		case( "4" ):
-		case( "5" ):
-		case( "6" ):
-		case( "7" ):
-
-		// case( "8" ):
-		// case( "9" ):
-		{
-			// SmaJe( "#" + e.key );
-			if( true )
-			// CHANGE DOMAIN MENU
-			{
-				Hrz4_Bu__ChyNeKu( parseInt( e.key ) - 1 );
-			}
-			else
-			// CHANGE TOPIC AREA
-			{
-				Hrz4_Bu__ChyNeKu( parseInt( e.key ) - 1 );
-			}
-
-			break;
-		}
-	}// End Switch Key
-}
-
-
-//=====================================
-// ADD CHECK BOX
+// ELM ADD TOGGLE CHOICE
 //=====================================
 function Hri4_Bu__ChaHyHoKz_l( Bz_l, NeJy_k, Ti_k, VaJy_k )
 {
-	// SPAN
+	//@@@
+	// Va
+	// LABEL
 	let Va_l = Hri4_Bu__ChaKz_l( Bz_l, "span", Ti_k.Vy, VaJy_k, null );
 
-	// LABEL BODY
-	let Ka_l = Hri4_Bu__ChaKz_l( Bz_l, "label", Ti_k.Vy, "KaHyHo WaDru_Vu", null );
+	//@@@
+	// Ka
+	// BODY
+	let Ka_l = Hri4_Bu__ChaKz_l( Bz_l, "label", null, "HriNe_HyHo_Ka", null );
 	const VuVy_vsg = Ti_k.Vy.replace( "_vsg", "_y" );
-	Va_l.setAttribute( "for", VuVy_vsg );
+	Ka_l.setAttribute( "for", VuVy_vsg );
 
+	//@@@
+	// Mz
 	// INPUT
 	let Vu_l = Hri4_Bu__ChaKz_l( Ka_l, NeJy_k.elm, VuVy_vsg, NeJy_k.class, Ti_k );
 	Vu_l.setAttribute( "type", "checkbox" );
 	Vu_l.setAttribute( "checked", "false" );
 
-	let Dre_l = Hri4_Bu__ChaKz_l( Ka_l, "span", null, "VuHyHo", null );
+	//@@@
+	// Vu
+	// VALUE inside INPUT
+	let Dre_l = Hri4_Bu__ChaKz_l( Ka_l, "span", null, "HriNe_HyHo_Vu", null );
 }
 
 
 //=====================================
-//
+// ELM ADD
 //=====================================
 function Hri4_Bu__ChaKz_l( DoKz_l, elm, id, className, Dy_l )
 {
@@ -505,11 +265,11 @@ function Hri4_Bu__ChaKz_l( DoKz_l, elm, id, className, Dy_l )
 		// TXT
 		if( Dy_l.KeDru ){ Kz_l.innerText = Dy_l.KeDru; }
 		// ACTION
-		if( Dy_l.Tra ){ Kz_l.onchange = Dy_l.Tra; }
+		if( Dy_l.Tra ){ Kz_l.onclick = Dy_l.Tra; }
 		// IMG
 		if( Dy_l.JaPo )
 		{
-			Kz_l.src = ( "Mx01__SuKz_MEDIA/SuKz02_JaPo__IMG/" + Dy_l.JaPo );
+			Kz_l.src = ( BriDz__Mx_KuTu_vsg + "Mx01__SuKz_MEDIA/SuKz02_JaPo__IMG/" + Dy_l.JaPo );
 			// Kz_l.setAttribute( "alt", "Image of" + Dy_l.Va );
 			Kz_l.setAttribute( "loading", "lazy" );
 		}
@@ -528,427 +288,5 @@ function Hri4_Bu__ChaKz_l( DoKz_l, elm, id, className, Dy_l )
 
 
 //=====================================
-// REMOVE GUI ITEMS
-//=====================================
-function Hri4_Bu__TaNeDe__ChiKri()
-{
-	//-------------------------------------------------
-	// REMOVE CLNS
-	//-------------------------------------------------
-	const DoFz_k = document.getElementById( "Ku03_TaTz" );
-	Kwi00__TaNe_v.forEach( function( Ti_k, Vx_wu )
-	{
-		HriNeDe__Ta_ChyStz( Ti_k );
-	});
-
-	//-------------------------------------------------
-	// REMOVE KEYMAPPER
-	//-------------------------------------------------
-	document.removeEventListener( "keyup", Hri4_Bu__MzBuDru_Je );
-}
-
-
-//=====================================
-// INIT GUI DEFAULTS
-// STATIC ITEMS
-//=====================================
-async function Hri4_Bu__TaNeDe__ChaKri()
-{
-	const KwiYz_k = Ko.TaKeDy_l.KwiYz_v[ Ko.TaKeDy_l.KeDy_wu ];
-
-	//-------------------------------------------------
-	// OPT
-	// Gen ELM
-	//-------------------------------------------------
-	{
-		//@@@
-		// ANCESTRY TREE
-		const DoFz_k = document.getElementById( "Ku03_TaTz" );
-		let Tz_l = null;
-		let Nz_l = null;
-		let Ku_l = null;
-		let Nz_Fo_wu = 0;
-
-		//@@@
-		// ELM
-		Kwi00__TaNe_v.forEach( function( Ti_k, Vx_wu )
-		{
-			//@@@
-			// Wz
-			const NeJy_qk = Ti_k.Jy;
-			const NeJy_k = Kwi00__TaNeJy_v[ NeJy_qk ];
-
-			const DoKu_k = ( Nz_l ? Nz_l : Tz_l );
-			const DoNe_k = ( Ku_l ? Ku_l : DoKu_k );
-
-			SmaSy( "[GUI]----<OPT>----:", Vx_wu, Ti_k.Va );
-
-			if( !NeJy_k.elm ){ SmaDre( "[GUI]--BROKE----:", Vx_wu, Ti_k.Va ); }
-
-			//@@@
-			// ELM ADD TYPE
-			switch( NeJy_qk )
-			{
-				//&&&
-				// NONE
-				case KoOPT.Ho_qk: { break; }
-
-				//&&&
-				// DOMAIN
-				case KoOPT.Tz_MoKu_qk:
-				case KoOPT.Tz_ToKu_qk:
-				{
-					// POP
-					Tz_l = Hri4_Bu__ChaKz_l( DoFz_k, NeJy_k.elm, Ti_k.Vy, NeJy_k.class, Ti_k );
-					Nz_l = null;
-					Ku_l = null;
-					Nz_Fo_wu = 0;
-
-					break;
-				}
-
-				//&&&
-				// TOPIC
-				case KoOPT.Nz_To_qk:
-				case KoOPT.Nz_Va_qk:
-				case KoOPT.Nz_Ta_qk:
-				case KoOPT.Nz_HyHo_qk:
-				{
-					Nz_l = Hri4_Bu__ChaKz_l( Tz_l, NeJy_k.elm, null, NeJy_k.class, null );
-
-					// INNER ZONE BOX
-					let Bz_l = Hri4_Bu__ChaKz_l( Nz_l, "div", null, null, null );
-					Bz_l.innerText = Kwi00__NzVx_vsg[ Nz_Fo_wu ];
-
-					// TOPIC NAME or INFO
-					if(( NeJy_qk === KoOPT.Nz_Va_qk ) || ( NeJy_qk === KoOPT.Nz_To_qk ) )
-					{
-						Hri4_Bu__ChaKz_l( Bz_l, "span", Ti_k.Vy, Kwi00__TaNeJy_v[ KoOPT.To_NzBz_qk ].class, null );
-					}
-					// TOPIC LIST
-					else if( NeJy_qk === KoOPT.Nz_Ta_qk )
-					{
-						// label
-						let Va_l = Hri4_Bu__ChaKz_l( Bz_l, "label", Ti_k.Vy, Kwi00__TaNeJy_v[ KoOPT.To_NzBz_qk ].class, null );
-						const TaVy_vsg = Ti_k.Vy.replace( "_vsg", "__Ta_l" );
-						Va_l.setAttribute( "for", TaVy_vsg );
-
-						// select
-						// Tra & SeVx EXPECTED
-						Hri4_Bu__ChaKz_l( Bz_l, "select", TaVy_vsg, Kwi00__TaNeJy_v[ KoOPT.Ne_KeDru_Tre_qk ].class, Ti_k );
-
-			//	<label id="TzKu__NzJo_vsg" for="TzKe__NzDz__Ta_l" class="KeDru_NeVa KeDruNz WaDru_Va" ></label>
-			//	<select id="TzKe__NzDz__Ta_l" class="HriNeTi WaDru_Vu TreHy" onchange="Hrz4_Bu__JoChy()" tabindex=9 ></select>
-
-
-					}
-					// TOPIC ON-OFF
-					else if( NeJy_qk === KoOPT.Nz_HyHo_qk )
-					{
-						// Hri4_Bu__ChaKz_l( Bz_l, "span", Ti_k.Vy, , null );
-						const VaJy_k = Kwi00__TaNeJy_v[ KoOPT.To_NzBz_qk ].class;
-						Hri4_Bu__ChaHyHoKz_l( Nz_l, NeJy_k, Ti_k, VaJy_k );
-					}
-
-					//%%%
-					// SEPARATOR LINE
-					Hri4_Bu__ChaKz_l( Bz_l, "hr", null, null, null );
-
-					//%%%
-					// REMOVE "AREAs"
-					Ku_l = null;
-					Nz_Fo_wu++;
-					break;
-				}
-
-				//&&&
-				// SPACE
-				case KoOPT.Ku_ToGwa_qk:
-				{
-					Ku_l = Hri4_Bu__ChaKz_l( DoKu_k, NeJy_k.elm, null, NeJy_k.class, Ti_k );
-					break;
-				}
-
-				//&&&
-				// CHOICE
-				//  BTN
-				case KoOPT.Ne_Tra_qk:
-				{
-					let Bz_l = Hri4_Bu__ChaKz_l( Nz_l, "div", null, null, null );
-
-					let Kz_l = Hri4_Bu__ChaKz_l( Bz_l, NeJy_k.elm, Ti_k.Vy, NeJy_k.class, Ti_k );
-					Kz_l.type = "button";
-					break;
-				}
-
-				//&&&
-				// CHOICE
-				// CHECKBOX
-				case KoOPT.Ne_HyHo_qk:
-				{
-					const VaJy_k = "KeDru_NeVa WaDru_Va";
-					// Kwi00__TaNeJy_v[ KoOPT.To_NzBz_qk ].class;
-
-					let Bz_l = Hri4_Bu__ChaKz_l( Nz_l, "div", null, null, null );
-					Hri4_Bu__ChaHyHoKz_l( Bz_l, NeJy_k, Ti_k, VaJy_k );
-					break;
-				}
-
-				//&&&
-				// CHOICE
-				// SLIDER
-				case KoOPT.Ne_VxBra_qk:
-				{
-					let Bz_l = Hri4_Bu__ChaKz_l( Nz_l, "div", null, null, null );
-
-					// LABEL
-					let Va_l = Hri4_Bu__ChaKz_l( Bz_l, "label", Ti_k.Vy, "KeDru_NeVa WaDru_Va", null );
-					const VuVy_vsg = Ti_k.Vy.replace( "_vsg", "__Vu_wf" );
-					Va_l.setAttribute( "for", VuVy_vsg );
-
-					// INPUT
-					let Vu_l = Hri4_Bu__ChaKz_l( Bz_l, NeJy_k.elm, VuVy_vsg, NeJy_k.class, Ti_k );
-					Vu_l.setAttribute( "type", "range" );
-					Vu_l.setAttribute( "min", 0 );
-					Vu_l.setAttribute( "max", 100 );
-					Vu_l.setAttribute( "value", 67 );
-
-					break;
-				}
-
-				//&&&
-				// CHOICE
-				// LST
-				case KoOPT.Ne_TaVa_qk:
-				{
-					// List (selection text)
-					break;
-				}
-
-				//&&&
-				// CHOICE
-				// IMG GRID
-				case KoOPT.Ne_TaJaPo_qk:
-				{
-					 // Img Grid
-					 break;
-				}
-
-				//&&&
-				// CHOICE DEFAULT
-				default:
-				{
-					let Kz_l = Hri4_Bu__ChaKz_l( DoNe_k, NeJy_k.elm, Ti_k.Vy, NeJy_k.class, Ti_k );
-
-					SmaDre( "UNCAUGHT CHOICE???:", Kz_l, Ti_k.Vy );
-
-				}
-			};//SWITCH  ADD ELM
-		}); // ITER ELM
-	}// OPT ALL ALL
-
-	//-------------------------------------------------
-	// CULTURE
-	//-------------------------------------------------
-//HAINT
-if( false )
-	{
-		//@@@
-		// LANG DROPDOWN LIST
-		const TzKu__NzKeDru__Ta_l = document.getElementById( "TzKu__NzKeDru__Ta_l" );
-		// LANGUAGE PICKER
-		const KeDru__TaJaPo_l = document.getElementById("TzKu__NzTrz__KeDru_TaJaPo_l");
-
-		//&&&
-		// LIST CLEAR
-		HriNeDe__Ta_ChyStz( TzKu__NzKeDru__Ta_l );
-		HriNeDe__Ta_ChyStz( KeDru__TaJaPo_l );
-
-		//&&&
-		// LIST FILL ENTRIES
-		const KeDruGri_v = [ "en", "es" ];
-
-		Hre1_Dru__Gra_v.forEach( function( Ti_k, Vx_wu )
-		{
-			// SmaSy( "------ Vx_wu:", Vx_wu, Ti_k.Va );
-
-			//&&&
-			// CHOOSE LANG DROPDOWN ADD BTNS
-			if( KeDruGri_v.includes( Ti_k.ToKz ) )
-			{
-				const Kz_l = document.createElement( "option" );
-				Kz_l.className = "HriNeTi WaDru_Ku";
-				Kz_l.innerText = `${Ti_k.KuGwz} ${Ti_k.Va}`;
-				Kz_l.value = Ti_k.Vy;
-
-				TzKu__NzKeDru__Ta_l.appendChild( Kz_l );
-			}
-
-			//&&&
-			// LANG FLAG GRID ADD BTN
-			{
-				const Kz_l = document.createElement( "div" );
-
-				if( KeDruGri_v.includes( Ti_k.ToKz ) )
-				{
-					Kz_l.className = "NiJaPo_Va NiJaPo_VaGri WaDru_Ku";
-					Kz_l.onclick = function() { TzKu__NzTrz__NiKeDru__JeChy( Vx_wu ); }
-				}
-				else
-				{
-					Kz_l.className = "NiJaPo_Va NiJaPo_VaRu WaDru_Ku";
-				}
-
-				Kz_l.innerText = Ti_k.KuGwz;
-
-				// LOCALE REVEAL
-				// Ti_k.Va + "\n" + Ti_k.So );
-
-				KeDru__TaJaPo_l.appendChild( Kz_l );
-			}
-		});
-
-		//@@@
-		// STARTING LANG
-		TzKu__NzKeDru__Ta_l.selectedIndex = KwiYz_k.KeDru_wu;
-	}
-
-	Hre1_Dru__KeDru_ChyVx( KwiYz_k.KeDru_wu );
-
-	// HAINT
-	if( false )
-	{
-
-	//-------------------------------------------------
-	// XP PICKER
-	// Changed "per user"
-	//-------------------------------------------------
-	// Hri4_Bu__TaJo_Chy();
-
-
-	//-------------------------------------------------
-	// PROFILE PICKER
-	//-------------------------------------------------
-	const SaJaPo__TaJaPo_l = document.getElementById("Ne01_KeDy03__SaJaPo__TaJaPo_l");
-	HriNeDe__Ta_ChyStz( SaJaPo__TaJaPo_l );
-
-	//@@@
-	for( let Vx_wu = 0; Vx_wu< SaPy_vvsg.length; Vx_wu++ )
-	{
-		//&&&
-		// ADD BTN
-
-		const Kz_l = document.createElement( "span" );
-
-		Kz_l.className = "NiJaPo_Va NiJaPo_VaVo";
-		Kz_l.onclick = function() { Hrz4_Bu__KwiYz__SaPy_ChyYe( Vx_wu ); }
-
-		Kz_l.innerText = SaPy_vvsg[ Vx_wu ];
-		SaJaPo__TaJaPo_l.appendChild( Kz_l );
-	}
-
-	//-------------------------------------------------
-	// AUD_METHODS
-	//-------------------------------------------------
-	{
-		const TaKeDy_l = document.getElementById( "TzHru__NzSmzYz_Ta_l" );
-		HriNeDe__Ta_ChyStz( TaKeDy_l );
-
-		//@@@
-		const SaNo__TaKeDy_l = Ko.TaKeDy_l.KwiYz_v;
-		SaNo__TaKeDy_l.forEach( function( Ti_k, Vx_wu )
-		{
-			// SmaSy( "------ Vx_wu:", Vx_wu, Ti_k.KeDy_vsg );
-
-			//&&&
-			// ADD BTN
-			const Kz_l = document.createElement( "option" );
-			Kz_l.className = "HriNeTi WaDru_Vu";
-			Kz_l.innerText = `${SaPy_vvsg[ Ti_k.NiJaPo_wu ]} ${Ti_k.KeDy_vsg }` + ( Vx_wu & 1 ? "🔒":"🔓" );
-			Kz_l.value = Vx_wu;
-			TaKeDy_l.appendChild( Kz_l );
-		});
-
-		TaKeDy_l.selectedIndex = Ko.TaKeDy_l.KeDy_wu;
-	}
-
-	//-------------------------------------------------
-	// VIS_METHODS
-	//-------------------------------------------------
-	{
-		const TaKeDy_l = document.getElementById( "TzHry__NzSy__Ta_l" );
-		HriNeDe__Ta_ChyStz( TaKeDy_l );
-
-		//@@@
-		const SaNo__TaKeDy_l = Ko.TaKeDy_l.KwiYz_v;
-		SaNo__TaKeDy_l.forEach( function( Ti_k, Vx_wu )
-		{
-			// SmaSy( "------ Vx_wu:", Vx_wu, Ti_k.KeDy_vsg );
-
-			//&&&
-			// ADD BTN
-			const Kz_l = document.createElement( "option" );
-			Kz_l.className = "HriNeTi WaDru_Vu";
-			Kz_l.innerText = `${SaPy_vvsg[ Ti_k.NiJaPo_wu ]} ${Ti_k.KeDy_vsg }` + ( Vx_wu & 1 ? "🔒":"🔓" );
-			Kz_l.value = Vx_wu;
-			TaKeDy_l.appendChild( Kz_l );
-		});
-
-		TaKeDy_l.selectedIndex = Ko.TaKeDy_l.KeDy_wu;
-	}
-
-//HAINT
-	}
-
-	//-------------------------------------------------
-	// LABELS
-	//-------------------------------------------------
-
-	//@@@
-	// APP VERSION
-	HriNeDe__ChyVaSy( "BriDzSa__Gi", BriDzSa__Gi_vsg );
-	HriNeDe__ChyVaSy( "BriDzSa__Da", BriDzSa__Da_vsg );
-
-
-	//@@@
-	// NODE
-
-	//&&&
-	// DEVICE
-	const Hra0_Ko__TaJy_vvsg = [ "MOBILE", "TABLET",  "STATION", "XR" ];
-	const Hra0_Ko__VaDe_vsg = Hra0_Ko__TaJy_vvsg[ Ko.Hra0_Ko__Jy_q ];
-	HriNeDe__ChyVaSy( "Hra0_Ko__VaDe", Hra0_Ko__VaDe_vsg );
-	HriNeDe__ChyJaPoDe( "Hra0_Ko__Gwz", "HraKo_", Hra0_Ko__VaDe_vsg.toUpperCase() );
-
-	//&&&
-	// OS
-	HriNeDe__ChyVaSy( "Hrz3_By__VaDe", Ko.Hrz3_By__VaDe_vsg );
-	HriNeDe__ChyJaPoDe( "Hrz3_By__Gwz", "HrzBy_", Ko.Hrz3_By__Gwz_vsg );
-
-	//&&&
-	// BROWSER
-	HriNeDe__ChyVaSy( "Hrz4_Bu__VaDe", Ko.Hrz4_Bu__VaDe_vsg + ": v" + Ko.Hrz4_Bu__Da_wfk );
-	HriNeDe__ChyJaPoDe( "Hrz4_Bu__Gwz", "HrzBu_", Ko.Hrz4_Bu__Gwz_vsg );
-
-
-	//@@@
-	// CHIPS
-	HriNeDe__ChyVaSy( "KaBz__VaDe", Ko.KaBz__VaDe_vsg );
-	HriNeDe__ChyJaPoDe( "KaBz__Gwz", "Ky", Ko.KaBz__Gwz_vsg );
-
-	HriNeDe__ChyVaSy( "KaBx__VaDe", Ko.KaBx__VaDe_vsg );
-	HriNeDe__ChyJaPoDe( "KaBx__Gwz", "Ky", Ko.KaBx__Gwz_vsg );
-
-	HriNeDe__ChyVaSy( "KaBa__VaDe", Ko.KaBa__VaDe_vsg );
-	HriNeDe__ChyJaPoDe( "KaBa__Gwz", "Ky", Ko.KaBa__Gwz_vsg );
-
-
-	//-------------------------------------------------
-	// KEY CTLS
-	//-------------------------------------------------
-	document.addEventListener( "keyup", Hri4_Bu__MzBuDru_Je );
-}
-
-//=====================================
-// USR END
+// GUI END
 //=====================================

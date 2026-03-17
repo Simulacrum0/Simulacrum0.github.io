@@ -1,0 +1,105 @@
+//----------------------------
+// LIFE_STATE^BriYz
+//----------------------------
+const BriYz = Object.freeze
+({
+	HxHo_qk: 0
+	, Trx_qk: 1
+	, Cho_qk: 2
+	, Che_qk: 3
+
+	, Ya_qk: 4
+	, Ye_qk: 5
+	, Yo_qk: 6
+	, Yi_qk: 7
+});
+
+
+//----------------------------
+// MACHINE_TYPE^KoJy
+//----------------------------
+const Hra0_KoJy = Object.freeze
+({
+	KoBeDru_qk: 0 // PHONE
+	, KoBeGwa_qk: 1 // TABLET
+	, KoBa_qk: 2 // STATION
+	, KoBeMz_qk: 3 // XR
+});
+
+
+//----------------------------
+// SYSTEM LOG
+//----------------------------
+// ONLY SAVE last 64 log lines
+const SmaBraHi_wuk = 64;
+const SmaViKa_wuk = ( SmaBraHi_wuk - 1 );
+
+//----------------------------
+// SYSTEM SERVICE_GOVERNOR
+//----------------------------
+let Ko =
+{
+	//@@@
+	// BOOT
+	WASM64_yk: false
+	, Trx_vsg: null
+
+	//@@@
+	// LOG
+	// Sma_vvsg
+	, SmaFe_wu: 0
+	, Sma_vvsg: [ SmaBraHi_wuk ].fill( null )
+
+	//@@@
+	// NODE
+
+	// DEVICE
+	, Hra0_Ko__Jy_q: Hra0_KoJy.KoBa_qk
+	// OS
+	, Hrz3_By__VaDe_vsg: "Unknown"
+	, Hrz3_By__Gwz_vsg: null
+	// BROWSER
+	, Hrz4_Bu__VaDe_vsg: "Unknown"
+	, Hrz4_Bu__Gwz_vsg: null
+
+	// CPU
+	, KaBz__VaDe_vsg: "Unknown"
+	, KaBz__Gwz_vsg: null
+	// GPU
+	, KaBx__VaDe_vsg: "Unknown"
+	, KaBx__Gwz_vsg: null
+	// NPU
+	, KaBa__VaDe_vsg: "None"
+	, KaBa__Gwz_vsg: null
+
+
+	//@@@
+	// SERV
+	// Setup @ KoDz__YaFz
+	, Ji: {}
+
+	//@@@
+	// CFG
+	// by User
+	, TaKeDy_l: {}
+
+
+	//@@@
+	// TIME
+	, MoDzYa__GiDri_duk: 0
+	, BriYa_GiDri_df: 0.0
+	, BriYe_GiDri_df: 0.0
+	, YeWi_df: 0.0
+	, YeFo_wu: 0
+};
+
+
+//==============================================
+// LAUNCH_CFG VERSION
+// Triggers a Reset
+//==============================================
+const KoSy__KwiYz__Da_wuk = 1;
+
+//==============================================
+// TEK_MSG_END
+//==============================================

@@ -1,0 +1,193 @@
+//==============================================
+// CHG BEGIN
+//==============================================
+
+//=====================================
+// KEY CTL
+//
+// MODIFIERS
+// if (e.shiftKey) {/*shift is down*/}
+// if (e.altKey) {/*alt is down*/}
+// if (e.ctrlKey) {/*ctrl is down*/}
+// if (e.metaKey) {/*cmd is down*/}
+//=====================================
+function Hri4_Bu__MzBuDru_Je( e )
+{
+	//@@@
+	// ELM ID & TYPE
+	const Kz_l = document.activeElement;
+	if( Kz_l )
+	{
+		// SmaJe( "ELM", Kz_l?.id );
+	}
+
+	//@@@
+	// NAVI
+	switch( e.key )
+	{
+		// case( "Enter" ):
+	 	// case( " " ):
+		// {
+		// 	SmaJe( "GO IN" );
+		// 	break;
+		// }
+
+		case "Cancel":
+		case( "Escape" ):
+		{
+			Hrz4_Bu__ChyNeKu( 0, 0 );
+			break;
+		}
+
+		case( "`" ):
+		{
+			//HriNeDe__PoSzChy( 0 );
+			if( Kz_l )
+			{
+				SmaJe( "[GUI] Elm", Kz_l?.id, " TIDX:", Kz_l?.tabindex );
+			}
+
+			break;
+		}
+
+		// case( "ArrowLeft" ):
+		// {
+		// 	//HriNeDe__PoSzChy( 0 );
+		// 	break;
+		// }
+		// case( "ArrowRight" ):
+		// {
+		// 	// HriNeDe__PoSzChy( 1 );
+		// 	break;
+		// }
+
+		case "Home": { HriNeDe__PoSzChy( 0 ); break; }
+		case "End": { HriNeDe__PoSzChy( 1 ); break; }
+		case "PageUp": { HriNeDe__PoSzChy( 2 ); break; }
+		case "PageDown": { HriNeDe__PoSzChy( 3 ); break; }
+
+
+		case "Numpad8":
+		case( "ArrowUp" ):
+		{
+			const FzKz_k = document.documentElement;
+			const WaDru__DoGy_vsg = FzKz_k.style.fontSize;
+			// Parse the value (remove "px" and convert to number)
+			let WaDruGy_wfk = parseFloat( WaDru__DoGy_vsg );
+			if( Number.isNaN(WaDruGy_wfk) ) { WaDruGy_wfk = 16.0; }
+			//SmaJe( "CUR fnt:", WaDru__DoGy_vsg, WaDruGy_wfk );
+			if( WaDruGy_wfk < 64.0) { WaDruGy_wfk += 1.0;}
+			FzKz_k.style.fontSize = WaDruGy_wfk.toString() + "px";
+			break;
+		}
+
+		case "Numpad2":
+		case( "ArrowDown" ):
+		{
+			const FzKz_k = document.documentElement;
+			const WaDru__DoGy_vsg = FzKz_k.style.fontSize;
+			// Parse the value (remove "px" and convert to number)
+			let WaDruGy_wfk = parseFloat( WaDru__DoGy_vsg );
+			if( Number.isNaN(WaDruGy_wfk) ) { WaDruGy_wfk = 16.0; }
+			//SmaJe( "CUR fnt:", WaDru__DoGy_vsg, WaDruGy_wfk );
+			if( WaDruGy_wfk > 2.0) { WaDruGy_wfk -= 1.0;}
+			FzKz_k.style.fontSize = WaDruGy_wfk.toString() + "px";
+			break;
+		}
+
+		case( "0" ):
+		{
+			HriNeDe__ChySeTra( "BriDz01__TraKwi_vsg" );
+			break;
+		}
+
+		case( "1" ):
+		case( "2" ):
+		case( "3" ):
+		case( "4" ):
+		case( "5" ):
+		case( "6" ):
+		case( "7" ):
+
+		// case( "8" ):
+		// case( "9" ):
+		{
+			// SmaJe( "#" + e.key );
+			if( true )
+			// CHANGE DOMAIN MENU
+			{
+				Hrz4_Bu__ChyNeKu( parseInt( e.key ) - 1, 0 );
+			}
+			else
+			// CHANGE TOPIC AREA
+			{
+				Hrz4_Bu__ChyNeKu( 0, parseInt( e.key ) - 1 );
+			}
+
+			break;
+		}
+	}// End Switch Key
+}
+
+
+//==============================================
+// IMAGE
+//==============================================
+
+//TzKe__NzDz__Ta_l
+					// let KaDry_l = Hri4_Bu__ChaKz_l( Bz_l, "span", null, "TreHy WaDru_Va", null );
+					// KaDry_l.innerHTML ="<img class='TreHy BriDz_FzVa JaPo__GyBzHu_Kwu Kz_BriDzDy' src='Mx01__SuKz_MEDIA/SuKz02_JaPo__IMG/JaPo05__SaTrz/SaTrz00__Gx.jpg' onclick='TzHry__NzSy__SmzYz__Chy()'></img>";
+
+					// "<img class='TreHy BriDz_FzVa JaPo__GyBzHu_Kwu Kz_BriDzDy' src='Mx01__SuKz_MEDIA/SuKz02_JaPo__IMG/JaPo05__SaTrz/SaTrz00__Gx.jpg' onclick='TzHry__NzSy__SmzYz__Chy()'></img>";
+
+
+
+//==============================================
+//
+//==============================================
+function TzHry__NzSy__SmzYz__Chy()
+{
+	SmaJe( "[CHG] HrySmz:" );
+}
+
+
+//==============================================
+// SELECT WHERE
+//==============================================
+function TzKu__NzJo__Chy()
+{
+	SmaJe( "[CHG] Jo:" );
+}
+
+
+
+//=====================================
+// SPACETIME FILL by USER
+//=====================================
+function Hri4_Bu__TaJo_Chy()
+{
+	const TaJo_l = document.getElementById( "TzKe__NzDz__Ta_l" );
+	HriNeDe__Ta_ChyStz( TaJo_l );
+
+	//@@@
+	const SaNo__TaJo_l = Ko.TaKeDy_l.KwiYz_v;
+	SaNo__TaJo_l.forEach( function( Ti_k, Vx_wu )
+	{
+		// SmaSy( "------ Vx_wu:", Vx_wu, Ti_k.KeDy_vsg );
+
+		//&&&
+		// ADD BTN
+		const Kz_l = document.createElement( "option" );
+		Kz_l.className = "HriNeTi WaDru_Vu";
+		Kz_l.innerText = `${SaPy_vvsg[ Ti_k.NiJaPo_wu ]} ${Ti_k.KeDy_vsg }`;
+		Kz_l.value = Vx_wu;
+
+		TaJo_l.appendChild( Kz_l );
+	});
+
+	TaJo_l.selectedIndex = 1;
+}
+
+//==============================================
+// CHG END
+//==============================================

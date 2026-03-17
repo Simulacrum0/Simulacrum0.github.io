@@ -22,18 +22,20 @@ Corners: top-left, top-right, bottom-right, bottom-left
 TYPES HERE:
 - Tz: Domain
 - Ku: Panel
-- KeMe: Notify
-- : Text (type)
-- : Text (select)
-- NiJaPo: Icon (select)
-- HriNe_TraKwi: Action (button)
-- Ka/VuHyHo: Bool (checkbox)
-- NiGru: Enum (radio)
-- HriNeVo: Number (slider)
 - Gwx: Separator (line)
-- : Hover(Ptr)
+- KeMe: Notify
+
+- KeDru: Text
+- JaPo: Image
+
+- HriNe: Choices (Any)
+	- HriNe_Tra: Action (button)
+	- HriNe_HyHo: Bool (toggle)
+	- HriNe_Vo: Number (slider)
+- NiJaPo: Sprite List (select)
 - : Focus(Use/Key)
-- KzTy: Elm_FX(disable, fade)
+- : Hover(Ptr)
+- KzTy: Disable(blur, fade)
 --------------
 RULES:
 - glow: hilite/hover
@@ -55,6 +57,8 @@ VARIABLES
 	--PoSzStzVo: #0008;
 	--PoSzBreSta: #888F;
 	--PoSzStx: #DDDE;
+	--PoKeMeTo: #FFFE;
+
 
 	/* OVERRIDEN COLORS for 404, ERR, no JS Pages! */
 	--PoGwyFz: #000A; /* PANEL__OUTER_TOPIC */
@@ -70,10 +74,17 @@ VARIABLES
 
 	/* SIZE GLYPH CHAR -------------------- */
 	--GyDru_Kwe: 4ch;
-	/* Optimal Character Reading Length says 50~75 but given Ideographs we'll stay low */
-	--GyDru_KeDru: 48ch;
-	--GyDru_MoKuGx: 48ch;
-	--GyDru_MoKuGa: 64ch;
+
+	/* CHOICES ICON-BTN Length */
+	/* Optimal CHARACTER READING Length says 50~75 but given Ideographs we'll stay low */
+	--GyDru_NzNe_GwaHu: 24ch;
+	--GyDru_NzNe_GwaHi: 48ch;
+	--GyDru_KeDruSkx: 48ch;
+
+	/* TOPIC  PANEL WIDTHS */
+	--GyDru__NeGx: 48ch;
+	--GyDru__NeGa: 64ch;
+	--GyDru__ToGry: 96ch;
 
 	/* SIZE ROOT LEGIBLE UNIT------------------- */
 	--GyStz: 0.0rem;
@@ -88,6 +99,7 @@ VARIABLES
 	--GyTreDe: 1.0rem;
 	--GyTreHi: 1.25rem;
 
+	--GyDruBa: 1.125rem;
 	--GyDruBz: 1.33rem;
 
 	--GyKaHu: 1.5rem;
@@ -142,6 +154,10 @@ ANCESTOR
 	/* border-box  WIDTH/HEIGHT ignore margin only */
 	box-sizing: border-box;
 	overflow: hidden;
+
+	white-space: pre-wrap;
+	overflow-wrap: anywhere;
+
 	border-radius: var(--GyStz);
 	margin: var(--GyStz);
 	padding: var(--GyStz);
@@ -204,12 +220,6 @@ font-family: Inter, Roboto, 'Helvetica Neue', 'Arial Nova', 'Nimbus Sans', Arial
 	src: url( "../../Mx01__SuKz_MEDIA/SuKz04_WaDru__FNT/WaDru00__Bz.woff2" ) format('woff2');
 }
 
-@font-face
-{
-	font-family: "Segoe UI Emoji";
-	src: url( "../../Mx01__SuKz_MEDIA/SuKz04_WaDru__FNT/WaDru01__Ku.woff2" ) format('woff2');
-}
-
 /* FACE[ 4 ] --------------------------- */
 /* 00 BRAND UNIQUE */
 .WaDru_BriDzDy
@@ -238,7 +248,7 @@ font-family: Inter, Roboto, 'Helvetica Neue', 'Arial Nova', 'Nimbus Sans', Arial
 	/* Originally used special font for FLAGS to show correctly @ Win11
 	 *AND* No Lag on Apple
 	 font-family: "Segoe UI Emoji", sans-serif; */
-	font-family: "Segoe UI Emoji", sans-serif;
+	font-family: sans-serif;
 }
 
 /* WEIGHT[4] --------------------------- */
@@ -271,7 +281,7 @@ font-family: Inter, Roboto, 'Helvetica Neue', 'Arial Nova', 'Nimbus Sans', Arial
 	;
 }
 
-.JaPo_BriDzDy
+.Kz_BriDzDy
 {
     box-shadow:
 		1px 1px 0 var(--PoSmo)
@@ -330,19 +340,22 @@ DOMAIN AREAS^Tz
 
 /*@@@@@@@@@@@@@@@
 PANELS^Ku
+5 Layers Deep
 @@@@@@@@@@@@@@@*/
 
-/* PANEL__OUTER_TOPIC */
-.Ku00__KaFz
+/* PANEL__OUTER_GUI_BG */
+.Gz00__GwaFz
 {
 	display: block;
 	position: absolute;
-	z-index: 1;
+	/* Needed to keep Menu attached to Domain Body */
+	white-space: normal;
 
 	left: var(--GyTreDe);
 	top: var(--GyTreDe);
 	border-radius: var(--GyKaHu);
 	padding: var(--GyBiHu);
+	margin: var(--GyStz);
 
 	/* GyKaDe is 2 * GyTreDe */
 	width: calc( 100dvw - var(--GyKaDe) );
@@ -350,7 +363,6 @@ PANELS^Ku
 
 	background-color: var(--PoGwyFz);
 	border: var(--GwxSpo) var(--GyBe) var(--PoBre);
-
 	box-shadow: 0 -0.5em var(--GyBiHu) var(--PoSoSmo);
 
 	/* ALLSCROLL ALL TOPIC AREA*/
@@ -358,7 +370,7 @@ PANELS^Ku
 }
 
 /* PANEL__TITLE_BAR */
-.Ku01_BzVa_GeBre
+.Gz01__BriDzVa
 {
 	display: flex;
 	flex-wrap: wrap;
@@ -369,17 +381,8 @@ PANELS^Ku
 	padding: var(--GyStz);
 }
 
-/* PANEL_GUI ---------------------- */
-.Ku01__HriNe
-{
-	position: relative;
-	z-index: 4;
-
-	display: block;
-}
-
-/* PANEL__MENU TABS --------------------------------- */
-.Ku02__HriNzVa
+/* PANEL__DOMAIN as CLN MENU TABS @ TOP --------------------------------- */
+.Gz01__TaTzVa
 {
 	display: flex;
 	flex: auto;
@@ -387,7 +390,7 @@ PANELS^Ku
 
 	/* 0 bottom to align with topic section */
 	margin: var(--GyStz);
-	padding: var(--GyBiHu) var(--GyStz) var(--GyStz) var(--GyStz);
+	padding: var(--GyBiHi) var(--GyStz) var(--GyStz) var(--GyStz);
 	place-items: var(--stretch) var(--stretch);
 
 	cursor: cell;
@@ -395,16 +398,16 @@ PANELS^Ku
 	background-color: var(--PoSzVoHo);
 }
 
-/* PANEL_ALL_DOMAIN_TOPIC_CHOICES ---------------------- */
-.Ku03__TaTz
+/* PANEL__DOMAIN BODY @ BOTTOM ---------------------- */
+.Gz01__TiTzKa
 {
-	background-color: var(--PoKuTraHy);
+	display: flex;
+	flex: auto;
+	flex-wrap: nowrap;
 
-	/* 0 to align with topic section */
 	margin: var(--GyStz);
-	margin-left: var(--GyStz);
-	margin-right: var(--GyStz);
-	padding: var(--GyStz);
+	padding: var(--GyBiHu);
+
 	align-content: flex-start;
 	justify-content: flex-start;
 
@@ -416,45 +419,87 @@ PANELS^Ku
 
 	border-radius: var(--GyKaHu);
 	border-radius: var(--GyStz) var(--GyStz) var(--GyKaHu) var(--GyKaHu);
+
+	background-color: var(--PoKuTraHy);
 }
 
-
-/* PANEL__TOPIC_CHOICES ----------------------------- */
-.Ku04__MoKu
+/* PANEL__DOMAIN_LAYOUT ------------------------ */
+.Gz02__HreJo_To
+, .Gz02__HreJo_Ne
 {
 	display: grid;
-	gap: var(--GyTreDe);
-	margin: var(--GyBiHu);
-	overflow-y: auto;
-
 	vertical-align: top;
 	align-content: flex-start;
 	justify-content: flex-start;
 
+	overflow: auto;
+	gap: var(--GyTreHu);
+
+	margin: var(--GyBo);
+}
+
+/* PANEL__DOMAIN_LAYOUT INFO_ONLY */
+.Gz02__HreJo_To
+{
+	/* auto-fit USE ALL SPACE auto-fill PACKS */
+	grid-template-columns: repeat( auto-fit, minmax( var(--GyDru__ToGry), 1fr ));
+}
+
+/* PANEL__DOMAIN_LAYOUT CHOICES */
+.Gz02__HreJo_Ne
+{
 	/* WIDE */
 	@media (min-aspect-ratio: 1/1)
 	{
-		grid-template-columns: repeat( auto-fit, minmax( var(--GyDru_MoKuGx), 1fr ));
+		grid-template-columns: repeat( auto-fit, minmax( var(--GyDru__NeGx), 1fr ));
 	}
 	/* TALL */
 	@media (max-aspect-ratio: 1/1)
 	{
-		grid-template-columns: repeat( auto-fit, minmax( var(--GyDru_MoKuGa), 1fr ));
+		grid-template-columns: repeat( auto-fit, minmax( var(--GyDru__NeGa), 1fr ));
 	}
 }
 
-/* INFO BLOCK */
-.Ku05__ToKu
+
+/* PANEL__TOPIC SURFACE--------------------------------- */
+.Gz03__NzGwa
 {
-	display: inline-block;
+	display: block;
+	position: relative;
 	overflow-y: auto;
+
+	padding: var(--GyBo);
+
+	color: var(--PoBre);
+	background-color: var(--PoKuDe);
+
+	border-left: none;
+	border-right: none;
+	border-top: var(--GwxSpo) var(--GyBe) var(--PoKuTz);
+	border-bottom: none;
+	border-radius: var(--GyTreDe);
 }
 
-/* TOPIC_CHOICES__INDEX_SECTION_PANEL */
-.Ku06__NzTaNe_Gwx
-, .Ku06__NzTaNe_Gwa
+/* TOPIC_CHOICES ------------------*/
+
+
+/* TOPIC_CHOICES HIDDEN */
+.Gz04__NzNe_Smo
+{
+	display: block;
+	overflow: hidden;
+	width: 0;
+	height: 0;
+}
+
+/* TOPIC_CHOICES SHARED */
+.Gz04__NzNe_Gwx
+, .Gz04__NzNe_GwaHu
+, .Gz04__NzNe_GwaHi
 {
 	overflow-y: auto;
+	flex-wrap: wrap;
+
 	vertical-align: top;
 	text-align: start;
 	align-content: flex-start;
@@ -462,36 +507,32 @@ PANELS^Ku
 
 	margin: var(--GyBo);
 	padding: var(--GyBo);
-
-	border-left: none;
-	border-right: none;
-	border-top:  var(--GyBe) var(--GwxSpo)var(--PoKuTz);
-	border-bottom: none;
 	border-radius: var(--GyTreDe);
 
-	color: var(--PoBre);
-	background-color: var(--PoKuDe);
+	gap: var(--GyBe);
 }
 
 /* TOPIC_CHOICES TEXT-LINES */
-.Ku06__NzTaNe_Gwx
+.Gz04__NzNe_Gwx
 {
 	display: inline-flex;
-	flex-wrap: wrap;
-	gap: 0;
 }
 
-/* TOPIC_CHOICES AREAS */
-.Ku06__NzTaNe_Gwa
+/* TOPIC_CHOICES SURF SM */
+.Gz04__NzNe_GwaHu
 {
 	display: grid;
-	grid-template-columns: repeat( auto-fit, minmax( var(--GyDru_KeDru), 1fr ));
-	gap: var(--GyBe);
-	border-radius: var(--GyTreDe);
+	grid-template-columns: repeat( auto-fit, minmax( var(--GyDru_NzNe_GwaHu), 1fr ));
 }
 
-/* INFO_SURF */
-.Ku07__ToGwa
+.Gz04__NzNe_GwaHi
+{
+	display: grid;
+	grid-template-columns: repeat( auto-fit, minmax( var(--GyDru_NzNe_GwaHi), 1fr ));
+}
+
+/* BODY of INFO  --------------------------- */
+.Gz05__KaTo
 {
 	display: inline-flex;
 	flex-wrap: wrap;
@@ -501,38 +542,29 @@ PANELS^Ku
 	align-content: flex-start;
 	justify-content: flex-start;
 
-	margin: var(--GyBo);
+	margin: var(--GyBe);
 	padding: var(--GyBe);
 
-	border-radius: var(--GyTreDe);
+	border-radius: var(--GyTreHu);
 	background-color: var(--PoKuTraHy);
 	/* border: var(--GwxSpo) var(--GyBe); border-color: blue; */
 }
 
-/*@@@@@@@@@@@@@@@
-SECTION LINE
-@@@@@@@@@@@@@@@*/
-hr
+/* BODY of CHOICES ---- */
+.Gz05__KaNe
 {
-    display: block;
+	display: inline-flex;
+	overflow: visible;
 
-	width: 100%;
-	height: var(--GyBiHu);
-    padding: var(--GyStz);
-	margin: var(--GyStz);
-
-	border-radius: var(--GyBiHu);
-	border: none;
-	border-bottom: var(--GwxSpo) var(--GyBe) var(--PoKuStuVo);
-	/* Small Pad for curve */
-    padding-bottom: var(--GyBiHu);
+	text-align: start;
+	align-items: center;
 }
-
 
 /*@@@@@@@@@@@@@@@
 NOTIFY^KeMe
 @@@@@@@@@@@@@@@ */
-/* STATUS BAR */
+
+/* STATUS BAR--------------------- */
 .KeMe_De
 {
 	cursor: help;
@@ -560,42 +592,43 @@ NOTIFY^KeMe
 	top: calc(100dvh - var(--GyKaHu));
 }
 
+/* TOOLTIP --------------------------------- */
 /* TOOLTIP BUBBLE TEXT */
 .KeMe_To
 , .KeMe_ToKeDru
 {
 	font-size: var(--GyTreHu);
-	white-space: pre-wrap;
-
 	color: var(--PoSzStz);
 }
 
 /* TOOLTIP BUBBLE BOX */
 .KeMe_To
 {
-	cursor: help;
 	position: relative;
+	cursor: help;
+
 	overflow: visible;
 	text-align: center;
-
 	padding: var(--GyBiHu);
 	margin: var(--GyBiHu);
-
 
 	width: fit-content;
 	height: fit-content;
 	min-width: var(--GyBzHi);
 	border-radius: var(--GyKaHu);
 
-	background-color: var(--PoSzStx);
+	background-color: var(--PoKeMeTo);
 	opacity: 1.0;
 }
 
 /* TOOLTIP TRIANGLE GUIDE */
 .KeMe_To::before
 {
-	content: " ";
 	position: absolute;
+	cursor: help;
+	overflow: visible;
+
+	content: "  ";
 
 	padding: var(--GyStz);
 	margin: var(--GyStz);
@@ -609,11 +642,11 @@ NOTIFY^KeMe
 	/* Triangle Size & Location */
 	border-width: var(--GyBiHu);
 	inset-inline-start: var(--GyKaHu);
-	/* -2.0 * Self Border-Width */
-	inset-block-end: -1.0rem;
+	/* -1.0 * Self Border-Width Half-Height...need to gap sliver */
+	inset-block-end: -0.98rem;
 
 	/* Top Border ONLY faces down */
-	border-color: var(--PoSzStx) transparent transparent transparent;
+	border-color: var(--PoKeMeTo) transparent transparent transparent;
 }
 
 
@@ -627,34 +660,32 @@ TEXT
 	display: flex;
     justify-content: center;
     align-items: center;
-	white-space: pre-wrap;
 
 	width: var(--stretch);
-
 	padding: var(--GyBiHu);
 	margin: var(--GyStz);
 	margin-top: var(--GyTreDe);
 
-	color: var(--PoSoSmo);
-	background-color: var(--PoKuTraHo);
-
 	border: var(--GwxSpo) var(--GyBe) var(--PoSi);
 	border-radius: var(--GyKaHu) var(--GyKaHu) 0 0;
+
+	color: var(--PoSoSmo);
+	background-color: var(--PoKuTraHo);
 }
 
 /* TEXT__MENU_SELECTED */
 .KeDru_NzVa_Se__TraKz
 {
-	font-size: 1.125rem;
-	color: var(--PoSi);
-	background-color: var(--PoKuTraHy);
+	font-size: var(--GyDruBa);
+
+	padding: var(--GyBiHi);
+	border-bottom:none;
 
 	outline: none;
 	box-shadow: 0 -0.5em var(--GyBiHu) var(--PoSoSmo);
-	padding: var(--GyBiHi);
 
-
-	border-bottom:none;
+	color: var(--PoSi);
+	background-color: var(--PoKuTraHy);
 }
 
 /* TEXT__CHOICE_ITEMS--------------------------------------------- */
@@ -664,8 +695,8 @@ TEXT
 {
 	display: inline-flex;
 
-	margin: var(--GyBo);
-	padding: var(--GyBo);
+	margin: var(--GyBe);
+	padding: var(--GyBe);
 
 	color: var(--PoSi);
 	/* border: var(--GwxSpo) var(--GyBe);	border-color: yellow; */
@@ -675,11 +706,10 @@ TEXT
 .KeDru_ToVu
 {
 	display: inline-flex;
-	white-space: pre-wrap;
 	overflow-y: auto;
 
-	margin: var(--GyBo);
-	padding: var(--GyBo);
+	margin: var(--GyBe);
+	padding: var(--GyBe);
 
 	font-size: var(--GyBiHi);
 	line-height: var(--GyDruBz);
@@ -690,7 +720,7 @@ TEXT
 }
 
 /* TEXT_INFO__VERTICAL*/
-.BriDz_Sz
+.KeDru_GoGa
 {
 	display: flex;
 	font-size: var(--GyBiHi);
@@ -702,6 +732,14 @@ TEXT
 	writing-mode: sideways-lr;
 	text-orientation: sideways;
 }
+
+.KeDru_TraGyHu
+{
+	margin: var(--GyStz);
+	padding: var(--GyStz);
+	border-radius: var(--GyBiHu);
+}
+
 /* TEXT__DOC_PGRAF--------------------------------------------- */
 
 /* TEXT_DOC_PGRAF HEADER */
@@ -713,11 +751,9 @@ TEXT
 /* TEXT_DOC_PGRAF BODY */
 .KeDruBa, .KeDruSkx
 {
-	white-space: pre-wrap;
 	/* NEED 100% width for FIREFOX 2026 */
 	width: 100%;
 	max-width: calc( 100% - var(--GyTreDe) );
-	/* height: fit-content; */
 	font-size: var(--GyTreHu);
 	line-height: var(--GyDruBz);
 
@@ -735,11 +771,9 @@ TEXT
 {
 	/* Requires BLOCK to split columns */
 	column-rule: var(--GyBo) var(--GwxKwo) var(--PoKuDe);
-	column-width: var(--GyDru_KeDru);
+	column-width: var(--GyDru_KeDruSkx);
 	column-gap: var(--GyDru_Kwe);
 }
-
-/* TEXT__PAGE_NOTICES --------------------------------------------- */
 
 /* TEXT__SECTION */
 .KeDruNz
@@ -747,7 +781,16 @@ TEXT
 	font-size: var(--GyTreHi);
 	margin: var(--GyBe);
 	padding: var(--GyBe);
+
+	/* Small Pad for curve */
+    padding-bottom: var(--GyBiHu);
+
+	border: none;
+	border-radius: var(--GyBiHu);
+	border-bottom: var(--GwxSpo) var(--GyBe) var(--PoKuTz);
 }
+
+/* TEXT__PAGE_NOTICES --------------------------------------------- */
 
 /* TEXT__TITLE_WORDSIZE */
 .BriDz_FzVa
@@ -773,39 +816,6 @@ TEXT
 	text-align: center;
 }
 
-
-/*@@@@@@@@@@@@@@@
-INTERACTIVE CHOICE
-@@@@@@@@@@@@@@@*/
-
-/* TEXT__LIST_ELEMENTS */
-.HriNeTi
-/* TEXT__TYPING_INPUT */
-, .KeDru_MiPo
-, .HriNe_Tra
-{
-	display: inline-flex;
-	text-align: start;
-
-	margin: var(--GyBo);
-	padding: var(--GyBo);
-
-	color: var(--PoSi);
-	background-color: var(--PoKuTz);
-
-	border-radius: var(--GyKaHu);
-	border: var(--GwxSpo) var(--GyBe) var(--PoSi);
-}
-
-/* TEXT__BTN */
-.HriNe_Tra
-{
-	text-align: center;
-	margin: var(--GyBo);
-	padding: var(--GyBo) var(--GyBiHi);
-	line-height: var(--GyKaDe);
-}
-
 /*@@@@@@@@@@@@@@@
 IMAGES
 @@@@@@@@@@@@@@@*/
@@ -819,8 +829,6 @@ IMAGES
 	height: var(--GyKaDe);
 	margin: var(--GyBo);
 	padding: var(--GyStz);
-
-	white-space: pre-wrap;
 	text-align: center;
 }
 
@@ -837,18 +845,17 @@ IMAGES
 /* 4x4 LG */
 .JaPo__GyBzHu
 /* ROUNDED EDGE */
-, .JaPo__GyBzHu_Kwx
+, .JaPo__GyBzHu_Kwu
 {
 	position: relative;
 	height: var(--GyBzHu);
 	margin: var(--GyBo);
 	padding: var(--GyStz);
 
-	white-space: pre-wrap;
 	text-align: center;
 }
 
-.JaPo__GyBzHu_Kwx
+.JaPo__GyBzHu_Kwu
 {
 	border-radius: var(--GyKaHu);
 	border: var(--GwxSpo) var(--GyBe) var(--PoSiSpo);
@@ -864,13 +871,173 @@ IMAGES
 	background-color: var(--PoSzStx);
 }
 
+/*@@@@@@@@@@@@@@@
+ELM CHOICES
+@@@@@@@@@@@@@@@*/
+
+/* TEXT__LIST */
+.HriNeTi
+/* TEXT__TYPING */
+, .KeDru_MiPo
+/* TEXT__BTN */
+, .HriNe_Tra
+{
+	display: inline-flex;
+	text-align: start;
+
+	margin: var(--GyBo);
+	padding: var(--GyBo);
+
+	color: var(--PoSi);
+	background-color: var(--PoKuTz);
+
+	border-radius: var(--GyKaHu);
+	border: var(--GwxSpo) var(--GyBe) var(--PoSi);
+}
 
 /*@@@@@@@@@@@@@@@
-SPRITE GRID
+CHOICE BUTTON
+@@@@@@@@@@@@@@@*/
+
+/* TEXT__BTN */
+.HriNe_Tra
+{
+	text-align: center;
+	margin: var(--GyBo);
+	padding: var(--GyBo) var(--GyBiHi);
+	line-height: var(--GyKaDe);
+}
+
+/* BTN SUBMIT ===> LAUNCH BTN RED */
+.HriNe_TraKwi
+{
+	font-size: var(--GyKaHu);
+	background-color: var(--PoSmuTra);
+
+	display: inline-block;
+	text-align: center;
+	place-items: center center;
+
+	width:fit-content;
+	min-width: 12.0rem;
+	margin: var(--GyBo) var(--GyBiHu);
+	padding: var(--GyBo) var(--GyTreHu);
+
+	border-radius: var(--GyKaHu);
+	border: var(--GwxSpo) var(--GyBe) var(--PoSi);
+}
+
+/* BTN SUBMIT HOVER BG Po ==> GREEN */
+.HriNe_TraKwi:hover
+{
+	/* GLOW */
+	font-size: var(--GyKaDe);
+	box-shadow: 0 0 var(--GyTreDe) var(--PoSmuSe );
+	background-color: var(--PoSmuSe);
+}
+
+/*@@@@@@@@@@@@@@@
+TOGGLE_SWITCH
+Ka is Body, Vu is Value, & Mz is BG & Glow
+@@@@@@@@@@@@@@@*/
+
+/* TOGGLE ALIGN OVERLAPS */
+.HriNe_HyHo_Ka .HriNe_HyHo_Mz
+{
+	width: var(--GyStz);
+	height: var(--GyStz);
+	opacity: var(--GyStz);
+
+	margin: var(--GyStz);
+	padding: var(--GyStz);
+}
+
+/* TOGGLE AREA */
+.HriNe_HyHo_Ka
+{
+	display: inline-block;
+	position: relative;
+	overflow: visible;
+
+	width: var(--GyKaHi);
+	height: var(--GyKaHu);
+	border-radius: var(--GyKaHu);
+}
+
+/* BAR PART GREY of TOGGLE */
+.HriNe_HyHo_Vu
+{
+	position: absolute;
+	margin: var(--GyStz);
+	padding: var(--GyStz);
+
+	top: var(--GyStz);
+	left: var(--GyStz);
+	right: var(--GyStz);
+	bottom: var(--GyStz);
+
+	height: var(--GyKaHu);
+	border-radius: var(--GyKaHu);
+
+	background-color: var(--PoKuStuVo);
+}
+
+/* CIRCLE PART (WHITE/RED) of TOGGLE */
+.HriNe_HyHo_Vu:before
+{
+	position: absolute;
+	content: "";
+	text-align: center;
+	align-items: center;
+
+	left: var(--GyStz);
+	bottom: var(--GyStz);
+	width: var(--GyKaHu);
+	height: var(--GyKaHu);
+	border-radius: var(--GyKaHu);
+
+	background-color: var(--PoSeVu);
+	transition: var(--GiHi);
+}
+
+/* TOGGLE RED BG */
+.HriNe_HyHo_Mz:checked + .HriNe_HyHo_Vu
+{
+	background-color: var(--PoSmuTra);
+	transition: var(--GiHi);
+}
+
+/* FOCUS SLIDE ON/OFF */
+.HriNe_HyHo_Mz:checked + .HriNe_HyHo_Vu:before
+{
+	transform: translateX( var(--GyKaHu) );
+	transition: var(--GiHi);
+}
+
+/*@@@@@@@@@@@@@@@
+SLIDER
+@@@@@@@@@@@@@@@ */
+.HriNe_Vo
+{
+	display: inline-flex;
+	text-align:center;
+
+	margin: var(--GyBe);
+	padding: var(--GyBe);
+
+	border-radius: var(--GyTreDe);
+	border: none;
+
+	color: var(--PoSiSpo);
+	background-color: var(--PoSzVoHo);
+}
+
+/*@@@@@@@@@@@@@@@
+SPRITE LIST
 @@@@@@@@@@@@@@@*/
 
 /* SPRITE ZONE */
-.TaJaPo_HryKu
+.HriNe_TaJaPo_Ku
 {
 	display: inline-flex;
 	flex-wrap: wrap;
@@ -952,7 +1119,6 @@ SPRITE GRID
 .NiJaPo_VaGri:Hover
 {
 	background-color: var(--PoSi);
-
 }
 
 /* OVERLAY EXACT*/
@@ -963,6 +1129,7 @@ SPRITE GRID
 
 	margin: var(--GyStz);
 	padding: var(--GyStz);
+
 	left: var(--GyStz);
 	right: 100%;
 	top: var(--GyStz);
@@ -978,191 +1145,28 @@ SPRITE GRID
 
 .NiJaPo_VaVo:Hover
 {
-	filter: grayscale( 0% );
-
 	background-color: var(--PoSi);
-
+	filter: grayscale( 0% );
 }
 
+
 /*@@@@@@@@@@@@@@@
-BTN SUBMIT ===> LAUNCH BTN RED
+ELM HOVER GLOW
 @@@@@@@@@@@@@@@*/
-.HriNe_TraKwi
-{
-	font-size: var(--GyKaHu);
-	background-color: var(--PoSmuTra);
-
-	width:fit-content;
-	min-width: 16.0rem;
-	margin: var(--GyBo) var(--GyBiHu);
-	padding: var(--GyBo);
-
-	border-radius: var(--GyKaHu);
-	border: var(--GwxSpo) var(--GyBe) var(--PoSi);
-
-
-}
-
-/* BTN SUBMIT HOVER BG Po ==> GREEN */
-.HriNe_TraKwi:hover
-{
-	/* GLOW */
-	font-size: var(--GyKaDe);
-	box-shadow: 0 0 var(--GyTreDe) var(--PoSmuSe );
-	background-color: var(--PoSmuSe);
-
-}
-
-/*@@@@@@@@@@@@@@@
-TOGGLE_SWITCH
-@@@@@@@@@@@@@@@*/
-
-/* CONTAINER INPUT special CSS */
-.KaHyHo .MzHyHo
-{
-	width: var(--GyStz);
-	height: var(--GyStz);
-	opacity: var(--GyStz);
-
-	margin: var(--GyStz);
-	padding: var(--GyStz);
-}
-
-/* CHECKBOX AREA */
-.KaHyHo
-{
-	display: inline-block;
-	position: relative;
-	overflow: visible;
-
-	width: var(--GyKaHi);
-	height: var(--GyKaHu);
-
-	border-radius: var(--GyKaHu);
-}
-
-/* BAR PART GREY of CHECKBOX */
-.VuHyHo
-{
-	position: absolute;
-
-	top: var(--GyStz);
-	left: var(--GyStz);
-	right: var(--GyStz);
-	bottom: var(--GyStz);
-
-	height: var(--GyKaHu);
-	margin: var(--GyStz);
-	padding: var(--GyStz);
-
-	border-radius: var(--GyKaHu);
-	background-color: var(--PoKuStuVo);
-}
-
-/* CIRCLE PART (WHITE/RED) of CHECKBOX */
-.VuHyHo:before
-{
-	position: absolute;
-
-	content: "";
-
-	left: var(--GyStz);
-	bottom: var(--GyStz);
-	width: var(--GyKaHu);
-	height: var(--GyKaHu);
-
-	background-color: var(--PoSeVu);
-	border-radius: var(--GyKaHu);
-	transition: var(--GiHi);
-}
-
-/* CHECKBOX RED BG */
-.MzHyHo:checked + .VuHyHo
-{
-	background-color: var(--PoSmuTra);
-	transition: var(--GiHi);
-}
-
-/* FOCUS SLIDE ON/OFF */
-.MzHyHo:checked + .VuHyHo:before
-{
-	transform: translateX( var(--GyKaHu) );
-	transition: var(--GiHi);
-}
-
-/*@@@@@@@@@@@@@@@
-RADIO GROUP
-@@@@@@@@@@@@@@@*/
-
-/* FIELDSET */
-.NiGruKu
-{
-	margin: var(--GyBo);
-	padding: var(--GyBo);
-	border: var(--GwxSpo) var(--GyBe) var(--PoBreHu);
-}
-
-.NiGruVa
-{
-	margin: var(--GyBo);
-	padding: var(--GyBo);
-
-	color: var(--PoSiSpo);
-	background-color: var(--PoSzVoHo);
-	border-radius: var(--GyTreDe);
-
-
-}
-
-.NiGruTi
-{
-	margin: var(--GyBo);
-	padding: var(--GyBo);
-
-	background-color: var(--PoSzVoHo);
-
-}
-
-/*@@@@@@@@@@@@@@@
-SLIDER
-@@@@@@@@@@@@@@@ */
-.HriNeVo
-{
-	display: inline-flex;
-	text-align:center;
-
-	margin: var(--GyBe);
-	padding: var(--GyBe);
-
-	border-radius: var(--GyTreDe);
-	border: none;
-
-	color: var(--PoSiSpo);
-	background-color: var(--PoSzVoHo);
-}
-
-
-/*@@@@@@@@@@@@@@@
-HOVER GLOW
-@@@@@@@@@@@@@@@*/
-
-.HriNeVo:hover
+.HriNe_Vo:hover
 , .NiGruVa:hover
 {
 	box-shadow: 0 0 var(--GyTreHu) var(--PoSi);
-
 }
 
 .TreHy:hover
 {
 	box-shadow: 0.0 0 var(--GyTreDe) var(--PoSi);
-
 }
 
-.KaHyHo:hover
+.HriNe_HyHo_Ka:hover
 {
 	box-shadow: 0 0 var(--GyKaHu) var(--PoSi);
-
 }
 
 /* TEXT__MENU_TITLE---HOVER PTR  */
@@ -1171,20 +1175,19 @@ HOVER GLOW
 	font-size: var(--GyTreHi);
 	outline: none;
 	box-shadow: 0 -0.5em var(--GyTreDe) var(--PoSeVu);
-
 }
 
 /*@@@@@@@@@@@@@@@
-FOCUS DOTTED OUTLINE
+ELM FOCUS DOTTED OUTLINE
 @@@@@@@@@@@@@@@*/
 
   .KeDru_NzVa__TraKz:focus
 , .KeDru_NzVa_Se__TraKz:focus
 , .TreHy:focus
 , .HriNe_TraKwi:focus
-, .HriNeVo:focus
+, .HriNe_Vo:focus
 , .NiGruVa:focus
-, .MzHyHo:focus + .VuHyHo
+, .HriNe_HyHo_Mz:focus + .HriNe_HyHo_Vu
 {
 	outline: dotted var(--GyBe) var(--PoSi);
 }
@@ -1196,18 +1199,21 @@ FOCUS DOTTED OUTLINE
 }
 
 /*@@@@@@@@@@@@@@@
-ELM_FX
+ELM DISABLE
 @@@@@@@@@@@@@@@*/
 
-/* CHOICE PLAN ----------------- */
-.HriNe_Sz
+/* HIDDEN or SHOWN ICON */
+.NzKa_HryVoHo
 {
-	display: inline-flex;
-	overflow: visible;
-	align-items: center;
+	transform: rotate( 0deg );
 }
 
-/* ELM__NOT_IN_USE ------------------ */
+.NzKa_HryVoHy
+{
+	transform: rotate( 90deg );
+}
+
+/* ELM__FADED__NOT_IN_USE ------------------ */
 .HriNe_TraHo
 {
 	cursor: not-allowed;
@@ -1215,7 +1221,7 @@ ELM_FX
 	color: var(--PoSiSpo);
 	background-color: var(--PoSmuTra);
 }
-/* ELM__FADED__NOT_IN_USE */
+/* ELM__BLURRED__NOT_IN_USE */
 .HriNe_HryHo
 {
 	cursor: not-allowed;
@@ -1227,6 +1233,7 @@ ELM_FX
 	/* filter: brightness( 25% ); */
 }
 
+/* ELM__HIDDEN */
 .HriNe__SmoTy
 {
 	display:none;

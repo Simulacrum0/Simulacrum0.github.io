@@ -1,0 +1,438 @@
+//=====================================
+// "Micro🗺️Cosm LAUNCHER LANGUAGE FILE
+"use strict";
+Ko.TzKwi__KeDru =
+//=====================================
+{
+	//=====================================
+	// ENGINE EVENTS
+	// Section 1/4
+	KiJe:
+	//=====================================
+	{
+		//@@@
+		// MESSAGES
+		BriDz__TrxBz_vsg: "Tech FAIL: "
+
+		//@@@
+		// WARNINGS
+		, Dre__SySmz_GriHo_vsg: "Optional Service Fail: "
+
+		//@@@
+		// FATAL ERRORS
+		, TrxJy00__HrxCheHo__CORS_vsg: "Security Fail: No HTTPS CORS Found to run Security Policies."
+		, TrxJy01__HrzMoHo__WASM_vsg: "Web Assembly not Supported: Try a different Browser"
+		, TrxJy02__MoDzStxGru_vsg: "Only *1* Webpage Allowed at a time"
+
+		, TrxJy__KaBzTrx__WG_vsg: "GPU Not Available or Capable: Try Restarting Browser or Machine"
+		, TrxJy__SySmz_GriHo_vsg: "Required Service Fail:"
+		, TrxJy__SuKz_GriHo_vsg: "Required Content Fail:"
+	}
+
+
+	//=====================================
+	// LISTS
+	// Section 2/4
+	, Ta:
+	//=====================================
+	{
+		TzKu__NzKeDru__Ta:
+		{
+			Ti00: "English"
+			, Ti01: "Spanish"
+		}
+
+		, TzKu__NzJo__Ta:
+		{
+			Ti00: "Foyer"
+			, Ti01: "Kitchen"
+			, Ti02: "Workshop"
+			, Ti03: "Basement"
+		}
+
+		, TzKe__NzDy__Ta:
+		{
+			Ti00: "Guest"
+			, Ti01: "Ghost"
+			, Ti02: "Kiosk"
+			, Ti03: "Pro"
+		}
+
+		, TzHru__NzSy__Ta:
+		{
+			Ti00: "8 track"
+			, Ti01: "16 track"
+			, Ti02: "32 track DSP"
+			, Ti03: "128 track DSP"
+		}
+
+		, TzHry__NzSy__Ta:
+		{
+			Ti00: "Compatibility"
+			, Ti01: "Lowest"
+			, Ti02: "Average"
+			, Ti03: "Highest"
+		}
+
+		, TzTru__NzDx__Ta:
+		{
+			Ti00: "Light Mode"
+			, Ti01: "Dark Mode"
+			, Ti02: "Ruby Mode"
+			, Ti03: "Deep Sea Mode"
+		}
+
+	}
+
+
+	//=====================================
+	// GUI LABELS
+	// Section 3/4
+	, HriNe:
+	//=====================================
+	{
+		//-----------------------
+		// HEADLINES
+		//-----------------------
+		BriDz00__VaDe_vsg: "Micro🗺️Cosm"
+		, BriDz01__TraKwi_vsg: "🚀LAUNCH"
+		, BriDz02__TrxTaSma_vsg: "Event LOG"
+		, BriDz03__TrxKrx_vsg: "Please try a different WebBrowser or Electronic-Device"
+
+
+		//-----------------------
+		// DOMAINS
+		//-----------------------
+		, Tz00_vsg: "❶🗺️\nWHERE"
+		, Tz01_vsg: "❷🥸\nWHO"
+		, Tz02_vsg: "❸👂\nHEAR"
+		, Tz03_vsg: "❹👀\nSEE"
+		, Tz04_vsg: "❺👍\n ALLOW"
+		, Tz05_vsg: "❻🧩\nLEARN"
+		, Tz06_vsg: "❼📜\nNOTICE"
+
+
+		//-----------------------
+		// TzKu: WHERE
+		//-----------------------
+
+		//@@@
+		// TOPIC: WELCOME
+		, TzKu__NzYa_vsg: "👋Welcome Greeting"
+			, TzKu__NzYa__Ne00_vsg: "Micro🗺️Cosm is a web tool to build an electronic shared experience that connects to all major web-browsers on all modern devices and OS platforms."
+			, TzKu__NzYa__Ne01_vsg: "Micro🗺️Cosm is your portal to exploring, creating, & sharing 'digital experiences' (SX) with people or communities you choose. By tapping Launch above you'll enter into the selected SX and can play, build, connect or simply understand its contents. To customize the launch experience in your browser select the other tabs to fit match your needs and permissions."
+
+
+		//@@@
+		// TOPIC: WHERE SHARED EXPERIENCE
+		, TzKu__NzJo_vsg: "🧭 Where to Go"
+			, TzKu__NzJo__NiJo_vsg: "🚪Experience (SX) to Enter"
+
+
+		//@@@
+		// TOPIC: COMPUTE_DEVICE
+		, TzKu__NzKo_vsg: "🖥️Your Device"
+			, TzKu__NzKo__Sy00_vsg: "Type:"
+			, TzKu__NzKo__Sy01_vsg: "OS:"
+			, TzKu__NzKo__Sy02_vsg: "Browser:"
+			, TzKu__NzKo__Sy03_vsg: "CPU:"
+			, TzKu__NzKo__Sy04_vsg: "GPU:"
+			, TzKu__NzKo__Sy05_vsg: "NPU:"
+
+
+		//@@@
+		// TOPIC: BUILD VERSION
+		, TzKu__NzTrz_vsg: "🧪About this Version"
+			, TzKu__NzTrz__BriDzSa__Da_vsg: "🏗️Built:"
+			, TzKu__NzTrz__TyCha_Va_vsg: "☑️New Features:"
+			, TzKu__NzTrz__TyFa_Va_vsg: "📈Coming Soon:"
+
+			, TzKu__NzTrz__TyCha_Hx_vsg: "☑️HTML, Javascript & CSS for launching should be done for User Profiles.\n☑️Languages are not yet supported but the behavior works as expected for English and intentionally-overriden Right to Left Spanish.\n☑️Menus in testing mode now."
+			, TzKu__NzTrz__TyFa_Hx_vsg: "📈Launcher complete\n📈GPU Cleanup finished\n📈Editing Presentations for Website and Beyond\n📈Behavior Making"
+
+
+		//@@@
+		// TOPIC: FEATURE TESTING
+		, TzKu__NzSme_vsg: "🔎Investigate"
+			, TzKu__NzSme__JzHa_Va_vsg: "🤔Consider:"
+			, TzKu__NzSme__JiHa_Va_vsg: "🔬Test Focus:"
+			, TzKu__NzSme__DreTrx_Va_vsg: "⚠️Known Issues:"
+
+			, TzKu__NzSme__JzHa_Hx_vsg: "🤔We need to test all 5 OS's, the 3 major Browser Families( Chromium, Safari, Firefox) and usually some Chrome offshoots(Samsung, Meta, Opera, Brave)\n🤔Now that our launcher is complete, the vast majority of features are simply built on top of the existing WebCPU/WebGPU instructions with very little except 'new' web-services to ever consider adding.\n🤔Critical to our success is the ability for the motivated to report their logs back to our HQ without legal (GDPR) violations."
+			, TzKu__NzSme__JiHa_Hx_vsg: "🔬Check if the OS, Browser & Chips seem 'correct'.\n🔬Test 7 ❂Menus and verify formatting looks mvp-ok\n🔬Check if icons match OS,Browser, etc."
+			, TzKu__NzSme__DreTrx_Hx_vsg: "⚠️Build does not RUN!\n⚠️Apple & Samsung fail in WebGPU for different API-error reasons\n⚠️Launcher needs Refinement\n⚠️All possible art switching to svg vectors\n"
+
+
+		//-----------------------
+		// TzKe: WHO
+		//-----------------------
+
+		//@@@
+		// TOPIC: UNIQUE USER
+		, TzKe__NzDz_vsg: "🗣️User"
+			, TzKe__NzDz__DzNe_vsg: "👥Pick User"
+			, TzKe__NzDz__VaTre_vsg: "📛Edit Name"
+			, TzKe__NzDz__ChaDe_vsg: "🆕Add New Default User"
+			, TzKe__NzDz__ChaFe_vsg: "🖨️Copy Current User"
+			, TzKe__NzDz__Chi_vsg: "🗑️Remove Current User"
+
+
+		//@@@
+		// TOPIC: UNIQUE AVATAR
+		, TzKe__NzJa_vsg: "😎Profile Picture"
+
+
+		//@@@
+		// TOPIC: LANGUAGE
+		, TzKe__NzKeDru_vsg: "🌐 Language"
+
+
+		//@@@
+		// TOPIC: SECURITY
+		, TzKe__NzChe_vsg: "🔐Use Question-Answer Security"
+			, TzKe__NzChe__MaKz_vsg: "🔒Question-Lock"
+			, TzKe__NzChe__SmzKz_vsg: "🗝️Answer-Key"
+			, TzKe__NzChe__Krz: "❓Check Answer"
+			, TzKe__NzChe__Chy: "✅Save Answer"
+			, TzKe__NzChe__Trx: "✖️Incorrect Answer"
+			, TzKe__NzChe__TraHo: "🔑Requires Answer"
+			, TzKe__NzChe__TraHy: "🔓User Ready"
+
+
+		//-----------------------
+		// TzHru = HEAR
+		//-----------------------
+
+		//@@@
+		// TOPIC: AUDIO INPUT
+		, TzHru__NzMz_vsg: "Microphones"
+			, TzHru__NzMz__PeHo_vsg: "Allow Mic"
+			, TzHru__NzMz__PeVo_vsg: "Gain"
+			, TzHru__NzMx__KeDruHo_vsg: "Allow Voice to Text"
+
+
+		//@@@
+		// TOPIC: AUDIO OUTPUT
+		, TzHru__NzMx_vsg: "Speakers"
+			, TzHru__NzMx__PeHo_vsg: "🔇Mute"
+			, TzHru__NzMx__PeVo_vsg: "🔊Volume"
+
+		//@@@
+		// TOPIC: AUDIO TEK
+		, TzHru__NzSy_vsg: "Audio Tek"
+			, TzHru__NzSy__Mo_vsg: "Control"
+			, TzHru__NzSy__Dx_vsg: "Style"
+			, TzHru__NzSy__SmzYz_vsg: "Provider"
+			, TzHru__NzSy__GyBraHi_vsg: "Quality"
+			, TzHru__NzSy__TyGy_vsg: "Detail"
+
+		//-----------------------
+		// TzHru = SEE
+		//-----------------------
+
+		//@@@
+		// TOPIC: VIDEO INPUT
+		, TzHry__NzMz_vsg: "Camera"
+		, TzHry__NzMz__MzPo_vsg: "Format"
+
+
+		//@@@
+		// TOPIC:
+		, TzHry__NzMx_vsg: "Display"
+			, TzHry__NzMx__KeDruGy__Vo_vsg: "Legible Text Size"
+			, TzHry__NzMx__PoGy__HyHo_vsg: "HDR"
+
+			, TzHry__NzMx__Dx__TaNi_vsg: "Screen"
+				, TzHry__NzMx__Dx00_MxPoDe_vsg: "Browser Tab"
+				, TzHry__NzMx__Dx01_MxPoGyHi_vsg: "Fullscreen"
+				, TzHry__NzMx__Dx02_MxPoGry_vsg: "Windows All-Screens"
+				, TzHry__NzMx__Dx03_MxPoGry_vsg: "Fullscreen All-Screens"
+				, TzHry__NzMx__Dx04_HriKeKwz_vsg: "VR ( Virtual Reality XR )"
+				, TzHry__NzMx__Dx05_HriKeKwa_vsg: "AR ( Augmented Reality XR )"
+
+
+		//@@@
+		// TOPIC: VISUAL TEK
+
+		, TzHry__NzSy_vsg: "Visual Tek"
+			, TzHry__NzSy__Mo_vsg: "Control"
+			, TzHry__NzSy__Dx_vsg: "Style"
+			, TzHry__NzSy__SmzYz_vsg: "Provider"
+			, TzHry__NzSy__GyBraHi_vsg: "Quality"
+			, TzHry__NzSy__TyGy_vsg: "Detail"
+
+
+		//@@@
+		// TOPIC: USER_MOVEMENT
+		, TzHry__NzSy__HriKeGe_vsg: "Movement"
+			, TzHry__NzSy__HriKeGe00_vsg: "XR Space"
+			, TzHry__NzSy__HriKeGe01_Spo_vsg: "XR Still User"
+			, TzHry__NzSy__HriKeGe02_Bra_vsg: "XR Area Boundaries"
+			, TzHry__NzSy__HriKeGe03_Dri_vsg: "XR Roaming"
+
+		//-----------------------
+		// TzHru = ALLOW
+		//-----------------------
+
+			//@@@
+			// TOPIC:
+
+		, TzTru__NzBri_vsg: "Activity"
+			, TzTru__NzBri__KoYoHo_vsg: "Always Active (Background Work)"
+			, TzTru__NzBri__HruYoHo_vsg: "Always Audible (Background Sound)"
+			, TzTru__NzBri__BruYoHo_vsg: "Always Network"
+			, TzTru__NzBri__SpeSz_vsg: "Power Use"
+
+		, TzTru__NzDrx_vsg: "Track"
+			, TzTru__NzDrx__MzKu_vsg: "Allow GPS Location (Track)"
+				, TzTru__NzDrx__MzKu01_Ge_vsg: "Allow GPS Location (Track)"
+				, TzTru__NzDrx__MzKu02_Ku_vsg: "Remember Locations Seen (Anchors)"
+				, TzTru__NzDrx__MzKu03_Gz_vsg: "Allow Distance Sensors"
+
+		, TzTru__NzBru_vsg: "Network"
+			, TzTru__NzBru__TraGrx_vsg: "Allowed Connections"
+				, TzTru__NzBru__TraGrx__Ho_vsg: "No Network"
+				, TzTru__NzBru__TraGrx__SaGru_vsg: "Only Your Devices"
+				, TzTru__NzBru__TraGrx__TuGru_vsg: "Only Known Contacts"
+				, TzTru__NzBru__TraGrx__Sme_vsg: "Browse Anywhere"
+
+		, TzTru__NzCha_vsg: "Install"
+			, TzTru__NzCha__KwiYz_ChyDe_vsg: "Reset User's Settings to Default"
+			, TzTru__NzCha__TaKeDy_Chx_vsg: "Clear All Users & Settings to NEW"
+
+
+		//-----------------------
+		// TzKro = LEARN
+		//-----------------------
+		, TzKro__Bz_vsg: "Learn about Micro🗺️Cosm"
+
+
+			, TzKro__Nz00_vsg: "Why Micro🗺️Cosm?"
+			, TzKro__Nz00__Ka_vsg: "EverybodyWins: No Shortage of Solutions, 100% People possible to create, use, & monetize compute powers for solutions\n\nYourChoice: Would you Rather live in an Everyone can monetize solutions for actual 'value' or continue in our Walled Garden, Engineer-Only, Software-Failure built world. Try_All_Tek, Model All Possibilities: Problems that more Money, more Talent, more Time, and more Code doesn’t solve.\n\nTransfer: Migration of Solutions, Ecosystem Investments Preserved - Subjective_Truth_Has_Value: Knowledge Rep/ Meaning Coordinates => Custom, Not One Size Fits All"
+
+			, TzKro__Nz01_vsg: "Topic #2"
+			, TzKro__Nz01__Ka_vsg: "COMPUTER_IS_BICYCLE_FOR_OUR_MINDS: I think one of the things that really separates us from the high primates is that we’re tool builders. I read a study that measured the efficiency of locomotion for various species on the planet. The condor used the least energy to move a kilometer. Humans came in with a rather unimpressive showing about a third of the way down the list. It was not too proud a showing for the crown of creation. So, that didn’t look so good. But then, somebody at Scientific American had the insight to test the efficiency of locomotion for a man on a bicycle. And, a man on a bicycle, a human on a bicycle, blew the condor away, completely off the top of the charts. And that’s what a computer is to me. What a computer is to me is it’s the most remarkable tool that we’ve ever come up with. It’s the equivalent of a bicycle for our minds. — Steve Jobs (1980)"
+
+
+			, TzKro__Nz02_vsg: "Topic #3:"
+			, TzKro__Nz02__Ka_vsg: "FIVE QUESTIONS\n💠 Trust: Is wantware real/viable? Does it do what is claimed.\n💠 Scope: Can it scale globally? Evidence it can reach intended clients as desired solutions.\n💠 Success: wantware Competition, IP-Protection and Market Lockout? Industry interest and value to existing stakeholders.\n💠 Risk: How ready and stable are we today and our roadmap? Timing and resources required to meet milestones.\n💠 Value: Is it worth it? Does empowering all humans to have personalized dialogs that create machine behaviors, shareable solutions, carry a global market value? Does it affect AI, Automation, and near-term economics?"
+
+			, TzKro__Nz03_vsg: "Topic #4"
+			, TzKro__Nz03__Ka_vsg: "WHAT: wantware is a Meta-Computer as it functions to talk 'About' computing and reconfigure itself for all its task needs by regenerating its machine instructions and transforming its data structures & streams towards performance or wattage or other optimization goals. It handles the user specified needs by exposing all of its potential capabilities ( 'what it can do' ) and current activities ( 'why and what its doing now' ) to an interactive dialog in the user's language and style.\n\nJUUL_QUOTE: I realized that the change we were seeking would not come from waiting for people or governments to do “the right thing” with respect to communities, sustainability, and justice. It required too much “zoom out” thinking— seeing the bigger picture, when most people were just trying to get by and raise their families. I saw creating wantware as means of opening up at least one sector of the economy to all people with an idea. To enable users to innovate in their own areas of expertise, solve problems from their unique perspective, own and control those creations, and monetize, trade, or give those creations in a truly free economic ecosystem. The image I always came back to was from the end of the 80’s movie, Solarbabies. One group controls all the water and thus has all the power. The solar babies release the water in such a way that it cannot be easily captured again. The power structure falls.\n\nWHAT: wantware is a Meta-Computer as it functions to talk 'About' computing and reconfigure itself for all its task needs by regenerating its machine instructions and transforming its data structures & streams towards performance or wattage or other optimization goals. It handles the user specified needs by exposing all of its potential capabilities ( 'what it can do' ) and current activities ( 'why and what its doing now' ) to an interactive dialog in the user's language and style.\n\nJUUL_QUOTE: I realized that the change we were seeking would not come from waiting for people or governments to do “the right thing” with respect to communities, sustainability, and justice. It required too much “zoom out” thinking— seeing the bigger picture, when most people were just trying to get by and raise their families. I saw creating wantware as means of opening up at least one sector of the economy to all people with an idea. To enable users to innovate in their own areas of expertise, solve problems from their unique perspective, own and control those creations, and monetize, trade, or give those creations in a truly free economic ecosystem. The image I always came back to was from the end of the 80’s movie, Solarbabies. One group controls all the water and thus has all the power. The solar babies release the water in such a way that it cannot be easily captured again. The power structure falls.\n\nWHAT: wantware is a Meta-Computer as it functions to talk 'About' computing and reconfigure itself for all its task needs by regenerating its machine instructions and transforming its data structures & streams towards performance or wattage or other optimization goals. It handles the user specified needs by exposing all of its potential capabilities ( 'what it can do' ) and current activities ( 'why and what its doing now' ) to an interactive dialog in the user's language and style.\n\nJUUL_QUOTE: I realized that the change we were seeking would not come from waiting for people or governments to do “the right thing” with respect to communities, sustainability, and justice. It required too much “zoom out” thinking— seeing the bigger picture, when most people were just trying to get by and raise their families. I saw creating wantware as means of opening up at least one sector of the economy to all people with an idea. To enable users to innovate in their own areas of expertise, solve problems from their unique perspective, own and control those creations, and monetize, trade, or give those creations in a truly free economic ecosystem. The image I always came back to was from the end of the 80’s movie, Solarbabies. One group controls all the water and thus has all the power. The solar babies release the water in such a way that it cannot be easily captured again. The power structure falls."
+
+
+		//-----------------------
+		// TzGrx = NOTICES
+		//-----------------------
+		, TzGrx__Bz_vsg: "Important Notices for Legal, Credit, or Usage rules."
+
+		//@@@
+		//
+		, TzGrx__NzTra_vsg: "How to Use"
+		, TzGrx__NzTra__Ka_vsg: "⌨️Tab: Moves between top-level ❂Menu items or the sub-menu #️⃣Topics.\n⌨️Enter or Space: Opens a ❂Menu or #️⃣Topic or clicks the focused choice.\n⌨️Esc: Leaves the current #️⃣Topic area and selects the current ❂Menu.\n⌨️Arrow Keys: Navigate between ❂Menus, Topics or Choices items.\n⌨️1~7: Select a ❂Menu or press twice to select a #️⃣Topic.\n⌨️0: Highlight the LAUNCH button."
+
+		//@@@
+		// IMPORTANCE
+		, TzGrx__NzSmu_vsg: "Notices of Importance"
+			, TzGrx__NzSmu__Ka_vsg: "Here is important info...such as No-OPT IN or warnings?"
+
+		//@@@
+		// LICENSES
+		, TzGrx__NzSpe_vsg: "License Notices"
+			, TzGrx__NzSpe__Ka_vsg: "Licenses used from Web Tech (Opus? AVIF? Bullet? )..."
+
+		//@@@
+		// LEGAL
+		, TzGrx__NzChe_vsg: "Legal Notices"
+			, TzGrx__NzChe__Ka00_vsg: "All media content on this site is licensed as Creative Commons"
+			, TzGrx__NzChe__Ka01_vsg: "No DRM content is present unless used by yourself or your sharing group, which is legal and allowed."
+			, TzGrx__NzChe__Ka02_vsg: "Made by Humans for Humans. No 'AI' was used to construct this ecosystem of webpage content, processor instructions, or ideas presented."
+			, TzGrx__NzChe__Ka03_vsg: "ESRB rating has NOT been applied for yet. This logo serves ONLY as a placeholder for our expected outcome."
+			, TzGrx__NzChe__Ka04_vsg: "PEGI rating has NOT been applied for yet. This logo serves ONLY as a placeholder for our expected outcome."
+
+		//@@@
+		// APPRECIATION & INSPIRATION
+		// but NOT licensed
+		, TzGrx__NzSo_vsg: "Credit Notices"
+			, TzGrx__NzSo__Ka_vsg: "Credits go to..."
+
+			//	{ "ID": "Cosm", "OWN": "john jake kolb v", "URL": "https://PowerOurPeople.com" }
+			//	, { "ID": "Bugout", "OWN":  "Chris McCormick", "URL": "https://github.com/chr15m/bugout/tree/master" }
+
+
+		//@@@
+		// COMPANY
+		, TzGrx__NzDryKy_vsg: "Company Notices"
+			, TzGrx__NzDryKy__Ka_vsg: "Copyright 2026 PowerOurPeople.\nLicensed under the Apache License, Version 2.0 (the 'License');\n💠 You may not use this file except in compliance with the License.\n💠 You may obtain a copy of the License at\n\nhttp://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+
+	}
+
+	//=====================================
+	// HELP_INFO ( Tooltips )
+	// Section 4/4
+	, KeMeTo:
+	//=====================================
+	{
+		//-----------------------
+		// TzKu: WHERE
+		//-----------------------
+		TzKu__NzYa_vsg: "Explains what this site is about for first time visitors"
+		, TzKu__NzJo_vsg: "Let's you choose where to go when you hit launch. Will default to the last place this user was."
+		, TzKu__NzKo_vsg: "Information about your computing device"
+		, TzKu__NzTrz_vsg: "🧪About this Version"
+		, TzKu__NzSme_vsg: "🔎Investigate"
+
+		//-----------------------
+		// TzKe: WHO
+		//-----------------------
+		, TzKe__NzDz_vsg: "Choose from previous or defaults Users"
+		, TzKe__NzJa_vsg: "😎Profile Picture"
+		, TzKe__NzKeDru_vsg: "🌐 Language"
+		, TzKe__NzChe_vsg: "🔐Use Question-Answer Security"
+
+		//-----------------------
+		// TzHru = HEAR
+		//-----------------------
+		, TzHru__NzMz_vsg: "Microphones"
+		, TzHru__NzMx_vsg: "Controls loudness of speaker output. Regardless of prior settings, setting MUTE true will MUTE ALL AUDIO no matter what."
+		, TzHru__NzSy_vsg: "Audio Tek"
+
+		//-----------------------
+		// TzHru = SEE
+		//-----------------------
+		, TzHry__NzMz_vsg: "Camera Inputs"
+		, TzHry__NzMx_vsg: "Display Outputs"
+		, TzHry__NzSy_vsg: "Choose Tech Session options here."
+		, TzHry__NzSy__HriKeGe_vsg: "Supports different modes of moving user, whether using a mobile device or XR headset."
+
+		//-----------------------
+		// TzHru = ALLOW
+		//-----------------------
+		, TzTru__NzBri_vsg: "Activity"
+		, TzTru__NzDrx_vsg: "Track"
+		, TzTru__NzBru_vsg: "Network"
+		, TzTru__NzCha_vsg: "Install"
+
+		//-----------------------
+		// TzKro = LEARN
+		//-----------------------
+		, TzKro__Nz00_vsg: "Why Micro🗺️Cosm?"
+		, TzKro__Nz01_vsg: "Topic #2"
+		, TzKro__Nz02_vsg: "Topic #3:"
+		, TzKro__Nz03_vsg: "Topic #4"
+
+		//-----------------------
+		// TzGrx = NOTICES
+		//-----------------------
+		, TzGrx__NzTra_vsg: "How to Use"
+		, TzGrx__NzSmu_vsg: "Notices of Importance"
+		, TzGrx__NzSpe_vsg: "License Notices"
+		, TzGrx__NzChe_vsg: "DCMA, GPDR, DRM, PEGI, ESRB, etc."
+		, TzGrx__NzSo_vsg: "Credits of Software licensed, Ideas Inspired, Quotes the fueled thought, Supporters, etc. all belong here"
+		, TzGrx__NzDryKy_vsg: "Company info goes here"
+
+	}
+}
+//=====================================
+// END FILE
+//=====================================

@@ -1,0 +1,162 @@
+//==============================================
+// CORE MSGS
+//==============================================
+const SaPy_vvsg=
+[
+	'👤','👻','🎰','🧑‍💻'
+
+	,'👽️','👾','🤖','🗿'
+
+	,'😌','😎','😃','🤣'
+	,'😉','😍','🤩','😘','🤪'
+
+	,'🤬','👿','💀','☠️','🤡','👹','👺'
+
+	,'🐵','🐶','🐺','🦊','🦝','🐱','🦁','🐯','🐼'
+	,'🐮','🐷','🐭','🐰','🐻','🐨','🐴','🦉','🐸'
+	,'🐧','🐳','🐬','🐟️','🦑','🦀'
+
+	,'🦋','🐝','🐞','🦗','🕷️','🦇','🐍','🐛'
+
+	,'🦠','🦕','🦖','🦄','🐲'
+
+	,'⭐️','🌀','🌈','❤️‍','🎵','🎶'
+
+	,'⚽️','⚾️','🥎','🏀','🏐','🏈','🏉'
+
+	,'🛐','⚛️','🕉️','✡️','☸️','☯️','✝️','☦️','☪️','☮️'
+	,'♈️','♉️','♊️','♋️','♌️','♍️','♎️','♏️','♐️','♑️','♒️','♓️','⛎'
+];
+
+//-------------------------------------------------
+// TOPIC NUMBERS (Shortcuts)
+const Kwi00__NzVx_vsg =
+//-------------------------------------------------
+[
+	"1️⃣"
+	, "2️⃣"
+	, "3️⃣"
+	, "4️⃣"
+	, "5️⃣"
+	, "6️⃣"
+	, "7️⃣"
+	, "8️⃣"
+	, "9️⃣"
+	, "0️⃣"
+	, "#️⃣"
+	, "*️⃣"
+];
+
+//-------------------------------------------------
+// CLR MODES
+//-------------------------------------------------
+const TaPoSz_v =
+[
+	{
+		Va: "Classic Light Mode"
+		, PoGwyFz: "#CCCA"	//  Outermost Base Panel
+
+		, PoKuDe: "#DDDA" // Panel for Paragraphs & Headers
+		, PoKuTraHo: "#CCC8" // MENU TITLE BG
+		, PoKuTraHy: "#FFF8" // MENU SELECT TITLE BG
+		, PoKuTz: "#CCCF" // DOMAIN BG
+		, PoKuStuVo: "#AAA8" // SECTION LINE
+
+		, PoBre: "#BBB" //  Panel of Choices
+		, PoBreHu: "#BBB4"	// CHOOSE GROUP
+		, PoBreVo: "#BBB8"	// FADED ELM
+		, PoBreSpo: "#BBBF" // SPRITE SELECTOR
+
+		, PoSeVu:"#666" // CFG VALUE
+		, PoSoSmo: "#555"	// TXT SHADOW
+
+		, PoSi: "#000" // MAIN TXT
+		, PoSiSpo: "#000F" // ACTIVE
+
+		, PoSmo: "#BBB" // FONT 3D SHADOW
+		, PoSmuTra: "#D22"	// ACTIVATE
+		, PoSmuSe: "#2A2" // GO
+	}
+	,
+	{
+		Va: "Classic Dark Mode"
+		, PoGwyFz: "#000A" // Outermost Base Panel
+
+		, PoKuDe: "#222A" // Panel for Paragraphs & Headers
+		, PoKuTraHy: "#0008" //MENU SELECT TITLE BG
+		, PoKuTraHo: "#4448" //MENU TITLE BG
+		, PoKuTz: "#444F" //DOMAIN BG
+		, PoKuStuVo: "#6668" //SECTION LINE
+
+		, PoBre: "#888" // Panel of Choices
+		, PoBreHu: "#8884" //CHOOSE GROUP
+		, PoBreVo: "#8888" //FADED ELM
+		, PoBreSpo: "#888F" //SPRITE SELECTOR
+
+		, PoSeVu:"#CCC" //CFG VALUE
+		, PoSoSmo: "#999" // TXT SHADOW
+
+		, PoSi: "#FFF" //MAIN TXT
+		, PoSiSpo: "#FFFF" //ACTIVE
+
+		, PoSmo: "#777" //FONT 3D SHADOW
+		, PoSmuTra: "#D22" //ACTIVATE
+		, PoSmuSe: "#2A2" // GO
+	}
+	,
+	{
+		Va: "Velvet Dark Mode"
+		, PoGwyFz: "#4007" // Outermost Base Panel
+
+		, PoKuDe: "#500A" // Panel for Paragraphs & Headers
+		, PoKuTraHy: "#7118" //MENU SELECT TITLE BG
+		, PoKuTraHo: "#A118" //MENU TITLE BG
+		, PoKuTz: "#A11F" //DOMAIN BG
+		, PoKuStuVo: "#D008" //SECTION LINE
+
+		, PoBre: "#D66" // Panel of Choices
+		, PoBreHu: "#D664" //CHOOSE GROUP
+		, PoBreVo: "#D888" //FADED ELM
+		, PoBreSpo: "#D88F" //SPRITE SELECTOR
+
+		, PoSeVu:"#FCC" //CFG VALUE
+		, PoSoSmo: "#A66" // TXT SHADOW
+
+		, PoSi: "#FFF" //MAIN TXT
+		, PoSiSpo: "#FFFF" //ACTIVE
+
+		, PoSmo: "#B66" //FONT 3D SHADOW
+		, PoSmuTra: "#DD2" //ACTIVATE
+		, PoSmuSe: "#2A2" // GO
+	}
+	,
+	{
+		Va: "Deep Sea Dark Mode"
+		, PoGwyFz: "#0047" // Outermost Base Panel
+
+		, PoKuDe: "#005A" // Panel for Paragraphs & Headers
+		, PoKuTraHy: "#1178" //MENU SELECT TITLE BG
+		, PoKuTraHo: "#11A8" //MENU TITLE BG
+		, PoKuTz: "#11AF" //DOMAIN BG
+		, PoKuStuVo: "#DD28" //SECTION LINE
+
+		, PoBre: "#66D" // Panel of Choices
+		, PoBreHu: "#66D4" //CHOOSE GROUP
+		, PoBreVo: "#88D8" //FADED ELM
+		, PoBreSpo: "#88DF" //SPRITE SELECTOR
+
+		, PoSeVu:"#CCF" //CFG VALUE
+		, PoSoSmo: "#66A" // TXT SHADOW
+		, PoSi: "#FFF" //MAIN TXT
+		, PoSiSpo: "#FFFF" //ACTIVE
+
+		, PoSmo: "#66B" //FONT 3D SHADOW
+		, PoSmuTra: "#EE2" //ACTIVATE
+		, PoSmuSe: "#2A2" // GO
+	}
+
+];
+
+//-------------------------------------------------
+// LANG/COUNTRY END
+//-------------------------------------------------

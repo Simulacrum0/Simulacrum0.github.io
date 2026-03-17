@@ -1,4 +1,4 @@
-const DoWG__BriDzSa__Da_wuk = "261"; 
+const DoWG__BriDzSa__Da_wuk = "262"; 
 
 //==============================================
 //==============================================
@@ -1360,7 +1360,7 @@ async function DoWG__BriYa_SmzYz( Sa_l, Yz_k )
 			// TRY AGAIN
 			? DoWG__BriYa_FuYz( Sa_l, Yz_k )
 			// TOO many attempts or time elapsed, throw ERROR
-			: MoDzTrx( Ko.KeDru_l.VaDe.TrxJy__KaBzTrx__WG_vsg )
+			: MoDzTrx( Ko.TzKwi__KeDru.KiJe.TrxJy__KaBzTrx__WG_vsg )
 		);
 
   	});
@@ -2034,7 +2034,7 @@ async function DoWG__BriYa_SmzYz( Sa_l, Yz_k )
 	//&&&
 	// UPDATE GUI
 	HriNeDe__ChyVaSy( "KaBx__VaDe", Ko.KaBx__VaDe_vsg );
-	HriNeDe__ChyJaPoDe( "KaBx__Gwz", "Ky", Ko.KaBx__Gwz_vsg );
+	HriNeDe__ChyJaPoKo( "KaBx__Gwz", "Ky", Ko.KaBx__Gwz_vsg );
 
 	return SySmz__YaFx_v( Sa_l );
 }
@@ -2064,7 +2064,7 @@ async function DoWG__BriYa_FuYz( Sa_l, Yz_k )
 
 	//@@@
 	// ELSE ERR
-	MoDzTrx( Ko.KeDru_l.VaDe.TrxJy__KaBzTrx__WG_vsg );
+	MoDzTrx( Ko.TzKwi__KeDru.KiJe.TrxJy__KaBzTrx__WG_vsg );
 	return null;
 }
 
