@@ -1,11 +1,15 @@
 //==============================================
 // CFG
+//------------------------------------
+// KwiYz__ChyDe: CFG WRITE DEFAULT
+// HriNe__ChyKwiYz: GUI WRITE CFG
+// KwiYz__ChyHriNe: CFG WRITE GUI
 //==============================================
 
 //==============================================
 // CFG_WRITE_DEFAULT for ONE USER
 //==============================================
-function Hrz4_Bu__KwiYz__ChyDe( Va_vksg, NiJaPo_wuk, KeDru_wuk )
+function Hrz4_Bu__KwiYz__ChyDe( Va_vksg, HriNe_Ta__wuk, KeDru_wuk )
 {
 	const KwiYz_k = Ko.TaKeDy_l.KwiYz_v[ Ko.TaKeDy_l.KeDy_wu ];
 
@@ -24,8 +28,8 @@ function Hrz4_Bu__KwiYz__ChyDe( Va_vksg, NiJaPo_wuk, KeDru_wuk )
 		KwiYz_k.KeDru_wu = KeDru_wuk;
 	}
 
-	if( NiJaPo_wuk !== null )
-	{ KwiYz_k.NiJaPo_wu = NiJaPo_wuk; }
+	if( HriNe_Ta__wuk !== null )
+	{ KwiYz_k.HriNe_Ta__wu = HriNe_Ta__wuk; }
 
 	KwiYz_k.TzKe__NzChe_y = false;
 
@@ -92,9 +96,9 @@ function Hrz4_Bu__KwiYz__ChyDe( Va_vksg, NiJaPo_wuk, KeDru_wuk )
 
 
 //==============================================
-// GUI_SYNC as DOM_WRITE
+// GUI_WRITE CFG
 //==============================================
-function Hrz4_Bu__KwiYz__HriNe_MyYy()
+function Hrz4_Bu__HriNe__ChyKwiYz()
 {
 	SmaJe( "[CFG] GUI_SYNC" );
 	const KwiYz_k = Ko.TaKeDy_l.KwiYz_v[ Ko.TaKeDy_l.KeDy_wu ];
@@ -114,6 +118,14 @@ function Hrz4_Bu__KwiYz__HriNe_MyYy()
 
 // HAINT
 /*
+
+
+	const Dru_l = Hre1_Dru__Gra_v[ KwiYz_k.KeDru_wuk ];
+	HriNeDe__ChyVaDe( "TzKu__NzTrz__NiKeDru_q", Dru_l.KuGwz );
+
+	const TzKu__NzKeDru__Ta_l = document.getElementById( 'TzKu__NzKeDru__Ta_l' );
+	SmaJe( "CHG!", TzKu__NzKeDru__Ta_l );
+
 
 	//@@@
 	// LANG LIST SELECTION
@@ -139,7 +151,7 @@ function Hrz4_Bu__KwiYz__HriNe_MyYy()
 			// ADD BTN
 			const Kz_l = document.createElement( 'option' );
 			Kz_l.className = 'HriNeTi WaDru_Vu';
-			Kz_l.innerText = `${SaPy_vvsg[ Ti_k.NiJaPo_wu ]} ${Ti_k.KeDy_vsg }` + ( Vx_wu & 1 ? "🔒":"🔓" );
+			Kz_l.innerText = `${KoOPT__SaPy__ToKz_v[ Ti_k.HriNe_Ta__wu ]} ${Ti_k.KeDy_vsg }` + ( Vx_wu & 1 ? "🔒":"🔓" );
 			Kz_l.value = Vx_wu;
 			TaKeDy_l.appendChild( Kz_l );
 		});
@@ -153,7 +165,7 @@ function Hrz4_Bu__KwiYz__HriNe_MyYy()
 
 	//@@@
 	// SET PROFILE_ICON
-	document.getElementById( "Ne01_KeDy03__SaJaPo_q" ).innerText = SaPy_vvsg[ KwiYz_k.NiJaPo_wu ];
+	document.getElementById( "Ne01_KeDy03__SaJaPo_q" ).innerText = KoOPT__SaPy__ToKz_v[ KwiYz_k.HriNe_Ta__wu ];
 
 	//@@@
 	// USE_SECURITY
@@ -274,7 +286,7 @@ function Hrz4_Bu__KwiYz__HriNe_MyYy()
 //==============================================
 // SYS_UPDATE as CFG_WRITE
 //==============================================
-function Hrz4_Bu__KwiYz__Ko_ChyYe()
+function Hrz4_Bu__KwiYz__ChyHriNe()
 {
 	SmaSy( "[CFG] SYS_UPDATE" );
 	const KwiYz_k = Ko.TaKeDy_l.KwiYz_v[ Ko.TaKeDy_l.KeDy_wu ];
@@ -304,7 +316,7 @@ function Hrz4_Bu__KwiYz__Ko_ChyYe()
 	{
 		SmaJe( "SECURITY CHANGED to ", KwiYz_k.TzKe__NzChe_y );
 		// Reload
-		Hrz4_Bu__KwiYz__HriNe_MyYy();
+		Hrz4_Bu__HriNe__ChyKwiYz();
 	}
 
 	//---------------------------------
@@ -344,7 +356,7 @@ function Hrz4_Bu__KwiYz__SaPy_ChyYe( e )
 	//@@@
 	// SPECIAL UPDATE ( based on CLICK, no 'select' to read )
 	const KwiYz_k = Ko.TaKeDy_l.KwiYz_v[ Ko.TaKeDy_l.KeDy_wu ];
-	KwiYz_k.NiJaPo_wu = e;
+	KwiYz_k.HriNe_Ta__wu = e;
 
 	//@@@
 	// SAVE CFG
@@ -352,7 +364,7 @@ function Hrz4_Bu__KwiYz__SaPy_ChyYe( e )
 
 	//@@@
 	// GUI_SYNC
-	Hrz4_Bu__KwiYz__HriNe_MyYy();
+	Hrz4_Bu__HriNe__ChyKwiYz();
 }
 
 

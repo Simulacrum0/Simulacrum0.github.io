@@ -179,7 +179,7 @@ function Hri4_Bu__TaJo_Chy()
 		// ADD BTN
 		const Kz_l = document.createElement( "option" );
 		Kz_l.className = "HriNeTi WaDru_Vu";
-		Kz_l.innerText = `${SaPy_vvsg[ Ti_k.NiJaPo_wu ]} ${Ti_k.KeDy_vsg }`;
+		Kz_l.innerText = `${KoOPT__SaPy__ToKz_v[ Ti_k.HriNe_Ta__wu ]} ${Ti_k.KeDy_vsg }`;
 		Kz_l.value = Vx_wu;
 
 		TaJo_l.appendChild( Kz_l );

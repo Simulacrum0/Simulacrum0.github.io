@@ -251,10 +251,10 @@ DoGLF.BriYa = async function( Yz_k )
 	//@@@
 	// CANVAS
 	const WzPo_Gwa_l = new OffscreenCanvas( Yz_k.Gy_wu, Yz_k.Gy_wu );
-	if( MoDzTrx__NxHo_y( "[GLF] Canvas", WzPo_Gwa_l )){ return null; }
+	if( NxHo__MoDzTrx__Vy_y( "TrxJy__KaBzTrx__WzPoGwa__GLF_vsg", WzPo_Gwa_l )){ return null; }
 
 	const SxHry_l = WzPo_Gwa_l.getContext("2d");
-	if( MoDzTrx__NxHo_y( "[GLF] Context", SxHry_l )){ return null; }
+	if( NxHo__MoDzTrx__Vy_y( "TrxJy__KaBzTrx__SxHry__GLF_vsg", SxHry_l )){ return null; }
 
 	Sa_l.WzPo_Gwa_l = WzPo_Gwa_l;
 	Sa_l.SxHry_l = SxHry_l;

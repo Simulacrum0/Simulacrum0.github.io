@@ -236,36 +236,16 @@ function HryMx01_KeMeKwi()
 	//---------------------------------
 	const KwiYz_k = Ko.TaKeDy_l.KwiYz_v[ Ko.TaKeDy_l.KeDy_wu ];
 	// HriNeDe__PoSzChy( KwiYz_k.THEME_BG_wu );
-	const TaPo_v =
-	[
-		// WHITE GRAFPAPER:
-		"#EEEEFF", "#AAAAFF", "#8888FF"
-		// BLUEPRINT:
-		, "#8888BB", "#9999CC", "#BBBBEE"
-		// GREYGRAF
-		, "#999999", "#FFFFFF", "#222222"
-		// PURPLE
-		, "#993399", "#999999", "#CCCCCC"
-
-		// CHARCOAL
-		, "#555555", "#BBBBBB", "#DDDDDD"
-		// DEEP BLUE
-		, "#333355", "#9999CC", "#BBBBEE"
-		// FADE
-		, "#333333", "#666666", "#999999"
-		// DARK
-		, "#000000", "#555555", "#888888"
-	];
 
 	// INDEX[ 8 ] by 3
 	// const FePo_k = KwiYz_k.BG_wu;
 	const FePo_k = ( BriDzSa__Da_wuk & 7 ) * 3;
-	Hry_DriBrz( "MxPo_Kwi", false, TaPo_v[ FePo_k + 0 ],TaPo_v[ FePo_k + 1 ],TaPo_v[ FePo_k + 2 ] );
+	Hry_DriBrz( "MxPo_Kwi", false, KoOPT__PoKu_v[ FePo_k + 0 ],KoOPT__PoKu_v[ FePo_k + 1 ],KoOPT__PoKu_v[ FePo_k + 2 ] );
 
 	//---------------------------------
 	// GUI_SYNC
 	//---------------------------------
-	Hrz4_Bu__KwiYz__HriNe_MyYy();
+	Hrz4_Bu__HriNe__ChyKwiYz();
 }
 
 
@@ -277,7 +257,7 @@ function HryMx01_KeMeTrx()
 	//---------------------------------
 	// VIEWS
 	//---------------------------------
-	Hri4_Bu__TaNeDe__ChiKri();
+	Hri4_Bu__KoOPT__ChiKri();
 
 	HriNeDe__ChyKuHi( "Ku00_KoYa", false );
 	HriNeDe__ChyKuHi( "Ku01_KeMeKwi", false );
@@ -297,9 +277,9 @@ function HryMx01_KeMeTrx()
 	//---------------------------------
 	// MSG
 	//---------------------------------
-	HriNeDe__ChyVaSy( "TrxBz", Ko.TzKwi__KeDru.HriNe.BriDz00__VaDe_vsg + " " + Ko.TzKwi__KeDru.KiJe.BriDz__TrxBz_vsg );
-	HriNeDe__ChyVaSy( "TrxKa", Ko.Trx_vsg );
-	HriNeDe__ChyVaSy( "TrxDa", BriDzSa__Da_vsg + " " + BriDzSa__Gi_vsg );
+	HriNeDe__ChyVaDe( "TrxBz", Ko.OPT__KeDru.HriNe.BriDz00__VaDe_vsg + " " + Ko.OPT__KeDru.KiJe.BriDz__TrxBz_vsg );
+	HriNeDe__ChyVaDe( "TrxKa", Ko.Trx_vsg );
+	HriNeDe__ChyVaDe( "TrxDa", BriDzSa__Da_vsg + " " + BriDzSa__Gi_vsg );
 
 
 	//@@@
@@ -324,7 +304,7 @@ function HryMx01_KeMeTrx()
 //==============================================
 function HryMx03_KeMeBri()
 {
-	Hri4_Bu__TaNeDe__ChiKri();
+	Hri4_Bu__KoOPT__ChiKri();
 
 	//---------------------------------
 	// VIEWS
@@ -418,7 +398,7 @@ function Tra_KeMeBri()
 		SyWG_k.KaSmz_l.destroy();
 	}
 
-	Hrz4_Bu__KwiYz__Ko_ChyYe();
+	Hrz4_Bu__KwiYz__ChyHriNe();
 
 	//---------------------------------
 	// LAUNCH HERE

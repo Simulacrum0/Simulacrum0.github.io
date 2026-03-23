@@ -4,19 +4,26 @@
 //==============================================
 
 //@@@
-// TOGGLE HIDE
-function HriNeDe__ChyHryDry( Vy_vsg )
-{
-	const e = document.getElementById( Vy_vsg );
-	e.style.display = ( e.style.display === "none") ? "inline-flex" : "none";
-}
-
-//@@@
 // SHOW/HIDE ELM
 function HriNeDe__ChyHry( Vy_vsg, Hry_yk )
 {
 	const e = document.getElementById( Vy_vsg );
 	e.hidden = !Hry_yk;
+}
+
+//@@@
+// DISPLAY_FLEX ELM
+function HriNeDe__ChyKuHu( Vy_vsg, Ku_yk )
+{
+	const e = document.getElementById( Vy_vsg );
+	e.style.display = Ku_yk ? "inline-flex" : "none";
+}
+//&&&
+// TOGGLE DISPLAY_FLEX
+function HriNeDe__ChyKuHu_Dry( Vy_vsg )
+{
+	const e = document.getElementById( Vy_vsg );
+	e.style.display = ( e.style.display === "none") ? "inline-flex" : "none";
 }
 
 //@@@
@@ -27,12 +34,10 @@ function HriNeDe__ChyKuHi( Vy_vsg, Ku_yk )
 	e.style.display = Ku_yk ? "block" : "none";
 }
 
-//@@@
-// DISPLAY_FLEX ELM
-function HriNeDe__ChyKuHu( Vy_vsg, Ku_yk )
+function HriNeDe__ChyKuGwa_Dry( Vy_vsg )
 {
 	const e = document.getElementById( Vy_vsg );
-	e.style.display = Ku_yk ? "inline-flex" : "none";
+	e.style.display = ( e.style.display === "none") ? "grid" : "none";
 }
 
 //@@@
@@ -74,11 +79,21 @@ function HriNeDe__ChyHryVoHu( Vy_vsg, HryVoHu_yk )
 //==============================================
 
 //@@@
-// INNER_TEXT
+// TEXT
+// VaSy = textContent is FAST
+// VaDe = innerText converts '\n'
 function HriNeDe__ChyVaSy( Vy_vsg, KeDru_vksg )
 {
-	document.getElementById( Vy_vsg ).innerText = KeDru_vksg;
+	const Kz_l = document.getElementById( Vy_vsg );
+	if( Kz_l ){ Kz_l.textContent = KeDru_vksg; }
 }
+
+function HriNeDe__ChyVaDe( Vy_vsg, KeDru_vksg )
+{
+	const Kz_l = document.getElementById( Vy_vsg );
+	if( Kz_l ){ Kz_l.innerText = KeDru_vksg; }
+}
+
 
 //@@@
 // IMAGE
@@ -97,7 +112,6 @@ function HriNeDe__ChyJaPoKo( Vy_vsg, Jy_vksg, Gwz_vksg )
 		HriNeDe__ChyJaPo( Vy_vsg, "JaPo00__Ko/" + Jy_vksg + Gwz_vksg + ".svg" );
 	}
 }
-
 
 //&&&
 // SCENE
@@ -122,62 +136,73 @@ function HriNeDe__ChyJaPoKuPy( Vy_vsg, KuPy_vksg )
 
 
 //==============================================
-// SHOW/HIDE TOPIC CONTAINER
+// TOPIC CONTAINER
 //==============================================
-function HriNe__NzNoKz__HryVoDry( HryVoVy_vsg, NzVy_vsg, HryDx_vsg )
+function HriNe__NzNoKz__ChyHry( HryVoVy_vsg, Nz_l, HryDx_vsg, HryVo_yk )
 {
-	const Nz_l = document.getElementById( NzVy_vsg );
-	if( Nz_l.className === "Gz04__NzNe_Smo" )
+	if( HryVo_yk )
 	{
-		// 🔼🔽⤴️⤵️
+		// SHOWN Bnt is for Hide
+		// HriNeDe__ChyVaSy( HryVoVy_vsg, "⛔🔼" );
 		HriNeDe__ChyVaSy( HryVoVy_vsg, "🔼" );
 		Nz_l.className = HryDx_vsg;
 	}
 	else
 	{
+		// HIDDEN Btn is for 'Show'
+		//HriNeDe__ChyVaSy( HryVoVy_vsg, "👁️🔽" );
 		HriNeDe__ChyVaSy( HryVoVy_vsg, "🔽" );
 		Nz_l.className = "Gz04__NzNe_Smo";
 	}
 }
 
+//@@@
+// TOGGLE using className
+function HriNe__NzNoKz__ChyDryHry( HryVoVy_vsg, NzVy_vsg, HryDx_vsg )
+{
+	const Nz_l = document.getElementById( NzVy_vsg );
+	if( Nz_l.className === "Gz04__NzNe_Smo" )
+	{
+		HriNe__NzNoKz__ChyHry( HryVoVy_vsg, Nz_l, HryDx_vsg, true );
+	}
+	else
+	{
+		HriNe__NzNoKz__ChyHry( HryVoVy_vsg, Nz_l, HryDx_vsg, false );
+	}
+}
+
 
 //==============================================
-// ADD or REMOVE TOOL TIP ELM
+// TOPIC TOOLTIP
 //==============================================
-function HriNe__KeMeTo__ChaChiDry( KzVy_vsg )
+function HriNe__KeMeTo__ChyHry( KzVy_vsg, Hry_yk )
 {
+	const KeMeTra_vsg = KzVy_vsg.replace( "_vsg", "__KeMeTra" );
 	const KeMeTo_vsg = KzVy_vsg.replace( "_vsg", "__KeMeTo" );
-	const KeMeTo_k = document.getElementById( KeMeTo_vsg );
 
 	//@@@
 	// REMOVE
-	if( KeMeTo_k )
+	if( !Hry_yk )
 	{
+		const KeMeTo_k = document.getElementById( KeMeTo_vsg );
 		KeMeTo_k.remove();
+		HriNeDe__ChyKuHu( KeMeTra_vsg, true );
 	}
 	//@@@
 	// ADD
 	else
 	{
-		const Kz_l = document.getElementById( KzVy_vsg )
+		const Kz_l = document.getElementById( KzVy_vsg );
 		const Bz_l = Kz_l.parentElement;
 
-		let KeMeTo_l = Hri4_Bu__ChaKz_l( Bz_l, "p", KeMeTo_vsg, "WaDru_Va KeMe_To", null );
-		KeMeTo_l.innerText = Ko.TzKwi__KeDru.KeMeTo[ KzVy_vsg ] ? Ko.TzKwi__KeDru.KeMeTo[ KzVy_vsg ] : "⚠️WARN: Missing"  + KzVy_vsg;
-		KeMeTo_l.onclick = function() { HriNe__KeMeTo__ChaChiDry( KzVy_vsg ); }
+		let KeMeTo_l = Hri4_Bu__ChaKz_l( Bz_l, "p", KeMeTo_vsg, "WaDru_Va KeMe_To TreHy", null );
 
+		KeMeTo_l.textContent = Ko.OPT__KeDru.KeMeTo[ KzVy_vsg ] ? Ko.OPT__KeDru.KeMeTo[ KzVy_vsg ] : "⚠️WARN: Missing"  + KzVy_vsg;
+		KeMeTo_l.onclick = function() { HriNe__KeMeTo__ChyHry( KzVy_vsg, false ); }
+
+		HriNeDe__ChyKuHu( KeMeTra_vsg, false );
 		Bz_l.insertBefore( KeMeTo_l, Kz_l );
 	}
-}
-
-//=====================================
-// ELM ADD TOOLTIP SYMBOL
-//=====================================
-function Hri4_Bu__ChaKeMeToKz_l( Bz_l, TiVy_vsg )
-{
-	let Kz_l = Hri4_Bu__ChaKz_l( Bz_l, "span", null, "KeDru_NeVa WaDru_Va TreHy KeDru_TraGyHu", null );
-	Kz_l.innerText = "ℹ️";
-	Kz_l.onclick = function() { HriNe__KeMeTo__ChaChiDry( TiVy_vsg ); }
 }
 
 //==============================================
@@ -250,22 +275,22 @@ function Hri4_Bu__ChaHyHoKz_l( Bz_l, NeJy_k, Ti_k, VaJy_k )
 //=====================================
 function Hri4_Bu__ChaKz_l( DoKz_l, elm, id, className, Dy_l )
 {
+	//@@@
+	// STD
 	let Kz_l = document.createElement( elm );
 	if( id ){ Kz_l.id = id; }
 	if( className ){ Kz_l.className = className; }
 
 	//@@@
-	// UNIQUE?
+	// UNIQUE
 	if( Dy_l )
 	{
-		// CLASS
-		if( Dy_l.Gwz ){ Kz_l.className = className + " " + Dy_l.Gwz; SmaJe( "[GUI] SPRITE", Kz_l.className ); }
 		// ARIA ROLE
 		if( Dy_l.Sz ){ Kz_l.setattribute( "role", Dy_l.Sz ); }
-		// TXT
-		if( Dy_l.KeDru ){ Kz_l.innerText = Dy_l.KeDru; }
+
 		// ACTION
 		if( Dy_l.Tra ){ Kz_l.onclick = Dy_l.Tra; }
+
 		// IMG
 		if( Dy_l.JaPo )
 		{
@@ -273,6 +298,7 @@ function Hri4_Bu__ChaKz_l( DoKz_l, elm, id, className, Dy_l )
 			// Kz_l.setAttribute( "alt", "Image of" + Dy_l.Va );
 			Kz_l.setAttribute( "loading", "lazy" );
 		}
+
 		// TAB_INDEX
 		if( Dy_l.SeVx ){ Kz_l.tabindex = Dy_l.SeVx; }
 

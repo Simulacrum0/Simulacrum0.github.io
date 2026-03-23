@@ -1,4 +1,4 @@
-const DoWG__BriDzSa__Da_wuk = "262"; 
+const DoWG__BriDzSa__Da_wuk = "263"; 
 
 //==============================================
 //==============================================
@@ -1360,7 +1360,7 @@ async function DoWG__BriYa_SmzYz( Sa_l, Yz_k )
 			// TRY AGAIN
 			? DoWG__BriYa_FuYz( Sa_l, Yz_k )
 			// TOO many attempts or time elapsed, throw ERROR
-			: MoDzTrx( Ko.TzKwi__KeDru.KiJe.TrxJy__KaBzTrx__WG_vsg )
+			: MoDzTrx__KeDru( Ko.OPT__KeDru.KiJe.TrxJy__KaBzTrx__WG_vsg )
 		);
 
   	});
@@ -1370,7 +1370,7 @@ async function DoWG__BriYa_SmzYz( Sa_l, Yz_k )
 	KaSmz_l.addEventListener( "uncapturederror", (e) =>
 	{
 		// FIREFOX Preventing this
-		// MoDzTrx( "WG Err: " + e.error );
+		// MoDzTrx__KeDru( "WG Err: " + e.error );
 		SmaTrx( "[WG] Surprise Err: ", e.error.constructor.name, e.error.message );
 	});
 
@@ -2008,9 +2008,9 @@ async function DoWG__BriYa_SmzYz( Sa_l, Yz_k )
 	const YzKwx_wu = YzGry_vsg.indexOf( "^=" );
 
 	const YzVa_vsg = YzGry_vsg.substring( 0, YzKwx_wu );
-	const YzHx_vsg = YzGry_vsg.substring( YzKwx_wu + 1);
+	const YzHx_vsg = YzGry_vsg.substring( YzKwx_wu + 2 );
 
-	SmaJe( "[WG] READY CFG:", Yz_k.YzVi_q, " @ ", YzVa_vsg, " = ", YzHx_vsg );
+	SmaJe( "[WG] READY CFG:", Yz_k.YzVi_q, " @ ", YzVa_vsg, ": ", YzHx_vsg );
 
 
 	//@@@
@@ -2033,7 +2033,7 @@ async function DoWG__BriYa_SmzYz( Sa_l, Yz_k )
 
 	//&&&
 	// UPDATE GUI
-	HriNeDe__ChyVaSy( "KaBx__VaDe", Ko.KaBx__VaDe_vsg );
+	HriNeDe__ChyVaDe( "KaBx__VaDe", Ko.KaBx__VaDe_vsg );
 	HriNeDe__ChyJaPoKo( "KaBx__Gwz", "Ky", Ko.KaBx__Gwz_vsg );
 
 	return SySmz__YaFx_v( Sa_l );
@@ -2064,7 +2064,7 @@ async function DoWG__BriYa_FuYz( Sa_l, Yz_k )
 
 	//@@@
 	// ELSE ERR
-	MoDzTrx( Ko.TzKwi__KeDru.KiJe.TrxJy__KaBzTrx__WG_vsg );
+	MoDzTrx__Vy( "TrxJy__KaBzTrx__WG_vsg" );
 	return null;
 }
 
@@ -2083,7 +2083,7 @@ DoWG.BriYa = async function( Yz_k )
 	//@@@
 	// CDN SYNC
 	const Hra4_Bru__CDN_DaHe_yk = ( BriDzSa__Da_wuk === DoWG__BriDzSa__Da_wuk );
-	if( MoDzTrx__NxHo_y( "[WG] Version Behind (Refresh page to try again in 3~13min?)", Hra4_Bru__CDN_DaHe_yk )){ return null; }
+	if( NxHo__MoDzTrx__Vy_y( "TrxJy__KaBzTrx__DaFi__WG_vsg", Hra4_Bru__CDN_DaHe_yk )){ return null; }
 
 
 	//-------------------------------------------------
@@ -2103,7 +2103,7 @@ DoWG.BriYa = async function( Yz_k )
 	//@@@
 	// CANVAS
 	Sa_l.MxPo_Gwa_l = document.getElementById( "MxPo_Bri" );
-	if( MoDzTrx__NxHo_y( "[WG] Canvas", Sa_l.MxPo_Gwa_l )){ return null; }
+	if( NxHo__MoDzTrx__Vy_y( "TrxJy__KaBzTrx__WzPoGwa__WG_vsg", Sa_l.MxPo_Gwa_l )){ return null; }
 
 	//@@@
 	//  HDR

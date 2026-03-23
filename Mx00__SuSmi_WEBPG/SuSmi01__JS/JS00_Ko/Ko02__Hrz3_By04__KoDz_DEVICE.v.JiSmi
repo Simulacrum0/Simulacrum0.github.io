@@ -1,0 +1,212 @@
+//==============================================
+// NODE BEGIN
+//==============================================
+
+//=====================================
+// OS & CPU
+//=====================================
+async function Hrz3_By__FyTo()
+{
+	const NODE_vksg = navigator.userAgent.toUpperCase();
+	SmaSy( "[DEVICE] Browser_ID:", NODE_vksg );
+
+	//@@@
+	// IN CASE of NO MATCHES?
+	if( navigator.userAgentData )
+	{
+		Ko.Hrz3_By__VaDe_vsg = navigator.userAgentData.platform;
+		//MOBILE = navigator.userAgentData.mobile;
+		//
+		// FAIL on Ko.KaBz__VaDe_vsg as it doesn't match below
+		// navigator.userAgentData.getHighEntropyValues( ["architecture", "platformVersion"])
+		// .then( ua =>
+		// {
+		// 	// Ko.KaBz__VaDe_vsg = ua.architecture;
+		// 	// VER = ua.platformVersion;
+		// } );
+	}
+
+	//@@@
+	// MATCH OS
+	if( NODE_vksg.includes( "LINUX" ) || NODE_vksg.includes( "X11" ) || NODE_vksg.includes( "WAYLAND" ) )
+	{
+		Ko.Hrz3_By__Gwz_vsg = "LNX";
+		Ko.Hrz3_By__VaDe_vsg = "Linux";
+	}
+	else if( NODE_vksg.includes( "IPAD" ) )
+	{
+		Ko.Hrz3_By__Gwz_vsg = "IPAD";
+		Ko.Hrz3_By__VaDe_vsg = "iPadOS";
+
+		Ko.KaBz__Gwz_vsg = "ARM";
+		Ko.KaBz__VaDe_vsg = "ARM64";
+
+		Ko.Hra0_Ko__Jy_q = Hra0_KoJy.KoBeGwa_qk;
+	}
+	else if( NODE_vksg.includes( "IPHONE" ) )
+	{
+		Ko.Hrz3_By__Gwz_vsg = "IOS";
+		Ko.Hrz3_By__VaDe_vsg = "iOS";
+
+		Ko.KaBz__Gwz_vsg = "ARM";
+		Ko.KaBz__VaDe_vsg = "ARM64";
+
+		Ko.Hra0_Ko__Jy_q = Hra0_KoJy.KoBeDru_qk;
+	}
+	else if( NODE_vksg.includes( "MAC" ) )
+	{
+		Ko.Hrz3_By__Gwz_vsg = "MAC";
+		Ko.Hrz3_By__VaDe_vsg = "Mac";
+
+		Ko.KaBz__Gwz_vsg = "ARM";
+		Ko.KaBz__VaDe_vsg = "ARM64";
+	}
+	else if( NODE_vksg.includes( "WINDOWS" ) )
+	{
+		Ko.Hrz3_By__Gwz_vsg = "WIN";
+		Ko.Hrz3_By__VaDe_vsg = "Windows";
+	}
+
+	//&&&
+	// MOST ANDROID shows LINUX in platform so MUST COME AFTER!
+	if( NODE_vksg.includes( "ANDROID" ) )
+	{
+		Ko.Hrz3_By__Gwz_vsg = "DRD";
+		Ko.Hrz3_By__VaDe_vsg = "Android";
+
+		// Default CPU in case not listed
+		Ko.KaBz__Gwz_vsg = "ARM";
+		Ko.KaBz__VaDe_vsg = "ARM64";
+
+		// Mobile
+		Ko.Hra0_Ko__Jy_q = true;
+		Ko.Hra0_Ko__Jy_q = Hra0_KoJy.KoBeDru_qk;
+	}
+
+
+	//@@@
+	// CPU
+	if( NODE_vksg.includes( "X86_64" ) || NODE_vksg.includes( "X64" ) )
+	{
+		Ko.KaBz__Gwz_vsg = "INTEL";
+		Ko.KaBz__VaDe_vsg = "X64";
+	}
+	else if( NODE_vksg.includes( "ARM" ) || NODE_vksg.includes( "AARCH" ) )
+	{
+		Ko.KaBz__Gwz_vsg = "ARM";
+		Ko.KaBz__VaDe_vsg = "ARM64";
+	}
+	else if( NODE_vksg.includes( "RISCV" ) || NODE_vksg.includes( "RISC-V" ) )
+	{
+		Ko.KaBz__Gwz_vsg = "RISCV";
+		Ko.KaBz__VaDe_vsg = "RISC-V 64";
+	}
+
+}
+
+//=====================================
+// BROWSER VERSION (Browser & App )
+//=====================================
+async function Hrz4_Bu__FyTo()
+{
+	//@@@
+	// SEARCH
+
+	// USR AGENT
+	const HrzByHx_vsg = navigator.userAgent;
+	SmaSy( "[CFG] HrzByHx:", HrzByHx_vsg, navigator.appName, navigator.appVersion );
+
+	// /i IGNORE CASE
+	// Matches "Name/Ver", "Name", "Ver" for 3 strings in 'match-Array' result
+	let Ni_vsg = HrzByHx_vsg.match(/(chrome|safari|firefox|msie|trident(?=\/))\/?\s*(\d+\.\d+)/i) || [];
+	// SmaSy( Ni_vsg );
+
+	// CHILD of CHROME
+	let NiNo_vsg = HrzByHx_vsg.match(/(OPR|Edg|OculusBrowser|SamsungBrowser(?=\/))\/?\s*(\d+\.\d+)/i) || [];
+
+	// CLONE name & version#
+	if( NiNo_vsg[2] ){ Ni_vsg = NiNo_vsg; }
+
+	// ELSE UNKNOWN
+	Ni_vsg = Ni_vsg[2] ? [ Ni_vsg[1], Ni_vsg[2] ] : [ navigator.appName, navigator.appVersion, '-?' ];
+
+	//@@@
+	// MATCH BROWSER TYPE
+	// DETECT
+	if( (navigator.brave && await navigator.brave.isBrave() || false) ){ Ni_vsg[ 0 ] = "Brave"; }
+	// REPLACE
+	Ni_vsg[ 0 ] = Ni_vsg[ 0 ].replace( /edg/i, "Edge" );
+	Ni_vsg[ 0 ] = Ni_vsg[ 0 ].replace( /OculusBrowser/i, "Meta" );
+	Ni_vsg[ 0 ] = Ni_vsg[ 0 ].replace( /opr/i, "Opera" );
+	Ni_vsg[ 0 ] = Ni_vsg[ 0 ].replace( /SamsungBrowser/i, "Samsung" );
+	Ni_vsg[ 0 ] = Ni_vsg[ 0 ].replace( /Vivaldi/i, "Vivaldi" );
+
+	// ICON
+	const Hrz4_Bu__FeDy_vsg = Ni_vsg[ 0 ].toUpperCase();
+	const Hrz4_Bu__TaDy_vvsg = [ "BRAVE" , "CHROME" , "EDGE" , "FIREFOX" , "META", "OPERA", "SAFARI", "SAMSUNG", "VIVALDI"	];
+	if( Hrz4_Bu__TaDy_vvsg.includes( Hrz4_Bu__FeDy_vsg ) )
+	{
+		Ko.Hrz4_Bu__Gwz_vsg = Hrz4_Bu__FeDy_vsg;
+	}
+
+	// STORE
+	Ko.Hrz4_Bu__VaDe_vsg = Ni_vsg[ 0 ];
+	Ko.Hrz4_Bu__Da_wfk = parseFloat( Ni_vsg[ 1 ] );
+	if( isNaN( Ko.Hrz4_Bu__Da_wfk ) ){ Ko.Hrz4_Bu__Da_wfk = 0.0; }
+
+	SmaJe( "[DEVICE] HrzBy_VaDa", Ko.Hrz4_Bu__VaDe_vsg, " v", Ko.Hrz4_Bu__Da_wfk );
+
+	// NOT WELL SUPPORTED 2026
+	// if( navigator.userAgentData && navigator.userAgentData.brands )
+	// { SmaJe(  "[DEVICE] BRAND:", navigator.userAgentData.brands ); }
+}
+
+//=====================================
+// MACHINE TYPE
+//=====================================
+async function Hra0_Ko__FyTo()
+{
+	//@@@
+	// META is AR currently
+	if( Ko.Hrz4_Bu__VaDe_vsg === "Meta" )
+	{ Ko.Hra0_Ko__Jy_q = Hra0_KoJy.KoBeMz_qk; }
+
+	//@@@
+	// API
+	// SKIP as most phones report AR
+	// if( navigator.xr )
+	// {
+	// 	const KriYz_k =
+	// 	{
+	// 		requiredFeatures: [ "local" ]
+	// 	};
+	// 	const AR_yk = await navigator.xr.isSessionSupported( "immersive-ar", KriYz_k );
+	// 	const VR_yk = await navigator.xr.isSessionSupported( "immersive-vr", KriYz_k );
+
+	// 	if( AR_yk ){ Ko.Hra0_Ko__Jy_q = Hra0_KoJy.KoBeMz_qk; }
+	// 	else if( VR_yk ){ Ko.Hra0_Ko__Jy_q = Hra0_KoJy.KoBeMz_qk; }
+	// }
+
+	//@@@
+	// if 'PHONE' check if TABLET or actually PHONE using WIDTH
+	if( Ko.Hra0_Ko__Jy_q ===Hra0_KoJy.KoBeDru_qk )
+	{
+		// TABLET
+		if( window.matchMedia( "(min-width: 768px)" ).matches )
+		{ Ko.Hra0_Ko__Jy_q = Hra0_KoJy.KoBeGwa_qk; }
+	}
+}
+
+//=====================================
+// EXE EVAL
+//=====================================
+async function KoDz__SyHa()
+{
+	await Hrz3_By__FyTo();
+	await Hrz4_Bu__FyTo();
+	await Hra0_Ko__FyTo();
+}
+
+//==============================================
+// END
+//==============================================

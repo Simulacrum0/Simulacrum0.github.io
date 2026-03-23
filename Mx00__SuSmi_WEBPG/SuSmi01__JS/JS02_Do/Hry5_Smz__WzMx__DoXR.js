@@ -1,4 +1,4 @@
-const DoXR__BriDzSa__Da_wuk = "262"; 
+const DoXR__BriDzSa__Da_wuk = "263"; 
 
 //==============================================
 //==============================================
@@ -491,7 +491,7 @@ async function DoXR_GL__SmzYa_y( Sa_l )
 		// e.preventDefault();
 		e.canceled = true;
 
-		MoDzTrx( "[XR_GL] Context Lost. Reload this Page." );
+		MoDzTrx__KeDru( "[XR_GL] Context Lost. Reload this Page." );
 	});
 
 	Smz_v.addEventListener("webglcontextrestored", (e) =>

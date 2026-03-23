@@ -67,7 +67,7 @@ function TzKe__NzDz__Cha_Tra( FeCho_yk )
 	Hrz4_Bu__TaKeDy__ChyGry();
 
 	// GUI_SYNC w/ NEW USER NAMES/CFG
-	Hrz4_Bu__KwiYz__HriNe_MyYy();
+	Hrz4_Bu__HriNe__ChyKwiYz();
 }
 
 //-------------------------------------------------
@@ -89,12 +89,12 @@ function Ne01_KeDy01__NiKeDy__JeChy()
 	// CHG to USR LANG
 	const KwiYz_k = Ko.TaKeDy_l.KwiYz_v[ Ko.TaKeDy_l.KeDy_wu ];
 
-	Hre1_Dru__KeDru_ChyYe( KwiYz_k.KeDru_wu );
+	Hre1_Dru__KeDru_Cha_ChyYe( KwiYz_k.KeDru_wu );
 
 
 	//@@@
 	// GUI_SYNC w/ USER SETUP
-	Hrz4_Bu__KwiYz__HriNe_MyYy();
+	Hrz4_Bu__HriNe__ChyKwiYz();
 
 
 	//@@@
@@ -104,7 +104,7 @@ function Ne01_KeDy01__NiKeDy__JeChy()
 	// Check Answer to QUERY
 
 
-	SmaJe( "[ROST] Chy", TaKeDy_l.value, TaKeDy_l.selectedIndex  );
+	SmaJe( "[ROST] Chy", TaKeDy_l.value, TaKeDy_l.selectedIndex );
 }
 
 
@@ -166,7 +166,7 @@ function Hrz4_Bu__TaKeDy__ChyTaDe()
 
 	//@@@
 	// GUI_SYNC
-	Hrz4_Bu__KwiYz__HriNe_MyYy();
+	Hrz4_Bu__HriNe__ChyKwiYz();
 
 	// CFG_STORE
 	Hrz4_Bu__TaKeDy__ChyGry();

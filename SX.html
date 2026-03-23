@@ -13,15 +13,16 @@
 	<meta name="generator" content="Human-Made by hand">
 
 	<!-- SITE SECURITY -->
-	<!-- <script type="text/javascript" src="Hrx4_Che__MeGrx_CORS.js"></script> -->
+	<script type="text/javascript" src="Hrx4_Che__MeGrx_CORS.js"></script>
 	<!-- <script type="text/javascript" src="Mx00__SuSmi_WEBPG/SuSmi01__JS/JS03_Swi/SwiCORS/Hrx4_Che__MeGrx_CORS_DBG.js"></script> -->
 
-	<meta name="referrer" content="no-referrer-when-downgrade">
 	<meta name="Cross-Origin-Embedder-Policy" content="require-corp">
 	<meta name="Cross-Origin-Opener-Policy" content="same-origin-allow-popups">
+	<meta name="referrer" content="no-referrer-when-downgrade">
+
 
 	<!--SITE CONTENT -->
-	<title>Micro🗺️Cosm</title>
+	<title>Micro🗺️Cosms</title>
 	<script type="text/javascript">window.TzVa = "TzKwi"; </script>
 	<meta name="description" content="MicroCosm is a WebSite to make collaborative worlds filled with things that can learn new behaviors">
 	<meta name="keywords" content="Simulation, Worlds, Behavior, Maker, Trust, Control, Understanding">
@@ -31,10 +32,23 @@
 	<link rel="preload" as="font" href="Mx01__SuKz_MEDIA/SuKz04_WaDru__FNT/WaDru00__Bz.woff2" crossorigin >
 
 	<!-- STYLE & MEDIA -->
-	<link rel="apple-touch-icon" sizes="180x180" href="/Mx01__SuKz_MEDIA/SuKz02_JaPo__IMG/JaPo07__DryDz/DryDz00__POP_180.png">
-	<link rel="shortcut icon" type="image/png" href="Mx01__SuKz_MEDIA/SuKz02_JaPo__IMG/JaPo07__DryDz/DryDz00__POP_512.png"/>
+	<link rel="shortcut-icon" href="Mx01__SuKz_MEDIA/SuKz02_JaPo__IMG/JaPo07__DryDz/MC.svg" type="image/svg+xml">
+	<link rel="icon" href="Mx01__SuKz_MEDIA/SuKz02_JaPo__IMG/JaPo07__DryDz/MC.svg" type="image/svg+xml">
+	<link rel="icon" href="Mx01__SuKz_MEDIA/SuKz02_JaPo__IMG/JaPo07__DryDz/MC.ico" type="image/x-icon">
+	<!-- For iOS devices -->
+	<link rel="apple-touch-icon" href="Mx01__SuKz_MEDIA/SuKz02_JaPo__IMG/JaPo07__DryDz/MC.ico" type="image/x-icon">
+
 	<link rel="manifest" href="manifest.json" />
 	<link rel="stylesheet" href="Mx00__SuSmi_WEBPG/SuSmi02__CSS/JoDx00__Ko.css">
+
+	<!-- MARKER TICKS on RANGED INPUT SLIDER -->
+	<datalist id="BrzHuHi">
+		<option value="0"></option>
+		<option value="25"></option>
+		<option value="50"></option>
+		<option value="75"></option>
+		<option value="100"></option>
+	</datalist>
 
 </head>
 <!--
@@ -73,32 +87,37 @@
 
 			<!-- TITLE BAR w ICONS & TXT -->
 			<header class="Gz01__BriDzVa">
-				<img class="BriDz_FzVa JaPo__GyBzHu_Kwu JaPo__DrDz00 Kz_BriDzDy" src="Mx01__SuKz_MEDIA/SuKz02_JaPo__IMG/JaPo07__DryDz/DryDz00__POP_512.png"></img>
+				<!-- <img class="BriDz_FzVa JaPo__GyBzHu_Kwu JaPo__DrDz00 Kz_BriDzDy" src="Mx01__SuKz_MEDIA/SuKz02_JaPo__IMG/JaPo07__DryDz/DryDz00__POP_512.png"></img> -->
 				<span  id="BriDz00__VaDe_vsg" class="BriDz_FzVa WaDru_BriDzDy"></span>
 
 				<!-- LAUNCH BTN ---------------->
-				<!-- LAUNCH BTN ---------------->
-				<button id="BriDz01__TraKwi_vsg" class="BriDz_FzVa WaDru_BriDzDy HriNe_Tra TreHy HriNe_TraKwi Kz_BriDzDy" tabindex=1 onclick="Tra_KeMeBri()"></button>
+				<button id="BriDz01__TraKwi_vsg" class="WaDru_Va HriNe_Tra TreHy HriNe_TraKwi Kz_BriDzDy" tabindex=1 onclick="Tra_KeMeBri()"></button>
+
 				<img id="BriDz__KeDy" class="JaPo__GyBzHu_Kwu Kz_BriDzDy TreHy" onclick="Hrz4_Bu__ChyNeKu( 1, 1 )"></img>
-				<img id="BriDz__KuPy" class="JaPo__Va_Kwu Kz_BriDzDy TreHy" onclick="Hrz4_Bu__ChyNeKu( 0, 2 )"></img>
+				<span id="BriDz__KuPy" class="BriDz_TrxMe WaDru_Va TreHy" onclick="Hrz4_Bu__ChyNeKu( 0, 2 )">English</span>
 				<img id="BriDz__JoDi" class="JaPo__GyBzHu_Kwu Kz_BriDzDy TreHy" onclick="Hrz4_Bu__ChyNeKu( 0, 1 )"></img>
 
+				<span  id="BriDz__Yz_vsg" class="BriDz_FzVa TreHy WaDru_BriDzDy" onclick=" HriNeDe__ChyKuGwa_Dry( 'Ku01_KeMeKwi00__Tz' )">☰</span>
 			</header><!-- Gz01__BriDzVa -->
 
 			<!-- PANEL_GUI BEGIN --------------------------------->
-			<nav class="Gz01__TaTzVa Gz01__TaTzVa" role="tablist">
-				<!-- KeDru_NzVa__TraKz^PANEL__MENU_TABS ----->
-				<button id="Tz00_vsg" class="KeDru_NzVa__TraKz WaDru_Va" onclick="Hrz4_Bu__ChyNeKu( 0, 0 )" tabindex=2></button>
-				<button id="Tz01_vsg" class="KeDru_NzVa__TraKz WaDru_Va" onclick="Hrz4_Bu__ChyNeKu( 1, 0 )" tabindex=3></button>
-				<button id="Tz02_vsg" class="KeDru_NzVa__TraKz WaDru_Va" onclick="Hrz4_Bu__ChyNeKu( 2, 0 )" tabindex=4></button>
-				<button id="Tz03_vsg" class="KeDru_NzVa__TraKz WaDru_Va" onclick="Hrz4_Bu__ChyNeKu( 3, 0 )" tabindex=5></button>
-				<button id="Tz04_vsg" class="KeDru_NzVa__TraKz WaDru_Va" onclick="Hrz4_Bu__ChyNeKu( 4, 0 )" tabindex=6></button>
-				<button id="Tz05_vsg" class="KeDru_NzVa__TraKz WaDru_Va" onclick="Hrz4_Bu__ChyNeKu( 5, 0 )" tabindex=7></button>
-				<button id="Tz06_vsg" class="KeDru_NzVa__TraKz WaDru_Va" onclick="Hrz4_Bu__ChyNeKu( 6, 0 )" tabindex=8></button>
-			</nav>
+			<article id="Ku01_KeMeKwi00__Tz" class="Gz01__TaTz">
 
-			<!-- Ku04__NeKu^PANEL_CHOICE ----------------------->
-			<article id="Ku03_TaTz" class="Gz01__TiTzKa"></article>
+				<!-- PANEL_DOMAIN_MENU --------------------------------->
+				<nav id="Ku01_KeMeKwi01__TzBz" class="Gz01__TaTzVa Gz01__TaTzVa" role="tablist">
+					<!-- KeDru_NzVa__TraKz^PANEL__MENU_TABS ----->
+					<button id="Tz00_vsg" class="KeDru_NzVa__TraKz WaDru_Va" onclick="Hrz4_Bu__ChyNeKu( 0, 0 )" tabindex=2></button>
+					<button id="Tz01_vsg" class="KeDru_NzVa__TraKz WaDru_Va" onclick="Hrz4_Bu__ChyNeKu( 1, 0 )" tabindex=3></button>
+					<button id="Tz02_vsg" class="KeDru_NzVa__TraKz WaDru_Va" onclick="Hrz4_Bu__ChyNeKu( 2, 0 )" tabindex=4></button>
+					<button id="Tz03_vsg" class="KeDru_NzVa__TraKz WaDru_Va" onclick="Hrz4_Bu__ChyNeKu( 3, 0 )" tabindex=5></button>
+					<button id="Tz04_vsg" class="KeDru_NzVa__TraKz WaDru_Va" onclick="Hrz4_Bu__ChyNeKu( 4, 0 )" tabindex=6></button>
+					<button id="Tz05_vsg" class="KeDru_NzVa__TraKz WaDru_Va" onclick="Hrz4_Bu__ChyNeKu( 5, 0 )" tabindex=7></button>
+					<button id="Tz06_vsg" class="KeDru_NzVa__TraKz WaDru_Va" onclick="Hrz4_Bu__ChyNeKu( 6, 0 )" tabindex=8></button>
+				</nav>
+
+				<!-- PANEL_DOMAIN_TOPICS ----------------------->
+				<div id="Ku01_KeMeKwi02__TzBx" class="Gz01__TiTzKa"></div>
+			</article>
 
 			<!-- TEST <br><br><iframe id="PePo_k">MOVIE_IFRAME</iframe> -->
 
@@ -122,29 +141,23 @@
 
 			<!-- MSG -->
 			 <article>
-				 <p class="NiJaPo_Trx">😟</p>
+				 <p class="BriDz__Se">😟</p>
 				 <p id="TrxKa" class="BriDz_TrxKz WaDru_Va"></p>
-				 <p id="TrxDa" class="BriDz_TrxKz WaDru_Vu"></p>
-				 <br>
 			</article>
 
 			<!-- QUOTE -->
 			<p id="BriDz03__TrxKrx_vsg" class="KeMe_To WaDru_JeDo" onclick="window.location.replace('SX.html');"></p>
 			<span class="BriDz_FzVa">😧</span>
-			<br>
 
 			<!-- LOG -->
-			 <footer >
+			<footer >
 				<p id="BriDz02__TrxTaSma_vsg" class="BriDz_TrxKz WaDru_Va"></p>
+				<p id="TrxDa" class="BriDz_TrxMe WaDru_Vu"></p>
 				 <p id="TrxSma_Ta" class="KeDruSkx WaDru_Vu"></p>
 			 </footer>
-			<br><br>
 
-			<!-- EMAIL SUPPORT -->
-			<!-- <address> -->
-				<p class="BriDz_TrxMe WaDru_Va">Email 📨<a class="BriDz_TrxMe WaDru_Va" href="mailto:help@PowerOurPeople.com">help@PowerOurPeople.com</a></p>
-				<br>
-			<!-- </address> -->
+			<!-- EMAIL SUPPORT Skip 'Address Elm Type' -->
+			<p class="BriDz_TrxMe WaDru_Va">Email 📨<a class="BriDz_TrxMe WaDru_Va TreHy" href="mailto:help@microcosms.app">help@microcosms.app</a></p>
 
 		</section> <!-- PANEL FAIL -->
 	</main> <!-- Ku01__FAIL -->
@@ -155,7 +168,7 @@
 		<canvas id="MxPo_Bri" class="Tz01__SpoKz Tz02__MxPo__Bri"></canvas>
 
 		<p id="KeMe_Bz" class="Tz01__SpoKz WaDru_Va KeMe_De KeMe_Bz"></p>
-		<p id="KeMe_Bo" class="Tz01__SpoKz WaDru_Va KeMe_De KeMe_Bo" onclick="MoDzTrx( 'Status Bar Clicked for Fake Error TEST' );"></p>
+		<p id="KeMe_Bo" class="Tz01__SpoKz WaDru_Va KeMe_De KeMe_Bo" onclick="MoDzTrx__KeDru( 'Status Bar Clicked for Fake Error TEST' );"></p>
 	</main> <!-- Ku02__LIFE -->
 
 

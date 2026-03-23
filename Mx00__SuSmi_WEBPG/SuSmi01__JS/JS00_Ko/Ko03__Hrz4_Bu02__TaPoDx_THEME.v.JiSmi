@@ -8,7 +8,7 @@
 //-------------------------------------------------
 function HriNeDe__PoSzChy( Sz_q )
 {
-	const PoSz_k = TaPoSz_v[ Sz_q ];
+	const PoSz_k = KoOPT__PoSz_v[ Sz_q ];
 	const FzKz_k = document.documentElement;
 
 	for( const Ty_k in PoSz_k )

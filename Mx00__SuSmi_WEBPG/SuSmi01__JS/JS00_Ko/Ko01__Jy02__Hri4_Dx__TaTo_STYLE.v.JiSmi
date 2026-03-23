@@ -1,36 +1,14 @@
 //==============================================
 // CORE MSGS
 //==============================================
-const SaPy_vvsg=
+const KoOPT__SaPy__ToKz_v=
 [
-	'👤','👻','🎰','🧑‍💻'
-
-	,'👽️','👾','🤖','🗿'
-
-	,'😌','😎','😃','🤣'
-	,'😉','😍','🤩','😘','🤪'
-
-	,'🤬','👿','💀','☠️','🤡','👹','👺'
-
-	,'🐵','🐶','🐺','🦊','🦝','🐱','🦁','🐯','🐼'
-	,'🐮','🐷','🐭','🐰','🐻','🐨','🐴','🦉','🐸'
-	,'🐧','🐳','🐬','🐟️','🦑','🦀'
-
-	,'🦋','🐝','🐞','🦗','🕷️','🦇','🐍','🐛'
-
-	,'🦠','🦕','🦖','🦄','🐲'
-
-	,'⭐️','🌀','🌈','❤️‍','🎵','🎶'
-
-	,'⚽️','⚾️','🥎','🏀','🏐','🏈','🏉'
-
-	,'🛐','⚛️','🕉️','✡️','☸️','☯️','✝️','☦️','☪️','☮️'
-	,'♈️','♉️','♊️','♋️','♌️','♍️','♎️','♏️','♐️','♑️','♒️','♓️','⛎'
+	"1.png"
 ];
 
 //-------------------------------------------------
 // TOPIC NUMBERS (Shortcuts)
-const Kwi00__NzVx_vsg =
+const KoOPT__NzVx_v =
 //-------------------------------------------------
 [
 	"1️⃣"
@@ -42,15 +20,38 @@ const Kwi00__NzVx_vsg =
 	, "7️⃣"
 	, "8️⃣"
 	, "9️⃣"
-	, "0️⃣"
-	, "#️⃣"
-	, "*️⃣"
+	, "🔟"
+];
+
+
+//-------------------------------------------------
+// BG MODES
+//-------------------------------------------------
+const KoOPT__PoKu_v =
+[
+	// WHITE GRAFPAPER:
+	"#EEEEFF", "#AAAAFF", "#8888FF"
+	// BLUEPRINT:
+	, "#8888BB", "#9999CC", "#BBBBEE"
+	// GREYGRAF
+	, "#999999", "#FFFFFF", "#222222"
+	// PURPLE
+	, "#993399", "#999999", "#CCCCCC"
+
+	// CHARCOAL
+	, "#555555", "#BBBBBB", "#DDDDDD"
+	// DEEP BLUE
+	, "#333355", "#9999CC", "#BBBBEE"
+	// FADE
+	, "#333333", "#666666", "#999999"
+	// DARK
+	, "#000000", "#555555", "#888888"
 ];
 
 //-------------------------------------------------
 // CLR MODES
 //-------------------------------------------------
-const TaPoSz_v =
+const KoOPT__PoSz_v =
 [
 	{
 		Va: "Classic Light Mode"
@@ -71,6 +72,7 @@ const TaPoSz_v =
 		, PoSoSmo: "#555"	// TXT SHADOW
 
 		, PoSi: "#000" // MAIN TXT
+		, PoSiVoHu:"#0003" // FADED TXT
 		, PoSiSpo: "#000F" // ACTIVE
 
 		, PoSmo: "#BBB" // FONT 3D SHADOW
@@ -97,6 +99,7 @@ const TaPoSz_v =
 		, PoSoSmo: "#999" // TXT SHADOW
 
 		, PoSi: "#FFF" //MAIN TXT
+		, PoSiVoHu:"#003" // FADED TXT
 		, PoSiSpo: "#FFFF" //ACTIVE
 
 		, PoSmo: "#777" //FONT 3D SHADOW
@@ -123,6 +126,7 @@ const TaPoSz_v =
 		, PoSoSmo: "#A66" // TXT SHADOW
 
 		, PoSi: "#FFF" //MAIN TXT
+		, PoSiVoHu:"#FFF3" // FADED TXT
 		, PoSiSpo: "#FFFF" //ACTIVE
 
 		, PoSmo: "#B66" //FONT 3D SHADOW
@@ -147,7 +151,9 @@ const TaPoSz_v =
 
 		, PoSeVu:"#CCF" //CFG VALUE
 		, PoSoSmo: "#66A" // TXT SHADOW
+
 		, PoSi: "#FFF" //MAIN TXT
+		, PoSiVoHu:"#FFF3" // FADED TXT
 		, PoSiSpo: "#FFFF" //ACTIVE
 
 		, PoSmo: "#66B" //FONT 3D SHADOW
@@ -158,5 +164,5 @@ const TaPoSz_v =
 ];
 
 //-------------------------------------------------
-// LANG/COUNTRY END
+//STYLE END
 //-------------------------------------------------

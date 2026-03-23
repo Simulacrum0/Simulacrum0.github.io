@@ -1,0 +1,15 @@
+# URL then nextline with tab and key value policy
+# https://microcosms.app
+	# Access-Control-Allow-Origin: *
+
+# Prevent indexing JS
+https://microcosms.app/Mx00__SuSmi_WEBPG/*
+    X-Frame-Options: DENY
+  	X-Content-Type-Options: nosniff
+  	Referrer-Policy: no-referrer
+	X-Robots-Tag: noindex
+
+https://microcosms.app/Mx01__SuKz_MEDIA/*
+    X-Frame-Options: DENY
+  	X-Content-Type-Options: nosniff
+  	Referrer-Policy: no-referrer

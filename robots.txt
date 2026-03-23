@@ -1,4 +1,4 @@
 User-agent: *
 Disallow: /Mx01__SuKz_MEDIA/
 Disallow: /Mx02__TxKuCho_WVERSE/
-Disallow: /Mx03__KeDru_LANG/
+Disallow: /Mx03__TzKu_MICROCOSMS/

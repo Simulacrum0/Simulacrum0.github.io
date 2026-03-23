@@ -60,13 +60,9 @@ function KoDz__Yi( )
 //==============================================
 async function KoDz__YaFz()
 {
-
-
-
-
 	//@@@
 	// CONDITION
-	if( MoDzTrx__NxHo_y( "[ECOS] KoDz KrzZe HxHo!!!", KoDz__YzHxHo_y())) { return; }
+	if( NxHo__MoDzTrx__Vy_y(  "TrxJy05__KoDz_YzHxHo_vsg", KoDz__YzHxHo_y())) { return; }
 	KoDz_GyHa();
 
 
@@ -84,7 +80,7 @@ async function KoDz__YaFz()
 	//@@@
 
 	// LOAD GUI
-	await import( BriDz__Mx_KuTu_vsg + "Mx01__SuKz_MEDIA/SuKz00_KeDru__TXT/" + window.TzVa +"/" + window.TzVa + "__TaNe.v.js" );
+	await import( BriDz__Mx_KuTu_vsg + "Mx01__SuKz_MEDIA/SuKz00_KeDru__TXT/" + window.TzVa +"/" + window.TzVa + "_KoOPT.v.js" );
 
 	// TIME_BEGAN
 	Ko.BriYa_GiDri_df = performance.now();
@@ -94,7 +90,7 @@ async function KoDz__YaFz()
 	// FIND USERS LAUNCH_CFG
 	Hrz4_Bu__TaKeDy__FyGry();
 	// LOAD REQUIRED CUL & GUI
-	await Hri4_Bu__TaNeDe__ChaKri();
+	await Hri4_Bu__KoOPT__ChaKri();
 	KoDz__YzChy( BriYz.Ya_qk );
 
 
@@ -305,11 +301,11 @@ function KoDz__Ye( Gi )
 		// HEADER STATUS BAR
 		let GiFe_vsg = new Date();
 
-		HriNeDe__ChyVaSy
+		HriNeDe__ChyVaDe
 		(
 			"KeMe_Bz"
 			, "|> "
-			+ Ko.TzKwi__KeDru.HriNe.BriDz00__VaDe_vsg
+			+ Ko.OPT__KeDru.HriNe.BriDz00__VaDe_vsg
 			+ " = " + BriDzSa__Da_vsg
 			+ " @ " + GiFe_vsg.getHours().toString().padStart(2,"0") + ":" + GiFe_vsg.getMinutes().toString().padStart(2,"0") + ":"  + GiFe_vsg.getSeconds().toString().padStart(2,"0")
 		);
@@ -319,7 +315,7 @@ function KoDz__Ye( Gi )
 		// FOOTER STATUS BAR
 		const Gry__GiPa_dfk = Gry__GiDri_dfk / 1000.0;
 
-		HriNeDe__ChyVaSy
+		HriNeDe__ChyVaDe
 		(
 			"KeMe_Bo"
 			,
@@ -351,12 +347,13 @@ function KoDz__Ye( Gi )
 	requestAnimationFrame( KoDz__Ye );
 }
 
-//=====================================
-// LOAD APP ENGINE
-//=====================================
-const BriDz_Fz_js = document.createElement("script");
-BriDz_Fz_js.src = "Mx00__SuSmi_WEBPG/SuSmi03__WASM/KoKri__BriDz" + ( Ko.WASM64_yk ? 64:32 ) + ".js";
-document.head.appendChild(BriDz_Fz_js);
+
+//==============================================
+//!!!
+// RUN FIRST
+//==============================================
+
+	MoDz__BOOT();
 
 //=====================================
 // END

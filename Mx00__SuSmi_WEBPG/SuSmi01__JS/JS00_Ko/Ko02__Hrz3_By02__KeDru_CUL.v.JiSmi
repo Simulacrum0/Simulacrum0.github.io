@@ -2,9 +2,9 @@
 // CUL BEGIN
 //=====================================
 
-//==============================================
+//=====================================
 // CULTURE MATCH LANG STRING to IDs
-//==============================================
+//=====================================
 function Hre1_Dru__KeDru_VaFyVx_wu( KeKuMi_vbg )
 {
 	//-------------------------------------------------
@@ -46,7 +46,7 @@ function Hre1_Dru__KeDru_VaFyVx_wu( KeKuMi_vbg )
 //=====================================
 // CULTURE LOAD LANG
 //=====================================
-async function Hre1_Dru__KeDru_ChyTo( KeDru_wuk )
+async function Hre1_Dru__KeDru_Cha( KeDru_wuk )
 {
 	//@@@
 	// LANG DETAILS
@@ -57,105 +57,150 @@ async function Hre1_Dru__KeDru_ChyTo( KeDru_wuk )
 	const KeKu__ToKz_vksg = Dru_l.ToKz;
 	const SiKeDru__ToKz_vksg = BriDz__Mx_KuTu_vsg + "Mx01__SuKz_MEDIA/SuKz00_KeDru__TXT/" + window.TzVa +"/" + window.TzVa + ".";
 
-	SmaDre( "[CUL]", KeDru_wuk, SiKeDru__ToKz_vksg + KeKu__ToKz_vksg + ".js" );
+	// SmaDre( "[CUL]", KeDru_wuk, SiKeDru__ToKz_vksg + KeKu__ToKz_vksg + ".js" );
 
 	try{ await import( SiKeDru__ToKz_vksg + KeKu__ToKz_vksg + ".js" ); }
 	catch( e )
 	{
 		SmaTrx( "[CUL] TzKwi." + KeKu__ToKz_vksg + ".js has SYNTAX ERRORS or NOT AVAIL!!!", e );
 
+		// TRY 'en' INSTEAD
 		if( KeKu__ToKz_vksg !== "en" )
 		{
 			SmaDre( "[CUL] Cannot load <", KeKu__ToKz_vksg, "> Langugage File so will use U.N. English" );
 			try{ await import( SiKeDru__ToKz_vksg + "en.js" ); }
-			catch( e ){ SmaTrx( "[CUL] TzKwi.en.js has SYNTAX ERRORS!!!", e ); }
+			catch( e ){ SmaTrx( "[CUL] TzKwi.en.js ALSAO has SYNTAX ERRORS or NOT AVAIL!!!", e ); }
 		}
-		else
-		{ SmaTrx( "[CUL] TzKwi.en.js has SYNTAX ERRORS TOO!!!", e ); }
 	}// SYNTAX FAILURE
 
 	//@@@
 	// DEV_CHECK
 	// (Only in Development as NO ERRORS have TXT w/o LANG File)
-	MoDzTrx__NxHo_y( "[CUL] LANG FAIL", Ko.TzKwi__KeDru );
+	NxHo__MoDzTrx__Vy_y( "TrxJy04__KeDruGraHo_vsg", Ko.OPT__KeDru );
+	if( !Ko.OPT__KeDru ) return;
+
 
 	//@@@
 	// TEXT_DIR
 	const KeDru_RTL_v = [ "ar", "he", "fa" ];
 	document.body.dir = ( KeDru_RTL_v.includes( Dru_l.ToKz ) )? "rtl" : "ltr";
 
+
 	//@@@
 	// UPDATE LABELS
 	// Need Here! for 'Error Page', prior to most GUI Elms created via OPT
-	Object.entries( Ko.TzKwi__KeDru.HriNe ).forEach
-	(
-		function ( [ Vy_vbg, Va_vbg ] )
+	Object.entries( Ko.OPT__KeDru.HriNe ).forEach( function( [ Vy_vsg, Vu_k ] )
+	{
+		let Smx_vsg = "";
+
+		if( Array.isArray( Vu_k ) )
 		{
-			// SmaJe( `[CUL] *LABEL MATCH*: ${Vy_vbg}`, Va_vbg );
-			let Kz_l = document.getElementById( Vy_vbg );
-
-			if( Kz_l ){ Kz_l.innerText = Va_vbg;	}
-		// HAINT	else{ SmaJe( `[CUL] *---------LABEL UNUSED---------*: ${Vy_vbg}` ); }
+			// SmaJe( `[CUL] *OPT ARRAY*: ${Vy_vsg}`, Vu_k );
+			Vu_k.forEach( function( Ti_k, Vx_wu )
+			{
+				// Smx_vsg += "\n" + ( 1 + Vx_wu ) +") " + Ti_k;
+				Smx_vsg += "\n" + Ti_k;
+			});
 		}
-	);
+		else if( typeof Vu_k === "string" )
+		{
+			Smx_vsg = Vu_k;
+
+			// SmaJe( `[CUL] *LABEL MATCH*: ${Vy_vsg}`, Vu_k );
+
+			//$$$
+			// REPORT WASTED TXT
+			//if( !document.getElementById( Vy_vsg ))	{ SmaTrx( "[CUL] *-------OPT HriNe UNUSED-------*:", Vy_vsg ); }
+		}
+		else
+		{
+			 SmaTrx( "[CUL] *--------- OPT ENTRY FAIL-------*:", Vy_vsg );
+		}
+
+		//&&&
+		// UPDATE GUI_ELM DISPLAY NAME
+		HriNeDe__ChyVaDe( Vy_vsg, Smx_vsg );
+	});
 }
 
+
 //=====================================
-// CULTURE CFG LANG
+// CULTURE LOAD & UPDATE LANG
 //=====================================
-async function Hre1_Dru__KeDru_ChyYe( KeDru_wuk )
+async function Hre1_Dru__KeDru_Cha_ChyYe( KeDru_wuk )
 {
-	//@@@
-	// UPDATE LANG FILE
-	await Hre1_Dru__KeDru_ChyTo( KeDru_wuk );
+	//---------------
+	// UPDATE LANG FILE & FIXED TEXT in UI
+	//---------------
+	// ONLY Changes on LANG
+	await Hre1_Dru__KeDru_Cha( KeDru_wuk );
+
+	//---------------
+	// UPDATE CONTAINERS & FIXED TEXT in UI
+	//---------------
+	// ONLY Changes on LANG
+	Object.entries( Ko.OPT__KeDru.TaGwx ).forEach( function( [ Ta_vsg, Ta_l ] )
+	{
+		const Do_l = document.getElementById( Ta_vsg );
+		if( Do_l )
+		{
+			Ta_l.Ti_v.forEach( function( Ti_k, Vx_wu )
+			{
+				const Kz_l = document.createElement( "span" );
+
+				Kz_l.className = "HriNe_Ta__Va HriNe_Ta__VaVo";
+
+				//Kz_l.onclick = new Function( `function() { ${Ta_l.Tra} }`;
+				// Kz_l.onclick = new Function( Vx_wu, Ta_l.Tra );
+				Kz_l.id = Vx_wu.toString();
+				Kz_l.onclick = new Function( "e", Ta_l.Tra + "( " + Vx_wu + " );" );
+
+
+				Kz_l.innerText = Ti_k;
+
+				Do_l.appendChild( Kz_l );
+			});
+		}
+	});
+
+
+
+	//---------------
+	// SPECIAL CONTAINERS
+	//---------------
 
 	//@@@
-	// SAVE CFG
+	// WHO
+
+	//@@@
+	// SECURITY
+
+	//@@@
+	// LANG
+
+	//@@@
+	// COUNTRY
+
+	//@@@
+	// WHERE
+
+
+	//---------------
+	// SERIALIZE
+	//---------------
+
+	//@@@
+	// SAVE CFG *IF* Different!
 	const KwiYz_k = Ko.TaKeDy_l.KwiYz_v[ Ko.TaKeDy_l.KeDy_wu ];
-	KwiYz_k.KeDru_wu = KeDru_wuk;
+	if( KwiYz_k.KeDru_wu !== KeDru_wuk )
+	{
+		KwiYz_k.KeDru_wu = KeDru_wuk;
+		Hrz4_Bu__TaKeDy__ChyGry();
+	}
 
 	//@@@
-	// NATIVE_NAME
-	const Dru_l = Hre1_Dru__Gra_v[ KeDru_wuk ];
-	HriNeDe__ChyVaSy( "TzKu__NzTrz__NiKeDru_q", Dru_l.KuGwz );
-}
-
-//=====================================
-// UPDATE CHANGES in CULTURE
-//=====================================
-function TzKu__NzTrz__NiKeDru__JeChy( KeDru_wuk )
-{
-	const TzKu__NzKeDru__Ta_l = document.getElementById( 'TzKu__NzKeDru__Ta_l' );
-	SmaJe( "CHG!", TzKu__NzKeDru__Ta_l );
-	Hre1_Dru__KeDru_ChyYe( ( KeDru_wuk !== null )? KeDru_wuk : TzKu__NzKeDru__Ta_l.selectedIndex );
-
-
-	//@@@
-	// SAVE CFG
-	Hrz4_Bu__TaKeDy__ChyGry();
-
-	//@@@
-	// GUI_SYNC
-	Hrz4_Bu__KwiYz__HriNe_MyYy();
-}
-
-
-//==============================================
-// LANG TAG into READABLE TEXT
-/*
-Te:
-//-------------------------------------------------
-Hre1_Dru__KeDruVy_KeDruVa("ja", "en");      // "Japanese"
-Hre1_Dru__KeDruVy_KeDruVa("zh", "en");      // "Chinese"
-Hre1_Dru__KeDruVy_KeDruVa("zh-Hant", "en"); // "Traditional Chinese"
-Hre1_Dru__KeDruVy_KeDruVa("zh-TW", "en");   // "Chinese (Taiwan)"
-Hre1_Dru__KeDruVy_KeDruVa("en", "ja");      // "英語"
-*/
-//==============================================
-function Hre1_Dru__KeDruVy_KeDruVa( Si__KeDruVy_vsg, Se__KeDruVy_vsg )
-{
-  const displayNames = new Intl.DisplayNames([Se__KeDruVy_vsg], { type: "language" });
-  return displayNames.of(Si__KeDruVy_vsg);
+	// GUI_SYNC ALL
+	Hrz4_Bu__HriNe__ChyKwiYz();
 }
 
 //=====================================

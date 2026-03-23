@@ -32,10 +32,12 @@ TYPES HERE:
 	- HriNe_Tra: Action (button)
 	- HriNe_HyHo: Bool (toggle)
 	- HriNe_Vo: Number (slider)
-- NiJaPo: Sprite List (select)
-- : Focus(Use/Key)
-- : Hover(Ptr)
-- KzTy: Disable(blur, fade)
+	- HriNe_Ta: List/Grid (select)
+
+- FX:
+	- Focus(Use/Key)
+	- Hover(Ptr)
+	- KzTy: Disable(blur, fade)
 --------------
 RULES:
 - glow: hilite/hover
@@ -64,6 +66,7 @@ VARIABLES
 	--PoGwyFz: #000A; /* PANEL__OUTER_TOPIC */
 
 	--PoSi: #FFF; /* ACTIVE */
+	--PoSiVoHu: #FFF3; /* FADED TXT */
 	--PoSiSpo: #FFFF; /* MAIN TXT */
 
 	--PoKuDe: #222A; /* SECTION BG */
@@ -129,14 +132,17 @@ VARIABLES
 
 
 /* SEMANTIC AREAS tight PACKING ---------------- */
-header
+/* header
 , nav
 , main
 , footer
+, div
 {
+	display: inline-flexbox;
 	margin: var(--GyStz);
 	padding: var(--GyStz);
-}
+	border-radius: var(--GyStz);
+} */
 
 /* ==================== */
 /* ANIMATION */
@@ -372,6 +378,7 @@ PANELS^Ku
 /* PANEL__TITLE_BAR */
 .Gz01__BriDzVa
 {
+	/* display: grid; */
 	display: flex;
 	flex-wrap: wrap;
 
@@ -379,6 +386,17 @@ PANELS^Ku
     align-items: center;
 	margin: var(--GyBe);
 	padding: var(--GyStz);
+
+	overflow: visible;
+}
+
+/* PANEL__DOMAIN --------------------------------- */
+.Gz01__TaTz
+{
+	display: grid;
+	margin: var(--GyStz);
+	padding: var(--GyStz);
+	gap: 0;
 }
 
 /* PANEL__DOMAIN as CLN MENU TABS @ TOP --------------------------------- */
@@ -395,6 +413,7 @@ PANELS^Ku
 
 	cursor: cell;
 	border-radius: var(--GyStz);
+	overflow: visible;
 	background-color: var(--PoSzVoHo);
 }
 
@@ -482,7 +501,6 @@ PANELS^Ku
 
 /* TOPIC_CHOICES ------------------*/
 
-
 /* TOPIC_CHOICES HIDDEN */
 .Gz04__NzNe_Smo
 {
@@ -523,12 +541,16 @@ PANELS^Ku
 {
 	display: grid;
 	grid-template-columns: repeat( auto-fit, minmax( var(--GyDru_NzNe_GwaHu), 1fr ));
+
+	overflow: visible;
 }
 
 .Gz04__NzNe_GwaHi
 {
 	display: grid;
 	grid-template-columns: repeat( auto-fit, minmax( var(--GyDru_NzNe_GwaHi), 1fr ));
+
+	overflow: visible;
 }
 
 /* BODY of INFO  --------------------------- */
@@ -606,8 +628,9 @@ NOTIFY^KeMe
 {
 	position: relative;
 	cursor: help;
-
+	/* NEED OVERFLOW for 'before' below */
 	overflow: visible;
+
 	text-align: center;
 	padding: var(--GyBiHu);
 	margin: var(--GyBiHu);
@@ -626,9 +649,7 @@ NOTIFY^KeMe
 {
 	position: absolute;
 	cursor: help;
-	overflow: visible;
-
-	content: "  ";
+	content: "";
 
 	padding: var(--GyStz);
 	margin: var(--GyStz);
@@ -733,6 +754,7 @@ TEXT
 	text-orientation: sideways;
 }
 
+/* TEXT TOOLTIP and SHOWHIDE TOGGLE */
 .KeDru_TraGyHu
 {
 	margin: var(--GyStz);
@@ -800,6 +822,22 @@ TEXT
 	margin: var(--GyStz) var(--GyBo);
 }
 
+
+/* TEXT__FOCUS */
+.BriDz__Se
+{
+	display: block;
+	place-items: center center;
+	text-align: center;
+
+	font-size: var(--GyBzDe);
+	width: auto;
+	height: var(--GyBzHi);
+
+	margin: var(--GyBo);
+	padding: var(--GyBo);
+}
+
 /* TEXT__DBG --------------------------------------------- */
 
 /* TEXT__DBG ERR */
@@ -832,7 +870,6 @@ IMAGES
 	text-align: center;
 }
 
-/* 2x2 MD */
 /* ROUNDED EDGE */
 .JaPo__Va_Kwu
 {
@@ -844,7 +881,6 @@ IMAGES
 
 /* 4x4 LG */
 .JaPo__GyBzHu
-/* ROUNDED EDGE */
 , .JaPo__GyBzHu_Kwu
 {
 	position: relative;
@@ -855,13 +891,15 @@ IMAGES
 	text-align: center;
 }
 
+/* ROUNDED EDGE */
 .JaPo__GyBzHu_Kwu
 {
 	border-radius: var(--GyKaHu);
 	border: var(--GwxSpo) var(--GyBe) var(--PoSiSpo);
 }
 
-.JaPo__GyBzDe_Gwa
+/* TITLE IMG */
+.JaPo__GyBzDe_Kwu
 {
 	height: var(--GyBzDe );
 	padding: var(--GyBo);
@@ -906,6 +944,7 @@ CHOICE BUTTON
 	margin: var(--GyBo);
 	padding: var(--GyBo) var(--GyBiHi);
 	line-height: var(--GyKaDe);
+
 }
 
 /* BTN SUBMIT ===> LAUNCH BTN RED */
@@ -941,7 +980,7 @@ TOGGLE_SWITCH
 Ka is Body, Vu is Value, & Mz is BG & Glow
 @@@@@@@@@@@@@@@*/
 
-/* TOGGLE ALIGN OVERLAPS */
+/* TOGGLE CONTAINER & BG/CIRCLE OVERLAPS */
 .HriNe_HyHo_Ka .HriNe_HyHo_Mz
 {
 	width: var(--GyStz);
@@ -952,19 +991,18 @@ Ka is Body, Vu is Value, & Mz is BG & Glow
 	padding: var(--GyStz);
 }
 
-/* TOGGLE AREA */
+/* TOGGLE CONTAINER */
 .HriNe_HyHo_Ka
 {
-	display: inline-block;
+	display: inline-flex;
 	position: relative;
-	overflow: visible;
 
 	width: var(--GyKaHi);
 	height: var(--GyKaHu);
 	border-radius: var(--GyKaHu);
 }
 
-/* BAR PART GREY of TOGGLE */
+/* TOGGLE OFF BG */
 .HriNe_HyHo_Vu
 {
 	position: absolute;
@@ -982,7 +1020,7 @@ Ka is Body, Vu is Value, & Mz is BG & Glow
 	background-color: var(--PoKuStuVo);
 }
 
-/* CIRCLE PART (WHITE/RED) of TOGGLE */
+/* TOGGLE OFF CIRCLE */
 .HriNe_HyHo_Vu:before
 {
 	position: absolute;
@@ -990,24 +1028,26 @@ Ka is Body, Vu is Value, & Mz is BG & Glow
 	text-align: center;
 	align-items: center;
 
-	left: var(--GyStz);
-	bottom: var(--GyStz);
-	width: var(--GyKaHu);
-	height: var(--GyKaHu);
-	border-radius: var(--GyKaHu);
+	left: var(--GyBe);
+	bottom: var(--GyBe);
+
+	/* Note: Wid/Height = Total Size minus left/bot-offsets *2 */
+	width: var(--GyTreHi);
+	height: var(--GyTreHi);
+	border-radius: var(--GyTreHi);
 
 	background-color: var(--PoSeVu);
 	transition: var(--GiHi);
 }
 
-/* TOGGLE RED BG */
+/* TOGGLE ON BG */
 .HriNe_HyHo_Mz:checked + .HriNe_HyHo_Vu
 {
 	background-color: var(--PoSmuTra);
 	transition: var(--GiHi);
 }
 
-/* FOCUS SLIDE ON/OFF */
+/* TOGGLE ON CIRCLE */
 .HriNe_HyHo_Mz:checked + .HriNe_HyHo_Vu:before
 {
 	transform: translateX( var(--GyKaHu) );
@@ -1029,15 +1069,14 @@ SLIDER
 	border: none;
 
 	color: var(--PoSiSpo);
-	background-color: var(--PoSzVoHo);
 }
 
 /*@@@@@@@@@@@@@@@
-SPRITE LIST
+CLN LIST
 @@@@@@@@@@@@@@@*/
 
-/* SPRITE ZONE */
-.HriNe_TaJaPo_Ku
+/* CLN ZONE */
+.HriNe_Ta__KuDo
 {
 	display: inline-flex;
 	flex-wrap: wrap;
@@ -1046,8 +1085,8 @@ SPRITE LIST
 	padding: var(--GyStz);
 }
 
-/* SPRITE CURRENT IMAGE */
-.NiJaPo_Fe
+/* CLN CURRENT IMAGE */
+.HriNe_Ta__Fe
 {
 	display: inline-flex;
 	place-items: center center;
@@ -1062,22 +1101,8 @@ SPRITE LIST
 	border-radius: var(--GyTreDe);
 }
 
-.NiJaPo_Trx
-{
-	display: block;
-	place-items: center center;
-	text-align: center;
-
-	font-size: var(--GyBzDe);
-	width: auto;
-	height: var(--GyBzHi);
-
-	margin: var(--GyBo);
-	padding: var(--GyBo);
-}
-
-/* SPRITE SELECTOR BOX */
-.NiJaPo_NeKu
+/* CLN SELECTOR BOX */
+.HriNe_Ta__NeKu
 {
 	display: inline-flex;
 	flex-wrap: wrap;
@@ -1086,15 +1111,14 @@ SPRITE LIST
 	border: var(--GwxSpo) var(--GyBe) var(--PoBreSpo);
 
 	height: var(--GyBzHi);
-
 	overflow-y: auto;
 
 	margin: var(--GyBo);
 	padding: var(--GyStz);
 }
 
-/* SPRITE LIST */
-.NiJaPo_Va
+/* CLN LIST */
+.HriNe_Ta__Va
 {
 	font-size: 1.925rem;
 	margin: 0.075rem;
@@ -1105,24 +1129,24 @@ SPRITE LIST
 }
 
 /* FLAG NOT READY */
-.NiJaPo_VaRu
+.HriNe_Ta__VaRu
 {
 	filter: brightness( 25% );
 }
 
  /* FLAG AVAILABLE */
-.NiJaPo_VaGri
+.HriNe_Ta__VaGri
 {
 	padding: var(--GyBe);
 }
 
-.NiJaPo_VaGri:Hover
+.HriNe_Ta__VaGri:Hover
 {
 	background-color: var(--PoSi);
 }
 
 /* OVERLAY EXACT*/
-.NiJaPo_To
+.HriNe_Ta__To
 {
 	position: absolute;
 	text-align: center;
@@ -1137,13 +1161,13 @@ SPRITE LIST
 }
 
  /* EMOJI to GRAYSCALE */
-.NiJaPo_VaVo
+.HriNe_Ta__VaVo
 {
 	padding: var(--GyBe);
 	filter: grayscale( 80% );
 }
 
-.NiJaPo_VaVo:Hover
+.HriNe_Ta__VaVo:Hover
 {
 	background-color: var(--PoSi);
 	filter: grayscale( 0% );
@@ -1153,17 +1177,23 @@ SPRITE LIST
 /*@@@@@@@@@@@@@@@
 ELM HOVER GLOW
 @@@@@@@@@@@@@@@*/
-.HriNe_Vo:hover
-, .NiGruVa:hover
-{
-	box-shadow: 0 0 var(--GyTreHu) var(--PoSi);
-}
 
+/* AVG BTN */
 .TreHy:hover
 {
 	box-shadow: 0.0 0 var(--GyTreDe) var(--PoSi);
 }
 
+/* SM BTN */
+.HriNe_Vo:hover
+, .KruTra:hover
+{
+	overflow: visible;
+	background-color: var(--PoSiVoHu);
+	box-shadow: 0 0 var(--GyTreHu) var(--PoSi);
+}
+
+/* TOGGLE BTN */
 .HriNe_HyHo_Ka:hover
 {
 	box-shadow: 0 0 var(--GyKaHu) var(--PoSi);
@@ -1174,6 +1204,7 @@ ELM HOVER GLOW
 {
 	font-size: var(--GyTreHi);
 	outline: none;
+
 	box-shadow: 0 -0.5em var(--GyTreDe) var(--PoSeVu);
 }
 
@@ -1181,16 +1212,30 @@ ELM HOVER GLOW
 ELM FOCUS DOTTED OUTLINE
 @@@@@@@@@@@@@@@*/
 
-  .KeDru_NzVa__TraKz:focus
+.KeDru_NzVa__TraKz:focus
 , .KeDru_NzVa_Se__TraKz:focus
 , .TreHy:focus
 , .HriNe_TraKwi:focus
 , .HriNe_Vo:focus
-, .NiGruVa:focus
-, .HriNe_HyHo_Mz:focus + .HriNe_HyHo_Vu
+, .KruTra:focus
 {
 	outline: dotted var(--GyBe) var(--PoSi);
 }
+
+.HriNe_HyHo_Mz:focus + .HriNe_HyHo_Vu:before
+{
+	overflow: visible;
+	outline: dotted var(--GyBe) var(--PoSi);
+}
+
+.HriNe_HyHo_Mz:focus + .HriNe_HyHo_Ka
+{
+	overflow: visible;
+	outline: dotted var(--GyBe) var(--PoSi);
+}
+
+HriNe_HyHo_Ka
+
 
 .KeDru_NzVa__TraKz:focus
 .KeDru_NzVa_Se__TraKz:focus

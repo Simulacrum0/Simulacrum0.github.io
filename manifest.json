@@ -1,6 +1,6 @@
 {
-	"short_name": "SX",
-	"name": "Share-Xperiences",
+	"short_name": "MC",
+	"name": "Micro🗺️Cosms",
 	"description": "A solution maker tool to build and share simulations and behaviors.",
 
 	"id": "/?source=pwa",
@@ -16,27 +16,20 @@
 	"icons":
 	[
 		{
-			"src": "Mx01__SuKz_MEDIA/SuKz02_JaPo__IMG/JaPo07__DryDz/DryDz00__POP_512.png",
-			"type": "image/png",
-			"sizes": "512x512"
-		},
-		{
-			"src": "Mx01__SuKz_MEDIA/SuKz02_JaPo__IMG/JaPo07__DryDz/DryDz00__POP_192.png",
-			"type": "image/png",
-			"sizes": "192x192"
+			"src": "Mx01__SuKz_MEDIA/SuKz02_JaPo__IMG/JaPo07__DryDz/MC.svg"
+			, "type": "image/svg+xml"
 		}
 	],
-
 
 	"shortcuts":
 	[
 		{
-		"name": "New Event",
-		"url": "/ChaJe"
+			"name": "New Event"
+			, "url": "/ChaJe"
 		},
 		{
-		"name": "View Currents Events",
-		"url": "/JeFe"
+			"name": "View Currents Events"
+			, "url": "/JeFe"
 		}
 	],
 

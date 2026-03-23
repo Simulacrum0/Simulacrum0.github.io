@@ -2,6 +2,65 @@
 // ERR BEGIN
 //==============================================
 
+//==============================================
+// ERR STRING (FINAL CALL)
+//==============================================
+function MoDzTrx__KeDru( Trx_vsg )
+{
+	//@@@
+	// CFG
+	// If already 'Err' exit
+	if( Ko.Trx_vsg ) return;
+
+	Ko.Trx_vsg = Trx_vsg;
+	KoDz__YzChy( BriYz.Trx_qk );
+
+	//@@@
+	// MSGBOX: not helpful
+	// alert( Trx_vsg );
+
+	//@@@
+	// LOG
+	SmaTrx( "[FAIL] ERR:", Trx_vsg );
+	SmaTrx( "[FAIL] STK:", jsStackTrace() );
+
+	//@@@
+	// DISPLAY ERR
+	KoDz_GyHa();
+
+	//@@@
+	// SERV END ALL
+	KoDz__Yi();
+}
+
+
+//==============================================
+// ERR HANDLE ( GLOBAL TRANSLATION)
+//==============================================
+function MoDzTrx__Vy( Vy_vsg )
+{
+	//@@@
+	// CFG
+	const Trx_vsg = Ko.OPT__KeDru.KiJe[ Vy_vsg ];
+	MoDzTrx__KeDru( Trx_vsg );
+}
+
+//==============================================
+// FAIL__IF_INVALID
+//==============================================
+function NxHo__MoDzTrx__Vy_y( Vy_vsg, Kri_y )
+{
+	if( !Kri_y )
+	{
+		const Trx_vsg = Ko.OPT__KeDru.KiJe[ Vy_vsg ];
+		SmaTrx( Trx_vsg + " @ " + Kri_y );
+		MoDzTrx__KeDru( Trx_vsg );
+		return true;
+	}
+	return false;
+}
+
+
 //=====================================
 // ERR PREBOOT
 // Stores String Handle, not actual string;
@@ -18,60 +77,15 @@ async function MoDzTrx__PREBOOT_Tra()
 	// THEN wait till we're here
 	// to LOAD LANG file
 	const KeDru_wuk = Hre1_Dru__KeDru_VaFyVx_wu( navigator.language );
-	await Hre1_Dru__KeDru_ChyTo( KeDru_wuk );
+	await Hre1_Dru__KeDru_Cha( KeDru_wuk );
 
 	// to SHOW ERR screen
 	// GOAL: Not Missed or Ignored.
 	// REQ: save existing error as property-name, load lang string & clear error-string
-	const TrxVy_vsg = Ko.TzKwi__KeDru.KiJe[ Ko.Trx_vsg ];
+	const TrxVy_vsg = Ko.Trx_vsg;
 	Ko.Trx_vsg = null;
-
-	MoDzTrx( TrxVy_vsg );
+	MoDzTrx__Vy( TrxVy_vsg );
 }
-
-//==============================================
-// ERR
-//==============================================
-function MoDzTrx( Trx_vsg )
-{
-	//@@@
-	// CFG
-	// If already 'Err' exit
-	if( Ko.Trx_vsg ) return;
-
-	Ko.Trx_vsg = Trx_vsg;
-	KoDz__YzChy( BriYz.Trx_qk );
-
-	//@@@
-	// LOG
-	// MSGBOX alert( Trx_vsg );
-	SmaTrx( "[FAIL] MSG:", Trx_vsg );
-	SmaTrx( "[FAIL] STK:", jsStackTrace() );
-
-	//@@@
-	// DISPLAY ERR
-	KoDz_GyHa();
-
-	//@@@
-	// SERV END ALL
-	KoDz__Yi();
-}
-
-
-//==============================================
-// FAIL__IF_INVALID
-//==============================================
-function MoDzTrx__NxHo_y( Va, Kri_y )
-{
-	// SmaSy( "NxHo: ---> " + Va );
-	if( !Kri_y )
-	{
-		MoDzTrx( "[FAIL]: " + Va + " @ " + Kri_y );
-		return true;
-	}
-	return false;
-}
-
 
 //==============================================
 // JS_ERR
@@ -112,7 +126,7 @@ function MoDzTrx__Je( e )
 
 	//@@@
 	// PRESENT ERR & STOP HANDLER
-	MoDzTrx( Trx_vsg );
+	MoDzTrx__KeDru( Trx_vsg );
 	e.preventDefault();
 }
 
