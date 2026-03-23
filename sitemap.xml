@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
 	<url>
 		<loc>https://PowerOurPeople.com</loc>
-		<lastmod>2026-02-24</lastmod>
-		<image:image>
-      		<image:loc>https://PowerOurPeople.com/Mx01__SuKz_MEDIA/SuKz02_JaPo__IMG/JaPo07__DryDz/DryDz00__POP_512.png</image:loc>
-    	</image:image>
+		<lastmod>2026-03-02</lastmod>
 	</url>
+
+	<url><image:image><image:loc>https://PowerOurPeople.com/Mx01__SuKz_MEDIA/SuKz02_JaPo__IMG/SuKz02_JaPo__IMG/JaPo05__SaTrz/SaTrz00__Gx.jpg</image:loc></image:image></url>
+	<url><image:image><image:loc>https://PowerOurPeople.com/Mx01__SuKz_MEDIA/SuKz02_JaPo__IMG/SuKz02_JaPo__IMG/JaPo05__SaTrz/SaTrz00__Ga.jpg</image:loc></image:image></url>
+
 </urlset>
